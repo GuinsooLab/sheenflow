@@ -1,3 +1,7 @@
+<div align="right">
+    <img src="./airflow/www/static//guinsoolab-badge.png" width="60" alt="badge">
+    <br />
+</div>
 <div align="center">
   <img src="./airflow/www/static/sheenflow.svg" alt="logo" width="120" />
   <br />
