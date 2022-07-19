@@ -16,7 +16,6 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-
 import datetime
 import os
 from unittest import mock
@@ -26,15 +25,14 @@ from zipfile import ZipFile
 import pytest
 
 from airflow import settings
+from airflow.callbacks.callback_requests import TaskCallbackRequest
 from airflow.configuration import TEST_DAGS_FOLDER, conf
 from airflow.dag_processing.manager import DagFileProcessorAgent
 from airflow.dag_processing.processor import DagFileProcessor
 from airflow.models import DagBag, DagModel, SlaMiss, TaskInstance, errors
 from airflow.models.taskinstance import SimpleTaskInstance
-from airflow.operators.dummy import DummyOperator
+from airflow.operators.empty import EmptyOperator
 from airflow.utils import timezone
-from airflow.utils.callback_requests import TaskCallbackRequest
-from airflow.utils.dates import days_ago
 from airflow.utils.session import create_session
 from airflow.utils.state import State
 from airflow.utils.types import DagRunType
@@ -67,7 +65,7 @@ TEMP_DAG_FILENAME = "temp_dag.py"
 @pytest.fixture(scope="class")
 def disable_load_example():
     with conf_vars({('core', 'load_examples'): 'false'}):
-        with env_vars({('core', 'load_examples'): 'false'}):
+        with env_vars({'AIRFLOW__CORE__LOAD_EXAMPLES': 'false'}):
             yield
 
 
@@ -113,7 +111,7 @@ class TestDagFileProcessor:
 
         # Create dag with a start of 1 day ago, but an sla of 0
         # so we'll already have an sla_miss on the books.
-        test_start_date = days_ago(1)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
@@ -142,7 +140,7 @@ class TestDagFileProcessor:
         # Create dag with a start of 1 day ago, but an sla of 0
         # so we'll already have an sla_miss on the books.
         # Pass anything besides a timedelta object to the sla argument.
-        test_start_date = days_ago(1)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
@@ -170,7 +168,7 @@ class TestDagFileProcessor:
 
         # Create dag with a start of 2 days ago, but an sla of 1 day
         # ago so we'll already have an sla_miss on the books
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=2)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
@@ -206,12 +204,12 @@ class TestDagFileProcessor:
 
         # Create dag with a start of 2 days ago, but an sla of 1 day
         # ago so we'll already have an sla_miss on the books
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=2)
         with dag_maker(
             dag_id='test_sla_miss',
             default_args={'start_date': test_start_date, 'sla': datetime.timedelta(days=1)},
         ) as dag:
-            task = DummyOperator(task_id='dummy')
+            task = EmptyOperator(task_id='dummy')
 
         dag_maker.create_dagrun(execution_date=test_start_date, state=State.SUCCESS)
 
@@ -237,7 +235,8 @@ class TestDagFileProcessor:
         # ti is successful thereby trying to insert a duplicate record.
         dag_file_processor.manage_slas(dag=dag, session=session)
 
-    def test_dag_file_processor_sla_miss_callback_exception(self, create_dummy_dag):
+    @mock.patch('airflow.dag_processing.processor.Stats.incr')
+    def test_dag_file_processor_sla_miss_callback_exception(self, mock_stats_incr, create_dummy_dag):
         """
         Test that the dag file processor gracefully logs an exception if there is a problem
         calling the sla_miss_callback
@@ -246,13 +245,14 @@ class TestDagFileProcessor:
 
         sla_callback = MagicMock(side_effect=RuntimeError('Could not call function'))
 
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
             sla_miss_callback=sla_callback,
             default_args={'start_date': test_start_date, 'sla': datetime.timedelta(hours=1)},
         )
+        mock_stats_incr.reset_mock()
 
         session.merge(TaskInstance(task=task, execution_date=test_start_date, state='Success'))
 
@@ -267,6 +267,7 @@ class TestDagFileProcessor:
         mock_log.exception.assert_called_once_with(
             'Could not call sla_miss_callback for DAG %s', 'test_sla_miss'
         )
+        mock_stats_incr.assert_called_once_with('sla_callback_notification_failure')
 
     @mock.patch('airflow.dag_processing.processor.send_email')
     def test_dag_file_processor_only_collect_emails_from_sla_missed_tasks(
@@ -274,7 +275,7 @@ class TestDagFileProcessor:
     ):
         session = settings.Session()
 
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         email1 = 'test1@test.com'
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
@@ -286,7 +287,7 @@ class TestDagFileProcessor:
         session.merge(TaskInstance(task=task, execution_date=test_start_date, state='Success'))
 
         email2 = 'test2@test.com'
-        DummyOperator(task_id='sla_not_missed', dag=dag, owner='airflow', email=email2)
+        EmptyOperator(task_id='sla_not_missed', dag=dag, owner='airflow', email=email2)
 
         session.merge(SlaMiss(task_id='sla_missed', dag_id='test_sla_miss', execution_date=test_start_date))
 
@@ -314,7 +315,7 @@ class TestDagFileProcessor:
         # Mock the callback function so we can verify that it was not called
         mock_send_email.side_effect = RuntimeError('Could not send an email')
 
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
@@ -344,7 +345,7 @@ class TestDagFileProcessor:
         """
         session = settings.Session()
 
-        test_start_date = days_ago(2)
+        test_start_date = timezone.utcnow() - datetime.timedelta(days=1)
         dag, task = create_dummy_dag(
             dag_id='test_sla_miss',
             task_id='dummy',
@@ -381,7 +382,9 @@ class TestDagFileProcessor:
             session.add(ti)
 
         requests = [
-            TaskCallbackRequest(full_filepath="A", simple_task_instance=SimpleTaskInstance(ti), msg="Message")
+            TaskCallbackRequest(
+                full_filepath="A", simple_task_instance=SimpleTaskInstance.from_ti(ti), msg="Message"
+            )
         ]
         dag_file_processor.execute_callbacks(dagbag, requests)
         mock_ti_handle_failure.assert_called_once_with(
@@ -408,7 +411,9 @@ class TestDagFileProcessor:
             session.add(ti)
 
         requests = [
-            TaskCallbackRequest(full_filepath="A", simple_task_instance=SimpleTaskInstance(ti), msg="Message")
+            TaskCallbackRequest(
+                full_filepath="A", simple_task_instance=SimpleTaskInstance.from_ti(ti), msg="Message"
+            )
         ]
         dag_file_processor.execute_callbacks(dagbag, requests)
 
@@ -441,7 +446,7 @@ class TestDagFileProcessor:
             requests = [
                 TaskCallbackRequest(
                     full_filepath=dag.fileloc,
-                    simple_task_instance=SimpleTaskInstance(ti),
+                    simple_task_instance=SimpleTaskInstance.from_ti(ti),
                     msg="Message",
                 )
             ]
@@ -560,6 +565,34 @@ class TestDagFileProcessor:
         assert import_error.stacktrace == f"invalid syntax ({TEMP_DAG_FILENAME}, line 2)"
 
         session.rollback()
+
+    def test_import_error_record_is_updated_not_deleted_and_recreated(self, tmpdir):
+        """
+        Test that existing import error is updated and new record not created
+        for a dag with the same filename
+        """
+        filename_to_parse = os.path.join(tmpdir, TEMP_DAG_FILENAME)
+
+        # Generate original import error
+        with open(filename_to_parse, 'w') as file_to_parse:
+            file_to_parse.writelines(UNPARSEABLE_DAG_FILE_CONTENTS)
+        session = settings.Session()
+        self._process_file(filename_to_parse, session)
+
+        import_error_1 = (
+            session.query(errors.ImportError).filter(errors.ImportError.filename == filename_to_parse).one()
+        )
+
+        # process the file multiple times
+        for _ in range(10):
+            self._process_file(filename_to_parse, session)
+
+        import_error_2 = (
+            session.query(errors.ImportError).filter(errors.ImportError.filename == filename_to_parse).one()
+        )
+
+        # assert that the ID of the import error did not change
+        assert import_error_1.id == import_error_2.id
 
     def test_remove_error_clears_import_error(self, tmpdir):
         filename_to_parse = os.path.join(tmpdir, TEMP_DAG_FILENAME)
@@ -699,31 +732,6 @@ class TestDagFileProcessor:
             )
             assert import_error.stacktrace == expected_stacktrace.format(invalid_dag_filename)
             session.rollback()
-
-    def test_process_file_should_deactivate_missing_dags(self):
-
-        dag_file = os.path.join(
-            os.path.dirname(os.path.realpath(__file__)), '../dags/test_only_dummy_tasks.py'
-        )
-
-        # write a DAG into the DB which is not present in its specified file
-        with create_session() as session:
-            orm_dag = DagModel(dag_id='missing_dag', is_active=True, fileloc=dag_file)
-            session.merge(orm_dag)
-            session.commit()
-
-        session = settings.Session()
-
-        dags = session.query(DagModel).all()
-        assert [dag.dag_id for dag in dags if dag.is_active] == ['missing_dag']
-
-        # re-parse the file and see that the DAG is no longer there
-        dag_file_processor = DagFileProcessor(dag_ids=[], log=mock.MagicMock())
-        dag_file_processor.process_file(dag_file, [])
-
-        dags = session.query(DagModel).all()
-        assert [dag.dag_id for dag in dags if dag.is_active] == ['test_only_dummy_tasks']
-        assert [dag.dag_id for dag in dags if not dag.is_active] == ['missing_dag']
 
 
 class TestProcessorAgent:

@@ -15,7 +15,7 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-#
+
 import io
 import json
 import logging
@@ -24,7 +24,6 @@ import re
 import unittest
 from argparse import ArgumentParser
 from contextlib import redirect_stdout
-from datetime import datetime
 from unittest import mock
 
 import pytest
@@ -35,16 +34,15 @@ from airflow.cli import cli_parser
 from airflow.cli.commands import task_command
 from airflow.configuration import conf
 from airflow.exceptions import AirflowException, DagRunNotFound
-from airflow.models import DagBag, DagRun, TaskInstance
+from airflow.models import DagBag, DagRun, Pool, TaskInstance
 from airflow.utils import timezone
-from airflow.utils.dates import days_ago
 from airflow.utils.session import create_session
 from airflow.utils.state import State
 from airflow.utils.types import DagRunType
 from tests.test_utils.config import conf_vars
-from tests.test_utils.db import clear_db_runs
+from tests.test_utils.db import clear_db_pools, clear_db_runs
 
-DEFAULT_DATE = days_ago(1)
+DEFAULT_DATE = timezone.datetime(2022, 1, 1)
 ROOT_FOLDER = os.path.realpath(
     os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir, os.pardir)
 )
@@ -59,7 +57,7 @@ def reset(dag_id):
 
 
 # TODO: Check if tests needs side effects - locally there's missing DAG
-class TestCliTasks(unittest.TestCase):
+class TestCliTasks:
     run_id = 'TEST_RUN_ID'
     dag_id = 'example_python_operator'
     parser: ArgumentParser
@@ -68,7 +66,7 @@ class TestCliTasks(unittest.TestCase):
     dag_run: DagRun
 
     @classmethod
-    def setUpClass(cls):
+    def setup_class(cls):
         cls.dagbag = DagBag(include_examples=True)
         cls.parser = cli_parser.get_parser()
         clear_db_runs()
@@ -79,7 +77,7 @@ class TestCliTasks(unittest.TestCase):
         )
 
     @classmethod
-    def tearDownClass(cls) -> None:
+    def teardown_class(cls) -> None:
         clear_db_runs()
 
     def test_cli_list_tasks(self):
@@ -90,6 +88,7 @@ class TestCliTasks(unittest.TestCase):
         args = self.parser.parse_args(['tasks', 'list', 'example_bash_operator', '--tree'])
         task_command.task_list(args)
 
+    @pytest.mark.filterwarnings("ignore::airflow.utils.context.AirflowContextDeprecationWarning")
     def test_test(self):
         """Test the `airflow test` command"""
         args = self.parser.parse_args(
@@ -102,17 +101,35 @@ class TestCliTasks(unittest.TestCase):
         # Check that prints, and log messages, are shown
         assert "'example_python_operator__print_the_context__20180101'" in stdout.getvalue()
 
-    def test_test_with_existing_dag_run(self):
+    @pytest.mark.filterwarnings("ignore::airflow.utils.context.AirflowContextDeprecationWarning")
+    def test_test_with_existing_dag_run(self, caplog):
         """Test the `airflow test` command"""
         task_id = 'print_the_context'
-
         args = self.parser.parse_args(["tasks", "test", self.dag_id, task_id, DEFAULT_DATE.isoformat()])
-
-        with redirect_stdout(io.StringIO()) as stdout:
+        with caplog.at_level("INFO", logger="airflow.task"):
             task_command.task_test(args)
+        assert f"Marking task as SUCCESS. dag_id={self.dag_id}, task_id={task_id}" in caplog.text
 
-        # Check that prints, and log messages, are shown
-        assert f"Marking task as SUCCESS. dag_id={self.dag_id}, task_id={task_id}" in stdout.getvalue()
+    @pytest.mark.filterwarnings("ignore::airflow.utils.context.AirflowContextDeprecationWarning")
+    def test_test_filters_secrets(self, capsys):
+        """Test ``airflow test`` does not print secrets to stdout.
+
+        Output should be filtered by SecretsMasker.
+        """
+        password = "somepassword1234!"
+        logging.getLogger("airflow.task").filters[0].add_mask(password)
+        args = self.parser.parse_args(
+            ["tasks", "test", "example_python_operator", "print_the_context", "2018-01-01"],
+        )
+
+        with mock.patch("airflow.models.TaskInstance.run", new=lambda *_, **__: print(password)):
+            task_command.task_test(args)
+        assert capsys.readouterr().out.endswith("***\n")
+
+        not_password = "!4321drowssapemos"
+        with mock.patch("airflow.models.TaskInstance.run", new=lambda *_, **__: print(not_password)):
+            task_command.task_test(args)
+        assert capsys.readouterr().out.endswith(f"{not_password}\n")
 
     @mock.patch("airflow.cli.commands.task_command.LocalTaskJob")
     def test_run_with_existing_dag_run_id(self, mock_local_job):
@@ -161,7 +178,7 @@ class TestCliTasks(unittest.TestCase):
             task0_id,
             run_id,
         ]
-        with self.assertRaises(DagRunNotFound):
+        with pytest.raises(DagRunNotFound):
             task_command.task_run(self.parser.parse_args(args0), dag=dag)
 
     def test_cli_test_with_params(self):
@@ -267,7 +284,6 @@ class TestCliTasks(unittest.TestCase):
 
         assert 'echo "2016-01-01"' in output
         assert 'echo "2016-01-08"' in output
-        assert 'echo "Parameter I passed in"' in output
 
     def test_cli_run_when_pickle_and_dag_cli_method_selected(self):
         """
@@ -305,7 +321,7 @@ class TestCliTasks(unittest.TestCase):
 
         dag2 = DagBag().dags['example_python_operator']
         task2 = dag2.get_task(task_id='print_the_context')
-        default_date2 = timezone.make_aware(datetime(2016, 1, 9))
+        default_date2 = timezone.datetime(2016, 1, 9)
         dag2.clear()
         dagrun = dag2.create_dagrun(
             state=State.RUNNING,
@@ -348,7 +364,7 @@ class TestCliTasks(unittest.TestCase):
         task_states_for_dag_run should return an AirflowException when invalid dag id is passed
         """
         with pytest.raises(DagRunNotFound):
-            default_date2 = timezone.make_aware(datetime(2016, 1, 9))
+            default_date2 = timezone.datetime(2016, 1, 9)
             task_command.task_states_for_dag_run(
                 self.parser.parse_args(
                     [
@@ -386,11 +402,11 @@ class TestLogsfromTaskRunCommand(unittest.TestCase):
         self.run_id = "test_run"
         self.dag_path = os.path.join(ROOT_FOLDER, "dags", "test_logging_in_dag.py")
         reset(self.dag_id)
-        self.execution_date = timezone.make_aware(datetime(2017, 1, 1))
+        self.execution_date = timezone.datetime(2017, 1, 1)
         self.execution_date_str = self.execution_date.isoformat()
         self.task_args = ['tasks', 'run', self.dag_id, self.task_id, '--local', self.execution_date_str]
-        self.log_dir = conf.get('logging', 'base_log_folder')
-        self.log_filename = f"{self.dag_id}/{self.task_id}/{self.execution_date_str}/1.log"
+        self.log_dir = conf.get_mandatory_value('logging', 'base_log_folder')
+        self.log_filename = f"dag_id={self.dag_id}/run_id={self.run_id}/task_id={self.task_id}/attempt=1.log"
         self.ti_log_file_path = os.path.join(self.log_dir, self.log_filename)
         self.parser = cli_parser.get_parser()
 
@@ -508,6 +524,23 @@ class TestLogsfromTaskRunCommand(unittest.TestCase):
             f"task_id={self.task_id}, execution_date=20170101T000000" in logs
         )
 
+    @unittest.skipIf(not hasattr(os, 'fork'), "Forking not available")
+    def test_run_task_with_pool(self):
+        pool_name = 'test_pool_run'
+
+        clear_db_pools()
+        with create_session() as session:
+            pool = Pool(pool=pool_name, slots=1)
+            session.add(pool)
+            session.commit()
+
+            assert session.query(TaskInstance).filter_by(pool=pool_name).first() is None
+            task_command.task_run(self.parser.parse_args(self.task_args + ['--pool', pool_name]))
+            assert session.query(TaskInstance).filter_by(pool=pool_name).first() is not None
+
+            session.delete(pool)
+            session.commit()
+
     # For this test memory spins out of control on Python 3.6. TODO(potiuk): FIXME")
     @pytest.mark.quarantined
     @mock.patch("airflow.task.task_runner.standard_task_runner.CAN_FORK", False)
@@ -547,7 +580,7 @@ class TestLogsfromTaskRunCommand(unittest.TestCase):
                 ti = session.query(TaskInstance).filter_by(run_id=self.run_id).first()
                 ti.try_number = 1
 
-            log_file_path = os.path.join(os.path.dirname(self.ti_log_file_path), "2.log")
+            log_file_path = os.path.join(os.path.dirname(self.ti_log_file_path), "attempt=2.log")
 
             try:
                 task_command.task_run(self.parser.parse_args(self.task_args))

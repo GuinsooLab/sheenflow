@@ -19,6 +19,7 @@
 import unittest
 from unittest import mock
 
+from google.api_core.gapic_v1.method import DEFAULT
 from google.cloud.tasks_v2.types import Queue, Task
 
 from airflow.providers.google.cloud.operators.tasks import (
@@ -67,9 +68,9 @@ class TestCloudTasksQueueCreate(unittest.TestCase):
             task_queue=TEST_QUEUE,
             project_id=None,
             queue_name=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -92,9 +93,9 @@ class TestCloudTasksQueueUpdate(unittest.TestCase):
             location=None,
             queue_name=None,
             update_mask=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -115,9 +116,9 @@ class TestCloudTasksQueueGet(unittest.TestCase):
             location=LOCATION,
             queue_name=QUEUE_ID,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -139,9 +140,9 @@ class TestCloudTasksQueuesList(unittest.TestCase):
             project_id=None,
             results_filter=None,
             page_size=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -161,9 +162,9 @@ class TestCloudTasksQueueDelete(unittest.TestCase):
             location=LOCATION,
             queue_name=QUEUE_ID,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -184,9 +185,9 @@ class TestCloudTasksQueuePurge(unittest.TestCase):
             location=LOCATION,
             queue_name=QUEUE_ID,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -207,9 +208,9 @@ class TestCloudTasksQueuePause(unittest.TestCase):
             location=LOCATION,
             queue_name=QUEUE_ID,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -230,9 +231,9 @@ class TestCloudTasksQueueResume(unittest.TestCase):
             location=LOCATION,
             queue_name=QUEUE_ID,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -264,9 +265,9 @@ class TestCloudTasksTaskCreate(unittest.TestCase):
             project_id=None,
             task_name=None,
             response_view=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -297,9 +298,9 @@ class TestCloudTasksTaskGet(unittest.TestCase):
             task_name=TASK_NAME,
             project_id=None,
             response_view=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -335,9 +336,9 @@ class TestCloudTasksTasksList(unittest.TestCase):
             project_id=None,
             response_view=None,
             page_size=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -360,9 +361,9 @@ class TestCloudTasksTaskDelete(unittest.TestCase):
             queue_name=QUEUE_ID,
             task_name=TASK_NAME,
             project_id=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )
 
 
@@ -393,7 +394,7 @@ class TestCloudTasksTaskRun(unittest.TestCase):
             task_name=TASK_NAME,
             project_id=None,
             response_view=None,
-            retry=None,
+            retry=DEFAULT,
             timeout=None,
-            metadata=None,
+            metadata=(),
         )

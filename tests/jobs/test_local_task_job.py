@@ -30,20 +30,21 @@ import psutil
 import pytest
 
 from airflow import settings
-from airflow.exceptions import AirflowException, AirflowFailException
+from airflow.exceptions import AirflowException, AirflowFailException, AirflowSkipException
 from airflow.executors.sequential_executor import SequentialExecutor
 from airflow.jobs.local_task_job import LocalTaskJob
 from airflow.jobs.scheduler_job import SchedulerJob
 from airflow.models.dagbag import DagBag
 from airflow.models.taskinstance import TaskInstance
-from airflow.operators.dummy import DummyOperator
-from airflow.operators.python import PythonOperator
+from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import BranchPythonOperator, PythonOperator
 from airflow.task.task_runner.standard_task_runner import StandardTaskRunner
 from airflow.utils import timezone
 from airflow.utils.net import get_hostname
 from airflow.utils.session import create_session
 from airflow.utils.state import State
 from airflow.utils.timeout import timeout
+from airflow.utils.trigger_rule import TriggerRule
 from airflow.utils.types import DagRunType
 from tests.test_utils import db
 from tests.test_utils.asserts import assert_queries_count
@@ -101,7 +102,7 @@ class TestLocalTaskJob:
         proper values without intervention
         """
         with dag_maker('test_localtaskjob_essential_attr'):
-            op1 = DummyOperator(task_id='op1')
+            op1 = EmptyOperator(task_id='op1')
 
         dr = dag_maker.create_dagrun()
 
@@ -120,7 +121,7 @@ class TestLocalTaskJob:
     def test_localtaskjob_heartbeat(self, dag_maker):
         session = settings.Session()
         with dag_maker('test_localtaskjob_heartbeat'):
-            op1 = DummyOperator(task_id='op1')
+            op1 = EmptyOperator(task_id='op1')
 
         dr = dag_maker.create_dagrun()
         ti = dr.get_task_instance(task_id=op1.task_id, session=session)
@@ -143,17 +144,20 @@ class TestLocalTaskJob:
         session.merge(ti)
         session.commit()
         assert ti.pid != os.getpid()
+        assert not ti.run_as_user
+        assert not job1.task_runner.run_as_user
         job1.heartbeat_callback(session=None)
 
         job1.task_runner.process.pid = 2
         with pytest.raises(AirflowException):
             job1.heartbeat_callback()
 
+    @mock.patch('subprocess.check_call')
     @mock.patch('airflow.jobs.local_task_job.psutil')
-    def test_localtaskjob_heartbeat_with_run_as_user(self, psutil_mock, dag_maker):
+    def test_localtaskjob_heartbeat_with_run_as_user(self, psutil_mock, _, dag_maker):
         session = settings.Session()
         with dag_maker('test_localtaskjob_heartbeat'):
-            op1 = DummyOperator(task_id='op1', run_as_user='myuser')
+            op1 = EmptyOperator(task_id='op1', run_as_user='myuser')
         dr = dag_maker.create_dagrun()
         ti = dr.get_task_instance(task_id=op1.task_id, session=session)
         ti.state = State.RUNNING
@@ -191,11 +195,12 @@ class TestLocalTaskJob:
             job1.heartbeat_callback()
 
     @conf_vars({('core', 'default_impersonation'): 'testuser'})
+    @mock.patch('subprocess.check_call')
     @mock.patch('airflow.jobs.local_task_job.psutil')
-    def test_localtaskjob_heartbeat_with_default_impersonation(self, psutil_mock, dag_maker):
+    def test_localtaskjob_heartbeat_with_default_impersonation(self, psutil_mock, _, dag_maker):
         session = settings.Session()
         with dag_maker('test_localtaskjob_heartbeat'):
-            op1 = DummyOperator(task_id='op1')
+            op1 = EmptyOperator(task_id='op1')
         dr = dag_maker.create_dagrun()
         ti = dr.get_task_instance(task_id=op1.task_id, session=session)
         ti.state = State.RUNNING
@@ -432,6 +437,47 @@ class TestLocalTaskJob:
         assert failure_callback_called.value == 1
         assert "State of this instance has been externally set to failed. "
         "Terminating instance." in caplog.text
+
+    def test_dagrun_timeout_logged_in_task_logs(self, caplog, dag_maker):
+        """
+        Test that ensures that if a running task is externally skipped (due to a dagrun timeout)
+        It is logged in the task logs.
+        """
+
+        session = settings.Session()
+
+        def task_function(ti):
+            assert State.RUNNING == ti.state
+            time.sleep(0.1)
+            ti.log.info("Marking TI as skipped externally")
+            ti.state = State.SKIPPED
+            session.merge(ti)
+            session.commit()
+
+            # This should not happen -- the state change should be noticed and the task should get killed
+            time.sleep(10)
+            assert False
+
+        with dag_maker(
+            "test_mark_failure", start_date=DEFAULT_DATE, dagrun_timeout=datetime.timedelta(microseconds=1)
+        ):
+            task = PythonOperator(
+                task_id='skipped_externally',
+                python_callable=task_function,
+            )
+        dag_maker.create_dagrun()
+        ti = TaskInstance(task=task, execution_date=DEFAULT_DATE)
+        ti.refresh_from_db()
+
+        job1 = LocalTaskJob(task_instance=ti, ignore_ti_state=True, executor=SequentialExecutor())
+        with timeout(30):
+            # This should be _much_ shorter to run.
+            # If you change this limit, make the timeout in the callable above bigger
+            job1.run()
+
+        ti.refresh_from_db()
+        assert ti.state == State.SKIPPED
+        assert "DagRun timed out after " in caplog.text
 
     @patch('airflow.utils.process_utils.subprocess.check_call')
     @patch.object(StandardTaskRunner, 'return_code')
@@ -710,7 +756,7 @@ class TestLocalTaskJob:
                 scheduler_job.processor_agent.end()
 
     @conf_vars({('scheduler', 'schedule_after_task_execution'): 'True'})
-    def test_mini_scheduler_works_with_wait_for_upstream(self, caplog, dag_maker):
+    def test_mini_scheduler_works_with_wait_for_downstream(self, caplog, dag_maker):
         session = settings.Session()
         with dag_maker(default_args={'wait_for_downstream': True}, catchup=False) as dag:
             task_a = PythonOperator(task_id='A', python_callable=lambda: True)
@@ -741,17 +787,130 @@ class TestLocalTaskJob:
 
         job1 = LocalTaskJob(task_instance=ti2_a, ignore_ti_state=True, executor=SequentialExecutor())
         job1.task_runner = StandardTaskRunner(job1)
+        t = time.time()
         job1.run()
+        d = time.time() - t
 
         ti2_a.refresh_from_db(session)
         ti2_b.refresh_from_db(session)
         assert ti2_a.state == State.SUCCESS
         assert ti2_b.state == State.NONE
-        assert "0 downstream tasks scheduled from follow-on schedule" in caplog.text
+        assert (
+            "0 downstream tasks scheduled from follow-on schedule" in caplog.text
+        ), f"Failed after {d.total_seconds()}: {caplog.text}"
 
         failed_deps = list(ti2_b.get_failed_dep_statuses(session=session))
         assert len(failed_deps) == 1
         assert failed_deps[0].dep_name == "Previous Dagrun State"
+        assert not failed_deps[0].passed
+
+    @pytest.mark.parametrize(
+        "exception, trigger_rule",
+        [
+            (AirflowFailException(), TriggerRule.ALL_DONE),
+            (AirflowFailException(), TriggerRule.ALL_FAILED),
+            (AirflowSkipException(), TriggerRule.ALL_DONE),
+            (AirflowSkipException(), TriggerRule.ALL_SKIPPED),
+            (AirflowSkipException(), TriggerRule.NONE_FAILED_MIN_ONE_SUCCESS),
+        ],
+    )
+    @conf_vars({('scheduler', 'schedule_after_task_execution'): 'True'})
+    def test_mini_scheduler_works_with_skipped_and_failed(
+        self, exception, trigger_rule, caplog, session, dag_maker
+    ):
+        """
+        In these cases D is running, at no decision can be made about C.
+        """
+
+        def raise_():
+            raise exception
+
+        with dag_maker(catchup=False) as dag:
+            task_a = PythonOperator(task_id='A', python_callable=raise_)
+            task_b = PythonOperator(task_id='B', python_callable=lambda: True)
+            task_c = PythonOperator(task_id='C', python_callable=lambda: True, trigger_rule=trigger_rule)
+            task_d = PythonOperator(task_id='D', python_callable=lambda: True)
+            task_a >> task_b >> task_c
+            task_d >> task_c
+
+        dr = dag.create_dagrun(run_id='test_1', state=State.RUNNING, execution_date=DEFAULT_DATE)
+        ti_a = TaskInstance(task_a, run_id=dr.run_id, state=State.QUEUED)
+        ti_b = TaskInstance(task_b, run_id=dr.run_id, state=State.NONE)
+        ti_c = TaskInstance(task_c, run_id=dr.run_id, state=State.NONE)
+        ti_d = TaskInstance(task_d, run_id=dr.run_id, state=State.RUNNING)
+
+        session.merge(ti_a)
+        session.merge(ti_b)
+        session.merge(ti_c)
+        session.merge(ti_d)
+        session.flush()
+
+        job1 = LocalTaskJob(task_instance=ti_a, ignore_ti_state=True, executor=SequentialExecutor())
+        job1.task_runner = StandardTaskRunner(job1)
+        job1.run()
+
+        ti_b.refresh_from_db(session)
+        ti_c.refresh_from_db(session)
+        assert ti_b.state in (State.SKIPPED, State.UPSTREAM_FAILED)
+        assert ti_c.state == State.NONE
+        assert "0 downstream tasks scheduled from follow-on schedule" in caplog.text
+
+        failed_deps = list(ti_c.get_failed_dep_statuses(session=session))
+        assert len(failed_deps) == 1
+        assert failed_deps[0].dep_name == "Trigger Rule"
+        assert not failed_deps[0].passed
+
+    @pytest.mark.parametrize(
+        "trigger_rule",
+        [
+            TriggerRule.ONE_SUCCESS,
+            TriggerRule.ALL_SKIPPED,
+            TriggerRule.NONE_FAILED,
+            TriggerRule.NONE_FAILED_MIN_ONE_SUCCESS,
+        ],
+    )
+    @conf_vars({('scheduler', 'schedule_after_task_execution'): 'True'})
+    def test_mini_scheduler_works_with_branch_python_operator(self, trigger_rule, caplog, session, dag_maker):
+        """
+        In these cases D is running, at no decision can be made about C.
+        """
+        with dag_maker(catchup=False) as dag:
+            task_a = BranchPythonOperator(task_id='A', python_callable=lambda: [])
+            task_b = PythonOperator(task_id='B', python_callable=lambda: True)
+            task_c = PythonOperator(
+                task_id='C',
+                python_callable=lambda: True,
+                trigger_rule=TriggerRule.NONE_FAILED_MIN_ONE_SUCCESS,
+            )
+            task_d = PythonOperator(task_id='D', python_callable=lambda: True)
+            task_a >> task_b >> task_c
+            task_d >> task_c
+
+        dr = dag.create_dagrun(run_id='test_1', state=State.RUNNING, execution_date=DEFAULT_DATE)
+        ti_a = TaskInstance(task_a, run_id=dr.run_id, state=State.QUEUED)
+        ti_b = TaskInstance(task_b, run_id=dr.run_id, state=State.NONE)
+        ti_c = TaskInstance(task_c, run_id=dr.run_id, state=State.NONE)
+        ti_d = TaskInstance(task_d, run_id=dr.run_id, state=State.RUNNING)
+
+        session.merge(ti_a)
+        session.merge(ti_b)
+        session.merge(ti_c)
+        session.merge(ti_d)
+        session.flush()
+
+        job1 = LocalTaskJob(task_instance=ti_a, ignore_ti_state=True, executor=SequentialExecutor())
+        job1.task_runner = StandardTaskRunner(job1)
+        job1.run()
+
+        ti_b.refresh_from_db(session)
+        ti_c.refresh_from_db(session)
+        assert ti_b.state == State.SKIPPED
+        assert ti_c.state == State.NONE
+        assert "0 downstream tasks scheduled from follow-on schedule" in caplog.text
+
+        failed_deps = list(ti_c.get_failed_dep_statuses(session=session))
+        assert len(failed_deps) == 1
+        assert failed_deps[0].dep_name == "Trigger Rule"
         assert not failed_deps[0].passed
 
     @patch('airflow.utils.process_utils.subprocess.check_call')
@@ -872,7 +1031,7 @@ def test_number_of_queries_single_loop(mock_get_task_runner, dag_maker):
 
     unique_prefix = str(uuid.uuid4())
     with dag_maker(dag_id=f'{unique_prefix}_test_number_of_queries'):
-        task = DummyOperator(task_id='test_state_succeeded1')
+        task = EmptyOperator(task_id='test_state_succeeded1')
 
     dr = dag_maker.create_dagrun(run_id=unique_prefix, state=State.NONE)
 

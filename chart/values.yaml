@@ -32,6 +32,12 @@ kubeVersionOverride: ""
 uid: 50000
 gid: 0
 
+# Default security context for airflow
+securityContext: {}
+#  runAsUser: 50000
+#  fsGroup: 0
+#  runAsGroup: 0
+
 # Airflow home directory
 # Used for mount paths
 airflowHome: /opt/airflow
@@ -40,10 +46,10 @@ airflowHome: /opt/airflow
 defaultAirflowRepository: apache/airflow
 
 # Default airflow tag to deploy
-defaultAirflowTag: "2.2.2"
+defaultAirflowTag: "2.2.5"
 
 # Airflow version (Used to make some decisions based on Airflow Version being deployed)
-airflowVersion: "2.2.2"
+airflowVersion: "2.2.5"
 
 # Images
 images:
@@ -72,7 +78,7 @@ images:
     pullPolicy: IfNotPresent
   redis:
     repository: redis
-    tag: 6-buster
+    tag: 6-bullseye
     pullPolicy: IfNotPresent
   pgbouncer:
     repository: apache/airflow
@@ -84,7 +90,7 @@ images:
     pullPolicy: IfNotPresent
   gitSync:
     repository: k8s.gcr.io/git-sync/git-sync
-    tag: v3.3.0
+    tag: v3.4.0
     pullPolicy: IfNotPresent
 
 # Select certain nodes for airflow pods.
@@ -114,13 +120,20 @@ ingress:
     # The hostname for the web Ingress (Deprecated - renamed to `ingress.web.hosts`)
     host: ""
 
-    # The hostnames for the web Ingress
+    # The hostnames or hosts configuration for the web Ingress
     hosts: []
+    # - name: ""
+    #   # configs for web Ingress TLS
+    #   tls:
+    #     # Enable TLS termination for the web Ingress
+    #     enabled: false
+    #     # the name of a pre-created Secret containing a TLS private key and certificate
+    #     secretName: ""
 
     # The Ingress Class for the web Ingress (used only with Kubernetes v1.19 and above)
     ingressClassName: ""
 
-    # configs for web Ingress TLS
+    # configs for web Ingress TLS (Deprecated - renamed to `ingress.web.hosts[*].tls`)
     tls:
       # Enable TLS termination for the web Ingress
       enabled: false
@@ -147,13 +160,19 @@ ingress:
     # The hostname for the flower Ingress (Deprecated - renamed to `ingress.flower.hosts`)
     host: ""
 
-    # The hostnames for the flower Ingress
+    # The hostnames or hosts configuration for the flower Ingress
     hosts: []
+    # - name: ""
+    #   tls:
+    #     # Enable TLS termination for the flower Ingress
+    #     enabled: false
+    #     # the name of a pre-created Secret containing a TLS private key and certificate
+    #     secretName: ""
 
     # The Ingress Class for the flower Ingress (used only with Kubernetes v1.19 and above)
     ingressClassName: ""
 
-    # configs for web Ingress TLS
+    # configs for flower Ingress TLS (Deprecated - renamed to `ingress.flower.hosts[*].tls`)
     tls:
       # Enable TLS termination for the flower Ingress
       enabled: false
@@ -200,7 +219,7 @@ rbac:
   createSCCRoleBinding: false
 
 # Airflow executor
-# Options: LocalExecutor, CeleryExecutor, KubernetesExecutor, CeleryKubernetesExecutor
+# One of: LocalExecutor, LocalKubernetesExecutor, CeleryExecutor, KubernetesExecutor, CeleryKubernetesExecutor
 executor: "CeleryExecutor"
 
 # If this is true and using LocalExecutor/KubernetesExecutor/CeleryKubernetesExecutor, the scheduler's
@@ -220,6 +239,23 @@ secret: []
 #   secretName: ""
 #   secretKey: ""
 
+# Enables selected built-in secrets that are set via environment variables by default.
+# Those secrets are provided by the Helm Chart secrets by default but in some cases you
+# might want to provide some of those variables with _CMD or _SECRET variable, and you should
+# in this case disable setting of those variables by setting the relevant configuration to false.
+enableBuiltInSecretEnvVars:
+  AIRFLOW__CORE__FERNET_KEY: true
+  # For Airflow <2.3, backward compatibility; moved to [database] in 2.3
+  AIRFLOW__CORE__SQL_ALCHEMY_CONN: true
+  AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: true
+  AIRFLOW_CONN_AIRFLOW_DB: true
+  AIRFLOW__WEBSERVER__SECRET_KEY: true
+  AIRFLOW__CELERY__CELERY_RESULT_BACKEND: true
+  AIRFLOW__CELERY__RESULT_BACKEND: true
+  AIRFLOW__CELERY__BROKER_URL: true
+  AIRFLOW__ELASTICSEARCH__HOST: true
+  AIRFLOW__ELASTICSEARCH__ELASTICSEARCH_HOST: true
+
 # Extra secrets that will be managed by the chart
 # (You can use them with extraEnv or extraEnvFrom or some of the extraVolumes values).
 # The format is "key/value" where
@@ -230,6 +266,7 @@ extraSecrets: {}
 # eg:
 # extraSecrets:
 #   '{{ .Release.Name }}-airflow-connections':
+#     type: 'Opaque'
 #     data: |
 #       AIRFLOW_CONN_GCP: 'base64_encoded_gcp_conn_string'
 #       AIRFLOW_CONN_AWS: 'base64_encoded_aws_conn_string'
@@ -392,6 +429,12 @@ workers:
       maxSurge: "100%"
       maxUnavailable: "50%"
 
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
+
   # Create ServiceAccount
   serviceAccount:
     # Specifies whether a ServiceAccount should be created
@@ -473,15 +516,17 @@ workers:
 
   # Select certain nodes for airflow worker pods.
   nodeSelector: {}
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchLabels:
-                component: worker
-            topologyKey: "kubernetes.io/hostname"
+  priorityClassName: ~
+  affinity: {}
+  # default worker affinity is:
+  #  podAntiAffinity:
+  #    preferredDuringSchedulingIgnoredDuringExecution:
+  #    - podAffinityTerm:
+  #        labelSelector:
+  #          matchLabels:
+  #            component: worker
+  #        topologyKey: kubernetes.io/hostname
+  #      weight: 100
   tolerations: []
   # hostAliases to use in worker pods.
   # See:
@@ -517,9 +562,10 @@ scheduler:
   # scheduler and let Kubernetes restart it
   livenessProbe:
     initialDelaySeconds: 10
-    timeoutSeconds: 10
+    timeoutSeconds: 20
     failureThreshold: 5
     periodSeconds: 60
+    command: ~
   # Airflow 2.0 allows users to run multiple schedulers,
   # However this feature is only recommended for MySQL 8+ and Postgres
   replicas: 1
@@ -535,6 +581,12 @@ scheduler:
   # Update Strategy when scheduler is deployed as a Deployment
   # (when not using LocalExecutor and workers.persistence)
   strategy: ~
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   # Create ServiceAccount
   serviceAccount:
@@ -578,16 +630,19 @@ scheduler:
 
   # Select certain nodes for airflow scheduler pods.
   nodeSelector: {}
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchLabels:
-                component: scheduler
-            topologyKey: "kubernetes.io/hostname"
+  affinity: {}
+  # default scheduler affinity is:
+  #  podAntiAffinity:
+  #    preferredDuringSchedulingIgnoredDuringExecution:
+  #    - podAffinityTerm:
+  #        labelSelector:
+  #          matchLabels:
+  #            component: scheduler
+  #        topologyKey: kubernetes.io/hostname
+  #      weight: 100
   tolerations: []
+
+  priorityClassName: ~
 
   podAnnotations: {}
 
@@ -608,12 +663,46 @@ scheduler:
     #   cpu: 100m
     #   memory: 128Mi
 
+  waitForMigrations:
+    # Whether to create init container to wait for db migrations
+    enabled: true
+
 # Airflow create user job settings
 createUserJob:
+  # Command to use when running the create user job (templated).
+  command: ~
+  # Args to use when running the create user job (templated).
+  args:
+    - "bash"
+    - "-c"
+    # The format below is necessary to get `helm lint` happy
+    - |-
+      exec \
+      airflow {{ semverCompare ">=2.0.0" .Values.airflowVersion | ternary "users create" "create_user" }} "$@"
+    - --
+    - "-r"
+    - "{{ .Values.webserver.defaultUser.role }}"
+    - "-u"
+    - "{{ .Values.webserver.defaultUser.username }}"
+    - "-e"
+    - "{{ .Values.webserver.defaultUser.email }}"
+    - "-f"
+    - "{{ .Values.webserver.defaultUser.firstName }}"
+    - "-l"
+    - "{{ .Values.webserver.defaultUser.lastName }}"
+    - "-p"
+    - "{{ .Values.webserver.defaultUser.password }}"
+
   # Annotations on the create user job pod
   annotations: {}
   # jobAnnotations are annotations on the create user job
   jobAnnotations: {}
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   # Create ServiceAccount
   serviceAccount:
@@ -625,6 +714,13 @@ createUserJob:
 
     # Annotations to add to create user kubernetes service account.
     annotations: {}
+
+  # Launch additional containers into user creation job
+  extraContainers: []
+
+  # Mount additional volumes into user creation job
+  extraVolumes: []
+  extraVolumeMounts: []
 
   nodeSelector: {}
   affinity: {}
@@ -643,10 +739,28 @@ createUserJob:
 
 # Airflow database migration job settings
 migrateDatabaseJob:
+  enabled: true
+  # Command to use when running the migrate database job (templated).
+  command: ~
+  # Args to use when running the migrate database job (templated).
+  args:
+    - "bash"
+    - "-c"
+    # The format below is necessary to get `helm lint` happy
+    - |-
+      exec \
+      airflow {{ semverCompare ">=2.0.0" .Values.airflowVersion | ternary "db upgrade" "upgradedb" }}
+
   # Annotations on the database migration pod
   annotations: {}
   # jobAnnotations are annotations on the database migration job
   jobAnnotations: {}
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   # Create ServiceAccount
   serviceAccount:
@@ -669,6 +783,11 @@ migrateDatabaseJob:
 
   # Launch additional containers into database migration job
   extraContainers: []
+
+  # Mount additional volumes into database migration job
+  extraVolumes: []
+  extraVolumeMounts: []
+
   nodeSelector: {}
   affinity: {}
   tolerations: []
@@ -710,8 +829,22 @@ webserver:
     # Annotations to add to webserver kubernetes service account.
     annotations: {}
 
+  # Webserver pod disruption budget
+  podDisruptionBudget:
+    enabled: false
+
+    # PDB configuration
+    config:
+      maxUnavailable: 1
+
   # Allow overriding Update Strategy for Webserver
   strategy: ~
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   # Additional network policies as needed (Deprecated - renamed to `webserver.networkPolicy.ingress.from`)
   extraNetworkPolicies: []
@@ -721,7 +854,7 @@ webserver:
       from: []
       # Ports for webserver NetworkPolicy ingress (if `from` is set)
       ports:
-        - port: airflow-ui
+        - port: "{{ .Values.ports.airflowUI }}"
 
   resources: {}
   #   limits:
@@ -757,7 +890,7 @@ webserver:
   #   from airflow import configuration as conf
 
   #   # The SQLAlchemy connection string.
-  #   SQLALCHEMY_DATABASE_URI = conf.get('core', 'SQL_ALCHEMY_CONN')
+  #   SQLALCHEMY_DATABASE_URI = conf.get('database', 'SQL_ALCHEMY_CONN')
 
   #   # Flask-WTF flag for CSRF
   #   CSRF_ENABLED = True
@@ -787,18 +920,24 @@ webserver:
 
   # Select certain nodes for airflow webserver pods.
   nodeSelector: {}
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchLabels:
-                component: webserver
-            topologyKey: "kubernetes.io/hostname"
+  priorityClassName: ~
+  affinity: {}
+  # default webserver affinity is:
+  #  podAntiAffinity:
+  #    preferredDuringSchedulingIgnoredDuringExecution:
+  #    - podAffinityTerm:
+  #        labelSelector:
+  #          matchLabels:
+  #            component: webserver
+  #        topologyKey: kubernetes.io/hostname
+  #      weight: 100
   tolerations: []
 
   podAnnotations: {}
+
+  waitForMigrations:
+    # Whether to create init container to wait for db migrations
+    enabled: true
 
 # Airflow Triggerer Config
 triggerer:
@@ -821,9 +960,10 @@ triggerer:
   # triggerer and let Kubernetes restart it
   livenessProbe:
     initialDelaySeconds: 10
-    timeoutSeconds: 10
+    timeoutSeconds: 20
     failureThreshold: 5
     periodSeconds: 60
+    command: ~
 
   # Create ServiceAccount
   serviceAccount:
@@ -835,6 +975,12 @@ triggerer:
 
     # Annotations to add to triggerer kubernetes service account.
     annotations: {}
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   resources: {}
   #  limits:
@@ -862,18 +1008,25 @@ triggerer:
 
   # Select certain nodes for airflow triggerer pods.
   nodeSelector: {}
-  affinity:
-    podAntiAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 100
-          podAffinityTerm:
-            labelSelector:
-              matchLabels:
-                component: triggerer
-            topologyKey: "kubernetes.io/hostname"
+  affinity: {}
+  # default triggerer affinity is:
+  #  podAntiAffinity:
+  #    preferredDuringSchedulingIgnoredDuringExecution:
+  #    - podAffinityTerm:
+  #        labelSelector:
+  #          matchLabels:
+  #            component: triggerer
+  #        topologyKey: kubernetes.io/hostname
+  #      weight: 100
   tolerations: []
 
+  priorityClassName: ~
+
   podAnnotations: {}
+
+  waitForMigrations:
+    # Whether to create init container to wait for db migrations
+    enabled: true
 
 # Flower settings
 flower:
@@ -900,7 +1053,7 @@ flower:
       from: []
       # Ports for flower NetworkPolicy ingress (if ingressPeers is set)
       ports:
-        - port: flower-ui
+        - port: "{{ .Values.ports.flowerUI }}"
 
   resources: {}
   #   limits:
@@ -909,6 +1062,12 @@ flower:
   #   requests:
   #     cpu: 100m
   #     memory: 128Mi
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  fsGroup: 0
+  #  runAsGroup: 0
 
   # Create ServiceAccount
   serviceAccount:
@@ -950,15 +1109,18 @@ flower:
   extraContainers: []
   # Mount additional volumes into the flower pods.
   extraVolumes: []
+  extraVolumeMounts: []
 
   # Select certain nodes for airflow flower pods.
   nodeSelector: {}
   affinity: {}
   tolerations: []
 
+  priorityClassName: ~
+
   podAnnotations: {}
 
-# Statsd settings
+# StatsD settings
 statsd:
   enabled: true
 
@@ -973,6 +1135,13 @@ statsd:
     # Annotations to add to worker kubernetes service account.
     annotations: {}
 
+  uid: 65534
+  # When not set, `statsd.uid` will be used
+  securityContext: {}
+  #  runAsUser: 65534
+  #  fsGroup: 0
+  #  runAsGroup: 0
+
   # Additional network policies as needed
   extraNetworkPolicies: []
   resources: {}
@@ -986,15 +1155,15 @@ statsd:
   service:
     extraAnnotations: {}
 
-  # Select certain nodes for statsd pods.
+  # Select certain nodes for StatsD pods.
   nodeSelector: {}
   affinity: {}
   tolerations: []
 
-  # Additional mappings for statsd exporter.
-  extraMappings: []
+  priorityClassName: ~
 
-  uid: 65534
+  # Additional mappings for StatsD exporter.
+  extraMappings: []
 
 # PgBouncer settings
 pgbouncer:
@@ -1004,6 +1173,8 @@ pgbouncer:
   command: ["pgbouncer", "-u", "nobody", "/etc/pgbouncer/pgbouncer.ini"]
   # Args to use for PgBouncer(templated).
   args: ~
+  auth_type: md5
+  auth_file: /etc/pgbouncer/users.txt
 
   # Create ServiceAccount
   serviceAccount:
@@ -1088,10 +1259,16 @@ pgbouncer:
   # Add extra general PgBouncer ini configuration: https://www.pgbouncer.org/config.html
   extraIni: ~
 
+  # Mount additional volumes into pgbouncer.
+  extraVolumes: []
+  extraVolumeMounts: []
+
   # Select certain nodes for PgBouncer pods.
   nodeSelector: {}
   affinity: {}
   tolerations: []
+
+  priorityClassName: ~
 
   uid: 65534
 
@@ -1103,6 +1280,7 @@ pgbouncer:
     #  requests:
     #   cpu: 100m
     #   memory: 128Mi
+    sslmode: "disable"
 
 # Configuration for the redis provisioned by the chart
 redis:
@@ -1152,6 +1330,13 @@ redis:
   nodeSelector: {}
   affinity: {}
   tolerations: []
+
+  # Set to 0 for backwards-compatiblity
+  uid: 0
+  # If not set, `redis.uid` will be used
+  securityContext: {}
+  #  runAsUser: 999
+  #  runAsGroup: 0
 
 # Auth secret for a private registry
 # This is used if pulling airflow images from a private registry
@@ -1214,6 +1399,8 @@ cleanup:
   affinity: {}
   tolerations: []
 
+  podAnnotations: {}
+
   resources: {}
   #  limits:
   #   cpu: 100m
@@ -1232,6 +1419,11 @@ cleanup:
 
     # Annotations to add to cleanup cronjob kubernetes service account.
     annotations: {}
+
+  # When not set, the values defined in the global securityContext will be used
+  securityContext: {}
+  #  runAsUser: 50000
+  #  runAsGroup: 0
 
 # Configuration for postgresql subchart
 # Not recommended for production
@@ -1259,9 +1451,6 @@ config:
     # For Airflow 1.10, backward compatibility; moved to [logging] in 2.0
     colored_console_log: 'False'
     remote_logging: '{{- ternary "True" "False" .Values.elasticsearch.enabled }}'
-  # Authentication backend used for the experimental API
-  api:
-    auth_backend: airflow.api.auth.backend.deny_all
   logging:
     remote_logging: '{{- ternary "True" "False" .Values.elasticsearch.enabled }}'
     colored_console_log: 'False'
@@ -1350,6 +1539,8 @@ dags:
     accessMode: ReadWriteOnce
     ## the name of an existing PVC to use
     existingClaim:
+    ## optional subpath for dag volume mount
+    subPath: ~
   gitSync:
     enabled: false
 
@@ -1404,6 +1595,12 @@ dags:
     wait: 60
     containerName: git-sync
     uid: 65533
+
+    # When not set, the values defined in the global securityContext will be used
+    securityContext: {}
+    #  runAsUser: 65533
+    #  runAsGroup: 0
+
     extraVolumeMounts: []
     env: []
     resources: {}

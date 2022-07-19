@@ -39,7 +39,7 @@ github:
   enabled_merge_buttons:
     squash: true
     merge: false
-    rebase: true
+    rebase: false
 
   protected_branches:
     main:
@@ -63,3 +63,6 @@ github:
     - paolaperaza
     - petedejoy
     - gmcdonald
+
+notifications:
+  jobs: jobs@airflow.apache.org
