@@ -28,7 +28,7 @@ under the License.
 
 {% block content %}
 {{ super() }}
-<h2>
+<h4>
   {{ title }}
   <div class="input-group" style="float: right">
     <input type="text" id="searchbox" class="form-control" placeholder="Search for..." onenter="null">
@@ -36,7 +36,7 @@ under the License.
   <label for="deps-filter" class="h5" style="float: right; margin-right: 5px">
     <input type="checkbox" id="deps-filter" checked> Only show DAGs with dependencies
   </label>
-</h2>
+</h4>
 <hr/>
 <div class="legend-row">
   <div>

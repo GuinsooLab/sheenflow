@@ -24,8 +24,8 @@
 const highlightColor = '#000000';
 const upstreamColor = '#2020A0';
 const downstreamColor = '#0000FF';
-const initialStrokeWidth = '3px';
-const highlightStrokeWidth = '5px';
+const initialStrokeWidth = '2px';
+const highlightStrokeWidth = '3px';
 const duration = 500;
 
 let nodes = dagNodes;

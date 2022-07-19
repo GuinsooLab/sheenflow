@@ -48,7 +48,7 @@
   vertical-align: middle;
   border-radius: 999px;
   width: 2.5rem;
-  padding: 2px;
+  /*padding: 2px;*/
   background-color: #c4c2c1;
   cursor: pointer;
 }

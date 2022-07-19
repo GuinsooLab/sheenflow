@@ -102,7 +102,7 @@ const DagRuns = () => {
               onSelect={onSelect}
             />
           ))}
-          <DurationAxis bottom="100px" />
+          <DurationAxis bottom="50px" />
           <DurationAxis bottom="50px" />
           <DurationAxis bottom="4px" />
         </Flex>
