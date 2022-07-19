@@ -59,10 +59,10 @@ const AppContainer: React.FC<Props> = ({ children, breadcrumb }) => {
             color={useColorModeValue('gray.600', 'gray.300')}
             bg={overlayBg}
           >
-            Apache Airflow
+            GuinsooLab Sheenflow
             {' '}
             <a
-              href={`https://pypi.python.org/pypi/apache-airflow/${version}`}
+              href={`https://github.com/GuinsooLab/sheenflow/tags/${version}`}
               target="_blank"
               rel="noreferrer"
             >

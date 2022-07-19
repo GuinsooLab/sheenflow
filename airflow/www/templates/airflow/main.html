@@ -53,7 +53,7 @@
       }
     {% endfor %}
   </style>
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='pin_32.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='sheenflow.png') }}">
 {% endblock %}
 
 {% block messages %}
@@ -87,21 +87,6 @@
       </p>
       <p>Triggers will not run, and any deferred operator will remain deferred until it times out and fails.</p>
     {% endcall %}
-  {% endif %}
-{% endblock %}
-
-{% block footer %}
-  {% if not current_user.is_anonymous %}
-    {% set version_label = 'Version' %}
-    <footer class="footer">
-      <div class="container">
-        <div>
-          {{ version_label }}: {% if airflow_version %}<a href="https://pypi.python.org/pypi/apache-airflow/{{ airflow_version }}" target="_blank">v{{ airflow_version }}</a>{% else %} N/A{% endif %}
-          {% if git_version %}<br>Git Version: <strong>{{ git_version }}</strong>{% endif %}
-        </div>
-        <div></div>
-      </div>
-    </footer>
   {% endif %}
 {% endblock %}
 

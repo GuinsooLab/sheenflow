@@ -28,25 +28,25 @@
 {% for item1 in menu.get_list() %}
   {% if item1 | is_menu_visible %}
     {% if item1.childs %}
-      <li class="dropdown">
-        <a class="dropdown-toggle" href="javascript:void(0)">
-          {{_(item1.label)}}<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          {% for item2 in item1.childs %}
-            {% if item2 %}
-              {% if item2.name == '-' %}
-                {% if not loop.last %}
-                  <li class="divider"></li>
-                {% endif %}
-              {% elif item2 | is_menu_visible %}
-                <li>{{ menu_item(item2) }}</li>
-              {% endif %}
+      {% for item2 in item1.childs %}
+        {% if item2 %}
+          {% if item2.name == '-' %}
+            {% if not loop.last %}
+              <li class="divider"></li>
             {% endif %}
-          {% endfor %}
-        </ul>
-      </li>
+          {% elif item2 | is_menu_visible %}
+            <li>{{ menu_item(item2) }}</li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+<!--      <li class="app-nav-li">-->
+<!--        <i class="fa fa-home" style="font-size:20px"></i>-->
+<!--      </li>-->
     {% else %}
-      <li>{{ menu_item(item1) }}</li>
+      <li class="app-nav-li">{{ menu_item(item1) }}</li>
     {% endif %}
   {% endif %}
+  <li class="app-nav-li">
+    <i class="fa fa-book" style="font-size:20px"></i>
+  </li>
 {% endfor %}
