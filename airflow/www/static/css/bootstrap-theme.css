@@ -81,7 +81,7 @@ abbr[title] {
 }
 b,
 strong {
-  font-weight: bold;
+  font-weight: normal;
 }
 dfn {
   font-style: italic;
@@ -362,10 +362,10 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 15px;
   border: 0;
-  border-top: 2px solid #f0f0f0;
+  border-top: 1px solid #f0f0f0;
 }
 .sr-only {
   position: absolute;
@@ -4670,7 +4670,6 @@ a.list-group-item-danger.active:focus {
 .panel {
   margin-bottom: 20px;
   background-color: #fff;
-  border: 2px solid transparent;
   border-radius: 4px;
   box-shadow: none;
 }

@@ -140,7 +140,7 @@ $('#search_form').on('reset', () => {
 });
 
 $('#main_content').show(250);
-const diameter = 25;
+const diameter = 20;
 const circleMargin = 4;
 const strokeWidth = 2;
 const strokeWidthHover = 6;

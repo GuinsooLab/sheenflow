@@ -19,7 +19,7 @@
 
 body {
   position: relative;
-  padding: 70px 0 100px;
+  padding: 70px 0 50px;
   margin-left: 60px;
   min-height: 100vh;
   overflow-y: scroll;
@@ -98,11 +98,11 @@ div.container {
 
 .navbar a {
   color: #51504f;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .navbar a .caret {
-  color: #e2d2e2;
+  color: #51504f;
 }
 
 .navbar-nav li.dropdown:hover > .dropdown-menu,
