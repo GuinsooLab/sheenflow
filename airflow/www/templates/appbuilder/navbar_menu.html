@@ -22,31 +22,24 @@
 {% endmacro %}
 
 {% if current_user.is_authenticated %}
-  <li class="dropdown"><a href="{{ url_for('Airflow.index') }}">DAGs</a></li>
-{% endif %}
-
-{% for item1 in menu.get_list() %}
-  {% if item1 | is_menu_visible %}
-    {% if item1.childs %}
-      {% for item2 in item1.childs %}
-        {% if item2 %}
-          {% if item2.name == '-' %}
-            {% if not loop.last %}
-              <li class="divider"></li>
-            {% endif %}
-          {% elif item2 | is_menu_visible %}
-            <li>{{ menu_item(item2) }}</li>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-<!--      <li class="app-nav-li">-->
-<!--        <i class="fa fa-home" style="font-size:20px"></i>-->
-<!--      </li>-->
-    {% else %}
-      <li class="app-nav-li">{{ menu_item(item1) }}</li>
-    {% endif %}
-  {% endif %}
   <li class="app-nav-li">
-    <i class="fa fa-book" style="font-size:20px"></i>
+    <a href="/home"><i class="fa fa-tachometer" style="font-size:18px"></i></a>
   </li>
-{% endfor %}
+  <li class="app-nav-li">
+    <a href="/dagrun/list"><i class="fa fa-calendar-check-o" style="font-size:18px"></i></a>
+  </li>
+  <li class="app-nav-li">
+    <a href="/log/list"><i class="fa fa-file-text" style="font-size:18px"></i></a>
+  </li>
+  <li class="app-nav-li">
+    <a href="/dag-dependencies"><i class="fa fa-sliders" style="font-size:18px"></i></a>
+  </li>
+  <li class="app-nav-li">
+    <a href="/slamiss/list"><i class="fa fa-heartbeat" style="font-size:18px"></i></a>
+  </li>
+  <li class="app-nav-li-help-x">
+    <a href="https://ciusji.gitbook.io/guinsoolab/products/data-flow" target="_blank">
+      <i class="fa fa-book" style="font-size:18px"></i>
+    </a>
+  </li>
+{% endif %}
