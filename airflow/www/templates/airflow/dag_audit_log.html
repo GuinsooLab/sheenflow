@@ -28,15 +28,13 @@
 
 {% block content %}
   {{ super() }}
-  <h2>Dag Audit Log</h2>
-    <h4 style="display: block; padding-top: 10px; padding-bottom: 4px">
-      <p>
+  <h4>Dag Audit Log</h4>
+    <p style="display: block; padding-top: 10px; padding-bottom: 4px">
         This view displays selected events and operations that have been taken on this dag.
         The included and excluded events are set in the Airflow configuration,
         which by default remove view only actions. For a full list of events regarding this DAG, click
         <a href="{{ url_for('LogModelView.list', _flt_3_dag_id=dag_id) }}">here</a>.
-      </p>
-    </h4>
+    </p>
     <table id="dag_audit_log_table" class="table table-striped table-bordered table-hover">
         <thead>
             <tr>

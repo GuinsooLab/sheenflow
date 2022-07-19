@@ -116,18 +116,6 @@
         </div>
       </div>
       <div class="col-sm-6 col-md-3">
-        <form id="tags_form" style="width: 100%; text-align: left;">
-          <div class="form-group search-input" style="width:100%;">
-            <select multiple name="tags" id="tags_filter" class="select2-drop-mask" style="width: 100%;">
-              {% for tag in tags %}
-                <option value="{{ tag.name }}" {% if tag.selected %}selected{% endif %}>{{ tag.name }}</option>
-              {% endfor %}
-            </select>
-            {% if tags_filter|length > 0 %}
-              <button type="reset" aria-label="Clear all tags" class="btn btn-default btn-sm material-icons search-input__clear-btn">cancel</button>
-            {% endif %}
-          </div>
-        </form>
       </div>
       <div class="col-sm-6 col-md-3 col-md-offset-2 no-x-padding">
         <form id="search_form">
@@ -155,17 +143,12 @@
                 <span class="material-icons text-muted js-tooltip" aria-hidden="true" title="Status of all previous DAG runs.">info</span>
               </th>
               <th>Schedule</th>
-              <th style="width:180px;">Last Run
-                <span class="material-icons text-muted js-tooltip" aria-hidden="true" title="Date/Time of the latest Dag Run.">info</span>
-              </th>
               <th style="width:180px;">{{ sortable_column("Next Run", "next_dagrun") }}
                 <span class="material-icons text-muted js-tooltip" aria-hidden="true" title="Expected Date/Time of the next Dag Run.">info</span>
               </th>
               <th>Recent Tasks
                 <span class="material-icons text-muted js-tooltip" aria-hidden="true" title="Status of tasks from all active DAG runs or, if not currently active, from most recent run.">info</span>
               </th>
-              <th class="text-center" style="width:110px;">Actions</th>
-              <th style="width:52px;">Links</th>
             </tr>
           </thead>
           <tbody>
@@ -224,19 +207,6 @@
                       <span class="material-icons text-muted js-tooltip" aria-hidden="true" data-original-title="Schedule: {{ dag.timetable_description|string }}">info</span>
                   {% endif %}
                 </td>
-                <td id="last-run-{{ dag.safe_dag_id }}" class="text-nowrap latest_dag_run">
-                  {{ loading_dots(classes='js-loading-last-run text-muted') }}
-                  <a></a>
-                  <span
-                    aria-hidden="true"
-                    title=""
-                    class="material-icons text-muted js-tooltip js-last-run-tooltip"
-                    data-html="true"
-                    style="display:none"
-                  >
-                    info
-                  </span>
-                </td>
                 <td class="text-nowrap">
                   {% if dag.next_dagrun is not none %}
                     <time datetime="{{ dag.next_dagrun }}">{{ dag.next_dagrun }}</time>
@@ -257,77 +227,6 @@
                 <td style="padding:0; width:323px; height:10px;">
                   {{ loading_dots(classes='js-loading-task-stats text-muted') }}
                   <svg height="10" width="10" id='task-run-{{ dag.safe_dag_id }}' style="display: block;"></svg>
-                </td>
-                <td class="text-center">
-                  <div class="btn-group">
-                    {% if dag %}
-                    <div class="dropdown">
-                      <a aria-label="Trigger DAG" class="btn btn-sm btn-default btn-icon-only{{ ' disabled' if not dag.can_trigger }} trigger-dropdown-btn" data-toggle="dropdown">
-                        <span class="material-icons" aria-hidden="true">play_arrow</span>
-                      </a>
-                      <ul class="dropdown-menu trigger-dropdown-menu">
-                        <li>
-                          <form method="POST" action="{{ url_for('Airflow.trigger') }}">
-                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="dag_id" value="{{ dag.dag_id }}">
-                            <input type="hidden" name="unpause" value="True">
-                            <button type="submit" class="dropdown-form-btn">Trigger DAG</button>
-                          </form>
-                        </li>
-                        <li><a href="{{ url_for('Airflow.trigger', dag_id=dag.dag_id) }}">Trigger DAG w/ config</a></li>
-                      </ul>
-                    </div>
-                    {% endif %}
-                    {# Use dag_id instead of dag.dag_id, because the DAG might not exist in the webserver's DagBag #}
-                    <a href="{{ url_for('Airflow.delete', dag_id=dag.dag_id, redirect_url=url_for(request.endpoint)) }}" onclick="return confirmDeleteDag(this, '{{ dag.dag_id }}')" title="Delete&nbsp;DAG" aria-label="Delete DAG" class="btn btn-sm btn-default btn-icon-only {{ ' disabled' if not dag.can_delete }}">
-                      <span class="material-icons text-danger" aria-hidden="true">delete_outline</span>
-                    </a>
-                  </div>
-                </td>
-                <td class="dags-table-more">
-                  {% if dag %}
-                    <div class="dags-table-more__menu">
-                      <div class="dags-table-more__links">
-                        <a href="{{ url_for('Airflow.code', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">code</span>
-                          Code
-                        </a>
-                        <a href="{{ url_for('Airflow.dag_details', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">details</span>
-                          Details
-                        </a>
-                        <a href="{{ url_for('Airflow.gantt', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">vertical_distribute</span>
-                          Gantt
-                        </a>
-                        <a href="{{ url_for('Airflow.landing_times', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">flight_land</span>
-                          Landing
-                        </a>
-                        <a href="{{ url_for('Airflow.tries', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">repeat</span>
-                          Tries
-                        </a>
-                        <a href="{{ url_for('Airflow.duration', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">hourglass_bottom</span>
-                          Duration
-                        </a>
-                        <a href="{{ url_for('Airflow.calendar', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">event</span>
-                          Calendar
-                        </a>
-                        <a href="{{ url_for('Airflow.graph', dag_id=dag.dag_id) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">account_tree</span>
-                          Graph
-                        </a>
-                        <a href="{{ url_for('Airflow.grid', dag_id=dag.dag_id, num_runs=num_runs) }}" class="dags-table-more__link">
-                          <span class="material-icons" aria-hidden="true">grid_on</span>
-                          Grid
-                        </a>
-                      </div>
-                      <span class="dags-table-more__toggle"><span class="material-icons">more_horiz</span></span>
-                    </div>
-                  {% endif %}
                 </td>
               </tr>
             {% endfor %}

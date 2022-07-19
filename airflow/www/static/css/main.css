@@ -98,11 +98,11 @@ div.container {
 
 .navbar a {
   color: #51504f;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .navbar a .caret {
-  color: #e2d2e2;
+  color: #51504f;
 }
 
 .navbar-nav li.dropdown:hover > .dropdown-menu,
