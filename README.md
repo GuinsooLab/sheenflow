@@ -77,7 +77,7 @@ Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. Th
 
 Sheenflow works best with workflows that are mostly static and slowly changing. When the DAG structure is similar from one run to the next, it clarifies the unit of work and continuity. Other similar projects include [Dagster](https://github.com/dagster-io/dagster) and [Prefect](https://github.com/prefecthq/prefect).
 
-Sheenflow is commonly used to process data, but has the opinion that tasks should ideally be idempotent (i.e., results of the task will be the same, and will not create duplicated data in a destination system), and should not pass large quantities of data from one task to the next (though tasks can pass metadata using Airflow's [Xcom feature](https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#xcoms)). For high-volume, data-intensive tasks, a best practice is to delegate to external services specializing in that type of work.
+Sheenflow is commonly used to process data, but has the opinion that tasks should ideally be idempotent (i.e., results of the task will be the same, and will not create duplicated data in a destination system), and should not pass large quantities of data from one task to the next. For high-volume, data-intensive tasks, a best practice is to delegate to external services specializing in that type of work.
 
 Sheenflow is not a streaming solution, but it is often used to process real-time data, pulling data off streams in batches.
 
@@ -107,7 +107,7 @@ Sheenflow is tested with:
 \* Experimental
 
 **Note**: MySQL 5.x versions are unable to or have limitations with
-running multiple schedulers -- please see the [Scheduler docs](https://airflow.apache.org/docs/apache-airflow/stable/scheduler.html).
+running multiple schedulers -- please see the [Scheduler docs](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/concepts/scheduler).
 MariaDB is not tested/recommended.
 
 **Note**: SQLite is used in Sheenflow tests. Do not use it in production. We recommend
@@ -123,16 +123,12 @@ On Windows you can run it via WSL2 (Windows Subsystem for Linux 2) or via Linux 
 ## Getting started
 
 Visit the official Sheenflow website documentation (latest **stable** release) for help with
-[installing Sheenflow](https://airflow.apache.org/docs/apache-airflow/stable/installation.html),
-[getting started](https://airflow.apache.org/docs/apache-airflow/stable/start/index.html), or walking
-through a more complete [tutorial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial.html).
-
-> Note: If you're looking for documentation for the main branch (latest development branch): you can find it on [s.apache.org/airflow-docs](https://s.apache.org/airflow-docs/).
+[installing Sheenflow](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/installation),
+[getting started](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/quickstart), or walking
+through a more complete [tutorial](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/tutorial).
 
 For more information on Sheenflow Improvement Proposals (AIPs), visit
-the [Sheenflow Wiki](https://cwiki.apache.org/confluence/display/AIRFLOW/Airflow+Improvements+Proposals).
-
-Documentation for dependent projects like provider packages, Docker image, Helm Chart, you'll find it in [the documentation index](https://airflow.apache.org/docs/).
+the [Sheenflow Wiki](https://github.com/GuinsooLab/sheenflow/wiki).
 
 ## Installing from PyPI
 
@@ -153,9 +149,6 @@ correct Sheenflow tag/version/branch and Python versions in the URL.
 pip install guinsoolab-sheenflow==2.3.3 # coming
 ```
 
-For information on installing provider packages, check
-[providers](http://airflow.apache.org/docs/apache-airflow-providers/index.html).
-
 ## Official source code
 
 Sheenflow is an [GuinsooLab Software Foundation](https://github.com/GuinsooLab) (GSF) project,
@@ -167,33 +160,6 @@ and our official source code releases:
 
 Following the GSF rules, the source packages released must be sufficient for a user to build and test the
 release provided they have access to the appropriate platform and tools.
-
-## User Interface
-
-- **DAGs**: Overview of all DAGs in your environment.
-
-  ![DAGs](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/dags.png)
-
-- **Grid**: Grid representation of a DAG that spans across time.
-
-  ![Grid](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/grid.png)
-
-- **Graph**: Visualization of a DAG's dependencies and their current status for a specific run.
-
-  ![Graph](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/graph.png)
-
-- **Task Duration**: Total time spent on different tasks over time.
-
-  ![Task Duration](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/duration.png)
-
-- **Gantt**: Duration and overlap of a DAG.
-
-  ![Gantt](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/gantt.png)
-
-- **Code**: Quick way to view source code of a DAG.
-
-  ![Code](https://raw.githubusercontent.com/apache/airflow/main/docs/apache-airflow/img/code.png)
-
 
 ## Approach to dependencies of Sheenflow
 
@@ -258,10 +224,7 @@ first `PATCHLEVEL` of 2.1 (2.1.0) has been released.
 
 ## Contributing
 
-Want to help build Sheenflow? Check out our [contributing documentation](https://github.com/apache/airflow/blob/main/CONTRIBUTING.rst).
-
-Official Docker (container) images for Sheenflow are described in [IMAGES.rst](https://github.com/apache/airflow/blob/main/IMAGES.rst).
-
+Want to help build Sheenflow? Check out our [contributing documentation](https://github.com/GuinsooLab/sheenflow/blob/main/CONTRIBUTING.rst).
 
 ## License
 
