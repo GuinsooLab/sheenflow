@@ -56,40 +56,6 @@
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='sheenflow.png') }}">
 {% endblock %}
 
-{% block messages %}
-  {% include 'appbuilder/flash.html' %}
-  {% if scheduler_job is defined and (not scheduler_job or not scheduler_job.is_alive()) %}
-    {% call show_message(category='warning', dismissible=false) %}
-      <p>The scheduler does not appear to be running.
-      {% if scheduler_job %}
-      Last heartbeat was received
-      <time class="scheduler-last-heartbeat"
-        title="{{ scheduler_job.latest_heartbeat.isoformat() }}"
-        datetime="{{ scheduler_job.latest_heartbeat.isoformat() }}"
-        data-datetime-convert="false"
-      >{{ macros.datetime_diff_for_humans(scheduler_job.latest_heartbeat) }}</time>.
-      {% endif %}
-      </p>
-      <p>The DAGs list may not update, and new tasks will not be scheduled.</p>
-    {% endcall %}
-  {% endif %}
-  {% if triggerer_job is defined and (not triggerer_job or not triggerer_job.is_alive()) %}
-    {% call show_message(category='warning', dismissible=false) %}
-      <p>The triggerer does not appear to be running.
-      {% if triggerer_job %}
-      Last heartbeat was received
-      <time class="scheduler-last-heartbeat"
-        title="{{ triggerer_job.latest_heartbeat.isoformat() }}"
-        datetime="{{ triggerer_job.latest_heartbeat.isoformat() }}"
-        data-datetime-convert="false"
-      >{{ macros.datetime_diff_for_humans(triggerer_job.latest_heartbeat) }}</time>.
-      {% endif %}
-      </p>
-      <p>Triggers will not run, and any deferred operator will remain deferred until it times out and fails.</p>
-    {% endcall %}
-  {% endif %}
-{% endblock %}
-
 {% block tail_js %}
   {{ super() }}
 

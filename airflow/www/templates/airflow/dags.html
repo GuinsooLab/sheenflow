@@ -116,6 +116,15 @@
         </div>
       </div>
       <div class="col-sm-6 col-md-3">
+        <form id="tags_form" style="width: 100%; text-align: left;">
+          <div class="form-group search-input" style="width:100%;">
+            <select multiple name="tags" id="tags_filter" class="select2-drop-mask" style="width: 100%;">
+              {% for tag in tags %}
+                <option value="{{ tag.name }}" {% if tag.selected %}selected{% endif %}>{{ tag.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
       </div>
       <div class="col-sm-6 col-md-3 col-md-offset-2 no-x-padding">
         <form id="search_form">
