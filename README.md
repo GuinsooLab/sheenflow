@@ -45,34 +45,6 @@ Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. Th
 
 ![dag grid](airflow/www/static/dag_grid.png)
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of contents**
-
-- [Project Focus](#project-focus)
-- [Principles](#principles)
-- [Requirements](#requirements)
-- [Getting started](#getting-started)
-- [Installing from PyPI](#installing-from-pypi)
-- [Official source code](#official-source-code)
-- [Convenience packages](#convenience-packages)
-- [User Interface](#user-interface)
-- [Semantic versioning](#semantic-versioning)
-- [Version Life Cycle](#version-life-cycle)
-- [Support for Python and Kubernetes versions](#support-for-python-and-kubernetes-versions)
-- [Base OS support for reference Airflow images](#base-os-support-for-reference-airflow-images)
-- [Approach to dependencies of Airflow](#approach-to-dependencies-of-airflow)
-- [Support for providers](#support-for-providers)
-- [Contributing](#contributing)
-- [Who uses Apache Airflow?](#who-uses-apache-airflow)
-- [Who Maintains Apache Airflow?](#who-maintains-apache-airflow)
-- [Can I use the Apache Airflow logo in my presentation?](#can-i-use-the-apache-airflow-logo-in-my-presentation)
-- [Airflow merchandise](#airflow-merchandise)
-- [Links](#links)
-- [Sponsors](#sponsors)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Project Focus
 
 Sheenflow works best with workflows that are mostly static and slowly changing. When the DAG structure is similar from one run to the next, it clarifies the unit of work and continuity. Other similar projects include [Dagster](https://github.com/dagster-io/dagster) and [Prefect](https://github.com/prefecthq/prefect).
