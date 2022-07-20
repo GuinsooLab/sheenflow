@@ -314,7 +314,7 @@ textarea {
 }
 a,
 a code {
-  color: #365f84;
+  color: #017cee;
   text-decoration: none;
 }
 a:hover,
@@ -565,10 +565,10 @@ a.text-success:hover {
   color: #366f4c;
 }
 .text-info {
-  color: #31708f;
+  color: #017cee;
 }
 a.text-info:hover {
-  color: #245269;
+  color: #017cee;
 }
 .text-warning {
   color: #8a6d3b;
@@ -1607,7 +1607,7 @@ th {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #f0f0f0;
+  border: 1px solid #dbdcdd;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
@@ -2330,7 +2330,7 @@ fieldset[disabled] .btn {
   padding: 6px;
 }
 .btn-default {
-  color: #365f84;
+  color: #017cee;
   background-color: #fff;
   border-color: #ccc;
 }
@@ -3298,12 +3298,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-pills > li > a {
   border-radius: 4px;
-  color: #365f84;
+  color: #000000;
 }
 .nav-pills > li > a:hover,
 .nav-pills > li > a:focus {
-  color: #365f84;
-  background-color: #c0defb;
+  color: #007cee;
+  background-color: #ffffff;
 }
 .nav-pills > li + li {
   margin-left: 2px;
@@ -3311,8 +3311,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #365f84;
+  color: #007cee;
+  background-color: #ffffff;
 }
 .nav-stacked > li {
   float: none;
@@ -4124,12 +4124,12 @@ a.label:focus {
   background-color: #cbcbcb;
 }
 .label-primary {
-  color: #365f84;
+  color: #017cee;
   background-color: #c0defb;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  color: #365f84;
+  color: #017cee;
   background-color: #0cb6ff;
 }
 .label-success {

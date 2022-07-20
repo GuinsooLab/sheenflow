@@ -19,8 +19,6 @@
 
 .dags-table-wrap {
   margin-bottom: 16px;
-  border-radius: 4px 4px 0 0;
-  background-color: #f0f0f0;
 }
 
 .dags-table-header {
@@ -32,6 +30,7 @@
   margin: 0 1px;
   overflow-x: auto;
   padding-bottom: 34px;
+  border-radius: 4px 4px 0 0;
 }
 
 .no-x-padding {
@@ -130,4 +129,19 @@ tr:nth-child(2n):hover .dags-table-more__menu:hover::before {
 
 .dags-table-more__menu:hover .dags-table-more__link {
   max-width: 200px;
+}
+
+.select2-container .select2-choices {
+  background: none;
+  padding: 0;
+  border-color: #ffffff;
+  border-radius: 4px;
+  color: #555555;
+  background: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.select2-search-choice-close {
+  margin-top: -5px;
 }

@@ -39,7 +39,7 @@ const taskStatsUrl = getMetaValue('task_stats_url');
 const gridUrl = getMetaValue('grid_url');
 
 $('#tags_filter').select2({
-  placeholder: 'Filter DAGs by tag',
+  placeholder: '',
   allowClear: true,
 });
 
