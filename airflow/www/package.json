@@ -1,5 +1,5 @@
 {
-  "description": "Apache Airflow is a platform to programmatically author, schedule and monitor workflows.",
+  "description": "Guinsoolab Sheenflow is a platform to programmatically author, schedule and monitor workflows.",
   "scripts": {
     "test": "jest",
     "dev": "NODE_ENV=development webpack --watch --progress --devtool eval-cheap-source-map --mode development",
