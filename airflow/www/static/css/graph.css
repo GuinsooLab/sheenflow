@@ -29,7 +29,7 @@ svg {
 }
 
 .node rect[data-highlight="highlight"] {
-  stroke: #017cee !important;
+  stroke: #1c46e4 !important;
 }
 
 .edgeLabel {
@@ -63,7 +63,7 @@ svg {
 }
 
 .edgePath[data-highlight="highlight"] {
-  stroke: #017cee;
+  stroke: #1c46e4;
 }
 
 .edgePath .arrowhead {
@@ -74,8 +74,8 @@ svg {
 }
 
 .edgePath[data-highlight="highlight"] .arrowhead {
-  stroke: #017cee;
-  fill: #017cee;
+  stroke: #1c46e4;
+  fill: #1c46e4;
 }
 
 .not-allowed rect,
