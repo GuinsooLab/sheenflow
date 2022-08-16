@@ -61,7 +61,7 @@ nav {
 
 .app-nav-li > a > i:hover,
 .app-nav-li > a > i:focus {
-  color: #024dfd;
+  color: #1c46e4;
 }
 
 .app-nav-li-help-x {
@@ -158,7 +158,7 @@ div.container {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  color: #017cee;
+  color: #1c46e4;
   background-color: #c0defb;
 }
 

@@ -70,7 +70,7 @@
 }
 
 .switch-input:checked + .switch {
-  background-color: #017cee;
+  background-color: #1c46e4;
 }
 
 .switch-input:checked + .switch::before {
