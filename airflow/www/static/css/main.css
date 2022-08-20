@@ -39,11 +39,11 @@ nav {
   height: 100vh;
   width: 60px;
   text-align: center;
-  background-color: #061d41;
+  background-color: #072C4F;
 }
 
 .app-nav-ul {
-  margin-top: 48px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -521,4 +521,25 @@ details summary {
 .menu-scroll {
   max-height: 300px;
   overflow-y: auto;
+}
+
+.login-hero-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.login-background-img {
+  background-image: url("../background-wave-orig2.svg"), url("../background.svg");
+  background-position: center 250px, center center;
+  background-repeat: no-repeat;
+  background-size: 2547px 980px, cover;
+  background-blend-mode: color-dodge;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: -60px;
+  overflow: auto;
 }
