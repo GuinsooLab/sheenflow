@@ -659,7 +659,7 @@ class BaseSecurityManager:
             me = self.appbuilder.sm.oauth_remotes[provider].get("openid-connect/userinfo")
             me.raise_for_status()
             data = me.json()
-            log.debug("User info from Keycloak: %s", data)
+            log.warning("User info from Keycloak: %s", data)
             return {
                 "username": data.get("preferred_username", ""),
                 "first_name": data.get("given_name", ""),
