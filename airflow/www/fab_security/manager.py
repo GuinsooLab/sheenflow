@@ -1236,6 +1236,7 @@ class BaseSecurityManager:
         user_role_objects = set()
 
         # apply AUTH_ROLES_MAPPING
+        log.warning("OAuth roles mapping: {}".format(self.auth_roles_mapping))
         if len(self.auth_roles_mapping) > 0:
             user_role_keys = userinfo.get("role_keys", [])
             user_role_objects.update(self.get_roles_from_keys(user_role_keys))
