@@ -29,6 +29,10 @@ Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. Th
 
 ![login](airflow/www/static/login.png)
 
+### Sign In
+
+![login](airflow/www/static/sign_in.png)
+
 ### Audit log
 
 ![autid log](airflow/www/static/audit_log.png)
