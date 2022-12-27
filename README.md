@@ -1,16 +1,15 @@
 <div align="right">
-    <img src="airflow/www/static/guinsoolab-badge.png" width="60" alt="badge">
+    <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/airflow/www/static/guinsoolab-badge.png" width="60" alt="badge">
     <br />
 </div>
 <div align="center">
-  <img src="airflow/www/static/sheenflow.svg" alt="logo" width="120" />
+  <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/airflow/www/static/sheenflow.svg" alt="logo" width="120" />
   <br />
   <small>a platform to programmatically author, schedule, and monitor workflows</small>
 </div>
 
-# [Sheenflow](https://guinsoolab.github.io/glab/#/app/sheenflow)
+# [Sheenflow](https://ciusji.gitbook.io/sheenflow/)
 
-[![PyPI version](https://badge.fury.io/py/apache-airflow.svg)](https://badge.fury.io/py/apache-airflow)
 [![GitHub Build](https://github.com/apache/airflow/workflows/CI%20Build/badge.svg)](https://github.com/apache/airflow/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/apache/airflow/main.svg)](https://codecov.io/github/apache/airflow?branch=main)
 [![License](https://img.shields.io/:license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)
@@ -23,35 +22,14 @@ When workflows are defined as code, they become more maintainable, versional, te
 
 Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. The Sheenflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
 
-## Snapshot & Gifs
+## Getting started
 
-### Unified Login With [KeyCloak](https://www.keycloak.org/)
+Visit the official Sheenflow website documentation (latest **stable** release) for help with
+[installing Sheenflow](https://ciusji.gitbook.io/sheenflow/overview/installation)
+and [getting started](https://ciusji.gitbook.io/sheenflow/overview/quickstart).
 
-![login](airflow/www/static/login.png)
-
-### Sign In
-
-![login](airflow/www/static/sign_in.png)
-
-### Audit log
-
-![autid log](airflow/www/static/audit_log.png)
-
-### DAG calendar
-
-![dag calendar](airflow/www/static/dag_calendar.png)
-
-### DAG code
-
-![dag code](airflow/www/static/dag_code.png)
-
-### DAG graph
-
-![dag graph](airflow/www/static/dag_graph.png)
-
-### DAG Grid
-
-![dag grid](airflow/www/static/dag_grid.png)
+For more information on Sheenflow Improvement Proposals (AIPs), visit
+the [Sheenflow Docs](https://ciusji.gitbook.io/sheenflow/).
 
 ## Project Focus
 
@@ -82,84 +60,36 @@ Sheenflow is tested with:
 | SQLite              | 3.15.0+                      | 3.15.0+                      |
 | MSSQL               | 2017(\*), 2019 (\*)          | 2017(\*), 2019 (\*)          |
 | Guinsoo             | coming                       | coming                       |
-| H2                  | coming                       | coming                       |
-
-\* Experimental
-
-**Note**: MySQL 5.x versions are unable to or have limitations with
-running multiple schedulers -- please see the [Scheduler docs](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/concepts/scheduler).
-MariaDB is not tested/recommended.
-
-**Note**: SQLite is used in Sheenflow tests. Do not use it in production. We recommend
-using the latest stable version of SQLite for local development.
-
-**Note**: Support for Python v3.10 will be available from Airflow 2.3.0. The `main` (development) branch
-already supports Python 3.10.
 
 **Note**: Sheenflow currently can be run on POSIX-compliant Operating Systems. For development it is regularly
 tested on fairly modern Linux Distros and recent versions of MacOS.
 On Windows you can run it via WSL2 (Windows Subsystem for Linux 2) or via Linux Containers.
 
-## Getting started
+## Snapshot & Gifs
 
-Visit the official Sheenflow website documentation (latest **stable** release) for help with
-[installing Sheenflow](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/installation),
-[getting started](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/quickstart), or walking
-through a more complete [tutorial](https://ciusji.gitbook.io/guinsoolab/products/data-flow/sheenflow/tutorial).
+### Unified Login With [KeyCloak](https://www.keycloak.org/)
 
-For more information on Sheenflow Improvement Proposals (AIPs), visit
-the [Sheenflow Wiki](https://github.com/GuinsooLab/sheenflow/wiki).
+![login](airflow/www/static/login.png)
 
-## Installing from PyPI
+### Audit log
 
-We publish Sheenflow package in PyPI (coming). Installing it however might be sometimes tricky
-because Sheenflow is a bit of both a library and application. Libraries usually keep their dependencies open, and
-applications usually pin them, but we should do neither and both simultaneously. We decided to keep
-our dependencies as open as possible (in `setup.py`) so users can install different versions of libraries
-if needed. This means that `pip install guinsoolab-sheenflow` will not work from time to time or will
-produce unusable Sheenflow installation.
+![autid log](airflow/www/static/audit_log.png)
 
-To have repeatable installation, however, we keep a set of "known-to-be-working" constraint
-files in the orphan `constraints-main` and `constraints-2-0` branches. We keep those "known-to-be-working"
-constraints files separately per major/minor Python version.
-You can use them as constraint files when installing Sheenflow from PyPI. Note that you have to specify
-correct Sheenflow tag/version/branch and Python versions in the URL.
+### DAG calendar
 
-```bash
-pip install guinsoolab-sheenflow==2.3.3 # coming
-```
+![dag calendar](airflow/www/static/dag_calendar.png)
 
-## Official source code
+### DAG code
 
-Sheenflow is an [GuinsooLab Software Foundation](https://github.com/GuinsooLab) (GSF) project,
-and our official source code releases:
+![dag code](airflow/www/static/dag_code.png)
 
-- Follow the [GSF Release Policy](https://github.com/GuinsooLab)
-- Can be downloaded from [the GSF Distribution Directory](https://github.com/GuinsooLab/sheenflow)
-- Are cryptographically signed by the release manager
+### DAG graph
 
-Following the GSF rules, the source packages released must be sufficient for a user to build and test the
-release provided they have access to the appropriate platform and tools.
+![dag graph](airflow/www/static/dag_graph.png)
 
-## Approach to dependencies of Sheenflow
+### DAG Grid
 
-Sheenflow has a lot of dependencies - direct and transitive, also Sheenflow is both - library and application,
-therefore our policies to dependencies has to include both - stability of installation of application,
-but also ability to install newer version of dependencies for those users who develop DAGs. We developed
-the approach where `constraints` are used to make sure Sheenflow can be installed in a repeatable way, while
-we do not limit our users to upgrade most of the dependencies. As a result we decided not to upper-bound
-version of Sheenflow dependencies by default, unless we have good reasons to believe upper-bounding them is
-needed because of importance of the dependency as well as risk it involves to upgrade specific dependency.
-We also upper-bound the dependencies that we know cause problems.
-
-The constraint mechanism of ours takes care about finding and upgrading all the non-upper bound dependencies
-automatically (providing that all the tests pass). Our `main` build failures will indicate in case there
-are versions of dependencies that break our tests - indicating that we should either upper-bind them or
-that we should fix our code/tests to account for the upstream changes from those dependencies.
-
-Whenever we upper-bound such a dependency, we should always comment why we are doing it - i.e. we should have
-a good reason why dependency is upper-bound. And we should also mention what is the condition to remove the
-binding.
+![dag grid](airflow/www/static/dag_grid.png)
 
 ## Approach for dependencies for Sheenflow Core
 

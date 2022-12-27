@@ -159,7 +159,7 @@ If there are any other arguments - they are simply passed to the "airflow" comma
 .. code-block:: bash
 
   > docker run -it apache/airflow:2.3.3-python3.6 help
-    usage: airflow [-h] GROUP_OR_COMMAND ...
+    usage: sheenflow [-h] GROUP_OR_COMMAND ...
 
     positional arguments:
       GROUP_OR_COMMAND
