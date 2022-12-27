@@ -25,7 +25,7 @@ except ImportError:
     from importlib import metadata  # type: ignore[no-redef]
 
 try:
-    version = metadata.version('apache-airflow')
+    version = metadata.version('sheenflow')
 except metadata.PackageNotFoundError:
     import logging
 
