@@ -20,7 +20,14 @@ Sheenflow is a platform to programmatically author, schedule, and monitor workfl
 
 When workflows are defined as code, they become more maintainable, versional, testable, and collaborative.
 
-Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. The Sheenflow scheduler executes your tasks on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress, and troubleshoot issues when needed.
+Use Sheenflow to author workflows as directed acyclic graphs (DAGs) of tasks. The Sheenflow scheduler executes your tasks
+on an array of workers while following the specified dependencies. Rich command line utilities make performing complex surgeries
+on DAGs a snap. The rich user interface makes it easy to visualize pipelines running in production, monitor progress,
+and troubleshoot issues when needed.
+
+## Overview
+
+![sheenflow-overview](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/airflow/www/static/sheenflow-overview.jpg)
 
 ## Getting started
 
@@ -30,6 +37,32 @@ and [getting started](https://ciusji.gitbook.io/sheenflow/overview/quickstart).
 
 For more information on Sheenflow Improvement Proposals (AIPs), visit
 the [Sheenflow Docs](https://ciusji.gitbook.io/sheenflow/).
+
+## Documentation
+
+- [Welcome to Sheenflow!](https://ciusji.gitbook.io/sheenflow/)
+- [Overview](https://ciusji.gitbook.io/sheenflow/overview/quickstart)
+  - [Quickstart](https://ciusji.gitbook.io/sheenflow/overview/quickstart)
+  - [Installation](https://ciusji.gitbook.io/sheenflow/overview/installation)
+  - [Concepts](https://ciusji.gitbook.io/sheenflow/overview/concepts)
+- [Executors](https://ciusji.gitbook.io/sheenflow/executors/local-executors)
+  - [Local Executors](https://ciusji.gitbook.io/sheenflow/executors/local-executors)
+  - [Remote Executors](https://ciusji.gitbook.io/sheenflow/executors/remote-executors)
+- [DAGs](https://ciusji.gitbook.io/sheenflow/dags/dag-run-status)
+  - [DAG Run Status](https://ciusji.gitbook.io/sheenflow/dags/dag-run-status)
+  - [Cron Presets](https://ciusji.gitbook.io/sheenflow/dags/cron-presets)
+  - [External Triggers](https://ciusji.gitbook.io/sheenflow/dags/external-triggers)
+- [Lineage](https://ciusji.gitbook.io/sheenflow/lineage/shorthand-notation)
+  - [Shorthand Notation](https://ciusji.gitbook.io/sheenflow/lineage/shorthand-notation)
+  - [Lineage Backend](https://ciusji.gitbook.io/sheenflow/lineage/lineage-backend)
+- [Reference](https://ciusji.gitbook.io/sheenflow/references/operators-and-hooks)
+  - [Operators and Hooks](https://ciusji.gitbook.io/sheenflow/references/operators-and-hooks)
+  - [CLI](https://ciusji.gitbook.io/sheenflow/references/cli)
+  - [Template](https://ciusji.gitbook.io/sheenflow/references/templates)
+  - [APIs](https://ciusji.gitbook.io/sheenflow/references/apis)
+  - [Configurations](https://ciusji.gitbook.io/sheenflow/references/configurations)
+- [Appendix](https://ciusji.gitbook.io/sheenflow/appendix/faq)
+  - [FAQ](https://ciusji.gitbook.io/sheenflow/appendix/faq)
 
 ## Project Focus
 
@@ -64,32 +97,6 @@ Sheenflow is tested with:
 **Note**: Sheenflow currently can be run on POSIX-compliant Operating Systems. For development it is regularly
 tested on fairly modern Linux Distros and recent versions of MacOS.
 On Windows you can run it via WSL2 (Windows Subsystem for Linux 2) or via Linux Containers.
-
-## Snapshot & Gifs
-
-### Unified Login With [KeyCloak](https://www.keycloak.org/)
-
-![login](airflow/www/static/login.png)
-
-### Audit log
-
-![autid log](airflow/www/static/audit_log.png)
-
-### DAG calendar
-
-![dag calendar](airflow/www/static/dag_calendar.png)
-
-### DAG code
-
-![dag code](airflow/www/static/dag_code.png)
-
-### DAG graph
-
-![dag graph](airflow/www/static/dag_graph.png)
-
-### DAG Grid
-
-![dag grid](airflow/www/static/dag_grid.png)
 
 ## Approach for dependencies for Sheenflow Core
 
