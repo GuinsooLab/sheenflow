@@ -73,21 +73,21 @@ sanity_check:
 	@echo Checking for prod installs - if any are listed below reinstall with 'pip -e'
 	@! (pip list --exclude-editable | grep -e dagster -e dagit)
 
-rebuild_dagit: sanity_check
-	cd js_modules/dagit/; yarn install && yarn build
+rebuild_sheenlet: sanity_check
+	cd js_modules/sheenlet/; yarn install && yarn build
 
-rebuild_dagit_with_profiling: sanity_check
-	cd js_modules/dagit/; yarn install && yarn build-with-profiling
+rebuild_sheenlet_with_profiling: sanity_check
+	cd js_modules/sheenflow/; yarn install && yarn build-with-profiling
 
-dev_install: install_dev_python_modules_verbose rebuild_dagit
+dev_install: install_dev_python_modules_verbose rebuild_sheenlet
 
-dev_install_quiet: install_dev_python_modules rebuild_dagit
+dev_install_quiet: install_dev_python_modules rebuild_sheenlet
 
 graphql_tests:
-	pytest python_modules/dagster-graphql/dagster_graphql_tests/graphql/ -s -vv
+	pytest python_modules/sheenflow-graphql/sheenflow_graphql_tests/graphql/ -s -vv
 
 check_manifest:
-	check-manifest python_modules/dagster
-	check-manifest python_modules/dagit
-	check-manifest python_modules/dagster-graphql
+	check-manifest python_modules/sheenflow
+	check-manifest python_modules/sheenlet
+	check-manifest python_modules/sheenflow-graphql
 	ls python_modules/libraries | xargs -n 1 -Ipkg check-manifest python_modules/libraries/pkg
