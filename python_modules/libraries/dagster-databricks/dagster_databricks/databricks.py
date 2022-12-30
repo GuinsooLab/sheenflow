@@ -171,7 +171,7 @@ class DatabricksJobRunner:
             "Invalid value for run_config.cluster",
         )
 
-        # We'll always need some libraries, namely sheenflow/dagster_databricks/dagster_pyspark,
+        # We'll always need some libraries, namely sheenflow/dagster_databricks/sheenflow_pyspark,
         # since they're imported by our scripts.
         # Add them if they're not already added by users in config.
         libraries = list(run_config.get("libraries", []))
