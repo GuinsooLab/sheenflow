@@ -26,17 +26,17 @@ def mysql_instance_for_test(dunder_file, container_name, overrides=None):
                 overrides=merge_dicts(
                     {
                         "run_storage": {
-                            "module": "dagster_mysql.run_storage.run_storage",
+                            "module": "sheenflow_mysql.run_storage.run_storage",
                             "class": "MySQLRunStorage",
                             "config": {"mysql_url": mysql_conn_string},
                         },
                         "event_log_storage": {
-                            "module": "dagster_mysql.event_log.event_log",
+                            "module": "sheenflow_mysql.event_log.event_log",
                             "class": "MySQLEventLogStorage",
                             "config": {"mysql_url": mysql_conn_string},
                         },
                         "schedule_storage": {
-                            "module": "dagster_mysql.schedule_storage.schedule_storage",
+                            "module": "sheenflow_mysql.schedule_storage.schedule_storage",
                             "class": "MySQLScheduleStorage",
                             "config": {"mysql_url": mysql_conn_string},
                         },
@@ -67,7 +67,7 @@ class TestMySQLInstance:
     def conn_string(**kwargs):
         check.invariant(
             TestMySQLInstance.dagster_mysql_installed(),
-            "dagster_mysql must be installed to test with mysql",
+            "sheenflow_mysql must be installed to test with mysql",
         )
         from dagster_mysql.utils import get_conn_string  # pylint: disable=import-error
 
@@ -90,7 +90,7 @@ class TestMySQLInstance:
     def clean_run_storage(conn_string):
         check.invariant(
             TestMySQLInstance.dagster_mysql_installed(),
-            "dagster_mysql must be installed to test with mysql",
+            "sheenflow_mysql must be installed to test with mysql",
         )
         from dagster_mysql.run_storage import MySQLRunStorage  # pylint: disable=import-error
 
@@ -102,7 +102,7 @@ class TestMySQLInstance:
     def clean_event_log_storage(conn_string):
         check.invariant(
             TestMySQLInstance.dagster_mysql_installed(),
-            "dagster_mysql must be installed to test with mysql",
+            "sheenflow_mysql must be installed to test with mysql",
         )
         from dagster_mysql.event_log import MySQLEventLogStorage  # pylint: disable=import-error
 
@@ -114,7 +114,7 @@ class TestMySQLInstance:
     def clean_schedule_storage(conn_string):
         check.invariant(
             TestMySQLInstance.dagster_mysql_installed(),
-            "dagster_mysql must be installed to test with mysql",
+            "sheenflow_mysql must be installed to test with mysql",
         )
         from dagster_mysql.schedule_storage.schedule_storage import (  # pylint: disable=import-error
             MySQLScheduleStorage,
@@ -129,7 +129,7 @@ class TestMySQLInstance:
     def docker_service_up(docker_compose_file, service_name, conn_args=None):
         check.invariant(
             TestMySQLInstance.dagster_mysql_installed(),
-            "dagster_mysql must be installed to test with mysql",
+            "sheenflow_mysql must be installed to test with mysql",
         )
         check.str_param(service_name, "service_name")
         check.str_param(docker_compose_file, "docker_compose_file")

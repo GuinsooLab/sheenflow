@@ -214,7 +214,7 @@ dagit_extra_cmds = ["make rebuild_dagit"]
 
 
 mysql_extra_cmds = [
-    "pushd python_modules/libraries/sheenflow-mysql/dagster_mysql_tests/",
+    "pushd python_modules/libraries/sheenflow-mysql/sheenflow_mysql_tests/",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     *network_buildkite_container("mysql"),
     *network_buildkite_container("mysqlbackcompat"),

@@ -17,7 +17,7 @@ from dagster._utils import file_relative_path
 def full_mysql_config(hostname, port):
     return """
       run_storage:
-        module: dagster_mysql.run_storage
+        module: sheenflow_mysql.run_storage
         class: MySQLRunStorage
         config:
           mysql_db:
@@ -28,7 +28,7 @@ def full_mysql_config(hostname, port):
             db_name: test
 
       event_log_storage:
-        module: dagster_mysql.event_log
+        module: sheenflow_mysql.event_log
         class: MySQLEventLogStorage
         config:
             mysql_db:
@@ -39,7 +39,7 @@ def full_mysql_config(hostname, port):
               db_name: test
 
       schedule_storage:
-        module: dagster_mysql.schedule_storage
+        module: sheenflow_mysql.schedule_storage
         class: MySQLScheduleStorage
         config:
             mysql_db:
@@ -111,7 +111,7 @@ def test_load_instance(conn_string):
     MySQLScheduleStorage.wipe_storage(conn_string)
     engine = create_engine(conn_string, poolclass=NullPool)
     alembic_config = get_alembic_config(
-        file_relative_path(__file__, "../dagster_mysql/__init__.py")
+        file_relative_path(__file__, "../sheenflow_mysql/__init__.py")
     )
     with engine.connect() as conn:
         stamp_alembic_rev(alembic_config, conn, rev=None, quiet=False)

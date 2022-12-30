@@ -71,7 +71,7 @@ class DagsterMySQLStorage(DagsterStorage, ConfigurableClass):
     def event_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_mysql",
+                "sheenflow_mysql",
                 "MySQLEventLogStorage",
                 self.inst_data.config_yaml,
             )
@@ -83,7 +83,7 @@ class DagsterMySQLStorage(DagsterStorage, ConfigurableClass):
     def run_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_mysql",
+                "sheenflow_mysql",
                 "MySQLRunStorage",
                 self.inst_data.config_yaml,
             )
@@ -95,7 +95,7 @@ class DagsterMySQLStorage(DagsterStorage, ConfigurableClass):
     def schedule_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_mysql",
+                "sheenflow_mysql",
                 "MySQLScheduleStorage",
                 self.inst_data.config_yaml,
             )

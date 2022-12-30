@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 def get_version():
     version = {}
-    with open(Path(__file__).parent / "dagster_mysql/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_mysql/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -20,8 +20,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="A Dagster integration for MySQL",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-mysql",
+    description="A Sheenflow integration for MySQL",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -30,10 +29,10 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_mysql_tests*"]),
+    packages=find_packages(exclude=["sheenflow_mysql_tests*"]),
     package_data={
         "sheenflow-mysql": [
-            "dagster_mysql/alembic/*",
+            "sheenflow_mysql/alembic/*",
         ]
     },
     include_package_data=True,

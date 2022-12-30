@@ -95,23 +95,23 @@ def configurable_storage_data(
     elif "mysql" in config_field:
         config_yaml = yaml.dump(config_field["mysql"], default_flow_style=False)
         storage_data = ConfigurableClassData(
-            module_name="dagster_mysql",
+            module_name="sheenflow_mysql",
             class_name="DagsterMySQLStorage",
             config_yaml=config_yaml,
         )
         # for backwards compatibility
         run_storage_data = ConfigurableClassData(
-            module_name="dagster_mysql",
+            module_name="sheenflow_mysql",
             class_name="MySQLRunStorage",
             config_yaml=config_yaml,
         )
         event_storage_data = ConfigurableClassData(
-            module_name="dagster_mysql",
+            module_name="sheenflow_mysql",
             class_name="MySQLEventLogStorage",
             config_yaml=config_yaml,
         )
         schedule_storage_data = ConfigurableClassData(
-            module_name="dagster_mysql",
+            module_name="sheenflow_mysql",
             class_name="MySQLScheduleStorage",
             config_yaml=config_yaml,
         )

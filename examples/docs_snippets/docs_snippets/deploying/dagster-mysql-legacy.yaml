@@ -1,7 +1,7 @@
 # start_marker_runs
 
 run_storage:
- module: dagster_mysql.run_storage
+ module: sheenflow_mysql.run_storage
  class: MySQLRunStorage
  config:
   mysql_db:
@@ -16,7 +16,7 @@ run_storage:
 # start_marker_event_log
 
 event_log_storage:
- module: dagster_mysql.event_log
+ module: sheenflow_mysql.event_log
  class: MySQLEventLogStorage
  config:
   mysql_db:
@@ -31,7 +31,7 @@ event_log_storage:
 # start_marker_schedules
 
 schedule_storage:
- module: dagster_mysql.schedule_storage
+ module: sheenflow_mysql.schedule_storage
  class: MySQLScheduleStorage
  config:
   mysql_db:

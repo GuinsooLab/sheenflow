@@ -91,7 +91,7 @@ class TestMySQLEventLogStorage(TestEventLogStorage):
 
         url_cfg = """
         event_log_storage:
-            module: dagster_mysql.event_log
+            module: sheenflow_mysql.event_log
             class: MySQLEventLogStorage
             config:
                 mysql_url: mysql+mysqlconnector://test:test@{hostname}:{port}/test
@@ -101,7 +101,7 @@ class TestMySQLEventLogStorage(TestEventLogStorage):
 
         explicit_cfg = """
         event_log_storage:
-            module: dagster_mysql.event_log
+            module: sheenflow_mysql.event_log
             class: MySQLEventLogStorage
             config:
                 mysql_db:

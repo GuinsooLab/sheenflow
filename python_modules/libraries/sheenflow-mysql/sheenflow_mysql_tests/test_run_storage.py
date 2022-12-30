@@ -28,7 +28,7 @@ class TestMySQLRunStorage(TestRunStorage):
 
         url_cfg = """
           run_storage:
-            module: dagster_mysql.run_storage
+            module: sheenflow_mysql.run_storage
             class: MySQLRunStorage
             config:
               mysql_url: mysql+mysqlconnector://test:test@{hostname}:{port}/test
@@ -39,7 +39,7 @@ class TestMySQLRunStorage(TestRunStorage):
 
         explicit_cfg = """
           run_storage:
-            module: dagster_mysql.run_storage
+            module: sheenflow_mysql.run_storage
             class: MySQLRunStorage
             config:
               mysql_db:
@@ -56,7 +56,7 @@ class TestMySQLRunStorage(TestRunStorage):
         with environ({"TEST_MYSQL_PASSWORD": "test"}):
             env_cfg = """
             run_storage:
-              module: dagster_mysql.run_storage
+              module: sheenflow_mysql.run_storage
               class: MySQLRunStorage
               config:
                 mysql_db:
