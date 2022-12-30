@@ -11,7 +11,7 @@
 # - multiprocess
 # - celery (provided by sheenflow_celery)
 # - celery-k8s (provided by sheenflow_celery)
-# - dask (provided by dagster_dask)
+# - dask (provided by sheenflow_dask)
 execution:
   multiprocess:
     config:
