@@ -12,9 +12,9 @@ import click
 import yaml
 
 import itertools
-import dagster._check as check
-from dagster._utils import file_relative_path, mkdir_p
-from dagster._utils.merger import deep_merge_dicts
+import sheenflow._check as check
+from sheenflow._utils import file_relative_path, mkdir_p
+from sheenflow._utils.merger import deep_merge_dicts
 import textwrap
 
 

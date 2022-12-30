@@ -2,7 +2,7 @@
 import importlib
 import pkgutil
 
-import dagster
+import sheenflow
 import sqlalchemy as db
 from sqlalchemy.sql.schema import Column
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
             if is_pkg:
                 list_submodules(module_name)
 
-    list_submodules(dagster._core.storage)  # pylint: disable=protected-access
+    list_submodules(sheenflow._core.storage)  # pylint: disable=protected-access
 
     for schema_module in schema_modules:
         check_schema_compat(importlib.import_module(schema_module))

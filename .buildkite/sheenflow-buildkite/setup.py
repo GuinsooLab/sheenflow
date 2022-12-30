@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="dagster_buildkite",
+    name="sheenflow_buildkite",
     version="0.0.1",
     author="Elementl",
     author_email="hello@elementl.com",
@@ -26,7 +26,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "sheenflow-buildkite = dagster_buildkite.cli:sheenflow",
+            "sheenflow-buildkite = sheenflow_buildkite.cli:sheenflow",
         ]
     },
 )

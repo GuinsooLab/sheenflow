@@ -33,7 +33,7 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         *extra_packages,
     ]
 
-    # Not all libs are supported on all Python versions. Consult `dagster_buildkite.steps.packages`
+    # Not all libs are supported on all Python versions. Consult `sheenflow_buildkite.steps.packages`
     # as the source of truth on which packages support which Python versions. The building of
     # `install_targets` below should use `sys.version_info` checks to reflect this.
 
@@ -46,66 +46,30 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/automation",
         "-e python_modules/libraries/sheenflow-airbyte",
         "-e python_modules/libraries/sheenflow-airflow",
-        "-e python_modules/libraries/sheenflow-aws[test]",
         "-e python_modules/libraries/sheenflow-celery",
-        "-e python_modules/libraries/sheenflow-celery-docker",
-        '-e "python_modules/libraries/sheenflow-dask[yarn,pbs,kube]"',
-        "-e python_modules/libraries/sheenflow-databricks",
-        "-e python_modules/libraries/sheenflow-datadog",
+        '-e "python_modules/libraries/sheenflow-dask"',
         "-e python_modules/libraries/sheenflow-datahub",
-        "-e python_modules/libraries/sheenflow-docker",
-        "-e python_modules/libraries/sheenflow-gcp",
-        "-e python_modules/libraries/sheenflow-fivetran",
-        "-e python_modules/libraries/sheenflow-k8s",
-        "-e python_modules/libraries/sheenflow-celery-k8s",
-        "-e python_modules/libraries/sheenflow-github",
         "-e python_modules/libraries/sheenflow-mlflow",
         "-e python_modules/libraries/sheenflow-mysql",
-        "-e python_modules/libraries/sheenflow-pagerduty",
         "-e python_modules/libraries/sheenflow-pandas",
-        "-e python_modules/libraries/sheenflow-papertrail",
         "-e python_modules/libraries/sheenflow-postgres",
-        "-e python_modules/libraries/sheenflow-prometheus",
         "-e python_modules/libraries/sheenflow-pyspark",
         "-e python_modules/libraries/sheenflow-shell",
-        "-e python_modules/libraries/sheenflow-slack",
-        "-e python_modules/libraries/sheenflow-spark",
-        "-e python_modules/libraries/sheenflow-ssh",
-        "-e python_modules/libraries/sheenflow-twilio",
         "-e python_modules/libraries/sheenflowmill",
-        "-e integration_tests/python_modules/sheenflow-k8s-test-infra",
-        "-e python_modules/libraries/sheenflow-azure",
-        "-e python_modules/libraries/sheenflow-msteams",
         "-e python_modules/libraries/sheenflow-duckdb",
         "-e python_modules/libraries/sheenflow-duckdb-pandas",
-        "-e python_modules/libraries/sheenflow-duckdb-pyspark",
-        "-e helm/sheenflow/schema[test]",
         "-e .buildkite/sheenflow-buildkite",
     ]
 
     if sys.version_info > (3, 7):
         install_targets += [
             "-e python_modules/libraries/sheenflow-dbt",
-            "-e python_modules/libraries/sheenflow-pandera",
-            "-e python_modules/libraries/sheenflow-snowflake",
-            "-e python_modules/libraries/sheenflow-snowflake-pandas",
         ]
 
-    if sys.version_info > (3, 6) and sys.version_info < (3, 10):
+    if (3, 6) < sys.version_info < (3, 10):
         install_targets += [
             "-e python_modules/libraries/sheenflow-dbt",
         ]
-
-    # NOTE: `sheenflow-ge` is out of date and does not support recent versions of great expectations.
-    # Because of this, it has second-order dependencies on old versions of popular libraries like
-    # numpy which conflict with the requirements of our other libraries. For this reason, until
-    # sheenflow-ge is updated we won't install `sheenflow-ge` in the common dev environment or
-    # pre-install its dependencies in our BK images (which this script is used for).
-    #
-    # sheenflow-ge depends on a great_expectations version that does not install on Windows
-    # https://github.com/dagster-io/dagster/issues/3319
-    # if sys.version_info >= (3, 7) and os.name != "nt":
-    #     install_targets += ["-e python_modules/libraries/sheenflow-ge"]
 
     # NOTE: These need to be installed as one long pip install command, otherwise pip will install
     # conflicting dependencies, which will break pip freeze snapshot creation during the integration
