@@ -283,7 +283,7 @@ def python_target_click_options():
             "--working-directory",
             "-d",
             help="Specify working directory to use when loading the repository or job",
-            envvar="DAGSTER_WORKING_DIRECTORY",
+            envvar="SHEENFLOW_WORKING_DIRECTORY",
         ),
         click.option(
             "--python-file",
@@ -295,12 +295,12 @@ def python_target_click_options():
             help="Specify python file or files (flag can be used multiple times) where "
             "sheenflow definitions reside as top-level symbols/variables and load each "
             "file as a code location in the current python environment.",
-            envvar="DAGSTER_PYTHON_FILE",
+            envvar="SHEENFLOW_PYTHON_FILE",
         ),
         click.option(
             "--package-name",
             help="Specify Python package where repository or job function lives",
-            envvar="DAGSTER_PACKAGE_NAME",
+            envvar="SHEENFLOW_PACKAGE_NAME",
         ),
         click.option(
             "--module-name",
@@ -309,7 +309,7 @@ def python_target_click_options():
             help="Specify module or modules (flag can be used multiple times) where "
             "sheenflow definitions reside as top-level symbols/variables and load each "
             "module as a code location in the current python environment.",
-            envvar="DAGSTER_MODULE_NAME",
+            envvar="SHEENFLOW_MODULE_NAME",
         ),
         click.option(
             "--attribute",
@@ -318,7 +318,7 @@ def python_target_click_options():
                 "Attribute that is either a 1) repository or job or "
                 "2) a function that returns a repository or job"
             ),
-            envvar="DAGSTER_ATTRIBUTE",
+            envvar="SHEENFLOW_ATTRIBUTE",
         ),
     ]
 

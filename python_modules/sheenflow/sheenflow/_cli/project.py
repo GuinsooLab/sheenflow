@@ -22,25 +22,25 @@ def project_cli():
 
 scaffold_repository_command_help_text = (
     "(DEPRECATED; Use `sheenflow project scaffold-code-location` instead) "
-    "Create a folder structure with a single Dagster repository, in the current directory. "
-    "This CLI helps you to scaffold a new Dagster repository within a folder structure that "
-    "includes multiple Dagster repositories"
+    "Create a folder structure with a single Sheenflow repository, in the current directory. "
+    "This CLI helps you to scaffold a new Sheenflow repository within a folder structure that "
+    "includes multiple Sheenflow repositories"
 )
 
 scaffold_code_location_command_help_text = (
-    "Create a folder structure with a single Dagster code location, in the current directory. "
-    "This CLI helps you to scaffold a new Dagster code location within a folder structure that "
-    "includes multiple Dagster code locations."
+    "Create a folder structure with a single Sheenflow code location, in the current directory. "
+    "This CLI helps you to scaffold a new Sheenflow code location within a folder structure that "
+    "includes multiple Sheenflow code locations."
 )
 
 scaffold_command_help_text = (
-    "Create a folder structure with a single Dagster code location and other files such as "
-    "pyproject.toml. This CLI enables you to quickly start building a new Dagster project with "
+    "Create a folder structure with a single Sheenflow code location and other files such as "
+    "pyproject.toml. This CLI enables you to quickly start building a new Sheenflow project with "
     "everything set up."
 )
 
 from_example_command_help_text = (
-    "Download one of the official Dagster examples to the current directory. "
+    "Download one of the official Sheenflow examples to the current directory. "
     "This CLI enables you to quickly bootstrap your project with an officially maintained example."
 )
 
@@ -56,7 +56,7 @@ list_examples_command_help_text = "List the examples that available to bootstrap
     "--name",
     required=True,
     type=click.STRING,
-    help="Name of the new Dagster repository",
+    help="Name of the new Sheenflow repository",
 )
 def scaffold_repository_command(name: str):
     dir_abspath = os.path.abspath(name)
@@ -86,7 +86,7 @@ def scaffold_repository_command(name: str):
     "--name",
     required=True,
     type=click.STRING,
-    help="Name of the new Dagster code location",
+    help="Name of the new Sheenflow code location",
 )
 def scaffold_code_location_command(name: str):
     dir_abspath = os.path.abspath(name)
@@ -110,7 +110,7 @@ def scaffold_code_location_command(name: str):
     "--name",
     required=True,
     type=click.STRING,
-    help="Name of the new Dagster project",
+    help="Name of the new Sheenflow project",
 )
 def scaffold_command(name: str):
     dir_abspath = os.path.abspath(name)
@@ -134,7 +134,7 @@ def scaffold_command(name: str):
     "--name",
     required=True,
     type=click.STRING,
-    help="Name of the new Dagster project",
+    help="Name of the new Sheenflow project",
 )
 @click.option(
     "--example",
@@ -142,7 +142,7 @@ def scaffold_command(name: str):
     type=click.STRING,
     help=(
         "Name of the example to bootstrap with. You can use an example name from the official "
-        "examples in Dagster repo: https://github.com/dagster-io/dagster/tree/master/examples. "
+        "examples in Sheenflow repo: https://github.com/GuinsooLab/sheenflow/tree/master/examples. "
         "You can also find the available examples via `sheenflow project list-examples`."
     ),
 )

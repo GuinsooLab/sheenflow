@@ -1,13 +1,13 @@
 import click
 
-from dagster._core.definitions.events import AssetKey
-from dagster._core.instance import DagsterInstance
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.instance import DagsterInstance
 
 
 @click.group(name="asset")
 def asset_cli():
     """
-    Commands for working with Dagster assets.
+    Commands for working with Sheenflow assets.
     """
 
 

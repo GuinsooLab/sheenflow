@@ -319,12 +319,12 @@ def verify_step(instance, pipeline_run, retry_state, step_keys_to_execute):
         "interactively."
     ),
 )
-@click.argument("input_json", type=click.STRING, envvar="DAGSTER_EXECUTE_STEP_ARGS", required=False)
+@click.argument("input_json", type=click.STRING, envvar="SHEENFLOW_EXECUTE_STEP_ARGS", required=False)
 @click.option(
     "compressed_input_json",
     "--compressed-input-json",
     type=click.STRING,
-    envvar="DAGSTER_COMPRESSED_EXECUTE_STEP_ARGS",
+    envvar="SHEENFLOW_COMPRESSED_EXECUTE_STEP_ARGS",
 )
 def execute_step_command(input_json, compressed_input_json):
     with capture_interrupts():
@@ -463,14 +463,14 @@ def _execute_step_command_body(
         raise
 
 
-@api_cli.command(name="grpc", help="Serve the Dagster inter-process API over GRPC")
+@api_cli.command(name="grpc", help="Serve the Sheenflow inter-process API over GRPC")
 @click.option(
     "--port",
     "-p",
     type=click.INT,
     required=False,
     help="Port over which to serve. You must pass one and only one of --port/-p or --socket/-s.",
-    envvar="DAGSTER_GRPC_PORT",
+    envvar="SHEENFLOW_GRPC_PORT",
 )
 @click.option(
     "--socket",
@@ -478,7 +478,7 @@ def _execute_step_command_body(
     type=click.Path(),
     required=False,
     help="Serve over a UDS socket. You must pass one and only one of --port/-p or --socket/-s.",
-    envvar="DAGSTER_GRPC_SOCKET",
+    envvar="SHEENFLOW_GRPC_SOCKET",
 )
 @click.option(
     "--host",
@@ -487,7 +487,7 @@ def _execute_step_command_body(
     required=False,
     default="localhost",
     help="Hostname at which to serve. Default is localhost.",
-    envvar="DAGSTER_GRPC_HOST",
+    envvar="SHEENFLOW_GRPC_HOST",
 )
 @click.option(
     "--max_workers",
@@ -520,7 +520,7 @@ def _execute_step_command_body(
     help="Wait until the first LoadRepositories call to actually load the repositories, instead of "
     "waiting to load them when the server is launched. Useful for surfacing errors when the server "
     "is managed directly from Dagit",
-    envvar="DAGSTER_LAZY_LOAD_USER_CODE",
+    envvar="SHEENFLOW_LAZY_LOAD_USER_CODE",
 )
 @python_origin_target_argument
 @click.option(
@@ -533,7 +533,7 @@ def _execute_step_command_body(
     "default `sheenflow` entry point. This is useful when there are multiple Python environments "
     "running in the same machine, so a single `sheenflow` entry point is not enough to uniquely "
     "determine the environment.",
-    envvar="DAGSTER_USE_PYTHON_ENVIRONMENT_ENTRY_POINT",
+    envvar="SHEENFLOW_USE_PYTHON_ENVIRONMENT_ENTRY_POINT",
 )
 @click.option(
     "--empty-working-directory",
@@ -542,7 +542,7 @@ def _execute_step_command_body(
     default=False,
     help="Indicates that the working directory should be empty and should not set to the current "
     "directory as a default",
-    envvar="DAGSTER_EMPTY_WORKING_DIRECTORY",
+    envvar="SHEENFLOW_EMPTY_WORKING_DIRECTORY",
 )
 @click.option(
     "--ipc-output-file",
@@ -577,7 +577,7 @@ def _execute_step_command_body(
     type=click.STRING,
     required=False,
     help="Container image to use to run code from this server.",
-    envvar="DAGSTER_CONTAINER_IMAGE",
+    envvar="SHEENFLOW_CONTAINER_IMAGE",
 )
 @click.option(
     "--container-context",
@@ -585,7 +585,7 @@ def _execute_step_command_body(
     required=False,
     help="Serialized JSON with configuration for any containers created to run the "
     "code from this server.",
-    envvar="DAGSTER_CONTAINER_CONTEXT",
+    envvar="SHEENFLOW_CONTAINER_CONTEXT",
 )
 @click.option(
     "--inject-env-vars-from-instance",
@@ -593,21 +593,21 @@ def _execute_step_command_body(
     required=False,
     default=False,
     help="Whether to load env vars from the instance and inject them into the environment.",
-    envvar="DAGSTER_INJECT_ENV_VARS_FROM_INSTANCE",
+    envvar="SHEENFLOW_INJECT_ENV_VARS_FROM_INSTANCE",
 )
 @click.option(
     "--location-name",
     type=click.STRING,
     required=False,
     help="Name of the code location this server corresponds to.",
-    envvar="DAGSTER_LOCATION_NAME",
+    envvar="SHEENFLOW_LOCATION_NAME",
 )
 @click.option(
     "--instance-ref",
     type=click.STRING,
     required=False,
     help="[INTERNAL] Serialized InstanceRef to use for accessing the instance",
-    envvar="DAGSTER_INSTANCE_REF",
+    envvar="SHEENFLOW_INSTANCE_REF",
 )
 def grpc_command(
     port=None,
@@ -641,7 +641,7 @@ def grpc_command(
     configure_loggers(log_level=coerce_valid_log_level(log_level))
     logger = logging.getLogger("sheenflow")
 
-    container_image = container_image or os.getenv("DAGSTER_CURRENT_IMAGE")
+    container_image = container_image or os.getenv("SHEENFLOW_CURRENT_IMAGE")
 
     loadable_target_origin = None
     if any(
@@ -720,9 +720,9 @@ def grpc_command(
                 code_desc = f" for module {loadable_target_origin.module_name} "
 
         server_desc = (
-            f"Dagster code server{code_desc}on port {port} in process {os.getpid()}"
+            f"Sheenflow code server{code_desc}on port {port} in process {os.getpid()}"
             if port
-            else f"Dagster code server{code_desc}in process {os.getpid()}"
+            else f"Sheenflow code server{code_desc}in process {os.getpid()}"
         )
 
         logger.info("Started %s", server_desc)
@@ -733,7 +733,7 @@ def grpc_command(
             logger.info("Shutting down %s", server_desc)
 
 
-@api_cli.command(name="grpc-health-check", help="Check the status of a sheenflow GRPC server")
+@api_cli.command(name="grpc-health-check", help="Check the status of a Sheenflow GRPC server")
 @click.option(
     "--port",
     "-p",

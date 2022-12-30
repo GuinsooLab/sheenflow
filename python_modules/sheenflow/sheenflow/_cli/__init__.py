@@ -35,12 +35,12 @@ def create_dagster_cli():
     )
     @click.version_option(__version__, "--version", "-v")
     def group():
-        "CLI tools for working with Dagster."
+        "CLI tools for working with Sheenflow."
 
     return group
 
 
-ENV_PREFIX = "DAGSTER_CLI"
+ENV_PREFIX = "SHEENFLOW_CLI"
 cli = create_dagster_cli()
 
 

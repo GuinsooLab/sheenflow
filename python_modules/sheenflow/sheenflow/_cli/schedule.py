@@ -21,7 +21,7 @@ from dagster._core.scheduler.scheduler import DagsterDaemonScheduler
 @click.group(name="schedule")
 def schedule_cli():
     """
-    Commands for working with Dagster schedules.
+    Commands for working with Sheenflow schedules.
     """
 
 
@@ -126,16 +126,16 @@ def check_repo_and_scheduler(repository: ExternalRepository, instance: DagsterIn
             "There are no schedules defined for repository {name}.".format(name=repository_name)
         )
 
-    if not os.getenv("DAGSTER_HOME"):
+    if not os.getenv("SHEENFLOW_HOME"):
         raise click.UsageError(
             (
-                "The environment variable $DAGSTER_HOME is not set. Dagster requires this "
+                "The environment variable $SHEENFLOW_HOME is not set. Sheenflow requires this "
                 "environment variable to be set to an existing directory in your filesystem "
                 "that contains your sheenflow instance configuration file (sheenflow.yaml).\n"
                 "You can resolve this error by exporting the environment variable."
                 "For example, you can run the following command in your shell or "
                 "include it in your shell configuration file:\n"
-                '\texport DAGSTER_HOME="~/dagster_home"'
+                '\texport Sheenflow_HOME="~/Sheenflow_home"'
                 "\n\n"
             )
         )
@@ -332,10 +332,10 @@ def execute_logs_command(schedule_name, cli_args, print_fn, instance=None):
 
             if isinstance(instance.scheduler, DagsterDaemonScheduler):
                 return print_fn(
-                    "This command is deprecated for the DagsterDaemonScheduler. "
-                    "Logs for the DagsterDaemonScheduler written to the process output. "
+                    "This command is deprecated for the SheenflowDaemonScheduler. "
+                    "Logs for the SheenflowDaemonScheduler written to the process output. "
                     "For help troubleshooting the Daemon Scheduler, see "
-                    "https://docs.dagster.io/troubleshooting/schedules"
+                    "https://ciusji.gitbook.io/sheenflow/concepts/schedule-and-sensors/schedules"
                 )
 
             logs_path = os.path.join(

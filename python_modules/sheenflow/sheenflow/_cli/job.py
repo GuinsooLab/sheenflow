@@ -61,7 +61,7 @@ from .utils import get_instance_for_service
 @click.group(name="job")
 def job_cli():
     """
-    Commands for working with Dagster jobs.
+    Commands for working with Sheenflow jobs.
     """
 
 
@@ -416,7 +416,7 @@ def do_execute_command(
 
 @job_cli.command(
     name="launch",
-    help="Launch a job using the run launcher configured on the Dagster instance.\n\n{instructions}".format(
+    help="Launch a job using the run launcher configured on the Sheenflow instance.\n\n{instructions}".format(
         instructions=get_job_instructions("launch")
     ),
 )

@@ -33,9 +33,9 @@ def export_run(instance, run, output_file):
 @click.group(name="debug")
 def debug_cli():
     """
-    Commands for helping debug Dagster issues by dumping or loading artifacts from specific runs.
+    Commands for helping debug Sheenflow issues by dumping or loading artifacts from specific runs.
 
-    This can be used to send a file to someone like the Dagster team who doesn't have direct access
+    This can be used to send a file to someone like the Sheenflow team who doesn't have direct access
     to your instance to allow them to view the events and details of a specific run.
 
     Debug files can be viewed using `sheenlet-debug` cli.

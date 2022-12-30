@@ -18,7 +18,7 @@ def get_instance_for_service(service_name):
         with tempfile.TemporaryDirectory(dir=os.getcwd()) as tempdir:
             click.echo(
                 f"Using temporary directory {tempdir} for storage. This will be removed when {service_name} exits.\n"
-                "To persist information across sessions, set the environment variable DAGSTER_HOME to a directory to use.\n"
+                "To persist information across sessions, set the environment variable SHEENFLOW_HOME to a directory to use.\n"
             )
             with DagsterInstance.local_temp(tempdir) as instance:
                 yield instance

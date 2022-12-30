@@ -27,7 +27,7 @@ from dagster._utils.yaml_utils import dump_run_config_yaml
 @click.group(name="sensor")
 def sensor_cli():
     """
-    Commands for working with Dagster sensors.
+    Commands for working with Sheenflow sensors.
     """
 
 
@@ -90,16 +90,16 @@ def check_repo_and_scheduler(repository: ExternalRepository, instance: DagsterIn
             "There are no sensors defined for repository {name}.".format(name=repository_name)
         )
 
-    if not os.getenv("DAGSTER_HOME"):
+    if not os.getenv("SHEENFLOW_HOME"):
         raise click.UsageError(
             (
-                "The environment variable $DAGSTER_HOME is not set. Dagster requires this "
+                "The environment variable $SHEENFLOW_HOME is not set. Sheenflow requires this "
                 "environment variable to be set to an existing directory in your filesystem "
                 "that contains your sheenflow instance configuration file (sheenflow.yaml).\n"
                 "You can resolve this error by exporting the environment variable."
                 "For example, you can run the following command in your shell or "
                 "include it in your shell configuration file:\n"
-                '\texport DAGSTER_HOME="~/dagster_home"'
+                '\texport SHEENFLOW_HOME="~/sheenflow_home"'
                 "\n\n"
             )
         )
