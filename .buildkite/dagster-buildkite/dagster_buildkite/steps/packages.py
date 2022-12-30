@@ -465,7 +465,7 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         retries=2,
     ),
     PackageSpec(
-        "python_modules/libraries/dagstermill",
+        "python_modules/libraries/sheenflowmill",
         pytest_tox_factors=["papermill1", "papermill2"],
     ),
     PackageSpec(

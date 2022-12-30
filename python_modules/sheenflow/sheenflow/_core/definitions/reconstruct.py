@@ -381,7 +381,7 @@ def reconstructable(target: Callable[..., "PipelineDefinition"]) -> Reconstructa
     or a function decorated with :py:func:`@pipeline <sheenflow.pipeline>`/:py:func:`@job <sheenflow.job>`.
 
     When your pipeline/job must cross process boundaries, e.g., for execution on multiple nodes or
-    in different systems (like ``dagstermill``), Dagster must know how to reconstruct the pipeline/job
+    in different systems (like ``sheenflowmill``), Dagster must know how to reconstruct the pipeline/job
     on the other side of the process boundary.
 
     Passing a job created with ``~sheenflow.GraphDefinition.to_job`` to ``reconstructable()``,
@@ -503,7 +503,7 @@ def build_reconstructable_job(
     Create a :py:class:`sheenflow._core.definitions.reconstructable.ReconstructablePipeline`.
 
     When your job must cross process boundaries, e.g., for execution on multiple nodes or in
-    different systems (like ``dagstermill``), Dagster must know how to reconstruct the job
+    different systems (like ``sheenflowmill``), Dagster must know how to reconstruct the job
     on the other side of the process boundary.
 
     This function allows you to use the strategy of your choice for reconstructing jobs, so

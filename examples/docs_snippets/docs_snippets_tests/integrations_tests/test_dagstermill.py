@@ -51,7 +51,7 @@ def exec_for_test(module_name, fn_name, env=None, raise_on_error=True, **kwargs)
 
 @pytest.mark.flaky(reruns=1)
 def test_config_asset():
-    module_path = "docs_snippets.integrations.dagstermill.iris_notebook_config"
+    module_path = "docs_snippets.integrations.sheenflowmill.iris_notebook_config"
     if not IS_BUILDKITE:
         module_path = "examples.docs_snippets." + module_path
 
@@ -64,7 +64,7 @@ def test_config_asset():
 
 @pytest.mark.flaky(reruns=1)
 def test_iris_classify_job():
-    module_path = "docs_snippets.integrations.dagstermill.iris_notebook_op"
+    module_path = "docs_snippets.integrations.sheenflowmill.iris_notebook_op"
     if not IS_BUILDKITE:
         module_path = "examples.docs_snippets." + module_path
 
@@ -77,7 +77,7 @@ def test_iris_classify_job():
 
 @pytest.mark.flaky(reruns=1)
 def test_outputs_job():
-    module_path = "docs_snippets.integrations.dagstermill.notebook_outputs"
+    module_path = "docs_snippets.integrations.sheenflowmill.notebook_outputs"
     if not IS_BUILDKITE:
         module_path = "examples.docs_snippets." + module_path
 

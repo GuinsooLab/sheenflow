@@ -31,7 +31,7 @@ RUN pip install \
     -e modules/sheenflow-celery-docker \
     -e modules/sheenflow-docker \
     -e modules/sheenflow-airflow \
-    -e modules/dagstermill \
+    -e modules/sheenflowmill \
     -e . \
     pyparsing\<3.0.0
 

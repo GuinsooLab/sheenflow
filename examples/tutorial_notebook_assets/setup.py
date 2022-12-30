@@ -5,7 +5,7 @@ setup(
     packages=find_packages(exclude=["tutorial_notebook_assets"]),
     install_requires=[
         "sheenflow>=1.0.16",
-        "dagstermill>=0.16.16",
+        "sheenflowmill>=0.16.16",
         "papermill-origami>=0.0.8",
         "pandas",
         "matplotlib",

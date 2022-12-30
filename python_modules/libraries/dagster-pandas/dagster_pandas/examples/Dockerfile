@@ -15,7 +15,7 @@ WORKDIR /tmp/
 
 ADD . .
 
-RUN pip install --upgrade pip && pip install -e sheenflow && pip install sheenlet && pip install sheenflow-pandas && pip install dagstermill && pip install pytest
+RUN pip install --upgrade pip && pip install -e sheenflow && pip install sheenlet && pip install sheenflow-pandas && pip install sheenflowmill && pip install pytest
 
 # ENTRYPOINT [ "sheenlet" ]
 # 

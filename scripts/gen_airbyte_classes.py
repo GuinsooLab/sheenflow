@@ -454,13 +454,13 @@ def load_from_spec_file(
 SOURCE_OUT_FILE = os.path.abspath(
     file_relative_path(
         __file__,
-        "../python_modules/libraries/sheenflow-airbyte/dagster_airbyte/managed/generated/sources.py",
+        "../python_modules/libraries/sheenflow-airbyte/sheenflow_airbyte/managed/generated/sources.py",
     )
 )
 DEST_OUT_FILE = os.path.abspath(
     file_relative_path(
         __file__,
-        "../python_modules/libraries/sheenflow-airbyte/dagster_airbyte/managed/generated/destinations.py",
+        "../python_modules/libraries/sheenflow-airbyte/sheenflow_airbyte/managed/generated/destinations.py",
     )
 )
 
@@ -523,7 +523,7 @@ def gen_airbyte_classes(airbyte_repo_root, airbyte_tag):
             out = f"""# pylint: disable=unused-import,redefined-builtin
 from typing import Any, List, Optional, Union
 
-from dagster_airbyte.managed.types import {imp}
+from sheenflow_airbyte.managed.types import {imp}
 
 import sheenflow._check as check
 from sheenflow._annotations import public

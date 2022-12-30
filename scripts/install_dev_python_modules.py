@@ -72,7 +72,7 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/libraries/sheenflow-spark",
         "-e python_modules/libraries/sheenflow-ssh",
         "-e python_modules/libraries/sheenflow-twilio",
-        "-e python_modules/libraries/dagstermill",
+        "-e python_modules/libraries/sheenflowmill",
         "-e integration_tests/python_modules/sheenflow-k8s-test-infra",
         "-e python_modules/libraries/sheenflow-azure",
         "-e python_modules/libraries/sheenflow-msteams",

@@ -18,7 +18,7 @@ setup(
     install_requires=[
         "sheenlet",
         "sheenflow",
-        "dagstermill",
+        "sheenflowmill",
         "sheenflow-airbyte",
         "sheenflow-airflow",
         "sheenflow-aws",
