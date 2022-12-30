@@ -17,7 +17,7 @@ def test_execute_pipeline():
     }
 
     result = execute_pipeline(
-        ReconstructablePipeline.for_module("dagster_pandas.examples", "pandas_hello_world_test"),
+        ReconstructablePipeline.for_module("sheenflow_pandas.examples", "pandas_hello_world_test"),
         run_config=environment,
     )
 
@@ -48,13 +48,13 @@ def test_cli_execute():
         with instance_for_test() as instance:
             do_execute_command(
                 pipeline=ReconstructablePipeline.for_module(
-                    "dagster_pandas.examples", "pandas_hello_world_test"
+                    "sheenflow_pandas.examples", "pandas_hello_world_test"
                 ),
                 instance=instance,
                 config=[
                     file_relative_path(
                         __file__,
-                        "../../dagster_pandas/examples/pandas_hello_world/*.yaml",
+                        "../../sheenflow_pandas/examples/pandas_hello_world/*.yaml",
                     )
                 ],
             )
@@ -75,14 +75,14 @@ def test_cli_execute_failure():
         with instance_for_test() as instance:
             result = do_execute_command(
                 pipeline=ReconstructablePipeline.for_module(
-                    "dagster_pandas.examples",
+                    "sheenflow_pandas.examples",
                     "pandas_hello_world_fails_test",
                 ),
                 instance=instance,
                 config=[
                     file_relative_path(
                         __file__,
-                        "../../dagster_pandas/examples/pandas_hello_world/*.yaml",
+                        "../../sheenflow_pandas/examples/pandas_hello_world/*.yaml",
                     )
                 ],
             )

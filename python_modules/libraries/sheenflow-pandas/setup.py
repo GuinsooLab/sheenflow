@@ -13,7 +13,7 @@ def long_description() -> str:
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_pandas/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_pandas/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -34,7 +34,6 @@ setup(
     ),
     long_description=long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/dagster-io/dagster",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -43,7 +42,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_pandas_tests*"]),
+    packages=find_packages(exclude=["sheenflow_pandas_tests*"]),
     include_package_data=True,
     install_requires=[f"sheenflow{pin}", "pandas"],
 )

@@ -624,8 +624,8 @@ def non_null_validation(x):
     validates that a particular value in a column is not null
     Usage:
         pass this as a column validator to
-        :py:class:'~dagster_pandas.constraints.ColumnConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiColumnConstraintWithMetadata'
+        :py:class:'~sheenflow_pandas.constraints.ColumnConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiColumnConstraintWithMetadata'
         Generally, you should prefer to use nonnull as a decorator/wrapper rather than using this
         directly.
     """
@@ -639,8 +639,8 @@ def all_unique_validator(column, ignore_missing_vals=False):
 
     Usage:
         As a validation function for a
-        :py:class:'~dagster_pandas.constraints.ColumnAggregateConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiAggregateConstraintWithMetadata'
+        :py:class:'~sheenflow_pandas.constraints.ColumnAggregateConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiAggregateConstraintWithMetadata'
     Example:
         .. code-block:: python
             aggregate_validator = MultiAggregateConstraintWithMetadata(
@@ -675,8 +675,8 @@ def nonnull(func):
     decorator for column validation functions to make them error on nulls
     Usage:
         pass decorated functions as column validators to
-        :py:class:'~dagster_pandas.constraints.ColumnConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiColumnConstraintWithMetadata'
+        :py:class:'~sheenflow_pandas.constraints.ColumnConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiColumnConstraintWithMetadata'
     Args:
         func (Callable[[Any], Tuple[bool, dict[str, Union[dict,list, str, set]]]]]):
             the column validator you want to error on nulls
@@ -704,8 +704,8 @@ def column_range_validation_factory(minim=None, maxim=None, ignore_missing_vals=
     Returns: a validation function for this constraint
     Usage:
         pass returned functions as column validators to
-         :py:class:'~dagster_pandas.constraints.ColumnConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiColumnConstraintWithMetadata'
+         :py:class:'~sheenflow_pandas.constraints.ColumnConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiColumnConstraintWithMetadata'
     Examples:
         .. code-block:: python
             in_range_validator = column_range_validation_factory(1, 3, ignore_missing_vals=True)
@@ -766,8 +766,8 @@ def categorical_column_validator_factory(categories, ignore_missing_vals=False):
 
     Usage:
         pass returned functions as column validators to
-        :py:class:'~dagster_pandas.constraints.ColumnConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiColumnConstraintWithMetadata'
+        :py:class:'~sheenflow_pandas.constraints.ColumnConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiColumnConstraintWithMetadata'
 
     Example:
         .. code-block:: python
@@ -821,8 +821,8 @@ def dtype_in_set_validation_factory(datatypes, ignore_missing_vals=False):
 
     Usage:
         pass returned functions as column validators to
-        :py:class:'~dagster_pandas.constraints.ColumnConstraintWithMetadata'
-        or :py:class:'~dagster_pandas.constraints.MultiColumnConstraintWithMetadata'
+        :py:class:'~sheenflow_pandas.constraints.ColumnConstraintWithMetadata'
+        or :py:class:'~sheenflow_pandas.constraints.MultiColumnConstraintWithMetadata'
 
     Examples:
         .. code-block:: python

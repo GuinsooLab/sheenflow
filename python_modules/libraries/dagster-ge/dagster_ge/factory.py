@@ -54,7 +54,7 @@ def ge_validation_op_factory(
             'action_list_operator'.
             See https://docs.greatexpectations.io/en/latest/reference/core_concepts/validation_operators_and_actions.html
         input_dagster_type (DagsterType): the Dagster type used to type check the input to the op.
-            Defaults to `dagster_pandas.DataFrame`.
+            Defaults to `sheenflow_pandas.DataFrame`.
         batch_kwargs (Optional[dict]): overrides the `batch_kwargs` parameter when calling the
             `ge_data_context`'s `get_batch` method. Defaults to `{"dataset": dataset}`, where
             `dataset` is the input to the generated op.
@@ -152,7 +152,7 @@ def ge_validation_op_factory_v3(
             batch of data. To learn more about batch identifiers, see:
             https://docs.greatexpectations.io/docs/reference/datasources#batches.
         input_dagster_type (DagsterType): the Dagster type used to type check the input to the op.
-            Defaults to `dagster_pandas.DataFrame`.
+            Defaults to `sheenflow_pandas.DataFrame`.
         runtime_method_type (str): how GE should interperet the op input. One of ("batch_data",
             "path", "query"). Defaults to "batch_data", which will interperet the input as an
             in-memory object.

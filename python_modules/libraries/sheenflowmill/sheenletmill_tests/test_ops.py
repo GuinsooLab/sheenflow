@@ -21,7 +21,7 @@ from dagster._core.test_utils import instance_for_test
 from dagster._legacy import execute_pipeline
 from dagster._utils import file_relative_path, safe_tempfile_path
 
-DAGSTER_PANDAS_PRESENT = importlib.util.find_spec("dagster_pandas") is not None
+DAGSTER_PANDAS_PRESENT = importlib.util.find_spec("sheenflow_pandas") is not None
 SKLEARN_PRESENT = importlib.util.find_spec("sklearn") is not None
 MATPLOTLIB_PRESENT = importlib.util.find_spec("matplotlib") is not None
 
@@ -313,7 +313,7 @@ def test_error_notebook():
 @pytest.mark.notebook_test
 @pytest.mark.skipif(
     not (DAGSTER_PANDAS_PRESENT and SKLEARN_PRESENT and MATPLOTLIB_PRESENT),
-    reason="tutorial_job reqs not present: dagster_pandas, sklearn, matplotlib",
+    reason="tutorial_job reqs not present: sheenflow_pandas, sklearn, matplotlib",
 )
 def test_tutorial_job():
     with exec_for_test(

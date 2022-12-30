@@ -10,7 +10,7 @@ from dagster._utils import file_relative_path
 
 def test_papermill_pandas_hello_world_pipeline():
     job = ReconstructablePipeline.for_module(
-        "dagster_pandas.examples", "papermill_pandas_hello_world_test"
+        "sheenflow_pandas.examples", "papermill_pandas_hello_world_test"
     )
 
     with tempfile.TemporaryDirectory() as temp_dir:
