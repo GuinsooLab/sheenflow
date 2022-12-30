@@ -47,15 +47,15 @@ module.exports = {
         paths: [
           {
             name: '@blueprintjs/core',
-            message: 'Please use components from @sheenflow-io/ui instead.',
+            message: 'Please use components from ui instead.',
           },
           {
             name: '@blueprintjs/popover2',
-            message: 'Please use components from @sheenflow-io/ui instead.',
+            message: 'Please use components from ui instead.',
           },
           {
             name: '@blueprintjs/select',
-            message: 'Please use components from @sheenflow-io/ui instead.',
+            message: 'Please use components from ui instead.',
           },
           {
             name: 'graphql-tag',

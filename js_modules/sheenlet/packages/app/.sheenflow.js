@@ -33,8 +33,8 @@ module.exports = {
    * }
    */
   moduleAliases: {
-    '@dagster-io/dagit-core': dagitCorePath,
-    '@dagster-io/ui': dagitUIPath,
+    '@sheenletsheenlet-core': dagitCorePath,
+    'ui': dagitUIPath,
   },
 
   /**

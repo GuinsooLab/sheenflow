@@ -1,7 +1,6 @@
 # pylint: disable=print-call
 import argparse
 import subprocess
-import sys
 from typing import List
 
 # We allow extra packages to be passed in via the command line because pip's version resolution
@@ -46,6 +45,7 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/automation",
         "-e python_modules/libraries/sheenflow-airbyte",
         "-e python_modules/libraries/sheenflow-airflow",
+        "-e python_modules/libraries/sheenflow-dbt",
         "-e python_modules/libraries/sheenflow-celery",
         '-e "python_modules/libraries/sheenflow-dask"',
         "-e python_modules/libraries/sheenflow-datahub",
@@ -60,16 +60,6 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/libraries/sheenflow-duckdb-pandas",
         "-e .buildkite/sheenflow-buildkite",
     ]
-
-    if sys.version_info > (3, 7):
-        install_targets += [
-            "-e python_modules/libraries/sheenflow-dbt",
-        ]
-
-    if (3, 6) < sys.version_info < (3, 10):
-        install_targets += [
-            "-e python_modules/libraries/sheenflow-dbt",
-        ]
 
     # NOTE: These need to be installed as one long pip install command, otherwise pip will install
     # conflicting dependencies, which will break pip freeze snapshot creation during the integration

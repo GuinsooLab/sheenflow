@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config",
+  "name": "@sheenlet/eslint-config",
   "version": "1.0.7",
   "description": "Shared eslint configuration",
   "license": "Apache-2.0",

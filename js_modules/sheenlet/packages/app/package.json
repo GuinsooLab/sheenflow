@@ -1,5 +1,5 @@
 {
-  "name": "sheenlet-app",
+  "name": "@sheenlet/sheenlet-app",
   "version": "1.0.0",
   "private": true,
   "description": "Sheenlet Application Shell",
@@ -9,8 +9,8 @@
     "@blueprintjs/core": "^3.45.0",
     "@blueprintjs/popover2": "0.10.1",
     "@blueprintjs/select": "^3.16.4",
-    "@dagster-io/dagit-core": "workspace:*",
-    "@dagster-io/ui": "workspace:*",
+    "@sheenlet/sheenlet-core": "workspace:*",
+    "@sheenlet/ui": "workspace:*",
     "graphql": "^15.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,8 +22,8 @@
     "web-vitals": "^2.1.3"
   },
   "devDependencies": {
-    "@dagster-io/eslint-config": "workspace:*",
     "@dagster-io/react-scripts": "5.0.4",
+    "@sheenlet/eslint-config": "workspace:*",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.20",
     "@types/react": "17.0.4",

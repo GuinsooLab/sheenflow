@@ -51,7 +51,7 @@ pylint:
     `git ls-files '.buildkite/*.py' 'examples/*.py' 'integration_tests/*.py' \
       'helm/*.py' 'python_modules/*.py' 'scripts/*.py' \
       ':!:examples/with_airflow' \
-      ':!:python_modules/libraries/dagster-airflow' \
+      ':!:python_modules/libraries/sheenflow-airflow' \
       ':!:vendor' \
       ':!:*/snapshots/*.py'`
 
@@ -66,18 +66,18 @@ install_dev_python_modules_verbose:
 	python scripts/install_dev_python_modules.py
 
 graphql:
-	cd js_modules/dagit/; make generate-graphql; make generate-perms
+	cd js_modules/sheenlet/; make generate-graphql; make generate-perms
 
 sanity_check:
 #NOTE:  fails on nonPOSIX-compliant shells (e.g. CMD, powershell)
 	@echo Checking for prod installs - if any are listed below reinstall with 'pip -e'
-	@! (pip list --exclude-editable | grep -e dagster -e dagit)
+	@! (pip list --exclude-editable | grep -e sheenflow -e sheenlet)
 
 rebuild_sheenlet: sanity_check
 	cd js_modules/sheenlet/; yarn install && yarn build
 
 rebuild_sheenlet_with_profiling: sanity_check
-	cd js_modules/sheenflow/; yarn install && yarn build-with-profiling
+	cd js_modules/sheenlet/; yarn install && yarn build-with-profiling
 
 dev_install: install_dev_python_modules_verbose rebuild_sheenlet
 

@@ -1,14 +1,14 @@
 {
-  "name": "sheenlet-workspace",
+  "name": "@sheenlet/sheenlet-workspace",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "yarn workspace sheenlet-app build && yarn post-build",
-    "build-with-profiling": "yarn workspace sheenlet-app build --profile && yarn post-build",
+    "build-with-profiling": "yarn workspace @sheenlet/sheenlet-app build --profile && yarn post-build",
     "post-build": "cd ../../python_modules/sheenlet/sheenlet && rm -rf webapp && mkdir -p webapp && cp -r ../../../js_modules/sheenlet/packages/app/build ./webapp/ && mkdir -p webapp/build/vendor && cp -r graphql-playground ./webapp/build/vendor",
-    "lint": "yarn workspace sheenlet-app lint && yarn workspace sheenlet-core lint && yarn workspace ui lint",
-    "start": "yarn workspace sheenlet-app start",
-    "ts": "yarn workspace sheenlet-app ts && yarn workspace ui ts"
+    "lint": "yarn workspace @sheenlet/sheenlet-app lint && yarn workspace @sheenlet/sheenlet-core lint && yarn workspace @sheenlet/ui lint",
+    "start": "yarn workspace @sheenlet/sheenlet-app start",
+    "ts": "yarn workspace @sheenlet/sheenlet-app ts && yarn workspace @sheenlet/ui ts"
   },
   "workspaces": {
     "packages": [

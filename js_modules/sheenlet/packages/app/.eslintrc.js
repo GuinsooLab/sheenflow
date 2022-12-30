@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@sheenflow-io/eslint-config'],
+  extends: ['eslint-config'],
 };
