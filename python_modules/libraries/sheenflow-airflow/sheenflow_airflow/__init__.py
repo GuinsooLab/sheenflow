@@ -33,7 +33,7 @@ __all__ = [
 
 
 class DagsterAirflowPlugin(AirflowPlugin):
-    name = "dagster_airflow"
+    name = "sheenflow_airflow"
     hooks = [DagsterHook]
     operators = [DagsterOperator, DagsterCloudOperator]
     operator_extra_links = [
@@ -46,11 +46,11 @@ def get_provider_info():
         "package-name": "sheenflow-airflow",
         "name": "Dagster Airflow",
         "description": "`Dagster <https://docs.dagster.io>`__",
-        "hook-class-names": ["dagster_airflow.hooks.dagster_hook.DagsterHook"],
+        "hook-class-names": ["sheenflow_airflow.hooks.dagster_hook.DagsterHook"],
         "connection-types": [
             {
                 "connection-type": "sheenflow",
-                "hook-class-name": "dagster_airflow.hooks.dagster_hook.DagsterHook",
+                "hook-class-name": "sheenflow_airflow.hooks.dagster_hook.DagsterHook",
             }
         ],
         "versions": [__version__],

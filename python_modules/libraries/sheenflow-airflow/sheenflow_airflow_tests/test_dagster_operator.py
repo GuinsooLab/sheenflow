@@ -36,8 +36,8 @@ else:
 
 @requires_airflow_db
 class TestDagsterOperator(unittest.TestCase):
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
     def test_operator(self, launch_run, wait_for_run):
         dag = DAG(dag_id="anydag", start_date=datetime.now())
         run_config = {"foo": "bar"}
@@ -69,10 +69,10 @@ class TestDagsterOperator(unittest.TestCase):
         launch_run.assert_called_once()
         wait_for_run.assert_called_once()
 
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
     @mock.patch(
-        "dagster_airflow.hooks.dagster_hook.DagsterHook.get_connection",
+        "sheenflow_airflow.hooks.dagster_hook.DagsterHook.get_connection",
         return_value=MOCK_DAGSTER_CONNECTION,
     )
     @pytest.mark.skipif(airflow_version < "2.0.0", reason="sheenflow connection requires airflow 2")

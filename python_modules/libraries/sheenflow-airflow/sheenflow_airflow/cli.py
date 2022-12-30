@@ -51,7 +51,7 @@ def construct_scaffolded_file_contents(module_name, job_name, run_config):
     printer.line("import datetime")
     printer.blank_line()
     printer.line("import yaml")
-    printer.line("from dagster_airflow.factory import make_airflow_dag")
+    printer.line("from sheenflow_airflow.factory import make_airflow_dag")
     printer.blank_line()
     printer.line("#" * 80)
     printer.comment("#")

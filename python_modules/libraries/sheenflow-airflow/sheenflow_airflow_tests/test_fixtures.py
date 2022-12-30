@@ -84,7 +84,7 @@ def dagster_airflow_python_operator_pipeline():
     """This is a test fixture for running Dagster pipelines as Airflow DAGs.
 
     Usage:
-        from dagster_airflow_tests.test_fixtures import dagster_airflow_python_operator_pipeline
+        from sheenflow_airflow_tests.test_fixtures import dagster_airflow_python_operator_pipeline
 
         def test_airflow(dagster_airflow_python_operator_pipeline):
             results = dagster_airflow_python_operator_pipeline(
@@ -129,7 +129,7 @@ def dagster_airflow_custom_operator_pipeline():
     """This is a test fixture for running Dagster pipelines with custom operators as Airflow DAGs.
 
     Usage:
-        from dagster_airflow_tests.test_fixtures import dagster_airflow_custom_operator_pipeline
+        from sheenflow_airflow_tests.test_fixtures import dagster_airflow_custom_operator_pipeline
 
         def test_airflow(dagster_airflow_python_operator_pipeline):
             results = dagster_airflow_custom_operator_pipeline(
@@ -176,7 +176,7 @@ def dagster_airflow_docker_operator_pipeline():
     """This is a test fixture for running Dagster pipelines as containerized Airflow DAGs.
 
     Usage:
-        from dagster_airflow_tests.test_fixtures import dagster_airflow_docker_operator_pipeline
+        from sheenflow_airflow_tests.test_fixtures import dagster_airflow_docker_operator_pipeline
 
         def test_airflow(dagster_airflow_docker_operator_pipeline):
             results = dagster_airflow_docker_operator_pipeline(

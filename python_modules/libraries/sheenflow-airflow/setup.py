@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_airflow/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_airflow/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -21,8 +21,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="Airflow plugin for Dagster",
-    url="https://github.com/dagster-io/dagster",
+    description="Airflow plugin for Sheenflow",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -31,7 +30,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_airflow_tests*"]),
+    packages=find_packages(exclude=["sheenflow_airflow_tests*"]),
     install_requires=[
         f"sheenflow{pin}",
         "docker>=5.0.3,<6.0.0",
@@ -66,10 +65,10 @@ setup(
         ],
     },
     entry_points={
-        "console_scripts": ["sheenflow-airflow = dagster_airflow.cli:main"],
+        "console_scripts": ["sheenflow-airflow = sheenflow_airflow.cli:main"],
         # airflow 1.0/2.0 plugin format
-        "airflow.plugins": ["dagster_airflow = dagster_airflow.__init__:DagsterAirflowPlugin"],
+        "airflow.plugins": ["sheenflow_airflow = sheenflow_airflow.__init__:DagsterAirflowPlugin"],
         # airflow 2.0 provider format
-        "apache_airflow_provider": ["provider_info=dagster_airflow.__init__:get_provider_info"],
+        "apache_airflow_provider": ["provider_info=sheenflow_airflow.__init__:get_provider_info"],
     },
 )

@@ -135,7 +135,7 @@ def make_dagster_repo_from_airflow_dag_bag(
 
     Usage:
         Create `make_dagster_repo.py`:
-            from dagster_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_dag_bag
+            from sheenflow_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_dag_bag
             from airflow_home import my_dag_bag
 
             def make_repo_from_dag_bag():
@@ -290,7 +290,7 @@ def make_dagster_repo_from_airflow_example_dags(
     Usage:
 
         Create `make_dagster_repo.py`:
-            from dagster_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_example_dags
+            from sheenflow_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_example_dags
 
             def make_airflow_example_dags():
                 return make_dagster_repo_from_airflow_example_dags()
@@ -339,7 +339,7 @@ def make_dagster_repo_from_airflow_dags_path(
 
         .. code-block:: python
 
-            from dagster_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_dags_path
+            from sheenflow_airflow.dagster_pipeline_factory import make_dagster_repo_from_airflow_dags_path
 
             def make_repo_from_dir():
                 return make_dagster_repo_from_airflow_dags_path(

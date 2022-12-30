@@ -13,7 +13,7 @@ from dagster_airflow_tests.marks import requires_airflow_db
 LOAD_CONNECTION_DAG_FILE_AIRFLOW_2_CONTENTS = """
 import pendulum
 from airflow import DAG
-from dagster_airflow import DagsterCloudOperator
+from sheenflow_airflow import DagsterCloudOperator
 
 with DAG(
     "example_connections",
@@ -49,8 +49,8 @@ with DAG(
 @pytest.mark.skipif(airflow_version < "2.0.0", reason="requires airflow 2")
 @requires_airflow_db
 class TestConnectionsAirflow2(unittest.TestCase):
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
     def test_ingest_airflow_dags_with_connections(self, launch_run, wait_for_run):
         repo_name = "my_repo_name"
         connections = [
@@ -87,7 +87,7 @@ class TestConnectionsAirflow2(unittest.TestCase):
 LOAD_CONNECTION_DAG_AIRFLOW_1_FILE_CONTENTS = """
 import pendulum
 from airflow import DAG
-from dagster_airflow import DagsterCloudOperator
+from sheenflow_airflow import DagsterCloudOperator
 from airflow.utils.dates import days_ago
 
 with DAG(
@@ -113,8 +113,8 @@ with DAG(
 @pytest.mark.skipif(airflow_version >= "2.0.0", reason="requires airflow 1")
 @requires_airflow_db
 class TestConnectionsAirflow1(unittest.TestCase):
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
-    @mock.patch("dagster_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.launch_run", return_value="run_id")
+    @mock.patch("sheenflow_airflow.hooks.dagster_hook.DagsterHook.wait_for_run")
     def test_ingest_airflow_dags_with_connections(self, launch_run, wait_for_run):
         repo_name = "my_repo_name"
         connections = [
