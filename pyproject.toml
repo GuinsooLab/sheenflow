@@ -30,9 +30,9 @@ target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
 
 [tool.isort]
 
-# Ensures isort classifies imports from `dagster` as first-party in all environments. Without this
+# Ensures isort classifies imports from `sheenflow` as first-party in all environments. Without this
 # there can be differences between buildkite and local dev.
-known_first_party = ['dagster']
+known_first_party = ['sheenflow']
 
 # Sets a variety of default options for parentheses etc that are compatible with black.
 profile = "black"
@@ -119,11 +119,11 @@ show_error_codes = true
 
 [tool.pylint.master]
 
-# Minimum python version supported by Dagster.
+# Minimum python version supported by Sheenflow.
 py-version = 3.6
 
 # Contains assorted Dagster-specific checks (for dev purposes, not users).
-load-plugins=['dagster.utils.linter']
+load-plugins=['sheenflow.utils.linter']
 
 [tool.pylint.messages-control]
 disable=[
@@ -163,7 +163,7 @@ disable=[
 [tool.pytest.ini_options]
 
 filterwarnings = [
-  "ignore::dagster.ExperimentalWarning",
+  "ignore::sheenflow.ExperimentalWarning",
   "ignore::DeprecationWarning",
   "ignore::UserWarning",
   "ignore::pytest.PytestCollectionWarning",
