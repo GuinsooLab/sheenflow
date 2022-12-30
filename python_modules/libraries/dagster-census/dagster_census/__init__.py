@@ -5,7 +5,7 @@ from .resources import CensusResource, census_resource
 from .types import CensusOutput
 from .version import __version__
 
-check_dagster_package_version("dagster-census", __version__)
+check_dagster_package_version("sheenflow-census", __version__)
 
 __all__ = [
     "CensusResource",

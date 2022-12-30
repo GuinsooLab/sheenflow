@@ -98,7 +98,7 @@ class DbtCloudResourceV2:
         """
 
         headers = {
-            "User-Agent": f"dagster-dbt/{__version__}",
+            "User-Agent": f"sheenflow-dbt/{__version__}",
             "Content-Type": "application/json",
             "Authorization": f"Bearer {self._auth_token}",
         }
@@ -386,7 +386,7 @@ class DbtCloudResourceV2:
         href: Optional[str] = None,
     ) -> Mapping[str, Any]:
         """
-        Polls a dbt Cloud job run until it completes. Will raise a `dagster.Failure` exception if the
+        Polls a dbt Cloud job run until it completes. Will raise a `sheenflow.Failure` exception if the
         run does not complete successfully.
 
         Args:
@@ -467,7 +467,7 @@ class DbtCloudResourceV2:
         **kwargs,
     ) -> DbtCloudOutput:
         """
-        Runs a dbt Cloud job and polls until it completes. Will raise a `dagster.Failure` exception
+        Runs a dbt Cloud job and polls until it completes. Will raise a `sheenflow.Failure` exception
         if the run does not complete successfully.
 
         Args:
@@ -561,7 +561,7 @@ def dbt_cloud_resource(context) -> DbtCloudResourceV2:
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_dbt import dbt_cloud_resource
 
         my_dbt_cloud_resource = dbt_cloud_resource.configured(

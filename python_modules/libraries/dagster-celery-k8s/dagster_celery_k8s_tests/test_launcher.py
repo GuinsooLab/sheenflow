@@ -114,7 +114,7 @@ def test_get_validated_celery_k8s_executor_config():
                     "job_namespace": {"env": "TEST_PIPELINE_RUN_NAMESPACE"},
                     "broker": {"env": "TEST_CELERY_BROKER"},
                     "backend": {"env": "TEST_CELERY_BACKEND"},
-                    "include": ["dagster", "dagit"],
+                    "include": ["sheenflow", "sheenlet"],
                     "config_source": {
                         "task_annotations": """{'*': {'on_failure': my_on_failure}}"""
                     },
@@ -143,7 +143,7 @@ def test_get_validated_celery_k8s_executor_config():
             "job_namespace": "default",
             "backend": "redis://some-redis-host:6379/0",
             "broker": "redis://some-redis-host:6379/0",
-            "include": ["dagster", "dagit"],
+            "include": ["sheenflow", "sheenlet"],
             "config_source": {"task_annotations": """{'*': {'on_failure': my_on_failure}}"""},
             "retries": {"disabled": {}},
             "job_image": "foo",
@@ -225,7 +225,7 @@ def test_get_validated_celery_k8s_executor_config_for_job():
                         "job_namespace": {"env": "TEST_PIPELINE_RUN_NAMESPACE"},
                         "broker": {"env": "TEST_CELERY_BROKER"},
                         "backend": {"env": "TEST_CELERY_BACKEND"},
-                        "include": ["dagster", "dagit"],
+                        "include": ["sheenflow", "sheenlet"],
                         "config_source": {
                             "task_annotations": """{'*': {'on_failure': my_on_failure}}"""
                         },
@@ -255,7 +255,7 @@ def test_get_validated_celery_k8s_executor_config_for_job():
             "job_namespace": "default",
             "backend": "redis://some-redis-host:6379/0",
             "broker": "redis://some-redis-host:6379/0",
-            "include": ["dagster", "dagit"],
+            "include": ["sheenflow", "sheenlet"],
             "config_source": {"task_annotations": """{'*': {'on_failure': my_on_failure}}"""},
             "retries": {"disabled": {}},
             "job_image": "foo",
@@ -272,9 +272,9 @@ def test_get_validated_celery_k8s_executor_config_for_job():
 
 def test_launcher_from_config(kubeconfig_file):
     default_config = {
-        "instance_config_map": "dagster-instance",
-        "postgres_password_secret": "dagster-postgresql-secret",
-        "dagster_home": "/opt/dagster/dagster_home",
+        "instance_config_map": "sheenflow-instance",
+        "postgres_password_secret": "sheenflow-postgresql-secret",
+        "dagster_home": "/opt/sheenflow/dagster_home",
         "load_incluster_config": False,
         "kubeconfig_file": kubeconfig_file,
     }
@@ -313,9 +313,9 @@ def test_user_defined_k8s_config_in_run_tags(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     celery_k8s_run_launcher = CeleryK8sRunLauncher(
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
         k8s_client_batch_api=mock_k8s_client_batch_api,
@@ -331,7 +331,7 @@ def test_user_defined_k8s_config_in_run_tags(kubeconfig_file):
         container_config={"resources": expected_resources},
     )
     user_defined_k8s_config_json = json.dumps(user_defined_k8s_config.to_dict())
-    tags = {"dagster-k8s/config": user_defined_k8s_config_json}
+    tags = {"sheenflow-k8s/config": user_defined_k8s_config_json}
 
     # Create fake external pipeline.
     recon_pipeline = reconstructable(fake_pipeline)
@@ -398,9 +398,9 @@ def test_user_defined_k8s_config_in_run_tags(kubeconfig_file):
 def test_raise_on_error(kubeconfig_file):
     mock_k8s_client_batch_api = mock.MagicMock()
     celery_k8s_run_launcher = CeleryK8sRunLauncher(
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
         k8s_client_batch_api=mock_k8s_client_batch_api,
@@ -463,9 +463,9 @@ def test_k8s_executor_config_override(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     celery_k8s_run_launcher = CeleryK8sRunLauncher(
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
         k8s_client_batch_api=mock_k8s_client_batch_api,

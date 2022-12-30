@@ -164,23 +164,23 @@ def create_dagster_pandas_dataframe_type(
     materializer=None,
 ):
     """
-    Constructs a custom pandas dataframe dagster type.
+    Constructs a custom pandas dataframe sheenflow type.
 
     Args:
-        name (str): Name of the dagster pandas type.
+        name (str): Name of the sheenflow pandas type.
         description (Optional[str]): A markdown-formatted string, displayed in tooling.
-        columns (Optional[List[PandasColumn]]): A list of :py:class:`~dagster.PandasColumn` objects
+        columns (Optional[List[PandasColumn]]): A list of :py:class:`~sheenflow.PandasColumn` objects
             which express dataframe column schemas and constraints.
         event_metadata_fn (Optional[Callable[[], Union[Dict[str, Union[str, float, int, Dict, MetadataValue]], List[MetadataEntry]]]]):
             A callable which takes your dataframe and returns a dict with string label keys and
             MetadataValue values. Can optionally return a List[MetadataEntry].
         dataframe_constraints (Optional[List[DataFrameConstraint]]): A list of objects that inherit from
-            :py:class:`~dagster.DataFrameConstraint`. This allows you to express dataframe-level constraints.
+            :py:class:`~sheenflow.DataFrameConstraint`. This allows you to express dataframe-level constraints.
         loader (Optional[DagsterTypeLoader]): An instance of a class that
-            inherits from :py:class:`~dagster.DagsterTypeLoader`. If None, we will default
+            inherits from :py:class:`~sheenflow.DagsterTypeLoader`. If None, we will default
             to using `dataframe_loader`.
         materializer (Optional[DagsterTypeMaterializer]): An instance of a class
-            that inherits from :py:class:`~dagster.DagsterTypeMaterializer`. If None, we will
+            that inherits from :py:class:`~sheenflow.DagsterTypeMaterializer`. If None, we will
             default to using `dataframe_materializer`.
     """
     # We allow for the plugging in of dagster_type_loaders/materializers so that
@@ -253,10 +253,10 @@ def create_structured_dataframe_type(
                     what dataframe-wide validation you want to have applied.
                     Leave empty for no dataframe-wide validation.
         loader (Optional[DagsterTypeLoader]): An instance of a class that
-            inherits from :py:class:`~dagster.DagsterTypeLoader`. If None, we will default
+            inherits from :py:class:`~sheenflow.DagsterTypeLoader`. If None, we will default
             to using `dataframe_loader`.
         materializer (Optional[DagsterTypeMaterializer]): An instance of a class
-            that inherits from :py:class:`~dagster.DagsterTypeMaterializer`. If None, we will
+            that inherits from :py:class:`~sheenflow.DagsterTypeMaterializer`. If None, we will
             default to using `dataframe_materializer`.
 
     Returns:

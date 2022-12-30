@@ -131,13 +131,13 @@ def test_deploy_docker():
 
         while True:
             if time.time() - start_time > 15:
-                raise Exception("Timed out waiting for dagit server to be available")
+                raise Exception("Timed out waiting for sheenlet server to be available")
 
             try:
                 sanity_check = requests.get(
                     "http://{dagit_host}:3000/dagit_info".format(dagit_host=dagit_host)
                 )
-                assert "dagit" in sanity_check.text
+                assert "sheenlet" in sanity_check.text
                 break
             except requests.exceptions.ConnectionError:
                 pass

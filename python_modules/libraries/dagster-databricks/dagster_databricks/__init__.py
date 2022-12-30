@@ -25,7 +25,7 @@ from .types import (
 )
 from .version import __version__
 
-check_dagster_package_version("dagster-databricks", __version__)
+check_dagster_package_version("sheenflow-databricks", __version__)
 
 __all__ = [
     "create_databricks_job_op",

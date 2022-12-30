@@ -639,7 +639,7 @@ class AirbyteManagedElementReconciler(ManagedElementReconciler):
     """
     Reconciles Python-specified Airbyte connections with an Airbyte instance.
 
-    Passing the module containing an AirbyteManagedElementReconciler to the dagster-airbyte
+    Passing the module containing an AirbyteManagedElementReconciler to the sheenflow-airbyte
     CLI will allow you to check the state of your Python-code-specified Airbyte connections
     against an Airbyte instance, and reconcile them if necessary.
 

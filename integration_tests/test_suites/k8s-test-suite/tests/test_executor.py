@@ -168,7 +168,7 @@ def test_k8s_executor_combine_configs(
     )
 
     step_job_key = get_k8s_job_name(run_id, "count_letters")
-    step_job_name = f"dagster-step-{step_job_key}"
+    step_job_name = f"sheenflow-step-{step_job_key}"
 
     step_pods = DagsterKubernetesClient.production_client().get_pods_in_job(
         job_name=step_job_name, namespace=user_code_namespace_for_k8s_run_launcher
@@ -225,7 +225,7 @@ def _launch_executor_run(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -275,7 +275,7 @@ def test_k8s_run_launcher_image_from_origin(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -316,7 +316,7 @@ def test_k8s_run_launcher_terminate(
     )
 
     DagsterKubernetesClient.production_client().wait_for_job(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
     timeout = datetime.timedelta(0, 30)
     start_time = datetime.datetime.now()
@@ -385,7 +385,7 @@ def test_k8s_executor_resource_requirements(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -426,7 +426,7 @@ def test_execute_on_k8s_retry_pipeline(  # pylint: disable=redefined-outer-name
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -495,7 +495,7 @@ def test_memoization_k8s_executor(
             )
 
             result = wait_for_job_and_get_raw_logs(
-                job_name="dagster-run-%s" % run_id,
+                job_name="sheenflow-run-%s" % run_id,
                 namespace=user_code_namespace_for_k8s_run_launcher,
             )
 

@@ -37,7 +37,7 @@ def templated(context, ds: datetime):
 # end_ops
 
 # start_job
-@job(tags={"dagster/max_retries": 1, "dag_name": "example"})
+@job(tags={"sheenflow/max_retries": 1, "dag_name": "example"})
 def tutorial_job():
     ds = print_date()
     sleep(ds)

@@ -83,7 +83,7 @@ else:
     from papermill.preprocess import PapermillExecutePreprocessor
 
     class DagstermillExecutePreprocessor(PapermillExecutePreprocessor):
-        # We need to finalize dagster resources here (as opposed to, e.g., in the notebook_complete
+        # We need to finalize sheenflow resources here (as opposed to, e.g., in the notebook_complete
         # method on the NotebookExecutionManager), because we need to be inside the scope of the
         # nbconvert.preprocessors.ExecutePreprocessor.setup_preprocessor context manager, which tears
         # the kernel down. Note that atexit doesn't seem to work at all in ipython, and hooking into

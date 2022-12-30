@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-gcp",
+    name="sheenflow-gcp",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -34,7 +34,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_gcp_tests*"]),
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         f"dagster_pandas{pin}",
         "db-dtypes",  # Required as per https://github.com/googleapis/python-bigquery/issues/1188
         "google-api-python-client",

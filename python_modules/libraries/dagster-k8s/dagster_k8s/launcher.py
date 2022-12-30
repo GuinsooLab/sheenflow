@@ -24,10 +24,10 @@ from .job import DagsterK8sJobConfig, construct_dagster_k8s_job, get_job_name_fr
 class K8sRunLauncher(RunLauncher, ConfigurableClass):
     """RunLauncher that starts a Kubernetes Job for each Dagster job run.
 
-    Encapsulates each run in a separate, isolated invocation of ``dagster-graphql``.
+    Encapsulates each run in a separate, isolated invocation of ``sheenflow-graphql``.
 
     You can configure a Dagster instance to use this RunLauncher by adding a section to your
-    ``dagster.yaml`` like the following:
+    ``sheenflow.yaml`` like the following:
 
     .. code-block:: yaml
 
@@ -37,8 +37,8 @@ class K8sRunLauncher(RunLauncher, ConfigurableClass):
           config:
             service_account_name: your_service_account
             job_image: my_project/dagster_image:latest
-            instance_config_map: dagster-instance
-            postgres_password_secret: dagster-postgresql-secret
+            instance_config_map: sheenflow-instance
+            postgres_password_secret: sheenflow-postgresql-secret
 
     """
 
@@ -229,8 +229,8 @@ class K8sRunLauncher(RunLauncher, ConfigurableClass):
             component="run_worker",
             user_defined_k8s_config=user_defined_k8s_config,
             labels={
-                "dagster/job": pipeline_origin.pipeline_name,
-                "dagster/run-id": run.run_id,
+                "sheenflow/job": pipeline_origin.pipeline_name,
+                "sheenflow/run-id": run.run_id,
             },
             env_vars=[
                 {

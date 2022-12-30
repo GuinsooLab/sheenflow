@@ -427,7 +427,7 @@ def airbyte_resource(context) -> AirbyteResource:
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_airbyte import airbyte_resource
 
         my_airbyte_resource = airbyte_resource.configured(

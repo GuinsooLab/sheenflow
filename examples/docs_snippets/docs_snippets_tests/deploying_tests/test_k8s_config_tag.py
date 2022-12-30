@@ -11,7 +11,7 @@ def test_k8s_tag_job():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
     job = construct_dagster_k8s_job(
@@ -30,7 +30,7 @@ def test_k8s_tag_op():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
     job = construct_dagster_k8s_job(

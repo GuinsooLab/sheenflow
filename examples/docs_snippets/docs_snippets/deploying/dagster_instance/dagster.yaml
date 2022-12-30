@@ -18,7 +18,7 @@ storage:
 # start_marker_storage_postgres
 
 # Postgres storage can be set using either credentials or a connection string.  This requires that
-# the `dagster-postgres` library be installed.
+# the `sheenflow-postgres` library be installed.
 
 # this config manually sets the Postgres credentials
 storage:
@@ -60,7 +60,7 @@ storage:
 # start_marker_storage_mysql
 
 # MySQL storage can be set using either credentials or a connection string.  This requires that the
-# `dagster-mysql` library be installed.
+# `sheenflow-mysql` library be installed.
 
 # this config manually sets the MySQL credentials
 storage:
@@ -103,7 +103,7 @@ storage:
 # start_marker_run_launcher_default
 
 run_launcher:
-  module: dagster.core.launcher
+  module: sheenflow.core.launcher
   class: DefaultRunLauncher
 
 # end_marker_run_launcher_default
@@ -128,8 +128,8 @@ run_launcher:
   config:
     service_account_name: pipeline_run_service_account
     job_image: my_project/dagster_image:latest
-    instance_config_map: dagster-instance
-    postgres_password_secret: dagster-postgresql-secret
+    instance_config_map: sheenflow-instance
+    postgres_password_secret: sheenflow-postgresql-secret
 
 # alternatively, you can grab any of these config values from environment variables:
 run_launcher:
@@ -152,7 +152,7 @@ run_launcher:
 # Since DefaultRunCoordinator is the default option, omitting the `run_coordinator` key will also suffice,
 # but if you would like to set it explicitly:
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: DefaultRunCoordinator
 
 # end_marker_run_coordinator_default
@@ -163,12 +163,12 @@ run_coordinator:
 
 # this first option has concurrency limits set to default values
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: QueuedRunCoordinator
 
 # this second option manually specifies limits:
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: QueuedRunCoordinator
   config:
     max_concurrent_runs: 25
@@ -176,12 +176,12 @@ run_coordinator:
       - key: "database"
         value: "redshift"
         limit: 4
-      - key: "dagster/backfill"
+      - key: "sheenflow/backfill"
         limit: 10
 
 # as always, some or all of these values can be obtained from environment variables:
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: QueuedRunCoordinator
   config:
     max_concurrent_runs:
@@ -191,13 +191,13 @@ run_coordinator:
         value: "redshift"
         limit:
           env: DAGSTER_REDSHIFT_CONCURRENCY_LIMIT
-      - key: "dagster/backfill"
+      - key: "sheenflow/backfill"
         limit:
           env: DAGSTER_BACKFILL_CONCURRENCY_LIMIT
 
 # for higher dequeue throughput, threading can be enabled:
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: QueuedRunCoordinator
   config:
     dequeue_use_threads: true
@@ -212,14 +212,14 @@ run_coordinator:
 
 # You could directly set the `base_dir` key
 compute_logs:
-  module: dagster.core.storage.local_compute_log_manager
+  module: sheenflow.core.storage.local_compute_log_manager
   class: LocalComputeLogManager
   config:
     base_dir: /path/to/directory
 
 # Alternatively, you could set the `base_dir` key to an environment variable
 compute_logs:
-  module: dagster.core.storage.local_compute_log_manager
+  module: sheenflow.core.storage.local_compute_log_manager
   class: LocalComputeLogManager
   config:
     base_dir:
@@ -235,11 +235,11 @@ compute_logs:
   module: dagster_azure.blob.compute_log_manager
   class: AzureBlobComputeLogManager
   config:
-    storage_account: mycorp-dagster
+    storage_account: mycorp-sheenflow
     container: compute-logs
     secret_key: foo
     local_dir: /tmp/bar
-    prefix: dagster-test-
+    prefix: sheenflow-test-
 
 # alternatively, you can obtain any of these config values from environment variables
 compute_logs:
@@ -268,8 +268,8 @@ compute_logs:
   module: dagster_aws.s3.compute_log_manager
   class: S3ComputeLogManager
   config:
-    bucket: "mycorp-dagster-compute-logs"
-    prefix: "dagster-test-"
+    bucket: "mycorp-sheenflow-compute-logs"
+    prefix: "sheenflow-test-"
 
 # or grab some or all of them from environment variables
 compute_logs:
@@ -286,16 +286,16 @@ compute_logs:
 # start_marker_local_artifact_storage
 # there are two possible ways to configure LocalArtifactStorage
 
-# example local_artifact_storage setup pointing to /var/shared/dagster directory
+# example local_artifact_storage setup pointing to /var/shared/sheenflow directory
 local_artifact_storage:
-  module: dagster.core.storage.root
+  module: sheenflow.core.storage.root
   class: LocalArtifactStorage
   config:
     base_dir: "/path/to/dir"
 
 # alternatively, `base_dir` can be set to an environment variable
 local_artifact_storage:
-  module: dagster.core.storage.root
+  module: sheenflow.core.storage.root
   class: LocalArtifactStorage
   config:
     base_dir:

@@ -15,11 +15,11 @@ compute_logs:
   module: dagster_aws.s3.compute_log_manager
   class: S3ComputeLogManager
   config:
-    bucket: "mycorp-dagster-compute-logs"
-    prefix: "dagster-test-"
+    bucket: "mycorp-sheenflow-compute-logs"
+    prefix: "sheenflow-test-"
 
 local_artifact_storage:
-  module: dagster.core.storage.root
+  module: sheenflow.core.storage.root
   class: LocalArtifactStorage
   config:
-    base_dir: "/opt/dagster/local/"
+    base_dir: "/opt/sheenflow/local/"

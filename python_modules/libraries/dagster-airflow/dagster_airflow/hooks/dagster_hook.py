@@ -16,7 +16,7 @@ class DagsterHook(BaseHook):
 
     conn_name_attr = "dagster_conn_id"
     default_conn_name = "dagster_default"
-    conn_type = "dagster"
+    conn_type = "sheenflow"
     hook_name = "Dagster"
 
     @staticmethod
@@ -85,7 +85,7 @@ class DagsterHook(BaseHook):
 
         if self.url == "":
             raise AirflowException(
-                "Cannot get dagster url: No valid url or dagster_conn_id supplied."
+                "Cannot get sheenflow url: No valid url or dagster_conn_id supplied."
             )
 
     def set_hook_for_cloud(self, conn: Connection):
@@ -159,7 +159,7 @@ fragment PythonErrorFragment on PythonError {
                     "jobName": job_name,
                 },
                 "mode": "default",
-                "executionMetadata": {"tags": [{"key": "dagster/solid_selection", "value": "*"}]},
+                "executionMetadata": {"tags": [{"key": "sheenflow/solid_selection", "value": "*"}]},
             }
         }
         headers = {"Dagster-Cloud-Api-Token": self.user_token if self.user_token else ""}

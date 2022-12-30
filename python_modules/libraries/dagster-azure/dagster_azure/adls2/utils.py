@@ -7,9 +7,9 @@ try:
 except ImportError:
     msg = (
         "Could not import required Azure objects. This probably means you have an old version "
-        "of azure-storage-blob installed. dagster-azure requires azure-storage-blob~=12.0.0; "
-        "this conflicts with dagster-snowflake which requires azure-storage-blob<12.0.0 and is "
-        "incompatible. Please uninstall dagster-snowflake and reinstall dagster-azure to fix "
+        "of azure-storage-blob installed. sheenflow-azure requires azure-storage-blob~=12.0.0; "
+        "this conflicts with sheenflow-snowflake which requires azure-storage-blob<12.0.0 and is "
+        "incompatible. Please uninstall sheenflow-snowflake and reinstall sheenflow-azure to fix "
         "this error."
     )
     warnings.warn(msg)

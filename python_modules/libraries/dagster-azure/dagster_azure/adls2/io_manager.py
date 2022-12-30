@@ -14,7 +14,7 @@ _LEASE_DURATION = 60  # One minute
 
 class PickledObjectADLS2IOManager(IOManager):
     def __init__(
-        self, file_system, adls2_client, blob_client, lease_client_constructor, prefix="dagster"
+        self, file_system, adls2_client, blob_client, lease_client_constructor, prefix="sheenflow"
     ):
         self.adls2_client = adls2_client
         self.file_system_client = self.adls2_client.get_file_system_client(file_system)
@@ -116,7 +116,7 @@ class PickledObjectADLS2IOManager(IOManager):
 @io_manager(
     config_schema={
         "adls2_file_system": Field(StringSource, description="ADLS Gen2 file system name"),
-        "adls2_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+        "adls2_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
     },
     required_resource_keys={"adls2"},
 )
@@ -143,7 +143,7 @@ def adls2_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import asset, repository, with_resources
+        from sheenflow import asset, repository, with_resources
         from dagster_azure.adls2 import adls2_pickle_io_manager, adls2_resource
 
         @asset
@@ -173,7 +173,7 @@ def adls2_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_azure.adls2 import adls2_pickle_io_manager, adls2_resource
 
         @job(

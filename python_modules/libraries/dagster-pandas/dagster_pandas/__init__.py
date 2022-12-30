@@ -25,7 +25,7 @@ from .data_frame import (
 from .validation import PandasColumn
 from .version import __version__
 
-check_dagster_package_version("dagster-pandas", __version__)
+check_dagster_package_version("sheenflow-pandas", __version__)
 
 __all__ = [
     "DataFrame",

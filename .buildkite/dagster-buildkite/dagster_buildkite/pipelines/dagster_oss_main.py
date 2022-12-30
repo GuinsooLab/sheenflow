@@ -17,7 +17,7 @@ def build_dagster_oss_main_steps() -> List[BuildkiteStep]:
 
     steps: List[BuildkiteStep] = []
 
-    # Trigger a build on the internal pipeline for dagster PRs. Feature branches use the
+    # Trigger a build on the internal pipeline for sheenflow PRs. Feature branches use the
     # `oss-internal-compatibility` pipeline, master/release branches use the full `internal`
     # pipeline. Feature branches use internal' `master` branch by default, but this can be
     # overridden by setting the `INTERNAL_BRANCH` environment variable or passing

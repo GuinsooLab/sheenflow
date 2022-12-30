@@ -20,7 +20,7 @@ name: Dagster Branch Deployments
           ...
         - name: Delete schema clone upon PR close
           if: github.event.action == 'closed'
-          uses: dagster-io/cloud-branch-deployments-action/run@main
+          uses: sheenflow-io/cloud-branch-deployments-action/run@main
           with:
             location: ${{ toJson(matrix.location) }}
             deployment: ${{ steps.deploy.outputs.deployment }}

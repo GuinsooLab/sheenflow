@@ -1,0 +1,4 @@
+resources:
+  io_manager:
+    config:
+      s3_bucket: sheenflow-scratch-80542c2

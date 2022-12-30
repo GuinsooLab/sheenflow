@@ -56,7 +56,7 @@ class TestConnectionsAirflow2(unittest.TestCase):
         connections = [
             Connection(
                 conn_id="dagster_connection_test",
-                conn_type="dagster",
+                conn_type="sheenflow",
                 host="prod",
                 password="test_token",
                 description="test-org",
@@ -120,7 +120,7 @@ class TestConnectionsAirflow1(unittest.TestCase):
         connections = [
             Connection(
                 conn_id="dagster_connection_test",
-                conn_type="dagster",
+                conn_type="sheenflow",
                 host="prod",
                 password="test_token",
                 port="test-port",

@@ -26,7 +26,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "dagster-buildkite = dagster_buildkite.cli:dagster",
+            "sheenflow-buildkite = dagster_buildkite.cli:sheenflow",
         ]
     },
 )

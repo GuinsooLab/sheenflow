@@ -4,7 +4,7 @@ from dagster._legacy import solid
 
 
 def test_resource_tags():
-    @solid(tags={"dagster-dask/resource_requirements": {"GPU": 1, "MEMORY": 10e9}})
+    @solid(tags={"sheenflow-dask/resource_requirements": {"GPU": 1, "MEMORY": 10e9}})
     def boop(_):
         pass
 

@@ -83,7 +83,7 @@ class Manager:
     ):
         """
         Drop-in replacement for
-        `dagster._core.execution.resources_init.resource_initialization_manager`.  It uses a
+        `sheenflow._core.execution.resources_init.resource_initialization_manager`.  It uses a
         `DagstermillResourceEventGenerationManager` and explicitly calls `teardown` on it
         """
         generator = resource_initialization_event_generator(
@@ -354,12 +354,12 @@ class Manager:
         scrapbook.glue(output_name, "")
 
     def yield_event(self, dagster_event):
-        """Yield a dagster event directly from notebook code.
+        """Yield a sheenflow event directly from notebook code.
 
         When called interactively or in development, returns its input.
 
         Args:
-            dagster_event (Union[:class:`dagster.AssetMaterialization`, :class:`dagster.ExpectationResult`, :class:`dagster.TypeCheck`, :class:`dagster.Failure`, :class:`dagster.RetryRequested`]):
+            dagster_event (Union[:class:`sheenflow.AssetMaterialization`, :class:`sheenflow.ExpectationResult`, :class:`sheenflow.TypeCheck`, :class:`sheenflow.Failure`, :class:`sheenflow.RetryRequested`]):
                 An event to yield back to Dagster.
         """
         valid_types = (

@@ -14,7 +14,7 @@ DEFAULT_LEASE_DURATION = 60  # One minute
 
 
 class PickledObjectGCSIOManager(IOManager):
-    def __init__(self, bucket, client=None, prefix="dagster"):
+    def __init__(self, bucket, client=None, prefix="sheenflow"):
         self.bucket = check.str_param(bucket, "bucket")
         self.client = client or storage.Client()
         self.bucket_obj = self.client.bucket(bucket)
@@ -90,7 +90,7 @@ class PickledObjectGCSIOManager(IOManager):
 @io_manager(
     config_schema={
         "gcs_bucket": Field(StringSource),
-        "gcs_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+        "gcs_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
     },
     required_resource_keys={"gcs"},
 )
@@ -116,7 +116,7 @@ def gcs_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import asset, repository, with_resources
+        from sheenflow import asset, repository, with_resources
         from dagster_gcp.gcs import gcs_pickle_io_manager, gcs_resource
 
         @asset
@@ -146,7 +146,7 @@ def gcs_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_gcp.gcs import gcs_pickle_io_manager, gcs_resource
 
         @job(

@@ -165,7 +165,7 @@ def kind_cluster(cluster_name=None, should_cleanup=False, kind_ready_timeout=60.
                     # Otherwise if not ready yet, pod creation on kind cluster will fail with error
                     # like:
                     #
-                    # pods "dagster.demo-error-pipeline.error-solid-e748d5c2" is forbidden: error
+                    # pods "sheenflow.demo-error-pipeline.error-solid-e748d5c2" is forbidden: error
                     # looking up service account default/default: serviceaccount "default" not found
                     print("Testing service account listing...")
                     start = time.time()

@@ -85,7 +85,7 @@ def execute_on_thread(pipeline_name, done, instance_ref, tempdir=None, tags=None
 @contextmanager
 def start_celery_worker(queue=None):
     process = subprocess.Popen(
-        ["dagster-celery", "worker", "start", "-A", "dagster_celery.app"]
+        ["sheenflow-celery", "worker", "start", "-A", "dagster_celery.app"]
         + (["-q", queue] if queue else [])
         + (["--", "--concurrency", "1"])
     )
@@ -95,7 +95,7 @@ def start_celery_worker(queue=None):
     finally:
         os.kill(process.pid, signal.SIGINT)
         process.wait()
-        subprocess.check_output(["dagster-celery", "worker", "terminate"])
+        subprocess.check_output(["sheenflow-celery", "worker", "terminate"])
 
 
 def events_of_type(result, event_type):

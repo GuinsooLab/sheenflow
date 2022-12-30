@@ -16,7 +16,7 @@ from .utils import (
 )
 
 # Default repository prefix used for local images
-DEFAULT_LOCAL_PREFIX = "dagster"
+DEFAULT_LOCAL_PREFIX = "sheenflow"
 
 # Location of the template assets used here
 IMAGES_PATH = os.path.join(os.path.dirname(__file__), "images")
@@ -110,7 +110,7 @@ class DagsterDockerImage(
             yaml.dump(last_updated, f, default_flow_style=False)
 
     def local_image(self, python_version: str) -> str:
-        """Generates the local image name, like: "dagster/foo:some-tag" """
+        """Generates the local image name, like: "sheenflow/foo:some-tag" """
         check.str_param(python_version, "python_version")
 
         last_updated = self._get_last_updated_for_python_version(python_version)

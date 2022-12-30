@@ -1,5 +1,5 @@
 import {gql, useLazyQuery} from '@apollo/client';
-import {Box, Caption, Checkbox, Colors, Icon} from '@dagster-io/ui';
+import {Box, Caption, Checkbox, Colors, Icon} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';

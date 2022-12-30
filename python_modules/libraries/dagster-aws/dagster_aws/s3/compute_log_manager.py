@@ -26,7 +26,7 @@ POLLING_INTERVAL = 5
 class S3ComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
     """Logs compute function stdout and stderr to S3.
 
-    Users should not instantiate this class directly. Instead, use a YAML block in ``dagster.yaml``
+    Users should not instantiate this class directly. Instead, use a YAML block in ``sheenflow.yaml``
     such as the following:
 
     .. code-block:: YAML
@@ -35,9 +35,9 @@ class S3ComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
           module: dagster_aws.s3.compute_log_manager
           class: S3ComputeLogManager
           config:
-            bucket: "mycorp-dagster-compute-logs"
+            bucket: "mycorp-sheenflow-compute-logs"
             local_dir: "/tmp/cool"
-            prefix: "dagster-test-"
+            prefix: "sheenflow-test-"
             use_ssl: true
             verify: true
             verify_cert_path: "/path/to/cert/bundle.pem"
@@ -48,7 +48,7 @@ class S3ComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
     Args:
         bucket (str): The name of the s3 bucket to which to log.
         local_dir (Optional[str]): Path to the local directory in which to stage logs. Default:
-            ``dagster._seven.get_system_temp_directory()``.
+            ``sheenflow._seven.get_system_temp_directory()``.
         prefix (Optional[str]): Prefix for the log file keys.
         use_ssl (Optional[bool]): Whether or not to use SSL. Default True.
         verify (Optional[bool]): Whether or not to verify SSL certificates. Default True.
@@ -66,7 +66,7 @@ class S3ComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
         bucket,
         local_dir=None,
         inst_data=None,
-        prefix="dagster",
+        prefix="sheenflow",
         use_ssl=True,
         verify=True,
         verify_cert_path=None,
@@ -103,7 +103,7 @@ class S3ComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
         return {
             "bucket": StringSource,
             "local_dir": Field(StringSource, is_required=False),
-            "prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
             "use_ssl": Field(bool, is_required=False, default_value=True),
             "verify": Field(bool, is_required=False, default_value=True),
             "verify_cert_path": Field(StringSource, is_required=False),

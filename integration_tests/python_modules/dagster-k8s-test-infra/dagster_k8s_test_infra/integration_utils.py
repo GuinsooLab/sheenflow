@@ -38,7 +38,7 @@ def which_(exe):
     return spawn.find_executable(exe)
 
 
-def get_test_namespace(prefix="dagster-test"):
+def get_test_namespace(prefix="sheenflow-test"):
     namespace_suffix = hex(random.randint(0, 16**6))[2:]
     return f"{prefix}-{namespace_suffix}"
 

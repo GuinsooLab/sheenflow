@@ -13,7 +13,7 @@ Each has its own smoke test, in the assets_smoke_test_tests directory.
 Bootstrap your own Dagster project with this example:
 
 ```bash
-dagster project from-example --name my-dagster-project --example assets_smoke_test
+sheenflow project from-example --name my-sheenflow-project --example assets_smoke_test
 ```
 
 To install this example and its Python dependencies, run:

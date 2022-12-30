@@ -12,7 +12,7 @@ import {
   Group,
   Icon,
   Mono,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {TerminateMutation, TerminateRunPolicy} from '../graphql/graphql';

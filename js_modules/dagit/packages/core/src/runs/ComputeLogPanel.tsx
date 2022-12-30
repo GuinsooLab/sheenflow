@@ -1,4 +1,4 @@
-import {Box, Spinner} from '@dagster-io/ui';
+import {Box, Spinner} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {RawLogContent} from '../RawLogContent';

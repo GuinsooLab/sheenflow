@@ -44,7 +44,7 @@ def test_k8s_run_launcher_default(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -137,7 +137,7 @@ def test_failing_k8s_run_launcher(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" not in result, "no match, result: {}".format(result)
@@ -164,7 +164,7 @@ def test_k8s_run_launcher_terminate(
     )
 
     DagsterKubernetesClient.production_client().wait_for_job(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     timeout = datetime.timedelta(0, 30)
@@ -210,7 +210,7 @@ def test_k8s_run_launcher_secret_from_deployment(
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
+        job_name="sheenflow-run-%s" % run_id, namespace=user_code_namespace_for_k8s_run_launcher
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)

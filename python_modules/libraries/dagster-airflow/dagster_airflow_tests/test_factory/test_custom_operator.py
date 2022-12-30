@@ -26,7 +26,7 @@ def test_my_custom_operator(
     results = dagster_airflow_custom_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         operator=operator,
         environment_yaml=[

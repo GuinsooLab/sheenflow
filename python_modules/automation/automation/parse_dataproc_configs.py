@@ -45,7 +45,7 @@ class Enum:
 
 
 class Field:
-    """Field represents a field type that we're going to write out as a dagster config field, once
+    """Field represents a field type that we're going to write out as a sheenflow config field, once
     we've pre-processed all custom types
     """
 
@@ -147,7 +147,7 @@ class ConfigParser:
     def extract_config(self, base_field, suffix):
         with IndentingBufferPrinter() as printer:
             printer.write_header()
-            printer.line("from dagster import Bool, Field, Int, Permissive, Shape, String")
+            printer.line("from sheenflow import Bool, Field, Int, Permissive, Shape, String")
             printer.blank_line()
 
             # Optionally write enum includes
@@ -170,7 +170,7 @@ class ConfigParser:
 
         with IndentingBufferPrinter() as printer:
             printer.write_header()
-            printer.line("from dagster import Enum, EnumValue")
+            printer.line("from sheenflow import Enum, EnumValue")
             printer.blank_line()
             for enum in self.all_enums:
                 self.all_enums[enum].write(printer)
@@ -241,7 +241,7 @@ class ConfigParser:
 
 def main():
     api_url = "https://www.googleapis.com/discovery/v1/apis/dataproc/v1/rest"
-    base_path = "../libraries/dagster-gcp/dagster_gcp/dataproc/"
+    base_path = "../libraries/sheenflow-gcp/dagster_gcp/dataproc/"
     json_schema = requests.get(api_url).json().get("schemas")
 
     c = ConfigParser(json_schema)

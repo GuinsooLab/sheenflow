@@ -25,12 +25,12 @@ def ignore_experimental_warning():
 
 @pytest.fixture
 def image():
-    return "dagster:first"
+    return "sheenflow:first"
 
 
 @pytest.fixture
 def other_image():
-    return "dagster:second"
+    return "sheenflow:second"
 
 
 @pytest.fixture
@@ -41,10 +41,10 @@ def environment():
 @pytest.fixture
 def task_definition(ecs, image, environment):
     return ecs.register_task_definition(
-        family="dagster",
+        family="sheenflow",
         containerDefinitions=[
             {
-                "name": "dagster",
+                "name": "sheenflow",
                 "image": image,
                 "environment": environment,
                 "entryPoint": ["ls"],
@@ -295,12 +295,12 @@ def custom_run(custom_instance, pipeline, external_pipeline):
 
 @pytest.fixture
 def tagged_secret(secrets_manager):
-    # A secret tagged with "dagster"
+    # A secret tagged with "sheenflow"
     name = "tagged_secret"
     arn = secrets_manager.create_secret(
         Name=name,
         SecretString="hello",
-        Tags=[{"Key": "dagster", "Value": "true"}],
+        Tags=[{"Key": "sheenflow", "Value": "true"}],
     )["ARN"]
 
     yield Secret(name, arn)
@@ -351,7 +351,7 @@ def container_context_config(configured_secret):
                     "valueFrom": configured_secret.arn + "/hello",
                 }
             ],
-            "secrets_tags": ["dagster"],
+            "secrets_tags": ["sheenflow"],
             "env_vars": ["FOO_ENV_VAR=BAR_VALUE"],
             "container_name": "foo",
             "run_resources": {

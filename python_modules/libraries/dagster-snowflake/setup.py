@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-snowflake",
+    name="sheenflow-snowflake",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -31,7 +31,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_snowflake_tests*"]),
-    install_requires=[f"dagster{pin}", "snowflake-connector-python>=2.1.0"],
+    install_requires=[f"sheenflow{pin}", "snowflake-connector-python>=2.1.0"],
     extras_require={
         "snowflake.sqlalchemy": [
             "sqlalchemy!=1.4.42",  # workaround for https://github.com/snowflakedb/snowflake-sqlalchemy/issues/350

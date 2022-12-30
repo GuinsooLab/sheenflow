@@ -24,8 +24,8 @@ build_test_project_for: Set[AvailablePythonVersion] = set()
 
 
 def build_test_project_steps() -> List[GroupStep]:
-    """This set of tasks builds and pushes Docker images, which are used by the dagster-airflow and
-    the dagster-k8s tests
+    """This set of tasks builds and pushes Docker images, which are used by the sheenflow-airflow and
+    the sheenflow-k8s tests
     """
     steps: List[BuildkiteLeafStep] = []
 
@@ -50,7 +50,7 @@ def build_test_project_steps() -> List[GroupStep]:
                 # build and tag test image
                 "export TEST_PROJECT_IMAGE=$${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/test-project:$${BUILDKITE_BUILD_ID}-"
                 + version,
-                "./python_modules/dagster-test/dagster_test/test_project/build.sh "
+                "./python_modules/sheenflow-test/sheenflow_test/test_project/build.sh "
                 + version
                 + " $${TEST_PROJECT_IMAGE}",
                 #

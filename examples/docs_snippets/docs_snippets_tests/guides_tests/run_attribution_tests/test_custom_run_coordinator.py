@@ -25,7 +25,7 @@ class TestCustomRunCoordinator(TestQueuedRunCoordinator):
     ):
         run_id = "foo-1"
         with patch(
-            "docs_snippets.guides.dagster.run_attribution.custom_run_coordinator.warnings"
+            "docs_snippets.guides.sheenflow.run_attribution.custom_run_coordinator.warnings"
         ) as mock_warnings:
 
             run = self.create_run(

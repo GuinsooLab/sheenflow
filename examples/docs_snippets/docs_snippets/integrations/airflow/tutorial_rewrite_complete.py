@@ -33,7 +33,7 @@ def templated(context, ds: datetime):
         context.log.info(ds - timedelta(days=7))
 
 
-@job(tags={"dagster/max_retries": 1, "dag_name": "example"})
+@job(tags={"sheenflow/max_retries": 1, "dag_name": "example"})
 def tutorial_job():
     ds = print_date()
     sleep(ds)

@@ -66,7 +66,7 @@ def get_celery_job_engine_config(
                     "image_pull_policy": image_pull_policy(),
                 },
                 (
-                    {"env_config_maps": ["dagster-pipeline-env"]}
+                    {"env_config_maps": ["sheenflow-pipeline-env"]}
                     if include_dagster_pipeline_env
                     else {}
                 ),
@@ -98,7 +98,7 @@ def test_execute_on_celery_k8s_default(  # pylint: disable=redefined-outer-name
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id,
+        job_name="sheenflow-run-%s" % run_id,
         namespace=helm_namespace,
     )
 
@@ -128,7 +128,7 @@ def test_execute_on_celery_k8s_job_api(  # pylint: disable=redefined-outer-name
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id,
+        job_name="sheenflow-run-%s" % run_id,
         namespace=helm_namespace,
     )
 
@@ -141,7 +141,7 @@ def test_execute_on_celery_k8s_job_api(  # pylint: disable=redefined-outer-name
 def test_execute_on_celery_k8s_job_api_with_legacy_configmap_set(  # pylint: disable=redefined-outer-name
     dagster_docker_image, dagster_instance, helm_namespace, dagit_url
 ):
-    # Originally, jobs needed to include "dagster-pipeline-env" to pick up needed config when
+    # Originally, jobs needed to include "sheenflow-pipeline-env" to pick up needed config when
     # using the helm chart - it's no longer needed, but verify that nothing breaks if it's included
     run_config = merge_dicts(
         merge_yamls(
@@ -162,7 +162,7 @@ def test_execute_on_celery_k8s_job_api_with_legacy_configmap_set(  # pylint: dis
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -191,7 +191,7 @@ def test_execute_on_celery_k8s_image_from_origin(  # pylint: disable=redefined-o
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -223,7 +223,7 @@ def test_execute_subset_on_celery_k8s(  # pylint: disable=redefined-outer-name
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -244,7 +244,7 @@ def test_execute_on_celery_k8s_retry_pipeline(  # pylint: disable=redefined-oute
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -296,7 +296,7 @@ def test_execute_on_celery_k8s_with_resource_requirements(  # pylint: disable=re
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -391,7 +391,7 @@ def _test_termination(dagit_url, dagster_instance, run_config):
     assert expected_events_found
 
     s3 = boto3.resource("s3", region_name="us-west-1", use_ssl=True, endpoint_url=None).meta.client
-    bucket = "dagster-scratch-80542c2"
+    bucket = "sheenflow-scratch-80542c2"
     key = "resource_termination_test/{}".format(run_id)
     assert s3.get_object(Bucket=bucket, Key=key)
 
@@ -531,7 +531,7 @@ def test_memoization_on_celery_k8s(  # pylint: disable=redefined-outer-name
             )
 
             result = wait_for_job_and_get_raw_logs(
-                job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+                job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
             )
 
             assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)
@@ -569,7 +569,7 @@ def test_volume_mounts(dagster_docker_image, dagster_instance, helm_namespace, d
     )
 
     result = wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace
     )
 
     assert "PIPELINE_SUCCESS" in result, "no match, result: {}".format(result)

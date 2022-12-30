@@ -31,10 +31,10 @@ def test_launcher_from_config(kubeconfig_file):
     }
 
     default_config = {
-        "service_account_name": "dagit-admin",
-        "instance_config_map": "dagster-instance",
-        "postgres_password_secret": "dagster-postgresql-secret",
-        "dagster_home": "/opt/dagster/dagster_home",
+        "service_account_name": "sheenlet-admin",
+        "instance_config_map": "sheenflow-instance",
+        "postgres_password_secret": "sheenflow-postgresql-secret",
+        "dagster_home": "/opt/sheenflow/dagster_home",
         "job_image": "fake_job_image",
         "load_incluster_config": False,
         "kubeconfig_file": kubeconfig_file,
@@ -74,10 +74,10 @@ def test_launcher_with_container_context(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
@@ -180,10 +180,10 @@ def test_launcher_with_k8s_config(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
@@ -213,7 +213,7 @@ def test_launcher_with_k8s_config(kubeconfig_file):
         container_config={"working_dir": "my_working_dir"},
     )
     user_defined_k8s_config_json = json.dumps(run_tags_k8s_config.to_dict())
-    run_tags = {"dagster-k8s/config": user_defined_k8s_config_json}
+    run_tags = {"sheenflow-k8s/config": user_defined_k8s_config_json}
 
     # Create fake external pipeline.
     recon_pipeline = reconstructable(fake_pipeline)
@@ -282,10 +282,10 @@ def test_user_defined_k8s_config_in_run_tags(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
@@ -308,7 +308,7 @@ def test_user_defined_k8s_config_in_run_tags(kubeconfig_file):
         pod_spec_config={"scheduler_name": "test-scheduler-2"},
     )
     user_defined_k8s_config_json = json.dumps(user_defined_k8s_config.to_dict())
-    tags = {"dagster-k8s/config": user_defined_k8s_config_json}
+    tags = {"sheenflow-k8s/config": user_defined_k8s_config_json}
 
     # Create fake external pipeline.
     recon_pipeline = reconstructable(fake_pipeline)
@@ -378,10 +378,10 @@ def test_raise_on_error(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
@@ -440,9 +440,9 @@ def test_no_postgres(kubeconfig_file):
     # Construct a K8s run launcher in a fake k8s environment.
     mock_k8s_client_batch_api = mock.MagicMock()
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,
@@ -509,10 +509,10 @@ def test_check_run_health(kubeconfig_file):
         V1Job(status=V1JobStatus(failed=1, succeeded=0)),
     ]
     k8s_run_launcher = K8sRunLauncher(
-        service_account_name="dagit-admin",
-        instance_config_map="dagster-instance",
-        postgres_password_secret="dagster-postgresql-secret",
-        dagster_home="/opt/dagster/dagster_home",
+        service_account_name="sheenlet-admin",
+        instance_config_map="sheenflow-instance",
+        postgres_password_secret="sheenflow-postgresql-secret",
+        dagster_home="/opt/sheenflow/dagster_home",
         job_image="fake_job_image",
         load_incluster_config=False,
         kubeconfig_file=kubeconfig_file,

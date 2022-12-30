@@ -4,8 +4,8 @@ setup(
     name="quickstart_etl",
     packages=find_packages(exclude=["quickstart_etl_tests"]),
     install_requires=[
-        "dagster",
-        "dagster-cloud",
+        "sheenflow",
+        "sheenflow-cloud",
         "boto3",
         "pandas",
         "matplotlib",
@@ -13,5 +13,5 @@ setup(
         "tweepy",
         "wordcloud",
     ],
-    extras_require={"dev": ["dagit", "pytest"]},
+    extras_require={"dev": ["sheenlet", "pytest"]},
 )

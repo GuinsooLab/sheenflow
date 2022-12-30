@@ -23,7 +23,7 @@ dbt_assets = load_assets_from_dbt_project(
     # prefix the output assets based on the database they live in plus the name of the schema
     key_prefix=["duckdb", "dbt_schema"],
     # prefix the source assets based on just the database
-    # (dagster populates the source schema information automatically)
+    # (sheenflow populates the source schema information automatically)
     source_key_prefix=["duckdb"],
 )
 

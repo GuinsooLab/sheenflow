@@ -10,7 +10,7 @@ def storage_account():
 
 @pytest.fixture(scope="session")
 def file_system():
-    yield "dagster-azure-tests"
+    yield "sheenflow-azure-tests"
 
 
 @pytest.fixture(scope="session")

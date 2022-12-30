@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE
+include sheenlet/py.typed
+recursive-include sheenlet/graphql-playground *
+recursive-include sheenlet/webapp/build *
+recursive-include sheenlet/templates/assets *

@@ -10,13 +10,13 @@ WORKDIR /tmp/
 
 # RUN pip install -r requirements.txt
 
-# ADD dagster dagster
-# ADD dagit dagit
+# ADD sheenflow sheenflow
+# ADD sheenlet sheenlet
 
 ADD . .
 
-RUN pip install --upgrade pip && pip install -e dagster && pip install dagit && pip install dagster-pandas && pip install dagstermill && pip install pytest
+RUN pip install --upgrade pip && pip install -e sheenflow && pip install sheenlet && pip install sheenflow-pandas && pip install dagstermill && pip install pytest
 
-# ENTRYPOINT [ "dagit" ]
+# ENTRYPOINT [ "sheenlet" ]
 # 
 # EXPOSE 3000

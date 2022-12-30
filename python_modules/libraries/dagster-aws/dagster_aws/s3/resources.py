@@ -46,7 +46,7 @@ def s3_resource(context):
 
         .. code-block:: python
 
-            from dagster import build_op_context, job, op
+            from sheenflow import build_op_context, job, op
             from dagster_aws.s3 import s3_resource
 
             @op(required_resource_keys={'s3'})
@@ -109,14 +109,14 @@ def s3_resource(context):
         S3_SESSION_CONFIG,
         {
             "s3_bucket": Field(StringSource),
-            "s3_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "s3_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
         },
     )
 )
 def s3_file_manager(context):
     """FileManager that provides abstract access to S3.
 
-    Implements the :py:class:`~dagster._core.storage.file_manager.FileManager` API.
+    Implements the :py:class:`~sheenflow._core.storage.file_manager.FileManager` API.
     """
     return S3FileManager(
         s3_session=construct_s3_client(

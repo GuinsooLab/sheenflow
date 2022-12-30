@@ -1,5 +1,5 @@
 /* eslint-disable */
-const projectName = 'dagster-rules';
+const projectName = 'sheenflow-rules';
 
 const rules = {
   'missing-graphql-variables-type': require('./missing-graphql-variables-type').rule,

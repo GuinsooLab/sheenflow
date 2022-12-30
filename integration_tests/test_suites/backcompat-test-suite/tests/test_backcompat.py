@@ -24,15 +24,15 @@ IS_BUILDKITE = os.getenv("BUILDKITE") is not None
 EARLIEST_TESTED_RELEASE = os.getenv("EARLIEST_TESTED_RELEASE")
 MOST_RECENT_RELEASE_PLACEHOLDER = "most_recent"
 
-pytest_plugins = ["dagster_test.fixtures"]
+pytest_plugins = ["sheenflow_test.fixtures"]
 
 
-# Maps pytest marks to (dagit-version, user-code-version) 2-tuples. These versions are CORE
+# Maps pytest marks to (sheenlet-version, user-code-version) 2-tuples. These versions are CORE
 # versions-- library versions are derived from these later with `get_library_version`.
 MARK_TO_VERSIONS_MAP = {
-    "dagit-earliest-release": (EARLIEST_TESTED_RELEASE, DAGSTER_CURRENT_BRANCH),
+    "sheenlet-earliest-release": (EARLIEST_TESTED_RELEASE, DAGSTER_CURRENT_BRANCH),
     "user-code-earliest-release": (DAGSTER_CURRENT_BRANCH, EARLIEST_TESTED_RELEASE),
-    "dagit-latest-release": (MOST_RECENT_RELEASE_PLACEHOLDER, DAGSTER_CURRENT_BRANCH),
+    "sheenlet-latest-release": (MOST_RECENT_RELEASE_PLACEHOLDER, DAGSTER_CURRENT_BRANCH),
     "user-code-latest-release": (DAGSTER_CURRENT_BRANCH, MOST_RECENT_RELEASE_PLACEHOLDER),
 }
 
@@ -73,7 +73,7 @@ def dagster_most_recent_release():
             return str(release_version)
 
 
-# This yields a dictionary where the keys are "dagit"/"user_code" and the values are either (1) a
+# This yields a dictionary where the keys are "sheenlet"/"user_code" and the values are either (1) a
 # string version (e.g. "1.0.5"); (2) the string "current_branch".
 @pytest.fixture(
     params=[
@@ -90,7 +90,7 @@ def release_test_map(request, dagster_most_recent_release):
     if user_code_version == MOST_RECENT_RELEASE_PLACEHOLDER:
         user_code_version = dagster_most_recent_release
 
-    return {"dagit": dagit_version, "user_code": user_code_version}
+    return {"sheenlet": dagit_version, "user_code": user_code_version}
 
 
 @contextmanager
@@ -183,7 +183,7 @@ def docker_service_up(docker_compose_file, build_args=None):
 def graphql_client(release_test_map, retrying_requests):
     dagit_host = os.environ.get("BACKCOMPAT_TESTS_DAGIT_HOST", "localhost")
 
-    dagit_version = release_test_map["dagit"]
+    dagit_version = release_test_map["sheenlet"]
     dagit_library_version = get_library_version(dagit_version)
     user_code_version = release_test_map["user_code"]
     user_code_library_version = get_library_version(user_code_version)
@@ -249,7 +249,7 @@ def assert_runs_and_exists(client: DagsterGraphQLClient, name, subset_selection=
 
 
 def is_0_release(release):
-    """Returns true if 0.x.x release of dagster, false otherwise"""
+    """Returns true if 0.x.x release of sheenflow, false otherwise"""
     if release == "current_branch":
         return False
     return release.split(".")[0] == "0"

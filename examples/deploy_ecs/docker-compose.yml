@@ -2,20 +2,20 @@
 version: "3.8"
 
 services:
-  # This service runs dagit. It has no user code; instead it loads its
+  # This service runs sheenlet. It has no user code; instead it loads its
   # jobs from the gRPC server running in the user_code service.
   # Because our instance uses the QueuedRunCoordinator, any runs submitted from
-  # dagit will be put on a queue and later dequeued and launched by
-  # the dagster-daemon service.
+  # sheenlet will be put on a queue and later dequeued and launched by
+  # the sheenflow-daemon service.
   dagit:
     platform: linux/amd64
     build:
       context: .
       dockerfile: ./Dockerfile
-      target: dagit
-    image: "$REGISTRY_URL/deploy_ecs/dagit"
-    container_name: dagit
-    command: "dagit -h 0.0.0.0 -p 3000 -w workspace.yaml"
+      target: sheenlet
+    image: "$REGISTRY_URL/deploy_ecs/sheenlet"
+    container_name: sheenlet
+    command: "sheenlet -h 0.0.0.0 -p 3000 -w workspace.yaml"
     ports:
       - "3000:3000"
     environment:
@@ -43,7 +43,7 @@ services:
             StringLike:
               iam:PassedToService: "ecs-tasks.amazonaws.com"
 
-  # This service runs the dagster-daemon process, which is responsible for
+  # This service runs the sheenflow-daemon process, which is responsible for
   # taking runs off of the queue and launching them, as well as creating
   # runs from schedules or sensors.
   daemon:
@@ -51,10 +51,10 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-      target: dagster
+      target: sheenflow
     image: "$REGISTRY_URL/deploy_ecs/daemon"
     container_name: daemon
-    command: "dagster-daemon run"
+    command: "sheenflow-daemon run"
     environment:
       DAGSTER_POSTGRES_HOSTNAME: "postgresql"
       DAGSTER_POSTGRES_USER: "postgres_user"
@@ -101,7 +101,7 @@ services:
       target: user_code
     image: "$REGISTRY_URL/deploy_ecs/user_code"
     container_name: user_code
-    command: "dagster api grpc -h 0.0.0.0 -p 4000 -f repo.py"
+    command: "sheenflow api grpc -h 0.0.0.0 -p 4000 -f repo.py"
     environment:
       DAGSTER_POSTGRES_DB: "postgres_db"
       DAGSTER_POSTGRES_HOSTNAME: "postgresql"
@@ -109,7 +109,7 @@ services:
       DAGSTER_POSTGRES_USER: "postgres_user"
       DAGSTER_CURRENT_IMAGE: "$REGISTRY_URL/deploy_ecs/user_code"
 
-  # This service runs the postgres DB used by dagster for run storage, schedule
+  # This service runs the postgres DB used by sheenflow for run storage, schedule
   # storage, and event log storage. In a real deployment, you might choose to
   # remove this in favor of an RDS instance.
   postgresql:

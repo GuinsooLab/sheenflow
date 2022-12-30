@@ -7,7 +7,7 @@ import {
   PageHeader,
   Heading,
   Page,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {PythonErrorInfo} from '../app/PythonErrorInfo';

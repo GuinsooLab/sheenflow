@@ -7,7 +7,7 @@ from dagster import _check as check
 
 
 class DagsterDbtError(Failure, ABC):
-    """The base exception of the ``dagster-dbt`` library."""
+    """The base exception of the ``sheenflow-dbt`` library."""
 
 
 class DagsterDbtCliUnexpectedOutputError(DagsterDbtError):
@@ -94,4 +94,4 @@ class DagsterDbtCliOutputsNotFoundError(DagsterDbtError):
 
 
 class DagsterDbtCloudJobInvariantViolationError(DagsterDbtError, DagsterInvariantViolationError):
-    """Represents an error when a dbt Cloud job is not supported by the ``dagster-dbt`` library."""
+    """Represents an error when a dbt Cloud job is not supported by the ``sheenflow-dbt`` library."""

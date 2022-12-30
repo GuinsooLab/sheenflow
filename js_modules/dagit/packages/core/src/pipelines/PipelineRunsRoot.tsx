@@ -7,7 +7,7 @@ import {
   Tag,
   TokenizingFieldValue,
   tokenToString,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {useParams} from 'react-router-dom';
 

@@ -2,7 +2,7 @@ from typing import Mapping
 
 
 class Card:
-    """Class to contruct a MS Teams Hero card for posting dagster messages."""
+    """Class to contruct a MS Teams Hero card for posting sheenflow messages."""
 
     def __init__(self):
         self.payload = {"type": "message", "attachments": []}

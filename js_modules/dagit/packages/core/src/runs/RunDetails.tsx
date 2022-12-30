@@ -14,7 +14,7 @@ import {
   Subheading,
   Box,
   StyledReadOnlyCodeMirror,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components/macro';

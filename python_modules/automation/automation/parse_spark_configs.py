@@ -1,7 +1,7 @@
 """Spark config codegen.
 
 This script parses the Spark configuration parameters downloaded from the Spark Github repository,
-and codegens a file that contains dagster configurations for these parameters.
+and codegens a file that contains sheenflow configurations for these parameters.
 """
 import re
 import sys
@@ -258,7 +258,7 @@ def extract(spark_docs_markdown_text: str) -> SparkConfigNode:
 def serialize(result: SparkConfigNode) -> bytes:
     with IndentingBufferPrinter() as printer:
         printer.write_header()
-        printer.line("from dagster import Bool, Field, Float, IntSource, Permissive, StringSource")
+        printer.line("from sheenflow import Bool, Field, Float, IntSource, Permissive, StringSource")
         printer.blank_line()
         printer.blank_line()
         printer.line("# pylint: disable=line-too-long")
@@ -282,8 +282,8 @@ def run() -> None:
     serialized = serialize(result)
 
     output_files = [
-        "python_modules/libraries/dagster-spark/dagster_spark/configs_spark.py",
-        "python_modules/libraries/dagster-aws/dagster_aws/emr/configs_spark.py",
+        "python_modules/libraries/sheenflow-spark/dagster_spark/configs_spark.py",
+        "python_modules/libraries/sheenflow-aws/dagster_aws/emr/configs_spark.py",
     ]
     for output_file in output_files:
         with open(output_file, "wb") as f:

@@ -71,7 +71,7 @@ def get_aws_environment():
 def check_storage_specified(pipeline_def, mode_def):
     if not can_isolate_steps(pipeline_def, mode_def):
         raise AirflowException(
-            "DAGs created using dagster-airflow run each step in its own process, but your "
+            "DAGs created using sheenflow-airflow run each step in its own process, but your "
             "pipeline includes solid outputs that will not be stored somewhere where other "
             "processes can retrieve them. Please use a persistent IO manager for these "
             "outputs. E.g. with\n"

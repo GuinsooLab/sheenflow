@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-airflow",
+    name="sheenflow-airflow",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -33,7 +33,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_airflow_tests*"]),
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "docker>=5.0.3,<6.0.0",
         "lazy_object_proxy",
         "pendulum",
@@ -66,7 +66,7 @@ setup(
         ],
     },
     entry_points={
-        "console_scripts": ["dagster-airflow = dagster_airflow.cli:main"],
+        "console_scripts": ["sheenflow-airflow = dagster_airflow.cli:main"],
         # airflow 1.0/2.0 plugin format
         "airflow.plugins": ["dagster_airflow = dagster_airflow.__init__:DagsterAirflowPlugin"],
         # airflow 2.0 provider format

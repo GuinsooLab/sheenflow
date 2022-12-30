@@ -13,7 +13,7 @@ def get_version() -> str:
 
 
 setup(
-    name="dagster-mlflow",
+    name="sheenflow-mlflow",
     version=get_version(),
     author="Elementl",
     author_email="hello@elementl.com",
@@ -30,7 +30,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_mlflow_tests*"]),
     install_requires=[
-        "dagster",
+        "sheenflow",
         "mlflow<=1.26.0",  # https://github.com/mlflow/mlflow/issues/5968
         "pandas",
     ],

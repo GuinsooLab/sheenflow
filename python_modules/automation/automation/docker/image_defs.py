@@ -62,19 +62,19 @@ def k8s_example_cm(cwd: str) -> Iterator[None]:
 
 def get_core_celery_k8s_dirs() -> List[str]:
     return [
-        "python_modules/dagster",
-        "python_modules/libraries/dagster-postgres",
-        "python_modules/libraries/dagster-celery",
-        "python_modules/libraries/dagster-k8s",
-        "python_modules/libraries/dagster-celery-k8s",
+        "python_modules/sheenflow",
+        "python_modules/libraries/sheenflow-postgres",
+        "python_modules/libraries/sheenflow-celery",
+        "python_modules/libraries/sheenflow-k8s",
+        "python_modules/libraries/sheenflow-celery-k8s",
     ]
 
 
 def get_core_k8s_dirs() -> List[str]:
     return [
-        "python_modules/dagster",
-        "python_modules/libraries/dagster-postgres",
-        "python_modules/libraries/dagster-k8s",
+        "python_modules/sheenflow",
+        "python_modules/libraries/sheenflow-postgres",
+        "python_modules/libraries/sheenflow-k8s",
     ]
 
 
@@ -83,7 +83,7 @@ def k8s_example_editable_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
         get_core_celery_k8s_dirs()
         + [
-            "python_modules/libraries/dagster-aws",
+            "python_modules/libraries/sheenflow-aws",
         ],
         cwd,
     ):
@@ -99,8 +99,8 @@ def k8s_dagit_editable_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
         get_core_celery_k8s_dirs()
         + [
-            "python_modules/dagster-graphql",
-            "python_modules/dagit",
+            "python_modules/sheenflow-graphql",
+            "python_modules/sheenlet",
         ],
         cwd,
     ):
@@ -112,9 +112,9 @@ def k8s_dagit_example_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
         get_core_celery_k8s_dirs()
         + [
-            "python_modules/libraries/dagster-aws",
-            "python_modules/dagster-graphql",
-            "python_modules/dagit",
+            "python_modules/libraries/sheenflow-aws",
+            "python_modules/sheenflow-graphql",
+            "python_modules/sheenlet",
         ],
         cwd,
     ):
@@ -147,7 +147,7 @@ def user_code_example_cm(cwd: str) -> Iterator[None]:
 @contextlib.contextmanager
 def user_code_example_editable_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
-        get_core_celery_k8s_dirs() + ["python_modules/libraries/dagster-aws"],
+        get_core_celery_k8s_dirs() + ["python_modules/libraries/sheenflow-aws"],
         cwd,
     ):
         with copy_directories(
@@ -162,9 +162,9 @@ def dagster_k8s_editable_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
         get_core_k8s_dirs()
         + [
-            "python_modules/dagster-graphql",
-            "python_modules/dagit",
-            "python_modules/libraries/dagster-aws",
+            "python_modules/sheenflow-graphql",
+            "python_modules/sheenlet",
+            "python_modules/libraries/sheenflow-aws",
         ],
         cwd,
     ):
@@ -177,9 +177,9 @@ def dagster_celery_k8s_editable_cm(cwd: str) -> Iterator[None]:
     with copy_directories(
         get_core_celery_k8s_dirs()
         + [
-            "python_modules/dagster-graphql",
-            "python_modules/dagit",
-            "python_modules/libraries/dagster-aws",
+            "python_modules/sheenflow-graphql",
+            "python_modules/sheenlet",
+            "python_modules/libraries/sheenflow-aws",
         ],
         cwd,
     ):
@@ -190,13 +190,13 @@ def dagster_celery_k8s_editable_cm(cwd: str) -> Iterator[None]:
 CUSTOM_BUILD_CONTEXTMANAGERS: Dict[str, Callable] = {
     "k8s-example": k8s_example_cm,
     "k8s-example-editable": k8s_example_editable_cm,
-    "k8s-dagit-editable": k8s_dagit_editable_cm,
-    "k8s-dagit-example": k8s_dagit_example_cm,
+    "k8s-sheenlet-editable": k8s_dagit_editable_cm,
+    "k8s-sheenlet-example": k8s_dagit_example_cm,
     "k8s-celery-worker-editable": k8s_celery_worker_editable_cm,
     "user-code-example": user_code_example_cm,
     "user-code-example-editable": user_code_example_editable_cm,
-    "dagster-k8s-editable": dagster_k8s_editable_cm,
-    "dagster-celery-k8s-editable": dagster_celery_k8s_editable_cm,
+    "sheenflow-k8s-editable": dagster_k8s_editable_cm,
+    "sheenflow-celery-k8s-editable": dagster_celery_k8s_editable_cm,
 }
 
 

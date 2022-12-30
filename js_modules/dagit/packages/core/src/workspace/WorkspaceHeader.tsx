@@ -1,5 +1,5 @@
 import {QueryResult} from '@apollo/client';
-import {PageHeader, Box, Heading, Colors, Button, Icon} from '@dagster-io/ui';
+import {PageHeader, Box, Heading, Colors, Button, Icon} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

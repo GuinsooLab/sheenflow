@@ -1,4 +1,4 @@
-import {Box} from '@dagster-io/ui';
+import {Box} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {RunStatus} from '../types/globalTypes';

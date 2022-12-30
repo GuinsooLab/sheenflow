@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-dask",
+    name="sheenflow-dask",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -34,7 +34,7 @@ setup(
     packages=find_packages(exclude=["dagster_dask_tests*"]),
     install_requires=[
         "bokeh",
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "dask[dataframe]>=1.2.2",
         "distributed>=1.28.1",
     ],

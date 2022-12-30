@@ -5,7 +5,7 @@ from .executor import dask_executor
 from .resources import dask_resource
 from .version import __version__
 
-check_dagster_package_version("dagster-dask", __version__)
+check_dagster_package_version("sheenflow-dask", __version__)
 
 __all__ = [
     "DataFrame",

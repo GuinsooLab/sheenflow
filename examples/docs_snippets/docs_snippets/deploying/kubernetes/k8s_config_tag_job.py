@@ -9,7 +9,7 @@ def my_op(context):
 # start_k8s_config
 @job(
     tags={
-        "dagster-k8s/config": {
+        "sheenflow-k8s/config": {
             "container_config": {
                 "resources": {
                     "requests": {"cpu": "250m", "memory": "64Mi"},

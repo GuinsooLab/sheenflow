@@ -32,7 +32,7 @@ def slack_resource(context):
 
         import os
 
-        from dagster import job, op
+        from sheenflow import job, op
         from dagster_slack import slack_resource
 
 

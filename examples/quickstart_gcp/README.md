@@ -91,7 +91,7 @@ pip install -e ".[dev]"
 Then, start the Dagit web server:
 
 ```bash
-dagit
+sheenlet
 ```
 
 Open http://localhost:3000 with your browser to see the project.
@@ -216,7 +216,7 @@ The `$DAGSTER_HOME` environment variable must be set to a directory for the daem
 
 In this case, go to the project root directory and run:
 ```bash
-dagster-daemon run
+sheenflow-daemon run
 ```
 
 Once your Dagster daemon is running, the schedules that are turned on will start running.

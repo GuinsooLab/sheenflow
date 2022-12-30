@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-aws",
+    name="sheenflow-aws",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -35,13 +35,13 @@ setup(
     include_package_data=True,
     install_requires=[
         "boto3",
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "packaging",
         "requests",
     ],
     extras_require={
         "redshift": ["psycopg2-binary"],
-        "pyspark": ["dagster-pyspark"],
+        "pyspark": ["sheenflow-pyspark"],
         "test": [
             "moto>=2.2.8",
             "requests-mock",

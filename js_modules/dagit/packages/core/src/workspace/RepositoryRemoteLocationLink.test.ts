@@ -5,15 +5,15 @@ describe('formatRepositoryUrl', () => {
     const githubHttps = formatRepositoryUrl(
       'https://github.com/dagster-io/dagster/tree/f04aaa/integration_tests/scripts',
     );
-    expect(githubHttps).toBe('dagster-io/dagster@f04aaa');
+    expect(githubHttps).toBe('sheenflow-io/sheenflow@f04aaa');
 
     const githubHttp = formatRepositoryUrl(
       'https://github.com/dagster-io/dagster/tree/f04aaa/integration_tests/scripts',
     );
-    expect(githubHttp).toBe('dagster-io/dagster@f04aaa');
+    expect(githubHttp).toBe('sheenflow-io/sheenflow@f04aaa');
 
     const githubRoot = formatRepositoryUrl('https://github.com/dagster-io/dagster/tree/0.9.10');
-    expect(githubRoot).toBe('dagster-io/dagster@0.9.10');
+    expect(githubRoot).toBe('sheenflow-io/sheenflow@0.9.10');
 
     const gitlabHttps = formatRepositoryUrl(
       'https://gitlab.com/gitlab-org/gitlab/-/blob/0c153c/doc/user/project',

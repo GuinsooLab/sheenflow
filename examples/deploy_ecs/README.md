@@ -10,11 +10,11 @@ This directory contains annotated files for deploying Dagster with an EcsRunLaun
 4. [Configure IAM permissions](https://docs.docker.com/cloud/ecs-integration/#requirements)
 5. [Create a Docker ECS context](https://docs.docker.com/cloud/ecs-integration/#create-aws-context):
   ```sh
-  docker context create ecs dagster-ecs
+  docker context create ecs sheenflow-ecs
   ```
 6. [Create ECR Repositories](https://docs.aws.amazon.com/cli/latest/reference/ecr/create-repository.html) for our images:
   ```sh
-  aws ecr create-repository --repository-name deploy_ecs/dagit
+  aws ecr create-repository --repository-name deploy_ecs/sheenlet
   aws ecr create-repository --repository-name deploy_ecs/daemon
   aws ecr create-repository --repository-name deploy_ecs/user_code
   ```
@@ -35,7 +35,7 @@ Our docker-compose.yaml builds all of its images from local multi-stage Dockerfi
 ## Deploying Dagster
 
 ```sh
-docker --context dagster-ecs compose --project-name dagster up
+docker --context sheenflow-ecs compose --project-name sheenflow up
 ```
 
 The first time you run this command, Docker will provision the necessary resources to run your stack on ECS. `--context dagster-ecs` tells Docker to run the containers on the Docker ECS context that we created. `--project-name dagster` tells Docker how to name the stack.
@@ -49,7 +49,7 @@ Subsequent runs of this command will [execute a rolling update](https://docs.doc
 Once you're done experimenting with this reference deployment, you should destroy the AWS resources it creates.
 
 ```sh
-docker --context dagster-ecs compose --project-name dagster down
+docker --context sheenflow-ecs compose --project-name sheenflow down
 ```
 
 This will stop your running services and tear down any infrastructure Docker provisioned on your behalf.

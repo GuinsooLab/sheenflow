@@ -43,7 +43,7 @@ def docker_executor(init_context: InitExecutorContext) -> Executor:
 
     To use the `docker_executor`, set it as the `executor_def` when defining a job:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-docker/dagster_docker_tests/test_example_executor.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-docker/dagster_docker_tests/test_example_executor.py
        :start-after: start_marker
        :end-before: end_marker
        :language: python
@@ -164,7 +164,7 @@ class DockerStepHandler(StepHandler):
         assert len(step_keys_to_execute) == 1, "Launching multiple steps is not currently supported"
         step_key = step_keys_to_execute[0]
 
-        step_name = f"dagster-step-{hash_str(run_id + step_key)}"
+        step_name = f"sheenflow-step-{hash_str(run_id + step_key)}"
 
         if execute_step_args.known_state:
             retry_state = execute_step_args.known_state.get_retry_state()

@@ -76,7 +76,7 @@ class DatabricksClient:
         return self.client.jobs.get_run(databricks_run_id)  # pylint: disable=no-member
 
     def get_run_state(self, databricks_run_id):
-        """Get the state of a run by Databricks run ID (_not_ dagster run ID).
+        """Get the state of a run by Databricks run ID (_not_ sheenflow run ID).
 
         Return a `DatabricksRunState` object. Note that the `result_state`
         attribute may be `None` if the run hasn't yet terminated.
@@ -171,7 +171,7 @@ class DatabricksJobRunner:
             "Invalid value for run_config.cluster",
         )
 
-        # We'll always need some libraries, namely dagster/dagster_databricks/dagster_pyspark,
+        # We'll always need some libraries, namely sheenflow/dagster_databricks/dagster_pyspark,
         # since they're imported by our scripts.
         # Add them if they're not already added by users in config.
         libraries = list(run_config.get("libraries", []))
@@ -184,9 +184,9 @@ class DatabricksJobRunner:
             }
 
             for library_name, library in [
-                ("dagster", dagster),
-                ("dagster-databricks", dagster_databricks),
-                ("dagster-pyspark", dagster_pyspark),
+                ("sheenflow", dagster),
+                ("sheenflow-databricks", dagster_databricks),
+                ("sheenflow-pyspark", dagster_pyspark),
             ]:
                 if library_name not in python_libraries:
                     libraries.append(

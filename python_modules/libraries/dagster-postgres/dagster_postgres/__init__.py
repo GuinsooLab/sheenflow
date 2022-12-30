@@ -6,7 +6,7 @@ from .schedule_storage import PostgresScheduleStorage
 from .storage import DagsterPostgresStorage
 from .version import __version__
 
-check_dagster_package_version("dagster-postgres", __version__)
+check_dagster_package_version("sheenflow-postgres", __version__)
 __all__ = [
     "DagsterPostgresStorage",
     "PostgresEventLogStorage",

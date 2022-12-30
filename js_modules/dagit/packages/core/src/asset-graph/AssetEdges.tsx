@@ -1,4 +1,4 @@
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {buildSVGPath} from './Utils';

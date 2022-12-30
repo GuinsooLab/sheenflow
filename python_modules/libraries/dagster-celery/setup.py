@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-celery",
+    name="sheenflow-celery",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,9 +32,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_celery_tests*"]),
-    entry_points={"console_scripts": ["dagster-celery = dagster_celery.cli:main"]},
+    entry_points={"console_scripts": ["sheenflow-celery = dagster_celery.cli:main"]},
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "celery>=4.3.0",
         "click>=5.0,<9.0",
         "importlib_metadata<5.0.0; python_version<'3.8'",  # https://github.com/celery/celery/issues/7783

@@ -1,5 +1,5 @@
 import {gql, useMutation} from '@apollo/client';
-import {Checkbox, Tooltip} from '@dagster-io/ui';
+import {Checkbox, Tooltip} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

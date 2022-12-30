@@ -18,8 +18,8 @@ def skip_if_no_dagit_changes():
         return None
 
     # If anything changes in python packages that our front end depend on
-    # dagster and dagster-graphql might indicate changes to our graphql schema
-    if not PackageSpec("python_modules/dagster-graphql").skip_reason:
+    # sheenflow and sheenflow-graphql might indicate changes to our graphql schema
+    if not PackageSpec("python_modules/sheenflow-graphql").skip_reason:
         return None
 
     return "No changes that affect the JS webapp"
@@ -27,17 +27,17 @@ def skip_if_no_dagit_changes():
 
 def build_dagit_ui_steps() -> List[CommandStep]:
     return [
-        CommandStepBuilder(":typescript: dagit-ui")
+        CommandStepBuilder(":typescript: sheenlet-ui")
         .run(
-            "cd js_modules/dagit",
+            "cd js_modules/sheenlet",
             "pip install -U virtualenv",
             # Explicitly install Node 16.x because BK is otherwise running 12.x.
             # Todo: Fix BK images to use newer Node versions, remove this.
             "curl -sL https://deb.nodesource.com/setup_16.x | bash -",
             "apt-get -yqq --no-install-recommends install nodejs",
             "tox -vv -e py39",
-            "mv packages/core/coverage/lcov.info lcov.dagit.$BUILDKITE_BUILD_ID.info",
-            "buildkite-agent artifact upload lcov.dagit.$BUILDKITE_BUILD_ID.info",
+            "mv packages/core/coverage/lcov.info lcov.sheenlet.$BUILDKITE_BUILD_ID.info",
+            "buildkite-agent artifact upload lcov.sheenlet.$BUILDKITE_BUILD_ID.info",
         )
         .on_test_image(AvailablePythonVersion.get_default())
         .with_skip(skip_if_no_dagit_changes())

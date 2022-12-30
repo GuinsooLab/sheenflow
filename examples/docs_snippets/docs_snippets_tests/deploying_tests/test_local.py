@@ -8,7 +8,7 @@ def test_dagster_yaml():
     )
 
     res, custom_instance_class = dagster_instance_config(
-        dagster_yaml_folder, "dagster.yaml"
+        dagster_yaml_folder, "sheenflow.yaml"
     )
     assert set(res.keys()) == {
         "storage",

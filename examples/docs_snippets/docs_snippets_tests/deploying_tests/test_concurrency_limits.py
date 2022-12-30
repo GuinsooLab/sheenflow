@@ -32,7 +32,7 @@ def test_unique_value_instance_yaml(docs_snippets_folder):
     )
     assert isinstance(
         InstanceRef.from_dir(
-            intance_yaml_folder, config_filename="per-unique-value-dagster.yaml"
+            intance_yaml_folder, config_filename="per-unique-value-sheenflow.yaml"
         ).run_coordinator,
         QueuedRunCoordinator,
     )

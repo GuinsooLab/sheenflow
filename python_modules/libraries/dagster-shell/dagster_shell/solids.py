@@ -78,7 +78,7 @@ def create_shell_command_op(
 
     Examples:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-shell/dagster_shell_tests/example_shell_command_op.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/dagster_shell_tests/example_shell_command_op.py
        :language: python
 
 
@@ -132,16 +132,16 @@ def create_shell_script_op(shell_script_path, name="create_shell_script_op", ins
     from a script file.
 
     Any kwargs passed to this function will be passed along to the underlying :func:`@op
-    <dagster.op>` decorator. However, note that overriding ``config`` or ``output_defs`` is not
+    <sheenflow.op>` decorator. However, note that overriding ``config`` or ``output_defs`` is not
     supported.
 
-    You might consider using :func:`@graph <dagster.graph>` to wrap this op
+    You might consider using :func:`@graph <sheenflow.graph>` to wrap this op
     in the cases where you'd like to configure the shell op with different config fields.
 
 
     Examples:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-shell/dagster_shell_tests/example_shell_script_op.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/dagster_shell_tests/example_shell_script_op.py
        :language: python
 
 

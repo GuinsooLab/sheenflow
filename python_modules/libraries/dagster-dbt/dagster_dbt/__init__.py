@@ -41,7 +41,7 @@ from .rpc import (
 from .types import DbtOutput
 from .version import __version__
 
-check_dagster_package_version("dagster-dbt", __version__)
+check_dagster_package_version("sheenflow-dbt", __version__)
 
 __all__ = [
     "DagsterDbtCliRuntimeError",

@@ -23,7 +23,7 @@ def secretsmanager_resource(context):
 
         .. code-block:: python
 
-            from dagster import build_op_context, job, op
+            from sheenflow import build_op_context, job, op
             from dagster_aws.secretsmanager import secretsmanager_resource
 
             @op(required_resource_keys={'secretsmanager'})
@@ -111,7 +111,7 @@ def secretsmanager_secrets_resource(context):
         .. code-block:: python
 
             import os
-            from dagster import build_op_context, job, op
+            from sheenflow import build_op_context, job, op
             from dagster_aws.secretsmanager import secretsmanager_secrets_resource
 
             @op(required_resource_keys={'secrets'})
@@ -133,7 +133,7 @@ def secretsmanager_secrets_resource(context):
                         'secrets': {
                             'config': {
                                 'region_name': 'us-west-1',
-                                'secrets_tag': 'dagster',
+                                'secrets_tag': 'sheenflow',
                                 'add_to_environment': True,
                             }
                         }
@@ -160,7 +160,7 @@ def secretsmanager_secrets_resource(context):
               # profile as specified in ~/.aws/credentials file
               secrets: ["arn:aws:secretsmanager:region:aws_account_id:secret:appauthexample-AbCdEf"]
               # Optional[List[str]]: Specifies a list of secret ARNs to pull from SecretsManager.
-              secrets_tag: "dagster"
+              secrets_tag: "sheenflow"
               # Optional[str]: Specifies a tag, all secrets which have the tag set will be pulled
               # from SecretsManager.
               add_to_environment: true

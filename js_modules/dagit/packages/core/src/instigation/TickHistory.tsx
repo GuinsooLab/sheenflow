@@ -13,7 +13,7 @@ import {
   FontFamily,
   Icon,
   IconWrapper,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import {Chart} from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import * as React from 'react';

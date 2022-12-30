@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {Box, Colors, Popover} from '@dagster-io/ui';
+import {Box, Colors, Popover} from '@sheenflow-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

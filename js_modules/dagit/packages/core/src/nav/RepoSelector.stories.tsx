@@ -1,4 +1,4 @@
-import {Box, Colors} from '@dagster-io/ui';
+import {Box, Colors} from '@sheenflow-io/ui';
 import {Meta} from '@storybook/react/types-6-0';
 import faker from 'faker';
 import * as React from 'react';

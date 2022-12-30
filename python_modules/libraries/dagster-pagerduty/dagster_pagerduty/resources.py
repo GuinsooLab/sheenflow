@@ -173,7 +173,7 @@ def pagerduty_resource(context):
         @op(required_resource_keys={'pagerduty'})
         def pagerduty_op(context):
             context.resources.pagerduty.EventV2_create(
-                summary='alert from dagster'
+                summary='alert from sheenflow'
                 source='localhost',
                 severity='error',
                 event_action='trigger',

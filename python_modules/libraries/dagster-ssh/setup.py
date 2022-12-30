@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-ssh",
+    name="sheenflow-ssh",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,7 +32,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_ssh_tests*"]),
-    install_requires=[f"dagster{pin}", "sshtunnel", "paramiko"],
+    install_requires=[f"sheenflow{pin}", "sshtunnel", "paramiko"],
     extras_require={"test": ["cryptography==2.6.1", "pytest-sftpserver==1.2.0"]},
     zip_safe=False,
 )

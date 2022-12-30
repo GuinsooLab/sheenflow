@@ -40,28 +40,28 @@ class PostgresEventLogStorage(SqlEventLogStorage, ConfigurableClass):
     """Postgres-backed event log storage.
 
     Users should not directly instantiate this class; it is instantiated by internal machinery when
-    ``dagit`` and ``dagster-graphql`` load, based on the values in the ``dagster.yaml`` file in
+    ``sheenlet`` and ``sheenflow-graphql`` load, based on the values in the ``sheenflow.yaml`` file in
     ``$DAGSTER_HOME``. Configuration of this class should be done by setting values in that file.
 
     To use Postgres for all of the components of your instance storage, you can add the following
-    block to your ``dagster.yaml``:
+    block to your ``sheenflow.yaml``:
 
-    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/dagster-pg.yaml
-       :caption: dagster.yaml
+    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/sheenflow-pg.yaml
+       :caption: sheenflow.yaml
        :lines: 1-8
        :language: YAML
 
     If you are configuring the different storage components separately and are specifically
     configuring your event log storage to use Postgres, you can add a block such as the following
-    to your ``dagster.yaml``:
+    to your ``sheenflow.yaml``:
 
-    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/dagster-pg-legacy.yaml
-       :caption: dagster.yaml
+    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/sheenflow-pg-legacy.yaml
+       :caption: sheenflow.yaml
        :lines: 12-21
        :language: YAML
 
-    Note that the fields in this config are :py:class:`~dagster.StringSource` and
-    :py:class:`~dagster.IntSource` and can be configured from environment variables.
+    Note that the fields in this config are :py:class:`~sheenflow.StringSource` and
+    :py:class:`~sheenflow.IntSource` and can be configured from environment variables.
 
     """
 
@@ -102,7 +102,7 @@ class PostgresEventLogStorage(SqlEventLogStorage, ConfigurableClass):
                 stamp_alembic_rev(pg_alembic_config(__file__), conn)
 
     def optimize_for_dagit(self, statement_timeout, pool_recycle):
-        # When running in dagit, hold an open connection and set statement_timeout
+        # When running in sheenlet, hold an open connection and set statement_timeout
         existing_options = self._engine.url.query.get("options")
         timeout_option = pg_statement_timeout(statement_timeout)
         if existing_options:

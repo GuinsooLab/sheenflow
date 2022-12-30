@@ -1,4 +1,4 @@
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 import {ActiveElement} from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import * as React from 'react';

@@ -9,7 +9,7 @@ import {
   MenuItem,
   Menu,
   Popover,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import keyBy from 'lodash/keyBy';
 import * as React from 'react';
 import styled from 'styled-components/macro';

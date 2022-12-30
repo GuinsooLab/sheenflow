@@ -6,6 +6,6 @@ from .launcher import K8sRunLauncher
 from .ops import execute_k8s_job, k8s_job_op
 from .version import __version__
 
-check_dagster_package_version("dagster-k8s", __version__)
+check_dagster_package_version("sheenflow-k8s", __version__)
 
 __all__ = ["K8sRunLauncher"]

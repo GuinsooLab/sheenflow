@@ -1,4 +1,4 @@
-import {NonIdealState} from '@dagster-io/ui';
+import {NonIdealState} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {repoAddressAsHumanString} from '../workspace/repoAddressAsString';

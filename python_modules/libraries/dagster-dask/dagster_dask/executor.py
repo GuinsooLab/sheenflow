@@ -15,7 +15,7 @@ from dagster._core.instance import DagsterInstance
 from dagster._utils import frozentags, iterate_with_context
 
 # Dask resource requirements are specified under this key
-DASK_RESOURCE_REQUIREMENTS_KEY = "dagster-dask/resource_requirements"
+DASK_RESOURCE_REQUIREMENTS_KEY = "sheenflow-dask/resource_requirements"
 
 
 @executor(
@@ -94,7 +94,7 @@ def dask_executor(init_context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_dask import dask_executor
 
         @job(executor_def=dask_executor)

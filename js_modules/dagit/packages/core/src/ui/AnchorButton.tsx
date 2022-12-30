@@ -6,7 +6,7 @@ import {
   intentToTextColor,
   StyledButton,
   StyledButtonText,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link, LinkProps} from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-restricted-imports
 import {Text} from '@blueprintjs/core';
-import {Colors, Group, Icon, IconWrapper, Code, FontFamily} from '@dagster-io/ui';
+import {Colors, Group, Icon, IconWrapper, Code, FontFamily} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';

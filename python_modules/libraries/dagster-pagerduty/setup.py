@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-pagerduty",
+    name="sheenflow-pagerduty",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,6 +32,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_pagerduty_tests*"]),
-    install_requires=[f"dagster{pin}", "pypd"],
+    install_requires=[f"sheenflow{pin}", "pypd"],
     zip_safe=False,
 )

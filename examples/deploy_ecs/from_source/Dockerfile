@@ -12,16 +12,16 @@ COPY dagster.yaml workspace.yaml $DAGSTER_HOME
 WORKDIR /tmp
 
 # Install:
-# - dagster so we can run `dagster-daemon run`
-# - dagster-aws so we can use EcsRunLauncher
-# - dagster-postgres so we can use PostgresEventStorage,
+# - sheenflow so we can run `sheenflow-daemon run`
+# - sheenflow-aws so we can use EcsRunLauncher
+# - sheenflow-postgres so we can use PostgresEventStorage,
 #   PostgresRunStorage, and PostgresScheduleStorage
 RUN pip install \
-  -e python_modules/dagster \
-  -e python_modules/libraries/dagster-aws \
-  -e python_modules/libraries/dagster-postgres
+  -e python_modules/sheenflow \
+  -e python_modules/libraries/sheenflow-aws \
+  -e python_modules/libraries/sheenflow-postgres
 
-RUN ! pip list --exclude-editable | grep -e dagster -e dagit
+RUN ! pip list --exclude-editable | grep -e sheenflow -e sheenlet
 
 WORKDIR $DAGSTER_HOME
 
@@ -31,11 +31,11 @@ FROM dagster as dagit
 WORKDIR /tmp
 
 RUN pip install \
-  -e python_modules/dagit \
-  -e python_modules/dagster-graphql \
-  -e python_modules/dagster
+  -e python_modules/sheenlet \
+  -e python_modules/sheenflow-graphql \
+  -e python_modules/sheenflow
 
-RUN ! pip list --exclude-editable | grep -e dagster -e dagit
+RUN ! pip list --exclude-editable | grep -e sheenflow -e sheenlet
 
 WORKDIR $DAGSTER_HOME
 

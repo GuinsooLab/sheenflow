@@ -106,7 +106,7 @@ def local_port_forward_postgres(namespace):
                 "--namespace",
                 namespace,
                 "-l",
-                "app=postgresql,release=dagster",
+                "app=postgresql,release=sheenflow",
                 "-o",
                 'jsonpath="{.items[0].metadata.name}"',
             ]
@@ -317,7 +317,7 @@ def check_export_runs(instance):
         try:
             export_run(instance, run, output_file)
         except Exception as e:
-            print(f"Hit an error exporting dagster-debug {output_file}: {e}")
+            print(f"Hit an error exporting sheenflow-debug {output_file}: {e}")
             continue
 
         p = subprocess.Popen(

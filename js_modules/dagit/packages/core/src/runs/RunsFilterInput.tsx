@@ -4,7 +4,7 @@ import {
   TokenizingFieldValue,
   tokensAsStringArray,
   tokenizedValuesFromStringArray,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import qs from 'qs';
 import * as React from 'react';
 

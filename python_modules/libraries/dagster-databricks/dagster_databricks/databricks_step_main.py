@@ -4,7 +4,7 @@ This script is launched on Databricks using a `spark_python_task` and is passed 
 parameters:
 
 - the DBFS path to the pickled `step_run_ref` file
-- the DBFS path to the zipped dagster job
+- the DBFS path to the zipped sheenflow job
 - paths to any other zipped packages which have been uploaded to DBFS.
 """
 
@@ -95,7 +95,7 @@ def main(
 
             with open(step_run_ref_filepath, "rb") as handle:
                 step_run_ref = pickle.load(handle)
-            print("Running dagster job")  # noqa pylint: disable=print-call
+            print("Running sheenflow job")  # noqa pylint: disable=print-call
 
             step_run_dir = os.path.dirname(step_run_ref_filepath)
             if step_run_ref.known_state is not None:

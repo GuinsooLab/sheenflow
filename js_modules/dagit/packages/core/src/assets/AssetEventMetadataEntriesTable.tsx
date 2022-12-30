@@ -1,4 +1,4 @@
-import {Box, Caption, Colors, Icon, Mono} from '@dagster-io/ui';
+import {Box, Caption, Colors, Icon, Mono} from '@sheenflow-io/ui';
 import dayjs from 'dayjs';
 import React from 'react';
 import {Link} from 'react-router-dom';

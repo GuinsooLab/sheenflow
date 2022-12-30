@@ -25,7 +25,7 @@ services:
       - dagit_service_network
 
   dagit:
-    container_name: dagit
+    container_name: sheenlet
     networks:
       - dagit_service_network
     build:
@@ -38,7 +38,7 @@ services:
     expose:
       - "3000"
     entrypoint:
-      - dagit
+      - sheenlet
       - -h
       - "0.0.0.0"
       - -p
@@ -59,7 +59,7 @@ services:
       context: .
       dockerfile: ${DAGIT_DOCKERFILE}
     entrypoint:
-      - dagster-daemon
+      - sheenflow-daemon
       - run
     container_name: docker_daemon
     restart: on-failure

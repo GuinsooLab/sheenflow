@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  # This service runs the postgres DB used by dagster for run storage, schedule storage,
+  # This service runs the postgres DB used by sheenflow for run storage, schedule storage,
   # and event log storage.
   docker_example_postgresql:
     image: postgres:11
@@ -13,11 +13,11 @@ services:
     networks:
       - docker_example_network
 
-  # This service runs the gRPC server that loads your user code, in both dagit
-  # and dagster-daemon. By setting DAGSTER_CURRENT_IMAGE to its own image, we tell the
+  # This service runs the gRPC server that loads your user code, in both sheenlet
+  # and sheenflow-daemon. By setting DAGSTER_CURRENT_IMAGE to its own image, we tell the
   # run launcher to use this same image when launching runs in a new container as well.
   # Multiple containers like this can be deployed separately - each just needs to run on
-  # its own port, and have its own entry in the workspace.yaml file that's loaded by dagit.
+  # its own port, and have its own entry in the workspace.yaml file that's loaded by sheenlet.
   docker_example_user_code:
     build:
       context: .
@@ -33,15 +33,15 @@ services:
     networks:
       - docker_example_network
 
-  # This service runs dagit, which loads your user code from the user code container.
-  # Since our instance uses the QueuedRunCoordinator, any runs submitted from dagit will be put on
-  # a queue and later dequeued and launched by dagster-daemon.
+  # This service runs sheenlet, which loads your user code from the user code container.
+  # Since our instance uses the QueuedRunCoordinator, any runs submitted from sheenlet will be put on
+  # a queue and later dequeued and launched by sheenflow-daemon.
   docker_example_dagit:
     build:
       context: .
       dockerfile: ./Dockerfile_dagster
     entrypoint:
-      - dagit
+      - sheenlet
       - -h
       - "0.0.0.0"
       - -p
@@ -57,7 +57,7 @@ services:
       DAGSTER_POSTGRES_USER: "postgres_user"
       DAGSTER_POSTGRES_PASSWORD: "postgres_password"
       DAGSTER_POSTGRES_DB: "postgres_db"
-    volumes: # Make docker client accessible so we can terminate containers from dagit
+    volumes: # Make docker client accessible so we can terminate containers from sheenlet
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/io_manager_storage:/tmp/io_manager_storage
     networks:
@@ -66,14 +66,14 @@ services:
       - docker_example_postgresql
       - docker_example_user_code
 
-  # This service runs the dagster-daemon process, which is responsible for taking runs
+  # This service runs the sheenflow-daemon process, which is responsible for taking runs
   # off of the queue and launching them, as well as creating runs from schedules or sensors.
   docker_example_daemon:
     build:
       context: .
       dockerfile: ./Dockerfile_dagster
     entrypoint:
-      - dagster-daemon
+      - sheenflow-daemon
       - run
     container_name: docker_example_daemon
     restart: on-failure

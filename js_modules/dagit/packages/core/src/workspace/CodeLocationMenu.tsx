@@ -7,7 +7,7 @@ import {
   MenuItem,
   Popover,
   StyledReadOnlyCodeMirror,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import * as React from 'react';
 import * as yaml from 'yaml';
 

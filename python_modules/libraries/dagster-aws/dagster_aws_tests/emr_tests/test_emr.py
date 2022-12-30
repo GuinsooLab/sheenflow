@@ -62,7 +62,7 @@ def test_emr_id_from_name(emr_cluster_config):
 
 
 def test_emr_construct_step_dict():
-    cmd = ["pip", "install", "dagster"]
+    cmd = ["pip", "install", "sheenflow"]
 
     assert EmrJobRunner.construct_step_dict_for_command("test_step", cmd) == {
         "Name": "test_step",

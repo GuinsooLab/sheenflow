@@ -335,7 +335,7 @@ def test_hello_world_reexecution():
         with tempfile.NamedTemporaryFile("w+", suffix=".py") as reexecution_notebook_file:
             reexecution_notebook_file.write(
                 (
-                    "from dagster import job\n"
+                    "from sheenflow import job\n"
                     "from dagstermill.factory import define_dagstermill_op\n\n\n"
                     "reexecution_op = define_dagstermill_op(\n"
                     "    'hello_world_reexecution', '{output_notebook_path}'\n"

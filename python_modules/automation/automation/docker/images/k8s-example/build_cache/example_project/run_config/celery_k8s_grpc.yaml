@@ -8,4 +8,4 @@ resources:
   io_manager:
     config:
       s3_bucket: "YOUR_BUCKET"
-      s3_prefix: "dagster-k8s-test"
+      s3_prefix: "sheenflow-k8s-test"

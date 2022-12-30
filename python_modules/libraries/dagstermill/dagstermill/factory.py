@@ -34,7 +34,7 @@ from .translator import DagsterTranslator
 
 
 def _clean_path_for_windows(notebook_path: str) -> str:
-    """In windows, the notebook cant render in dagit unless the C: prefix is removed.
+    """In windows, the notebook cant render in sheenlet unless the C: prefix is removed.
     os.path.splitdrive will split the path into (drive, tail), so just return the tail
     """
     return os.path.splitdrive(notebook_path)[1]
@@ -350,8 +350,8 @@ def define_dagstermill_op(
             call :py:func:`~dagstermill.yield_result` to yield each of these outputs.
         required_resource_keys (Optional[Set[str]]): The string names of any required resources.
         output_notebook_name: (Optional[str]): If set, will be used as the name of an injected output
-            of type of :py:class:`~dagster.BufferedIOBase` that is the file object of the executed
-            notebook (in addition to the :py:class:`~dagster.AssetMaterialization` that is always
+            of type of :py:class:`~sheenflow.BufferedIOBase` that is the file object of the executed
+            notebook (in addition to the :py:class:`~sheenflow.AssetMaterialization` that is always
             created). It allows the downstream ops to access the executed notebook via a file
             object.
         asset_key_prefix (Optional[Union[List[str], str]]): If set, will be used to prefix the
@@ -368,7 +368,7 @@ def define_dagstermill_op(
             Defaults to False.
 
     Returns:
-        :py:class:`~dagster.OpDefinition`
+        :py:class:`~sheenflow.OpDefinition`
     """
     check.str_param(name, "name")
     check.str_param(notebook_path, "notebook_path")

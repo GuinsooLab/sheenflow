@@ -9,7 +9,7 @@ This example creates an asset containing airline passenger info and parses the d
 ## Getting started
 
 ```bash
-dagster project from-example --name my-dagster-project --example feature_graph_backed_assets
+sheenflow project from-example --name my-sheenflow-project --example feature_graph_backed_assets
 ```
 
 To install this example and its Python dependencies, run:

@@ -1,4 +1,4 @@
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';
 

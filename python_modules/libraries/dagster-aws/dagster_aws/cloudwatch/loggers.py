@@ -177,7 +177,7 @@ class CloudwatchLogsHandler(logging.Handler):
 @logger(
     {
         "log_level": Field(str, is_required=False, default_value="INFO"),
-        "name": Field(str, is_required=False, default_value="dagster"),
+        "name": Field(str, is_required=False, default_value="sheenflow"),
         "log_group_name": Field(str, description="The name of the log group"),
         "log_stream_name": Field(str, description="The name of the log stream"),
         "aws_region": Field(
@@ -198,7 +198,7 @@ def cloudwatch_logger(init_context):
 
         .. code-block:: python
 
-            from dagster import job, op
+            from sheenflow import job, op
             from dagster_aws.cloudwatch import cloudwatch_logger
 
             @op
@@ -215,7 +215,7 @@ def cloudwatch_logger(init_context):
                     'loggers': {
                         'cloudwatch': {
                             'config': {
-                                'log_group_name': '/dagster-test/test-cloudwatch-logging',
+                                'log_group_name': '/sheenflow-test/test-cloudwatch-logging',
                                 'log_stream_name': 'test-logging',
                                 'aws_region': 'us-west-1'
                             }

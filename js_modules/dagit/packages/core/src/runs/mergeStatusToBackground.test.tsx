@@ -1,4 +1,4 @@
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 
 import {RunStatus} from '../types/globalTypes';
 

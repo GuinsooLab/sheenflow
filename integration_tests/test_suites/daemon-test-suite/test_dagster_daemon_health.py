@@ -21,7 +21,7 @@ def test_healthy():
     with instance_for_test(
         overrides={
             "run_coordinator": {
-                "module": "dagster._core.run_coordinator.queued_run_coordinator",
+                "module": "sheenflow._core.run_coordinator.queued_run_coordinator",
                 "class": "QueuedRunCoordinator",
             },
         }
@@ -94,7 +94,7 @@ def test_healthy_with_different_daemons():
             with instance_for_test(
                 overrides={
                     "run_coordinator": {
-                        "module": "dagster._core.run_coordinator.queued_run_coordinator",
+                        "module": "sheenflow._core.run_coordinator.queued_run_coordinator",
                         "class": "QueuedRunCoordinator",
                     },
                 }
@@ -142,7 +142,7 @@ def test_thread_die_daemon(monkeypatch):
                         controller.check_daemon_threads()  # Should eventually throw since the sensor thread is interrupted
                     except Exception as e:
                         assert (
-                            "Stopped dagster-daemon process due to threads no longer running"
+                            "Stopped sheenflow-daemon process due to threads no longer running"
                             in str(e)
                         )
                         break
@@ -156,7 +156,7 @@ def test_thread_die_daemon(monkeypatch):
 def test_transient_heartbeat_failure(mocker):
     with instance_for_test() as instance:
         mocker.patch(
-            "dagster.daemon.controller.get_daemon_statuses",
+            "sheenflow.daemon.controller.get_daemon_statuses",
             side_effect=Exception("Transient heartbeat failure"),
         )
 
@@ -175,7 +175,7 @@ def test_transient_heartbeat_failure(mocker):
 
             with pytest.raises(
                 Exception,
-                match="Stopped dagster-daemon process due to thread heartbeat failure",
+                match="Stopped sheenflow-daemon process due to thread heartbeat failure",
             ):
                 controller.check_daemon_heartbeats()
 

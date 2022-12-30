@@ -1,5 +1,5 @@
 import {useMutation, useQuery} from '@apollo/client';
-import {Button, DialogBody, DialogFooter, Dialog} from '@dagster-io/ui';
+import {Button, DialogBody, DialogFooter, Dialog} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {graphql} from '../graphql';

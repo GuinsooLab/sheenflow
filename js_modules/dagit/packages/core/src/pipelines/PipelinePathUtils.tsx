@@ -1,4 +1,4 @@
-import {Mono} from '@dagster-io/ui';
+import {Mono} from '@sheenflow-io/ui';
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
 

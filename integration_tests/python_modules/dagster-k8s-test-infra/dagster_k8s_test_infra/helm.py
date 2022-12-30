@@ -31,8 +31,8 @@ TEST_VOLUME_CONFIGMAP_NAME = "test-volume-configmap"
 TEST_IMAGE_PULL_SECRET_NAME = "test-image-pull-secret"
 TEST_OTHER_IMAGE_PULL_SECRET_NAME = "test-other-image-pull-secret"
 
-# By default, dagster.workers.fullname is ReleaseName-celery-workers
-CELERY_WORKER_NAME_PREFIX = "dagster-celery-workers"
+# By default, sheenflow.workers.fullname is ReleaseName-celery-workers
+CELERY_WORKER_NAME_PREFIX = "sheenflow-celery-workers"
 
 
 @pytest.fixture(scope="session")
@@ -44,8 +44,8 @@ def should_cleanup(pytestconfig):
 
 
 @contextmanager
-def _create_namespace(should_cleanup, existing_helm_namespace=None, prefix="dagster-test"):
-    # Will be something like dagster-test-3fcd70 to avoid ns collisions in shared test environment
+def _create_namespace(should_cleanup, existing_helm_namespace=None, prefix="sheenflow-test"):
+    # Will be something like sheenflow-test-3fcd70 to avoid ns collisions in shared test environment
     namespace = get_test_namespace(prefix)
 
     print("--- \033[32m:k8s: Creating test namespace %s\033[0m" % namespace)
@@ -96,7 +96,7 @@ def run_monitoring_namespace(cluster_provider, pytestconfig, should_cleanup):
     if existing_helm_namespace:
         namespace = existing_helm_namespace
     else:
-        # Will be something like dagster-test-3fcd70 to avoid ns collisions in shared test environment
+        # Will be something like sheenflow-test-3fcd70 to avoid ns collisions in shared test environment
         namespace = get_test_namespace()
 
         print("--- \033[32m:k8s: Creating test namespace %s\033[0m" % namespace)
@@ -363,7 +363,7 @@ def create_postgres_secret(namespace, should_cleanup):
         api_version="v1",
         kind="Secret",
         data={"postgresql-password": secret_val},
-        metadata=kubernetes.client.V1ObjectMeta(name="dagster-postgresql-secret"),
+        metadata=kubernetes.client.V1ObjectMeta(name="sheenflow-postgresql-secret"),
     )
     kube_api.create_namespaced_secret(namespace=namespace, body=secret)
 
@@ -371,7 +371,7 @@ def create_postgres_secret(namespace, should_cleanup):
         yield
     finally:
         if should_cleanup:
-            kube_api.delete_namespaced_secret(name="dagster-postgresql-secret", namespace=namespace)
+            kube_api.delete_namespaced_secret(name="sheenflow-postgresql-secret", namespace=namespace)
 
 
 @pytest.fixture(
@@ -402,23 +402,23 @@ def helm_namespaces_for_k8s_run_launcher(
             )
 
             system_namespace = stack.enter_context(
-                _create_namespace(should_cleanup, prefix="dagster-system")
+                _create_namespace(should_cleanup, prefix="sheenflow-system")
             )
 
             # Let the system namespace service account launch runs in other namespaces
             stack.enter_context(
                 create_cluster_admin_role_binding(
                     system_namespace,
-                    service_account_name="dagster",
+                    service_account_name="sheenflow",
                     should_cleanup=should_cleanup,
                 )
             )
 
-            # Let the dagster-user-deployments service account launch jobs
+            # Let the sheenflow-user-deployments service account launch jobs
             stack.enter_context(
                 create_cluster_admin_role_binding(
                     namespace,
-                    service_account_name="dagster-user-deployments-user-deployments",
+                    service_account_name="sheenflow-user-deployments-user-deployments",
                     should_cleanup=should_cleanup,
                 )
             )
@@ -458,7 +458,7 @@ def system_namespace_for_k8s_run_launcher(helm_namespaces_for_k8s_run_launcher):
 
 @contextmanager
 def _helm_chart_helper(
-    namespace, should_cleanup, helm_config, helm_install_name, chart_name="helm/dagster"
+    namespace, should_cleanup, helm_config, helm_install_name, chart_name="helm/sheenflow"
 ):
     """Install helm chart."""
     check.str_param(namespace, "namespace")
@@ -495,15 +495,15 @@ def _helm_chart_helper(
         # Wait for Dagit pod to be ready (won't actually stay up w/out js rebuild)
         api_client = DagsterKubernetesClient.production_client()
 
-        if chart_name == "helm/dagster":
+        if chart_name == "helm/sheenflow":
             print("Waiting for Dagit pod to be ready...")
             start_time = time.time()
             while True:
                 if time.time() - start_time > 120:
-                    raise Exception("No dagit pod after 2 minutes")
+                    raise Exception("No sheenlet pod after 2 minutes")
 
                 pods = api_client.core_api.list_namespaced_pod(namespace=namespace)
-                pod_names = [p.metadata.name for p in pods.items if "dagit" in p.metadata.name]
+                pod_names = [p.metadata.name for p in pods.items if "sheenlet" in p.metadata.name]
                 if pod_names:
                     dagit_pod = pod_names[0]
                     api_client.wait_for_pod(dagit_pod, namespace=namespace)
@@ -619,11 +619,11 @@ def _helm_chart_helper(
                     pod_names=pod_names
                 )
 
-        dagster_user_deployments_values = helm_config.get("dagster-user-deployments", {})
+        dagster_user_deployments_values = helm_config.get("sheenflow-user-deployments", {})
         if (
             dagster_user_deployments_values.get("enabled")
             and dagster_user_deployments_values.get("enableSubchart")
-            or release_name == "dagster"
+            or release_name == "sheenflow"
         ):
             # Wait for user code deployments to be ready
             print("Waiting for user code deployments")
@@ -665,7 +665,7 @@ def helm_chart(namespace, docker_image, celery_backend, should_cleanup=True):
             "redis": {
                 "enabled": True,
                 "internal": True,
-                "host": "dagster-redis-master",
+                "host": "sheenflow-redis-master",
                 "cluster": {"enabled": False},
             },
         }
@@ -720,7 +720,7 @@ def helm_chart_for_k8s_run_launcher(
                         "volumeMounts": [
                             {
                                 "name": "test-volume",
-                                "mountPath": "/opt/dagster/test_mount_path/volume_mounted_file.yaml",
+                                "mountPath": "/opt/sheenflow/test_mount_path/volume_mounted_file.yaml",
                                 "subPath": "volume_mounted_file.yaml",
                             }
                         ],
@@ -742,16 +742,16 @@ def helm_chart_for_k8s_run_launcher(
                 "heartbeatTolerance": 180,
                 "runCoordinator": {"enabled": False},  # No run queue
                 "env": ({"BUILDKITE": os.getenv("BUILDKITE")} if os.getenv("BUILDKITE") else {}),
-                "annotations": {"dagster-integration-tests": "daemon-pod-annotation"},
+                "annotations": {"sheenflow-integration-tests": "daemon-pod-annotation"},
                 "runMonitoring": {"enabled": True, "pollIntervalSeconds": 5}
                 if run_monitoring
                 else {},
             },
-            "dagit": {
+            "sheenlet": {
                 "image": {"repository": repository, "tag": tag, "pullPolicy": pull_policy},
                 "env": {"TEST_SET_ENV_VAR": "test_dagit_env_var"},
-                "annotations": {"dagster-integration-tests": "dagit-pod-annotation"},
-                "service": {"annotations": {"dagster-integration-tests": "dagit-svc-annotation"}},
+                "annotations": {"sheenflow-integration-tests": "sheenlet-pod-annotation"},
+                "service": {"annotations": {"sheenflow-integration-tests": "sheenlet-svc-annotation"}},
                 "workspace": {
                     "enabled": not enable_subchart,
                     "servers": [
@@ -786,7 +786,7 @@ def helm_chart_for_user_deployments_subchart_disabled(
     helm_config = merge_dicts(
         _base_helm_config(system_namespace, docker_image),
         {
-            "dagster-user-deployments": {
+            "sheenflow-user-deployments": {
                 "enabled": True,
                 "enableSubchart": False,
                 "deployments": _deployment_config(docker_image),
@@ -816,7 +816,7 @@ def helm_chart_for_user_deployments_subchart(namespace, docker_image, should_cle
         should_cleanup,
         helm_config,
         helm_install_name="helm_chart_for_user_deployments_subchart",
-        chart_name="helm/dagster/charts/dagster-user-deployments",
+        chart_name="helm/sheenflow/charts/sheenflow-user-deployments",
     ):
         yield
 
@@ -830,7 +830,7 @@ def _deployment_config(docker_image):
             "image": {"repository": repository, "tag": tag, "pullPolicy": pull_policy},
             "dagsterApiGrpcArgs": [
                 "-m",
-                "dagster_test.test_project.test_pipelines.repo",
+                "sheenflow_test.test_project.test_pipelines.repo",
                 "-a",
                 "define_demo_execution_repo",
             ],
@@ -841,12 +841,12 @@ def _deployment_config(docker_image):
             "env": ({"BUILDKITE": os.getenv("BUILDKITE")} if os.getenv("BUILDKITE") else {}),
             "envConfigMaps": ([{"name": TEST_AWS_CONFIGMAP_NAME}] if not IS_BUILDKITE else []),
             "envSecrets": [{"name": TEST_DEPLOYMENT_SECRET_NAME}],
-            "annotations": {"dagster-integration-tests": "ucd-1-pod-annotation"},
-            "service": {"annotations": {"dagster-integration-tests": "ucd-1-svc-annotation"}},
+            "annotations": {"sheenflow-integration-tests": "ucd-1-pod-annotation"},
+            "service": {"annotations": {"sheenflow-integration-tests": "ucd-1-svc-annotation"}},
             "volumeMounts": [
                 {
                     "name": "test-volume",
-                    "mountPath": "/opt/dagster/test_mount_path/volume_mounted_file.yaml",
+                    "mountPath": "/opt/sheenflow/test_mount_path/volume_mounted_file.yaml",
                     "subPath": "volume_mounted_file.yaml",
                 }
             ],
@@ -859,16 +859,16 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
     repository, tag = docker_image.split(":")
     pull_policy = image_pull_policy()
     return {
-        "dagster-user-deployments": {
+        "sheenflow-user-deployments": {
             "enabled": True,
             "enableSubchart": enable_subchart,
             "deployments": _deployment_config(docker_image),
         },
-        "dagit": {
+        "sheenlet": {
             "image": {"repository": repository, "tag": tag, "pullPolicy": pull_policy},
             "env": {"TEST_SET_ENV_VAR": "test_dagit_env_var"},
-            "annotations": {"dagster-integration-tests": "dagit-pod-annotation"},
-            "service": {"annotations": {"dagster-integration-tests": "dagit-svc-annotation"}},
+            "annotations": {"sheenflow-integration-tests": "sheenlet-pod-annotation"},
+            "service": {"annotations": {"sheenflow-integration-tests": "sheenlet-svc-annotation"}},
         },
         "flower": {
             "enabled": True,
@@ -889,7 +889,7 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
                 "celeryK8sRunLauncher": {
                     "image": {"repository": repository, "tag": tag, "pullPolicy": pull_policy},
                     "workerQueues": [
-                        {"name": "dagster", "replicaCount": 2},
+                        {"name": "sheenflow", "replicaCount": 2},
                         {
                             "name": "extra-queue-1",
                             "replicaCount": 1,
@@ -908,7 +908,7 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
                         "broker_transport_options": {"priority_steps": [9]},
                         "worker_concurrency": 1,
                     },
-                    "annotations": {"dagster-integration-tests": "celery-pod-annotation"},
+                    "annotations": {"sheenflow-integration-tests": "celery-pod-annotation"},
                     "envConfigMaps": (
                         [{"name": TEST_AWS_CONFIGMAP_NAME}] if not IS_BUILDKITE else []
                     ),
@@ -917,7 +917,7 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
                     "volumeMounts": [
                         {
                             "name": "test-volume",
-                            "mountPath": "/opt/dagster/test_mount_path/volume_mounted_file.yaml",
+                            "mountPath": "/opt/sheenflow/test_mount_path/volume_mounted_file.yaml",
                             "subPath": "volume_mounted_file.yaml",
                         }
                     ],
@@ -936,12 +936,12 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
         "rabbitmq": {"enabled": True},
         "ingress": {
             "enabled": True,
-            "dagit": {"host": "dagit.example.com"},
+            "sheenlet": {"host": "sheenlet.example.com"},
             "flower": {"flower": "flower.example.com"},
         },
         "postgresql": {
             "createSecret": False,
-            "postgresqlHost": f"dagster-postgresql.{system_namespace}.svc.cluster.local",
+            "postgresqlHost": f"sheenflow-postgresql.{system_namespace}.svc.cluster.local",
         },
         "dagsterDaemon": {
             "enabled": True,
@@ -949,13 +949,13 @@ def _base_helm_config(system_namespace, docker_image, enable_subchart=True):
             "heartbeatTolerance": 180,
             "runCoordinator": {"enabled": False},  # No run queue
             "env": ({"BUILDKITE": os.getenv("BUILDKITE")} if os.getenv("BUILDKITE") else {}),
-            "annotations": {"dagster-integration-tests": "daemon-pod-annotation"},
+            "annotations": {"sheenflow-integration-tests": "daemon-pod-annotation"},
             "runMonitoring": {
                 "enabled": True,
                 "pollIntervalSeconds": 5,
             },
         },
-        # Used to set the environment variables in dagster.shared_env that determine the run config
+        # Used to set the environment variables in sheenflow.shared_env that determine the run config
         "pipelineRun": {"image": {"repository": repository, "tag": tag, "pullPolicy": pull_policy}},
         "imagePullSecrets": [{"name": TEST_IMAGE_PULL_SECRET_NAME}],
     }
@@ -979,7 +979,7 @@ def helm_chart_for_daemon(namespace, docker_image, should_cleanup=True):
                 "heartbeatTolerance": 180,
                 "runCoordinator": {"enabled": True},
                 "env": ({"BUILDKITE": os.getenv("BUILDKITE")} if os.getenv("BUILDKITE") else {}),
-                "annotations": {"dagster-integration-tests": "daemon-pod-annotation"},
+                "annotations": {"sheenflow-integration-tests": "daemon-pod-annotation"},
             },
         },
     )
@@ -1011,14 +1011,14 @@ def dagit_url_for_k8s_run_launcher(system_namespace_for_k8s_run_launcher):
 
 @contextmanager
 def _port_forward_dagit(namespace):
-    print("Port-forwarding dagit")
+    print("Port-forwarding sheenlet")
     kube_api = kubernetes.client.CoreV1Api()
 
     pods = kube_api.list_namespaced_pod(namespace=namespace)
-    pod_names = [p.metadata.name for p in pods.items if "dagit" in p.metadata.name]
+    pod_names = [p.metadata.name for p in pods.items if "sheenlet" in p.metadata.name]
 
     if not pod_names:
-        raise Exception("No pods with dagit in name")
+        raise Exception("No pods with sheenlet in name")
 
     dagit_pod_name = pod_names[0]
 
@@ -1047,7 +1047,7 @@ def _port_forward_dagit(namespace):
 
         while True:
             if time.time() - start > 60:
-                raise Exception("Timed out while waiting for dagit port forwarding")
+                raise Exception("Timed out while waiting for sheenlet port forwarding")
 
             print(
                 "Waiting for port forwarding from k8s pod %s:80 to localhost:%d to be"
@@ -1065,12 +1065,12 @@ def _port_forward_dagit(namespace):
 
         while True:
             if time.time() - start_time > 30:
-                raise Exception("Timed out waiting for dagit server to be available")
+                raise Exception("Timed out waiting for sheenlet server to be available")
 
             try:
                 sanity_check = requests.get(f"http://{dagit_url}/dagit_info")
-                assert "dagster" in sanity_check.text
-                print("Connected to dagit, beginning tests for versions")
+                assert "sheenflow" in sanity_check.text
+                print("Connected to sheenlet, beginning tests for versions")
                 break
             except requests.exceptions.ConnectionError:
                 pass

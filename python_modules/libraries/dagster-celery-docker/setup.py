@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-celery-docker",
+    name="sheenflow-celery-docker",
     version=ver,
     author="Elementl",
     license="Apache-2.0",
@@ -32,9 +32,9 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_celery_docker_tests*"]),
     install_requires=[
-        f"dagster{pin}",
-        f"dagster-celery{pin}",
-        f"dagster-graphql{pin}",
+        f"sheenflow{pin}",
+        f"sheenflow-celery{pin}",
+        f"sheenflow-graphql{pin}",
         "docker",
     ],
     zip_safe=False,

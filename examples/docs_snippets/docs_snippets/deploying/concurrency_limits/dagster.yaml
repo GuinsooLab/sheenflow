@@ -1,5 +1,5 @@
 run_coordinator:
-  module: dagster.core.run_coordinator
+  module: sheenflow.core.run_coordinator
   class: QueuedRunCoordinator
   config:
     max_concurrent_runs: 25
@@ -7,5 +7,5 @@ run_coordinator:
       - key: "database"
         value: "redshift"
         limit: 4
-      - key: "dagster/backfill"
+      - key: "sheenflow/backfill"
         limit: 10

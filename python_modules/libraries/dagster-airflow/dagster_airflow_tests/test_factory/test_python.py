@@ -31,7 +31,7 @@ def test_fs_storage_no_explicit_base_dir(
     results = dagster_airflow_python_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         environment_yaml=[
             os.path.join(environments_path, "env.yaml"),
@@ -49,7 +49,7 @@ def test_fs_storage(
     results = dagster_airflow_python_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         environment_yaml=[
             os.path.join(environments_path, "env.yaml"),
@@ -69,7 +69,7 @@ def test_s3_storage(
     results = dagster_airflow_python_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         environment_yaml=[
             os.path.join(environments_path, "env.yaml"),
@@ -89,7 +89,7 @@ def test_gcs_storage(
     results = dagster_airflow_python_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         environment_yaml=[
             os.path.join(environments_path, "env.yaml"),
@@ -108,7 +108,7 @@ def test_skip_operator(
     results = dagster_airflow_python_operator_pipeline(
         pipeline_name=pipeline_name,
         recon_repo=ReconstructableRepository.for_module(
-            "dagster_test.test_project.test_pipelines.repo", pipeline_name
+            "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
         ),
         environment_yaml=[os.path.join(environments_path, "env_filesystem.yaml")],
     )
@@ -136,7 +136,7 @@ def test_rename_for_airflow():
 def test_error_dag_python():
     pipeline_name = "demo_error_pipeline"
     recon_repo = ReconstructableRepository.for_module(
-        "dagster_test.test_project.test_pipelines.repo", pipeline_name
+        "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
     )
     environments_path = get_test_project_environments_path()
     environment_yaml = [
@@ -157,7 +157,7 @@ def test_error_dag_python():
 def test_airflow_execution_date_tags():
     pipeline_name = "demo_airflow_execution_date_pipeline"
     recon_repo = ReconstructableRepository.for_module(
-        "dagster_test.test_project.test_pipelines.repo", pipeline_name
+        "sheenflow_test.test_project.test_pipelines.repo", pipeline_name
     )
     environments_path = get_test_project_environments_path()
     environment_yaml = [
@@ -187,7 +187,7 @@ def test_airflow_execution_date_tags():
 def test_error_dag_python_job():
     job_name = "demo_error_job"
     recon_repo = ReconstructableRepository.for_module(
-        "dagster_test.test_project.test_pipelines.repo", job_name
+        "sheenflow_test.test_project.test_pipelines.repo", job_name
     )
     environments_path = get_test_project_environments_path()
     environment_yaml = [
@@ -208,7 +208,7 @@ def test_error_dag_python_job():
 def test_airflow_execution_date_tags_job():
     job_name = "demo_airflow_execution_date_job"
     recon_repo = ReconstructableRepository.for_module(
-        "dagster_test.test_project.test_pipelines.repo", job_name
+        "sheenflow_test.test_project.test_pipelines.repo", job_name
     )
     environments_path = get_test_project_environments_path()
     environment_yaml = [

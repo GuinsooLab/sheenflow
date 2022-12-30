@@ -1,4 +1,4 @@
-import {Box, Button, Colors, Subheading} from '@dagster-io/ui';
+import {Box, Button, Colors, Subheading} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {useAssetGraphData} from '../asset-graph/useAssetGraphData';

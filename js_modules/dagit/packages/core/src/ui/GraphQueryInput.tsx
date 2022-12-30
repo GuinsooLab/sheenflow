@@ -11,7 +11,7 @@ import {
   Popover,
   TextInput,
   Tooltip,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import isEqual from 'lodash/isEqual';
 import uniq from 'lodash/uniq';
 import * as React from 'react';

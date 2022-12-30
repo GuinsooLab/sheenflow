@@ -15,7 +15,7 @@ ops:
       spark_home: /your/spark_home
       application_jar: "{path}"
       deploy_mode: "client"
-      application_arguments: "--local-path /tmp/dagster/events/data --date 2019-01-01"
+      application_arguments: "--local-path /tmp/sheenflow/events/data --date 2019-01-01"
       master_url: "local[*]"
       spark_conf:
         spark:
@@ -45,7 +45,7 @@ ops:
     config:
       application_jar: "{path}"
       deploy_mode: "client"
-      application_arguments: "--local-path /tmp/dagster/events/data --date 2019-01-01"
+      application_arguments: "--local-path /tmp/sheenflow/events/data --date 2019-01-01"
       master_url: "local[*]"
       spark_conf:
         spark:

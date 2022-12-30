@@ -71,7 +71,7 @@ def test_modified_docker_operator_bad_docker_conn(dagster_docker_image):
                 "image": dagster_docker_image,
                 "api_version": "auto",
                 "docker_conn_id": "foo_conn",
-                "command": "dagster --help",
+                "command": "sheenflow --help",
             },
             pipeline_snapshot=nonce_pipeline_snapshot,
             execution_plan_snapshot=nonce_execution_plan_snapshot,
@@ -93,7 +93,7 @@ def test_modified_docker_operator_env(dagster_docker_image):
             op_kwargs={
                 "image": dagster_docker_image,
                 "api_version": "auto",
-                "command": "dagster --help",
+                "command": "sheenflow --help",
             },
             pipeline_snapshot=nonce_pipeline_snapshot,
             execution_plan_snapshot=nonce_execution_plan_snapshot,
@@ -114,7 +114,7 @@ def test_modified_docker_operator_bad_command(dagster_docker_image):
             op_kwargs={
                 "image": dagster_docker_image,
                 "api_version": "auto",
-                "command": "dagster gargle bargle",
+                "command": "sheenflow gargle bargle",
             },
             pipeline_snapshot=nonce_pipeline_snapshot,
             execution_plan_snapshot=nonce_execution_plan_snapshot,
@@ -122,7 +122,7 @@ def test_modified_docker_operator_bad_command(dagster_docker_image):
             recon_repo=recon_repo_for_tests,
         )
         operator = DagsterDockerOperator(dagster_operator_parameters=dagster_operator_parameters)
-        with pytest.raises(AirflowException, match="Usage: dagster"):
+        with pytest.raises(AirflowException, match="Usage: sheenflow"):
             operator.execute({})
 
 
@@ -147,7 +147,7 @@ def test_modified_docker_operator_url(dagster_docker_image):
                     "docker_url": docker_host or "unix:///var/run/docker.sock",
                     "tls_hostname": docker_host if docker_tls_verify else False,
                     "tls_ca_cert": docker_cert_path,
-                    "command": "dagster --help",
+                    "command": "sheenflow --help",
                 },
                 pipeline_snapshot=nonce_pipeline_snapshot,
                 execution_plan_snapshot=nonce_execution_plan_snapshot,

@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-postgres",
+    name="sheenflow-postgres",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -33,11 +33,11 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_postgres_tests*"]),
     package_data={
-        "dagster-postgres": [
+        "sheenflow-postgres": [
             "dagster_postgres/alembic/*",
         ]
     },
     include_package_data=True,
-    install_requires=[f"dagster{pin}", "psycopg2-binary"],
+    install_requires=[f"sheenflow{pin}", "psycopg2-binary"],
     zip_safe=False,
 )

@@ -41,7 +41,7 @@ def git_push(tag: Optional[str] = None, dry_run: bool = True, cwd: Optional[str]
                 [
                     "git",
                     "push",
-                    "https://{github_username}:{github_token}@github.com/dagster-io/dagster.git".format(
+                    "https://{github_username}:{github_token}@github.com/sheenflow-io/sheenflow.git".format(
                         github_username=github_username, github_token=github_token
                     ),
                     tag,
@@ -53,7 +53,7 @@ def git_push(tag: Optional[str] = None, dry_run: bool = True, cwd: Optional[str]
             [
                 "git",
                 "push",
-                "https://{github_username}:{github_token}@github.com/dagster-io/dagster.git".format(
+                "https://{github_username}:{github_token}@github.com/sheenflow-io/sheenflow.git".format(
                     github_username=github_username, github_token=github_token
                 ),
             ],

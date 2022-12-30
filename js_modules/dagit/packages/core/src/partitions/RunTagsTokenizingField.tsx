@@ -1,4 +1,4 @@
-import {TokenizingField, stringFromValue, tokenizedValuesFromString} from '@dagster-io/ui';
+import {TokenizingField, stringFromValue, tokenizedValuesFromString} from '@sheenflow-io/ui';
 import uniq from 'lodash/uniq';
 import * as React from 'react';
 

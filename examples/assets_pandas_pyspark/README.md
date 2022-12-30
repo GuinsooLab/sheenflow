@@ -10,7 +10,7 @@ View this example in the Dagster docs at [Software-Defined Assets with Pandas an
 Bootstrap your own Dagster project with this example:
 
 ```bash
-dagster project from-example --name my-dagster-project --example assets_pandas_pyspark
+sheenflow project from-example --name my-sheenflow-project --example assets_pandas_pyspark
 ```
 
 To install this example and its Python dependencies, run:

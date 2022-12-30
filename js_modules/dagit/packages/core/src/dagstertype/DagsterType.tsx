@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client';
-import {Box, Colors, FontFamily, Tag} from '@dagster-io/ui';
-import {Spacing} from '@dagster-io/ui/src/components/types';
+import {Box, Colors, FontFamily, Tag} from '@sheenflow-io/ui';
+import {Spacing} from '@sheenflow-io/ui/src/components/types';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

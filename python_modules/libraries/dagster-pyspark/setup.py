@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-pyspark",
+    name="sheenflow-pyspark",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -33,7 +33,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_pyspark_tests*"]),
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         f"dagster_spark{pin}",
         # Pyspark 2.x is incompatible with Python 3.8+
         'pyspark>=3.0.0; python_version >= "3.8"',

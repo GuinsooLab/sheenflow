@@ -1,4 +1,4 @@
-import {Colors, Spinner, Tooltip} from '@dagster-io/ui';
+import {Colors, Spinner, Tooltip} from '@sheenflow-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

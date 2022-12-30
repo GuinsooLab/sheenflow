@@ -27,7 +27,7 @@ def check():
     """This command checks whether backcompatability test setup is completed for the Dagster Python GraphQL Client.
 
     It checks if the current versions of queries in use by the GraphQL client are present in the dehydrated
-    GraphQL backcompatability directory in `dagster_graphql_tests.graphql.client_backcompat.queries`
+    GraphQL backcompatability directory in `sheenflow_graphql_tests.graphql.client_backcompat.queries`
 
     This is useful as a reminder when new queries or added or changes are made to existing queries in
     use by the client.
@@ -49,7 +49,7 @@ def check():
             "Missing some query history (sub)directories:"
             f"\n\t{missing_query_history_subdirs}"
             + f"\n\t at {legacy_query_info.directory}"
-            + "\n\t Please run `dagster-graphql-client query snapshot` on the command line "
+            + "\n\t Please run `sheenflow-graphql-client query snapshot` on the command line "
             + "or manually resolve these issues"
         )
     for query_name in query_directories_present:
@@ -67,7 +67,7 @@ def check():
                 f"The query dagster_graphql.client.client_queries.{query_name} "
                 + "is not present in the backcompatability history "
                 + f"directory {legacy_query_info.directory} "
-                + "\n\tPlease run `dagster-graphql-client query snapshot` on the command line "
+                + "\n\tPlease run `sheenflow-graphql-client query snapshot` on the command line "
                 + "or manually resolve these issues"
             )
     click.echo("All GraphQL Python Client backcompatability checks complete!")

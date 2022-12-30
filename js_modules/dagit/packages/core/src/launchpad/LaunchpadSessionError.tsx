@@ -1,4 +1,4 @@
-import {NonIdealState, NonIdealStateProps, Spinner, SplitPanelContainer} from '@dagster-io/ui';
+import {NonIdealState, NonIdealStateProps, Spinner, SplitPanelContainer} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {SessionSettingsBar} from './SessionSettingsBar';

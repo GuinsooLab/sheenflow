@@ -178,13 +178,13 @@ def test_s3_pickle_io_manager_asset_execution(mock_s3_bucket):
     objects = list(mock_s3_bucket.objects.all())
     assert len(objects) == 5
     assert {(o.bucket_name, o.key) for o in objects} == {
-        ("test-bucket", "dagster/asset1"),
-        ("test-bucket", "dagster/asset2"),
-        ("test-bucket", "dagster/asset3"),
-        ("test-bucket", "dagster/partitioned/apple"),
+        ("test-bucket", "sheenflow/asset1"),
+        ("test-bucket", "sheenflow/asset2"),
+        ("test-bucket", "sheenflow/asset3"),
+        ("test-bucket", "sheenflow/partitioned/apple"),
         (
             "test-bucket",
-            "/".join(["dagster", "storage", result.run_id, "graph_asset.first_op", "result"]),
+            "/".join(["sheenflow", "storage", result.run_id, "graph_asset.first_op", "result"]),
         ),
     }
 

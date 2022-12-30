@@ -1,5 +1,5 @@
 import {gql, useQuery} from '@apollo/client';
-import {Box, Button, Dialog, Icon, Tooltip, Colors, Subheading} from '@dagster-io/ui';
+import {Box, Button, Dialog, Icon, Tooltip, Colors, Subheading} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

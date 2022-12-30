@@ -473,7 +473,7 @@ def _define_libraries():
             )
         ],
         description="An optional list of libraries to be installed on the cluster that will "
-        "execute the job. By default dagster, dagster-databricks and dagster-pyspark libraries "
+        "execute the job. By default sheenflow, sheenflow-databricks and sheenflow-pyspark libraries "
         "will be included.",
         is_required=False,
     )
@@ -504,8 +504,8 @@ def _define_submit_run_fields():
     )
     install_default_libraries = Field(
         Bool,
-        description="By default, Dagster installs a version of dagster, dagster-databricks, and "
-        "dagster-pyspark matching the locally-installed versions of those libraries. If you would "
+        description="By default, Dagster installs a version of sheenflow, sheenflow-databricks, and "
+        "sheenflow-pyspark matching the locally-installed versions of those libraries. If you would "
         "like to disable this behavior, this value can be set to False.",
         is_required=False,
     )

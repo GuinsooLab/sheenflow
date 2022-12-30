@@ -127,7 +127,7 @@ def load_dagit_for_workspace_cli_args(n_pipelines=1, **kwargs):
 @pytest.mark.parametrize(
     "dirname,filename,fn_name,_env_yaml,_mode,_preset,_return_code,_exception", cli_args
 )
-# dagit -f filename -n fn_name
+# sheenlet -f filename -n fn_name
 def test_load_pipeline(
     dirname, filename, fn_name, _env_yaml, _mode, _preset, _return_code, _exception
 ):

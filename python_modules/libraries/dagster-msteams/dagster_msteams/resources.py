@@ -9,7 +9,7 @@ from dagster import Bool, Field, Float, StringSource, resource
             StringSource,
             description="""To send messages to MS Teams channel, an incoming webhook has to
                     be created. The incoming webhook url must be given as a part of the
-                    resource config to the msteams_resource in dagster.
+                    resource config to the msteams_resource in sheenflow.
                     """,
         ),
         "http_proxy": Field(StringSource, is_required=False),
@@ -32,7 +32,7 @@ def msteams_resource(context):
 
         import os
 
-        from dagster import op, job
+        from sheenflow import op, job
         from dagster_msteams import Card, msteams_resource
 
 

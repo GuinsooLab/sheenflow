@@ -1,5 +1,5 @@
 import {gql, useQuery, useSubscription} from '@apollo/client';
-import {Box, Colors, Icon} from '@dagster-io/ui';
+import {Box, Colors, Icon} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {RawLogContent} from './RawLogContent';

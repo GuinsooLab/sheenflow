@@ -43,7 +43,7 @@ def get_worker_name(name=None):
     return (
         name + "@%h"
         if name is not None
-        else "dagster-{uniq}@%h".format(uniq=str(uuid.uuid4())[-6:])
+        else "sheenflow-{uniq}@%h".format(uniq=str(uuid.uuid4())[-6:])
     )
 
 
@@ -100,14 +100,14 @@ def launch_background_worker(subprocess_args, env):
     )
 
 
-@click.command(name="start", help="Start a dagster celery worker.")
+@click.command(name="start", help="Start a sheenflow celery worker.")
 @click.option(
     "--name",
     "-n",
     type=click.STRING,
     default=None,
     help=(
-        'The name of the worker. Defaults to a unique name prefixed with "dagster-" and ending '
+        'The name of the worker. Defaults to a unique name prefixed with "sheenflow-" and ending '
         "with the hostname."
     ),
 )
@@ -229,7 +229,7 @@ def status_command(
 
 @click.command(
     name="list",
-    help="List running dagster-celery workers. Note that we use the broker to contact the workers.",
+    help="List running sheenflow-celery workers. Note that we use the broker to contact the workers.",
 )
 @click.option(
     "--config-yaml",
@@ -253,12 +253,12 @@ def worker_list_command(config_yaml=None):
 @click.command(
     name="terminate",
     help=(
-        "Shut down dagster-celery workers. Note that we use the broker to send signals to the "
+        "Shut down sheenflow-celery workers. Note that we use the broker to send signals to the "
         "workers to terminate -- if the broker is not running, this command is a no-op. "
         "Provide the argument NAME to terminate a specific worker by name."
     ),
 )
-@click.argument("name", default="dagster")
+@click.argument("name", default="sheenflow")
 @click.option(
     "--all", "-a", "all_", is_flag=True, help="Set this flag to terminate all running workers."
 )
@@ -275,7 +275,7 @@ def worker_list_command(config_yaml=None):
         "the CLI won't know how to reach the broker)."
     ),
 )
-def worker_terminate_command(name="dagster", config_yaml=None, all_=False):
+def worker_terminate_command(name="sheenflow", config_yaml=None, all_=False):
     app = get_app(config_yaml)
 
     if all_:
@@ -291,7 +291,7 @@ worker_cli = create_worker_cli_group()
 
 @click.group(commands={"worker": worker_cli, "status": status_command})
 def main():
-    """dagster-celery"""
+    """sheenflow-celery"""
 
 
 if __name__ == "__main__":

@@ -240,9 +240,9 @@ def execute_k8s_job(
         component="k8s_job_op",
         user_defined_k8s_config=user_defined_k8s_config,
         labels={
-            "dagster/job": context.pipeline_run.pipeline_name,
-            "dagster/op": context.op.name,
-            "dagster/run-id": context.pipeline_run.run_id,
+            "sheenflow/job": context.pipeline_run.pipeline_name,
+            "sheenflow/op": context.op.name,
+            "sheenflow/run-id": context.pipeline_run.run_id,
         },
     )
 
@@ -330,7 +330,7 @@ def k8s_job_op(context):
 
     For example:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-k8s/dagster_k8s_tests/unit_tests/test_example_k8s_job_op.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-k8s/dagster_k8s_tests/unit_tests/test_example_k8s_job_op.py
       :start-after: start_marker
       :end-before: end_marker
       :language: python

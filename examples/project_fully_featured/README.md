@@ -17,7 +17,7 @@ View this example in the Dagster docs at [Fully Featured Project](https://docs.d
 Bootstrap your own Dagster project with this example:
 
 ```bash
-dagster project from-example --name my-dagster-project --example project_fully_featured
+sheenflow project from-example --name my-sheenflow-project --example project_fully_featured
 ```
 
 To install this example and its Python dependencies, run:

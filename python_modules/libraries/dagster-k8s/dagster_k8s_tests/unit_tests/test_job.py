@@ -20,7 +20,7 @@ def test_job_serialization():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         image_pull_policy="Always",
         image_pull_secrets=[{"name": "my_secret"}],
         service_account_name=None,
@@ -53,7 +53,7 @@ def test_user_defined_k8s_config_serialization():
 def test_construct_dagster_k8s_job():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         image_pull_policy="Always",
         image_pull_secrets=[{"name": "my_secret"}],
         service_account_name=None,
@@ -74,7 +74,7 @@ def test_construct_dagster_k8s_job():
 def test_construct_dagster_k8s_job_no_postgres():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         image_pull_policy="Always",
         image_pull_secrets=[{"name": "my_secret"}],
         service_account_name=None,
@@ -95,7 +95,7 @@ def test_construct_dagster_k8s_job_no_postgres():
 def test_construct_dagster_k8s_job_with_mounts():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         image_pull_policy="Always",
         image_pull_secrets=[{"name": "my_secret"}],
         service_account_name=None,
@@ -127,7 +127,7 @@ def test_construct_dagster_k8s_job_with_mounts():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         image_pull_policy="Always",
         image_pull_secrets=[{"name": "my_secret"}],
         service_account_name=None,
@@ -151,7 +151,7 @@ def test_construct_dagster_k8s_job_with_mounts():
     with pytest.raises(Exception, match="Unexpected keys in model class V1Volume: {'invalidKey'}"):
         DagsterK8sJobConfig(
             job_image="test/foo:latest",
-            dagster_home="/opt/dagster/dagster_home",
+            dagster_home="/opt/sheenflow/dagster_home",
             image_pull_policy="Always",
             image_pull_secrets=[{"name": "my_secret"}],
             service_account_name=None,
@@ -169,7 +169,7 @@ def test_construct_dagster_k8s_job_with_mounts():
 def test_construct_dagster_k8s_job_with_env():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
         env_vars=["ENV_VAR_1", "ENV_VAR_2=two"],
     )
@@ -216,7 +216,7 @@ def test_construct_dagster_k8s_job_with_user_defined_env_camelcase():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
     )
 
@@ -255,7 +255,7 @@ def test_construct_dagster_k8s_job_with_user_defined_command():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
     )
 
@@ -302,7 +302,7 @@ def test_construct_dagster_k8s_job_with_user_defined_env_snake_case():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
         env_config_maps=["config_map"],
         env_secrets=["secret"],
@@ -361,7 +361,7 @@ def test_construct_dagster_k8s_job_with_user_defined_env_from():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
         env_config_maps=["config_map"],
         env_secrets=["secret"],
@@ -420,7 +420,7 @@ def test_construct_dagster_k8s_job_with_user_defined_volume_mounts_snake_case():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
     )
 
@@ -470,7 +470,7 @@ def test_construct_dagster_k8s_job_with_user_defined_volume_mounts_camel_case():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
     )
 
@@ -506,7 +506,7 @@ def test_construct_dagster_k8s_job_with_user_defined_service_account_name_snake_
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
         service_account_name="this-should-be-overriden",
     )
@@ -538,7 +538,7 @@ def test_construct_dagster_k8s_job_with_user_defined_service_account_name():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="some-instance-configmap",
         service_account_name="this-should-be-overriden",
     )
@@ -554,7 +554,7 @@ def test_construct_dagster_k8s_job_with_user_defined_service_account_name():
 def test_construct_dagster_k8s_job_with_ttl_snake_case():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
     job = construct_dagster_k8s_job(cfg, [], "job123").to_dict()
@@ -574,7 +574,7 @@ def test_construct_dagster_k8s_job_with_ttl_snake_case():
 def test_construct_dagster_k8s_job_with_ttl():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
     job = construct_dagster_k8s_job(cfg, [], "job123").to_dict()
@@ -593,7 +593,7 @@ def test_construct_dagster_k8s_job_with_ttl():
 def test_construct_dagster_k8s_job_with_sidecar_container():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
     job = construct_dagster_k8s_job(cfg, [], "job123").to_dict()
@@ -631,10 +631,10 @@ def test_construct_dagster_k8s_job_with_invalid_key_raises_error():
 
 def test_construct_dagster_k8s_job_with_labels():
     common_labels = {
-        "app.kubernetes.io/name": "dagster",
-        "app.kubernetes.io/instance": "dagster",
+        "app.kubernetes.io/name": "sheenflow",
+        "app.kubernetes.io/instance": "sheenflow",
         "app.kubernetes.io/version": sanitize_k8s_label(dagster_version),
-        "app.kubernetes.io/part-of": "dagster",
+        "app.kubernetes.io/part-of": "sheenflow",
     }
 
     job_config_labels = {
@@ -643,7 +643,7 @@ def test_construct_dagster_k8s_job_with_labels():
 
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
         labels=job_config_labels,
     )
@@ -652,18 +652,18 @@ def test_construct_dagster_k8s_job_with_labels():
         [],
         "job123",
         labels={
-            "dagster/job": "some_job",
-            "dagster/op": "some_op",
-            "dagster/run-id": "some_run_id",
+            "sheenflow/job": "some_job",
+            "sheenflow/op": "some_op",
+            "sheenflow/run-id": "some_run_id",
         },
     ).to_dict()
     expected_labels1 = dict(
         **common_labels,
         **job_config_labels,
         **{
-            "dagster/job": "some_job",
-            "dagster/op": "some_op",
-            "dagster/run-id": "some_run_id",
+            "sheenflow/job": "some_job",
+            "sheenflow/op": "some_op",
+            "sheenflow/run-id": "some_run_id",
         },
     )
 
@@ -675,9 +675,9 @@ def test_construct_dagster_k8s_job_with_labels():
         [],
         "job456",
         labels={
-            "dagster/job": "long_job_name_64____01234567890123456789012345678901234567890123",
-            "dagster/op": "long_op_name_64_____01234567890123456789012345678901234567890123",
-            "dagster/run_id": "long_run_id_64______01234567890123456789012345678901234567890123",
+            "sheenflow/job": "long_job_name_64____01234567890123456789012345678901234567890123",
+            "sheenflow/op": "long_op_name_64_____01234567890123456789012345678901234567890123",
+            "sheenflow/run_id": "long_run_id_64______01234567890123456789012345678901234567890123",
         },
     ).to_dict()
     expected_labels2 = dict(
@@ -685,9 +685,9 @@ def test_construct_dagster_k8s_job_with_labels():
         **job_config_labels,
         **{
             # The last character should be truncated.
-            "dagster/job": "long_job_name_64____0123456789012345678901234567890123456789012",
-            "dagster/op": "long_op_name_64_____0123456789012345678901234567890123456789012",
-            "dagster/run_id": "long_run_id_64______0123456789012345678901234567890123456789012",
+            "sheenflow/job": "long_job_name_64____0123456789012345678901234567890123456789012",
+            "sheenflow/op": "long_op_name_64_____0123456789012345678901234567890123456789012",
+            "sheenflow/run_id": "long_run_id_64______0123456789012345678901234567890123456789012",
         },
     )
     assert job2["metadata"]["labels"] == expected_labels2
@@ -697,7 +697,7 @@ def test_construct_dagster_k8s_job_with_labels():
 def test_sanitize_labels():
     cfg = DagsterK8sJobConfig(
         job_image="test/foo:latest",
-        dagster_home="/opt/dagster/dagster_home",
+        dagster_home="/opt/sheenflow/dagster_home",
         instance_config_map="test",
     )
 
@@ -706,12 +706,12 @@ def test_sanitize_labels():
         [],
         "job456",
         labels={
-            "dagster/op": "-get_f\o.o[bar-0]-",  # pylint: disable=anomalous-backslash-in-string
+            "sheenflow/op": "-get_f\o.o[bar-0]-",  # pylint: disable=anomalous-backslash-in-string
             "my_label": "_WhatsUP",
         },
     ).to_dict()
 
-    assert job["metadata"]["labels"]["dagster/op"] == "get_f-o.o-bar-0"
+    assert job["metadata"]["labels"]["sheenflow/op"] == "get_f-o.o-bar-0"
     assert job["metadata"]["labels"]["my_label"] == "WhatsUP"
 
 

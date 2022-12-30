@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include COPYING
+include dagster/py.typed
+recursive-include sheenflow *.md
+recursive-include sheenflow/_core/storage/alembic *
+recursive-include sheenflow/_core/storage/event_log/sqlite/alembic *
+recursive-include sheenflow/_core/storage/runs/sqlite/alembic *
+recursive-include sheenflow/_core/storage/schedules/sqlite/alembic *
+recursive-include sheenflow/_generate/templates *
+recursive-include sheenflow *.proto
+global-exclude __pycache__
+global-exclude *.py[co]

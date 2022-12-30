@@ -8,5 +8,5 @@ View this example in the Dagster docs at https://docs.dagster.io/integrations/gr
 ## Getting started
 
 ```bash
-dagster project from-example --name my-dagster-project --example with_great_expectations
+sheenflow project from-example --name my-sheenflow-project --example with_great_expectations
 ```

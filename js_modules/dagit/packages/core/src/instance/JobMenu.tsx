@@ -1,5 +1,5 @@
 import {gql, useLazyQuery} from '@apollo/client';
-import {Button, Icon, Menu, MenuItem, Popover, Tooltip} from '@dagster-io/ui';
+import {Button, Icon, Menu, MenuItem, Popover, Tooltip} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

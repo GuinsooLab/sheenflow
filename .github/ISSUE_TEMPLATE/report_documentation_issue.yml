@@ -6,10 +6,10 @@ body:
     attributes:
       value: >
         <p align="center">
-          <a target="_blank" href="https://dagster.io">
+          <a target="_blank" href="https://sheenflow.io">
             <picture>
-              <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dagster-io/dagster/master/.github/dagster-logo-dark.svg">
-              <img alt="dagster logo" src="https://raw.githubusercontent.com/dagster-io/dagster/master/.github/dagster-logo-light.svg" width="auto" height="80">
+              <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sheenflow-io/sheenflow/master/.github/sheenflow-logo-dark.svg">
+              <img alt="sheenflow logo" src="https://raw.githubusercontent.com/sheenflow-io/sheenflow/master/.github/sheenflow-logo-light.svg" width="auto" height="80">
             </picture>
           </a>
         </p>
@@ -18,12 +18,12 @@ body:
       value: >
         Thank you for contributing to improve Dagster.
         If you have a change ready to submit, you do not need to create an issue.
-        Instead, you can open a [pull request](https://github.com/dagster-io/dagster/pulls).
+        Instead, you can open a [pull request](https://github.com/sheenflow-io/sheenflow/pulls).
   - type: markdown
     attributes:
       value: >
         If you're adding a change to our documentation, check out our
-        [Writer's Guide](https://github.com/dagster-io/dagster/tree/master/docs).
+        [Writer's Guide](https://github.com/sheenflow-io/sheenflow/tree/master/docs).
   - type: textarea
     attributes:
       label: What's the issue or suggestion?
@@ -45,12 +45,12 @@ body:
       value: >
         Are you willing to submit a PR?
         This is not required, but we are happy to guide you through the contribution process.
-        [Find us on Slack](https://dagster.io/slack)!
+        [Find us on Slack](https://sheenflow.io/slack)!
   - type: markdown
     attributes:
       value: >
         By submitting this issue, you agree to follow Dagster's
-        [Code of Conduct](https://github.com/dagster-io/dagster/blob/master/CODE_OF_CONDUCT.md).
+        [Code of Conduct](https://github.com/sheenflow-io/sheenflow/blob/master/CODE_OF_CONDUCT.md).
   - type: textarea
     attributes:
       label: Message from the maintainers

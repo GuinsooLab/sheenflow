@@ -1,4 +1,4 @@
-import {IconName} from '@dagster-io/ui';
+import {IconName} from '@sheenflow-io/ui';
 
 import {
   WorkspaceRepositorySchedule,

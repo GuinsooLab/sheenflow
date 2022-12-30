@@ -12,7 +12,7 @@ def get_version():
 
 
 setup(
-    name="dagster-msteams",
+    name="sheenflow-msteams",
     version=get_version(),
     author="Elementl",
     author_email="hello@elementl.com",
@@ -29,7 +29,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_msteams_tests*"]),
     install_requires=[
-        "dagster",
+        "sheenflow",
         "requests>=2,<3",
     ],
     zip_safe=False,

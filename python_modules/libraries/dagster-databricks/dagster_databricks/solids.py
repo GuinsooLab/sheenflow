@@ -30,7 +30,7 @@ def create_databricks_job_op(
 
         .. code-block:: python
 
-            from dagster import job
+            from sheenflow import job
             from dagster_databricks import create_databricks_job_op, databricks_client
 
             sparkpi = create_databricks_job_op().configured(

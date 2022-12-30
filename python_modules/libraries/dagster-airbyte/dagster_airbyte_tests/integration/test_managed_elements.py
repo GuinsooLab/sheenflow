@@ -23,7 +23,7 @@ from .example_stacks import example_airbyte_stack
 
 TEST_ROOT_DIR = str(file_relative_path(__file__, "./example_stacks"))
 
-pytest_plugins = ["dagster_test.fixtures"]
+pytest_plugins = ["sheenflow_test.fixtures"]
 
 
 @pytest.fixture(name="docker_compose_file", scope="session")

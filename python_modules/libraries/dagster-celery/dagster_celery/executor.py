@@ -63,7 +63,7 @@ def celery_executor(init_context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_celery import celery_executor
 
         @job(executor_def=celery_executor)

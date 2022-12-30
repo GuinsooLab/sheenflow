@@ -56,7 +56,7 @@ def test_execute_queued_run_on_celery_k8s(  # pylint: disable=redefined-outer-na
     )
 
     wait_for_job_and_get_raw_logs(
-        job_name="dagster-run-%s" % run_id, namespace=helm_namespace_for_daemon
+        job_name="sheenflow-run-%s" % run_id, namespace=helm_namespace_for_daemon
     )
 
     logs = dagster_instance_for_daemon.all_logs(run_id)

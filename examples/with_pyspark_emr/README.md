@@ -8,5 +8,5 @@ Check out [Submitting PySpark ops on EMR](https://docs.dagster.io/integrations/s
 ## Getting started
 
 ```bash
-dagster project from-example --name my-dagster-project --example with_pyspark_emr
+sheenflow project from-example --name my-sheenflow-project --example with_pyspark_emr
 ```

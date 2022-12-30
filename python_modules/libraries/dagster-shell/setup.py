@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-shell",
+    name="sheenflow-shell",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,7 +32,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_shell_tests*"]),
-    install_requires=[f"dagster{pin}"],
+    install_requires=[f"sheenflow{pin}"],
     extras_require={"test": ["psutil"]},
     zip_safe=False,
 )

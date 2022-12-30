@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {Box, Colors, NonIdealState, PageHeader, Tag, Heading} from '@dagster-io/ui';
+import {Box, Colors, NonIdealState, PageHeader, Tag, Heading} from '@sheenflow-io/ui';
 import React from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 

@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Box, ConfigTypeSchema} from '@dagster-io/ui';
+import {Box, ConfigTypeSchema} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

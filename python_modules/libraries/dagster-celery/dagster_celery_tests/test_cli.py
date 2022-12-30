@@ -62,7 +62,7 @@ def test_invoke_entrypoint():
     runner = CliRunner()
     result = runner.invoke(main, ["worker"])
     assert result.exit_code == 0
-    assert "Start a dagster celery worker" in result.output
+    assert "Start a sheenflow celery worker" in result.output
 
 
 def test_start_worker(rabbitmq, instance):

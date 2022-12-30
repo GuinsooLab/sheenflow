@@ -60,12 +60,12 @@ def celery_k8s_job_executor(init_context):
     In the most common case, you may want to modify the ``broker`` and ``backend`` (e.g., to use
     Redis instead of RabbitMQ). We expect that ``config_source`` will be less frequently
     modified, but that when op executions are especially fast or slow, or when there are
-    different requirements around idempotence or retry, it may make sense to execute dagster jobs
+    different requirements around idempotence or retry, it may make sense to execute sheenflow jobs
     with variations on these settings.
 
     To use the `celery_k8s_job_executor`, set it as the `executor_def` when defining a job:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-celery-k8s/dagster_celery_k8s_tests/example_celery_mode_def.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-celery-k8s/dagster_celery_k8s_tests/example_celery_mode_def.py
        :language: python
 
     Then you can configure the executor as follows:
@@ -210,7 +210,7 @@ def _submit_task_k8s_job(app, plan_context, step, queue, priority, known_state):
         job_config = job_config.with_image(pipeline_origin.repository_origin.container_image)
 
     if not job_config.job_image:
-        raise Exception("No image included in either executor config or the dagster job")
+        raise Exception("No image included in either executor config or the sheenflow job")
 
     task = create_k8s_job_task(app)
     task_signature = task.si(
@@ -330,7 +330,7 @@ def create_k8s_job_task(celery_app, **task_kwargs):
 
         if pipeline_run.status != DagsterRunStatus.STARTED:
             instance.report_engine_event(
-                "Not scheduling step because dagster run status is not STARTED",
+                "Not scheduling step because sheenflow run status is not STARTED",
                 pipeline_run,
                 EngineEventData(
                     [
@@ -349,11 +349,11 @@ def create_k8s_job_task(celery_app, **task_kwargs):
 
         if retry_state.get_attempt_count(step_key):
             attempt_number = retry_state.get_attempt_count(step_key)
-            job_name = "dagster-step-%s-%d" % (k8s_name_key, attempt_number)
-            pod_name = "dagster-step-%s-%d" % (k8s_name_key, attempt_number)
+            job_name = "sheenflow-step-%s-%d" % (k8s_name_key, attempt_number)
+            pod_name = "sheenflow-step-%s-%d" % (k8s_name_key, attempt_number)
         else:
-            job_name = "dagster-step-%s" % (k8s_name_key)
-            pod_name = "dagster-step-%s" % (k8s_name_key)
+            job_name = "sheenflow-step-%s" % (k8s_name_key)
+            pod_name = "sheenflow-step-%s" % (k8s_name_key)
 
         args = execute_step_args.get_command_args()
 
@@ -365,9 +365,9 @@ def create_k8s_job_task(celery_app, **task_kwargs):
             pod_name,
             component="step_worker",
             labels={
-                "dagster/job": pipeline_run.pipeline_name,
-                "dagster/op": step_key,
-                "dagster/run-id": execute_step_args.pipeline_run_id,
+                "sheenflow/job": pipeline_run.pipeline_name,
+                "sheenflow/op": step_key,
+                "sheenflow/run-id": execute_step_args.pipeline_run_id,
             },
             env_vars=[
                 {
@@ -455,7 +455,7 @@ def create_k8s_job_task(celery_app, **task_kwargs):
             events.append(step_failure_event)
         except DagsterK8sPipelineStatusException:
             instance.report_engine_event(
-                "Terminating Kubernetes Job because dagster run status is not STARTED",
+                "Terminating Kubernetes Job because sheenflow run status is not STARTED",
                 pipeline_run,
                 EngineEventData(
                     [

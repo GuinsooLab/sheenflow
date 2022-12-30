@@ -1,4 +1,4 @@
-import {Box, Button, DialogBody, DialogFooter, Dialog} from '@dagster-io/ui';
+import {Box, Button, DialogBody, DialogFooter, Dialog} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {PythonErrorInfo} from '../app/PythonErrorInfo';

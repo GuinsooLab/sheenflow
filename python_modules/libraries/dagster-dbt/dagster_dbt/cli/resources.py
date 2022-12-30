@@ -18,7 +18,7 @@ class DbtCliResource(DbtResource):
 
     https://docs.getdbt.com/reference/commands/run
 
-    To use this as a dagster resource, we recommend using
+    To use this as a sheenflow resource, we recommend using
     :func:`dbt_cli_resource <dagster_dbt.dbt_cli_resource>`.
     """
 

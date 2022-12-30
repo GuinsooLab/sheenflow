@@ -22,7 +22,7 @@ versions = {}
 LAST_N_DAYS = 7
 
 for library in libraries:
-    if "dagster" in library:
+    if "sheenflow" in library:
         continue
 
     print("Checking " + library + "...")

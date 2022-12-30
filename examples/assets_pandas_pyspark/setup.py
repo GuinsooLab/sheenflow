@@ -4,13 +4,13 @@ setup(
     name="assets_pandas_pyspark",
     packages=find_packages(exclude=["assets_pandas_pyspark_tests"]),
     install_requires=[
-        "dagster",
+        "sheenflow",
         "pandas",
         "pyspark",
         # "pyarrow",
     ],
     extras_require={
-        "dev": ["dagit", "pytest"],
+        "dev": ["sheenlet", "pytest"],
         "test": ["pandas", "pyarrow; python_version < '3.9'", "pyspark"],
     },
 )

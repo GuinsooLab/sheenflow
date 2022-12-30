@@ -263,10 +263,10 @@ def test_specify_pg_params(hostname):
 def test_conn_str():
     username = "has@init"
     password = ":full: of junk!@?"
-    db_name = "dagster"
+    db_name = "sheenflow"
     hostname = "database-city.com"
 
-    url_wo_scheme = r"has%40init:%3Afull%3A%20of%20junk%21%40%3F@database-city.com:5432/dagster"
+    url_wo_scheme = r"has%40init:%3Afull%3A%20of%20junk%21%40%3F@database-city.com:5432/sheenflow"
 
     conn_str = get_conn_string(
         username=username,

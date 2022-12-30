@@ -1,5 +1,5 @@
 import {gql, useQuery} from '@apollo/client';
-import {Box, Colors, Group, NonIdealState, Subheading} from '@dagster-io/ui';
+import {Box, Colors, Group, NonIdealState, Subheading} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {RunTable, RUN_TABLE_RUN_FRAGMENT} from '../runs/RunTable';

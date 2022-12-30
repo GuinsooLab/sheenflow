@@ -76,7 +76,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
 
     @property
     def resolved_run_config(self) -> ResolvedRunConfig:
-        """:class:`dagster.ResolvedRunConfig`: The resolved_run_config for the context"""
+        """:class:`sheenflow.ResolvedRunConfig`: The resolved_run_config for the context"""
         return self._pipeline_context.resolved_run_config
 
     @public  # type: ignore
@@ -102,7 +102,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
     @public  # type: ignore
     @property
     def job_def(self) -> JobDefinition:
-        """:class:`dagster.JobDefinition`: The job definition for the context.
+        """:class:`sheenflow.JobDefinition`: The job definition for the context.
 
         This will be a dagstermill-specific shim.
         """
@@ -117,7 +117,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
 
     @property
     def pipeline_def(self) -> PipelineDefinition:
-        """:class:`dagster.PipelineDefinition`: The pipeline definition for the context.
+        """:class:`sheenflow.PipelineDefinition`: The pipeline definition for the context.
 
         This will be a dagstermill-specific shim.
         """
@@ -139,7 +139,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
     @public  # type: ignore
     @property
     def run(self) -> DagsterRun:
-        """:class:`dagster.DagsterRun`: The job run for the context."""
+        """:class:`sheenflow.DagsterRun`: The job run for the context."""
         return cast(DagsterRun, self._pipeline_context.pipeline_run)
 
     @property
@@ -153,7 +153,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
 
     @property
     def log(self) -> DagsterLogManager:
-        """:class:`dagster.DagsterLogManager`: The log manager for the context.
+        """:class:`sheenflow.DagsterLogManager`: The log manager for the context.
 
         Call, e.g., ``log.info()`` to log messages through the Dagster machinery.
         """
@@ -162,7 +162,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
     @public  # type: ignore
     @property
     def op_def(self) -> OpDefinition:
-        """:class:`dagster.OpDefinition`: The op definition for the context.
+        """:class:`sheenflow.OpDefinition`: The op definition for the context.
 
         In interactive contexts, this may be a dagstermill-specific shim, depending whether an
         op definition was passed to ``dagstermill.get_context``.
@@ -171,7 +171,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
 
     @property
     def solid_def(self) -> OpDefinition:
-        """:class:`dagster.SolidDefinition`: The solid definition for the context.
+        """:class:`sheenflow.SolidDefinition`: The solid definition for the context.
 
         In interactive contexts, this may be a dagstermill-specific shim, depending whether a
         solid definition was passed to ``dagstermill.get_context``.
@@ -185,7 +185,7 @@ class DagstermillExecutionContext(AbstractComputeExecutionContext):
 
     @property
     def solid(self) -> Node:
-        """:class:`dagster.Node`: The solid for the context.
+        """:class:`sheenflow.Node`: The solid for the context.
 
         In interactive contexts, this may be a dagstermill-specific shim, depending whether a
         solid definition was passed to ``dagstermill.get_context``.

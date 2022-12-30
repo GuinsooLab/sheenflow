@@ -142,7 +142,7 @@ def make_dagster_repo_from_airflow_dag_bag(
                 return make_dagster_repo_from_airflow_dag_bag(my_dag_bag, 'my_repo_name')
 
         Use RepositoryDefinition as usual, for example:
-            `dagit -f path/to/make_dagster_repo.py -n make_repo_from_dag_bag`
+            `sheenlet -f path/to/make_dagster_repo.py -n make_repo_from_dag_bag`
 
     Args:
         dag_path (str): Path to directory or file that contains Airflow Dags
@@ -154,9 +154,9 @@ def make_dagster_repo_from_airflow_dag_bag(
             Airflow TaskInstance model which requires and modifies the DagRun table. The use_airflow_template_context
             setting is ignored if use_ephemeral_airflow_db is True.
             (default: False)
-        mock_xcom (bool): If True, dagster will mock out all calls made to xcom, features that
+        mock_xcom (bool): If True, sheenflow will mock out all calls made to xcom, features that
             depend on xcom may not work as expected. (default: False)
-        use_ephemeral_airflow_db (bool): If True, dagster will create an ephemeral sqlite airflow
+        use_ephemeral_airflow_db (bool): If True, sheenflow will create an ephemeral sqlite airflow
             database for each run. (default: False)
         connections (List[Connection]): List of Airflow Connections to be created in the Ephemeral
             Airflow DB, if use_emphemeral_airflow_db is False this will be ignored.
@@ -296,11 +296,11 @@ def make_dagster_repo_from_airflow_example_dags(
                 return make_dagster_repo_from_airflow_example_dags()
 
         Use RepositoryDefinition as usual, for example:
-            `dagit -f path/to/make_dagster_repo.py -n make_airflow_example_dags`
+            `sheenlet -f path/to/make_dagster_repo.py -n make_airflow_example_dags`
 
     Args:
         repo_name (str): Name for generated RepositoryDefinition
-        use_ephemeral_airflow_db (bool): If True, dagster will create an ephemeral sqlite airflow
+        use_ephemeral_airflow_db (bool): If True, sheenflow will create an ephemeral sqlite airflow
             database for each run. (default: False)
 
     Returns:
@@ -347,7 +347,7 @@ def make_dagster_repo_from_airflow_dags_path(
                 )
 
         Use RepositoryDefinition as usual, for example:
-        ``dagit -f path/to/make_dagster_repo.py -n make_repo_from_dir``
+        ``sheenlet -f path/to/make_dagster_repo.py -n make_repo_from_dir``
 
     Args:
         dag_path (str): Path to directory or file that contains Airflow Dags
@@ -361,9 +361,9 @@ def make_dagster_repo_from_airflow_dags_path(
             Airflow TaskInstance model which requires and modifies the DagRun table. The use_airflow_template_context
             setting is ignored if use_ephemeral_airflow_db is True.
             (default: False)
-        mock_xcom (bool): If True, dagster will mock out all calls made to xcom, features that
+        mock_xcom (bool): If True, sheenflow will mock out all calls made to xcom, features that
             depend on xcom may not work as expected. (default: False)
-        use_ephemeral_airflow_db (bool): If True, dagster will create an ephemeral sqlite airflow
+        use_ephemeral_airflow_db (bool): If True, sheenflow will create an ephemeral sqlite airflow
             database for each run. (default: False)
         connections (List[Connection]): List of Airflow Connections to be created in the Ephemeral
             Airflow DB, if use_emphemeral_airflow_db is False this will be ignored.
@@ -460,9 +460,9 @@ def make_dagster_pipeline_from_airflow_dag(
             (default: False)
         unique_id (int): If not None, this id will be postpended to generated solid names. Used by
             framework authors to enforce unique solid names within a repo.
-        mock_xcom (bool): If not None, dagster will mock out all calls made to xcom, features that
+        mock_xcom (bool): If not None, sheenflow will mock out all calls made to xcom, features that
             depend on xcom may not work as expected.
-        use_ephemeral_airflow_db (bool): If True, dagster will create an ephemeral sqlite airflow
+        use_ephemeral_airflow_db (bool): If True, sheenflow will create an ephemeral sqlite airflow
             database for each run
         connections (List[Connection]): List of Airflow Connections to be created in the Ephemeral
             Airflow DB, if use_emphemeral_airflow_db is False this will be ignored.

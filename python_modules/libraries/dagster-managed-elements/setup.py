@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-managed-elements",
+    name="sheenflow-managed-elements",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -31,12 +31,12 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_managed_elements_tests*"]),
-    install_requires=[f"dagster{pin}", "requests", "click_spinner"],
+    install_requires=[f"sheenflow{pin}", "requests", "click_spinner"],
     zip_safe=False,
     entry_points={
         "console_scripts": [
-            "dagster-managed-elements = dagster_managed_elements.cli:main",
-            "dagster-me = dagster_managed_elements.cli:main",
+            "sheenflow-managed-elements = dagster_managed_elements.cli:main",
+            "sheenflow-me = dagster_managed_elements.cli:main",
         ]
     },
 )

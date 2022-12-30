@@ -4,4 +4,4 @@ from .docker_executor import docker_executor
 from .docker_run_launcher import DockerRunLauncher
 from .version import __version__
 
-check_dagster_package_version("dagster-docker", __version__)
+check_dagster_package_version("sheenflow-docker", __version__)

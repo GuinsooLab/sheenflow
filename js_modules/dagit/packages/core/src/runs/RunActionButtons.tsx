@@ -1,4 +1,4 @@
-import {Box, Button, Group, IconName, Icon} from '@dagster-io/ui';
+import {Box, Button, Group, IconName, Icon} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {SharedToaster} from '../app/DomUtils';

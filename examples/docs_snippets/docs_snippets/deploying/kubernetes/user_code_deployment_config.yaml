@@ -3,7 +3,7 @@ dagster-user-deployments:
   deployments:
     - name: "k8s-example-user-code-1"
       image:
-        repository: "docker.io/dagster/user-code-example"
+        repository: "docker.io/sheenflow/user-code-example"
         tag: latest
         pullPolicy: Always
       dagsterApiGrpcArgs:
@@ -21,7 +21,7 @@ dagster-user-deployments:
           configMap: my-config-map
       volumeMounts:
         - name: test-volume
-          mountPath: /opt/dagster/test_folder
+          mountPath: /opt/sheenflow/test_folder
           subPath: test_file.yaml
       resources:
         limits:

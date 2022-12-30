@@ -23,7 +23,7 @@ from .utils import is_fatal_code
 class DbtRpcResource(DbtResource):
     """A client for a dbt RPC server.
 
-    To use this as a dagster resource, we recommend using
+    To use this as a sheenflow resource, we recommend using
     :func:`dbt_rpc_resource <dagster_dbt.dbt_rpc_resource>`.
     """
 
@@ -62,7 +62,7 @@ class DbtRpcResource(DbtResource):
         Returns:
             str: The constructed User-Agent value.
         """
-        client = "dagster/dbt-rpc-client"
+        client = "sheenflow/dbt-rpc-client"
         python_version = (
             f"Python/{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
         )

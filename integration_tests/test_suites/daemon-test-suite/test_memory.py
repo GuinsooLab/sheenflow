@@ -73,12 +73,12 @@ def test_no_memory_leaks():
     with instance_for_test(
         overrides={
             "run_coordinator": {
-                "module": "dagster.core.run_coordinator",
+                "module": "sheenflow.core.run_coordinator",
                 "class": "QueuedRunCoordinator",
             },
             "run_launcher": {
                 "class": "DefaultRunLauncher",
-                "module": "dagster.core.launcher.default_run_launcher",
+                "module": "sheenflow.core.launcher.default_run_launcher",
                 "config": {
                     "wait_for_processes": False,
                 },
@@ -103,7 +103,7 @@ def test_no_memory_leaks():
                 growth = objgraph.growth(
                     limit=10,
                     filter=lambda obj: inspect.getmodule(obj)
-                    and "dagster" in inspect.getmodule(obj).__name__,
+                    and "sheenflow" in inspect.getmodule(obj).__name__,
                 )
                 while True:
                     time.sleep(30)
@@ -114,7 +114,7 @@ def test_no_memory_leaks():
                     growth = objgraph.growth(
                         limit=10,
                         filter=lambda obj: inspect.getmodule(obj)
-                        and "dagster" in inspect.getmodule(obj).__name__,
+                        and "sheenflow" in inspect.getmodule(obj).__name__,
                     )
                     if not growth:
                         print(  # pylint: disable=print-call

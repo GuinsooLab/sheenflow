@@ -101,7 +101,7 @@ class PickledObjectS3IOManager(MemoizableIOManager):
 @io_manager(
     config_schema={
         "s3_bucket": Field(StringSource),
-        "s3_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+        "s3_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
     },
     required_resource_keys={"s3"},
 )
@@ -127,7 +127,7 @@ def s3_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import asset, repository, with_resources
+        from sheenflow import asset, repository, with_resources
         from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
 
 
@@ -158,7 +158,7 @@ def s3_pickle_io_manager(init_context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
 
         @job(

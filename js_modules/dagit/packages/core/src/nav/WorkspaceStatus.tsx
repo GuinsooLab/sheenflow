@@ -1,4 +1,4 @@
-import {Colors, Icon, Tooltip, Spinner} from '@dagster-io/ui';
+import {Colors, Icon, Tooltip, Spinner} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {DeploymentStatusContext} from '../instance/DeploymentStatusProvider';

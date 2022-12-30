@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Colors, CaptionMono} from '@dagster-io/ui';
+import {Colors, CaptionMono} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {TimestampDisplay} from '../schedules/TimestampDisplay';

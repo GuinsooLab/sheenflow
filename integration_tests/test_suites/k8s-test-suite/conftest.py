@@ -30,7 +30,7 @@ IS_BUILDKITE = os.getenv("BUILDKITE") is not None
 @pytest.fixture(scope="session", autouse=True)
 def dagster_home():
     old_env = os.getenv("DAGSTER_HOME")
-    os.environ["DAGSTER_HOME"] = "/opt/dagster/dagster_home"
+    os.environ["DAGSTER_HOME"] = "/opt/sheenflow/dagster_home"
     yield
     if old_env is not None:
         os.environ["DAGSTER_HOME"] = old_env

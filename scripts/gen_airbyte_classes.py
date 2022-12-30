@@ -64,7 +64,7 @@ class SchemaType(ABC):
     @abstractmethod
     def get_check(self, name: str, scope: Optional[str] = None):
         """
-        Returns the dagster._check check for this type, e.g. check.str_param(name, 'name')
+        Returns the sheenflow._check check for this type, e.g. check.str_param(name, 'name')
         """
 
     @abstractmethod
@@ -454,13 +454,13 @@ def load_from_spec_file(
 SOURCE_OUT_FILE = os.path.abspath(
     file_relative_path(
         __file__,
-        "../python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/sources.py",
+        "../python_modules/libraries/sheenflow-airbyte/dagster_airbyte/managed/generated/sources.py",
     )
 )
 DEST_OUT_FILE = os.path.abspath(
     file_relative_path(
         __file__,
-        "../python_modules/libraries/dagster-airbyte/dagster_airbyte/managed/generated/destinations.py",
+        "../python_modules/libraries/sheenflow-airbyte/dagster_airbyte/managed/generated/destinations.py",
     )
 )
 
@@ -525,8 +525,8 @@ from typing import Any, List, Optional, Union
 
 from dagster_airbyte.managed.types import {imp}
 
-import dagster._check as check
-from dagster._annotations import public
+import sheenflow._check as check
+from sheenflow._annotations import public
 
 
 

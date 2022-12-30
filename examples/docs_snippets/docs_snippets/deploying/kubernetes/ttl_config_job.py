@@ -11,7 +11,7 @@ def my_op():
 # start_ttl
 @job(
     tags = {
-        'dagster-k8s/config': {
+        'sheenflow-k8s/config': {
             'job_spec_config': {
                 'ttl_seconds_after_finished': 7200
             }

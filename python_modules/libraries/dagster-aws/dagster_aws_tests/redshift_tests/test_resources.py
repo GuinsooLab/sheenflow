@@ -15,7 +15,7 @@ REDSHIFT_ENV = {
             "config": {
                 "host": "foo",
                 "port": 5439,
-                "user": "dagster",
+                "user": "sheenflow",
                 "password": "baz",
                 "database": "dev",
             }
@@ -61,7 +61,7 @@ def test_single_select(redshift_connect):
     redshift_connect.assert_called_once_with(
         host="foo",
         port=5439,
-        user="dagster",
+        user="sheenflow",
         password="baz",
         database="dev",
         connect_timeout=5,
@@ -201,7 +201,7 @@ def test_live_redshift(s3_bucket):
                         "config": {
                             "host": {"env": "REDSHIFT_ENDPOINT"},
                             "port": 5439,
-                            "user": "dagster",
+                            "user": "sheenflow",
                             "password": {"env": "REDSHIFT_PASSWORD"},
                             "database": "dev",
                         }

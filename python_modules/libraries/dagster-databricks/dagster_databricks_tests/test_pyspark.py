@@ -28,16 +28,16 @@ from dagster._legacy import (
 )
 from dagster._utils.merger import deep_merge_dicts
 
-S3_BUCKET = "dagster-databricks-tests"
+S3_BUCKET = "sheenflow-databricks-tests"
 ADLS2_STORAGE_ACCOUNT = "dagsterdatabrickstests"
-ADLS2_CONTAINER = "dagster-databricks-tests"
+ADLS2_CONTAINER = "sheenflow-databricks-tests"
 
 
 BASE_DATABRICKS_PYSPARK_STEP_LAUNCHER_CONFIG: Dict[str, object] = {
     "databricks_host": os.environ.get("DATABRICKS_HOST"),
     "databricks_token": os.environ.get("DATABRICKS_TOKEN"),
     "local_pipeline_package_path": os.path.abspath(os.path.dirname(__file__)),
-    "staging_prefix": "/dagster-databricks-tests",
+    "staging_prefix": "/sheenflow-databricks-tests",
     "run_config": {
         "cluster": {
             "new": {
@@ -50,8 +50,8 @@ BASE_DATABRICKS_PYSPARK_STEP_LAUNCHER_CONFIG: Dict[str, object] = {
         },
         "libraries": [
             {"pypi": {"package": "azure-storage-file-datalake~=12.0.1"}},
-            {"pypi": {"package": "dagster-aws"}},
-            {"pypi": {"package": "dagster-azure"}},
+            {"pypi": {"package": "sheenflow-aws"}},
+            {"pypi": {"package": "sheenflow-azure"}},
             {"pypi": {"package": "databricks-api"}},
             {"pypi": {"package": "pytest"}},
         ],
@@ -64,7 +64,7 @@ BASE_DATABRICKS_PYSPARK_STEP_LAUNCHER_CONFIG: Dict[str, object] = {
     "env_variables": {},
     "storage": {
         "s3": {
-            "secret_scope": "dagster-databricks-tests",
+            "secret_scope": "sheenflow-databricks-tests",
             "access_key_key": "aws-access-key",
             "secret_key_key": "aws-secret-key",
         }
@@ -288,7 +288,7 @@ def test_do_it_live_databricks_s3():
                 "io_manager": {
                     "config": {
                         "s3_bucket": "elementl-databricks",
-                        "s3_prefix": "dagster-test",
+                        "s3_prefix": "sheenflow-test",
                     }
                 },
             },
@@ -305,7 +305,7 @@ def test_do_it_live_databricks_adls2():
     config = BASE_DATABRICKS_PYSPARK_STEP_LAUNCHER_CONFIG.copy()
     config["storage"] = {
         "adls2": {
-            "secret_scope": "dagster-databricks-tests",
+            "secret_scope": "sheenflow-databricks-tests",
             "storage_account_name": ADLS2_STORAGE_ACCOUNT,
             "storage_account_key_key": "adls2-storage-key",
         }
@@ -327,7 +327,7 @@ def test_do_it_live_databricks_adls2():
                 "io_manager": {
                     "config": {
                         "adls2_file_system": ADLS2_CONTAINER,
-                        "adls2_prefix": "dagster-databricks-tests",
+                        "adls2_prefix": "sheenflow-databricks-tests",
                     }
                 },
             },

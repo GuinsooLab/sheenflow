@@ -8,7 +8,7 @@ import yaml
 
 from dagster import file_relative_path
 
-pytest_plugins = ["dagster_test.fixtures"]
+pytest_plugins = ["sheenflow_test.fixtures"]
 
 
 @pytest.fixture
@@ -60,13 +60,13 @@ def source_code(reference_deployment, tmpdir):
 
         overrides = []
         for requirement in path.read().splitlines():
-            # The source code lives in dagster/python_modules
+            # The source code lives in sheenflow/python_modules
             if requirement in os.listdir(python_modules):
                 source = file_relative_path(python_modules, requirement)
-            # The source code lives in dagster/python_modules/libraries
+            # The source code lives in sheenflow/python_modules/libraries
             elif requirement in os.listdir(libraries):
                 source = file_relative_path(libraries, requirement)
-            # It's not a dagster library; continue to install from pypi
+            # It's not a sheenflow library; continue to install from pypi
             else:
                 overrides.append(requirement + "\n")
                 continue
@@ -94,17 +94,17 @@ def overridden_dockerfile(source_code):
 
 @pytest.fixture
 def overridden_dagster_yaml(reference_deployment):
-    # Override dagster.yaml to use DefaultRunLauncher; EcsRunLauncher can only
+    # Override sheenflow.yaml to use DefaultRunLauncher; EcsRunLauncher can only
     # run on a real ECS cluster whereas DefaultRunLauncher can successfully run
     # end-to-end on a local ECS simulation. This is because the local ECS
     # simulation doesn't mock out the ECS API in its entirety.
-    with open("dagster.yaml", "r", encoding="utf8") as f:
+    with open("sheenflow.yaml", "r", encoding="utf8") as f:
         dagster_yaml = yaml.safe_load(f)
         dagster_yaml["run_launcher"] = {
-            "module": "dagster.core.launcher",
+            "module": "sheenflow.core.launcher",
             "class": "DefaultRunLauncher",
         }
-    with open("dagster.yaml", "w", encoding="utf8") as f:
+    with open("sheenflow.yaml", "w", encoding="utf8") as f:
         f.write(yaml.safe_dump(dagster_yaml))
 
 
@@ -126,4 +126,4 @@ def docker_compose(
 
 @pytest.mark.xfail
 def test_deploy(docker_compose, retrying_requests):
-    assert retrying_requests.get(f'http://{docker_compose["dagit"]}:3000/dagit_info').ok
+    assert retrying_requests.get(f'http://{docker_compose["sheenlet"]}:3000/dagit_info').ok

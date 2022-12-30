@@ -25,7 +25,7 @@ from dagster._legacy import execute_pipeline
 from dagster._seven import get_current_datetime_in_utc
 
 default_args = {
-    "owner": "dagster",
+    "owner": "sheenflow",
     "start_date": days_ago(1),
 }
 

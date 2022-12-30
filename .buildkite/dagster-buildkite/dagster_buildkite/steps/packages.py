@@ -46,7 +46,7 @@ def build_library_packages_steps() -> List[BuildkiteStep]:
 
 
 def build_dagit_screenshot_steps() -> List[BuildkiteStep]:
-    return _build_steps_from_package_specs([PackageSpec("docs/dagit-screenshot", run_pytest=False)])
+    return _build_steps_from_package_specs([PackageSpec("docs/sheenlet-screenshot", run_pytest=False)])
 
 
 def _build_steps_from_package_specs(package_specs: List[PackageSpec]) -> List[BuildkiteStep]:
@@ -89,7 +89,7 @@ def airflow_extra_cmds(version: str, _) -> List[str]:
         r"aws s3 cp s3://\${BUILDKITE_SECRETS_BUCKET}/gcp-key-elementl-dev.json "
         + GCP_CREDS_LOCAL_FILE,
         "export GOOGLE_APPLICATION_CREDENTIALS=" + GCP_CREDS_LOCAL_FILE,
-        "pushd python_modules/libraries/dagster-airflow/dagster_airflow_tests/",
+        "pushd python_modules/libraries/sheenflow-airflow/dagster_airflow_tests/",
         "docker-compose up -d --remove-orphans",
         *network_buildkite_container("postgres"),
         *connect_sibling_docker_container(
@@ -119,7 +119,7 @@ airline_demo_extra_cmds = [
 def dagster_graphql_extra_cmds(_, tox_factor: Optional[str]) -> List[str]:
     if tox_factor and tox_factor.startswith("postgres"):
         return [
-            "pushd python_modules/dagster-graphql/dagster_graphql_tests/graphql/",
+            "pushd python_modules/sheenflow-graphql/sheenflow_graphql_tests/graphql/",
             "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
             # Can't use host networking on buildkite and communicate via localhost
             # between these sibling containers, so pass along the ip.
@@ -166,7 +166,7 @@ def celery_extra_cmds(version: str, _) -> List[str]:
     return [
         "export DAGSTER_DOCKER_IMAGE_TAG=$${BUILDKITE_BUILD_ID}-" + version,
         'export DAGSTER_DOCKER_REPOSITORY="$${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com"',
-        "pushd python_modules/libraries/dagster-celery",
+        "pushd python_modules/libraries/sheenflow-celery",
         # Run the rabbitmq db. We are in docker running docker
         # so this will be a sibling container.
         "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
@@ -182,7 +182,7 @@ def celery_extra_cmds(version: str, _) -> List[str]:
 
 def celery_docker_extra_cmds(version: str, _) -> List[str]:
     return celery_extra_cmds(version, _) + [
-        "pushd python_modules/libraries/dagster-celery-docker/dagster_celery_docker_tests/",
+        "pushd python_modules/libraries/sheenflow-celery-docker/dagster_celery_docker_tests/",
         "docker-compose up -d --remove-orphans",
         *network_buildkite_container("postgres"),
         *connect_sibling_docker_container(
@@ -198,7 +198,7 @@ def docker_extra_cmds(version: str, _) -> List[str]:
     return [
         "export DAGSTER_DOCKER_IMAGE_TAG=$${BUILDKITE_BUILD_ID}-" + version,
         'export DAGSTER_DOCKER_REPOSITORY="$${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com"',
-        "pushd python_modules/libraries/dagster-docker/dagster_docker_tests/",
+        "pushd python_modules/libraries/sheenflow-docker/dagster_docker_tests/",
         "docker-compose up -d --remove-orphans",
         *network_buildkite_container("postgres"),
         *connect_sibling_docker_container(
@@ -214,7 +214,7 @@ dagit_extra_cmds = ["make rebuild_dagit"]
 
 
 mysql_extra_cmds = [
-    "pushd python_modules/libraries/dagster-mysql/dagster_mysql_tests/",
+    "pushd python_modules/libraries/sheenflow-mysql/dagster_mysql_tests/",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     *network_buildkite_container("mysql"),
     *network_buildkite_container("mysqlbackcompat"),
@@ -227,7 +227,7 @@ mysql_extra_cmds = [
 
 
 dbt_extra_cmds = [
-    "pushd python_modules/libraries/dagster-dbt/dagster_dbt_tests",
+    "pushd python_modules/libraries/sheenflow-dbt/dagster_dbt_tests",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     # Can't use host networking on buildkite and communicate via localhost
     # between these sibling containers, so pass along the ip.
@@ -254,7 +254,7 @@ gcp_extra_cmds = [
 
 
 postgres_extra_cmds = [
-    "pushd python_modules/libraries/dagster-postgres/dagster_postgres_tests/",
+    "pushd python_modules/libraries/sheenflow-postgres/dagster_postgres_tests/",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     "docker-compose -f docker-compose-multi.yml up -d",  # clean up in hooks/pre-exit,
     *network_buildkite_container("postgres"),
@@ -284,14 +284,14 @@ EXAMPLE_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
     PackageSpec(
         "examples/assets_dbt_python",
         unsupported_python_versions=[
-            # dependency on dagster-dbt
+            # dependency on sheenflow-dbt
             AvailablePythonVersion.V3_10,
         ],
     ),
     PackageSpec(
         "examples/assets_smoke_test",
         unsupported_python_versions=[
-            # dependency on dagster-dbt
+            # dependency on sheenflow-dbt
             AvailablePythonVersion.V3_10,
         ],
     ),
@@ -319,9 +319,9 @@ EXAMPLE_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
 
 LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
     PackageSpec("python_modules/automation"),
-    PackageSpec("python_modules/dagit", pytest_extra_cmds=dagit_extra_cmds),
+    PackageSpec("python_modules/sheenlet", pytest_extra_cmds=dagit_extra_cmds),
     PackageSpec(
-        "python_modules/dagster",
+        "python_modules/sheenflow",
         env_vars=["AWS_ACCOUNT_ID"],
         pytest_tox_factors=[
             "api_tests",
@@ -343,7 +343,7 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         ],
     ),
     PackageSpec(
-        "python_modules/dagster-graphql",
+        "python_modules/sheenflow-graphql",
         pytest_extra_cmds=dagster_graphql_extra_cmds,
         pytest_tox_factors=[
             "not_graphql_context_test_suite",
@@ -358,10 +358,10 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         ],
     ),
     PackageSpec(
-        "python_modules/dagster-test",
+        "python_modules/sheenflow-test",
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-dbt",
+        "python_modules/libraries/sheenflow-dbt",
         pytest_extra_cmds=dbt_extra_cmds,
         # dbt-core no longer supports does not yet support python 3.10
         unsupported_python_versions=[
@@ -369,11 +369,11 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         ],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-airbyte",
+        "python_modules/libraries/sheenflow-airbyte",
         pytest_tox_factors=["unit", "integration"],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-airflow",
+        "python_modules/libraries/sheenflow-airflow",
         # omit python 3.10 until we add support
         unsupported_python_versions=[
             AvailablePythonVersion.V3_10,
@@ -396,40 +396,40 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         ],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-aws",
+        "python_modules/libraries/sheenflow-aws",
         env_vars=["AWS_DEFAULT_REGION", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-azure",
+        "python_modules/libraries/sheenflow-azure",
         env_vars=["AZURE_STORAGE_ACCOUNT_KEY"],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-celery",
+        "python_modules/libraries/sheenflow-celery",
         env_vars=["AWS_ACCOUNT_ID", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"],
         pytest_extra_cmds=celery_extra_cmds,
         pytest_step_dependencies=test_project_depends_fn,
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-celery-docker",
+        "python_modules/libraries/sheenflow-celery-docker",
         env_vars=["AWS_ACCOUNT_ID", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"],
         pytest_extra_cmds=celery_docker_extra_cmds,
         pytest_step_dependencies=test_project_depends_fn,
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-dask",
+        "python_modules/libraries/sheenflow-dask",
         env_vars=["AWS_SECRET_ACCESS_KEY", "AWS_ACCESS_KEY_ID", "AWS_DEFAULT_REGION"],
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-databricks",
+        "python_modules/libraries/sheenflow-databricks",
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-docker",
+        "python_modules/libraries/sheenflow-docker",
         env_vars=["AWS_ACCOUNT_ID", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"],
         pytest_extra_cmds=docker_extra_cmds,
         pytest_step_dependencies=test_project_depends_fn,
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-gcp",
+        "python_modules/libraries/sheenflow-gcp",
         env_vars=[
             "AWS_ACCESS_KEY_ID",
             "AWS_SECRET_ACCESS_KEY",
@@ -441,7 +441,7 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         retries=2,
     ),
     PackageSpec(
-        "python_modules/libraries/dagster-k8s",
+        "python_modules/libraries/sheenflow-k8s",
         env_vars=[
             "AWS_ACCOUNT_ID",
             "AWS_ACCESS_KEY_ID",
@@ -451,15 +451,15 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         pytest_extra_cmds=k8s_extra_cmds,
         pytest_step_dependencies=test_project_depends_fn,
     ),
-    PackageSpec("python_modules/libraries/dagster-mlflow"),
-    PackageSpec("python_modules/libraries/dagster-mysql", pytest_extra_cmds=mysql_extra_cmds),
+    PackageSpec("python_modules/libraries/sheenflow-mlflow"),
+    PackageSpec("python_modules/libraries/sheenflow-mysql", pytest_extra_cmds=mysql_extra_cmds),
     PackageSpec(
-        "python_modules/libraries/dagster-snowflake-pandas",
+        "python_modules/libraries/sheenflow-snowflake-pandas",
         env_vars=["SNOWFLAKE_ACCOUNT", "SNOWFLAKE_BUILDKITE_PASSWORD"],
     ),
-    PackageSpec("python_modules/libraries/dagster-postgres", pytest_extra_cmds=postgres_extra_cmds),
+    PackageSpec("python_modules/libraries/sheenflow-postgres", pytest_extra_cmds=postgres_extra_cmds),
     PackageSpec(
-        "python_modules/libraries/dagster-twilio",
+        "python_modules/libraries/sheenflow-twilio",
         env_vars=["TWILIO_TEST_ACCOUNT_SID", "TWILIO_TEST_AUTH_TOKEN"],
         # Remove once https://github.com/dagster-io/dagster/issues/2511 is resolved
         retries=2,
@@ -469,7 +469,7 @@ LIBRARY_PACKAGES_WITH_CUSTOM_CONFIG: List[PackageSpec] = [
         pytest_tox_factors=["papermill1", "papermill2"],
     ),
     PackageSpec(
-        ".buildkite/dagster-buildkite",
+        ".buildkite/sheenflow-buildkite",
         run_pytest=False,
     ),
     PackageSpec("scripts", run_pytest=False),

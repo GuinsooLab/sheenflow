@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-duckdb",
+    name="sheenflow-duckdb",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -35,7 +35,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "duckdb",
-        f"dagster{pin}",
+        f"sheenflow{pin}",
     ],
     extras_require={
         "pandas": ["pandas"],

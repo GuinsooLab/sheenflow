@@ -14,7 +14,7 @@ class CustomECSRunLauncher(EcsRunLauncher):
         task_definition=None,
         container_name="run",
         secrets=None,
-        secrets_tag="dagster",
+        secrets_tag="sheenflow",
         env_vars=None,
         include_sidecars=False,
     ):

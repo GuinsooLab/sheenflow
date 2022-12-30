@@ -1,4 +1,4 @@
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 import debounce from 'lodash/debounce';
 import * as React from 'react';
 import styled from 'styled-components/macro';

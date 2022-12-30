@@ -44,7 +44,7 @@ def test_execute_schedule_on_celery_k8s(  # pylint: disable=redefined-outer-name
                 if time.time() - start_time > 120:
                     raise Exception(
                         "Timed out waiting for schedule to start a run. "
-                        "Check the dagster-daemon pod logs to see why it didn't start."
+                        "Check the sheenflow-daemon pod logs to see why it didn't start."
                     )
 
                 time.sleep(1)

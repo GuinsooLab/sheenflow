@@ -6,9 +6,9 @@ ARG DAGSTER_VERSION
 COPY build_cache/ /
 
 RUN pip install \
-    -e dagster \
-    -e dagster-graphql \
-    -e dagster-postgres \
-    -e dagster-k8s \
-    -e dagster-aws \
-    -e dagit
+    -e sheenflow \
+    -e sheenflow-graphql \
+    -e sheenflow-postgres \
+    -e sheenflow-k8s \
+    -e sheenflow-aws \
+    -e sheenlet

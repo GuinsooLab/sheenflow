@@ -15,7 +15,7 @@ from .dataproc.resources import dataproc_resource
 from .gcs import GCSFileHandle, gcs_file_manager, gcs_resource
 from .version import __version__
 
-check_dagster_package_version("dagster-gcp", __version__)
+check_dagster_package_version("sheenflow-gcp", __version__)
 
 __all__ = [
     "BigQueryError",

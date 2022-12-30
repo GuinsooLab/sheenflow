@@ -32,31 +32,31 @@ def test_get_secrets_from_arns(mock_secretsmanager_resource):
 
 
 def test_get_tagged_secrets(mock_secretsmanager_resource):
-    assert get_tagged_secrets(mock_secretsmanager_resource, ["dagster"]) == {}
+    assert get_tagged_secrets(mock_secretsmanager_resource, ["sheenflow"]) == {}
 
     foo_secret = mock_secretsmanager_resource.create_secret(
-        Name="foo_secret", SecretString="foo_value", Tags=[{"Key": "dagster", "Value": "foo"}]
+        Name="foo_secret", SecretString="foo_value", Tags=[{"Key": "sheenflow", "Value": "foo"}]
     )
     bar_secret = mock_secretsmanager_resource.create_secret(
         Name="bar_secret", SecretString="bar_value", Tags=[{"Key": "other_tag", "Value": "bar"}]
     )
 
-    assert get_tagged_secrets(mock_secretsmanager_resource, ["dagster"]) == {
+    assert get_tagged_secrets(mock_secretsmanager_resource, ["sheenflow"]) == {
         "foo_secret": foo_secret["ARN"]
     }
     assert get_tagged_secrets(mock_secretsmanager_resource, ["other_tag"]) == {
         "bar_secret": bar_secret["ARN"]
     }
 
-    assert get_tagged_secrets(mock_secretsmanager_resource, ["dagster", "other_tag"]) == {
+    assert get_tagged_secrets(mock_secretsmanager_resource, ["sheenflow", "other_tag"]) == {
         "foo_secret": foo_secret["ARN"],
         "bar_secret": bar_secret["ARN"],
     }
 
     baz_secret = mock_secretsmanager_resource.create_secret(
-        Name="baz_secret", SecretString="baz_value", Tags=[{"Key": "dagster", "Value": "baz"}]
+        Name="baz_secret", SecretString="baz_value", Tags=[{"Key": "sheenflow", "Value": "baz"}]
     )
-    assert get_tagged_secrets(mock_secretsmanager_resource, ["dagster"]) == {
+    assert get_tagged_secrets(mock_secretsmanager_resource, ["sheenflow"]) == {
         "foo_secret": foo_secret["ARN"],
         "baz_secret": baz_secret["ARN"],
     }
@@ -64,13 +64,13 @@ def test_get_tagged_secrets(mock_secretsmanager_resource):
 
 def test_secretmanager_secrets_resource(mock_secretsmanager_resource):
     foo_secret = mock_secretsmanager_resource.create_secret(
-        Name="foo_secret", SecretString="foo_value", Tags=[{"Key": "dagster", "Value": "foo"}]
+        Name="foo_secret", SecretString="foo_value", Tags=[{"Key": "sheenflow", "Value": "foo"}]
     )
     bar_secret = mock_secretsmanager_resource.create_secret(
         Name="bar_secret", SecretString="bar_value", Tags=[{"Key": "other_tag", "Value": "bar"}]
     )
     _baz_secret = mock_secretsmanager_resource.create_secret(
-        Name="baz_secret", SecretString="baz_value", Tags=[{"Key": "dagster", "Value": "baz"}]
+        Name="baz_secret", SecretString="baz_value", Tags=[{"Key": "sheenflow", "Value": "baz"}]
     )
     asdf_secret = mock_secretsmanager_resource.create_secret(
         Name="asdf_secret", SecretString="asdf_value"
@@ -88,13 +88,13 @@ def test_secretmanager_secrets_resource(mock_secretsmanager_resource):
         assert secret_map == {"foo_secret": "foo_value", "bar_secret": "bar_value"}
 
     with secretsmanager_secrets_resource(
-        build_init_resource_context(config={"secrets_tag": "dagster"})
+        build_init_resource_context(config={"secrets_tag": "sheenflow"})
     ) as secret_map:
         assert secret_map == {"foo_secret": "foo_value", "baz_secret": "baz_value"}
 
     with secretsmanager_secrets_resource(
         build_init_resource_context(
-            config={"secrets_tag": "dagster", "secrets": [asdf_secret["ARN"]]}
+            config={"secrets_tag": "sheenflow", "secrets": [asdf_secret["ARN"]]}
         )
     ) as secret_map:
         assert secret_map == {
@@ -115,7 +115,7 @@ def test_secretmanager_secrets_resource(mock_secretsmanager_resource):
         with secretsmanager_secrets_resource(
             build_init_resource_context(
                 config={
-                    "secrets_tag": "dagster",
+                    "secrets_tag": "sheenflow",
                     "secrets": [asdf_secret["ARN"]],
                     "add_to_environment": True,
                 }

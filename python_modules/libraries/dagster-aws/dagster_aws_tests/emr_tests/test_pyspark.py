@@ -27,7 +27,7 @@ from dagster._legacy import (
 from dagster._utils.merger import deep_merge_dicts
 from dagster._utils.test import create_test_pipeline_execution_context
 
-S3_BUCKET = "dagster-scratch-80542c2"
+S3_BUCKET = "sheenflow-scratch-80542c2"
 
 
 BASE_EMR_PYSPARK_STEP_LAUNCHER_CONFIG = {
@@ -171,7 +171,7 @@ def test_pyspark_emr(mock_is_emr_step_complete, mock_read_events, mock_s3_bucket
 
 
 def sync_code():
-    # Sync remote dagster packages with local dagster code
+    # Sync remote sheenflow packages with local sheenflow code
     sync_code_command = [
         "rsync",
         "-av",
@@ -195,11 +195,11 @@ def sync_code():
     ):
         raise DagsterSubprocessError("Failed to sync code to EMR")
 
-    # Install dagster packages on remote node
+    # Install sheenflow packages on remote node
     remote_install_dagster_packages_command = ["sudo", "python3", "-m", "pip", "install",] + [
         token
-        for package_subpath in ["dagster", "libraries/dagster-pyspark"]
-        for token in ["-e", "/home/hadoop/dagster/python_modules/" + package_subpath]
+        for package_subpath in ["sheenflow", "libraries/sheenflow-pyspark"]
+        for token in ["-e", "/home/hadoop/sheenflow/python_modules/" + package_subpath]
     ]
 
     install_dagster_packages_command = [
@@ -218,7 +218,7 @@ def sync_code():
         )
         != 0
     ):
-        raise DagsterSubprocessError("Failed to install dagster packages on EMR")
+        raise DagsterSubprocessError("Failed to install sheenflow packages on EMR")
 
 
 @pytest.mark.skipif(
@@ -244,7 +244,7 @@ def test_do_it_live_emr():
 @mock.patch("boto3.resource")
 @mock.patch("dagster_aws.emr.pyspark_step_launcher.EmrPySparkStepLauncher.wait_for_completion")
 @mock.patch("dagster_aws.emr.pyspark_step_launcher.EmrPySparkStepLauncher._log_logs_from_s3")
-@mock.patch("dagster._core.events.log_step_event")
+@mock.patch("sheenflow._core.events.log_step_event")
 def test_fetch_logs_on_fail(
     _mock_log_step_event, mock_log_logs, mock_wait_for_completion, _mock_boto3_resource
 ):

@@ -1,7 +1,7 @@
 """
 This module contains the mlflow resource provided by the MlFlow
 class. This resource provides an easy way to configure mlflow for logging various
-things from dagster runs.
+things from sheenflow runs.
 """
 import atexit
 import sys
@@ -57,9 +57,9 @@ class MlflowMeta(type):
 
 
 class MlFlow(metaclass=MlflowMeta):
-    """Class for setting up an mlflow resource for dagster runs.
+    """Class for setting up an mlflow resource for sheenflow runs.
     This takes care of all the configuration required to use mlflow tracking and the complexities of
-    mlflow tracking dagster parallel runs.
+    mlflow tracking sheenflow parallel runs.
     """
 
     def __init__(self, context):
@@ -112,7 +112,7 @@ class MlFlow(metaclass=MlflowMeta):
     def _get_current_run_id(
         self, experiment: Optional[Any] = None, dagster_run_id: Optional[str] = None
     ):
-        """Gets the run id of a specific dagster run and experiment id.
+        """Gets the run id of a specific sheenflow run and experiment id.
         If it doesn't exist then it returns a None.
 
         Args:
@@ -128,7 +128,7 @@ class MlFlow(metaclass=MlflowMeta):
         experiment = experiment or self.experiment
         dagster_run_id = dagster_run_id or self.dagster_run_id
         if experiment:
-            # Check if a run with this dagster run id has already been started
+            # Check if a run with this sheenflow run id has already been started
             # in mlflow, will get an empty dataframe if not
             current_run_df = mlflow.search_runs(
                 experiment_ids=[experiment.experiment_id],
@@ -185,7 +185,7 @@ class MlFlow(metaclass=MlflowMeta):
 
     def cleanup_on_error(self):
         """Method ends mlflow run with correct exit status for failed runs. Note that
-        this method does not work when a job running in dagit fails, it seems
+        this method does not work when a job running in sheenlet fails, it seems
         that in this case a different process runs the job and when it fails
         the stack trace is therefore not available. For this case we can use the
         cleanup_on_failure hook defined below.

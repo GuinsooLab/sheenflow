@@ -23,7 +23,7 @@ def build_integration_steps() -> List[BuildkiteStep]:
 
     # Shared dependency of some test suites
     steps += PackageSpec(
-        os.path.join("integration_tests", "python_modules", "dagster-k8s-test-infra"),
+        os.path.join("integration_tests", "python_modules", "sheenflow-k8s-test-infra"),
     ).build_steps()
 
     # test suites
@@ -43,8 +43,8 @@ def build_integration_steps() -> List[BuildkiteStep]:
 def build_backcompat_suite_steps() -> List[GroupStep]:
 
     tox_factors = [
-        "dagit-latest-release",
-        "dagit-earliest-release",
+        "sheenlet-latest-release",
+        "sheenlet-earliest-release",
         "user-code-latest-release",
         "user-code-earliest-release",
     ]
@@ -59,26 +59,26 @@ def build_backcompat_suite_steps() -> List[GroupStep]:
 def backcompat_extra_cmds(_, factor: str) -> List[str]:
 
     tox_factor_map = {
-        "dagit-latest-release": {
-            "dagit": LATEST_DAGSTER_RELEASE,
+        "sheenlet-latest-release": {
+            "sheenlet": LATEST_DAGSTER_RELEASE,
             "user_code": DAGSTER_CURRENT_BRANCH,
         },
-        "dagit-earliest-release": {
-            "dagit": EARLIEST_TESTED_RELEASE,
+        "sheenlet-earliest-release": {
+            "sheenlet": EARLIEST_TESTED_RELEASE,
             "user_code": DAGSTER_CURRENT_BRANCH,
         },
         "user-code-latest-release": {
-            "dagit": DAGSTER_CURRENT_BRANCH,
+            "sheenlet": DAGSTER_CURRENT_BRANCH,
             "user_code": LATEST_DAGSTER_RELEASE,
         },
         "user-code-earliest-release": {
-            "dagit": DAGSTER_CURRENT_BRANCH,
+            "sheenlet": DAGSTER_CURRENT_BRANCH,
             "user_code": EARLIEST_TESTED_RELEASE,
         },
     }
 
     release_mapping = tox_factor_map[factor]
-    dagit_version = release_mapping["dagit"]
+    dagit_version = release_mapping["sheenlet"]
     dagit_library_version = _get_library_version(dagit_version)
     user_code_version = release_mapping["user_code"]
     user_code_library_version = _get_library_version(user_code_version)
@@ -91,7 +91,7 @@ def backcompat_extra_cmds(_, factor: str) -> List[str]:
         *network_buildkite_container("dagit_service_network"),
         *connect_sibling_docker_container(
             "dagit_service_network",
-            "dagit",
+            "sheenlet",
             "BACKCOMPAT_TESTS_DAGIT_HOST",
         ),
         "popd",
@@ -212,7 +212,7 @@ def default_integration_suite_pytest_extra_cmds(version: str, _) -> List[str]:
         r"aws s3 cp s3://\${BUILDKITE_SECRETS_BUCKET}/gcp-key-elementl-dev.json "
         + GCP_CREDS_LOCAL_FILE,
         "export GOOGLE_APPLICATION_CREDENTIALS=" + GCP_CREDS_LOCAL_FILE,
-        "pushd python_modules/libraries/dagster-celery",
+        "pushd python_modules/libraries/sheenflow-celery",
         # Run the rabbitmq db. We are in docker running docker
         # so this will be a sibling container.
         "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,

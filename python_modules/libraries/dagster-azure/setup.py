@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-azure",
+    name="sheenflow-azure",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -37,8 +37,8 @@ setup(
         "azure-core<2.0.0,>=1.7.0",
         "azure-storage-blob<13.0.0,>=12.5.0",
         "azure-storage-file-datalake<13.0.0,>=12.5",
-        f"dagster{pin}",
+        f"sheenflow{pin}",
     ],
-    entry_points={"console_scripts": ["dagster-azure = dagster_azure.cli.cli:main"]},
+    entry_points={"console_scripts": ["sheenflow-azure = dagster_azure.cli.cli:main"]},
     zip_safe=False,
 )

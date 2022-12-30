@@ -15,22 +15,22 @@ from .utils import pg_url_from_config
 
 
 class DagsterPostgresStorage(DagsterStorage, ConfigurableClass):
-    """Postgres-backed dagster storage.
+    """Postgres-backed sheenflow storage.
 
     Users should not directly instantiate this class; it is instantiated by internal machinery when
-    ``dagit`` and ``dagster-daemon`` load, based on the values in the ``dagster.yaml`` file in
+    ``sheenlet`` and ``sheenflow-daemon`` load, based on the values in the ``sheenflow.yaml`` file in
     ``$DAGSTER_HOME``. Configuration of this class should be done by setting values in that file.
 
     To use Postgres for storage, you can add a block such as the following to your
-    ``dagster.yaml``:
+    ``sheenflow.yaml``:
 
-    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/dagster-pg.yaml
-       :caption: dagster.yaml
+    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/sheenflow-pg.yaml
+       :caption: sheenflow.yaml
        :lines: 1-8
        :language: YAML
 
-    Note that the fields in this config are :py:class:`~dagster.StringSource` and
-    :py:class:`~dagster.IntSource` and can be configured from environment variables.
+    Note that the fields in this config are :py:class:`~sheenflow.StringSource` and
+    :py:class:`~sheenflow.IntSource` and can be configured from environment variables.
     """
 
     def __init__(self, postgres_url, should_autocreate_tables=True, inst_data=None):

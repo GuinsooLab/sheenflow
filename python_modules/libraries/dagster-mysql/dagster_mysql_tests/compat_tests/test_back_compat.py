@@ -47,7 +47,7 @@ def test_0_13_17_mysql_convert_float_cols(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -79,7 +79,7 @@ def test_instigators_table_backcompat(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -111,7 +111,7 @@ def test_asset_observation_backcompat(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -139,7 +139,7 @@ def test_jobs_selector_id_migration(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -199,7 +199,7 @@ def test_add_bulk_actions_columns(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -224,7 +224,7 @@ def test_add_kvs_table(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -242,7 +242,7 @@ def test_add_kvs_table(conn_string):
 def test_add_asset_event_tags_table(conn_string):
     @op
     def yields_materialization_w_tags(_):
-        yield AssetMaterialization(asset_key=AssetKey(["a"]), tags={"dagster/foo": "bar"})
+        yield AssetMaterialization(asset_key=AssetKey(["a"]), tags={"sheenflow/foo": "bar"})
         yield Output(1)
 
     @job
@@ -257,7 +257,7 @@ def test_add_asset_event_tags_table(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)
@@ -275,7 +275,7 @@ def test_add_asset_event_tags_table(conn_string):
             assert "asset_event_tags" in get_tables(instance)
             asset_job.execute_in_process(instance=instance)
             assert instance._event_storage.get_event_tags_for_asset(asset_key=AssetKey(["a"])) == [
-                {"dagster/foo": "bar"}
+                {"sheenflow/foo": "bar"}
             ]
 
             indexes = get_indexes(instance, "asset_event_tags")
@@ -294,7 +294,7 @@ def test_add_cached_status_data_column(conn_string):
 
     with tempfile.TemporaryDirectory() as tempdir:
         with open(
-            file_relative_path(__file__, "dagster.yaml"), "r", encoding="utf8"
+            file_relative_path(__file__, "sheenflow.yaml"), "r", encoding="utf8"
         ) as template_fd:
             with open(os.path.join(tempdir, "dagster.yaml"), "w", encoding="utf8") as target_fd:
                 template = template_fd.read().format(hostname=hostname, port=port)

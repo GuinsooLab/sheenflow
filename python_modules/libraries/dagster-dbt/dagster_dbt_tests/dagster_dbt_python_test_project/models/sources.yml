@@ -7,7 +7,7 @@ sources:
         tags: ["events"]
       - name: users
 
-  - name: dagster
+  - name: sheenflow
     schema: test-python-schema
     tables:
       - name: bot_labeled_users

@@ -16,13 +16,13 @@ This example contains:
 To download this example, run:
 
 ```shell
-dagster project from-example --name my-dagster-project --example tutorial_dbt_dagster
+sheenflow project from-example --name my-sheenflow-project --example tutorial_dbt_dagster
 ```
 
 To install this example and its dependencies, run:
 
 ```shell
-cd my-dagster-project
+cd my-sheenflow-project
 pip install -e ".[dev]"
 ```
 
@@ -30,5 +30,5 @@ At this point, you can view the **completed** project in Dagit by running:
 
 ```shell
 cd tutorial_finished
-dagit
+sheenlet
 ```

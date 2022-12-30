@@ -21,20 +21,20 @@ def test_execute_on_celery_k8s_subchart_disabled(  # pylint: disable=redefined-o
     core_api = kubernetes.client.CoreV1Api()
     batch_api = kubernetes.client.BatchV1Api()
 
-    # Get name for dagit pod
+    # Get name for sheenlet pod
     pods = core_api.list_namespaced_pod(namespace=namespace)
-    dagit_pod_list = list(filter(lambda item: "dagit" in item.metadata.name, pods.items))
+    dagit_pod_list = list(filter(lambda item: "sheenlet" in item.metadata.name, pods.items))
     assert len(dagit_pod_list) == 1
     dagit_pod = dagit_pod_list[0]
     dagit_pod_name = dagit_pod.metadata.name
 
     # Check that there are no run master jobs
     jobs = batch_api.list_namespaced_job(namespace=namespace)
-    runmaster_job_list = list(filter(lambda item: "dagster-run-" in item.metadata.name, jobs.items))
+    runmaster_job_list = list(filter(lambda item: "sheenflow-run-" in item.metadata.name, jobs.items))
     assert len(runmaster_job_list) == 0
 
     run_config_dict = {
-        "resources": {"io_manager": {"config": {"s3_bucket": "dagster-scratch-80542c2"}}},
+        "resources": {"io_manager": {"config": {"s3_bucket": "sheenflow-scratch-80542c2"}}},
         "execution": {
             "config": {
                 "image_pull_policy": image_pull_policy(),
@@ -47,7 +47,7 @@ def test_execute_on_celery_k8s_subchart_disabled(  # pylint: disable=redefined-o
     run_config_json = json.dumps(run_config_dict)
 
     exec_command = [
-        "dagster",
+        "sheenflow",
         "job",
         "launch",
         "--repository",
@@ -55,7 +55,7 @@ def test_execute_on_celery_k8s_subchart_disabled(  # pylint: disable=redefined-o
         "--job",
         job_name,
         "--workspace",
-        "/dagster-workspace/workspace.yaml",
+        "/sheenflow-workspace/workspace.yaml",
         "--location",
         "user-code-deployment-1",
         "--config-json",
@@ -81,7 +81,7 @@ def test_execute_on_celery_k8s_subchart_disabled(  # pylint: disable=redefined-o
     while datetime.datetime.now() < start_time + timeout and not runmaster_job_name:
         jobs = batch_api.list_namespaced_job(namespace=namespace)
         runmaster_job_list = list(
-            filter(lambda item: "dagster-run-" in item.metadata.name, jobs.items)
+            filter(lambda item: "sheenflow-run-" in item.metadata.name, jobs.items)
         )
         if len(runmaster_job_list) > 0:
             runmaster_job_name = runmaster_job_list[0].metadata.name

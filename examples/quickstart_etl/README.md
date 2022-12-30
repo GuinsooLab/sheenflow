@@ -55,7 +55,7 @@ Check out [Dagster Cloud](https://dagster.io/cloud) to get started.
 Bootstrap your own Dagster project with this example:
 
 ```bash
-dagster project from-example --name my-dagster-project --example quickstart_etl
+sheenflow project from-example --name my-sheenflow-project --example quickstart_etl
 ```
 
 First, install your Dagster code as a Python package. By using the `--editable` flag, pip will install in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply. Check out [Dagster Installation](https://docs.dagster.io/getting-started/install) for more information.
@@ -67,7 +67,7 @@ pip install -e ".[dev]"
 Then, start the Dagit web server:
 
 ```bash
-dagit
+sheenlet
 ```
 
 Open http://localhost:3000 with your browser to see the project.
@@ -192,7 +192,7 @@ The `$DAGSTER_HOME` environment variable must be set to a directory for the daem
 
 In this case, go to the project root directory and run:
 ```bash
-dagster-daemon run
+sheenflow-daemon run
 ```
 
 Once your Dagster daemon is running, the schedules that are turned on will start running.

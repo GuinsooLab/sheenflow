@@ -1,4 +1,4 @@
-import {Colors, Icon, FontFamily} from '@dagster-io/ui';
+import {Colors, Icon, FontFamily} from '@sheenflow-io/ui';
 import React from 'react';
 import styled from 'styled-components/macro';
 

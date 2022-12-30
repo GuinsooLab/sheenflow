@@ -45,8 +45,8 @@ def build_dagster_steps() -> List[BuildkiteStep]:
     steps += build_graphql_python_client_backcompat_steps()
     steps += build_integration_steps()
 
-    # Build images containing the dagster-test sample project. This is a dependency of certain
-    # dagster core and extension lib tests. Run this after we build our library package steps
+    # Build images containing the sheenflow-test sample project. This is a dependency of certain
+    # sheenflow core and extension lib tests. Run this after we build our library package steps
     # because need to know whether it's a dependency of any of them.
     steps += build_test_project_steps()
 
@@ -56,7 +56,7 @@ def build_dagster_steps() -> List[BuildkiteStep]:
 def build_repo_wide_black_steps() -> List[CommandStep]:
     return [
         CommandStepBuilder(":python-black: black")
-        .run("pip install -e python_modules/dagster[black]", "make check_black")
+        .run("pip install -e python_modules/sheenflow[black]", "make check_black")
         .with_skip(skip_if_no_python_changes())
         .on_test_image(AvailablePythonVersion.get_default())
         .build(),
@@ -66,7 +66,7 @@ def build_repo_wide_black_steps() -> List[CommandStep]:
 def build_repo_wide_isort_steps() -> List[CommandStep]:
     return [
         CommandStepBuilder(":isort: isort")
-        .run("pip install -e python_modules/dagster[isort]", "make check_isort")
+        .run("pip install -e python_modules/sheenflow[isort]", "make check_isort")
         .on_test_image(AvailablePythonVersion.get_default())
         .with_skip(skip_if_no_python_changes())
         .build(),
@@ -75,9 +75,9 @@ def build_repo_wide_isort_steps() -> List[CommandStep]:
 
 def build_repo_wide_check_manifest_steps() -> List[CommandStep]:
     published_packages = [
-        "python_modules/dagit",
-        "python_modules/dagster",
-        "python_modules/dagster-graphql",
+        "python_modules/sheenlet",
+        "python_modules/sheenflow",
+        "python_modules/sheenflow-graphql",
         *(
             os.path.relpath(p, GIT_REPO_ROOT)
             for p in glob(f"{GIT_REPO_ROOT}/python_modules/libraries/*")
@@ -102,8 +102,8 @@ def build_sql_schema_check_steps() -> List[CommandStep]:
     return [
         CommandStepBuilder(":mysql: mysql-schema")
         .on_test_image(AvailablePythonVersion.get_default())
-        .run("pip install -e python_modules/dagster", "python scripts/check_schemas.py")
-        .with_skip(skip_mysql_if_no_changes_to_dependencies(["dagster"]))
+        .run("pip install -e python_modules/sheenflow", "python scripts/check_schemas.py")
+        .with_skip(skip_mysql_if_no_changes_to_dependencies(["sheenflow"]))
         .build()
     ]
 
@@ -113,11 +113,11 @@ def build_graphql_python_client_backcompat_steps() -> List[CommandStep]:
         CommandStepBuilder(":graphql: GraphQL Python Client backcompat")
         .on_test_image(AvailablePythonVersion.get_default())
         .run(
-            "pip install -e python_modules/dagster[test] -e python_modules/dagster-graphql -e python_modules/automation",
-            "dagster-graphql-client query check",
+            "pip install -e python_modules/sheenflow[test] -e python_modules/sheenflow-graphql -e python_modules/automation",
+            "sheenflow-graphql-client query check",
         )
         .with_skip(
-            skip_graphql_if_no_changes_to_dependencies(["dagster", "dagster-graphql", "automation"])
+            skip_graphql_if_no_changes_to_dependencies(["sheenflow", "sheenflow-graphql", "automation"])
         )
         .build()
     ]

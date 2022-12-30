@@ -1,4 +1,4 @@
-import {Box, Colors, Icon, Spinner, Subheading} from '@dagster-io/ui';
+import {Box, Colors, Icon, Spinner, Subheading} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {LiveDataForNode} from '../asset-graph/Utils';

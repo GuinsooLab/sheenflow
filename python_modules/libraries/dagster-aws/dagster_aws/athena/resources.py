@@ -232,7 +232,7 @@ def athena_resource(context):
 
         .. code-block:: python
 
-                from dagster import build_op_context, op
+                from sheenflow import build_op_context, op
                 from dagster_aws.athena import athena_resource
 
                 @op(required_resource_keys={"athena"})

@@ -4,9 +4,9 @@ setup(
     name="quickstart_gcp",
     packages=find_packages(exclude=["quickstart_gcp_tests"]),
     install_requires=[
-        "dagster",
-        "dagster-gcp",
-        "dagster-cloud",
+        "sheenflow",
+        "sheenflow-gcp",
+        "sheenflow-cloud",
         "boto3",  # used by Dagster Cloud Serverless
         "pandas",
         "matplotlib",
@@ -16,5 +16,5 @@ setup(
         "pandas_gbq",
         "google-auth",
     ],
-    extras_require={"dev": ["dagit", "pytest"]},
+    extras_require={"dev": ["sheenlet", "pytest"]},
 )

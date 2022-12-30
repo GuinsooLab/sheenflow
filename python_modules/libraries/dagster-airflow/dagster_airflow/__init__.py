@@ -15,7 +15,7 @@ from .operators.airflow_operator_to_op import airflow_operator_to_op
 from .operators.dagster_operator import DagsterCloudOperator, DagsterOperator
 from .version import __version__
 
-check_dagster_package_version("dagster-airflow", __version__)
+check_dagster_package_version("sheenflow-airflow", __version__)
 
 __all__ = [
     "make_airflow_dag",
@@ -43,13 +43,13 @@ class DagsterAirflowPlugin(AirflowPlugin):
 
 def get_provider_info():
     return {
-        "package-name": "dagster-airflow",
+        "package-name": "sheenflow-airflow",
         "name": "Dagster Airflow",
         "description": "`Dagster <https://docs.dagster.io>`__",
         "hook-class-names": ["dagster_airflow.hooks.dagster_hook.DagsterHook"],
         "connection-types": [
             {
-                "connection-type": "dagster",
+                "connection-type": "sheenflow",
                 "hook-class-name": "dagster_airflow.hooks.dagster_hook.DagsterHook",
             }
         ],

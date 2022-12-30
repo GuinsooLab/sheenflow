@@ -4,9 +4,9 @@ setup(
     name="with_pyspark_emr",
     packages=find_packages(exclude=["with_pyspark_emr_tests"]),
     install_requires=[
-        "dagster",
-        "dagster-aws",
-        "dagster-pyspark",
+        "sheenflow",
+        "sheenflow-aws",
+        "sheenflow-pyspark",
     ],
-    extras_require={"dev": ["dagit", "pytest"]},
+    extras_require={"dev": ["sheenlet", "pytest"]},
 )

@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {Alert, Box, ButtonLink, Colors} from '@dagster-io/ui';
+import {Alert, Box, ButtonLink, Colors} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {showCustomAlert} from '../app/CustomAlertProvider';

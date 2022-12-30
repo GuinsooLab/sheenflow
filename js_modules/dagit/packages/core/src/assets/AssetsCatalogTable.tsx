@@ -1,5 +1,5 @@
 import {QueryResult, useQuery} from '@apollo/client';
-import {Box, TextInput, Suggest, MenuItem, Icon, ButtonGroup} from '@dagster-io/ui';
+import {Box, TextInput, Suggest, MenuItem, Icon, ButtonGroup} from '@sheenflow-io/ui';
 import isEqual from 'lodash/isEqual';
 import uniqBy from 'lodash/uniqBy';
 import * as React from 'react';

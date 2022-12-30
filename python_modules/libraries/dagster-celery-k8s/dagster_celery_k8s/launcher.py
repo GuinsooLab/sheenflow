@@ -28,20 +28,20 @@ from .config import CELERY_K8S_CONFIG_KEY, celery_k8s_executor_config
 
 
 class CeleryK8sRunLauncher(RunLauncher, ConfigurableClass):
-    """In contrast to the :py:class:`K8sRunLauncher`, which launches dagster runs as single K8s
+    """In contrast to the :py:class:`K8sRunLauncher`, which launches sheenflow runs as single K8s
     Jobs, this run launcher is intended for use in concert with
     :py:func:`dagster_celery_k8s.celery_k8s_job_executor`.
 
     With this run launcher, execution is delegated to:
 
-        1. A run worker Kubernetes Job, which traverses the dagster run execution plan and
+        1. A run worker Kubernetes Job, which traverses the sheenflow run execution plan and
            submits steps to Celery queues for execution;
         2. The step executions which are submitted to Celery queues are picked up by Celery workers,
            and each step execution spawns a step execution Kubernetes Job. See the implementation
            defined in :py:func:`dagster_celery_k8.executor.create_k8s_job_task`.
 
     You can configure a Dagster instance to use this RunLauncher by adding a section to your
-    ``dagster.yaml`` like the following:
+    ``sheenflow.yaml`` like the following:
 
     .. code-block:: yaml
 
@@ -49,9 +49,9 @@ class CeleryK8sRunLauncher(RunLauncher, ConfigurableClass):
           module: dagster_k8s.launcher
           class: CeleryK8sRunLauncher
           config:
-            instance_config_map: "dagster-k8s-instance-config-map"
+            instance_config_map: "sheenflow-k8s-instance-config-map"
             dagster_home: "/some/path"
-            postgres_password_secret: "dagster-k8s-pg-password"
+            postgres_password_secret: "sheenflow-k8s-pg-password"
             broker: "some_celery_broker_url"
             backend: "some_celery_backend_url"
 
@@ -212,8 +212,8 @@ class CeleryK8sRunLauncher(RunLauncher, ConfigurableClass):
             component="run_worker",
             user_defined_k8s_config=user_defined_k8s_config,
             labels={
-                "dagster/job": pipeline_origin.pipeline_name,
-                "dagster/run-id": run.run_id,
+                "sheenflow/job": pipeline_origin.pipeline_name,
+                "sheenflow/run-id": run.run_id,
             },
             env_vars=[{"name": "DAGSTER_RUN_JOB_NAME", "value": pipeline_origin.pipeline_name}],
         )
@@ -286,7 +286,7 @@ class CeleryK8sRunLauncher(RunLauncher, ConfigurableClass):
         can_terminate = self.can_terminate(run_id)
         if not can_terminate:
             self._instance.report_engine_event(
-                message="Unable to terminate dagster job: can_terminate returned {}.".format(
+                message="Unable to terminate sheenflow job: can_terminate returned {}.".format(
                     can_terminate
                 ),
                 pipeline_run=run,

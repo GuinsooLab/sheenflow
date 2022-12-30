@@ -1,4 +1,4 @@
-import {Box, PageHeader, Tabs, Tag, Heading} from '@dagster-io/ui';
+import {Box, PageHeader, Tabs, Tag, Heading} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Redirect, Route, Switch, useParams} from 'react-router-dom';
 import styled from 'styled-components/macro';

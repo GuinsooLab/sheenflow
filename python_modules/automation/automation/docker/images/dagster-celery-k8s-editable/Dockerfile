@@ -6,10 +6,10 @@ ARG DAGSTER_VERSION
 COPY build_cache/ /
 
 RUN pip install \
-    -e dagster \
-    -e dagster-graphql \
-    -e dagster-postgres \
-    -e dagster-k8s \
-    -e dagster-celery[flower,redis,kubernetes] \
-    -e dagster-celery-k8s \
-    -e dagit
+    -e sheenflow \
+    -e sheenflow-graphql \
+    -e sheenflow-postgres \
+    -e sheenflow-k8s \
+    -e sheenflow-celery[flower,redis,kubernetes] \
+    -e sheenflow-celery-k8s \
+    -e sheenlet

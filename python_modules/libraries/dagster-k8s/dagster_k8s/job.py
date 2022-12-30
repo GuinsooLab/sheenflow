@@ -20,14 +20,14 @@ from dagster._utils import frozentags, merge_dicts
 from .models import k8s_model_from_dict, k8s_snake_case_dict
 from .utils import sanitize_k8s_label
 
-# To retry step worker, users should raise RetryRequested() so that the dagster system is aware of the
-# retry. As an example, see retry_pipeline in dagster_test.test_project.test_pipelines.repo
+# To retry step worker, users should raise RetryRequested() so that the sheenflow system is aware of the
+# retry. As an example, see retry_pipeline in sheenflow_test.test_project.test_pipelines.repo
 # To override this config, user can specify UserDefinedDagsterK8sConfig.
 DEFAULT_K8S_JOB_BACKOFF_LIMIT = 0
 
 DEFAULT_K8S_JOB_TTL_SECONDS_AFTER_FINISHED = 24 * 60 * 60  # 1 day
 
-DAGSTER_HOME_DEFAULT = "/opt/dagster/dagster_home"
+DAGSTER_HOME_DEFAULT = "/opt/sheenflow/dagster_home"
 
 # The Kubernetes Secret containing the PG password will be exposed as this env var in the job
 # container.
@@ -36,17 +36,17 @@ DAGSTER_PG_PASSWORD_ENV_VAR = "DAGSTER_PG_PASSWORD"
 # We expect the PG secret to have this key.
 #
 # For an example, see:
-# helm/dagster/templates/secret-postgres.yaml
+# helm/sheenflow/templates/secret-postgres.yaml
 DAGSTER_PG_PASSWORD_SECRET_KEY = "postgresql-password"
 
 # Kubernetes Job object names cannot be longer than 63 characters
 MAX_K8S_NAME_LEN = 63
 
 # TODO: Deprecate this tag
-K8S_RESOURCE_REQUIREMENTS_KEY = "dagster-k8s/resource_requirements"
+K8S_RESOURCE_REQUIREMENTS_KEY = "sheenflow-k8s/resource_requirements"
 K8S_RESOURCE_REQUIREMENTS_SCHEMA = Shape({"limits": Permissive(), "requests": Permissive()})
 
-USER_DEFINED_K8S_CONFIG_KEY = "dagster-k8s/config"
+USER_DEFINED_K8S_CONFIG_KEY = "sheenflow-k8s/config"
 USER_DEFINED_K8S_CONFIG_SCHEMA = Shape(
     {
         "container_config": Permissive(),
@@ -199,7 +199,7 @@ def get_user_defined_k8s_config(tags):
 
 
 def get_job_name_from_run_id(run_id, resume_attempt_number=None):
-    return "dagster-run-{}".format(run_id) + (
+    return "sheenflow-run-{}".format(run_id) + (
         "" if not resume_attempt_number else "-{}".format(resume_attempt_number)
     )
 
@@ -217,7 +217,7 @@ class DagsterK8sJobConfig(
 
     Params:
         dagster_home (str): The location of DAGSTER_HOME in the Job container; this is where the
-            ``dagster.yaml`` file will be mounted from the instance ConfigMap specified here.
+            ``sheenflow.yaml`` file will be mounted from the instance ConfigMap specified here.
         image_pull_policy (Optional[str]): Allows the image pull policy to be overridden, e.g. to
             facilitate local testing with `kind <https://kind.sigs.k8s.io/>`_. Default:
             ``"Always"``. See:
@@ -233,7 +233,7 @@ class DagsterK8sJobConfig(
             to run the Job. Defaults to "default"
         instance_config_map (str): The ``name`` of an existing Volume to mount into the pod in
             order to provide a ConfigMap for the Dagster instance. This Volume should contain a
-            ``dagster.yaml`` with appropriate values for run storage, event log storage, etc.
+            ``sheenflow.yaml`` with appropriate values for run storage, event log storage, etc.
         postgres_password_secret (Optional[str]): The name of the Kubernetes Secret where the postgres
             password can be retrieved. Will be mounted and supplied as an environment variable to
             the Job Pod.
@@ -323,7 +323,7 @@ class DagsterK8sJobConfig(
                     is_required=True,
                     description="The ``name`` of an existing Volume to mount into the pod in order to "
                     "provide a ConfigMap for the Dagster instance. This Volume should contain a "
-                    "``dagster.yaml`` with appropriate values for run storage, event log storage, etc.",
+                    "``sheenflow.yaml`` with appropriate values for run storage, event log storage, etc.",
                 ),
                 "postgres_password_secret": Field(
                     StringSource,
@@ -338,8 +338,8 @@ class DagsterK8sJobConfig(
                     is_required=False,
                     default_value=DAGSTER_HOME_DEFAULT,
                     description="The location of DAGSTER_HOME in the Job container; this is where the "
-                    "``dagster.yaml`` file will be mounted from the instance ConfigMap specified here. "
-                    "Defaults to /opt/dagster/dagster_home.",
+                    "``sheenflow.yaml`` file will be mounted from the instance ConfigMap specified here. "
+                    "Defaults to /opt/sheenflow/dagster_home.",
                 ),
                 "load_incluster_config": Field(
                     bool,
@@ -384,7 +384,7 @@ class DagsterK8sJobConfig(
                     is_required=False,
                     description="Docker image to use for launched Jobs. If this field is empty, "
                     "the image that was used to originally load the Dagster repository will be used. "
-                    '(Ex: "mycompany.com/dagster-k8s-image:latest").',
+                    '(Ex: "mycompany.com/sheenflow-k8s-image:latest").',
                 ),
             },
             DagsterK8sJobConfig.config_type_container(),
@@ -619,10 +619,10 @@ def construct_dagster_k8s_job(
 
     # See: https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/
     k8s_common_labels = {
-        "app.kubernetes.io/name": "dagster",
-        "app.kubernetes.io/instance": "dagster",
+        "app.kubernetes.io/name": "sheenflow",
+        "app.kubernetes.io/instance": "sheenflow",
         "app.kubernetes.io/version": sanitize_k8s_label(dagster_version),
-        "app.kubernetes.io/part-of": "dagster",
+        "app.kubernetes.io/part-of": "sheenflow",
     }
 
     if component:
@@ -675,7 +675,7 @@ def construct_dagster_k8s_job(
     container_config = merge_dicts(
         container_config,
         {
-            "name": "dagster",
+            "name": "sheenflow",
             "image": job_image,
             "image_pull_policy": job_config.image_pull_policy,
             "env": [*env, *job_config.env, *user_defined_env_vars],
@@ -693,7 +693,7 @@ def construct_dagster_k8s_job(
     volumes = job_config.volumes + user_defined_volumes
 
     # If the user has defined custom labels, remove them from the pod_template_spec_metadata
-    # key and merge them with the dagster labels
+    # key and merge them with the sheenflow labels
     pod_template_spec_metadata = copy.deepcopy(user_defined_k8s_config.pod_template_spec_metadata)
     user_defined_pod_template_labels = pod_template_spec_metadata.pop("labels", {})
 

@@ -52,9 +52,9 @@ def make_dagster_job_from_airflow_dag(
             (default: False)
         unique_id (int): If not None, this id will be postpended to generated op names. Used by
             framework authors to enforce unique op names within a repo.
-        mock_xcom (bool): If True, dagster will mock out all calls made to xcom, features that
+        mock_xcom (bool): If True, sheenflow will mock out all calls made to xcom, features that
             depend on xcom may not work as expected. (default: False)
-        use_ephemeral_airflow_db (bool): If True, dagster will create an ephemeral sqlite airflow
+        use_ephemeral_airflow_db (bool): If True, sheenflow will create an ephemeral sqlite airflow
             database for each run. (default: False)
         connections (List[Connection]): List of Airflow Connections to be created in the Ephemeral
             Airflow DB, if use_emphemeral_airflow_db is False this will be ignored.

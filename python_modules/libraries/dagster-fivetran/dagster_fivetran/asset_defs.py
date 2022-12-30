@@ -128,7 +128,7 @@ def build_fivetran_assets(
 
     .. code-block:: python
 
-        from dagster import AssetKey, repository, with_resources
+        from sheenflow import AssetKey, repository, with_resources
 
         from dagster_fivetran import fivetran_resource
         from dagster_fivetran.assets import build_fivetran_assets

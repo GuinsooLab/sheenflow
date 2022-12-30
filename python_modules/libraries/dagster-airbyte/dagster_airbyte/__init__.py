@@ -26,7 +26,7 @@ from .resources import AirbyteResource, AirbyteState, airbyte_resource
 from .types import AirbyteOutput
 from .version import __version__
 
-check_dagster_package_version("dagster-airbyte", __version__)
+check_dagster_package_version("sheenflow-airbyte", __version__)
 
 __all__ = [
     "AirbyteResource",

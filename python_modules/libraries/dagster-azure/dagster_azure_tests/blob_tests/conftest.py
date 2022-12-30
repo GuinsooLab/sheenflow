@@ -9,7 +9,7 @@ def storage_account():
 
 @pytest.fixture(scope="session")
 def container():
-    yield "dagster-databricks-tests"
+    yield "sheenflow-databricks-tests"
 
 
 @pytest.fixture(scope="session")

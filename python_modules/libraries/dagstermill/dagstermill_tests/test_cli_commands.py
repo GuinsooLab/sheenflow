@@ -22,7 +22,7 @@ def check_notebook_expected_output(notebook_path):
         assert set(notebook_content.keys()) == {"cells", "metadata", "nbformat", "nbformat_minor"}
         assert notebook_content["metadata"] == {
             "celltoolbar": "Tags",
-            "kernelspec": {"display_name": "dagster", "language": "python", "name": "dagster"},
+            "kernelspec": {"display_name": "sheenflow", "language": "python", "name": "sheenflow"},
         }
         assert len(notebook_content["cells"]) == 2
         for key in ["cell_type", "execution_count", "metadata", "outputs", "source"]:
@@ -64,7 +64,7 @@ def test_scaffold():
             check_notebook_expected_output(notebook_path + ".ipynb")
 
         with scaffold(
-            notebook_name="notebooks/cli_test_scaffold", kernel="dagster"
+            notebook_name="notebooks/cli_test_scaffold", kernel="sheenflow"
         ) as notebook_path:
             check_notebook_expected_output(notebook_path + ".ipynb")
 

@@ -1,4 +1,4 @@
-import {Colors, Icon} from '@dagster-io/ui';
+import {Colors, Icon} from '@sheenflow-io/ui';
 import React from 'react';
 
 export const formatRepositoryUrl = (url: string): string => {

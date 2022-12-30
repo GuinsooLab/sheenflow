@@ -165,7 +165,7 @@ def define_dagstermill_asset(
         notebook_path (str): Path to the backing notebook
         key_prefix (Optional[Union[str, Sequence[str]]]): If provided, the asset's key is the
             concatenation of the key_prefix and the asset's name, which defaults to the name of
-            the decorated function. Each item in key_prefix must be a valid name in dagster (ie only
+            the decorated function. Each item in key_prefix must be a valid name in sheenflow (ie only
             contains letters, numbers, and _) and may not contain python reserved keywords.
         ins (Optional[Mapping[str, AssetIn]]): A dictionary that maps input names to information
             about the input.
@@ -201,7 +201,7 @@ def define_dagstermill_asset(
     .. code-block:: python
 
         from dagstermill import define_dagstermill_asset
-        from dagster import asset, AssetIn, AssetKey
+        from sheenflow import asset, AssetIn, AssetKey
         from sklearn import datasets
         import pandas as pd
         import numpy as np

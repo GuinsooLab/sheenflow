@@ -53,7 +53,7 @@ from .types import DbtCloudOutput
 def dbt_cloud_run_op(context):
     """
     Initiates a run for a dbt Cloud job, then polls until the run completes. If the job
-    fails or is otherwised stopped before succeeding, a `dagster.Failure` exception will be raised,
+    fails or is otherwised stopped before succeeding, a `sheenflow.Failure` exception will be raised,
     and this op will fail.
 
     It requires the use of a 'dbt_cloud' resource, which is used to connect to the dbt Cloud API.
@@ -80,7 +80,7 @@ def dbt_cloud_run_op(context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_dbt import dbt_cloud_resource, dbt_cloud_run_op
 
         my_dbt_cloud_resource = dbt_cloud_resource.configured(

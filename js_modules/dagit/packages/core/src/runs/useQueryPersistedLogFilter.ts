@@ -1,4 +1,4 @@
-import {tokenizedValueFromString} from '@dagster-io/ui';
+import {tokenizedValueFromString} from '@sheenflow-io/ui';
 
 import {useQueryPersistedState} from '../hooks/useQueryPersistedState';
 

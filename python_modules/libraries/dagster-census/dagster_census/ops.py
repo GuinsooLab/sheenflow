@@ -69,7 +69,7 @@ def census_trigger_sync_op(context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_census import census_resource, census_sync_op
 
         my_census_resource = census_resource.configured(

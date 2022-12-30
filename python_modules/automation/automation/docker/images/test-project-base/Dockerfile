@@ -20,18 +20,18 @@ RUN apt-get update -yqq \
         make
 
 RUN git clone https://github.com/dagster-io/dagster.git \
-    && cd dagster \
+    && cd sheenflow \
     && pip install \
-        -e python_modules/dagster \
-        -e python_modules/dagster-graphql \
-        -e python_modules/dagit \
-        -e python_modules/libraries/dagster-celery[flower,redis,kubernetes] \
-        -e python_modules/libraries/dagster-postgres \
-        -e python_modules/libraries/dagster-pandas \
-        -e python_modules/libraries/dagster-aws \
-        -e python_modules/libraries/dagster-gcp \
-        -e python_modules/libraries/dagster-k8s \
-        -e python_modules/libraries/dagster-celery-k8s \
+        -e python_modules/sheenflow \
+        -e python_modules/sheenflow-graphql \
+        -e python_modules/sheenlet \
+        -e python_modules/libraries/sheenflow-celery[flower,redis,kubernetes] \
+        -e python_modules/libraries/sheenflow-postgres \
+        -e python_modules/libraries/sheenflow-pandas \
+        -e python_modules/libraries/sheenflow-aws \
+        -e python_modules/libraries/sheenflow-gcp \
+        -e python_modules/libraries/sheenflow-k8s \
+        -e python_modules/libraries/sheenflow-celery-k8s \
     && pip freeze --exclude-editable > /snapshot-reqs.txt
 
 

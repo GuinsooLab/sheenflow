@@ -8,6 +8,6 @@ from .sensors import (
 )
 from .version import __version__
 
-check_dagster_package_version("dagster-slack", __version__)
+check_dagster_package_version("sheenflow-slack", __version__)
 
 __all__ = ["slack_resource"]

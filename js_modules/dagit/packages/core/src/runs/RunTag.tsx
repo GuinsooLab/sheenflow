@@ -1,4 +1,4 @@
-import {Box, Caption, Colors, Popover, Tag} from '@dagster-io/ui';
+import {Box, Caption, Colors, Popover, Tag} from '@sheenflow-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 
@@ -17,7 +17,7 @@ export enum DagsterTag {
   ScheduleName = 'dagster/schedule_name',
   SensorName = 'dagster/sensor_name',
 
-  // Hidden tags (using ".dagster" HIDDEN_TAG_PREFIX)
+  // Hidden tags (using ".sheenflow" HIDDEN_TAG_PREFIX)
   RepositoryLabelTag = '.dagster/repository',
 }
 

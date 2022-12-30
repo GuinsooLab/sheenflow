@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Button, Icon, FontFamily} from '@dagster-io/ui';
+import {Button, Icon, FontFamily} from '@sheenflow-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

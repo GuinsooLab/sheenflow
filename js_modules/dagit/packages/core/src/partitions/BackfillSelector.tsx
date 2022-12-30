@@ -14,7 +14,7 @@ import {
   Tooltip,
   Mono,
   Button,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import {History} from 'history';
 import * as React from 'react';
 import {useHistory} from 'react-router';

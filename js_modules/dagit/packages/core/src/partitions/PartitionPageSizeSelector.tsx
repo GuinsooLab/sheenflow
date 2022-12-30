@@ -1,4 +1,4 @@
-import {ButtonGroup, ButtonGroupItem} from '@dagster-io/ui';
+import {ButtonGroup, ButtonGroupItem} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 type Size = '7' | '30' | '120' | 'All';

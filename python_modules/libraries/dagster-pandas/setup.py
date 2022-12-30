@@ -23,13 +23,13 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-pandas",
+    name="sheenflow-pandas",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
     description=(
-        "Utilities and examples for working with pandas and dagster, an opinionated "
+        "Utilities and examples for working with pandas and sheenflow, an opinionated "
         "framework for expressing data pipelines"
     ),
     long_description=long_description(),
@@ -45,5 +45,5 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_pandas_tests*"]),
     include_package_data=True,
-    install_requires=[f"dagster{pin}", "pandas"],
+    install_requires=[f"sheenflow{pin}", "pandas"],
 )

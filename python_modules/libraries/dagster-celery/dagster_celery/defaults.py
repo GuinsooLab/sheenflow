@@ -10,7 +10,7 @@ result_backend = backend
 
 task_default_priority = 5
 
-task_default_queue = "dagster"
+task_default_queue = "sheenflow"
 
 worker_prefetch_multiplier = 4
 

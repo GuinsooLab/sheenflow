@@ -1,4 +1,4 @@
-import {Button, Icon, Menu, MenuItem, Popover, Spinner, Tooltip} from '@dagster-io/ui';
+import {Button, Icon, Menu, MenuItem, Popover, Spinner, Tooltip} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

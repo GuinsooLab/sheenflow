@@ -16,7 +16,7 @@ def ingest(x):
 @op
 def ping_dagit():
     client = DagsterGraphQLClient(
-        "dagit",
+        "sheenlet",
         port_number=3000,
     )
     return client._execute("{__typename}")  # pylint: disable=protected-access

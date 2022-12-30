@@ -5,7 +5,7 @@ from .utils import execute as execute_shell_command
 from .utils import execute_script_file as execute_shell_script
 from .version import __version__
 
-check_dagster_package_version("dagster-shell", __version__)
+check_dagster_package_version("sheenflow-shell", __version__)
 
 __all__ = [
     "create_shell_command_op",

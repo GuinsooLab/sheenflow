@@ -66,7 +66,7 @@ def fivetran_sync_op(context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_fivetran import fivetran_resource, fivetran_sync_op
 
         my_fivetran_resource = fivetran_resource.configured(
@@ -167,7 +167,7 @@ def fivetran_resync_op(context):
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_fivetran import fivetran_resource, fivetran_resync_op
 
         my_fivetran_resource = fivetran_resource.configured(

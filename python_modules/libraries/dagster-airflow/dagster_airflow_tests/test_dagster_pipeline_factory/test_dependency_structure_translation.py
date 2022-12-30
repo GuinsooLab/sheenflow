@@ -19,7 +19,7 @@ from dagster._core.snap import PipelineSnapshot
 from dagster._serdes import serialize_pp
 
 default_args = {
-    "owner": "dagster",
+    "owner": "sheenflow",
     "start_date": days_ago(1),
 }
 

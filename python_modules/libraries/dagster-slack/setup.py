@@ -15,7 +15,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-slack",
+    name="sheenflow-slack",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,7 +32,7 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_slack_tests*"]),
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "slack_sdk",
     ],
     zip_safe=False,

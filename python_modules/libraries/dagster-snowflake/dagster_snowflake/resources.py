@@ -14,10 +14,10 @@ try:
 except ImportError:
     msg = (
         "Could not import snowflake.connector. This could mean you have an incompatible version "
-        "of azure-storage-blob installed. dagster-snowflake requires azure-storage-blob<12.0.0; "
-        "this conflicts with dagster-azure which requires azure-storage-blob~=12.0.0 and is "
-        "incompatible with dagster-snowflake. Please uninstall dagster-azure and reinstall "
-        "dagster-snowflake to fix this error."
+        "of azure-storage-blob installed. sheenflow-snowflake requires azure-storage-blob<12.0.0; "
+        "this conflicts with sheenflow-azure which requires azure-storage-blob~=12.0.0 and is "
+        "incompatible with sheenflow-snowflake. Please uninstall sheenflow-azure and reinstall "
+        "sheenflow-snowflake to fix this error."
     )
     warnings.warn(msg)
     raise
@@ -283,7 +283,7 @@ def snowflake_resource(context):
 
     .. code-block:: python
 
-        from dagster import job, op
+        from sheenflow import job, op
         from dagster_snowflake import snowflake_resource
 
         @op(required_resource_keys={'snowflake'})

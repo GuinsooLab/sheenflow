@@ -27,14 +27,14 @@ def adls2_resource(context):
 
     The underlying client is a :py:class:`~azure.storage.filedatalake.DataLakeServiceClient`.
 
-    Attach this resource definition to a :py:class:`~dagster.JobDefinition` in order to make it
+    Attach this resource definition to a :py:class:`~sheenflow.JobDefinition` in order to make it
     available to your ops.
 
     Example:
 
         .. code-block:: python
 
-            from dagster import job, op
+            from sheenflow import job, op
             from dagster_azure.adls2 import adls2_resource
 
             @op(required_resource_keys={'adls2'})
@@ -74,14 +74,14 @@ def adls2_resource(context):
         ADLS2_CLIENT_CONFIG,
         {
             "adls2_file_system": Field(StringSource, description="ADLS Gen2 file system name"),
-            "adls2_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "adls2_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
         },
     )
 )
 def adls2_file_manager(context):
     """FileManager that provides abstract access to ADLS2.
 
-    Implements the :py:class:`~dagster._core.storage.file_manager.FileManager` API.
+    Implements the :py:class:`~sheenflow._core.storage.file_manager.FileManager` API.
     """
     adls2_client = _adls2_resource_from_config(context.resource_config).adls2_client
 

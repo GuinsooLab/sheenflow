@@ -37,18 +37,18 @@ class MySQLRunStorage(SqlRunStorage, ConfigurableClass):
     """MySQL-backed run storage.
 
     Users should not directly instantiate this class; it is instantiated by internal machinery when
-    ``dagit`` and ``dagster-graphql`` load, based on the values in the ``dagster.yaml`` file in
+    ``sheenlet`` and ``sheenflow-graphql`` load, based on the values in the ``sheenflow.yaml`` file in
     ``$DAGSTER_HOME``. Configuration of this class should be done by setting values in that file.
 
 
-    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/dagster-mysql-legacy.yaml
-       :caption: dagster.yaml
+    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/sheenflow-mysql-legacy.yaml
+       :caption: sheenflow.yaml
        :start-after: start_marker_runs
        :end-before: end_marker_runs
        :language: YAML
 
-    Note that the fields in this config are :py:class:`~dagster.StringSource` and
-    :py:class:`~dagster.IntSource` and can be configured from environment variables.
+    Note that the fields in this config are :py:class:`~sheenflow.StringSource` and
+    :py:class:`~sheenflow.IntSource` and can be configured from environment variables.
     """
 
     def __init__(self, mysql_url, inst_data=None):
@@ -86,7 +86,7 @@ class MySQLRunStorage(SqlRunStorage, ConfigurableClass):
                 stamp_alembic_rev(mysql_alembic_config(__file__), conn)
 
     def optimize_for_dagit(self, statement_timeout, pool_recycle):
-        # When running in dagit, hold 1 open connection
+        # When running in sheenlet, hold 1 open connection
         # https://github.com/dagster-io/dagster/issues/3719
         self._engine = create_engine(
             self.mysql_url,

@@ -13,7 +13,7 @@ def instance_fixture():
     with instance_for_test(
         overrides={
             "run_coordinator": {
-                "module": "dagster.core.run_coordinator",
+                "module": "sheenflow.core.run_coordinator",
                 "class": "QueuedRunCoordinator",
                 "config": {"dequeue_interval_seconds": 1},
             },

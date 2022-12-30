@@ -109,7 +109,7 @@ def check_for_release() -> bool:
         return False
 
     version: Dict[str, object] = {}
-    with open("python_modules/dagster/dagster/version.py", encoding="utf8") as fp:
+    with open("python_modules/sheenflow/sheenflow/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     if git_tag == version["__version__"]:

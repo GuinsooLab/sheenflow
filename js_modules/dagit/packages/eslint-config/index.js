@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'plugin:eslint-plugin-dagster-rules/all',
+    'plugin:eslint-plugin-sheenflow-rules/all',
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -47,15 +47,15 @@ module.exports = {
         paths: [
           {
             name: '@blueprintjs/core',
-            message: 'Please use components from @dagster-io/ui instead.',
+            message: 'Please use components from @sheenflow-io/ui instead.',
           },
           {
             name: '@blueprintjs/popover2',
-            message: 'Please use components from @dagster-io/ui instead.',
+            message: 'Please use components from @sheenflow-io/ui instead.',
           },
           {
             name: '@blueprintjs/select',
-            message: 'Please use components from @dagster-io/ui instead.',
+            message: 'Please use components from @sheenflow-io/ui instead.',
           },
           {
             name: 'graphql-tag',

@@ -55,7 +55,7 @@ class EcsRunLauncher(RunLauncher, ConfigurableClass):
         task_definition=None,
         container_name="run",
         secrets=None,
-        secrets_tag="dagster",
+        secrets_tag="sheenflow",
         env_vars=None,
         include_sidecars=False,
         use_current_ecs_task_config: bool = True,
@@ -207,10 +207,10 @@ class EcsRunLauncher(RunLauncher, ConfigurableClass):
             "secrets_tag": Field(
                 Noneable(StringSource),
                 is_required=False,
-                default_value="dagster",
+                default_value="sheenflow",
                 description=(
                     "AWS Secrets Manager secrets with this tag will be mounted as "
-                    "environment variables in the container. Defaults to 'dagster'."
+                    "environment variables in the container. Defaults to 'sheenflow'."
                 ),
             ),
             "include_sidecars": Field(
@@ -264,7 +264,7 @@ class EcsRunLauncher(RunLauncher, ConfigurableClass):
         self._instance.add_run_tags(run_id, tags)
 
     def build_ecs_tags_for_run_task(self, run):
-        return [{"key": "dagster/run_id", "value": run.run_id}]
+        return [{"key": "sheenflow/run_id", "value": run.run_id}]
 
     def _get_run_tags(self, run_id):
         run = self._instance.get_run_by_id(run_id)

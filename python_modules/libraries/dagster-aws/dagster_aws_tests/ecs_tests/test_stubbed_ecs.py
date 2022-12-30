@@ -8,27 +8,27 @@ from botocore.exceptions import ClientError, ParamValidationError
 def test_describe_task_definition(ecs):
     with pytest.raises(ClientError):
         # The task definition doesn't exist
-        ecs.describe_task_definition(taskDefinition="dagster")
+        ecs.describe_task_definition(taskDefinition="sheenflow")
 
     dagster1 = ecs.register_task_definition(
-        family="dagster",
+        family="sheenflow",
         containerDefinitions=[{"image": "hello_world:latest"}],
         networkMode="bridge",
         memory="512",
         cpu="256",
     )
     dagster2 = ecs.register_task_definition(
-        family="dagster",
+        family="sheenflow",
         containerDefinitions=[{"image": "hello_world:latest"}],
         memory="512",
         cpu="256",
     )
 
     # It gets the latest revision
-    assert ecs.describe_task_definition(taskDefinition="dagster") == dagster2
+    assert ecs.describe_task_definition(taskDefinition="sheenflow") == dagster2
     # It gets the specific revision
-    assert ecs.describe_task_definition(taskDefinition="dagster:1") == dagster1
-    assert ecs.describe_task_definition(taskDefinition="dagster:2") == dagster2
+    assert ecs.describe_task_definition(taskDefinition="sheenflow:1") == dagster1
+    assert ecs.describe_task_definition(taskDefinition="sheenflow:2") == dagster2
 
     # It also works with ARNs
     dagster1_arn = dagster1["taskDefinition"]["taskDefinitionArn"]
@@ -38,12 +38,12 @@ def test_describe_task_definition(ecs):
 
     with pytest.raises(ClientError):
         # The revision doesn't exist
-        ecs.describe_task_definition(taskDefinition="dagster:3")
+        ecs.describe_task_definition(taskDefinition="sheenflow:3")
 
 
 def test_describe_tasks(ecs):
     assert not ecs.describe_tasks(tasks=["invalid"])["tasks"]
-    assert not ecs.describe_tasks(cluster="dagster", tasks=["invalid"])["tasks"]
+    assert not ecs.describe_tasks(cluster="sheenflow", tasks=["invalid"])["tasks"]
 
     ecs.register_task_definition(
         family="bridge", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
@@ -53,7 +53,7 @@ def test_describe_tasks(ecs):
     default_arn = default["tasks"][0]["taskArn"]
     default_id = default_arn.split("/")[-1]
 
-    dagster = ecs.run_task(taskDefinition="bridge", cluster="dagster")
+    dagster = ecs.run_task(taskDefinition="bridge", cluster="sheenflow")
     dagster_arn = dagster["tasks"][0]["taskArn"]
     dagster_id = dagster_arn.split("/")[-1]
 
@@ -61,12 +61,12 @@ def test_describe_tasks(ecs):
     assert ecs.describe_tasks(tasks=[default_arn]) == default
     # It works with task ARNs
     assert not ecs.describe_tasks(tasks=[dagster_arn])["tasks"]
-    assert ecs.describe_tasks(tasks=[dagster_arn], cluster="dagster") == dagster
+    assert ecs.describe_tasks(tasks=[dagster_arn], cluster="sheenflow") == dagster
 
     # And task IDs
     assert ecs.describe_tasks(tasks=[default_id]) == default
     assert not ecs.describe_tasks(tasks=[dagster_id])["tasks"]
-    assert ecs.describe_tasks(tasks=[dagster_id], cluster="dagster") == dagster
+    assert ecs.describe_tasks(tasks=[dagster_id], cluster="sheenflow") == dagster
 
 
 def test_list_account_settings(ecs):
@@ -90,9 +90,9 @@ def test_list_tags_for_resource(ecs):
 
     tags = [{"key": "foo", "value": "bar"}, {"key": "fizz", "value": "buzz"}]
     ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
     )
-    arn = ecs.run_task(taskDefinition="dagster")["tasks"][0]["taskArn"]
+    arn = ecs.run_task(taskDefinition="sheenflow")["tasks"][0]["taskArn"]
 
     assert not ecs.list_tags_for_resource(resourceArn=arn)["tags"]
 
@@ -115,12 +115,12 @@ def test_list_task_definitions(ecs):
 
     dagster1 = arn(
         ecs.register_task_definition(
-            family="dagster", containerDefinitions=[], memory="512", cpu="256"
+            family="sheenflow", containerDefinitions=[], memory="512", cpu="256"
         )
     )
     dagster2 = arn(
         ecs.register_task_definition(
-            family="dagster", containerDefinitions=[], memory="512", cpu="256"
+            family="sheenflow", containerDefinitions=[], memory="512", cpu="256"
         )
     )
     other1 = arn(
@@ -139,7 +139,7 @@ def test_list_tasks(ecs):
     assert not ecs.list_tasks()["taskArns"]
 
     ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
     )
     ecs.register_task_definition(
         family="other", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
@@ -148,8 +148,8 @@ def test_list_tasks(ecs):
     def arn(response):
         return response["tasks"][0]["taskArn"]
 
-    default_cluster_dagster_family = arn(ecs.run_task(taskDefinition="dagster"))
-    other_cluster_dagster_family = arn(ecs.run_task(taskDefinition="dagster", cluster="other"))
+    default_cluster_dagster_family = arn(ecs.run_task(taskDefinition="sheenflow"))
+    other_cluster_dagster_family = arn(ecs.run_task(taskDefinition="sheenflow", cluster="other"))
     default_cluster_other_family = arn(ecs.run_task(taskDefinition="other"))
     other_cluster_other_family = arn(ecs.run_task(taskDefinition="other", cluster="other"))
 
@@ -159,7 +159,7 @@ def test_list_tasks(ecs):
     assert default_cluster_dagster_family in response["taskArns"]
     assert default_cluster_other_family in response["taskArns"]
 
-    response = ecs.list_tasks(family="dagster")
+    response = ecs.list_tasks(family="sheenflow")
     assert len(response["taskArns"]) == 1
     assert default_cluster_dagster_family in response["taskArns"]
 
@@ -168,7 +168,7 @@ def test_list_tasks(ecs):
     assert other_cluster_dagster_family in response["taskArns"]
     assert other_cluster_other_family in response["taskArns"]
 
-    response = ecs.list_tasks(cluster="other", family="dagster")
+    response = ecs.list_tasks(cluster="other", family="sheenflow")
     assert len(response["taskArns"]) == 1
     assert other_cluster_dagster_family in response["taskArns"]
 
@@ -191,17 +191,17 @@ def test_put_account_setting(ecs):
 def test_register_task_definition(ecs):
     # Without memory
     with pytest.raises(ClientError):
-        ecs.register_task_definition(family="dagster", containerDefinitions=[])
+        ecs.register_task_definition(family="sheenflow", containerDefinitions=[])
 
     # Without cpu
     with pytest.raises(ClientError):
-        ecs.register_task_definition(family="dagster", containerDefinitions=[], memory="512")
+        ecs.register_task_definition(family="sheenflow", containerDefinitions=[], memory="512")
 
     # With an invalid memory/cpu combination
     # https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-cpu-memory-error.html
     with pytest.raises(ClientError):
         ecs.register_task_definition(
-            family="dagster", containerDefinitions=[], memory="512", cpu="1"
+            family="sheenflow", containerDefinitions=[], memory="512", cpu="1"
         )
 
     # With invalid names
@@ -218,11 +218,11 @@ def test_register_task_definition(ecs):
         )
 
     response = ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], memory="512", cpu="256"
     )
-    assert response["taskDefinition"]["family"] == "dagster"
+    assert response["taskDefinition"]["family"] == "sheenflow"
     assert response["taskDefinition"]["revision"] == 1
-    assert response["taskDefinition"]["taskDefinitionArn"].endswith("dagster:1")
+    assert response["taskDefinition"]["taskDefinitionArn"].endswith("sheenflow:1")
 
     response = ecs.register_task_definition(
         family="other", containerDefinitions=[], memory="512", cpu="256"
@@ -232,14 +232,14 @@ def test_register_task_definition(ecs):
     assert response["taskDefinition"]["taskDefinitionArn"].endswith("other:1")
 
     response = ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], memory="512", cpu="256"
     )
-    assert response["taskDefinition"]["family"] == "dagster"
+    assert response["taskDefinition"]["family"] == "sheenflow"
     assert response["taskDefinition"]["revision"] == 2
-    assert response["taskDefinition"]["taskDefinitionArn"].endswith("dagster:2")
+    assert response["taskDefinition"]["taskDefinitionArn"].endswith("sheenflow:2")
 
     response = ecs.register_task_definition(
-        family="dagster",
+        family="sheenflow",
         containerDefinitions=[{"image": "hello_world:latest"}],
         memory="512",
         cpu="256",
@@ -247,7 +247,7 @@ def test_register_task_definition(ecs):
     assert response["taskDefinition"]["containerDefinitions"][0]["image"] == "hello_world:latest"
 
     response = ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
     )
     assert response["taskDefinition"]["networkMode"] == "bridge"
 
@@ -296,7 +296,7 @@ def test_run_task(ecs, ec2, subnet):
 
     with pytest.raises(ClientError):
         # The task definition doesn't exist
-        ecs.run_task(taskDefinition="dagster")
+        ecs.run_task(taskDefinition="sheenflow")
 
     ecs.register_task_definition(
         family="awsvpc", containerDefinitions=[], networkMode="awsvpc", memory="512", cpu="256"
@@ -312,10 +312,10 @@ def test_run_task(ecs, ec2, subnet):
 
     # It uses the default cluster
     assert response["tasks"][0]["clusterArn"] == ecs._cluster_arn("default")
-    response = ecs.run_task(taskDefinition="bridge", cluster="dagster")
-    assert response["tasks"][0]["clusterArn"] == ecs._cluster_arn("dagster")
-    response = ecs.run_task(taskDefinition="bridge", cluster=ecs._cluster_arn("dagster"))
-    assert response["tasks"][0]["clusterArn"] == ecs._cluster_arn("dagster")
+    response = ecs.run_task(taskDefinition="bridge", cluster="sheenflow")
+    assert response["tasks"][0]["clusterArn"] == ecs._cluster_arn("sheenflow")
+    response = ecs.run_task(taskDefinition="bridge", cluster=ecs._cluster_arn("sheenflow"))
+    assert response["tasks"][0]["clusterArn"] == ecs._cluster_arn("sheenflow")
 
     # It includes memory and cpu
     assert response["tasks"][0]["cpu"] == "256"
@@ -439,9 +439,9 @@ def test_tag_resource(ecs):
         ecs.tag_resource(resourceArn=invalid_arn, tags=tags)
 
     ecs.register_task_definition(
-        family="dagster", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
+        family="sheenflow", containerDefinitions=[], networkMode="bridge", memory="512", cpu="256"
     )
-    arn = ecs.run_task(taskDefinition="dagster")["tasks"][0]["taskArn"]
+    arn = ecs.run_task(taskDefinition="sheenflow")["tasks"][0]["taskArn"]
 
     ecs.tag_resource(resourceArn=arn, tags=tags)
 

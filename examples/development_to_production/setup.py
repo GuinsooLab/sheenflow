@@ -6,9 +6,9 @@ setup(
     author_email="hello@elementl.com",
     packages=["development_to_production"],  # same as name
     install_requires=[
-        "dagster",
-        "dagster-snowflake",
-        "dagster-snowflake-pandas",
+        "sheenflow",
+        "sheenflow-snowflake",
+        "sheenflow-snowflake-pandas",
         "pandas",
         "requests",
     ],  # external packages as dependencies
@@ -23,5 +23,5 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    extras_require={"dev": ["dagit", "pytest"]},
+    extras_require={"dev": ["sheenlet", "pytest"]},
 )

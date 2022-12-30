@@ -16,7 +16,7 @@ DEFAULT_ARGS = {
 dag, steps = make_airflow_dag_containerized(
     module_name="docs_snippets.integrations.airflow.hello_cereal",
     job_name="hello_cereal_job",
-    image="dagster-airflow-demo-repository",
+    image="sheenflow-airflow-demo-repository",
     dag_kwargs={"default_args": DEFAULT_ARGS, "max_active_runs": 1},
 )
 # end_example

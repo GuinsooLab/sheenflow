@@ -694,7 +694,7 @@ def test_source_key_prefix(
     )
     assert dbt_assets[0].keys_by_input_name == {
         "source_dagster_dbt_python_test_project_dagster_bot_labeled_users": AssetKey(
-            ["source", "dagster", "bot_labeled_users"]
+            ["source", "sheenflow", "bot_labeled_users"]
         ),
         "source_dagster_dbt_python_test_project_raw_data_events": AssetKey(
             ["source", "raw_data", "events"]
@@ -776,7 +776,7 @@ def test_python_interleaving(
 
         return TestIOManager()
 
-    @asset(key_prefix="dagster", ins={"cleaned_users": AssetIn(key_prefix="dbt")})
+    @asset(key_prefix="sheenflow", ins={"cleaned_users": AssetIn(key_prefix="dbt")})
     def bot_labeled_users(cleaned_users):
         # super advanced bot labeling algorithm
         return [(uid, uid % 5 == 0) for _, uid in cleaned_users]
@@ -806,7 +806,7 @@ def test_python_interleaving(
         "dbt.cleaned_users",
         "dbt.daily_aggregated_events",
         "dbt.daily_aggregated_users",
-        "dagster.bot_labeled_users",
+        "sheenflow.bot_labeled_users",
         "dbt.bot_labeled_events",
     ]
     expected_keys = {AssetKey(name.split(".")) for name in expected_asset_names}

@@ -12,7 +12,7 @@ from .utils import current_time_str, execute_docker_push, execute_docker_tag
 CLI_HELP = """This CLI is used for building the various Dagster images we use in test
 """
 
-AWS_ECR_REGISTRY = "public.ecr.aws/dagster"
+AWS_ECR_REGISTRY = "public.ecr.aws/sheenflow"
 
 
 @click.group(help=CLI_HELP)
@@ -29,7 +29,7 @@ def list():  # pylint: disable=redefined-builtin
 # Shared options between `build` and `build_all`
 opt_build_name = click.option("--name", required=True, help="Name of image to build")
 opt_build_dagster_version = click.option(
-    "--dagster-version",
+    "--sheenflow-version",
     required=True,
     help="Version of image to build",
 )
@@ -76,7 +76,7 @@ def build_all(name: str, dagster_version: str, timestamp: str, platform: Optiona
 # Shared push options
 opt_push_name = click.option("--name", required=True, help="Name of image to push")
 opt_push_dagster_version = click.option(
-    "--dagster-version",
+    "--sheenflow-version",
     required=True,
     help="Version of image to push",
 )
@@ -131,10 +131,10 @@ def push_dockerhub(name: str, dagster_version: str, set_latest: bool):
     """
 
     tags = [
-        f"dagster/{name}:{dagster_version}",
+        f"sheenflow/{name}:{dagster_version}",
     ]
     if set_latest:
-        tags.append(f"dagster/{name}:latest")
+        tags.append(f"sheenflow/{name}:latest")
 
     push_to_registry(name, tags)
 
@@ -148,7 +148,7 @@ def push_ecr(name: str, dagster_version: str, set_latest: bool):
 
     You must be authed for ECR. Run:
 
-        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/dagster
+        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/sheenflow
     """
 
     tags = [

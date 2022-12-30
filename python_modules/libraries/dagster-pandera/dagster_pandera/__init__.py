@@ -29,7 +29,7 @@ from .version import __version__
 # Python process, it's not clear at present how to interface the more complex
 # validation computations on distributed dataframes with Dagster Types.
 
-# Therefore, for the time being dagster-pandera only supports pandas dataframes.
+# Therefore, for the time being sheenflow-pandera only supports pandas dataframes.
 # However, some commented-out scaffolding has been left in place for support of
 # alternatives in the future. These sections are marked with "TODO: pending
 # alternative dataframe support".
@@ -37,7 +37,7 @@ from .version import __version__
 if TYPE_CHECKING:
     ValidatableDataFrame = pd.DataFrame
 
-check_dagster_package_version("dagster-pandera", __version__)
+check_dagster_package_version("sheenflow-pandera", __version__)
 
 # ########################
 # ##### VALID DATAFRAME CLASSES

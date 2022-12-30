@@ -87,7 +87,7 @@ class PythonPackages:
         if not dagster_package:
             return dependencies
 
-        # Add the dagster package
+        # Add the sheenflow package
         dependencies.add(dagster_package)
 
         # Walk the tree for any extras we require
@@ -95,7 +95,7 @@ class PythonPackages:
             for req in dagster_package.extras_require.get(extra, set()):
                 dependencies.update(cls.walk_dependencies(req))
 
-        # Walk the tree for anything our dagster package's install requires
+        # Walk the tree for anything our sheenflow package's install requires
         for req in dagster_package.install_requires:
             dependencies.update(cls.walk_dependencies(req))
 

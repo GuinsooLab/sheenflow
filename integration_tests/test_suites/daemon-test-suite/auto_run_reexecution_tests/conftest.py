@@ -14,7 +14,7 @@ def instance():
         "test-postgres-db-docker",
         overrides={
             "run_coordinator": {
-                "module": "dagster.core.test_utils",
+                "module": "sheenflow.core.test_utils",
                 "class": "MockedRunCoordinator",
             },
             "run_retries": {"enabled": True},

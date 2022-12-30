@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Colors} from '@dagster-io/ui';
+import {Colors} from '@sheenflow-io/ui';
 import isEqual from 'lodash/isEqual';
 import * as React from 'react';
 import styled from 'styled-components/macro';

@@ -130,7 +130,7 @@ def terminal_poll_result(rpc_logs):  # pylint: disable=redefined-outer-name
             "tags": {},
             "results": [
                 {
-                    "unique_id": "source.dataland_dbt.dagster.daily_fulfillment_forecast",
+                    "unique_id": "source.dataland_dbt.sheenflow.daily_fulfillment_forecast",
                     "error": None,
                     "status": "SUCCESS 0",
                     "execution_time": 14.527844190597534,
@@ -194,7 +194,7 @@ def rpc_logs():
         },
         {
             "timestamp": "2020-03-10T18:19:06.727723Z",
-            "message": "11:19:06 | 1 of 1 OK snapshotted snapshots_david_wallace.dagster.daily_fulfillment_forecast_snapshot [\u001b[32mSUCCESS 0\u001b[0m in 11.92s]",
+            "message": "11:19:06 | 1 of 1 OK snapshotted snapshots_david_wallace.sheenflow.daily_fulfillment_forecast_snapshot [\u001b[32mSUCCESS 0\u001b[0m in 11.92s]",
             "channel": "dbt",
             "level": 11,
             "levelname": "INFO",

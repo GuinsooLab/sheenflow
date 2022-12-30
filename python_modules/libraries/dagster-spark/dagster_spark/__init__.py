@@ -7,7 +7,7 @@ from .types import SparkOpError
 from .utils import construct_spark_shell_command
 from .version import __version__
 
-check_dagster_package_version("dagster-spark", __version__)
+check_dagster_package_version("sheenflow-spark", __version__)
 
 __all__ = [
     "construct_spark_shell_command",

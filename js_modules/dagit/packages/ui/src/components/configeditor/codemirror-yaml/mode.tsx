@@ -740,7 +740,7 @@ export type YamlModeValidationError = {
   reason: string;
 };
 
-CodeMirror.registerHelper('dagster-docs', 'yaml', (editor: any, pos: CodeMirror.Position) => {
+CodeMirror.registerHelper('sheenflow-docs', 'yaml', (editor: any, pos: CodeMirror.Position) => {
   const token = editor.getTokenAt(pos);
 
   const schema: ConfigSchema = editor.options.hintOptions.schema;

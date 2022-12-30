@@ -75,7 +75,7 @@ class FivetranResource:
         """
         url = urljoin(self.api_base_url, endpoint)
         headers = {
-            "User-Agent": f"dagster-fivetran/{__version__}",
+            "User-Agent": f"sheenflow-fivetran/{__version__}",
             "Content-Type": "application/json;version=2",
         }
 
@@ -431,7 +431,7 @@ def fivetran_resource(context) -> FivetranResource:
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_fivetran import fivetran_resource
 
         my_fivetran_resource = fivetran_resource.configured(

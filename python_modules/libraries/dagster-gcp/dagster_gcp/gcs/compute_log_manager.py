@@ -24,7 +24,7 @@ from dagster._utils import ensure_dir, ensure_file
 class GCSComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
     """Logs op compute function stdout and stderr to GCS.
 
-    Users should not instantiate this class directly. Instead, use a YAML block in ``dagster.yaml``
+    Users should not instantiate this class directly. Instead, use a YAML block in ``sheenflow.yaml``
     such as the following:
 
     .. code-block:: YAML
@@ -33,15 +33,15 @@ class GCSComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
           module: dagster_gcp.gcs.compute_log_manager
           class: GCSComputeLogManager
           config:
-            bucket: "mycorp-dagster-compute-logs"
+            bucket: "mycorp-sheenflow-compute-logs"
             local_dir: "/tmp/cool"
-            prefix: "dagster-test-"
+            prefix: "sheenflow-test-"
             upload_interval: 30
 
     Args:
         bucket (str): The name of the gcs bucket to which to log.
         local_dir (Optional[str]): Path to the local directory in which to stage logs. Default:
-            ``dagster._seven.get_system_temp_directory()``.
+            ``sheenflow._seven.get_system_temp_directory()``.
         prefix (Optional[str]): Prefix for the log file keys.
         json_credentials_envvar (Optional[str]): Env variable that contain the JSON with a private key
             and other credentials information. If this is set GOOGLE_APPLICATION_CREDENTIALS will be ignored.
@@ -56,7 +56,7 @@ class GCSComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
         bucket,
         local_dir=None,
         inst_data=None,
-        prefix="dagster",
+        prefix="sheenflow",
         json_credentials_envvar=None,
         upload_interval=None,
     ):
@@ -95,7 +95,7 @@ class GCSComputeLogManager(CloudStorageComputeLogManager, ConfigurableClass):
         return {
             "bucket": StringSource,
             "local_dir": Field(StringSource, is_required=False),
-            "prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
             "json_credentials_envvar": Field(StringSource, is_required=False),
             "upload_interval": Field(Noneable(int), is_required=False, default_value=None),
         }

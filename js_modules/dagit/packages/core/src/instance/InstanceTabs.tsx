@@ -1,5 +1,5 @@
 import {QueryResult} from '@apollo/client';
-import {Box, Tabs} from '@dagster-io/ui';
+import {Box, Tabs} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {QueryRefreshCountdown, QueryRefreshState} from '../app/QueryRefresh';

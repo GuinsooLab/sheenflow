@@ -13,20 +13,20 @@ from dagster_airflow_tests.marks import requires_airflow_db
     [
         [
             "--module-name",
-            "dagster_test.toys.error_monster",
+            "sheenflow_test.toys.error_monster",
             "--job-name",
             "error_monster_passing_job",
         ],
         [
             "--module-name",
-            "dagster_test.toys.resources",
+            "sheenflow_test.toys.resources",
             "--job-name",
             "resource_job",
         ],
-        ["--module-name", "dagster_test.toys.log_spew", "--job-name", "log_spew_job"],
+        ["--module-name", "sheenflow_test.toys.log_spew", "--job-name", "log_spew_job"],
         [
             "--module-name",
-            "dagster_test.toys.many_events",
+            "sheenflow_test.toys.many_events",
             "--job-name",
             "many_events_job",
         ],

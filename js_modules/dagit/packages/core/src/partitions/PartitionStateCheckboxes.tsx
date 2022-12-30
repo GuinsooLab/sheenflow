@@ -1,4 +1,4 @@
-import {Box, Checkbox} from '@dagster-io/ui';
+import {Box, Checkbox} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {PartitionState, partitionStatusToText} from './PartitionStatus';

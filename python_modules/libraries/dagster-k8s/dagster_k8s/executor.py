@@ -53,7 +53,7 @@ def k8s_job_executor(init_context: InitExecutorContext) -> Executor:
 
     To use the `k8s_job_executor`, set it as the `executor_def` when defining a job:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/dagster-k8s/dagster_k8s_tests/unit_tests/test_example_executor_mode_def.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-k8s/dagster_k8s_tests/unit_tests/test_example_executor_mode_def.py
        :start-after: start_marker
        :end-before: end_marker
        :language: python
@@ -180,9 +180,9 @@ class K8sStepHandler(StepHandler):
         if step_handler_context.execute_step_args.known_state:
             retry_state = step_handler_context.execute_step_args.known_state.get_retry_state()
             if retry_state.get_attempt_count(step_key):
-                return "dagster-step-%s-%d" % (name_key, retry_state.get_attempt_count(step_key))
+                return "sheenflow-step-%s-%d" % (name_key, retry_state.get_attempt_count(step_key))
 
-        return "dagster-step-%s" % (name_key)
+        return "sheenflow-step-%s" % (name_key)
 
     def launch_step(self, step_handler_context: StepHandlerContext) -> Iterator[DagsterEvent]:
         step_keys_to_execute = cast(
@@ -224,9 +224,9 @@ class K8sStepHandler(StepHandler):
             component="step_worker",
             user_defined_k8s_config=user_defined_k8s_config,
             labels={
-                "dagster/job": step_handler_context.pipeline_run.pipeline_name,
-                "dagster/op": step_key,
-                "dagster/run-id": step_handler_context.execute_step_args.pipeline_run_id,
+                "sheenflow/job": step_handler_context.pipeline_run.pipeline_name,
+                "sheenflow/op": step_key,
+                "sheenflow/run-id": step_handler_context.execute_step_args.pipeline_run_id,
             },
             env_vars=[
                 *step_handler_context.execute_step_args.get_command_env(),

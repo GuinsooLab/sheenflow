@@ -8,7 +8,7 @@ import {
   Page,
   Tag,
   tokenToString,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import partition from 'lodash/partition';
 import * as React from 'react';
 import {Link} from 'react-router-dom';

@@ -47,7 +47,7 @@ def test_merge(
     assert secrets_container_context.secrets == [
         {"name": "HELLO", "valueFrom": configured_secret.arn + "/hello"},
     ]
-    assert secrets_container_context.secrets_tags == ["dagster"]
+    assert secrets_container_context.secrets_tags == ["sheenflow"]
     assert secrets_container_context.get_environment_dict() == {
         "FOO_ENV_VAR": "BAR_VALUE",
         "SHARED_KEY": "SHARED_VAL",
@@ -81,7 +81,7 @@ def test_merge(
         {"name": "HELLO", "valueFrom": configured_secret.arn + "/hello"},
     ]
 
-    assert merged.secrets_tags == ["other_secret_tag", "dagster"]
+    assert merged.secrets_tags == ["other_secret_tag", "sheenflow"]
 
     assert merged.container_name == "bar"
 

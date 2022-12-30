@@ -31,7 +31,7 @@ def get_kernelspec(kernel: Optional[str] = None):
         preferred_kernels = list(
             filter(
                 lambda kernel_name: kernel_name in kernelspecs["kernelspecs"],
-                ["dagster", "python3", "python"],
+                ["sheenflow", "python3", "python"],
             )
         ) + list(kernelspecs["kernelspecs"].keys())
         kernel = preferred_kernels[0]
@@ -95,7 +95,7 @@ def execute_retroactive_scaffold(notebook_path: str):
     type=click.STRING,
     help=(
         "Specify an existing Jupyter kernel to use. (Run `jupyter kernelspec list` to view "
-        "available kernels.) By default a kernel called 'dagster' will be used, if available, "
+        "available kernels.) By default a kernel called 'sheenflow' will be used, if available, "
         "then one called 'python3', then 'python', and then the first available kernel."
     ),
 )

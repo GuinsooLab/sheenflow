@@ -330,7 +330,7 @@ def redshift_resource(context):
 
         .. code-block:: python
 
-            from dagster import build_op_context, op
+            from sheenflow import build_op_context, op
             from dagster_aws.redshift import redshift_resource
 
             @op(required_resource_keys={'redshift'})
@@ -340,8 +340,8 @@ def redshift_resource(context):
             redshift_configured = redshift_resource.configured({
                 'host': 'my-redshift-cluster.us-east-1.redshift.amazonaws.com',
                 'port': 5439,
-                'user': 'dagster',
-                'password': 'dagster',
+                'user': 'sheenflow',
+                'password': 'sheenflow',
                 'database': 'dev',
             })
             context = build_op_context(resources={'redshift': redshift_configured})

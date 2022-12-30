@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Colors, ConfigTypeSchema, Icon, IconWrapper, Box} from '@dagster-io/ui';
+import {Colors, ConfigTypeSchema, Icon, IconWrapper, Box} from '@sheenflow-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

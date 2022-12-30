@@ -6,5 +6,5 @@ from .schedule_storage import MySQLScheduleStorage
 from .storage import DagsterMySQLStorage
 from .version import __version__
 
-check_dagster_package_version("dagster-mysql", __version__)
+check_dagster_package_version("sheenflow-mysql", __version__)
 __all__ = ["DagsterMySQLStorage", "MySQLEventLogStorage", "MySQLRunStorage", "MySQLScheduleStorage"]

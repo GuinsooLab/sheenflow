@@ -24,7 +24,7 @@ defs = Definitions(
     #   https://docs.dagster.io/guides/dagster/using-environment-variables-and-secrets
     resources={
         # With this I/O manager in place, your job runs will store data passed between assets
-        # on S3 in the location s3://<bucket>/dagster/storage/<asset key>.
+        # on S3 in the location s3://<bucket>/sheenflow/storage/<asset key>.
         "io_manager": s3_pickle_io_manager.configured({"s3_bucket": {"env": "S3_BUCKET"}}),
         "s3": s3_resource,
     },

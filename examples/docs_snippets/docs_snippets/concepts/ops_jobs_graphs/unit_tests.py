@@ -181,7 +181,7 @@ def test_event_stream():
         DagsterEventType.STEP_SUCCESS,
     ]
 
-    # ops communicate what they did via the event stream, viewable in tools (e.g. dagit)
+    # ops communicate what they did via the event stream, viewable in tools (e.g. sheenlet)
     (
         _start,
         _input_event,

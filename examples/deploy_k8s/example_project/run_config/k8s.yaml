@@ -5,5 +5,5 @@ execution:
 resources:
   io_manager:
     config:
-      s3_bucket: "dagster-test"
-      s3_prefix: "dagster-k8s"
+      s3_bucket: "sheenflow-test"
+      s3_prefix: "sheenflow-k8s"

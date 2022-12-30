@@ -63,7 +63,7 @@ export const Suggest = <T,>(props: React.PropsWithChildren<SuggestProps<T>>) => 
 
   const inputProps: Partial<InputGroupProps2> = {
     ...props.inputProps,
-    className: 'dagit-suggest-input',
+    className: 'sheenlet-suggest-input',
   };
 
   return (

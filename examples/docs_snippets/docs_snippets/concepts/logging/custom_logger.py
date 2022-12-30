@@ -10,7 +10,7 @@ from dagster import Field, logger, job, op
 @logger(
     {
         "log_level": Field(str, is_required=False, default_value="INFO"),
-        "name": Field(str, is_required=False, default_value="dagster"),
+        "name": Field(str, is_required=False, default_value="sheenflow"),
     },
     description="A JSON-formatted console logger",
 )
@@ -51,7 +51,7 @@ def demo_job():
 def test_init_json_console_logger():
     logger_ = json_console_logger(None)
     assert logger_.level == 20
-    assert logger_.name == "dagster"
+    assert logger_.name == "sheenflow"
 
 
 # end_custom_logger_testing

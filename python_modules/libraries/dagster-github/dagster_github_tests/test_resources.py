@@ -116,8 +116,8 @@ def test_github_resource_create_issue():
                 json={},
             )
             context.resources.github.create_issue(
-                repo_name="dagster",
-                repo_owner="dagster-io",
+                repo_name="sheenflow",
+                repo_owner="sheenflow-io",
                 title="test",
                 body="body",
             )
@@ -170,7 +170,7 @@ def test_github_resource_execute():
                         id
                     }
                 }""",
-                variables={"repo_name": "dagster", "repo_owner": "dagster-io"},
+                variables={"repo_name": "sheenflow", "repo_owner": "sheenflow-io"},
             )
 
     result = execute_solid(
@@ -242,6 +242,6 @@ def test_github_resource_token_expiration():
                     id
                 }
             }""",
-            variables={"repo_name": "dagster", "repo_owner": "dagster-io"},
+            variables={"repo_name": "sheenflow", "repo_owner": "sheenflow-io"},
         )
         assert res["data"]["repository"]["id"] == 123

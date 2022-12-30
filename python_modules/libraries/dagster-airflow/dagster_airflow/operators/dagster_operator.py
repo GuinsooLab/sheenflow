@@ -10,17 +10,17 @@ from dagster_airflow.links.dagster_link import LINK_FMT, DagsterLink
 class DagsterOperator(BaseOperator):
     """DagsterOperator
 
-    Uses the dagster graphql api to run and monitor dagster jobs on remote dagster infrastructure
+    Uses the sheenflow graphql api to run and monitor sheenflow jobs on remote sheenflow infrastructure
 
     Parameters:
         repository_name (str): the name of the repository to use
         repostitory_location_name (str): the name of the repostitory location to use
         job_name (str): the name of the job to run
         run_config (Optional[Dict[str, Any]]): the run config to use for the job run
-        dagster_conn_id (Optional[str]): the id of the dagster connection, airflow 2.0+ only
-        organization_id (Optional[str]): the id of the dagster cloud organization
-        deployment_name (Optional[str]): the name of the dagster cloud deployment
-        user_token (Optional[str]): the dagster cloud user token to use
+        dagster_conn_id (Optional[str]): the id of the sheenflow connection, airflow 2.0+ only
+        organization_id (Optional[str]): the id of the sheenflow cloud organization
+        deployment_name (Optional[str]): the name of the sheenflow cloud deployment
+        user_token (Optional[str]): the sheenflow cloud user token to use
     """
 
     template_fields = ["run_config"]
@@ -127,15 +127,15 @@ class DagsterOperator(BaseOperator):
 class DagsterCloudOperator(DagsterOperator):
     """DagsterCloudOperator
 
-    Uses the dagster cloud graphql api to run and monitor dagster jobs on dagster cloud
+    Uses the sheenflow cloud graphql api to run and monitor sheenflow jobs on sheenflow cloud
 
     Parameters:
         repository_name (str): the name of the repository to use
         repostitory_location_name (str): the name of the repostitory location to use
         job_name (str): the name of the job to run
         run_config (Optional[Dict[str, Any]]): the run config to use for the job run
-        dagster_conn_id (Optional[str]): the id of the dagster connection, airflow 2.0+ only
-        organization_id (Optional[str]): the id of the dagster cloud organization
-        deployment_name (Optional[str]): the name of the dagster cloud deployment
-        user_token (Optional[str]): the dagster cloud user token to use
+        dagster_conn_id (Optional[str]): the id of the sheenflow connection, airflow 2.0+ only
+        organization_id (Optional[str]): the id of the sheenflow cloud organization
+        deployment_name (Optional[str]): the name of the sheenflow cloud deployment
+        user_token (Optional[str]): the sheenflow cloud user token to use
     """

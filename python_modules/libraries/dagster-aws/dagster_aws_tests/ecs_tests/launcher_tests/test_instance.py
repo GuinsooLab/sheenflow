@@ -45,7 +45,7 @@ def test_invalid_kwargs_field(instance_cm):
 
 def test_task_definition_config(instance_cm, task_definition):
     with instance_cm(
-        config={"task_definition": "dagster", "container_name": "dagster"}
+        config={"task_definition": "sheenflow", "container_name": "sheenflow"}
     ) as instance:
         assert instance.run_launcher.task_definition == task_definition["taskDefinitionArn"]
 
@@ -54,12 +54,12 @@ def test_task_definition_config(instance_cm, task_definition):
         match="You have attempted to fetch the environment variable FOO which is not set.",
     ):
         with instance_cm(
-            config={"task_definition": {"env": "FOO"}, "container_name": "dagster"}
+            config={"task_definition": {"env": "FOO"}, "container_name": "sheenflow"}
         ) as instance:
             print(instance.run_launcher)  # pylint: disable=print-call
 
-    with environ({"FOO": "dagster"}):
+    with environ({"FOO": "sheenflow"}):
         with instance_cm(
-            config={"task_definition": {"env": "FOO"}, "container_name": "dagster"}
+            config={"task_definition": {"env": "FOO"}, "container_name": "sheenflow"}
         ) as instance:
             assert instance.run_launcher.task_definition == task_definition["taskDefinitionArn"]

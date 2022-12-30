@@ -1,5 +1,5 @@
 import {gql, useQuery} from '@apollo/client';
-import {NonIdealState, Spinner} from '@dagster-io/ui';
+import {NonIdealState, Spinner} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {PYTHON_ERROR_FRAGMENT} from '../app/PythonErrorInfo';

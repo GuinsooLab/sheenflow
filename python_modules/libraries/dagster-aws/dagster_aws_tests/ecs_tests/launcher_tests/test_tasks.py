@@ -6,7 +6,7 @@ def test_create_dagster_task_definition_dict():
         family="my_task",
         image="foo_image:bar",
         container_name="run",
-        command=["dagster", "api", "execute_run"],
+        command=["sheenflow", "api", "execute_run"],
         execution_role_arn="fake-role",
         log_configuration={
             "logDriver": "awslogs",
@@ -50,7 +50,7 @@ def test_create_dagster_task_definition_dict():
                 "name": "run",
                 "image": "foo_image:bar",
                 "environment": [{"name": "FOO_ENV_VAR", "value": "BAR_VALUE"}],
-                "command": ["dagster", "api", "execute_run"],
+                "command": ["sheenflow", "api", "execute_run"],
                 "logConfiguration": {
                     "logDriver": "awslogs",
                     "options": {

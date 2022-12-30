@@ -23,14 +23,14 @@ def gcs_resource(init_context):
         GCS_CLIENT_CONFIG,
         {
             "gcs_bucket": Field(StringSource),
-            "gcs_prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "gcs_prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
         },
     )
 )
 def gcs_file_manager(context):
     """FileManager that provides abstract access to GCS.
 
-    Implements the :py:class:`~dagster._core.storage.file_manager.FileManager` API.
+    Implements the :py:class:`~sheenflow._core.storage.file_manager.FileManager` API.
     """
     gcs_client = _gcs_client_from_config(context.resource_config)
     return GCSFileManager(

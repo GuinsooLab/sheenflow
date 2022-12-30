@@ -39,73 +39,73 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
 
     # Supported on all Python versions.
     install_targets += [
-        "-e python_modules/dagster[black,isort,mypy,test]",
-        "-e python_modules/dagster-graphql",
-        "-e python_modules/dagster-test",
-        "-e python_modules/dagit",
+        "-e python_modules/sheenflow[black,isort,mypy,test]",
+        "-e python_modules/sheenflow-graphql",
+        "-e python_modules/sheenflow-test",
+        "-e python_modules/sheenlet",
         "-e python_modules/automation",
-        "-e python_modules/libraries/dagster-airbyte",
-        "-e python_modules/libraries/dagster-airflow",
-        "-e python_modules/libraries/dagster-aws[test]",
-        "-e python_modules/libraries/dagster-celery",
-        "-e python_modules/libraries/dagster-celery-docker",
-        '-e "python_modules/libraries/dagster-dask[yarn,pbs,kube]"',
-        "-e python_modules/libraries/dagster-databricks",
-        "-e python_modules/libraries/dagster-datadog",
-        "-e python_modules/libraries/dagster-datahub",
-        "-e python_modules/libraries/dagster-docker",
-        "-e python_modules/libraries/dagster-gcp",
-        "-e python_modules/libraries/dagster-fivetran",
-        "-e python_modules/libraries/dagster-k8s",
-        "-e python_modules/libraries/dagster-celery-k8s",
-        "-e python_modules/libraries/dagster-github",
-        "-e python_modules/libraries/dagster-mlflow",
-        "-e python_modules/libraries/dagster-mysql",
-        "-e python_modules/libraries/dagster-pagerduty",
-        "-e python_modules/libraries/dagster-pandas",
-        "-e python_modules/libraries/dagster-papertrail",
-        "-e python_modules/libraries/dagster-postgres",
-        "-e python_modules/libraries/dagster-prometheus",
-        "-e python_modules/libraries/dagster-pyspark",
-        "-e python_modules/libraries/dagster-shell",
-        "-e python_modules/libraries/dagster-slack",
-        "-e python_modules/libraries/dagster-spark",
-        "-e python_modules/libraries/dagster-ssh",
-        "-e python_modules/libraries/dagster-twilio",
+        "-e python_modules/libraries/sheenflow-airbyte",
+        "-e python_modules/libraries/sheenflow-airflow",
+        "-e python_modules/libraries/sheenflow-aws[test]",
+        "-e python_modules/libraries/sheenflow-celery",
+        "-e python_modules/libraries/sheenflow-celery-docker",
+        '-e "python_modules/libraries/sheenflow-dask[yarn,pbs,kube]"',
+        "-e python_modules/libraries/sheenflow-databricks",
+        "-e python_modules/libraries/sheenflow-datadog",
+        "-e python_modules/libraries/sheenflow-datahub",
+        "-e python_modules/libraries/sheenflow-docker",
+        "-e python_modules/libraries/sheenflow-gcp",
+        "-e python_modules/libraries/sheenflow-fivetran",
+        "-e python_modules/libraries/sheenflow-k8s",
+        "-e python_modules/libraries/sheenflow-celery-k8s",
+        "-e python_modules/libraries/sheenflow-github",
+        "-e python_modules/libraries/sheenflow-mlflow",
+        "-e python_modules/libraries/sheenflow-mysql",
+        "-e python_modules/libraries/sheenflow-pagerduty",
+        "-e python_modules/libraries/sheenflow-pandas",
+        "-e python_modules/libraries/sheenflow-papertrail",
+        "-e python_modules/libraries/sheenflow-postgres",
+        "-e python_modules/libraries/sheenflow-prometheus",
+        "-e python_modules/libraries/sheenflow-pyspark",
+        "-e python_modules/libraries/sheenflow-shell",
+        "-e python_modules/libraries/sheenflow-slack",
+        "-e python_modules/libraries/sheenflow-spark",
+        "-e python_modules/libraries/sheenflow-ssh",
+        "-e python_modules/libraries/sheenflow-twilio",
         "-e python_modules/libraries/dagstermill",
-        "-e integration_tests/python_modules/dagster-k8s-test-infra",
-        "-e python_modules/libraries/dagster-azure",
-        "-e python_modules/libraries/dagster-msteams",
-        "-e python_modules/libraries/dagster-duckdb",
-        "-e python_modules/libraries/dagster-duckdb-pandas",
-        "-e python_modules/libraries/dagster-duckdb-pyspark",
-        "-e helm/dagster/schema[test]",
-        "-e .buildkite/dagster-buildkite",
+        "-e integration_tests/python_modules/sheenflow-k8s-test-infra",
+        "-e python_modules/libraries/sheenflow-azure",
+        "-e python_modules/libraries/sheenflow-msteams",
+        "-e python_modules/libraries/sheenflow-duckdb",
+        "-e python_modules/libraries/sheenflow-duckdb-pandas",
+        "-e python_modules/libraries/sheenflow-duckdb-pyspark",
+        "-e helm/sheenflow/schema[test]",
+        "-e .buildkite/sheenflow-buildkite",
     ]
 
     if sys.version_info > (3, 7):
         install_targets += [
-            "-e python_modules/libraries/dagster-dbt",
-            "-e python_modules/libraries/dagster-pandera",
-            "-e python_modules/libraries/dagster-snowflake",
-            "-e python_modules/libraries/dagster-snowflake-pandas",
+            "-e python_modules/libraries/sheenflow-dbt",
+            "-e python_modules/libraries/sheenflow-pandera",
+            "-e python_modules/libraries/sheenflow-snowflake",
+            "-e python_modules/libraries/sheenflow-snowflake-pandas",
         ]
 
     if sys.version_info > (3, 6) and sys.version_info < (3, 10):
         install_targets += [
-            "-e python_modules/libraries/dagster-dbt",
+            "-e python_modules/libraries/sheenflow-dbt",
         ]
 
-    # NOTE: `dagster-ge` is out of date and does not support recent versions of great expectations.
+    # NOTE: `sheenflow-ge` is out of date and does not support recent versions of great expectations.
     # Because of this, it has second-order dependencies on old versions of popular libraries like
     # numpy which conflict with the requirements of our other libraries. For this reason, until
-    # dagster-ge is updated we won't install `dagster-ge` in the common dev environment or
+    # sheenflow-ge is updated we won't install `sheenflow-ge` in the common dev environment or
     # pre-install its dependencies in our BK images (which this script is used for).
     #
-    # dagster-ge depends on a great_expectations version that does not install on Windows
+    # sheenflow-ge depends on a great_expectations version that does not install on Windows
     # https://github.com/dagster-io/dagster/issues/3319
     # if sys.version_info >= (3, 7) and os.name != "nt":
-    #     install_targets += ["-e python_modules/libraries/dagster-ge"]
+    #     install_targets += ["-e python_modules/libraries/sheenflow-ge"]
 
     # NOTE: These need to be installed as one long pip install command, otherwise pip will install
     # conflicting dependencies, which will break pip freeze snapshot creation during the integration

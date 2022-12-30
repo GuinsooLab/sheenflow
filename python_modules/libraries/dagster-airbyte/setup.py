@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-airbyte",
+    name="sheenflow-airbyte",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,13 +32,13 @@ setup(
     ],
     packages=find_packages(exclude=["dagster_airbyte_tests*"]),
     install_requires=[
-        f"dagster{pin}",
+        f"sheenflow{pin}",
         "requests",
     ],
     zip_safe=False,
     entry_points={
         "console_scripts": [
-            "dagster-airbyte = dagster_airbyte.cli:main",
+            "sheenflow-airbyte = dagster_airbyte.cli:main",
         ]
     },
     extras_require={

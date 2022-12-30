@@ -14,17 +14,17 @@ from .steps.tox import build_tox_step
 from .utils import BuildkiteLeafStep, GroupStep, is_feature_branch
 
 _CORE_PACKAGES = [
-    "python_modules/dagster",
-    "python_modules/dagit",
-    "python_modules/dagster-graphql",
-    "js_modules/dagit",
+    "python_modules/sheenflow",
+    "python_modules/sheenlet",
+    "python_modules/sheenflow-graphql",
+    "js_modules/sheenlet",
 ]
 
 _INFRASTRUCTURE_PACKAGES = [
-    ".buildkite/dagster-buildkite",
+    ".buildkite/sheenflow-buildkite",
     "python_modules/automation",
-    "python_modules/dagster-test",
-    "python_modules/docs/dagit-screenshot",
+    "python_modules/sheenflow-test",
+    "python_modules/docs/sheenlet-screenshot",
     "scripts",
 ]
 
@@ -45,7 +45,7 @@ def _infer_package_type(directory: str) -> str:
 # The list of all available emojis is here:
 #   https://github.com/buildkite/emojis#emoji-reference
 _PACKAGE_TYPE_TO_EMOJI_MAP: Mapping[str, str] = {
-    "core": ":dagster:",
+    "core": ":sheenflow:",
     "example": ":large_blue_diamond:",
     "extension": ":electric_plug:",
     "infrastructure": ":gear:",

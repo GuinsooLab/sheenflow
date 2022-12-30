@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {Box, NonIdealState, PageHeader, Popover, Tag, Heading, FontFamily} from '@dagster-io/ui';
+import {Box, NonIdealState, PageHeader, Popover, Tag, Heading, FontFamily} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {useParams} from 'react-router-dom';
 

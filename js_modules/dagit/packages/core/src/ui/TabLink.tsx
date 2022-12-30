@@ -1,4 +1,4 @@
-import {TabStyleProps, getTabA11yProps, getTabContent, tabCSS} from '@dagster-io/ui';
+import {TabStyleProps, getTabA11yProps, getTabContent, tabCSS} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link, LinkProps} from 'react-router-dom';
 import styled from 'styled-components/macro';

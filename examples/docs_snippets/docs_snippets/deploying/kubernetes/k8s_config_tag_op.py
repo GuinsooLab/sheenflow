@@ -7,7 +7,7 @@ from dagster import job, op
 # start_k8s_config
 @op(
     tags={
-        "dagster-k8s/config": {
+        "sheenflow-k8s/config": {
             "container_config": {
                 "resources": {
                     "requests": {"cpu": "200m", "memory": "32Mi"},

@@ -15,7 +15,7 @@ except ImportError:
     pass
 
 
-check_dagster_package_version("dagster-fivetran", __version__)
+check_dagster_package_version("sheenflow-fivetran", __version__)
 
 __all__ = [
     "FivetranResource",

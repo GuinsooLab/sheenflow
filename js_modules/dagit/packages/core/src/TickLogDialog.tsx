@@ -1,5 +1,5 @@
 import {gql, useQuery} from '@apollo/client';
-import {Box, Button, DialogFooter, Dialog, Colors, DialogBody} from '@dagster-io/ui';
+import {Box, Button, DialogFooter, Dialog, Colors, DialogBody} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {HistoryTickFragment, TickLogEventFragment} from './graphql/graphql';

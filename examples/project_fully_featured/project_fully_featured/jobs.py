@@ -18,7 +18,7 @@ core_assets_schedule = build_schedule_from_partitioned_job(
         "core_job",
         selection=AssetSelection.groups(CORE),
         tags={
-            "dagster-k8s/config": {
+            "sheenflow-k8s/config": {
                 "container_config": {
                     "resources": {
                         "requests": {"cpu": "500m", "memory": "2Gi"},

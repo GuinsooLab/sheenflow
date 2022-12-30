@@ -1,5 +1,5 @@
 import {ApolloError, QueryResult} from '@apollo/client';
-import {Box, NonIdealState, Spinner} from '@dagster-io/ui';
+import {Box, NonIdealState, Spinner} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 interface ILoadingProps<TData> {

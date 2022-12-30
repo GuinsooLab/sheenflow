@@ -25,7 +25,7 @@ class AzureBlobComputeLogManager(CloudStorageComputeLogManager, ConfigurableClas
 
     This is also compatible with Azure Data Lake Storage.
 
-    Users should not instantiate this class directly. Instead, use a YAML block in ``dagster.yaml``
+    Users should not instantiate this class directly. Instead, use a YAML block in ``sheenflow.yaml``
     such as the following:
 
     .. code-block:: YAML
@@ -37,7 +37,7 @@ class AzureBlobComputeLogManager(CloudStorageComputeLogManager, ConfigurableClas
             storage_account: my-storage-account
             container: my-container
             credential: sas-token-or-secret-key
-            prefix: "dagster-test-"
+            prefix: "sheenflow-test-"
             local_dir: "/tmp/cool"
             upload_interval: 30
 
@@ -47,7 +47,7 @@ class AzureBlobComputeLogManager(CloudStorageComputeLogManager, ConfigurableClas
         secret_key (str): Secret key for the storage account. SAS tokens are not
             supported because we need a secret key to generate a SAS token for a download URL.
         local_dir (Optional[str]): Path to the local directory in which to stage logs. Default:
-            ``dagster._seven.get_system_temp_directory()``.
+            ``sheenflow._seven.get_system_temp_directory()``.
         prefix (Optional[str]): Prefix for the log file keys.
         upload_interval: (Optional[int]): Interval in seconds to upload partial log files blob storage. By default, will only upload when the capture is complete.
         inst_data (Optional[ConfigurableClassData]): Serializable representation of the compute
@@ -61,7 +61,7 @@ class AzureBlobComputeLogManager(CloudStorageComputeLogManager, ConfigurableClas
         secret_key,
         local_dir=None,
         inst_data=None,
-        prefix="dagster",
+        prefix="sheenflow",
         upload_interval=None,
     ):
         self._storage_account = check.str_param(storage_account, "storage_account")
@@ -101,7 +101,7 @@ class AzureBlobComputeLogManager(CloudStorageComputeLogManager, ConfigurableClas
             "container": StringSource,
             "secret_key": StringSource,
             "local_dir": Field(StringSource, is_required=False),
-            "prefix": Field(StringSource, is_required=False, default_value="dagster"),
+            "prefix": Field(StringSource, is_required=False, default_value="sheenflow"),
             "upload_interval": Field(Noneable(int), is_required=False, default_value=None),
         }
 

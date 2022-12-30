@@ -21,14 +21,14 @@ DATA_INTERVAL_START = pendulum.datetime(2021, 9, 13)  # pylint: disable=pendulum
 DATA_INTERVAL_END = DATA_INTERVAL_START + timedelta(days=1)
 if airflow_version >= "2.0.0":
     MOCK_DAGSTER_CONNECTION = Connection(
-        conn_type="dagster",
+        conn_type="sheenflow",
         host="prod",
         password="test-token",
         description="test-org",
     )
 else:
     MOCK_DAGSTER_CONNECTION = Connection(
-        conn_type="dagster",
+        conn_type="sheenflow",
         host="prod",
         password="test-token",
     )
@@ -75,7 +75,7 @@ class TestDagsterOperator(unittest.TestCase):
         "dagster_airflow.hooks.dagster_hook.DagsterHook.get_connection",
         return_value=MOCK_DAGSTER_CONNECTION,
     )
-    @pytest.mark.skipif(airflow_version < "2.0.0", reason="dagster connection requires airflow 2")
+    @pytest.mark.skipif(airflow_version < "2.0.0", reason="sheenflow connection requires airflow 2")
     def test_operator_with_connection(self, launch_run, wait_for_run, _mock_get_conn):
         dag = DAG(dag_id="anydag", start_date=datetime.now())
         run_config = {"foo": "bar"}

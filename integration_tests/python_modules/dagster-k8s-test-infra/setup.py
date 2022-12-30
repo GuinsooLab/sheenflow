@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup  # type: ignore
 
 setup(
-    name="dagster-k8s-test-infra",
+    name="sheenflow-k8s-test-infra",
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
@@ -16,6 +16,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["test"]),
-    install_requires=["dagster", "docker", "dagster-aws"],
+    install_requires=["sheenflow", "docker", "sheenflow-aws"],
     zip_safe=False,
 )

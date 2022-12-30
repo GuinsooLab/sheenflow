@@ -33,7 +33,7 @@ def cloudwatch_client(region):
 
 @pytest.fixture
 def log_group(cloudwatch_client):
-    name = "/dagster-test/test-cloudwatch-logging"
+    name = "/sheenflow-test/test-cloudwatch-logging"
     cloudwatch_client.create_log_group(logGroupName=name)
     return name
 

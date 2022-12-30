@@ -57,9 +57,9 @@ RUN apt-get update -yqq \
        pkg-config
 
 # Install various packages used in running/installing/testing Dagster:
-# - git/make (cloning dagster, running checks defined in Makefile)
+# - git/make (cloning sheenflow, running checks defined in Makefile)
 # - openjdk-11-{jdk,jre}-headless 8 (Java required by pyspark) see: http://bit.ly/2ZIuHRh
-# - nodejs/yarn (dagit)
+# - nodejs/yarn (sheenlet)
 # - assorted others-- some may no longer be required, but leaving in place for now
 #
 # deb.nodesource script adds node source to apt 
@@ -149,7 +149,7 @@ RUN apt-get remove -yqq \
     && apt-get clean
 
 
-# Temp image used to get non-dagster Python dependencies
+# Temp image used to get non-sheenflow Python dependencies
 FROM system_base AS snapshot_builder
 
 # Build a requirements file with all non-Dagster packages that are dependencies of a Dagster

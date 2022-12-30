@@ -1,4 +1,4 @@
-"""Test fixtures for dagster-airflow.
+"""Test fixtures for sheenflow-airflow.
 
 These make very heavy use of fixture dependency and scope. If you're unfamiliar with pytest
 fixtures, read: https://docs.pytest.org/en/latest/fixture.html.
@@ -97,9 +97,9 @@ def plugins_path(airflow_home):
 
 @pytest.fixture(scope="session")
 def s3_bucket():
-    yield "dagster-scratch-80542c2"
+    yield "sheenflow-scratch-80542c2"
 
 
 @pytest.fixture(scope="session")
 def gcs_bucket():
-    yield "dagster-scratch-ccdfe1e"
+    yield "sheenflow-scratch-ccdfe1e"

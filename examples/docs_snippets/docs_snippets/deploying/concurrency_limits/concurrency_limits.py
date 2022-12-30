@@ -3,7 +3,7 @@ from dagster import job, schedule
 # start_marker_priority
 
 
-@job(tags={"dagster/priority": "3"})
+@job(tags={"sheenflow/priority": "3"})
 def important_job():
     ...
 
@@ -12,7 +12,7 @@ def important_job():
     cron_schedule="* * * * *",
     job_name="important_job",
     execution_timezone="US/Central",
-    tags={"dagster/priority": "-1"},
+    tags={"sheenflow/priority": "-1"},
 )
 def less_important_schedule(_):
     ...

@@ -16,13 +16,13 @@ setup(
     package_data={"project_fully_featured": ["hacker_news_dbt/*"]},
     install_requires=[
         "aiobotocore==1.3.3",
-        "dagster",
-        "dagster-aws",
-        "dagster-dbt",
-        "dagster-pandas",
-        "dagster-pyspark",
-        "dagster-slack",
-        "dagster-postgres",
+        "sheenflow",
+        "sheenflow-aws",
+        "sheenflow-dbt",
+        "sheenflow-pandas",
+        "sheenflow-pyspark",
+        "sheenflow-slack",
+        "sheenflow-postgres",
         "dbt-core",
         "dbt-duckdb",
         "dbt-snowflake",
@@ -41,5 +41,5 @@ setup(
         "sqlalchemy!=1.4.42",  # workaround for https://github.com/snowflakedb/snowflake-sqlalchemy/issues/350
         "snowflake-sqlalchemy",
     ],
-    extras_require={"dev": ["dagit", "pytest"], "tests": ["mypy", "pylint", "pytest"]},
+    extras_require={"dev": ["sheenlet", "pytest"], "tests": ["mypy", "pylint", "pytest"]},
 )

@@ -15,9 +15,9 @@ We recommend using GitPod to create a fresh Python environment for this workshop
 Then in your new GitPod environment, run the following commands:
 
 ```bash
-$ pip install dagster
-$ dagster project from-example --name dagster-noteable-demo --example tutorial_notebook_assets
-$ cd dagster-noteable-demo
+$ pip install sheenflow
+$ sheenflow project from-example --name sheenflow-noteable-demo --example tutorial_notebook_assets
+$ cd sheenflow-noteable-demo
 $ pip install -e “.[dev]”
 ```
 
@@ -55,7 +55,7 @@ iris_kmeans_jupyter_notebook = define_dagstermill_asset(
 Launch Dagit (Dagster's UI)
 
 ```bash
-$ dagit
+$ sheenlet
 ```
 and and navigate to http://localhost:3000/. Feel free to look around at some of the pages available.
 
@@ -131,7 +131,7 @@ $ export NOTEABLE_TOKEN=<your noteable token>
 Then restart Dagit
 
 ```bash
-$ dagit
+$ sheenlet
 ```
 
 ### Create a Dagster asset for the Noteable notebook

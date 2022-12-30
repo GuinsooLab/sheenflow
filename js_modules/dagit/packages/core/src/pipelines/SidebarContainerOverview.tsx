@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Box, MetadataTable} from '@dagster-io/ui';
+import {Box, MetadataTable} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {breakOnUnderscores} from '../app/Util';

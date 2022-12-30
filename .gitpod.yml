@@ -10,7 +10,7 @@ tasks:
     cd /workspace
     unzip -q venv.zip
     source /workspace/venv/bin/activate
-    cd /workspace/dagster
+    cd /workspace/sheenflow
 
 ports:
   - port: 3000

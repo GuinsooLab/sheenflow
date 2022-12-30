@@ -203,7 +203,7 @@ def _warn_on_priority_misuse(context, execution_plan):
 
     if bad_keys:
         context.log.warn(
-            'The following steps do not have "dagster-celery/priority" set but do '
-            'have "dagster/priority" set which is not applicable for the celery engine: [{}]. '
+            'The following steps do not have "sheenflow-celery/priority" set but do '
+            'have "sheenflow/priority" set which is not applicable for the celery engine: [{}]. '
             "Consider using a function to set both keys.".format(", ".join(bad_keys))
         )

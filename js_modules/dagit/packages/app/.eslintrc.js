@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@dagster-io/eslint-config'],
+  extends: ['@sheenflow-io/eslint-config'],
 };

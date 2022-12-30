@@ -1,5 +1,5 @@
 import {useQuery, gql} from '@apollo/client';
-import {Box, Colors, StyledTable, Tag, Tooltip} from '@dagster-io/ui';
+import {Box, Colors, StyledTable, Tag, Tooltip} from '@sheenflow-io/ui';
 import React from 'react';
 import {Link} from 'react-router-dom';
 

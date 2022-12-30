@@ -5,7 +5,7 @@ import {
   SuggestionProvider,
   useSuggestionsForString,
   Icon,
-} from '@dagster-io/ui';
+} from '@sheenflow-io/ui';
 import Fuse from 'fuse.js';
 import * as React from 'react';
 import styled from 'styled-components/macro';

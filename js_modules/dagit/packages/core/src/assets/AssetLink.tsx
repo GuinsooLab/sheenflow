@@ -1,4 +1,4 @@
-import {Box, Colors, Icon, MiddleTruncate} from '@dagster-io/ui';
+import {Box, Colors, Icon, MiddleTruncate} from '@sheenflow-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

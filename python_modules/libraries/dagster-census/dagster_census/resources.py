@@ -63,7 +63,7 @@ class CensusResource:
         """
         url = f"{self.api_base_url}/{endpoint}"
         headers = {
-            "User-Agent": f"dagster-census/{__version__}",
+            "User-Agent": f"sheenflow-census/{__version__}",
             "Content-Type": "application/json;version=2",
         }
 
@@ -278,7 +278,7 @@ def census_resource(context) -> CensusResource:
 
     .. code-block:: python
 
-        from dagster import job
+        from sheenflow import job
         from dagster_census import census_resource
 
         my_census_resource = census_resource.configured(

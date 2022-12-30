@@ -141,7 +141,7 @@ def engine_error():
 
 @solid(
     tags={
-        "dagster-k8s/resource_requirements": {
+        "sheenflow-k8s/resource_requirements": {
             "requests": {"cpu": "250m", "memory": "64Mi"},
             "limits": {"cpu": "500m", "memory": "2560Mi"},
         }
@@ -159,90 +159,90 @@ def test_resources_limit():
 # test_priority pipelines
 
 
-@solid(tags={"dagster-celery/priority": 0})
+@solid(tags={"sheenflow-celery/priority": 0})
 def zero(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "0"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "0"
     context.log.info("Executing with priority 0")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 1})
+@solid(tags={"sheenflow-celery/priority": 1})
 def one(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "1"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "1"
     context.log.info("Executing with priority 1")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 2})
+@solid(tags={"sheenflow-celery/priority": 2})
 def two(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "2"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "2"
     context.log.info("Executing with priority 2")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 3})
+@solid(tags={"sheenflow-celery/priority": 3})
 def three(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "3"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "3"
     context.log.info("Executing with priority 3")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 4})
+@solid(tags={"sheenflow-celery/priority": 4})
 def four(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "4"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "4"
     context.log.info("Executing with priority 4")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 5})
+@solid(tags={"sheenflow-celery/priority": 5})
 def five(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "5"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "5"
     context.log.info("Executing with priority 5")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 6})
+@solid(tags={"sheenflow-celery/priority": 6})
 def six(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "6"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "6"
     context.log.info("Executing with priority 6")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 7})
+@solid(tags={"sheenflow-celery/priority": 7})
 def seven_(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "7"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "7"
     context.log.info("Executing with priority 7")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 8})
+@solid(tags={"sheenflow-celery/priority": 8})
 def eight(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "8"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "8"
     context.log.info("Executing with priority 8")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 9})
+@solid(tags={"sheenflow-celery/priority": 9})
 def nine(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "9"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "9"
     context.log.info("Executing with priority 9")
     return True
 
 
-@solid(tags={"dagster-celery/priority": 10})
+@solid(tags={"sheenflow-celery/priority": 10})
 def ten(context):
-    assert "dagster-celery/priority" in context.solid.tags
-    assert context.solid.tags["dagster-celery/priority"] == "10"
+    assert "sheenflow-celery/priority" in context.solid.tags
+    assert context.solid.tags["sheenflow-celery/priority"] == "10"
     context.log.info("Executing with priority 10")
     return True
 
@@ -311,9 +311,9 @@ def interrupt_pipeline():
 # test_queues pipelines
 
 
-@solid(tags={"dagster-celery/queue": "fooqueue"})
+@solid(tags={"sheenflow-celery/queue": "fooqueue"})
 def fooqueue(context):
-    assert context.solid.tags["dagster-celery/queue"] == "fooqueue"
+    assert context.solid.tags["sheenflow-celery/queue"] == "fooqueue"
     context.log.info("Executing on queue fooqueue")
     return True
 

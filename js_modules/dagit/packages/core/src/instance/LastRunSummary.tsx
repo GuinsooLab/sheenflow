@@ -1,4 +1,4 @@
-import {Box, Popover, Tag} from '@dagster-io/ui';
+import {Box, Popover, Tag} from '@sheenflow-io/ui';
 import * as React from 'react';
 
 import {RunStatusIndicator} from '../runs/RunStatusDots';

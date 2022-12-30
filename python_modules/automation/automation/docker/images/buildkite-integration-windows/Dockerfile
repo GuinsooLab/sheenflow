@@ -27,7 +27,7 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
 RUN choco install -y make
 
 RUN git clone https://github.com/dagster-io/dagster.git; \
-    cd dagster; \
+    cd sheenflow; \
     make install_dev_python_modules
 
 RUN pip freeze --exclude-editable | Out-File -FilePath C:\snapshot-reqs.txt

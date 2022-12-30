@@ -20,7 +20,7 @@ parameters:
       - daemon_sensor_tests
       - scheduler_tests
 jobs:
-  - job: "dagster"
+  - job: "sheenflow"
     pool:
       vmImage: "windows-2019"
     strategy:
@@ -47,5 +47,5 @@ jobs:
       - task: PublishTestResults@2
         inputs:
           testResultsFiles: "**/test_results.xml"
-          testRunTitle: "dagster $(TOXENV)"
+          testRunTitle: "sheenflow $(TOXENV)"
         condition: succeededOrFailed()

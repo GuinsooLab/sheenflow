@@ -28,7 +28,7 @@ def ssm_resource(context):
 
         .. code-block:: python
 
-            from dagster import build_op_context, job, op
+            from sheenflow import build_op_context, job, op
             from dagster_aws.ssm import ssm_resource
 
             @op(required_resource_keys={'ssm'})
@@ -137,7 +137,7 @@ def parameter_store_resource(context):
         .. code-block:: python
 
             import os
-            from dagster import build_op_context, job, op
+            from sheenflow import build_op_context, job, op
             from dagster_aws.ssm import parameter_store_resource
 
             @op(required_resource_keys={'parameter_store'})
@@ -159,7 +159,7 @@ def parameter_store_resource(context):
                         'parameter_store': {
                             'config': {
                                 'region_name': 'us-west-1',
-                                'parameter_tags': 'dagster',
+                                'parameter_tags': 'sheenflow',
                                 'add_to_environment': True,
                                 'with_decryption': True,
                             }
@@ -187,7 +187,7 @@ def parameter_store_resource(context):
               # profile as specified in ~/.aws/credentials file
               parameters: ["parameter1", "/path/based/parameter2"]
               # Optional[List[str]]: Specifies a list of parameter names to pull from parameter store.
-              parameters_tag: "dagster"
+              parameters_tag: "sheenflow"
               # Optional[Sequence[Dict[str, Any]]]: Specifies a list of tag specifications, all parameters which have the tag set
               will be pulled  from Parameter Store. Each tag specification is in the format {"tag": "tag name or prefix", "option": "BeginsWith|Equals"};
               when option == "BeginsWith", all parameters with tags that start with the tag value will be pulled.

@@ -15,21 +15,21 @@ from .utils import mysql_url_from_config
 
 
 class DagsterMySQLStorage(DagsterStorage, ConfigurableClass):
-    """MySQL-backed dagster storage.
+    """MySQL-backed sheenflow storage.
 
     Users should not directly instantiate this class; it is instantiated by internal machinery when
-    ``dagit`` and ``dagster-graphql`` load, based on the values in the ``dagster.yaml`` file in
+    ``sheenlet`` and ``sheenflow-graphql`` load, based on the values in the ``sheenflow.yaml`` file in
     ``$DAGSTER_HOME``. Configuration of this class should be done by setting values in that file.
 
     To use MySQL for storage, you can add a block such as the following to your
-    ``dagster.yaml``:
+    ``sheenflow.yaml``:
 
-    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/dagster-mysql.yaml
-       :caption: dagster.yaml
+    .. literalinclude:: ../../../../../../examples/docs_snippets/docs_snippets/deploying/sheenflow-mysql.yaml
+       :caption: sheenflow.yaml
        :language: YAML
 
-    Note that the fields in this config are :py:class:`~dagster.StringSource` and
-    :py:class:`~dagster.IntSource` and can be configured from environment variables.
+    Note that the fields in this config are :py:class:`~sheenflow.StringSource` and
+    :py:class:`~sheenflow.IntSource` and can be configured from environment variables.
     """
 
     def __init__(self, mysql_url, inst_data=None):

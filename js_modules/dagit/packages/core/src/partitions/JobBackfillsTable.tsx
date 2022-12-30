@@ -1,5 +1,5 @@
 import {gql, useQuery} from '@apollo/client';
-import {Box, CursorPaginationControls, CursorPaginationProps, NonIdealState} from '@dagster-io/ui';
+import {Box, CursorPaginationControls, CursorPaginationProps, NonIdealState} from '@sheenflow-io/ui';
 import React from 'react';
 
 import {BackfillTable, BACKFILL_TABLE_FRAGMENT} from '../instance/BackfillTable';

@@ -56,7 +56,7 @@ def bar_with_resources():
     )
     user_defined_k8s_config_json = json.dumps(user_defined_k8s_config.to_dict())
 
-    return _get_pipeline("bar_with_resources", {"dagster-k8s/config": user_defined_k8s_config_json})
+    return _get_pipeline("bar_with_resources", {"sheenflow-k8s/config": user_defined_k8s_config_json})
 
 
 def bar_with_images():
@@ -65,7 +65,7 @@ def bar_with_images():
         container_config={"image": "new-image"},
     )
     user_defined_k8s_config_json = json.dumps(user_defined_k8s_config.to_dict())
-    return _get_pipeline("bar_with_images", {"dagster-k8s/config": user_defined_k8s_config_json})
+    return _get_pipeline("bar_with_images", {"sheenflow-k8s/config": user_defined_k8s_config_json})
 
 
 @pytest.fixture
@@ -241,10 +241,10 @@ def test_executor_init_container_context(
 @pytest.fixture
 def k8s_instance(kubeconfig_file):
     default_config = {
-        "service_account_name": "dagit-admin",
-        "instance_config_map": "dagster-instance",
-        "postgres_password_secret": "dagster-postgresql-secret",
-        "dagster_home": "/opt/dagster/dagster_home",
+        "service_account_name": "sheenlet-admin",
+        "instance_config_map": "sheenflow-instance",
+        "postgres_password_secret": "sheenflow-postgresql-secret",
+        "dagster_home": "/opt/sheenflow/dagster_home",
         "job_image": "fake_job_image",
         "load_incluster_config": False,
         "kubeconfig_file": kubeconfig_file,

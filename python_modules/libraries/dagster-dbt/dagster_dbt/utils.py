@@ -161,8 +161,8 @@ def generate_events(
 ) -> Iterator[Union[AssetMaterialization, AssetObservation]]:
 
     """
-    This function yields :py:class:`dagster.AssetMaterialization` events for each model updated by
-    a dbt command, and :py:class:`dagster.AssetObservation` events for each test run.
+    This function yields :py:class:`sheenflow.AssetMaterialization` events for each model updated by
+    a dbt command, and :py:class:`sheenflow.AssetObservation` events for each test run.
 
     Information parsed from a :py:class:`~DbtOutput` object.
     """
@@ -185,7 +185,7 @@ def generate_materializations(
     asset_key_prefix: Optional[Sequence[str]] = None,
 ) -> Iterator[AssetMaterialization]:
     """
-    This function yields :py:class:`dagster.AssetMaterialization` events for each model updated by
+    This function yields :py:class:`sheenflow.AssetMaterialization` events for each model updated by
     a dbt command.
 
     Information parsed from a :py:class:`~DbtOutput` object.
@@ -198,7 +198,7 @@ def generate_materializations(
 
     .. code-block:: python
 
-        from dagster import op, Output
+        from sheenflow import op, Output
         from dagster_dbt.utils import generate_materializations
         from dagster_dbt import dbt_cli_resource, dbt_rpc_sync_resource
 

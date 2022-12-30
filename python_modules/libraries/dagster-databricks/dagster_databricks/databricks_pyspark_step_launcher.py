@@ -415,9 +415,9 @@ class DatabricksPySparkStepLauncher(StepLauncher):
                 infile, self._dbfs_path(run_id, step_key, self._main_file_name()), overwrite=True
             )
 
-        log.info("Uploading dagster job to DBFS")
+        log.info("Uploading sheenflow job to DBFS")
         with tempfile.TemporaryDirectory() as temp_dir:
-            # Zip and upload package containing dagster job
+            # Zip and upload package containing sheenflow job
             zip_local_path = os.path.join(temp_dir, CODE_ZIP_NAME)
             build_pyspark_zip(zip_local_path, self.local_dagster_job_package_path)
             with open(zip_local_path, "rb") as infile:

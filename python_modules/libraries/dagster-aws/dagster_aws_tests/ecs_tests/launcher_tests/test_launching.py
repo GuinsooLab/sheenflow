@@ -80,7 +80,7 @@ def test_default_launcher(
     # the ECS task is tagged with info about the Dagster run
     if task_long_arn_format == "enabled":
         assert (
-            ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["key"] == "dagster/run_id"
+            ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["key"] == "sheenflow/run_id"
         )
         assert ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["value"] == run.run_id
 
@@ -172,7 +172,7 @@ def test_launcher_dont_use_current_task(
     cluster_arn = ecs._cluster_arn(cluster)
     assert instance.get_run_by_id(run.run_id).tags["ecs/cluster"] == cluster_arn
 
-    assert ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["key"] == "dagster/run_id"
+    assert ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["key"] == "sheenflow/run_id"
     assert ecs.list_tags_for_resource(resourceArn=task_arn)["tags"][0]["value"] == run.run_id
 
     # We set pipeline-specific overides
@@ -226,7 +226,7 @@ def test_task_definition_registration(
     secrets_manager.create_secret(
         Name="hello",
         SecretString="hello",
-        Tags=[{"Key": "dagster", "Value": "true"}],
+        Tags=[{"Key": "sheenflow", "Value": "true"}],
     )
 
     instance.launch_run(other_run.run_id, other_workspace)
@@ -460,7 +460,7 @@ def test_reuse_task_definition(instance, ecs):
 def test_launching_with_task_definition_dict(
     ecs, instance_cm, run, workspace, pipeline, external_pipeline
 ):
-    container_name = "dagster"
+    container_name = "sheenflow"
 
     task_role_arn = "fake-task-role"
     execution_role_arn = "fake-execution-role"

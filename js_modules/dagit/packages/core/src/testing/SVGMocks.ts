@@ -56,7 +56,7 @@ MOCKS.push(
       requestScopeHandleID: '',
     } as PipelineExplorerRootQueryVariables,
     filepath: path.join(dataDir, `${name}.json`),
-    repo: 'python_modules/dagster-test/dagster_test/toys',
+    repo: 'python_modules/sheenflow-test/sheenflow_test/toys',
     workspace: true,
   })),
 );

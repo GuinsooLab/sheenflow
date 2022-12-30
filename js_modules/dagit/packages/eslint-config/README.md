@@ -7,7 +7,7 @@ Shared eslint configuration to be used in Dagster apps.
 ### 1. Install
 
 ```bash
-yarn -D add @dagster-io/eslint-config
+yarn -D add @sheenflow-io/eslint-config
 ```
 
 ### 2. Add to your project's eslint configuration
@@ -15,7 +15,7 @@ yarn -D add @dagster-io/eslint-config
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['@dagster-io/eslint-config'],
+  extends: ['@sheenflow-io/eslint-config'],
 };
 ```
 
@@ -24,7 +24,7 @@ If you are extending other configurations, put those first.
 ```js
 // .eslintrc.js
 module.exports = {
-  extends: ['some-other-config', '@dagster-io/eslint-config'],
+  extends: ['some-other-config', '@sheenflow-io/eslint-config'],
 };
 ```
 

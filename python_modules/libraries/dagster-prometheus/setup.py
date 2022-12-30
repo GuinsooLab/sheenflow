@@ -16,7 +16,7 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="dagster-prometheus",
+    name="sheenflow-prometheus",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
@@ -32,6 +32,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=find_packages(exclude=["dagster_prometheus_tests*"]),
-    install_requires=[f"dagster{pin}", "prometheus_client"],
+    install_requires=[f"sheenflow{pin}", "prometheus_client"],
     zip_safe=False,
 )
