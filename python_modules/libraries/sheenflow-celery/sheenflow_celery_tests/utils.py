@@ -85,7 +85,7 @@ def execute_on_thread(pipeline_name, done, instance_ref, tempdir=None, tags=None
 @contextmanager
 def start_celery_worker(queue=None):
     process = subprocess.Popen(
-        ["sheenflow-celery", "worker", "start", "-A", "dagster_celery.app"]
+        ["sheenflow-celery", "worker", "start", "-A", "sheenflow_celery.app"]
         + (["-q", queue] if queue else [])
         + (["--", "--concurrency", "1"])
     )

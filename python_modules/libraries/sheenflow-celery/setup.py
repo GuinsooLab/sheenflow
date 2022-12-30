@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_celery/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_celery/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -21,8 +21,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="Package for using Celery as Dagster's execution engine.",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-celery",
+    description="Package for using Celery as Sheenflow's execution engine.",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -31,8 +30,8 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_celery_tests*"]),
-    entry_points={"console_scripts": ["sheenflow-celery = dagster_celery.cli:main"]},
+    packages=find_packages(exclude=["sheenflow_celery_tests*"]),
+    entry_points={"console_scripts": ["sheenflow-celery = sheenflow_celery.cli:main"]},
     install_requires=[
         f"sheenflow{pin}",
         "celery>=4.3.0",

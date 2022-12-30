@@ -66,7 +66,7 @@ def get_config_dir(config_yaml=None):
     config_module_name = "dagster_celery_config"
 
     config_dir = os.path.join(
-        instance.root_directory, "dagster_celery", "config", str(uuid.uuid4())
+        instance.root_directory, "sheenflow_celery", "config", str(uuid.uuid4())
     )
     mkdir_p(config_dir)
     config_path = os.path.join(
@@ -118,7 +118,7 @@ def launch_background_worker(subprocess_args, env):
     default=None,
     help=(
         "Specify the path to a config YAML file with options for the worker. This is the same "
-        "config block that you provide to dagster_celery.celery_executor when configuring a "
+        "config block that you provide to sheenflow_celery.celery_executor when configuring a "
         "job for execution with Celery, with, e.g., the URL of the broker to use."
     ),
 )
@@ -161,13 +161,13 @@ def worker_start_command(
     app,
     additional_args,
 ):
-    check.invariant(app, "App must be specified. E.g. dagster_celery.app or dagster_celery_k8s.app")
+    check.invariant(app, "App must be specified. E.g. sheenflow_celery.app or dagster_celery_k8s.app")
 
     loglevel_args = ["--loglevel", loglevel]
 
     if len(queue) > 4:
         check.failed(
-            "Can't start a dagster_celery worker that listens on more than four queues, due to a "
+            "Can't start a sheenflow_celery worker that listens on more than four queues, due to a "
             "bug in Celery 4."
         )
     queue_args = []
@@ -206,7 +206,7 @@ def worker_start_command(
     required=True,
     help=(
         "Specify the path to a config YAML file with options for the worker. This is the same "
-        "config block that you provide to dagster_celery.celery_executor when configuring a "
+        "config block that you provide to sheenflow_celery.celery_executor when configuring a "
         "job for execution with Celery, with, e.g., the URL of the broker to use."
     ),
 )
@@ -217,7 +217,7 @@ def status_command(
     app,
     additional_args,
 ):
-    check.invariant(app, "App must be specified. E.g. dagster_celery.app or dagster_celery_k8s.app")
+    check.invariant(app, "App must be specified. E.g. sheenflow_celery.app or dagster_celery_k8s.app")
 
     config = get_validated_config(config_yaml)
     subprocess_args = ["celery", "-A", app, "-b", str(config["broker"]), "status"] + list(
@@ -238,7 +238,7 @@ def status_command(
     default=None,
     help=(
         "Specify the path to a config YAML file with options for the workers you are trying to "
-        "manage. This is the same config block that you provide to dagster_celery.celery_executor "
+        "manage. This is the same config block that you provide to sheenflow_celery.celery_executor "
         "when configuring a job for execution with Celery, with, e.g., the URL of the broker "
         "to use. Without this config file, you will not be able to find your workers (since the "
         "CLI won't know how to reach the broker)."
@@ -269,7 +269,7 @@ def worker_list_command(config_yaml=None):
     default=None,
     help=(
         "Specify the path to a config YAML file with options for the workers you are trying to "
-        "manage. This is the same config block that you provide to dagster_celery.celery_executor "
+        "manage. This is the same config block that you provide to sheenflow_celery.celery_executor "
         "when configuring a job for execution with Celery, with, e.g., the URL of the broker "
         "to use. Without this config file, you will not be able to terminate your workers (since "
         "the CLI won't know how to reach the broker)."

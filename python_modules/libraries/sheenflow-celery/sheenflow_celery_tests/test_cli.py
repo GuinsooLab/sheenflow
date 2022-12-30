@@ -17,7 +17,7 @@ def start_worker(name, config_yaml=None, args=None, exit_code=0, exception_str="
     try:
         result = runner.invoke(
             main,
-            ["worker", "start", "-A", "dagster_celery.app", "-d", "--name", name]
+            ["worker", "start", "-A", "sheenflow_celery.app", "-d", "--name", name]
             + config_args
             + args,
         )
@@ -77,7 +77,7 @@ def test_start_worker_too_many_queues(rabbitmq, instance):
         args=args,
         exit_code=1,
         exception_str=(
-            "Can't start a dagster_celery worker that listens on more than four queues, due to a "
+            "Can't start a sheenflow_celery worker that listens on more than four queues, due to a "
             "bug in Celery 4."
         ),
     )

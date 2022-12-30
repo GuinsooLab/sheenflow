@@ -16,7 +16,7 @@ def make_app_with_task_routes(task_routes, app_args=None):
     app_ = Celery("sheenflow", **(app_args if app_args else {}))
 
     if app_args is None:
-        app_.config_from_object("dagster_celery.defaults", force=True)
+        app_.config_from_object("sheenflow_celery.defaults", force=True)
 
         if is_module_available("dagster_celery_config"):
             # pylint: disable=protected-access

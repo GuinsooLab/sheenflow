@@ -125,7 +125,7 @@ def celery_docker_executor(init_context):
     different broker than the one your workers are listening to, the workers will never be able to
     pick up tasks for execution.
 
-    In deployments where the celery_docker_job_executor is used all appropriate celery and dagster_celery
+    In deployments where the celery_docker_job_executor is used all appropriate celery and sheenflow_celery
     commands must be invoked with the `-A dagster_celery_docker.app` argument.
     """
 

@@ -9,8 +9,8 @@
 # Currently available executors:
 # - in_process (default)
 # - multiprocess
-# - celery (provided by dagster_celery)
-# - celery-k8s (provided by dagster_celery)
+# - celery (provided by sheenflow_celery)
+# - celery-k8s (provided by sheenflow_celery)
 # - dask (provided by dagster_dask)
 execution:
   multiprocess:
