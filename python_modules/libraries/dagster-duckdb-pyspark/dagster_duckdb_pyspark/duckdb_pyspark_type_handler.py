@@ -16,7 +16,7 @@ class DuckDBPySparkTypeHandler(DbTypeHandler[pyspark.sql.DataFrame]):
     Example:
         .. code-block:: python
 
-            from dagster_duckdb import build_duckdb_io_manager
+            from sheenflow_duckdb import build_duckdb_io_manager
             from dagster_duckdb_pyspark import DuckDBPySparkTypeHandler
 
             @asset

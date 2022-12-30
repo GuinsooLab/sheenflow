@@ -30,17 +30,17 @@ def postgres_instance_for_test(dunder_file, container_name, overrides=None, conn
                 overrides=merge_dicts(
                     {
                         "run_storage": {
-                            "module": "dagster_postgres.run_storage.run_storage",
+                            "module": "sheenflow_postgres.run_storage.run_storage",
                             "class": "PostgresRunStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },
                         "event_log_storage": {
-                            "module": "dagster_postgres.event_log.event_log",
+                            "module": "sheenflow_postgres.event_log.event_log",
                             "class": "PostgresEventLogStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },
                         "schedule_storage": {
-                            "module": "dagster_postgres.schedule_storage.schedule_storage",
+                            "module": "sheenflow_postgres.schedule_storage.schedule_storage",
                             "class": "PostgresScheduleStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },
@@ -70,7 +70,7 @@ class TestPostgresInstance:
     def conn_string(env_name="POSTGRES_TEST_DB_HOST", **kwargs):
         check.invariant(
             TestPostgresInstance.dagster_postgres_installed(),
-            "dagster_postgres must be installed to test with postgres",
+            "sheenflow_postgres must be installed to test with postgres",
         )
         from dagster_postgres.utils import get_conn_string  # pylint: disable=import-error
 
@@ -90,7 +90,7 @@ class TestPostgresInstance:
     def clean_run_storage(conn_string, should_autocreate_tables=True):
         check.invariant(
             TestPostgresInstance.dagster_postgres_installed(),
-            "dagster_postgres must be installed to test with postgres",
+            "sheenflow_postgres must be installed to test with postgres",
         )
         from dagster_postgres.run_storage import PostgresRunStorage  # pylint: disable=import-error
 
@@ -104,7 +104,7 @@ class TestPostgresInstance:
     def clean_event_log_storage(conn_string, should_autocreate_tables=True):
         check.invariant(
             TestPostgresInstance.dagster_postgres_installed(),
-            "dagster_postgres must be installed to test with postgres",
+            "sheenflow_postgres must be installed to test with postgres",
         )
         from dagster_postgres.event_log import (  # pylint: disable=import-error
             PostgresEventLogStorage,
@@ -120,7 +120,7 @@ class TestPostgresInstance:
     def clean_schedule_storage(conn_string, should_autocreate_tables=True):
         check.invariant(
             TestPostgresInstance.dagster_postgres_installed(),
-            "dagster_postgres must be installed to test with postgres",
+            "sheenflow_postgres must be installed to test with postgres",
         )
         from dagster_postgres.schedule_storage.schedule_storage import (  # pylint: disable=import-error
             PostgresScheduleStorage,
@@ -139,7 +139,7 @@ class TestPostgresInstance:
     ):
         check.invariant(
             TestPostgresInstance.dagster_postgres_installed(),
-            "dagster_postgres must be installed to test with postgres",
+            "sheenflow_postgres must be installed to test with postgres",
         )
         check.str_param(service_name, "service_name")
         check.str_param(docker_compose_file, "docker_compose_file")

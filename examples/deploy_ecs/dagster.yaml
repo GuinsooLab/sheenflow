@@ -15,7 +15,7 @@ run_launcher:
     secrets_tag: ""
 
 run_storage:
-  module: dagster_postgres.run_storage
+  module: sheenflow_postgres.run_storage
   class: PostgresRunStorage
   config:
     postgres_db:
@@ -30,7 +30,7 @@ run_storage:
       port: 5432
 
 schedule_storage:
-  module: dagster_postgres.schedule_storage
+  module: sheenflow_postgres.schedule_storage
   class: PostgresScheduleStorage
   config:
     postgres_db:
@@ -45,7 +45,7 @@ schedule_storage:
       port: 5432
 
 event_log_storage:
-  module: dagster_postgres.event_log
+  module: sheenflow_postgres.event_log
   class: PostgresEventLogStorage
   config:
     postgres_db:

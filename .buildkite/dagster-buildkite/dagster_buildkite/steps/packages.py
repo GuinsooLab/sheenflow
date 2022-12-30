@@ -254,7 +254,7 @@ gcp_extra_cmds = [
 
 
 postgres_extra_cmds = [
-    "pushd python_modules/libraries/sheenflow-postgres/dagster_postgres_tests/",
+    "pushd python_modules/libraries/sheenflow-postgres/sheenflow_postgres_tests/",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     "docker-compose -f docker-compose-multi.yml up -d",  # clean up in hooks/pre-exit,
     *network_buildkite_container("postgres"),

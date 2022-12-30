@@ -30,8 +30,8 @@ def build_duckdb_io_manager(type_handlers: Sequence[DbTypeHandler]) -> IOManager
 
         .. code-block:: python
 
-            from dagster_duckdb import build_duckdb_io_manager
-            from dagster_duckdb_pandas import DuckDBPandasTypeHandler
+            from sheenflow_duckdb import build_duckdb_io_manager
+            from sheenflow_duckdb_pandas import DuckDBPandasTypeHandler
 
             @asset(
                 key_prefix=["my_schema"]  # will be used as the schema in duckdb

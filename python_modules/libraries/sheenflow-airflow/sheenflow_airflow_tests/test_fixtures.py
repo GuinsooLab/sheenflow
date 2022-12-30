@@ -32,17 +32,17 @@ def postgres_instance(overrides=None):
                 overrides=merge_dicts(
                     {
                         "run_storage": {
-                            "module": "dagster_postgres.run_storage.run_storage",
+                            "module": "sheenflow_postgres.run_storage.run_storage",
                             "class": "PostgresRunStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },
                         "event_log_storage": {
-                            "module": "dagster_postgres.event_log.event_log",
+                            "module": "sheenflow_postgres.event_log.event_log",
                             "class": "PostgresEventLogStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },
                         "schedule_storage": {
-                            "module": "dagster_postgres.schedule_storage.schedule_storage",
+                            "module": "sheenflow_postgres.schedule_storage.schedule_storage",
                             "class": "PostgresScheduleStorage",
                             "config": {"postgres_url": pg_conn_string},
                         },

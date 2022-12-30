@@ -76,7 +76,7 @@ class DagsterPostgresStorage(DagsterStorage, ConfigurableClass):
     def event_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_postgres",
+                "sheenflow_postgres",
                 "PostgresEventLogStorage",
                 self.inst_data.config_yaml,
             )
@@ -88,7 +88,7 @@ class DagsterPostgresStorage(DagsterStorage, ConfigurableClass):
     def run_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_postgres",
+                "sheenflow_postgres",
                 "PostgresRunStorage",
                 self.inst_data.config_yaml,
             )
@@ -100,7 +100,7 @@ class DagsterPostgresStorage(DagsterStorage, ConfigurableClass):
     def schedule_storage_data(self) -> Optional[ConfigurableClassData]:
         return (
             ConfigurableClassData(
-                "dagster_postgres",
+                "sheenflow_postgres",
                 "PostgresScheduleStorage",
                 self.inst_data.config_yaml,
             )

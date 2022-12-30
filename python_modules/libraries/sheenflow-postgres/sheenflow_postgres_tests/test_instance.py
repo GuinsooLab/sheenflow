@@ -14,7 +14,7 @@ from dagster._utils.test.postgres_instance import TestPostgresInstance
 def full_pg_config(hostname):
     return """
       run_storage:
-        module: dagster_postgres.run_storage
+        module: sheenflow_postgres.run_storage
         class: PostgresRunStorage
         config:
           postgres_db:
@@ -24,7 +24,7 @@ def full_pg_config(hostname):
             db_name: test
 
       event_log_storage:
-        module: dagster_postgres.event_log
+        module: sheenflow_postgres.event_log
         class: PostgresEventLogStorage
         config:
             postgres_db:
@@ -34,7 +34,7 @@ def full_pg_config(hostname):
               db_name: test
 
       schedule_storage:
-        module: dagster_postgres.schedule_storage
+        module: sheenflow_postgres.schedule_storage
         class: PostgresScheduleStorage
         config:
             postgres_db:
@@ -63,7 +63,7 @@ def unified_pg_config(hostname):
 def skip_autocreate_pg_config(hostname):
     return """
       run_storage:
-        module: dagster_postgres.run_storage
+        module: sheenflow_postgres.run_storage
         class: PostgresRunStorage
         config:
           should_autocreate_tables: false
@@ -74,7 +74,7 @@ def skip_autocreate_pg_config(hostname):
             db_name: test
 
       event_log_storage:
-        module: dagster_postgres.event_log
+        module: sheenflow_postgres.event_log
         class: PostgresEventLogStorage
         config:
             should_autocreate_tables: false
@@ -85,7 +85,7 @@ def skip_autocreate_pg_config(hostname):
               db_name: test
 
       schedule_storage:
-        module: dagster_postgres.schedule_storage
+        module: sheenflow_postgres.schedule_storage
         class: PostgresScheduleStorage
         config:
             should_autocreate_tables: false
@@ -102,7 +102,7 @@ def skip_autocreate_pg_config(hostname):
 def params_specified_pg_config(hostname):
     return """
       run_storage:
-        module: dagster_postgres.run_storage
+        module: sheenflow_postgres.run_storage
         class: PostgresRunStorage
         config:
           should_autocreate_tables: false
@@ -117,7 +117,7 @@ def params_specified_pg_config(hostname):
               options: -c synchronous_commit=off
 
       event_log_storage:
-        module: dagster_postgres.event_log
+        module: sheenflow_postgres.event_log
         class: PostgresEventLogStorage
         config:
             should_autocreate_tables: false
@@ -132,7 +132,7 @@ def params_specified_pg_config(hostname):
                 options: -c synchronous_commit=off
 
       schedule_storage:
-        module: dagster_postgres.schedule_storage
+        module: sheenflow_postgres.schedule_storage
         class: PostgresScheduleStorage
         config:
             should_autocreate_tables: false

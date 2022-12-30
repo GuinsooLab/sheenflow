@@ -85,7 +85,7 @@ class TestPostgresEventLogStorage(TestEventLogStorage):
     def test_load_from_config(self, hostname):
         url_cfg = """
         event_log_storage:
-            module: dagster_postgres.event_log
+            module: sheenflow_postgres.event_log
             class: PostgresEventLogStorage
             config:
                 postgres_url: postgresql://test:test@{hostname}:5432/test
@@ -95,7 +95,7 @@ class TestPostgresEventLogStorage(TestEventLogStorage):
 
         explicit_cfg = """
         event_log_storage:
-            module: dagster_postgres.event_log
+            module: sheenflow_postgres.event_log
             class: PostgresEventLogStorage
             config:
                 postgres_db:

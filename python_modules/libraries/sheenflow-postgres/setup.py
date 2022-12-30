@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_duckdb_pandas/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_postgres/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -16,13 +16,12 @@ ver = get_version()
 # dont pin dev installs to avoid pip dep resolver issues
 pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
-    name="sheenflow-duckdb-pandas",
+    name="sheenflow-postgres",
     version=ver,
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="Package for storing Pandas DataFrames in DuckDB.",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-duckb-pandas",
+    description="A Sheenflow integration for postgres",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -31,12 +30,13 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_duckdb_pandas_tests*"]),
+    packages=find_packages(exclude=["sheenflow_postgres_tests*"]),
+    package_data={
+        "sheenflow-postgres": [
+            "sheenflow_postgres/alembic/*",
+        ]
+    },
     include_package_data=True,
-    install_requires=[
-        f"sheenflow{pin}",
-        f"sheenflow-duckdb{pin}",
-        "pandas",
-    ],
+    install_requires=[f"sheenflow{pin}", "psycopg2-binary"],
     zip_safe=False,
 )

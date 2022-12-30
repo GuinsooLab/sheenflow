@@ -18,7 +18,7 @@ class TestPostgresRunStorage(TestRunStorage):
     def test_load_from_config(self, hostname):
         url_cfg = """
           run_storage:
-            module: dagster_postgres.run_storage
+            module: sheenflow_postgres.run_storage
             class: PostgresRunStorage
             config:
               postgres_url: postgresql://test:test@{hostname}:5432/test
@@ -28,7 +28,7 @@ class TestPostgresRunStorage(TestRunStorage):
 
         explicit_cfg = """
           run_storage:
-            module: dagster_postgres.run_storage
+            module: sheenflow_postgres.run_storage
             class: PostgresRunStorage
             config:
               postgres_db:
@@ -43,7 +43,7 @@ class TestPostgresRunStorage(TestRunStorage):
         with environ({"TEST_PG_PASSWORD": "test"}):
             env_cfg = """
             run_storage:
-              module: dagster_postgres.run_storage
+              module: sheenflow_postgres.run_storage
               class: PostgresRunStorage
               config:
                 postgres_db:
