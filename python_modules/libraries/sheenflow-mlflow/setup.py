@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_mlflow/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_mlflow/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -18,8 +18,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="Package for mlflow Dagster framework components.",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-mlflow",
+    description="Package for mlflow Sheenflow framework components.",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -28,7 +27,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_mlflow_tests*"]),
+    packages=find_packages(exclude=["sheenflow_mlflow_tests*"]),
     install_requires=[
         "sheenflow",
         "mlflow<=1.26.0",  # https://github.com/mlflow/mlflow/issues/5968

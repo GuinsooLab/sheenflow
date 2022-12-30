@@ -243,7 +243,7 @@ def mlflow_tracking(context):
 
         .. code-block:: python
 
-            from dagster_mlflow import end_mlflow_on_run_finished, mlflow_tracking
+            from sheenflow_mlflow import end_mlflow_on_run_finished, mlflow_tracking
 
             @op(required_resource_keys={"mlflow"})
             def mlflow_solid(context):
