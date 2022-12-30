@@ -3,11 +3,11 @@ from setuptools import find_packages, setup
 setup(
     name="automation",
     version="0.0.1",
-    author="Elementl",
-    author_email="hello@elementl.com",
+    author="ciusji",
+    author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
     description="Tools for infrastructure automation",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/automation",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/python_modules/automation",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -33,13 +33,13 @@ setup(
     ],
     extras_require={
         "buildkite": [
-            "dagster",  # Support buildkite conditional running of tests
+            "sheenflow",  # Support buildkite conditional running of tests
         ]
     },
     entry_points={
         "console_scripts": [
-            "dagster-image = automation.docker.cli:main",
-            "dagster-graphql-client = automation.graphql.python_client.cli:main",
+            "sheenflow-image = automation.docker.cli:main",
+            "sheenflow-graphql-client = automation.graphql.python_client.cli:main",
         ]
     },
 )
