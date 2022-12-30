@@ -1,7 +1,7 @@
 {
-  "name": "@dagster-io/ui",
+  "name": "ui",
   "version": "1.0.7",
-  "description": "Dagster UI Component Library",
+  "description": "Sheenflow UI Component Library",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "lib/index.js",

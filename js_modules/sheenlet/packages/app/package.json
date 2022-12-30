@@ -1,8 +1,8 @@
 {
-  "name": "@dagster-io/dagit-app",
+  "name": "sheenlet-app",
   "version": "1.0.0",
   "private": true,
-  "description": "Dagit Application Shell",
+  "description": "Sheenlet Application Shell",
   "license": "Apache-2.0",
   "dependencies": {
     "@apollo/client": "3.6.9",

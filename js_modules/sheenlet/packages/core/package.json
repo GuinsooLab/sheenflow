@@ -1,8 +1,8 @@
 {
-  "name": "@dagster-io/dagit-core",
+  "name": "sheenlet-core",
   "version": "1.0.0",
   "private": true,
-  "description": "Dagit Application Core",
+  "description": "Sheenlet Application Core",
   "license": "Apache-2.0",
   "scripts": {
     "find-dead-code": "yarn ts-prune | grep -Ev '/types/\\|stories.tsx'",
