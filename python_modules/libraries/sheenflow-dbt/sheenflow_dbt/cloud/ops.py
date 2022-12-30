@@ -81,7 +81,7 @@ def dbt_cloud_run_op(context):
     .. code-block:: python
 
         from sheenflow import job
-        from dagster_dbt import dbt_cloud_resource, dbt_cloud_run_op
+        from sheenflow_dbt import dbt_cloud_resource, dbt_cloud_run_op
 
         my_dbt_cloud_resource = dbt_cloud_resource.configured(
             {"auth_token": {"env": "DBT_CLOUD_AUTH_TOKEN"}, "account_id": 77777}

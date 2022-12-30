@@ -227,7 +227,7 @@ mysql_extra_cmds = [
 
 
 dbt_extra_cmds = [
-    "pushd python_modules/libraries/sheenflow-dbt/dagster_dbt_tests",
+    "pushd python_modules/libraries/sheenflow-dbt/sheenflow_dbt_tests",
     "docker-compose up -d --remove-orphans",  # clean up in hooks/pre-exit,
     # Can't use host networking on buildkite and communicate via localhost
     # between these sibling containers, so pass along the ip.

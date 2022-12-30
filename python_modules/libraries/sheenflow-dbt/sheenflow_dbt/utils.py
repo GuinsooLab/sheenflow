@@ -199,8 +199,8 @@ def generate_materializations(
     .. code-block:: python
 
         from sheenflow import op, Output
-        from dagster_dbt.utils import generate_materializations
-        from dagster_dbt import dbt_cli_resource, dbt_rpc_sync_resource
+        from sheenflow_dbt.utils import generate_materializations
+        from sheenflow_dbt import dbt_cli_resource, dbt_rpc_sync_resource
 
         @op(required_resource_keys={"dbt"})
         def my_custom_dbt_run(context):

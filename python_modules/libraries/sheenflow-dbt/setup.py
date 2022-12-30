@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_dbt/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_dbt/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -21,8 +21,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="A Dagster integration for dbt",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-dbt",
+    description="A Sheenflow integration for dbt",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -31,7 +30,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_dbt_tests*"]),
+    packages=find_packages(exclude=["sheenflow_dbt_tests*"]),
     install_requires=[
         f"sheenflow{pin}",
         "dbt-core",

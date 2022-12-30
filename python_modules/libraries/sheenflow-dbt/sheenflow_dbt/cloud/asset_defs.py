@@ -487,7 +487,7 @@ def load_assets_from_dbt_cloud_job(
     .. code-block:: python
 
         from sheenflow import repository
-        from dagster_dbt import dbt_cloud_resource, load_assets_from_dbt_cloud_job
+        from sheenflow_dbt import dbt_cloud_resource, load_assets_from_dbt_cloud_job
 
         DBT_CLOUD_JOB_ID = 1234
 

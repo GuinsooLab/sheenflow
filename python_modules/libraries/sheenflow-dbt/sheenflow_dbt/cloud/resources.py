@@ -562,7 +562,7 @@ def dbt_cloud_resource(context) -> DbtCloudResourceV2:
     .. code-block:: python
 
         from sheenflow import job
-        from dagster_dbt import dbt_cloud_resource
+        from sheenflow_dbt import dbt_cloud_resource
 
         my_dbt_cloud_resource = dbt_cloud_resource.configured(
             {

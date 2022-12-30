@@ -161,7 +161,7 @@ def test_load_assets_from_dbt_cloud_job(
     )
 
     mock_run_job_and_poll = mocker.patch(
-        "dagster_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
+        "sheenflow_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
         wraps=dbt_cloud_cacheable_assets._dbt_cloud.run_job_and_poll,  # pylint: disable=protected-access
     )
 
@@ -347,7 +347,7 @@ def test_partitions(mocker, dbt_cloud, dbt_cloud_service):
     )
 
     mock_run_job_and_poll = mocker.patch(
-        "dagster_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
+        "sheenflow_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
         wraps=dbt_cloud_cacheable_assets._dbt_cloud.run_job_and_poll,  # pylint: disable=protected-access
     )
 
@@ -425,7 +425,7 @@ def test_subsetting(
     )
 
     mock_run_job_and_poll = mocker.patch(
-        "dagster_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
+        "sheenflow_dbt.cloud.resources.DbtCloudResourceV2.run_job_and_poll",
         wraps=dbt_cloud_cacheable_assets._dbt_cloud.run_job_and_poll,  # pylint: disable=protected-access
     )
 

@@ -24,7 +24,7 @@ class DbtRpcResource(DbtResource):
     """A client for a dbt RPC server.
 
     To use this as a sheenflow resource, we recommend using
-    :func:`dbt_rpc_resource <dagster_dbt.dbt_rpc_resource>`.
+    :func:`dbt_rpc_resource <sheenflow_dbt.dbt_rpc_resource>`.
     """
 
     def __init__(
@@ -594,7 +594,7 @@ def dbt_rpc_resource(context) -> DbtRpcResource:
 
     .. code-block:: python
 
-        from dagster_dbt import dbt_rpc_resource
+        from sheenflow_dbt import dbt_rpc_resource
 
         custom_dbt_rpc_resource = dbt_rpc_resource.configured({"host": "80.80.80.80","port": 8080,})
 
@@ -629,7 +629,7 @@ def dbt_rpc_sync_resource(
 
     .. code-block:: python
 
-        from dagster_dbt import dbt_rpc_sync_resource
+        from sheenflow_dbt import dbt_rpc_sync_resource
 
         custom_sync_dbt_rpc_resource = dbt_rpc_sync_resource.configured({"host": "80.80.80.80","port": 8080,})
 

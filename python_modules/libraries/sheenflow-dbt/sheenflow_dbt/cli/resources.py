@@ -19,7 +19,7 @@ class DbtCliResource(DbtResource):
     https://docs.getdbt.com/reference/commands/run
 
     To use this as a sheenflow resource, we recommend using
-    :func:`dbt_cli_resource <dagster_dbt.dbt_cli_resource>`.
+    :func:`dbt_cli_resource <sheenflow_dbt.dbt_cli_resource>`.
     """
 
     def __init__(
@@ -70,7 +70,7 @@ class DbtCliResource(DbtResource):
             command (str): The command you wish to run (e.g. 'run', 'test', 'docs generate', etc.)
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         command = check.str_param(command, "command")
@@ -117,7 +117,7 @@ class DbtCliResource(DbtResource):
             select (List[str], optional): the models to include in compilation.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("compile", models=models, exclude=exclude, select=select, **kwargs)
@@ -139,7 +139,7 @@ class DbtCliResource(DbtResource):
             select (List[str], optional): the models to include in the run.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("run", models=models, exclude=exclude, select=select, **kwargs)
@@ -159,7 +159,7 @@ class DbtCliResource(DbtResource):
             exclude (List[str], optional): the snapshots to exclude from the run.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("snapshot", select=select, exclude=exclude, **kwargs)
@@ -185,7 +185,7 @@ class DbtCliResource(DbtResource):
             select (List[str], optional): the models to include in testing.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         if data and schema:
@@ -221,7 +221,7 @@ class DbtCliResource(DbtResource):
             exclude (List[str], optional): the snapshots to exclude from the run.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("seed", show=show, select=select, exclude=exclude, **kwargs)
@@ -243,7 +243,7 @@ class DbtCliResource(DbtResource):
             exclude (List[str], optional): the resources to exclude from the output.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("ls", select=select, models=models, exclude=exclude, **kwargs)
@@ -257,7 +257,7 @@ class DbtCliResource(DbtResource):
             select (List[str], optional): the models/resources to include in the run.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("build", select=select, **kwargs)
@@ -271,7 +271,7 @@ class DbtCliResource(DbtResource):
             select (List[str], optional): the sources to include in the run.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("source snapshot-freshness", select=select, **kwargs)
@@ -285,7 +285,7 @@ class DbtCliResource(DbtResource):
             compile_project (bool, optional): If true, compile the project before generating a catalog.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
         return self.cli("docs generate", compile=compile_project, **kwargs)
@@ -302,7 +302,7 @@ class DbtCliResource(DbtResource):
             args (Dict[str, Any], optional): the keyword arguments to be supplied to the macro.
 
         Returns:
-            DbtCliOutput: An instance of :class:`DbtCliOutput<dagster_dbt.DbtCliOutput>` containing
+            DbtCliOutput: An instance of :class:`DbtCliOutput<sheenflow_dbt.DbtCliOutput>` containing
                 parsed log output as well as the contents of run_results.json (if applicable).
         """
 
