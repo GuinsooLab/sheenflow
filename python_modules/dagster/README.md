@@ -61,7 +61,7 @@ The graph loaded into Sheenflow's web UI:
 Sheenflow is available on PyPI and officially supports Python 3.7+.
 
 ```bash
-pip install sheenflow sheenflow
+pip install sheenflow sheenlet
 ```
 
 This installs two modules:
