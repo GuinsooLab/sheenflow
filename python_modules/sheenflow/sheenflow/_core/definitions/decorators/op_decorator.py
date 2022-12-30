@@ -1,0 +1,238 @@
+from functools import update_wrapper
+from typing import TYPE_CHECKING, Any, Callable, Mapping, Optional, Set, Union, overload
+
+import dagster._check as check
+from dagster._config import UserConfigSchema
+from dagster._core.decorator_utils import format_docstring_for_description
+from dagster._utils.backcompat import canonicalize_backcompat_args
+
+from ..input import In
+from ..output import Out
+from ..policy import RetryPolicy
+from ..utils import DEFAULT_OUTPUT
+from .solid_decorator import DecoratedOpFunction, NoContextDecoratedOpFunction
+
+if TYPE_CHECKING:
+    from ..op_definition import OpDefinition
+
+
+class _Op:
+    def __init__(
+        self,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        required_resource_keys: Optional[Set[str]] = None,
+        config_schema: Optional[Union[Any, Mapping[str, Any]]] = None,
+        tags: Optional[Mapping[str, Any]] = None,
+        code_version: Optional[str] = None,
+        decorator_takes_context: Optional[bool] = True,
+        retry_policy: Optional[RetryPolicy] = None,
+        ins: Optional[Mapping[str, In]] = None,
+        out: Optional[Union[Out, Mapping[str, Out]]] = None,
+    ):
+        self.name = check.opt_str_param(name, "name")
+        self.decorator_takes_context = check.bool_param(
+            decorator_takes_context, "decorator_takes_context"
+        )
+
+        self.description = check.opt_str_param(description, "description")
+
+        # these will be checked within SolidDefinition
+        self.required_resource_keys = required_resource_keys
+        self.tags = tags
+        self.code_version = code_version
+        self.retry_policy = retry_policy
+
+        # config will be checked within SolidDefinition
+        self.config_schema = config_schema
+
+        self.ins = check.opt_nullable_mapping_param(ins, "ins", key_type=str, value_type=In)
+        self.out = out
+
+    def __call__(self, fn: Callable[..., Any]) -> "OpDefinition":
+        from ..op_definition import OpDefinition
+
+        if not self.name:
+            self.name = fn.__name__
+
+        compute_fn = (
+            DecoratedOpFunction(decorated_fn=fn)
+            if self.decorator_takes_context
+            else NoContextDecoratedOpFunction(decorated_fn=fn)
+        )
+
+        if compute_fn.has_config_arg():
+            check.param_invariant(
+                self.config_schema is None or self.config_schema == {},
+                "If the @op has a config arg, you cannot specify a config schema",
+            )
+
+            from dagster._config.structured_config import infer_schema_from_config_annotation
+
+            # Parse schema from the type annotation of the config arg
+            config_arg = compute_fn.get_config_arg()
+            config_arg_type = config_arg.annotation
+            config_arg_default = config_arg.default
+            self.config_schema = infer_schema_from_config_annotation(
+                config_arg_type, config_arg_default
+            )
+
+        outs: Optional[Mapping[str, Out]] = None
+        if self.out is not None and isinstance(self.out, Out):
+            outs = {DEFAULT_OUTPUT: self.out}
+        elif self.out is not None:
+            outs = check.mapping_param(self.out, "out", key_type=str, value_type=Out)
+
+        arg_resource_keys = {arg.name for arg in compute_fn.get_resource_args()}
+        decorator_resource_keys = set(self.required_resource_keys or [])
+        check.param_invariant(
+            len(decorator_resource_keys) == 0 or len(arg_resource_keys) == 0,
+            "Cannot specify resource requirements in both @op decorator and as arguments to the decorated function",
+        )
+        resolved_resource_keys = decorator_resource_keys.union(arg_resource_keys)
+
+        op_def = OpDefinition(
+            name=self.name,
+            ins=self.ins,
+            outs=outs,
+            compute_fn=compute_fn,
+            config_schema=self.config_schema,
+            description=self.description or format_docstring_for_description(fn),
+            required_resource_keys=resolved_resource_keys,
+            tags=self.tags,
+            code_version=self.code_version,
+            retry_policy=self.retry_policy,
+        )
+        update_wrapper(op_def, compute_fn.decorated_fn)
+        return op_def
+
+
+@overload
+def op(compute_fn: Callable[..., Any]) -> "OpDefinition":
+    ...
+
+
+@overload
+def op(
+    *,
+    name: Optional[str] = ...,
+    description: Optional[str] = ...,
+    ins: Optional[Mapping[str, In]] = ...,
+    out: Optional[Union[Out, Mapping[str, Out]]] = ...,
+    config_schema: Optional[UserConfigSchema] = ...,
+    required_resource_keys: Optional[Set[str]] = ...,
+    tags: Optional[Mapping[str, Any]] = ...,
+    version: Optional[str] = ...,
+    retry_policy: Optional[RetryPolicy] = ...,
+    code_version: Optional[str] = ...,
+) -> _Op:
+    ...
+
+
+def op(
+    compute_fn: Optional[Callable] = None,
+    *,
+    name: Optional[str] = None,
+    description: Optional[str] = None,
+    ins: Optional[Mapping[str, In]] = None,
+    out: Optional[Union[Out, Mapping[str, Out]]] = None,
+    config_schema: Optional[UserConfigSchema] = None,
+    required_resource_keys: Optional[Set[str]] = None,
+    tags: Optional[Mapping[str, Any]] = None,
+    version: Optional[str] = None,
+    retry_policy: Optional[RetryPolicy] = None,
+    code_version: Optional[str] = None,
+) -> Union["OpDefinition", _Op]:
+    """
+    Create an op with the specified parameters from the decorated function.
+
+    Ins and outs will be inferred from the type signature of the decorated function
+    if not explicitly provided.
+
+    The decorated function will be used as the op's compute function. The signature of the
+    decorated function is more flexible than that of the ``compute_fn`` in the core API; it may:
+
+    1. Return a value. This value will be wrapped in an :py:class:`Output` and yielded by the compute function.
+    2. Return an :py:class:`Output`. This output will be yielded by the compute function.
+    3. Yield :py:class:`Output` or other :ref:`event objects <events>`. Same as default compute behavior.
+
+    Note that options 1) and 2) are incompatible with yielding other events -- if you would like
+    to decorate a function that yields events, it must also wrap its eventual output in an
+    :py:class:`Output` and yield it.
+
+    @op supports ``async def`` functions as well, including async generators when yielding multiple
+    events or outputs. Note that async ops will generally be run on their own unless using a custom
+    :py:class:`Executor` implementation that supports running them together.
+
+    Args:
+        name (Optional[str]): Name of op. Must be unique within any :py:class:`GraphDefinition`
+            using the op.
+        description (Optional[str]): Human-readable description of this op. If not provided, and
+            the decorated function has docstring, that docstring will be used as the description.
+        ins (Optional[Dict[str, In]]):
+            Information about the inputs to the op. Information provided here will be combined
+            with what can be inferred from the function signature.
+        out (Optional[Union[Out, Dict[str, Out]]]):
+            Information about the op outputs. Information provided here will be combined with
+            what can be inferred from the return type signature if the function does not use yield.
+        config_schema (Optional[ConfigSchema): The schema for the config. If set, Dagster will check
+            that config provided for the op matches this schema and fail if it does not. If not
+            set, Dagster will accept any config provided for the op.
+        required_resource_keys (Optional[Set[str]]): Set of resource handles required by this op.
+        tags (Optional[Dict[str, Any]]): Arbitrary metadata for the op. Frameworks may
+            expect and require certain metadata to be attached to a op. Values that are not strings
+            will be json encoded and must meet the criteria that `json.loads(json.dumps(value)) == value`.
+        code_version (Optional[str]): (Experimental) Version of the logic encapsulated by the op. If set,
+            this is used as a default version for all outputs.
+        retry_policy (Optional[RetryPolicy]): The retry policy for this op.
+
+    Examples:
+
+        .. code-block:: python
+
+            @op
+            def hello_world():
+                print('hello')
+
+            @op
+            def echo(msg: str) -> str:
+                return msg
+
+            @op(
+                ins={'msg': In(str)},
+                out=Out(str)
+            )
+            def echo_2(msg): # same as above
+                return msg
+
+            @op(
+                out={'word': Out(), 'num': Out()}
+            )
+            def multi_out() -> Tuple[str, int]:
+                return 'cool', 4
+    """
+
+    code_version = canonicalize_backcompat_args(
+        code_version, "code_version", version, "version", "2.0"
+    )
+
+    if compute_fn is not None:
+        check.invariant(description is None)
+        check.invariant(config_schema is None)
+        check.invariant(required_resource_keys is None)
+        check.invariant(tags is None)
+        check.invariant(version is None)
+
+        return _Op()(compute_fn)
+
+    return _Op(
+        name=name,
+        description=description,
+        config_schema=config_schema,
+        required_resource_keys=required_resource_keys,
+        tags=tags,
+        code_version=code_version,
+        retry_policy=retry_policy,
+        ins=ins,
+        out=out,
+    )
