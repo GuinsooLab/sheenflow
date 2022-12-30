@@ -78,7 +78,7 @@ def create_shell_command_op(
 
     Examples:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/dagster_shell_tests/example_shell_command_op.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/sheenflow_shell_tests/example_shell_command_op.py
        :language: python
 
 
@@ -141,7 +141,7 @@ def create_shell_script_op(shell_script_path, name="create_shell_script_op", ins
 
     Examples:
 
-    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/dagster_shell_tests/example_shell_script_op.py
+    .. literalinclude:: ../../../../../../python_modules/libraries/sheenflow-shell/sheenflow_shell_tests/example_shell_script_op.py
        :language: python
 
 

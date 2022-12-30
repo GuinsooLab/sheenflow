@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 def get_version() -> str:
     version: Dict[str, str] = {}
-    with open(Path(__file__).parent / "dagster_shell/version.py", encoding="utf8") as fp:
+    with open(Path(__file__).parent / "sheenflow_shell/version.py", encoding="utf8") as fp:
         exec(fp.read(), version)  # pylint: disable=W0122
 
     return version["__version__"]
@@ -21,8 +21,7 @@ setup(
     author="Elementl",
     author_email="hello@elementl.com",
     license="Apache-2.0",
-    description="Package for Dagster shell ops.",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-shell",
+    description="Package for Sheenflow shell ops.",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
@@ -31,7 +30,7 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["dagster_shell_tests*"]),
+    packages=find_packages(exclude=["sheenflow_shell_tests*"]),
     install_requires=[f"sheenflow{pin}"],
     extras_require={"test": ["psutil"]},
     zip_safe=False,
