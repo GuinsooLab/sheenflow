@@ -1,0 +1,48 @@
+{{- $userDeployments := index .Values "dagster-user-deployments" }}
+
+{{- if and (not $userDeployments.enabled) $userDeployments.enableSubchart }}
+{{ fail "dagster-user-deployments subchart cannot be enabled if workspace.yaml is not created." }}
+{{- end }}
+
+{{- if $userDeployments.enabled }}
+
+{{- $dagitWorkspace := .Values.dagit.workspace }}
+{{- $workspaceUseFixedServers := and $dagitWorkspace.enabled $dagitWorkspace.servers }}
+{{- $workspaceUseExternalConfigmap := and $dagitWorkspace.enabled $dagitWorkspace.externalConfigmap }}
+
+{{- if and $workspaceUseFixedServers $workspaceUseExternalConfigmap }}
+{{ fail "workspace.servers and workspace.externalConfigmap cannot both be set." }}
+{{- end }}
+
+{{- if not $workspaceUseExternalConfigmap }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "dagit.workspace.configmapName" . }}
+  labels:
+    app: {{ template "dagster.name" . }}
+    chart: {{ template "dagster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  workspace.yaml: |
+    {{- $deployments := ternary $dagitWorkspace.servers $userDeployments.deployments $dagitWorkspace.enabled }}
+    {{- if $deployments }}
+    load_from:
+      {{- range $deployment := $deployments }}
+      {{- $deploymentHost := ternary $deployment.host $deployment.name $dagitWorkspace.enabled }}
+      - grpc_server:
+          host: {{ $deploymentHost }}
+          port: {{ $deployment.port }}
+          {{- if $deployment.name }}
+          location_name: {{ $deployment.name }}
+          {{else}}
+          location_name: {{ $deploymentHost }}
+          {{end}}
+      {{- end }}
+    {{- else }}
+    load_from: []
+    {{- end }}
+{{- end }}
+
+{{- end }}
