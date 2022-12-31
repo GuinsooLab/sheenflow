@@ -3,8 +3,8 @@ from setuptools import find_packages, setup
 setup(
     name="project_fully_featured",
     version="1!0+dev",
-    author="Elementl",
-    author_email="hello@elementl.com",
+    author="ciusji",
+    author_email="bqjimaster@gmail.com",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

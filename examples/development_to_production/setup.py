@@ -3,7 +3,7 @@ from setuptools import setup  # type: ignore
 setup(
     name="development_to_production",
     version="1!0+dev",
-    author_email="hello@elementl.com",
+    author_email="bqjimaster@gmail.com",
     packages=["development_to_production"],  # same as name
     install_requires=[
         "sheenflow",
@@ -12,7 +12,7 @@ setup(
         "pandas",
         "requests",
     ],  # external packages as dependencies
-    author="Elementl",
+    author="ciusji",
     license="Apache-2.0",
     description="Dagster example of local development and production deployment.",
     url="https://github.com/dagster-io/dagster/tree/master/examples/development_to_production",

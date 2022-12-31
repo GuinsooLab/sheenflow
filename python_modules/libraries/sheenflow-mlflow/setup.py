@@ -15,8 +15,8 @@ def get_version() -> str:
 setup(
     name="sheenflow-mlflow",
     version=get_version(),
-    author="Elementl",
-    author_email="hello@elementl.com",
+    author="ciusji",
+    author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
     description="Package for mlflow Sheenflow framework components.",
     classifiers=[

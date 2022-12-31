@@ -18,8 +18,8 @@ pin = "" if ver == "1!0+dev" else f"=={ver}"
 setup(
     name="sheenflow-airflow",
     version=ver,
-    author="Elementl",
-    author_email="hello@elementl.com",
+    author="ciusji",
+    author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
     description="Airflow plugin for Sheenflow",
     classifiers=[
