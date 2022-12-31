@@ -21,9 +21,9 @@ export const LEFT_NAV_WIDTH = 332;
 const LeftNavContainer = styled.div<{$open: boolean; $smallScreen: boolean}>`
   position: fixed;
   z-index: 2;
-  top: 64px;
+  top: 47px;
   bottom: 0;
-  left: 0;
+  left: 60;
   width: ${LEFT_NAV_WIDTH}px;
   display: ${({$open, $smallScreen}) => ($open || $smallScreen ? 'flex' : 'none')};
   flex-shrink: 0;

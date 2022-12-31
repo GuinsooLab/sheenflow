@@ -45,18 +45,18 @@ const SettingsLink = styled(Link)`
   }
 
   &:hover ${IconWrapper} {
-    background: ${Colors.White};
+    background: ${Colors.Blue700};
   }
 
   &:active ${IconWrapper} {
-    background: ${Colors.White};
+    background: ${Colors.Blue700};
   }
 
   &:focus {
     outline: none;
 
     ${IconWrapper} {
-      background: ${Colors.White};
+      background: ${Colors.Blue700};
     }
   }
 `;
@@ -65,7 +65,7 @@ ReactDOM.render(
   <AppProvider appCache={appCache} config={config}>
     <AppTopNav searchPlaceholder="Search…">
       <SettingsLink to="/settings" title="User settings">
-        <Icon name="settings" color={Colors.Gray200} />
+        <Icon name="settings" color={Colors.Blue500} />
       </SettingsLink>
     </AppTopNav>
     <App>

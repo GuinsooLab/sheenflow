@@ -153,7 +153,7 @@ export const SearchDialog: React.FC<{searchPlaceholder: string}> = ({searchPlace
             <Box flex={{alignItems: 'center', gap: 8}}>
               <div
                 style={{
-                  background: Colors.Gray900,
+                  background: Colors.Gray200,
                   borderRadius: '12px',
                   height: '24px',
                   width: '24px',
@@ -162,7 +162,7 @@ export const SearchDialog: React.FC<{searchPlaceholder: string}> = ({searchPlace
                   justifyContent: 'center',
                 }}
               >
-                <Icon name="search" color={Colors.Gray50} />
+                <Icon name="search" color={Colors.Blue700} />
               </div>
               <Placeholder>{searchPlaceholder}</Placeholder>
             </Box>
@@ -178,7 +178,7 @@ export const SearchDialog: React.FC<{searchPlaceholder: string}> = ({searchPlace
       >
         <Container>
           <SearchBox hasQueryString={!!queryString.length}>
-            <Icon name="search" color={Colors.Gray200} size={20} />
+            <Icon name="search" color={Colors.Blue700} size={20} />
             <SearchInput
               autoFocus
               spellCheck={false}
@@ -203,10 +203,10 @@ export const SearchDialog: React.FC<{searchPlaceholder: string}> = ({searchPlace
 };
 
 const SearchTrigger = styled.button`
-  background-color: ${Colors.Gray800};
+  background-color: ${Colors.Gray100};
   border-radius: 24px;
   border: none;
-  color: ${Colors.Gray50};
+  color: ${Colors.Gray800};
   font-size: 14px;
   cursor: pointer;
   padding: 4px 16px 4px 4px;
@@ -216,7 +216,7 @@ const SearchTrigger = styled.button`
   height: 32px;
 
   :focus {
-    border-color: ${Colors.Gray100};
+    border-color: ${Colors.Blue700};
   }
 `;
 
@@ -262,7 +262,7 @@ const SearchInput = styled.input`
 `;
 
 const SlashShortcut = styled.div`
-  background-color: ${Colors.Gray700};
+  background-color: ${Colors.Blue500};
   border-radius: 3px;
   color: ${Colors.Gray100};
   font-size: 14px;

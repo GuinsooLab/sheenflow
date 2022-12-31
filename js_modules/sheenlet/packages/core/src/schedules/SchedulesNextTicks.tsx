@@ -125,7 +125,7 @@ export const SchedulesNextTicks: React.FC<{
             anySchedules ? null : (
               <ExternalAnchorButton
                 icon={<Icon name="open_in_new" />}
-                href="https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules"
+                href="https://ciusji.gitbook.io/sheenflow/concepts/schedule-and-sensors"
               >
                 View documentation
               </ExternalAnchorButton>

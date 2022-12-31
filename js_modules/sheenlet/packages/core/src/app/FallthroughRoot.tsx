@@ -92,7 +92,7 @@ const FinalRedirectOrLoadingRoot = () => {
             : 'Add a job to get started.'
         }
         action={
-          <ExternalAnchorButton href="https://docs.dagster.io/getting-started">
+          <ExternalAnchorButton href="https://ciusji.gitbook.io/sheenflow/">
             View documentation
           </ExternalAnchorButton>
         }

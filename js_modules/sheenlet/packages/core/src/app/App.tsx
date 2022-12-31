@@ -45,5 +45,6 @@ const Main = styled.div<{$smallScreen: boolean; $navOpen: boolean}>`
 
 const Container = styled.div`
   display: flex;
-  height: calc(100% - 64px);
+  height: calc(100% - 47px);
+  margin-left: 60px;
 `;
