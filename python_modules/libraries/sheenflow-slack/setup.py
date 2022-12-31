@@ -21,7 +21,7 @@ setup(
     author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
     description="A Slack client resource for posting to Slack",
-    url="https://github.com/GuinsooLab/sheenflow/tree/main/python_modules/libraries/dagster-slack",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/python_modules/libraries/sheenflow-slack",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
