@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 import pytest
 
 from dagster import job
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.execution.plan.plan import ExecutionPlan
-from dagster._serdes import deserialize_json_to_dagster_namedtuple
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.execution.plan.plan import ExecutionPlan
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple
 
 OLD_EXECUTION_PLAN_SNAPSHOT = """{
   "__class__": "ExecutionPlanSnapshot",

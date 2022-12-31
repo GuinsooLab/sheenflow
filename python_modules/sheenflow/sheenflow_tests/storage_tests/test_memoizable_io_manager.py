@@ -10,13 +10,13 @@ from dagster import (
     job,
     op,
 )
-from dagster._core.storage.memoizable_io_manager import (
+from sheenflow._core.storage.memoizable_io_manager import (
     MemoizableIOManager,
     VersionedPickledObjectFilesystemIOManager,
     versioned_filesystem_io_manager,
 )
-from dagster._core.storage.tags import MEMOIZED_RUN_TAG
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.storage.tags import MEMOIZED_RUN_TAG
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_versioned_pickled_object_filesystem_io_manager():

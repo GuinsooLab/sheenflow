@@ -17,13 +17,13 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._config import Field, Shape, StringSource
-from dagster._config.config_type import ConfigType
-from dagster._config.validate import validate_config
-from dagster._core.definitions.composition import MappedInputPlaceholder
-from dagster._core.definitions.dependency import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._config import Field, Shape, StringSource
+from sheenflow._config.config_type import ConfigType
+from sheenflow._config.validate import validate_config
+from sheenflow._core.definitions.composition import MappedInputPlaceholder
+from sheenflow._core.definitions.dependency import (
     DependencyDefinition,
     DynamicCollectDependencyDefinition,
     IDependencyDefinition,
@@ -33,25 +33,25 @@ from dagster._core.definitions.dependency import (
     NodeInvocation,
     NodeOutput,
 )
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.node_definition import NodeDefinition
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.utils import check_valid_name
-from dagster._core.errors import (
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.node_definition import NodeDefinition
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.utils import check_valid_name
+from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DagsterInvalidSubsetError,
 )
-from dagster._core.selector.subset_selector import (
+from sheenflow._core.selector.subset_selector import (
     AssetSelectionData,
     LeafNodeSelection,
     OpSelectionData,
     parse_op_selection,
 )
-from dagster._core.storage.io_manager import IOManagerDefinition, io_manager
-from dagster._core.utils import str_format_set
-from dagster._utils import merge_dicts
+from sheenflow._core.storage.io_manager import IOManagerDefinition, io_manager
+from sheenflow._core.utils import str_format_set
+from sheenflow._utils import merge_dicts
 
 from .asset_layer import AssetLayer, build_asset_selection_job
 from .config import ConfigMapping
@@ -71,10 +71,10 @@ from .utils import DEFAULT_IO_MANAGER_KEY
 from .version_strategy import VersionStrategy
 
 if TYPE_CHECKING:
-    from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
-    from dagster._core.execution.resources_init import InitResourceContext
-    from dagster._core.instance import DagsterInstance
-    from dagster._core.snap import PipelineSnapshot
+    from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
+    from sheenflow._core.execution.resources_init import InitResourceContext
+    from sheenflow._core.instance import DagsterInstance
+    from sheenflow._core.snap import PipelineSnapshot
 
 
 class JobDefinition(PipelineDefinition):
@@ -107,7 +107,7 @@ class JobDefinition(PipelineDefinition):
         _logger_defs_specified: Optional[bool] = None,
         _preset_defs: Optional[Sequence[PresetDefinition]] = None,
     ):
-        from dagster._loggers import default_loggers
+        from sheenflow._loggers import default_loggers
 
         check.inst_param(graph_def, "graph_def", GraphDefinition)
         resource_defs = check.opt_mapping_param(
@@ -321,8 +321,8 @@ class JobDefinition(PipelineDefinition):
             :py:class:`~sheenflow.ExecuteInProcessResult`
 
         """
-        from dagster._core.definitions.executor_definition import execute_in_process_executor
-        from dagster._core.execution.execute_in_process import core_execute_in_process
+        from sheenflow._core.definitions.executor_definition import execute_in_process_executor
+        from sheenflow._core.execution.execute_in_process import core_execute_in_process
 
         run_config = check.opt_mapping_param(run_config, "run_config")
         op_selection = check.opt_sequence_param(op_selection, "op_selection", str)
@@ -709,7 +709,7 @@ def _swap_default_io_man(resources: Mapping[str, ResourceDefinition], job: Pipel
     Used to create the user facing experience of the default io_manager
     switching to in-memory when using execute_in_process.
     """
-    from dagster._core.storage.mem_io_manager import mem_io_manager
+    from sheenflow._core.storage.mem_io_manager import mem_io_manager
 
     if (
         # pylint: disable=comparison-with-callable
@@ -848,7 +848,7 @@ def default_job_io_manager(init_context: "InitResourceContext"):
     silence_failures = os.getenv("DAGSTER_DEFAULT_IO_MANAGER_SILENCE_FAILURES")
 
     if module_name and attribute_name:
-        from dagster._core.execution.build_resources import build_resources
+        from sheenflow._core.execution.build_resources import build_resources
 
         try:
             module = importlib.import_module(module_name)
@@ -869,7 +869,7 @@ def default_job_io_manager(init_context: "InitResourceContext"):
                 )
 
     # normally, default to the fs_io_manager
-    from dagster._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
+    from sheenflow._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
 
     instance = check.not_none(init_context.instance)
     return PickledObjectFilesystemIOManager(base_dir=instance.storage_directory())
@@ -886,7 +886,7 @@ def default_job_io_manager_with_fs_io_manager_schema(init_context: "InitResource
     silence_failures = os.getenv("DAGSTER_DEFAULT_IO_MANAGER_SILENCE_FAILURES")
 
     if module_name and attribute_name:
-        from dagster._core.execution.build_resources import build_resources
+        from sheenflow._core.execution.build_resources import build_resources
 
         try:
             module = importlib.import_module(module_name)
@@ -905,7 +905,7 @@ def default_job_io_manager_with_fs_io_manager_schema(init_context: "InitResource
                     f"Failed to load io manager override with module: {module_name} attribute: {attribute_name}: {e}\n"
                     "Falling back to default io manager."
                 )
-    from dagster._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
+    from sheenflow._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
 
     # normally, default to the fs_io_manager
     base_dir = init_context.resource_config.get(

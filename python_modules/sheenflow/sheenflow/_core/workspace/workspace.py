@@ -2,10 +2,10 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from typing import TYPE_CHECKING, Mapping, NamedTuple, Optional, Sequence
 
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._utils.error import SerializableErrorInfo
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation import RepositoryLocation, RepositoryLocationOrigin
+    from sheenflow._core.host_representation import RepositoryLocation, RepositoryLocationOrigin
 
 # For locations that are loaded asynchronously
 class WorkspaceLocationLoadStatus(Enum):

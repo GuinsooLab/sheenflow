@@ -1,8 +1,8 @@
 from typing import Any, Dict, Mapping, Optional, cast
 
 from dagster import Field, Permissive
-from dagster._config.validate import process_config
-from dagster._core.errors import DagsterInvalidConfigError
+from sheenflow._config.validate import process_config
+from sheenflow._core.errors import DagsterInvalidConfigError
 
 SHARED_CONTAINER_CONTEXT_SCHEMA = Permissive(
     {

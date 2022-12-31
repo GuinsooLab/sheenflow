@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any, Callable, Mapping, Optional, Union
 
-import dagster._check as check
-from dagster._config import (
+import sheenflow._check as check
+from sheenflow._config import (
     ConfigAnyInstance,
     ConfigType,
     EvaluateValueResult,
@@ -11,10 +11,10 @@ from dagster._config import (
     convert_potential_field,
     process_config,
 )
-from dagster._core.errors import DagsterConfigMappingFunctionError, user_code_error_boundary
+from sheenflow._core.errors import DagsterConfigMappingFunctionError, user_code_error_boundary
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.configurable import ConfigurableDefinition
+    from sheenflow._core.definitions.configurable import ConfigurableDefinition
 
 CoercableToConfigSchema = Union[
     None,

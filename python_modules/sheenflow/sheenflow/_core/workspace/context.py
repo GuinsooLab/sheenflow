@@ -7,13 +7,13 @@ from contextlib import ExitStack
 from itertools import count
 from typing import TYPE_CHECKING, Dict, Mapping, Optional, Sequence, Union, cast
 
-import dagster._check as check
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.errors import (
     DagsterRepositoryLocationLoadError,
     DagsterRepositoryLocationNotFoundError,
 )
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.host_representation import (
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.host_representation import (
     ExternalExecutionPlan,
     ExternalPartitionSet,
     ExternalPipeline,
@@ -23,18 +23,18 @@ from dagster._core.host_representation import (
     RepositoryLocation,
     RepositoryLocationOrigin,
 )
-from dagster._core.host_representation.grpc_server_registry import (
+from sheenflow._core.host_representation.grpc_server_registry import (
     GrpcServerRegistry,
     ProcessGrpcServerRegistry,
 )
-from dagster._core.host_representation.grpc_server_state_subscriber import (
+from sheenflow._core.host_representation.grpc_server_state_subscriber import (
     LocationStateChangeEvent,
     LocationStateChangeEventType,
     LocationStateSubscriber,
 )
-from dagster._core.host_representation.origin import GrpcServerRepositoryLocationOrigin
-from dagster._core.instance import DagsterInstance
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._core.host_representation.origin import GrpcServerRepositoryLocationOrigin
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 from .load_target import WorkspaceLoadTarget
 from .permissions import PermissionResult, get_user_permissions
@@ -47,7 +47,7 @@ from .workspace import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation import (
+    from sheenflow._core.host_representation import (
         ExternalPartitionConfigData,
         ExternalPartitionExecutionErrorData,
         ExternalPartitionNamesData,
@@ -508,7 +508,7 @@ class WorkspaceProcessContext(IWorkspaceProcessContext):
             subscriber.handle_event(event)
 
     def _start_watch_thread(self, origin: GrpcServerRepositoryLocationOrigin) -> None:
-        from dagster._grpc.server_watcher import create_grpc_watch_thread
+        from sheenflow._grpc.server_watcher import create_grpc_watch_thread
 
         location_name = origin.location_name
         check.invariant(location_name not in self._watch_thread_shutdown_events)

@@ -11,10 +11,10 @@ from typing import (
     Tuple,
 )
 
-from dagster._core.host_representation.external import ExternalRepository
-from dagster._core.host_representation.handle import RepositoryHandle
-from dagster._core.selector.subset_selector import DependencyGraph
-from dagster._core.workspace.context import BaseWorkspaceRequestContext
+from sheenflow._core.host_representation.external import ExternalRepository
+from sheenflow._core.host_representation.handle import RepositoryHandle
+from sheenflow._core.selector.subset_selector import DependencyGraph
+from sheenflow._core.workspace.context import BaseWorkspaceRequestContext
 
 from .asset_graph import AssetGraph
 from .events import AssetKey
@@ -23,7 +23,7 @@ from .partition import PartitionsDefinition
 from .partition_mapping import PartitionMapping
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation.external_data import ExternalAssetNode
+    from sheenflow._core.host_representation.external_data import ExternalAssetNode
 
 
 class ExternalAssetGraph(AssetGraph):

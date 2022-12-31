@@ -3,8 +3,8 @@ from contextlib import contextmanager
 
 import pytest
 
-from dagster._utils.log import define_structured_logger
-from dagster._utils.test import create_test_pipeline_execution_context
+from sheenflow._utils.log import define_structured_logger
+from sheenflow._utils.test import create_test_pipeline_execution_context
 
 
 @contextmanager

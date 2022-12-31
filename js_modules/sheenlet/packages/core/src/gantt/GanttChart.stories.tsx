@@ -1,4 +1,4 @@
-import {CustomTooltipProvider} from '@sheenflow-io/ui';
+import {CustomTooltipProvider} from '@dagster-io/ui';
 import {Meta} from '@storybook/react/types-6-0';
 import React, {useState} from 'react';
 

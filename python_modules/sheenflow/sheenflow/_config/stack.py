@@ -1,6 +1,6 @@
 from typing import NamedTuple, Sequence, Tuple
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 class EvaluationStack(

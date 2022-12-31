@@ -9,9 +9,9 @@ from typing import NamedTuple, Set
 import pytest
 
 from dagster import _seven
-from dagster._check import ParameterCheckError, inst_param, set_param
-from dagster._serdes.errors import DeserializationError, SerdesUsageError, SerializationError
-from dagster._serdes.serdes import (
+from sheenflow._check import ParameterCheckError, inst_param, set_param
+from sheenflow._serdes.errors import DeserializationError, SerdesUsageError, SerializationError
+from sheenflow._serdes.serdes import (
     DefaultEnumSerializer,
     DefaultNamedTupleSerializer,
     EnumSerializer,
@@ -27,7 +27,7 @@ from dagster._serdes.serdes import (
     serialize_value,
     unpack_inner_value,
 )
-from dagster._serdes.utils import hash_str
+from sheenflow._serdes.utils import hash_str
 
 
 def test_deserialize_value_ok():

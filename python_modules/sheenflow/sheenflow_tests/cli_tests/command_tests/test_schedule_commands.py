@@ -5,7 +5,7 @@ import mock
 import pytest
 from click.testing import CliRunner
 
-from dagster._cli.schedule import (
+from sheenflow._cli.schedule import (
     check_repo_and_scheduler,
     schedule_list_command,
     schedule_logs_command,
@@ -14,9 +14,9 @@ from dagster._cli.schedule import (
     schedule_stop_command,
     schedule_wipe_command,
 )
-from dagster._core.host_representation import ExternalRepository
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import environ
+from sheenflow._core.host_representation import ExternalRepository
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import environ
 
 from .test_cli_commands import schedule_command_contexts, scheduler_instance
 

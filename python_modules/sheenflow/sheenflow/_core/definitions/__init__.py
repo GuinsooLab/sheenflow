@@ -1,4 +1,4 @@
-from dagster._core.definitions.node_definition import NodeDefinition
+from sheenflow._core.definitions.node_definition import NodeDefinition
 
 from .composition import PendingNodeInvocation
 from .config import ConfigMapping

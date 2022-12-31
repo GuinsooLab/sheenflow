@@ -1,8 +1,8 @@
 from functools import update_wrapper
 from typing import TYPE_CHECKING, AbstractSet, Any, Callable, Mapping, Optional, Union, overload
 
-import dagster._check as check
-from dagster._core.decorator_utils import format_docstring_for_description
+import sheenflow._check as check
+from sheenflow._core.decorator_utils import format_docstring_for_description
 
 from ..config import ConfigMapping
 from ..graph_definition import GraphDefinition
@@ -58,7 +58,7 @@ class _Job:
         if not self.name:
             self.name = fn.__name__
 
-        from dagster._core.definitions.composition import do_composition
+        from sheenflow._core.definitions.composition import do_composition
 
         (
             input_mappings,

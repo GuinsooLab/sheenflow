@@ -17,18 +17,18 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import experimental, public
-from dagster._core.definitions.asset_selection import AssetSelection
-from dagster._core.definitions.assets import AssetsDefinition
-from dagster._core.definitions.partition import PartitionsDefinition
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._annotations import experimental, public
+from sheenflow._core.definitions.asset_selection import AssetSelection
+from sheenflow._core.definitions.assets import AssetsDefinition
+from sheenflow._core.definitions.partition import PartitionsDefinition
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DagsterInvariantViolationError,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.instance.ref import InstanceRef
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.instance.ref import InstanceRef
 
 from ..decorator_utils import get_function_params
 from .events import AssetKey
@@ -43,9 +43,9 @@ from .target import ExecutableDefinition
 from .utils import check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.repository_definition import RepositoryDefinition
-    from dagster._core.events.log import EventLogEntry
-    from dagster._core.storage.event_log.base import EventLogRecord
+    from sheenflow._core.definitions.repository_definition import RepositoryDefinition
+    from sheenflow._core.events.log import EventLogEntry
+    from sheenflow._core.storage.event_log.base import EventLogRecord
 
 MAX_NUM_UNCONSUMED_EVENTS = 25
 
@@ -216,7 +216,7 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
         asset_keys: Optional[Sequence[AssetKey]],
         instance: Optional[DagsterInstance] = None,
     ):
-        from dagster._core.storage.event_log.base import EventLogRecord
+        from sheenflow._core.storage.event_log.base import EventLogRecord
 
         self._repository_def = repository_def
         if asset_selection is not None:
@@ -268,8 +268,8 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
         )
 
     def _cache_initial_unconsumed_events(self) -> None:
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         # This method caches the initial unconsumed events for each asset key. To generate the
         # current unconsumed events, call get_trailing_unconsumed_events instead.
@@ -371,8 +371,8 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
             materialization event for the asset. If there is no materialization event for the asset,
             the value in the mapping will be None.
         """
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         # Do not evaluate unconsumed events, only events newer than the cursor
         # if there are no new events after the cursor, the cursor points to the most
@@ -413,8 +413,8 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
             asset_key (AssetKey): The asset to fetch materialization events for
             limit (int): The number of events to fetch
         """
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         asset_key = check.inst_param(asset_key, "asset_key", AssetKey)
         if asset_key not in self._assets_by_key:
@@ -481,8 +481,8 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
                 # returns {"2022-07-05": EventLogRecord(...)}
 
         """
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventLogRecord, EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventLogRecord, EventRecordsFilter
 
         asset_key = check.inst_param(asset_key, "asset_key", AssetKey)
 
@@ -651,7 +651,7 @@ class MultiAssetSensorEvaluationContext(SensorEvaluationContext):
         )
 
     def _get_asset(self, asset_key: AssetKey, fn_name: str) -> AssetsDefinition:
-        from dagster._core.definitions.repository_definition import RepositoryDefinition
+        from sheenflow._core.definitions.repository_definition import RepositoryDefinition
 
         repo_def = cast(RepositoryDefinition, self._repository_def)
         repository_assets = repo_def._assets_defs_by_key  # pylint:disable=protected-access
@@ -821,8 +821,8 @@ class MultiAssetSensorCursorAdvances:
         context: MultiAssetSensorEvaluationContext,
         initial_cursor: MultiAssetSensorContextCursor,
     ) -> MultiAssetSensorAssetCursorComponent:
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         advanced_records: Set[int] = self._advanced_record_ids_by_key.get(asset_key, set())
         if len(advanced_records) == 0:
@@ -903,8 +903,8 @@ class MultiAssetSensorCursorAdvances:
 def get_cursor_from_latest_materializations(
     asset_keys: Sequence[AssetKey], instance: DagsterInstance
 ) -> str:
-    from dagster._core.events import DagsterEventType
-    from dagster._core.storage.event_log.base import EventRecordsFilter
+    from sheenflow._core.events import DagsterEventType
+    from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
     cursor_dict: Dict[str, MultiAssetSensorAssetCursorComponent] = {}
 
@@ -967,7 +967,7 @@ def build_multi_asset_sensor_context(
                 my_asset_sensor(context)
 
     """
-    from dagster._core.definitions import RepositoryDefinition
+    from sheenflow._core.definitions import RepositoryDefinition
 
     check.opt_inst_param(instance, "instance", DagsterInstance)
     check.opt_str_param(cursor, "cursor")

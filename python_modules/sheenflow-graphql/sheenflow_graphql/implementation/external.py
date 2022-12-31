@@ -5,13 +5,13 @@ from typing import TYPE_CHECKING, Mapping, Optional, Sequence, Union
 
 from graphene import ResolveInfo
 
-import dagster._check as check
-from dagster._config import validate_config_from_snap
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.host_representation import ExternalPipeline, PipelineSelector, RepositorySelector
-from dagster._core.host_representation.external import ExternalExecutionPlan
-from dagster._core.workspace.context import BaseWorkspaceRequestContext, WorkspaceRequestContext
-from dagster._utils.error import serializable_error_info_from_exc_info
+import sheenflow._check as check
+from sheenflow._config import validate_config_from_snap
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.host_representation import ExternalPipeline, PipelineSelector, RepositorySelector
+from sheenflow._core.host_representation.external import ExternalExecutionPlan
+from sheenflow._core.workspace.context import BaseWorkspaceRequestContext, WorkspaceRequestContext
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from .utils import UserFacingGraphQLError, capture_error
 

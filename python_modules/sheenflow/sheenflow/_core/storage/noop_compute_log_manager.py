@@ -1,15 +1,15 @@
 from contextlib import contextmanager
 from typing import IO, Generator, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.storage.captured_log_manager import (
+import sheenflow._check as check
+from sheenflow._core.storage.captured_log_manager import (
     CapturedLogContext,
     CapturedLogData,
     CapturedLogManager,
     CapturedLogMetadata,
     CapturedLogSubscription,
 )
-from dagster._serdes import ConfigurableClass, ConfigurableClassData
+from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
 
 from .compute_log_manager import (
     MAX_BYTES_FILE_READ,

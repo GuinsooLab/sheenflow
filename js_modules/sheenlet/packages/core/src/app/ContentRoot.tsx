@@ -1,4 +1,4 @@
-import {MainContent} from '@sheenflow-io/ui';
+import {MainContent} from '@dagster-io/ui';
 import * as React from 'react';
 import {Redirect, Route, Switch, useLocation} from 'react-router-dom';
 

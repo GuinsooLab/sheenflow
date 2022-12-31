@@ -8,7 +8,7 @@ import {
   Group,
   Tag,
   Trace,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {DaemonHealthFragment_allDaemonStatuses as DaemonStatus} from './types/DaemonHealthFragment';

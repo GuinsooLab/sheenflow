@@ -5,11 +5,11 @@ import re
 
 import pytest
 
-from dagster._core.definitions.events import Output
-from dagster._core.definitions.input import InputDefinition
-from dagster._core.definitions.metadata import MetadataEntry, MetadataValue
-from dagster._core.definitions.output import OutputDefinition
-from dagster._core.types.dagster_type import DagsterType
+from sheenflow._core.definitions.events import Output
+from sheenflow._core.definitions.input import InputDefinition
+from sheenflow._core.definitions.metadata import MetadataEntry, MetadataValue
+from sheenflow._core.definitions.output import OutputDefinition
+from sheenflow._core.types.dagster_type import DagsterType
 
 # ########################
 # ##### METADATA ARGUMENTS

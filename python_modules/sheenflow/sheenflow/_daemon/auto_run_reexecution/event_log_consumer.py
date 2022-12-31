@@ -1,12 +1,12 @@
 import os
 from typing import Callable, Dict, Iterator, List, Mapping, Optional, Sequence
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.pipeline_run import RunRecord, RunsFilter
-from dagster._core.workspace.context import IWorkspaceProcessContext
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.pipeline_run import RunRecord, RunsFilter
+from sheenflow._core.workspace.context import IWorkspaceProcessContext
 
 from ..daemon import IntervalDaemon
 from .auto_run_reexecution import consume_new_runs_for_automatic_reexecution

@@ -4,17 +4,17 @@ import json
 from abc import ABC, abstractmethod
 from typing import AbstractSet, Any, Mapping, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._config.field_utils import compute_fields_hash
-from dagster._core.definitions.assets import AssetsDefinition
-from dagster._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.definitions.metadata import MetadataUserInput
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.definitions.resource_requirement import ResourceAddable
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils import frozendict, frozenlist, make_readonly_value
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._config.field_utils import compute_fields_hash
+from sheenflow._core.definitions.assets import AssetsDefinition
+from sheenflow._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.definitions.metadata import MetadataUserInput
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.definitions.resource_requirement import ResourceAddable
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils import frozendict, frozenlist, make_readonly_value
 
 
 @whitelist_for_serdes

@@ -1,4 +1,4 @@
-import {BaseTag, Box, Colors, Icon, IconWrapper, MiddleTruncate, StyledTag} from '@sheenflow-io/ui';
+import {BaseTag, Box, Colors, Icon, IconWrapper, MiddleTruncate, StyledTag} from '@dagster-io/ui';
 import * as React from 'react';
 import {useRouteMatch} from 'react-router-dom';
 import styled from 'styled-components/macro';
@@ -17,7 +17,7 @@ import {repoAddressFromPath} from '../workspace/repoAddressFromPath';
 import {RepoAddress} from '../workspace/types';
 
 const validateExpandedKeys = (parsed: unknown) => (Array.isArray(parsed) ? parsed : []);
-const EXPANDED_REPO_KEYS = 'sheenlet.expanded-repo-keys';
+const EXPANDED_REPO_KEYS = 'dagit.expanded-repo-keys';
 
 export const SectionedLeftNav = () => {
   const {loading, visibleRepos} = React.useContext(WorkspaceContext);

@@ -1,7 +1,7 @@
 from typing import Any, Callable, Optional, Union, overload
 
-import dagster._check as check
-from dagster._config import UserConfigSchema
+import sheenflow._check as check
+from sheenflow._config import UserConfigSchema
 
 from ..config import ConfigMapping
 

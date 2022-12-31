@@ -1,7 +1,7 @@
 # pylint: disable=unused-argument
 
 from dagster import In, job, op
-from dagster._config.structured_config import StructuredConfigIOManager
+from sheenflow._config.structured_config import StructuredConfigIOManager
 
 
 def test_load_input_handle_output():

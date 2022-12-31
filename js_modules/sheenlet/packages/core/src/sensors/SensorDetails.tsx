@@ -7,7 +7,7 @@ import {
   Tag,
   Heading,
   FontFamily,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {QueryRefreshCountdown, QueryRefreshState} from '../app/QueryRefresh';

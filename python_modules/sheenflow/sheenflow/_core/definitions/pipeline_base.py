@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, AbstractSet, FrozenSet, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.errors import DagsterInvalidSubsetError
-from dagster._core.selector import parse_solid_selection
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.errors import DagsterInvalidSubsetError
+from sheenflow._core.selector import parse_solid_selection
 
 if TYPE_CHECKING:
     from .pipeline_definition import PipelineDefinition

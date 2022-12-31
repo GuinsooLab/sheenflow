@@ -2,8 +2,8 @@ from pydantic import Field
 from typing_extensions import Annotated
 
 from dagster import op
-from dagster._config.config_type import ConfigTypeKind
-from dagster._config.structured_config import Config
+from sheenflow._config.config_type import ConfigTypeKind
+from sheenflow._config.structured_config import Config
 
 
 def test_new_config_descriptions_and_defaults():

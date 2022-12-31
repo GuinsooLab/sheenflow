@@ -17,12 +17,12 @@ from typing import (
     overload,
 )
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._annotations import PublicAttr, experimental, public
-from dagster._core.errors import DagsterInvalidMetadata
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils.backcompat import (
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._annotations import PublicAttr, experimental, public
+from sheenflow._core.errors import DagsterInvalidMetadata
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils.backcompat import (
     canonicalize_backcompat_args,
     deprecation_warning,
     experimental_class_warning,
@@ -31,7 +31,7 @@ from dagster._utils.backcompat import (
 from .table import TableColumn, TableColumnConstraints, TableConstraints, TableRecord, TableSchema
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.events import AssetKey
+    from sheenflow._core.definitions.events import AssetKey
 
 RawMetadataValue = Union[
     "MetadataValue",
@@ -126,7 +126,7 @@ def normalize_metadata(
 
 
 def normalize_metadata_value(raw_value: RawMetadataValue):
-    from dagster._core.definitions.events import AssetKey
+    from sheenflow._core.definitions.events import AssetKey
 
     if isinstance(raw_value, MetadataValue):
         return raw_value
@@ -467,7 +467,7 @@ class MetadataValue(ABC):
             asset_key (AssetKey): The asset key referencing the asset.
         """
 
-        from dagster._core.definitions.events import AssetKey
+        from sheenflow._core.definitions.events import AssetKey
 
         check.inst_param(asset_key, "asset_key", AssetKey)
         return DagsterAssetMetadataValue(asset_key)
@@ -823,7 +823,7 @@ class DagsterAssetMetadataValue(
     """
 
     def __new__(cls, asset_key: "AssetKey"):
-        from dagster._core.definitions.events import AssetKey
+        from sheenflow._core.definitions.events import AssetKey
 
         return super(DagsterAssetMetadataValue, cls).__new__(
             cls, check.inst_param(asset_key, "asset_key", AssetKey)
@@ -1262,7 +1262,7 @@ class MetadataEntry(
             description (Optional[str]): A human-readable description of this metadata entry.
         """
 
-        from dagster._core.definitions.events import AssetKey
+        from sheenflow._core.definitions.events import AssetKey
 
         check.inst_param(asset_key, "asset_key", AssetKey)
         return MetadataEntry(label, description, DagsterAssetMetadataValue(asset_key))

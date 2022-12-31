@@ -7,7 +7,7 @@ import {
   MetadataTable,
   PageHeader,
   Subheading,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {useDocumentTitle} from '../hooks/useDocumentTitle';

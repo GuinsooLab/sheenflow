@@ -1,6 +1,6 @@
 from typing import Any, Mapping, NamedTuple, Optional
 
-from dagster._core.definitions.metadata.table import TableSchema
+from sheenflow._core.definitions.metadata.table import TableSchema
 
 
 class AirbyteTableMetadata:

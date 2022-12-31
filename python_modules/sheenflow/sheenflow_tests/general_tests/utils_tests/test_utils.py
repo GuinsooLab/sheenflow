@@ -2,8 +2,8 @@ import os
 
 import pytest
 
-from dagster._check import CheckError, ParameterCheckError
-from dagster._utils import EventGenerationManager, ensure_dir, ensure_gen, ensure_single_item
+from sheenflow._check import CheckError, ParameterCheckError
+from sheenflow._utils import EventGenerationManager, ensure_dir, ensure_gen, ensure_single_item
 
 
 def test_ensure_single_item():

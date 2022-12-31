@@ -1,8 +1,8 @@
-from dagster._core.definitions.decorators.source_asset_decorator import observable_source_asset
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.metadata import MetadataValue
-from dagster._core.definitions.partition import StaticPartitionsDefinition
-from dagster._core.storage.io_manager import io_manager
+from sheenflow._core.definitions.decorators.source_asset_decorator import observable_source_asset
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.metadata import MetadataValue
+from sheenflow._core.definitions.partition import StaticPartitionsDefinition
+from sheenflow._core.storage.io_manager import io_manager
 
 
 def test_all_fields():

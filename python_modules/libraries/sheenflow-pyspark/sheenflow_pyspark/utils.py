@@ -1,7 +1,7 @@
 import os
 import zipfile
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 def build_pyspark_zip(zip_file, path):

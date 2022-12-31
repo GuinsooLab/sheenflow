@@ -1,4 +1,4 @@
-import {SplitPanelContainer} from '@sheenflow-io/ui';
+import {SplitPanelContainer} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {LoadingOverlay} from './LoadingOverlay';

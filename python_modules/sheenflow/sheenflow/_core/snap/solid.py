@@ -1,8 +1,8 @@
 from typing import Mapping, NamedTuple, Optional, Sequence, Set, Union
 
-import dagster._check as check
-from dagster._config import ConfigFieldSnap, snap_from_field
-from dagster._core.definitions import (
+import sheenflow._check as check
+from sheenflow._config import ConfigFieldSnap, snap_from_field
+from sheenflow._core.definitions import (
     GraphDefinition,
     InputDefinition,
     InputMapping,
@@ -11,9 +11,9 @@ from dagster._core.definitions import (
     OutputMapping,
     PipelineDefinition,
 )
-from dagster._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
-from dagster._serdes import whitelist_for_serdes
-from dagster._serdes.serdes import DefaultNamedTupleSerializer
+from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._serdes.serdes import DefaultNamedTupleSerializer
 
 from .dep_snapshot import (
     DependencyStructureSnapshot,

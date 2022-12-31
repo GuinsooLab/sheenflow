@@ -1,4 +1,4 @@
-import {Button, Icon, MenuItem, Select} from '@sheenflow-io/ui';
+import {Button, Icon, MenuItem, Select} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {ModeNotFoundError} from './ModeNotFoundError';

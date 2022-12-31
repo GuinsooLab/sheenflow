@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from dagster._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.instance import MayHaveInstanceWeakref
 
 from .event_log.base import EventLogStorage
 from .runs.base import RunStorage

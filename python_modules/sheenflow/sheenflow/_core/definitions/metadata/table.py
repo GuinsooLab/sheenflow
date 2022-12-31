@@ -1,9 +1,9 @@
 from typing import Any, Mapping, NamedTuple, Optional, Sequence, Type, Union, cast
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, experimental, public
-from dagster._serdes.serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
-from dagster._utils import frozenlist
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, experimental, public
+from sheenflow._serdes.serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
+from sheenflow._utils import frozenlist
 
 # ########################
 # ##### TABLE RECORD

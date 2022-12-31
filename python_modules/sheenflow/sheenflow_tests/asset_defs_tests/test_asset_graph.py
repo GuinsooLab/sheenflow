@@ -22,12 +22,12 @@ from dagster import (
     op,
     repository,
 )
-from dagster._core.definitions.asset_graph import AssetGraph
-from dagster._core.definitions.events import AssetKeyPartitionKey
-from dagster._core.definitions.external_asset_graph import ExternalAssetGraph
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.host_representation.external_data import external_asset_graph_from_defs
-from dagster._seven.compat.pendulum import create_pendulum_time
+from sheenflow._core.definitions.asset_graph import AssetGraph
+from sheenflow._core.definitions.events import AssetKeyPartitionKey
+from sheenflow._core.definitions.external_asset_graph import ExternalAssetGraph
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.host_representation.external_data import external_asset_graph_from_defs
+from sheenflow._seven.compat.pendulum import create_pendulum_time
 
 
 def to_external_asset_graph(assets) -> AssetGraph:

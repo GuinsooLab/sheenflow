@@ -6,47 +6,47 @@ import pendulum
 import pytest
 
 from dagster import _seven, job, op
-from dagster._core.definitions import GraphDefinition
-from dagster._core.errors import (
+from sheenflow._core.definitions import GraphDefinition
+from sheenflow._core.errors import (
     DagsterRunAlreadyExists,
     DagsterRunNotFoundError,
     DagsterSnapshotDoesNotExist,
 )
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.execution.backfill import BulkActionStatus, PartitionBackfill
-from dagster._core.host_representation import (
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.execution.backfill import BulkActionStatus, PartitionBackfill
+from sheenflow._core.host_representation import (
     ExternalRepositoryOrigin,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
 )
-from dagster._core.instance import DagsterInstance, InstanceType
-from dagster._core.launcher.sync_in_memory_run_launcher import SyncInMemoryRunLauncher
-from dagster._core.run_coordinator import DefaultRunCoordinator
-from dagster._core.snap import create_pipeline_snapshot_id
-from dagster._core.storage.event_log import InMemoryEventLogStorage
-from dagster._core.storage.noop_compute_log_manager import NoOpComputeLogManager
-from dagster._core.storage.pipeline_run import (
+from sheenflow._core.instance import DagsterInstance, InstanceType
+from sheenflow._core.launcher.sync_in_memory_run_launcher import SyncInMemoryRunLauncher
+from sheenflow._core.run_coordinator import DefaultRunCoordinator
+from sheenflow._core.snap import create_pipeline_snapshot_id
+from sheenflow._core.storage.event_log import InMemoryEventLogStorage
+from sheenflow._core.storage.noop_compute_log_manager import NoOpComputeLogManager
+from sheenflow._core.storage.pipeline_run import (
     DagsterRun,
     DagsterRunStatus,
     JobBucket,
     RunsFilter,
     TagBucket,
 )
-from dagster._core.storage.root import LocalArtifactStorage
-from dagster._core.storage.runs.migration import REQUIRED_DATA_MIGRATIONS
-from dagster._core.storage.runs.sql_run_storage import SqlRunStorage
-from dagster._core.storage.tags import (
+from sheenflow._core.storage.root import LocalArtifactStorage
+from sheenflow._core.storage.runs.migration import REQUIRED_DATA_MIGRATIONS
+from sheenflow._core.storage.runs.sql_run_storage import SqlRunStorage
+from sheenflow._core.storage.tags import (
     PARENT_RUN_ID_TAG,
     PARTITION_NAME_TAG,
     PARTITION_SET_TAG,
     REPOSITORY_LABEL_TAG,
     ROOT_RUN_ID_TAG,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._core.utils import make_new_run_id
-from dagster._daemon.daemon import SensorDaemon
-from dagster._daemon.types import DaemonHeartbeat
-from dagster._serdes import serialize_pp
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._daemon.daemon import SensorDaemon
+from sheenflow._daemon.types import DaemonHeartbeat
+from sheenflow._serdes import serialize_pp
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 
 win_py36 = _seven.IS_WINDOWS and sys.version_info[0] == 3 and sys.version_info[1] == 6
 
@@ -861,8 +861,8 @@ class TestRunStorage:
             storage.add_run(run_with_missing_snapshot)
 
     def test_add_get_execution_snapshot(self, storage):
-        from dagster._core.execution.api import create_execution_plan
-        from dagster._core.snap import snapshot_from_execution_plan
+        from sheenflow._core.execution.api import create_execution_plan
+        from sheenflow._core.snap import snapshot_from_execution_plan
 
         pipeline_def = GraphDefinition(name="some_pipeline", node_defs=[]).to_job()
         execution_plan = create_execution_plan(pipeline_def)
@@ -1137,7 +1137,7 @@ class TestRunStorage:
         assert {_.run_id for _ in partition_data} == {one.run_id, two_retried.run_id, three.run_id}
 
     def _skip_in_memory(self, storage):
-        from dagster._core.storage.runs import InMemoryRunStorage
+        from sheenflow._core.storage.runs import InMemoryRunStorage
 
         if isinstance(storage, InMemoryRunStorage):
             pytest.skip()
@@ -1271,8 +1271,8 @@ class TestRunStorage:
         assert storage.get_run_by_id(run_id).status == DagsterRunStatus.SUCCESS
 
     def test_debug_snapshot_import(self, storage):
-        from dagster._core.execution.api import create_execution_plan
-        from dagster._core.snap import (
+        from sheenflow._core.execution.api import create_execution_plan
+        from sheenflow._core.snap import (
             create_execution_plan_snapshot_id,
             snapshot_from_execution_plan,
         )

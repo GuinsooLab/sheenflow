@@ -4,7 +4,7 @@ from dagster_graphql.test.utils import (
     infer_pipeline_selector,
 )
 
-from dagster._core.events import DagsterEventType
+from sheenflow._core.events import DagsterEventType
 
 from .graphql_context_test_suite import ExecutingGraphQLContextTestMatrix
 from .utils import sync_execute_get_run_log_data

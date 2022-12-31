@@ -2,11 +2,11 @@ import sys
 
 import graphene
 
-import dagster._check as check
-from dagster._core.instance import DagsterInstance
-from dagster._core.launcher.base import RunLauncher
-from dagster._core.storage.captured_log_manager import CapturedLogManager
-from dagster._daemon.types import DaemonStatus
+import sheenflow._check as check
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.launcher.base import RunLauncher
+from sheenflow._core.storage.captured_log_manager import CapturedLogManager
+from sheenflow._daemon.types import DaemonStatus
 
 from .errors import GraphenePythonError
 from .util import non_null_list
@@ -118,7 +118,7 @@ class GrapheneInstance(graphene.ObjectType):
         )
 
     def resolve_runQueuingSupported(self, _graphene_info):
-        from dagster._core.run_coordinator import QueuedRunCoordinator
+        from sheenflow._core.run_coordinator import QueuedRunCoordinator
 
         return isinstance(self._instance.run_coordinator, QueuedRunCoordinator)
 

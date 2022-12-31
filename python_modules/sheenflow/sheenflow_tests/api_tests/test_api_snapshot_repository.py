@@ -4,20 +4,20 @@ from contextlib import contextmanager
 import pytest
 
 from dagster import repository
-from dagster._api.snapshot_repository import sync_get_streaming_external_repositories_data_grpc
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation import (
+from sheenflow._api.snapshot_repository import sync_get_streaming_external_repositories_data_grpc
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation import (
     ExternalRepositoryData,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
 )
-from dagster._core.host_representation.external import ExternalRepository
-from dagster._core.host_representation.external_data import ExternalPipelineData
-from dagster._core.host_representation.handle import RepositoryHandle
-from dagster._core.host_representation.origin import ExternalRepositoryOrigin
-from dagster._core.test_utils import instance_for_test
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._legacy import lambda_solid, pipeline
-from dagster._serdes.serdes import deserialize_as
+from sheenflow._core.host_representation.external import ExternalRepository
+from sheenflow._core.host_representation.external_data import ExternalPipelineData
+from sheenflow._core.host_representation.handle import RepositoryHandle
+from sheenflow._core.host_representation.origin import ExternalRepositoryOrigin
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._legacy import lambda_solid, pipeline
+from sheenflow._serdes.serdes import deserialize_as
 
 from .utils import get_bar_repo_repository_location
 

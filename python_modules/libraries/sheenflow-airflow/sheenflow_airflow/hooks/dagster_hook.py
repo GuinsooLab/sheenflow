@@ -9,7 +9,7 @@ from airflow.exceptions import AirflowException
 from airflow.hooks.base_hook import BaseHook
 from airflow.models import Connection
 
-from dagster._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 
 
 class DagsterHook(BaseHook):

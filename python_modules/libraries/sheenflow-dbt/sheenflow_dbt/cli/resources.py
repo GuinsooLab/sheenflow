@@ -1,9 +1,9 @@
 from typing import Any, Mapping, Optional, Sequence, Set
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import Permissive, resource
-from dagster._annotations import public
-from dagster._utils.merger import merge_dicts
+from sheenflow._annotations import public
+from sheenflow._utils.merger import merge_dicts
 
 from ..dbt_resource import DbtResource
 from .constants import CLI_COMMON_FLAGS_CONFIG_SCHEMA, CLI_COMMON_OPTIONS_CONFIG_SCHEMA

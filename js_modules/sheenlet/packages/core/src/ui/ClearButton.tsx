@@ -1,4 +1,4 @@
-import {Colors, IconWrapper} from '@sheenflow-io/ui';
+import {Colors, IconWrapper} from '@dagster-io/ui';
 import styled from 'styled-components/macro';
 
 export const ClearButton = styled.button`

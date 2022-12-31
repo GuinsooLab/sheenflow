@@ -24,15 +24,15 @@ from dagster import (
     graph,
     op,
 )
-from dagster._core.definitions import asset, build_assets_job, multi_asset
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.partition_mapping import (
+from sheenflow._core.definitions import asset, build_assets_job, multi_asset
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.partition_mapping import (
     PartitionMapping,
     get_builtin_partition_mapping_types,
 )
-from dagster._core.definitions.time_window_partitions import TimeWindow
-from dagster._core.test_utils import assert_namedtuple_lists_equal
+from sheenflow._core.definitions.time_window_partitions import TimeWindow
+from sheenflow._core.test_utils import assert_namedtuple_lists_equal
 
 
 def test_filter_mapping_partitions_dep():

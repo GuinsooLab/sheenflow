@@ -1,4 +1,4 @@
-import {Button} from '@sheenflow-io/ui';
+import {Button} from '@dagster-io/ui';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as React from 'react';

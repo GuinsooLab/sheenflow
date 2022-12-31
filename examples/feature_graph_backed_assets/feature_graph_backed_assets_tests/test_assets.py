@@ -1,6 +1,6 @@
 from feature_graph_backed_assets import defs
 
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_feature_graph_backed_assets():

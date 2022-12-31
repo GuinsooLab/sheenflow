@@ -21,17 +21,17 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, public
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._serdes.serdes import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._serdes.serdes import (
     DefaultNamedTupleSerializer,
     WhitelistMap,
     register_serdes_tuple_fallbacks,
     whitelist_for_serdes,
 )
-from dagster._utils import frozentags
+from sheenflow._utils import frozentags
 
 from .hook_definition import HookDefinition
 from .input import FanInInputPointer, InputDefinition, InputMapping, InputPointer
@@ -39,7 +39,7 @@ from .output import OutputDefinition
 from .utils import DEFAULT_OUTPUT, struct_to_string, validate_tags
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.op_definition import OpDefinition
+    from sheenflow._core.definitions.op_definition import OpDefinition
 
     from .asset_layer import AssetLayer
     from .composition import MappedInputPlaceholder

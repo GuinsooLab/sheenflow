@@ -41,10 +41,10 @@ from dagster import (
     run_status_sensor,
     sensor,
 )
-from dagster._check import CheckError
-from dagster._core.errors import DagsterInvalidInvocationError
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import SensorExecutionContext
+from sheenflow._check import CheckError
+from sheenflow._core.errors import DagsterInvalidInvocationError
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import SensorExecutionContext
 
 
 def test_sensor_context_backcompat():

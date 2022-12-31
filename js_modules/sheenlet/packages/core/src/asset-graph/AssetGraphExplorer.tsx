@@ -1,4 +1,4 @@
-import {Box, Checkbox, Colors, NonIdealState, SplitPanelContainer} from '@sheenflow-io/ui';
+import {Box, Checkbox, Colors, NonIdealState, SplitPanelContainer} from '@dagster-io/ui';
 import pickBy from 'lodash/pickBy';
 import uniq from 'lodash/uniq';
 import without from 'lodash/without';

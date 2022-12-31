@@ -8,21 +8,21 @@ from contextlib import contextmanager
 from typing import IO, Generator, Optional, Sequence, Union
 
 from dagster import _check as check
-from dagster._core.storage.captured_log_manager import (
+from sheenflow._core.storage.captured_log_manager import (
     CapturedLogContext,
     CapturedLogData,
     CapturedLogManager,
     CapturedLogMetadata,
     CapturedLogSubscription,
 )
-from dagster._core.storage.compute_log_manager import (
+from sheenflow._core.storage.compute_log_manager import (
     MAX_BYTES_FILE_READ,
     ComputeIOType,
     ComputeLogFileData,
     ComputeLogManager,
     ComputeLogSubscription,
 )
-from dagster._core.storage.local_compute_log_manager import (
+from sheenflow._core.storage.local_compute_log_manager import (
     IO_TYPE_EXTENSION,
     LocalComputeLogManager,
 )

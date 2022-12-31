@@ -3,7 +3,7 @@ import typing
 import pytest
 
 from dagster import DagsterTypeCheckDidNotPass, In, Out, op
-from dagster._legacy import execute_solid
+from sheenflow._legacy import execute_solid
 
 
 def test_basic_list_output_pass():

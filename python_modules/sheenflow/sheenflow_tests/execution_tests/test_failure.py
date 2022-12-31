@@ -1,5 +1,5 @@
 from dagster import Failure, MetadataEntry
-from dagster._legacy import execute_pipeline, lambda_solid, pipeline
+from sheenflow._legacy import execute_pipeline, lambda_solid, pipeline
 
 
 def test_failure():

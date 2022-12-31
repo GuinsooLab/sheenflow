@@ -1,7 +1,7 @@
 from typing import AbstractSet, Any, Callable, Iterator, NamedTuple, Optional, cast
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
 
 from ..decorator_utils import get_function_params
 from ..errors import DagsterInvalidInvocationError

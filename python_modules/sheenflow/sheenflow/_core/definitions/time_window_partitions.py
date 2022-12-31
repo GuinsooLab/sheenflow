@@ -17,10 +17,10 @@ from typing import (
 
 import pendulum
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, public
-from dagster._utils.partitions import DEFAULT_HOURLY_FORMAT_WITHOUT_TIMEZONE
-from dagster._utils.schedules import cron_string_iterator, reverse_cron_string_iterator
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._utils.partitions import DEFAULT_HOURLY_FORMAT_WITHOUT_TIMEZONE
+from sheenflow._utils.schedules import cron_string_iterator, reverse_cron_string_iterator
 
 from .partition import (
     DEFAULT_DATE_FORMAT,
@@ -284,7 +284,7 @@ class TimeWindowPartitionsDefinition(
         return self.time_window_for_partition_key(partition_key).end
 
     def get_default_partition_mapping(self):
-        from dagster._core.definitions.time_window_partition_mapping import (
+        from sheenflow._core.definitions.time_window_partition_mapping import (
             TimeWindowPartitionMapping,
         )
 

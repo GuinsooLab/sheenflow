@@ -3,7 +3,7 @@ import re
 import pytest
 
 from dagster import DagsterInvalidDefinitionError, Dict, List, Noneable, Optional, op
-from dagster._core.errors import DagsterInvalidConfigDefinitionError
+from sheenflow._core.errors import DagsterInvalidConfigDefinitionError
 
 
 def test_invalid_optional_in_config():

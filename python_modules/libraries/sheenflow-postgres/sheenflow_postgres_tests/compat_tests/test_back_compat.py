@@ -18,13 +18,13 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.errors import DagsterInvalidInvocationError
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.event_log.migration import ASSET_KEY_INDEX_COLS
-from dagster._core.storage.pipeline_run import RunsFilter
-from dagster._core.storage.tags import PARTITION_NAME_TAG, PARTITION_SET_TAG
-from dagster._legacy import execute_pipeline, pipeline, solid
-from dagster._utils import file_relative_path
+from sheenflow._core.errors import DagsterInvalidInvocationError
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.event_log.migration import ASSET_KEY_INDEX_COLS
+from sheenflow._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG, PARTITION_SET_TAG
+from sheenflow._legacy import execute_pipeline, pipeline, solid
+from sheenflow._utils import file_relative_path
 
 
 def get_columns(instance, table_name: str):
@@ -527,8 +527,8 @@ def test_instigators_table_backcompat(hostname, conn_string):
 
 
 def test_jobs_selector_id_migration(hostname, conn_string):
-    from dagster._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
-    from dagster._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
+    from sheenflow._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
+    from sheenflow._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
 
     _reconstruct_from_file(
         hostname,

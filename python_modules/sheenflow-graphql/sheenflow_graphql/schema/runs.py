@@ -4,9 +4,9 @@ import graphene
 import yaml
 from graphene.types.generic import GenericScalar
 
-import dagster._check as check
-from dagster._utils.error import serializable_error_info_from_exc_info
-from dagster._utils.yaml_utils import load_run_config_yaml
+import sheenflow._check as check
+from sheenflow._utils.error import serializable_error_info_from_exc_info
+from sheenflow._utils.yaml_utils import load_run_config_yaml
 
 from ..implementation.fetch_runs import get_runs, get_runs_count
 from ..implementation.utils import UserFacingGraphQLError

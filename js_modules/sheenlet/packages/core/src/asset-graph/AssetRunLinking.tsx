@@ -1,4 +1,4 @@
-import {Colors, Icon, Tooltip, Box, Spinner, Tag, CaptionMono} from '@sheenflow-io/ui';
+import {Colors, Icon, Tooltip, Box, Spinner, Tag, CaptionMono} from '@dagster-io/ui';
 import React from 'react';
 import {Link} from 'react-router-dom';
 

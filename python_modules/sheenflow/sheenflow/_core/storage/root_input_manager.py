@@ -2,24 +2,24 @@ from abc import abstractmethod
 from functools import update_wrapper
 from typing import TYPE_CHECKING, AbstractSet, Callable, Optional, Union, cast
 
-import dagster._check as check
-from dagster._annotations import experimental
-from dagster._core.definitions.config import is_callable_valid_config_arg
-from dagster._core.definitions.definition_config_schema import (
+import sheenflow._check as check
+from sheenflow._annotations import experimental
+from sheenflow._core.definitions.config import is_callable_valid_config_arg
+from sheenflow._core.definitions.definition_config_schema import (
     CoercableToConfigSchema,
     IDefinitionConfigSchema,
     convert_user_facing_definition_config_schema,
 )
-from dagster._core.definitions.resource_definition import (
+from sheenflow._core.definitions.resource_definition import (
     ResourceDefinition,
     ResourceFunction,
     is_context_provided,
 )
-from dagster._core.storage.input_manager import IInputManagerDefinition, InputLoadFn, InputManager
-from dagster._utils.backcompat import deprecation_warning
+from sheenflow._core.storage.input_manager import IInputManagerDefinition, InputLoadFn, InputManager
+from sheenflow._utils.backcompat import deprecation_warning
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.input import InputContext
+    from sheenflow._core.execution.context.input import InputContext
 
 
 class RootInputManagerDefinition(ResourceDefinition, IInputManagerDefinition):

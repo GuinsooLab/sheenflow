@@ -1,7 +1,7 @@
 import os
 import sqlite3
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 def create_db_conn_string(base_dir, db_name):

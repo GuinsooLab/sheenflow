@@ -13,17 +13,17 @@ from typing import (
     overload,
 )
 
-import dagster._check as check
-from dagster._builtins import Nothing
-from dagster._config import UserConfigSchema
-from dagster._core.decorator_utils import get_function_params, get_valid_name_permutations
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.definitions.resource_output import get_resource_args
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.storage.io_manager import IOManagerDefinition
-from dagster._core.types.dagster_type import DagsterType
-from dagster._seven import funcsigs
-from dagster._utils.backcompat import (
+import sheenflow._check as check
+from sheenflow._builtins import Nothing
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.decorator_utils import get_function_params, get_valid_name_permutations
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.definitions.resource_output import get_resource_args
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.storage.io_manager import IOManagerDefinition
+from sheenflow._core.types.dagster_type import DagsterType
+from sheenflow._seven import funcsigs
+from sheenflow._utils.backcompat import (
     ExperimentalWarning,
     deprecation_warning,
     experimental_arg_warning,

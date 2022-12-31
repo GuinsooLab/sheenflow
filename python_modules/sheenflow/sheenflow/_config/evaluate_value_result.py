@@ -8,7 +8,7 @@ from typing import (  # pylint: disable=unused-import
     TypeVar,
 )
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .errors import EvaluationError
 

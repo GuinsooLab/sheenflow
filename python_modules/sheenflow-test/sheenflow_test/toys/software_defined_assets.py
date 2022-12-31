@@ -2,7 +2,7 @@
 import time
 
 from dagster import AssetKey, IOManager, IOManagerDefinition, SourceAsset, asset
-from dagster._legacy import AssetGroup
+from sheenflow._legacy import AssetGroup
 
 sfo_q2_weather_sample = SourceAsset(key=AssetKey("sfo_q2_weather_sample"))
 

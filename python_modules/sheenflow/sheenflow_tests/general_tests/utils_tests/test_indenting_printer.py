@@ -1,7 +1,7 @@
 import pytest
 
-from dagster._check import CheckError
-from dagster._utils.indenting_printer import IndentingPrinter, IndentingStringIoPrinter
+from sheenflow._check import CheckError
+from sheenflow._utils.indenting_printer import IndentingPrinter, IndentingStringIoPrinter
 
 LOREM_IPSUM = (
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut "

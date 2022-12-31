@@ -21,15 +21,15 @@ from typing import (
 
 from toposort import CircularDependencyError, toposort_flatten
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.config import ConfigMapping
-from dagster._core.definitions.definition_config_schema import IDefinitionConfigSchema
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.selector.subset_selector import AssetSelectionData
-from dagster._core.types.dagster_type import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._core.definitions.definition_config_schema import IDefinitionConfigSchema
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.selector.subset_selector import AssetSelectionData
+from sheenflow._core.types.dagster_type import (
     DagsterType,
     DagsterTypeKind,
     construct_dagster_type_dictionary,
@@ -55,8 +55,8 @@ from .solid_container import create_execution_structure, validate_dependency_dic
 from .version_strategy import VersionStrategy
 
 if TYPE_CHECKING:
-    from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
+    from sheenflow._core.instance import DagsterInstance
 
     from .asset_layer import AssetLayer
     from .composition import PendingNodeInvocation
@@ -666,8 +666,8 @@ class GraphDefinition(NodeDefinition):
         Returns:
             :py:class:`~sheenflow.ExecuteInProcessResult`
         """
-        from dagster._core.execution.build_resources import wrap_resources_for_execution
-        from dagster._core.instance import DagsterInstance
+        from sheenflow._core.execution.build_resources import wrap_resources_for_execution
+        from sheenflow._core.instance import DagsterInstance
 
         from .executor_definition import execute_in_process_executor
         from .job_definition import JobDefinition

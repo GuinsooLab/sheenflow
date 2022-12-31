@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['plugin:storybook/recommended', '@sheenflow-io/eslint-config'],
+  extends: ['plugin:storybook/recommended', '@dagster-io/eslint-config'],
 };

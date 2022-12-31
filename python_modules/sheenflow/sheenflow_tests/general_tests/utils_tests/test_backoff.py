@@ -1,6 +1,6 @@
 import pytest
 
-from dagster._utils.backoff import backoff, backoff_delay_generator
+from sheenflow._utils.backoff import backoff, backoff_delay_generator
 
 
 class UnretryableException(Exception):

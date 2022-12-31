@@ -4,17 +4,17 @@ from typing import TYPE_CHECKING, Any, Mapping, Optional, Tuple, Type, cast
 
 from dagster import Array, Bool
 from dagster import _check as check
-from dagster._config import Field, Permissive, ScalarUnion, Selector, StringSource, validate_config
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._core.storage.config import mysql_config, pg_config
-from dagster._serdes import class_from_code_pointer
-from dagster._utils import merge_dicts
-from dagster._utils.yaml_utils import load_yaml_from_globs
+from sheenflow._config import Field, Permissive, ScalarUnion, Selector, StringSource, validate_config
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._core.storage.config import mysql_config, pg_config
+from sheenflow._serdes import class_from_code_pointer
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.yaml_utils import load_yaml_from_globs
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.run_request import InstigatorType
-    from dagster._core.instance import DagsterInstance
-    from dagster._core.scheduler.instigation import TickStatus
+    from sheenflow._core.definitions.run_request import InstigatorType
+    from sheenflow._core.instance import DagsterInstance
+    from sheenflow._core.scheduler.instigation import TickStatus
 
 DAGSTER_CONFIG_YAML_FILENAME = "sheenflow.yaml"
 
@@ -156,8 +156,8 @@ DEFAULT_LOCAL_CODE_SERVER_STARTUP_TIMEOUT = 180
 def get_default_tick_retention_settings(
     instigator_type: "InstigatorType",
 ) -> Mapping["TickStatus", int]:
-    from dagster._core.definitions.run_request import InstigatorType
-    from dagster._core.scheduler.instigation import TickStatus
+    from sheenflow._core.definitions.run_request import InstigatorType
+    from sheenflow._core.scheduler.instigation import TickStatus
 
     if instigator_type == InstigatorType.SCHEDULE:
         return {

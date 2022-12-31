@@ -14,17 +14,17 @@ from dagster import (
     reconstructable,
     repository,
 )
-from dagster._core.code_pointer import FileCodePointer
-from dagster._core.definitions.reconstruct import ReconstructableJob
-from dagster._core.origin import (
+from sheenflow._core.code_pointer import FileCodePointer
+from sheenflow._core.definitions.reconstruct import ReconstructableJob
+from sheenflow._core.origin import (
     DEFAULT_DAGSTER_ENTRY_POINT,
     PipelinePythonOrigin,
     RepositoryPythonOrigin,
 )
-from dagster._core.snap import PipelineSnapshot, create_pipeline_snapshot_id
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import file_relative_path
-from dagster._utils.hosted_user_process import recon_pipeline_from_origin
+from sheenflow._core.snap import PipelineSnapshot, create_pipeline_snapshot_id
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import file_relative_path
+from sheenflow._utils.hosted_user_process import recon_pipeline_from_origin
 
 
 @op

@@ -1,4 +1,4 @@
-import {Colors} from '@sheenflow-io/ui';
+import {Colors} from '@dagster-io/ui';
 
 import {IRunMetadataDict, IStepAttempt, IStepState} from '../runs/RunMetadataProvider';
 

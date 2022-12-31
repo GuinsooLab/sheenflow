@@ -2,7 +2,7 @@ import traceback
 from types import TracebackType
 from typing import Any, NamedTuple, Optional, Sequence, Tuple, Type, Union
 
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._serdes import whitelist_for_serdes
 
 
 # mypy does not support recursive types, so "cause" has to be typed `Any`
@@ -83,7 +83,7 @@ def serializable_error_info_from_exc_info(
     hoist_user_code_error: Optional[bool] = True,
 ) -> SerializableErrorInfo:
     _exc_type, e, _tb = exc_info
-    from dagster._core.errors import DagsterUserCodeProcessError
+    from sheenflow._core.errors import DagsterUserCodeProcessError
 
     if (
         hoist_user_code_error

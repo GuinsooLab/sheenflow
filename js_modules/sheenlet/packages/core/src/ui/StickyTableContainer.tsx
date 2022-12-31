@@ -1,4 +1,4 @@
-import {Colors} from '@sheenflow-io/ui';
+import {Colors} from '@dagster-io/ui';
 import styled from 'styled-components/macro';
 
 interface Props {

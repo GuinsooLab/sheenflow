@@ -1,15 +1,15 @@
 from typing import TYPE_CHECKING, Mapping, NamedTuple
 
-import dagster._check as check
-from dagster._core.host_representation.origin import (
+import sheenflow._check as check
+from sheenflow._core.host_representation.origin import (
     ExternalRepositoryOrigin,
     RepositoryLocationOrigin,
 )
-from dagster._core.host_representation.selector import PipelineSelector
-from dagster._core.origin import RepositoryPythonOrigin
+from sheenflow._core.host_representation.selector import PipelineSelector
+from sheenflow._core.origin import RepositoryPythonOrigin
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation.repository_location import RepositoryLocation
+    from sheenflow._core.host_representation.repository_location import RepositoryLocation
 
 
 class RepositoryHandle(
@@ -24,7 +24,7 @@ class RepositoryHandle(
     )
 ):
     def __new__(cls, repository_name: str, repository_location: "RepositoryLocation"):
-        from dagster._core.host_representation.repository_location import RepositoryLocation
+        from sheenflow._core.host_representation.repository_location import RepositoryLocation
 
         check.inst_param(repository_location, "repository_location", RepositoryLocation)
         return super(RepositoryHandle, cls).__new__(

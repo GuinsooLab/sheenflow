@@ -1,14 +1,14 @@
 from enum import Enum
 from typing import TYPE_CHECKING, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.metadata import MetadataEntry
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
-from dagster._utils.types import ExcInfo
+import sheenflow._check as check
+from sheenflow._core.definitions.metadata import MetadataEntry
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._utils.types import ExcInfo
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.execution.context.system import StepExecutionContext
 
 
 @whitelist_for_serdes
@@ -117,7 +117,7 @@ def step_failure_event_from_exc_info(
     user_failure_data: Optional[UserFailureData] = None,
     error_source: Optional[ErrorSource] = None,
 ):
-    from dagster._core.events import DagsterEvent
+    from sheenflow._core.events import DagsterEvent
 
     return DagsterEvent.step_failure_event(
         step_context=step_context,

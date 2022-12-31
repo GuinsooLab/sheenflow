@@ -20,21 +20,21 @@ from dagster_graphql.schema.solids import (
 
 from dagster import AssetKey
 from dagster import _check as check
-from dagster._core.definitions.external_asset_graph import ExternalAssetGraph
-from dagster._core.definitions.logical_version import (
+from sheenflow._core.definitions.external_asset_graph import ExternalAssetGraph
+from sheenflow._core.definitions.logical_version import (
     DEFAULT_LOGICAL_VERSION,
     extract_logical_version_from_entry,
 )
-from dagster._core.host_representation import ExternalRepository, RepositoryLocation
-from dagster._core.host_representation.external import ExternalPipeline
-from dagster._core.host_representation.external_data import (
+from sheenflow._core.host_representation import ExternalRepository, RepositoryLocation
+from sheenflow._core.host_representation.external import ExternalPipeline
+from sheenflow._core.host_representation.external_data import (
     ExternalAssetNode,
     ExternalMultiPartitionsDefinitionData,
     ExternalStaticPartitionsDefinitionData,
     ExternalTimeWindowPartitionsDefinitionData,
 )
-from dagster._core.snap.solid import CompositeSolidDefSnap, SolidDefSnap
-from dagster._utils.caching_instance_queryer import CachingInstanceQueryer
+from sheenflow._core.snap.solid import CompositeSolidDefSnap, SolidDefSnap
+from sheenflow._utils.caching_instance_queryer import CachingInstanceQueryer
 
 from ..implementation.fetch_assets import (
     get_freshness_info,

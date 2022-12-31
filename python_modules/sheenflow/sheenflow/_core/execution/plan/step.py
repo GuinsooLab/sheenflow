@@ -15,18 +15,18 @@ from typing import (
 
 from typing_extensions import TypeGuard
 
-import dagster._check as check
-from dagster._core.definitions.utils import validate_tags
-from dagster._serdes.serdes import DefaultEnumSerializer, whitelist_for_serdes
-from dagster._utils import merge_dicts
+import sheenflow._check as check
+from sheenflow._core.definitions.utils import validate_tags
+from sheenflow._serdes.serdes import DefaultEnumSerializer, whitelist_for_serdes
+from sheenflow._utils import merge_dicts
 
 from .handle import ResolvedFromDynamicStepHandle, StepHandle, UnresolvedStepHandle
 from .inputs import StepInput, UnresolvedCollectStepInput, UnresolvedMappedStepInput
 from .outputs import StepOutput
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.dependency import Node, NodeHandle
-    from dagster._core.definitions.hook_definition import HookDefinition
+    from sheenflow._core.definitions.dependency import Node, NodeHandle
+    from sheenflow._core.definitions.hook_definition import HookDefinition
 
 
 class StepKindSerializer(DefaultEnumSerializer):

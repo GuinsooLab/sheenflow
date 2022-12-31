@@ -1,8 +1,8 @@
 from functools import update_wrapper
 from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 
-import dagster._check as check
-from dagster._core.decorator_utils import format_docstring_for_description
+import sheenflow._check as check
+from sheenflow._core.decorator_utils import format_docstring_for_description
 
 from ..config import ConfigMapping
 from ..graph_definition import GraphDefinition
@@ -67,7 +67,7 @@ class _Graph:
             check.dict_param(self.out, "out", key_type=str, value_type=GraphOut)
             output_defs = [out.to_definition(name=name) for name, out in self.out.items()]
 
-        from dagster._core.definitions.composition import do_composition
+        from sheenflow._core.definitions.composition import do_composition
 
         (
             input_mappings,

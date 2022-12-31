@@ -1,8 +1,8 @@
 import typing
 
-import dagster._check as check
-from dagster._config import Array
-from dagster._core.types.dagster_type import DagsterTypeKind
+import sheenflow._check as check
+from sheenflow._config import Array
+from sheenflow._core.types.dagster_type import DagsterTypeKind
 
 from .config_schema import DagsterTypeLoader
 from .dagster_type import DagsterType, PythonObjectDagsterType, resolve_dagster_type
@@ -43,7 +43,7 @@ class _TypedPythonSet(DagsterType):
         )
 
     def type_check_method(self, context, value):
-        from dagster._core.definitions.events import TypeCheck
+        from sheenflow._core.definitions.events import TypeCheck
 
         if not isinstance(value, set):
             return TypeCheck(

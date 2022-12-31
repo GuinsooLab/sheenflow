@@ -13,12 +13,12 @@ from dagster_graphql.test.utils import (
     infer_pipeline_selector,
 )
 
-from dagster._core.execution.plan.resume_retry import ReexecutionStrategy
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import RESUME_RETRY_TAG
-from dagster._core.test_utils import poll_for_finished_run
-from dagster._core.utils import make_new_run_id
-from dagster._seven.temp_dir import get_system_temp_directory
+from sheenflow._core.execution.plan.resume_retry import ReexecutionStrategy
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import RESUME_RETRY_TAG
+from sheenflow._core.test_utils import poll_for_finished_run
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._seven.temp_dir import get_system_temp_directory
 
 from .graphql_context_test_suite import ExecutingGraphQLContextTestMatrix
 from .repo import csv_hello_world_solids_config, get_retry_multi_execution_params, retry_config

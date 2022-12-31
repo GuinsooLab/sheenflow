@@ -13,23 +13,23 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._core.assets import AssetDetails
-from dagster._core.definitions.events import AssetKey
-from dagster._core.event_api import EventLogRecord, EventRecordsFilter
-from dagster._core.events import DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.execution.stats import (
+import sheenflow._check as check
+from sheenflow._core.assets import AssetDetails
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.event_api import EventLogRecord, EventRecordsFilter
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.execution.stats import (
     RunStepKeyStatsSnapshot,
     build_run_stats_from_events,
     build_run_step_stats_from_events,
 )
-from dagster._core.instance import MayHaveInstanceWeakref
-from dagster._core.storage.pipeline_run import PipelineRunStatsSnapshot
-from dagster._seven import json
+from sheenflow._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.storage.pipeline_run import PipelineRunStatsSnapshot
+from sheenflow._seven import json
 
 if TYPE_CHECKING:
-    from dagster._core.storage.partition_status_cache import AssetStatusCacheValue
+    from sheenflow._core.storage.partition_status_cache import AssetStatusCacheValue
 
 
 class EventLogConnection(NamedTuple):
@@ -104,7 +104,7 @@ class AssetEntry(
         asset_details: Optional[AssetDetails] = None,
         cached_status: Optional["AssetStatusCacheValue"] = None,
     ):
-        from dagster._core.storage.partition_status_cache import AssetStatusCacheValue
+        from sheenflow._core.storage.partition_status_cache import AssetStatusCacheValue
 
         return super(AssetEntry, cls).__new__(
             cls,

@@ -1,5 +1,5 @@
-import {Alert, Box, Spinner} from '@sheenflow-io/ui';
-import {BorderSetting} from '@sheenflow-io/ui/src/components/types';
+import {Alert, Box, Spinner} from '@dagster-io/ui';
+import {BorderSetting} from '@dagster-io/ui/src/components/types';
 import React from 'react';
 import {Link} from 'react-router-dom';
 

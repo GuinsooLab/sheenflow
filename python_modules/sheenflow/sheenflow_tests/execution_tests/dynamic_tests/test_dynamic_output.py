@@ -15,10 +15,10 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.definitions.events import Output
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
-from dagster._core.events import DagsterEventType
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions.events import Output
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_basic():

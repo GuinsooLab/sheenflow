@@ -35,12 +35,12 @@ from dagster import (
 )
 from dagster import _check as check
 from dagster import get_dagster_logger, op
-from dagster._core.definitions.events import CoercibleToAssetKeyPrefix
-from dagster._core.definitions.load_assets_from_modules import prefix_assets
-from dagster._core.definitions.metadata import RawMetadataValue
-from dagster._core.errors import DagsterInvalidSubsetError
-from dagster._legacy import OpExecutionContext
-from dagster._utils.backcompat import experimental_arg_warning
+from sheenflow._core.definitions.events import CoercibleToAssetKeyPrefix
+from sheenflow._core.definitions.load_assets_from_modules import prefix_assets
+from sheenflow._core.definitions.metadata import RawMetadataValue
+from sheenflow._core.errors import DagsterInvalidSubsetError
+from sheenflow._legacy import OpExecutionContext
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 
 def _load_manifest_for_project(

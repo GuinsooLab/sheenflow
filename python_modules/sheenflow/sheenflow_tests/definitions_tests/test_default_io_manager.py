@@ -9,9 +9,9 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.errors import DagsterSubprocessError
-from dagster._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
-from dagster._core.test_utils import environ, instance_for_test
+from sheenflow._core.errors import DagsterSubprocessError
+from sheenflow._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
+from sheenflow._core.test_utils import environ, instance_for_test
 
 
 @pytest.fixture

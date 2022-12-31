@@ -1,20 +1,20 @@
 from graphene import ResolveInfo
 
-import dagster._check as check
-from dagster._core.host_representation import (
+import sheenflow._check as check
+from sheenflow._core.host_representation import (
     ExternalPartitionSet,
     RepositoryHandle,
     RepositorySelector,
 )
-from dagster._core.storage.pipeline_run import RunsFilter
-from dagster._core.storage.tags import (
+from sheenflow._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.storage.tags import (
     PARTITION_NAME_TAG,
     PARTITION_SET_TAG,
     REPOSITORY_LABEL_TAG,
     TagType,
     get_tag_type,
 )
-from dagster._utils.yaml_utils import dump_run_config_yaml
+from sheenflow._utils.yaml_utils import dump_run_config_yaml
 
 from .utils import capture_error
 

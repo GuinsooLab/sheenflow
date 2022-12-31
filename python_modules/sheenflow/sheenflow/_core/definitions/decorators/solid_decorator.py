@@ -13,13 +13,13 @@ from typing import (
     overload,
 )
 
-import dagster._check as check
-from dagster._config import UserConfigSchema
-from dagster._core.decorator_utils import format_docstring_for_description
-from dagster._core.definitions.resource_output import get_resource_args
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.types.dagster_type import DagsterTypeKind
-from dagster._seven import funcsigs
+import sheenflow._check as check
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.decorator_utils import format_docstring_for_description
+from sheenflow._core.definitions.resource_output import get_resource_args
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.types.dagster_type import DagsterTypeKind
+from sheenflow._seven import funcsigs
 
 from ...decorator_utils import (
     get_function_params,

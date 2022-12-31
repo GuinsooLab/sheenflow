@@ -1,4 +1,4 @@
-import {FontFamily} from '@sheenflow-io/ui';
+import {FontFamily} from '@dagster-io/ui';
 import styled from 'styled-components/macro';
 
 export const Version = styled.div`

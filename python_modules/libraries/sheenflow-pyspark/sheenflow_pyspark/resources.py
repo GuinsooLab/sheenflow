@@ -2,7 +2,7 @@ from dagster_spark.configs_spark import spark_config
 from dagster_spark.utils import flatten_dict
 from pyspark.sql import SparkSession
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import resource
 
 

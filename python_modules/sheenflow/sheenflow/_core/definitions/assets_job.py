@@ -4,12 +4,12 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, 
 
 from toposort import CircularDependencyError, toposort
 
-import dagster._check as check
-from dagster._annotations import experimental
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.selector.subset_selector import AssetSelectionData
-from dagster._utils import merge_dicts
-from dagster._utils.backcompat import ExperimentalWarning
+import sheenflow._check as check
+from sheenflow._annotations import experimental
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.selector.subset_selector import AssetSelectionData
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 from .asset_layer import AssetLayer
 from .assets import AssetsDefinition
@@ -449,7 +449,7 @@ def _attempt_resolve_cycles(
     This ensures that no asset that shares a node with another asset will be downstream of
     that asset via a different node (i.e. there will be no cycles).
     """
-    from dagster._core.selector.subset_selector import generate_asset_dep_graph
+    from sheenflow._core.selector.subset_selector import generate_asset_dep_graph
 
     # get asset dependencies
     asset_deps = generate_asset_dep_graph(assets_defs, source_assets)

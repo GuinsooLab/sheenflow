@@ -8,10 +8,10 @@ import pytest
 from sqlalchemy import create_engine, inspect
 
 from dagster import AssetKey, AssetMaterialization, AssetObservation, Output, job, op
-from dagster._core.errors import DagsterInvalidInvocationError
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.event_log.migration import ASSET_KEY_INDEX_COLS
-from dagster._utils import file_relative_path
+from sheenflow._core.errors import DagsterInvalidInvocationError
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.event_log.migration import ASSET_KEY_INDEX_COLS
+from sheenflow._utils import file_relative_path
 
 
 def get_columns(instance, table_name: str):
@@ -129,8 +129,8 @@ def test_asset_observation_backcompat(conn_string):
 def test_jobs_selector_id_migration(conn_string):
     import sqlalchemy as db
 
-    from dagster._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
-    from dagster._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
+    from sheenflow._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
+    from sheenflow._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
 
     hostname, port = _reconstruct_from_file(
         conn_string,

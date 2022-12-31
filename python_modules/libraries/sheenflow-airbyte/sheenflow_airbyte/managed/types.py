@@ -3,8 +3,8 @@ from abc import ABC
 from enum import Enum
 from typing import Any, Dict, List, Mapping, Optional, Union
 
-import dagster._check as check
-from dagster._annotations import public
+import sheenflow._check as check
+from sheenflow._annotations import public
 
 
 class AirbyteSyncMode(ABC):

@@ -1,10 +1,10 @@
 from typing import Mapping, NamedTuple, Optional, Sequence, Set
 
-import dagster._check as check
-from dagster._core.definitions.metadata import MetadataEntry
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.types.dagster_type import DagsterType, DagsterTypeKind
-from dagster._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._core.definitions.metadata import MetadataEntry
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.types.dagster_type import DagsterType, DagsterTypeKind
+from sheenflow._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
 
 
 def build_dagster_type_namespace_snapshot(

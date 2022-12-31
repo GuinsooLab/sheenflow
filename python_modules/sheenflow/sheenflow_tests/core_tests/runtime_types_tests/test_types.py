@@ -25,7 +25,7 @@ from dagster import (
     op,
     resource,
 )
-from dagster._core.types.dagster_type import (
+from sheenflow._core.types.dagster_type import (
     DagsterType,
     ListType,
     PythonObjectDagsterType,

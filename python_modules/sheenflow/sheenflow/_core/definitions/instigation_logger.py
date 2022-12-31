@@ -4,12 +4,12 @@ from contextlib import ExitStack
 from typing import IO, Any, List, Mapping, Optional, Sequence
 
 from dagster import _seven
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DAGSTER_META_KEY
-from dagster._core.storage.captured_log_manager import CapturedLogManager
-from dagster._core.storage.compute_log_manager import ComputeIOType
-from dagster._core.utils import coerce_valid_log_level
-from dagster._utils.log import create_console_logger
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DAGSTER_META_KEY
+from sheenflow._core.storage.captured_log_manager import CapturedLogManager
+from sheenflow._core.storage.compute_log_manager import ComputeIOType
+from sheenflow._core.utils import coerce_valid_log_level
+from sheenflow._utils.log import create_console_logger
 
 
 class DispatchingLogHandler(logging.Handler):

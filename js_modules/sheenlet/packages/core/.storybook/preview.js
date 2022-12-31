@@ -8,7 +8,7 @@ import {
   GlobalToasterStyle,
   GlobalTooltipStyle,
   Colors,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 
 import * as React from 'react';
 import {MemoryRouter} from 'react-router-dom';

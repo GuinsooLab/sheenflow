@@ -1,21 +1,21 @@
 import os
 from typing import TYPE_CHECKING, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.reconstruct import (
+import sheenflow._check as check
+from sheenflow._core.definitions.reconstruct import (
     load_def_in_module,
     load_def_in_package,
     load_def_in_python_file,
 )
 
 if TYPE_CHECKING:
-    from dagster._core.workspace.autodiscovery import LoadableTarget
+    from sheenflow._core.workspace.autodiscovery import LoadableTarget
 
 
 def get_loadable_targets(
     python_file, module_name, package_name, working_directory, attribute
 ) -> Sequence["LoadableTarget"]:
-    from dagster._core.workspace.autodiscovery import (
+    from sheenflow._core.workspace.autodiscovery import (
         LoadableTarget,
         loadable_targets_from_python_file,
         loadable_targets_from_python_module,

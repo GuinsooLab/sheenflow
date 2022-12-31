@@ -4,7 +4,7 @@ import time
 import pytest
 
 from dagster import Output
-from dagster._legacy import PipelineDefinition, execute_pipeline, solid
+from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid
 
 
 @pytest.mark.skipif(

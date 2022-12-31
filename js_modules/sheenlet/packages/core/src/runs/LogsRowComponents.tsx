@@ -1,4 +1,4 @@
-import {Colors, FontFamily, MetadataTable, Tooltip} from '@sheenflow-io/ui';
+import {Colors, FontFamily, MetadataTable, Tooltip} from '@dagster-io/ui';
 import qs from 'qs';
 import * as React from 'react';
 import {Link, useLocation} from 'react-router-dom';

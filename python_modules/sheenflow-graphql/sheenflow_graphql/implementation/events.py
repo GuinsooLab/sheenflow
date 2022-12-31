@@ -1,8 +1,8 @@
 from math import isnan
 from typing import Any, Iterator, Sequence, no_type_check
 
-import dagster._check as check
-import dagster._seven as seven
+import sheenflow._check as check
+import sheenflow._seven as seven
 from dagster import (
     BoolMetadataValue,
     DagsterAssetMetadataValue,
@@ -19,10 +19,10 @@ from dagster import (
     TextMetadataValue,
     UrlMetadataValue,
 )
-from dagster._core.events import DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.execution.plan.objects import StepFailureData
-from dagster._legacy import DagsterPipelineRunMetadataValue
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.execution.plan.objects import StepFailureData
+from sheenflow._legacy import DagsterPipelineRunMetadataValue
 
 MAX_INT = 2147483647
 MIN_INT = -2147483648

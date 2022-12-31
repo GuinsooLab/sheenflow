@@ -3,8 +3,8 @@ import time
 from dagster_celery import celery_executor
 
 from dagster import Int, Output, RetryRequested, VersionStrategy, fs_io_manager
-from dagster._core.test_utils import nesting_graph_pipeline
-from dagster._legacy import (
+from sheenflow._core.test_utils import nesting_graph_pipeline
+from sheenflow._legacy import (
     InputDefinition,
     ModeDefinition,
     OutputDefinition,

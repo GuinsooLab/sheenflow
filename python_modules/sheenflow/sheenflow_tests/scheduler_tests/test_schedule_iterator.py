@@ -1,8 +1,8 @@
 import pytest
 
-from dagster._check import CheckError
-from dagster._seven.compat.pendulum import create_pendulum_time
-from dagster._utils.schedules import schedule_execution_time_iterator
+from sheenflow._check import CheckError
+from sheenflow._seven.compat.pendulum import create_pendulum_time
+from sheenflow._utils.schedules import schedule_execution_time_iterator
 
 
 def test_cron_schedule_advances_past_dst():

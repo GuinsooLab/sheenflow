@@ -1,9 +1,9 @@
 import pytest
 
 from dagster import DagsterInvalidConfigError, Field, String, root_input_manager
-from dagster._core.definitions.config import ConfigMapping
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid
 
 
 def test_basic_solid_with_config():

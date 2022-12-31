@@ -1,4 +1,4 @@
-from dagster._legacy import solid
+from sheenflow._legacy import solid
 
 
 @solid

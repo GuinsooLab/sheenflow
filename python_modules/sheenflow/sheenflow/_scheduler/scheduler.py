@@ -11,16 +11,16 @@ from typing import Dict, List, Optional, cast
 
 import pendulum
 
-import dagster._check as check
-from dagster._core.definitions.run_request import RunRequest
-from dagster._core.definitions.schedule_definition import DefaultScheduleStatus
-from dagster._core.definitions.utils import validate_tags
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._core.host_representation import ExternalSchedule, PipelineSelector
-from dagster._core.host_representation.external import ExternalPipeline
-from dagster._core.host_representation.repository_location import RepositoryLocation
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import (
+import sheenflow._check as check
+from sheenflow._core.definitions.run_request import RunRequest
+from sheenflow._core.definitions.schedule_definition import DefaultScheduleStatus
+from sheenflow._core.definitions.utils import validate_tags
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._core.host_representation import ExternalSchedule, PipelineSelector
+from sheenflow._core.host_representation.external import ExternalPipeline
+from sheenflow._core.host_representation.repository_location import RepositoryLocation
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorStatus,
     InstigatorTick,
@@ -29,15 +29,15 @@ from dagster._core.scheduler.instigation import (
     TickData,
     TickStatus,
 )
-from dagster._core.scheduler.scheduler import DEFAULT_MAX_CATCHUP_RUNS, DagsterSchedulerError
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
-from dagster._core.storage.tags import RUN_KEY_TAG, SCHEDULED_EXECUTION_TIME_TAG
-from dagster._core.telemetry import SCHEDULED_RUN_CREATED, hash_name, log_action
-from dagster._core.workspace.context import IWorkspaceProcessContext
-from dagster._seven.compat.pendulum import to_timezone
-from dagster._utils import merge_dicts
-from dagster._utils.error import serializable_error_info_from_exc_info
-from dagster._utils.log import default_date_format_string
+from sheenflow._core.scheduler.scheduler import DEFAULT_MAX_CATCHUP_RUNS, DagsterSchedulerError
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
+from sheenflow._core.storage.tags import RUN_KEY_TAG, SCHEDULED_EXECUTION_TIME_TAG
+from sheenflow._core.telemetry import SCHEDULED_RUN_CREATED, hash_name, log_action
+from sheenflow._core.workspace.context import IWorkspaceProcessContext
+from sheenflow._seven.compat.pendulum import to_timezone
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.error import serializable_error_info_from_exc_info
+from sheenflow._utils.log import default_date_format_string
 
 
 class _ScheduleLaunchContext:
@@ -701,7 +701,7 @@ def _create_scheduler_run(
     external_pipeline: ExternalPipeline,
     run_request: RunRequest,
 ):
-    from dagster._daemon.daemon import get_telemetry_daemon_session_id
+    from sheenflow._daemon.daemon import get_telemetry_daemon_session_id
 
     run_config = run_request.run_config
     schedule_tags = run_request.tags

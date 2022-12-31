@@ -1,8 +1,8 @@
 import inspect
 from typing import TYPE_CHECKING, Callable, Optional, Sequence
 
-import dagster._check as check
-from dagster._annotations import public
+import sheenflow._check as check
+from sheenflow._annotations import public
 
 from .events import AssetKey
 from .run_request import RunRequest, SkipReason
@@ -16,7 +16,7 @@ from .target import ExecutableDefinition
 from .utils import check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.events.log import EventLogEntry
+    from sheenflow._core.events.log import EventLogEntry
 
 
 class AssetSensorDefinition(SensorDefinition):
@@ -61,8 +61,8 @@ class AssetSensorDefinition(SensorDefinition):
     ):
         self._asset_key = check.inst_param(asset_key, "asset_key", AssetKey)
 
-        from dagster._core.events import DagsterEventType
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.events import DagsterEventType
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         def _wrap_asset_fn(materialization_fn):
             def _fn(context):

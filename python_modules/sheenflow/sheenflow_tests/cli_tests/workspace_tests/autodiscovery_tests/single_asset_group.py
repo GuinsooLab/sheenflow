@@ -1,5 +1,5 @@
 from dagster import asset
-from dagster._core.definitions import AssetGroup
+from sheenflow._core.definitions import AssetGroup
 
 
 @asset

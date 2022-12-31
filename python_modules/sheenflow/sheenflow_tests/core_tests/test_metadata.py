@@ -1,5 +1,5 @@
 from dagster import NodeInvocation
-from dagster._legacy import PipelineDefinition, execute_pipeline, solid
+from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid
 
 
 def test_solid_instance_tags():

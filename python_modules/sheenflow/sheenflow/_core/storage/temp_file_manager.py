@@ -3,7 +3,7 @@ import os
 import shutil
 import tempfile
 
-from dagster._core.definitions.resource_definition import resource
+from sheenflow._core.definitions.resource_definition import resource
 
 
 class TempfileManager:

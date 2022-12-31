@@ -16,10 +16,10 @@ from dagster import (
     logger,
     resource,
 )
-from dagster._check import CheckError
-from dagster._core.utils import coerce_valid_log_level
-from dagster._legacy import ModeDefinition, PipelineDefinition, execute_pipeline, pipeline, solid
-from dagster._utils.test import execute_solids_within_pipeline
+from sheenflow._check import CheckError
+from sheenflow._core.utils import coerce_valid_log_level
+from sheenflow._legacy import ModeDefinition, PipelineDefinition, execute_pipeline, pipeline, solid
+from sheenflow._utils.test import execute_solids_within_pipeline
 
 
 def test_default_mode_definition():

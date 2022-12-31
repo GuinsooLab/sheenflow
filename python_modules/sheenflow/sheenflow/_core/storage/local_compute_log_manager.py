@@ -11,11 +11,11 @@ from watchdog.observers.polling import PollingObserver
 
 from dagster import Field, Float, StringSource
 from dagster import _check as check
-from dagster._core.execution.compute_logs import mirror_stream_to_file
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._serdes import ConfigurableClass, ConfigurableClassData
-from dagster._seven import json
-from dagster._utils import ensure_dir, ensure_file, touch_file
+from sheenflow._core.execution.compute_logs import mirror_stream_to_file
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
+from sheenflow._seven import json
+from sheenflow._utils import ensure_dir, ensure_file, touch_file
 
 from .captured_log_manager import (
     CapturedLogContext,

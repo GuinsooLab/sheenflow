@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING, Mapping, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.executor_definition import ExecutorDefinition, default_executors
-from dagster._loggers import default_loggers
-from dagster._utils.merger import merge_dicts
+import sheenflow._check as check
+from sheenflow._core.definitions.executor_definition import ExecutorDefinition, default_executors
+from sheenflow._loggers import default_loggers
+from sheenflow._utils.merger import merge_dicts
 
 from .config import ConfigMapping
 from .logger_definition import LoggerDefinition
@@ -75,7 +75,7 @@ class ModeDefinition(
         if resource_defs and DEFAULT_IO_MANAGER_KEY in resource_defs:
             resource_defs_with_defaults = resource_defs
         else:
-            from dagster._core.storage.mem_io_manager import mem_io_manager
+            from sheenflow._core.storage.mem_io_manager import mem_io_manager
 
             resource_defs_with_defaults = merge_dicts(
                 {DEFAULT_IO_MANAGER_KEY: mem_io_manager}, resource_defs or {}

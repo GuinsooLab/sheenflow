@@ -7,9 +7,9 @@ import click
 import nbformat
 from papermill.iorw import load_notebook_node, write_ipynb
 
-import dagster._check as check
-from dagster._seven.json import loads
-from dagster._utils import mkdir_p, safe_isfile
+import sheenflow._check as check
+from sheenflow._seven.json import loads
+from sheenflow._utils import mkdir_p, safe_isfile
 
 
 def get_import_cell():

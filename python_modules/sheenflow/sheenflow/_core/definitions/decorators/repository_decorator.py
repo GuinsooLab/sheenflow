@@ -1,9 +1,9 @@
 from functools import update_wrapper
 from typing import Any, Callable, List, Mapping, Optional, Union, overload
 
-import dagster._check as check
-from dagster._core.decorator_utils import get_function_params
-from dagster._core.errors import DagsterInvalidDefinitionError
+import sheenflow._check as check
+from sheenflow._core.decorator_utils import get_function_params
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 from ..executor_definition import ExecutorDefinition
 from ..graph_definition import GraphDefinition
@@ -51,8 +51,8 @@ class _Repository:
     def __call__(
         self, fn: Callable[[], Any]
     ) -> Union[RepositoryDefinition, PendingRepositoryDefinition]:
-        from dagster._core.definitions import AssetGroup, AssetsDefinition, SourceAsset
-        from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
+        from sheenflow._core.definitions import AssetGroup, AssetsDefinition, SourceAsset
+        from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 
         check.callable_param(fn, "fn")
 

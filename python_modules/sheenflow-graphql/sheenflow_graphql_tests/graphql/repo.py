@@ -75,21 +75,21 @@ from dagster import (
     static_partitioned_config,
     usable_as_dagster_type,
 )
-from dagster._core.definitions.decorators.sensor_decorator import sensor
-from dagster._core.definitions.executor_definition import in_process_executor
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.definitions.metadata import MetadataValue
-from dagster._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
-from dagster._core.definitions.reconstruct import ReconstructableRepository
-from dagster._core.definitions.sensor_definition import RunRequest, SkipReason
-from dagster._core.log_manager import coerce_valid_log_level
-from dagster._core.storage.fs_io_manager import fs_io_manager
-from dagster._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
-from dagster._core.storage.tags import RESUME_RETRY_TAG
-from dagster._core.test_utils import default_mode_def_for_test, today_at_midnight
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import PythonFileTarget
-from dagster._legacy import (
+from sheenflow._core.definitions.decorators.sensor_decorator import sensor
+from sheenflow._core.definitions.executor_definition import in_process_executor
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.definitions.metadata import MetadataValue
+from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
+from sheenflow._core.definitions.reconstruct import ReconstructableRepository
+from sheenflow._core.definitions.sensor_definition import RunRequest, SkipReason
+from sheenflow._core.log_manager import coerce_valid_log_level
+from sheenflow._core.storage.fs_io_manager import fs_io_manager
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
+from sheenflow._core.storage.tags import RESUME_RETRY_TAG
+from sheenflow._core.test_utils import default_mode_def_for_test, today_at_midnight
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import PythonFileTarget
+from sheenflow._legacy import (
     AssetGroup,
     DynamicOutputDefinition,
     InputDefinition,
@@ -108,8 +108,8 @@ from dagster._legacy import (
     solid,
     weekly_schedule,
 )
-from dagster._seven import get_system_temp_directory
-from dagster._utils import file_relative_path, segfault
+from sheenflow._seven import get_system_temp_directory
+from sheenflow._utils import file_relative_path, segfault
 
 LONG_INT = 2875972244  # 32b unsigned, > 32b signed
 

@@ -2,19 +2,19 @@ import pytest
 
 from dagster import _check as check
 from dagster import resource
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.events.log import EventLogEntry, construct_event_logger
-from dagster._core.execution.api import (
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.events.log import EventLogEntry, construct_event_logger
+from sheenflow._core.execution.api import (
     create_execution_plan,
     execute_pipeline_iterator,
     execute_plan_iterator,
     execute_run,
     execute_run_iterator,
 )
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import ModeDefinition, PipelineDefinition, solid
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import ModeDefinition, PipelineDefinition, solid
 
 
 @resource

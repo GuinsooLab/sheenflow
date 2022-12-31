@@ -1,4 +1,4 @@
-import {Colors} from '@sheenflow-io/ui';
+import {Colors} from '@dagster-io/ui';
 
 import {queuedStatuses, inProgressStatuses, failedStatuses, successStatuses} from './RunStatuses';
 import {TimelineRun} from './RunTimeline';

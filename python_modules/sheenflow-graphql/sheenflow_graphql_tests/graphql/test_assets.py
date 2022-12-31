@@ -14,10 +14,10 @@ from dagster_graphql.test.utils import (
 )
 
 from dagster import AssetKey, DagsterEventType
-from dagster._core.definitions.multi_dimensional_partitions import MultiPartitionKey
-from dagster._core.test_utils import poll_for_finished_run
-from dagster._legacy import DagsterRunStatus
-from dagster._utils import Counter, safe_tempfile_path, traced_counter
+from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionKey
+from sheenflow._core.test_utils import poll_for_finished_run
+from sheenflow._legacy import DagsterRunStatus
+from sheenflow._utils import Counter, safe_tempfile_path, traced_counter
 
 # from .graphql_context_test_suite import GraphQLContextVariant, make_graphql_context_test_suite
 from .graphql_context_test_suite import (

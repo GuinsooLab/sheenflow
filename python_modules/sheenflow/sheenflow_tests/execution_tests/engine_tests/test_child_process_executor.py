@@ -4,7 +4,7 @@ import time
 
 import pytest
 
-from dagster._core.executor.child_process_executor import (
+from sheenflow._core.executor.child_process_executor import (
     ChildProcessCommand,
     ChildProcessCrashException,
     ChildProcessDoneEvent,
@@ -13,7 +13,7 @@ from dagster._core.executor.child_process_executor import (
     ChildProcessSystemErrorEvent,
     execute_child_process_command,
 )
-from dagster._utils import segfault
+from sheenflow._utils import segfault
 
 
 class DoubleAStringChildProcessCommand(ChildProcessCommand):

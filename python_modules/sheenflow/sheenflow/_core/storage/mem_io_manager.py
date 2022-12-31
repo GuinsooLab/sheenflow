@@ -1,4 +1,4 @@
-from dagster._core.storage.io_manager import IOManager, io_manager
+from sheenflow._core.storage.io_manager import IOManager, io_manager
 
 
 class InMemoryIOManager(IOManager):

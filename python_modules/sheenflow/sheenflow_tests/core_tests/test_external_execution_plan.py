@@ -18,18 +18,18 @@ from dagster import (
     reconstructable,
     repository,
 )
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
-from dagster._core.execution.api import create_execution_plan, execute_plan
-from dagster._core.execution.plan.plan import ExecutionPlan
-from dagster._core.instance import DagsterInstance
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._core.test_utils import default_mode_def_for_test, instance_for_test
-from dagster._legacy import InputDefinition, OutputDefinition, PipelineDefinition, lambda_solid
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
+from sheenflow._core.execution.api import create_execution_plan, execute_plan
+from sheenflow._core.execution.plan.plan import ExecutionPlan
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.test_utils import default_mode_def_for_test, instance_for_test
+from sheenflow._legacy import InputDefinition, OutputDefinition, PipelineDefinition, lambda_solid
 
 
 def define_inty_pipeline(using_file_system=False):

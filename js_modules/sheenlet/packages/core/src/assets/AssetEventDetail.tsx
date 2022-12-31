@@ -1,4 +1,4 @@
-import {Box, Colors, Group, Heading, Icon, Mono, Subheading} from '@sheenflow-io/ui';
+import {Box, Colors, Group, Heading, Icon, Mono, Subheading} from '@dagster-io/ui';
 import React from 'react';
 import {Link} from 'react-router-dom';
 

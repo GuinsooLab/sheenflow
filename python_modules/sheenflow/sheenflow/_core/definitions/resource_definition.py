@@ -15,13 +15,13 @@ from typing import (
 
 from typing_extensions import TypeAlias, TypeGuard
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.decorator_utils import format_docstring_for_description
-from dagster._core.definitions.config import is_callable_valid_config_arg
-from dagster._core.definitions.configurable import AnonymousConfigurableDefinition
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
-from dagster._utils.backcompat import experimental_arg_warning
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.decorator_utils import format_docstring_for_description
+from sheenflow._core.definitions.config import is_callable_valid_config_arg
+from sheenflow._core.definitions.configurable import AnonymousConfigurableDefinition
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 from ..decorator_utils import (
     get_function_params,
@@ -49,7 +49,7 @@ from .scoped_resources_builder import (  # type: ignore
 )
 
 if TYPE_CHECKING:
-    from dagster._core.execution.resources_init import InitResourceContext
+    from sheenflow._core.execution.resources_init import InitResourceContext
 
 ResourceFunctionWithContext: TypeAlias = Callable[["InitResourceContext"], Any]
 ResourceFunctionWithoutContext: TypeAlias = Callable[[], Any]
@@ -203,7 +203,7 @@ class ResourceDefinition(AnonymousConfigurableDefinition, RequiresResources):
         )
 
     def __call__(self, *args, **kwargs):
-        from dagster._core.execution.context.init import UnboundInitResourceContext
+        from sheenflow._core.execution.context.init import UnboundInitResourceContext
 
         context_provided = is_context_provided(self.resource_fn)
 

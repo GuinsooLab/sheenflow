@@ -14,7 +14,7 @@ from dagster import (
     String,
     op,
 )
-from dagster._utils.test import get_temp_file_name
+from sheenflow._utils.test import get_temp_file_name
 
 
 def _execute_pipeline_with_subset(pipeline, run_config, op_selection):

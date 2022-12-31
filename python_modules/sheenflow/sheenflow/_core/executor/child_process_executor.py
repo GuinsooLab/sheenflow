@@ -9,13 +9,13 @@ from multiprocessing import Queue
 from multiprocessing.context import BaseContext as MultiprocessingBaseContext
 from typing import TYPE_CHECKING, Iterator, NamedTuple, Union
 
-import dagster._check as check
-from dagster._core.errors import DagsterExecutionInterruptedError
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
-from dagster._utils.interrupts import capture_interrupts
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterExecutionInterruptedError
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._utils.interrupts import capture_interrupts
 
 if TYPE_CHECKING:
-    from dagster._core.events import DagsterEvent
+    from sheenflow._core.events import DagsterEvent
 
 
 class ChildProcessEvent:

@@ -1,7 +1,7 @@
 from os import path
 
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, deserialize_value
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, deserialize_value
 
 
 def test_dead_events():

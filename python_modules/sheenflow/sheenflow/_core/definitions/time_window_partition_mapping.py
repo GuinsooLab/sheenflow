@@ -1,18 +1,18 @@
 from datetime import datetime
 from typing import NamedTuple, Optional, Sequence, cast
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.definitions.partition import PartitionsDefinition, PartitionsSubset
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.partition_mapping import PartitionMapping
-from dagster._core.definitions.time_window_partitions import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.definitions.partition import PartitionsDefinition, PartitionsSubset
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.partition_mapping import PartitionMapping
+from sheenflow._core.definitions.time_window_partitions import (
     TimeWindow,
     TimeWindowPartitionsDefinition,
     TimeWindowPartitionsSubset,
 )
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._serdes import whitelist_for_serdes
 
 
 @whitelist_for_serdes

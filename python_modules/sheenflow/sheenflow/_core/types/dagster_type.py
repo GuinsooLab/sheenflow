@@ -12,16 +12,16 @@ from typing import cast
 
 from typing_extensions import get_args, get_origin
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._builtins import BuiltinEnum
-from dagster._config import Array, ConfigType
-from dagster._config import Noneable as ConfigNoneable
-from dagster._core.definitions.events import DynamicOutput, Output, TypeCheck
-from dagster._core.definitions.metadata import MetadataEntry, RawMetadataValue, normalize_metadata
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
-from dagster._serdes import whitelist_for_serdes
-from dagster._seven import is_subclass
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._builtins import BuiltinEnum
+from sheenflow._config import Array, ConfigType
+from sheenflow._config import Noneable as ConfigNoneable
+from sheenflow._core.definitions.events import DynamicOutput, Output, TypeCheck
+from sheenflow._core.definitions.metadata import MetadataEntry, RawMetadataValue, normalize_metadata
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._seven import is_subclass
 
 from ..definitions.resource_requirement import (
     RequiresResources,
@@ -32,10 +32,10 @@ from .builtin_config_schemas import BuiltinSchemas
 from .config_schema import DagsterTypeLoader, DagsterTypeMaterializer
 
 if t.TYPE_CHECKING:
-    from dagster._core.definitions.node_definition import (  # pylint: disable=unused-import
+    from sheenflow._core.definitions.node_definition import (  # pylint: disable=unused-import
         NodeDefinition,
     )
-    from dagster._core.execution.context.system import (  # pylint: disable=unused-import
+    from sheenflow._core.execution.context.system import (  # pylint: disable=unused-import
         DagsterTypeLoaderContext,
         TypeCheckContext,
     )
@@ -283,7 +283,7 @@ class DagsterType(RequiresResources):
 
 
 def _validate_type_check_fn(fn: t.Callable, name: t.Optional[str]) -> bool:
-    from dagster._seven import get_arg_names
+    from sheenflow._seven import get_arg_names
 
     args = get_arg_names(fn)
 
@@ -859,7 +859,7 @@ class TypeHintInferredDagsterType(DagsterType):
 
 def resolve_dagster_type(dagster_type: object) -> DagsterType:
     # circular dep
-    from dagster._utils.typing_api import is_typing_type
+    from sheenflow._utils.typing_api import is_typing_type
 
     from .primitive_mapping import (
         is_supported_runtime_python_builtin,
@@ -988,7 +988,7 @@ ALL_RUNTIME_BUILTINS = list(_RUNTIME_MAP.values())
 def construct_dagster_type_dictionary(
     node_defs: Sequence["NodeDefinition"],
 ) -> Mapping[str, DagsterType]:
-    from dagster._core.definitions.graph_definition import GraphDefinition
+    from sheenflow._core.definitions.graph_definition import GraphDefinition
 
     type_dict_by_name = {t.unique_name: t for t in ALL_RUNTIME_BUILTINS}
     type_dict_by_key = {t.key: t for t in ALL_RUNTIME_BUILTINS}

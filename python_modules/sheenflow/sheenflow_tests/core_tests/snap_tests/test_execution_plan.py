@@ -1,9 +1,9 @@
 from dagster import In, Out, job, op
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.snap import create_pipeline_snapshot_id, snapshot_from_execution_plan
-from dagster._legacy import OutputDefinition
-from dagster._serdes import serialize_pp
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.snap import create_pipeline_snapshot_id, snapshot_from_execution_plan
+from sheenflow._legacy import OutputDefinition
+from sheenflow._serdes import serialize_pp
 
 
 def test_create_noop_execution_plan(snapshot):

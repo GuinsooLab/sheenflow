@@ -17,11 +17,11 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.definitions.executor_definition import default_executors
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.events import DagsterEventType
-from dagster._core.test_utils import instance_for_test, nesting_graph_pipeline
-from dagster._legacy import (
+from sheenflow._core.definitions.executor_definition import default_executors
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.test_utils import instance_for_test, nesting_graph_pipeline
+from sheenflow._legacy import (
     InputDefinition,
     ModeDefinition,
     execute_pipeline,
@@ -29,7 +29,7 @@ from dagster._legacy import (
     pipeline,
     solid,
 )
-from dagster._utils import send_interrupt
+from sheenflow._utils import send_interrupt
 
 
 @solid

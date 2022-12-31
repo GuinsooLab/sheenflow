@@ -22,8 +22,8 @@ import os
 import signal
 from subprocess import PIPE, STDOUT, Popen
 
-import dagster._check as check
-from dagster._utils import safe_tempfile_path
+import sheenflow._check as check
+from sheenflow._utils import safe_tempfile_path
 
 OUTPUT_LOGGING_OPTIONS = ["STREAM", "BUFFER", "NONE"]
 

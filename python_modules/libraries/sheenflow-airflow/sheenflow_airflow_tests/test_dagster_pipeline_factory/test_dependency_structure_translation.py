@@ -15,8 +15,8 @@ else:
 from dagster_airflow.dagster_job_factory import make_dagster_job_from_airflow_dag
 from dagster_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
 
-from dagster._core.snap import PipelineSnapshot
-from dagster._serdes import serialize_pp
+from sheenflow._core.snap import PipelineSnapshot
+from sheenflow._serdes import serialize_pp
 
 default_args = {
     "owner": "sheenflow",

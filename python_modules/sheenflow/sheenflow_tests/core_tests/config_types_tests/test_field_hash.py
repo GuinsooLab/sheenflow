@@ -1,5 +1,5 @@
 from dagster import Field, Permissive, Selector, Shape
-from dagster._config import compute_fields_hash
+from sheenflow._config import compute_fields_hash
 
 
 def _hash(fields):

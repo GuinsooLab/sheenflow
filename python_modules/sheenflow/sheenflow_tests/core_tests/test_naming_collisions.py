@@ -1,6 +1,6 @@
 from dagster import Field, Output, String
 from dagster import _check as check
-from dagster._legacy import OutputDefinition, execute_pipeline, pipeline, solid
+from sheenflow._legacy import OutputDefinition, execute_pipeline, pipeline, solid
 
 
 def define_pass_value_solid(name, description=None):

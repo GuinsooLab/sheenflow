@@ -1,16 +1,16 @@
 from typing import TYPE_CHECKING, Optional
 
-import dagster._check as check
-from dagster._core.definitions.sensor_definition import SensorExecutionData
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import ExternalSensorExecutionErrorData
-from dagster._core.host_representation.handle import RepositoryHandle
-from dagster._grpc.types import SensorExecutionArgs
-from dagster._serdes import deserialize_as
+import sheenflow._check as check
+from sheenflow._core.definitions.sensor_definition import SensorExecutionData
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import ExternalSensorExecutionErrorData
+from sheenflow._core.host_representation.handle import RepositoryHandle
+from sheenflow._grpc.types import SensorExecutionArgs
+from sheenflow._serdes import deserialize_as
 
 if TYPE_CHECKING:
-    from dagster._core.instance import DagsterInstance
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._core.instance import DagsterInstance
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_external_sensor_execution_data_ephemeral_grpc(
@@ -21,7 +21,7 @@ def sync_get_external_sensor_execution_data_ephemeral_grpc(
     last_run_key: Optional[str],
     cursor: Optional[str],
 ) -> SensorExecutionData:
-    from dagster._grpc.client import ephemeral_grpc_api_client
+    from sheenflow._grpc.client import ephemeral_grpc_api_client
 
     origin = repository_handle.get_external_origin()
     with ephemeral_grpc_api_client(

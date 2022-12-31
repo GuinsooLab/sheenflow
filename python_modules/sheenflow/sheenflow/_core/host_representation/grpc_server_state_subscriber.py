@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Callable, NamedTuple, Optional
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 class LocationStateChangeEventType(Enum):

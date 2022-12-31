@@ -1,20 +1,20 @@
 from typing import TYPE_CHECKING, Any, FrozenSet, Mapping, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.host_representation.origin import ExternalPipelineOrigin
-from dagster._core.instance import DagsterInstance
-from dagster._core.snap.execution_plan_snapshot import (
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.snap.execution_plan_snapshot import (
     ExecutionPlanSnapshot,
     ExecutionPlanSnapshotErrorData,
 )
-from dagster._grpc.types import ExecutionPlanSnapshotArgs
-from dagster._serdes import deserialize_as
+from sheenflow._grpc.types import ExecutionPlanSnapshotArgs
+from sheenflow._serdes import deserialize_as
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_external_execution_plan_grpc(
@@ -29,7 +29,7 @@ def sync_get_external_execution_plan_grpc(
     known_state: Optional[KnownExecutionState] = None,
     instance: Optional[DagsterInstance] = None,
 ) -> ExecutionPlanSnapshot:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     check.inst_param(pipeline_origin, "pipeline_origin", ExternalPipelineOrigin)

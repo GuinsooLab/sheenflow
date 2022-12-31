@@ -1,8 +1,8 @@
 import pytest
 
 from dagster import ConfigMapping, Field, graph, op
-from dagster._check import CheckError
-from dagster._config import ConfigAnyInstance
+from sheenflow._check import CheckError
+from sheenflow._config import ConfigAnyInstance
 
 
 def test_solid_field_backcompat():

@@ -9,10 +9,10 @@ import click
 import pendulum
 
 from dagster import __version__ as dagster_version
-from dagster._cli.workspace.cli_target import get_workspace_load_target, workspace_target_argument
-from dagster._core.instance import DagsterInstance
-from dagster._core.telemetry import telemetry_wrapper
-from dagster._daemon.controller import (
+from sheenflow._cli.workspace.cli_target import get_workspace_load_target, workspace_target_argument
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.telemetry import telemetry_wrapper
+from sheenflow._daemon.controller import (
     DEFAULT_DAEMON_HEARTBEAT_TOLERANCE_SECONDS,
     DagsterDaemonController,
     all_daemons_healthy,
@@ -21,8 +21,8 @@ from dagster._daemon.controller import (
     debug_daemon_heartbeats,
     get_daemon_statuses,
 )
-from dagster._daemon.daemon import get_telemetry_daemon_session_id
-from dagster._utils.interrupts import capture_interrupts, raise_interrupts_as
+from sheenflow._daemon.daemon import get_telemetry_daemon_session_id
+from sheenflow._utils.interrupts import capture_interrupts, raise_interrupts_as
 
 
 def _get_heartbeat_tolerance():

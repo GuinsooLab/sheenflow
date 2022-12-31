@@ -1,7 +1,7 @@
 from typing import Optional
 
-import dagster._check as check
-from dagster._core.snap import PipelineSnapshot
+import sheenflow._check as check
+from sheenflow._core.snap import PipelineSnapshot
 
 from .pipeline_index import PipelineIndex
 from .represented import RepresentedPipeline

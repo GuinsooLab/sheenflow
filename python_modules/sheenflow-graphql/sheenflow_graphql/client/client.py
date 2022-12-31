@@ -6,11 +6,11 @@ from gql import Client, gql
 from gql.transport import Transport
 from gql.transport.requests import RequestsHTTPTransport
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import DagsterRunStatus
-from dagster._annotations import public
-from dagster._core.definitions.utils import validate_tags
-from dagster._utils.backcompat import experimental_class_warning
+from sheenflow._annotations import public
+from sheenflow._core.definitions.utils import validate_tags
+from sheenflow._utils.backcompat import experimental_class_warning
 
 from .client_queries import (
     CLIENT_GET_REPO_LOCATIONS_NAMES_AND_PIPELINES_QUERY,

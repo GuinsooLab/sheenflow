@@ -3,9 +3,9 @@
 
 import pytest
 
-from dagster._core.launcher import RunLauncher
-from dagster._core.test_utils import instance_for_test
-from dagster._serdes import ConfigurableClass
+from sheenflow._core.launcher import RunLauncher
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._serdes import ConfigurableClass
 
 
 class InitFailRunLauncher(RunLauncher, ConfigurableClass):

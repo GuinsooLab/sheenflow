@@ -21,7 +21,7 @@ from dagster import (
     define_asset_job,
     file_relative_path,
 )
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 from ..utils import assert_assets_match_project
 

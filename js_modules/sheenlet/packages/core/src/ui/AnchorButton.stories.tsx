@@ -1,4 +1,4 @@
-import {ExternalAnchorButton, Group, Icon} from '@sheenflow-io/ui';
+import {ExternalAnchorButton, Group, Icon} from '@dagster-io/ui';
 import {Meta} from '@storybook/react/types-6-0';
 import * as React from 'react';
 

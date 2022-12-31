@@ -14,27 +14,27 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.metadata import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.metadata import (
     MetadataEntry,
     PartitionMetadataEntry,
     RawMetadataValue,
     normalize_metadata,
 )
-from dagster._core.errors import DagsterError, DagsterInvalidDefinitionError
-from dagster._core.types.dagster_type import (  # BuiltinScalarDagsterType,
+from sheenflow._core.errors import DagsterError, DagsterInvalidDefinitionError
+from sheenflow._core.types.dagster_type import (  # BuiltinScalarDagsterType,
     DagsterType,
     resolve_dagster_type,
 )
-from dagster._utils.backcompat import deprecation_warning, experimental_arg_warning
+from sheenflow._utils.backcompat import deprecation_warning, experimental_arg_warning
 
 from .inference import InferredInputProps
 from .utils import NoValueSentinel, check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.input import InputContext
+    from sheenflow._core.execution.context.input import InputContext
 
 T = TypeVar("T")
 
@@ -42,7 +42,7 @@ T = TypeVar("T")
 # unfortunately since type_check functions need TypeCheckContext which is only available
 # at runtime, we can only check basic types before runtime
 def _check_default_value(input_name: str, dagster_type: DagsterType, default_value: T) -> T:
-    from dagster._core.types.dagster_type import BuiltinScalarDagsterType
+    from sheenflow._core.types.dagster_type import BuiltinScalarDagsterType
 
     if default_value is not NoValueSentinel:
         if dagster_type.is_nothing:

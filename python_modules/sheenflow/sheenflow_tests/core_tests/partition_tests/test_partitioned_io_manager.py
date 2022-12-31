@@ -5,7 +5,7 @@ import pytest
 from pytest import fixture
 
 from dagster import DailyPartitionsDefinition, HourlyPartitionsDefinition, asset, materialize
-from dagster._check import CheckError
+from sheenflow._check import CheckError
 
 
 @fixture

@@ -16,21 +16,21 @@ from dagster import (
     reconstructable,
     repository,
 )
-from dagster._config import Permissive
-from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
-from dagster._core.definitions.executor_definition import multiple_process_executor_requirements
-from dagster._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
-from dagster._core.definitions.repository_definition import AssetsDefinitionCacheableData
-from dagster._core.events import DagsterEventType
-from dagster._core.execution.api import execute_pipeline, reexecute_pipeline
-from dagster._core.execution.retries import RetryMode
-from dagster._core.executor.step_delegating import (
+from sheenflow._config import Permissive
+from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
+from sheenflow._core.definitions.executor_definition import multiple_process_executor_requirements
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
+from sheenflow._core.definitions.repository_definition import AssetsDefinitionCacheableData
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.execution.api import execute_pipeline, reexecute_pipeline
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.executor.step_delegating import (
     CheckStepHealthResult,
     StepDelegatingExecutor,
     StepHandler,
 )
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import merge_dicts
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import merge_dicts
 
 from .retry_jobs import (
     assert_expected_failure_behavior,

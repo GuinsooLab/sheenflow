@@ -1,6 +1,6 @@
 import subprocess
 
-from dagster.version import __version__
+from sheenflow.version import __version__
 
 
 def test_version():

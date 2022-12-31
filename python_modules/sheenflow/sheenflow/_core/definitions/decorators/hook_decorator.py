@@ -11,16 +11,16 @@ from typing import (
     overload,
 )
 
-import dagster._check as check
-from dagster._core.errors import DagsterInvalidDefinitionError
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 from ...decorator_utils import get_function_params, validate_expected_params
 from ..events import HookExecutionResult
 from ..hook_definition import HookDefinition
 
 if TYPE_CHECKING:
-    from dagster._core.events import DagsterEvent
-    from dagster._core.execution.context.hook import HookContext
+    from sheenflow._core.events import DagsterEvent
+    from sheenflow._core.execution.context.hook import HookContext
 
 
 def _validate_hook_fn_params(fn, expected_positionals):

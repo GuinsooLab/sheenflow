@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Mapping, Sequence, Type
 
 import yaml
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .merger import deep_merge_dicts
 

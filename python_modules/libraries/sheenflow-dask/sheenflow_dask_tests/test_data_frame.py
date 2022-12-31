@@ -6,7 +6,7 @@ from dagster_dask.utils import DataFrameUtilities
 from dask.dataframe.utils import assert_eq
 
 from dagster import file_relative_path
-from dagster._legacy import InputDefinition, execute_solid, solid
+from sheenflow._legacy import InputDefinition, execute_solid, solid
 
 
 def create_dask_df():

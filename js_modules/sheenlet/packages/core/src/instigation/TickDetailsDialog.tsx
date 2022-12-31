@@ -1,13 +1,14 @@
 import {useQuery} from '@apollo/client';
 import 'chartjs-adapter-date-fns';
-import {Button, DialogBody, DialogFooter, Dialog, Group, Icon} from '@sheenflow-io/ui';
+import {Button, DialogBody, DialogFooter, Dialog, Group, Icon} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {copyValue} from '../app/DomUtils';
 import {PythonErrorInfo} from '../app/PythonErrorInfo';
 import {graphql} from '../graphql';
+import {InstigationSelector} from '../graphql/graphql';
 import {TimestampDisplay} from '../schedules/TimestampDisplay';
-import {InstigationSelector, InstigationTickStatus} from '../types/globalTypes';
+import {InstigationTickStatus} from '../types/globalTypes';
 
 import {FailedRunList, RunList, TickTag} from './InstigationTick';
 

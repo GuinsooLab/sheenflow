@@ -4,7 +4,7 @@ import posixpath
 import click
 import jinja2
 
-from dagster.version import __version__ as dagster_version
+from sheenflow.version import __version__ as dagster_version
 
 IGNORE_PATTERN_LIST = ["__pycache__", ".pytest_cache", "*.egg-info", ".DS_Store", "tox.ini"]
 

@@ -2,7 +2,7 @@ from typing import List, Optional
 
 import click
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .dagster_docker import DagsterDockerImage
 from .ecr import ensure_ecr_login

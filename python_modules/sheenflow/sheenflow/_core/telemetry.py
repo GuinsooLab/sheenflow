@@ -25,17 +25,17 @@ from typing import Mapping, NamedTuple, Optional
 import click
 import yaml
 
-import dagster._check as check
-from dagster._core.definitions.pipeline_base import IPipeline
-from dagster._core.definitions.reconstruct import (
+import sheenflow._check as check
+from sheenflow._core.definitions.pipeline_base import IPipeline
+from sheenflow._core.definitions.reconstruct import (
     ReconstructablePipeline,
     ReconstructableRepository,
     get_ephemeral_repository_name,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.instance import DagsterInstance
-from dagster._utils import merge_dicts
-from dagster.version import __version__ as dagster_module_version
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._utils import merge_dicts
+from sheenflow.version import __version__ as dagster_module_version
 
 TELEMETRY_STR = ".telemetry"
 INSTANCE_ID_STR = "instance_id"
@@ -320,7 +320,7 @@ def write_telemetry_log_line(log_line):
 
 
 def _get_instance_telemetry_info(instance):
-    from dagster._core.storage.runs import SqlRunStorage
+    from sheenflow._core.storage.runs import SqlRunStorage
 
     check.inst_param(instance, "instance", DagsterInstance)
     dagster_telemetry_enabled = _get_instance_telemetry_enabled(instance)
@@ -383,7 +383,7 @@ def hash_name(name):
 
 
 def log_external_repo_stats(instance, source, external_repo, external_pipeline=None):
-    from dagster._core.host_representation.external import ExternalPipeline, ExternalRepository
+    from sheenflow._core.host_representation.external import ExternalPipeline, ExternalRepository
 
     check.inst_param(instance, "instance", DagsterInstance)
     check.str_param(source, "source")
@@ -466,7 +466,7 @@ def log_repo_stats(instance, source, pipeline=None, repo=None):
 
 
 def log_workspace_stats(instance, workspace_process_context):
-    from dagster._core.workspace.context import IWorkspaceProcessContext
+    from sheenflow._core.workspace.context import IWorkspaceProcessContext
 
     check.inst_param(instance, "instance", DagsterInstance)
     check.inst_param(

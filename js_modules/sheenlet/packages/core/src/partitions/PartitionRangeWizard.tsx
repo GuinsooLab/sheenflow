@@ -1,4 +1,4 @@
-import {Box, Button} from '@sheenflow-io/ui';
+import {Box, Button} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {isTimeseriesPartition} from '../assets/MultipartitioningSupport';

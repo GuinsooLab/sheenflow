@@ -11,18 +11,18 @@ from typing import Dict, Generator, List, Mapping, NamedTuple, Optional, Sequenc
 
 import pendulum
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._core.definitions.run_request import InstigatorType, RunRequest
-from dagster._core.definitions.sensor_definition import DefaultSensorStatus, SensorExecutionData
-from dagster._core.definitions.utils import validate_tags
-from dagster._core.errors import DagsterError
-from dagster._core.host_representation import PipelineSelector
-from dagster._core.host_representation.external import ExternalPipeline, ExternalSensor
-from dagster._core.host_representation.external_data import ExternalTargetData
-from dagster._core.host_representation.repository_location import RepositoryLocation
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import (
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._core.definitions.run_request import InstigatorType, RunRequest
+from sheenflow._core.definitions.sensor_definition import DefaultSensorStatus, SensorExecutionData
+from sheenflow._core.definitions.utils import validate_tags
+from sheenflow._core.errors import DagsterError
+from sheenflow._core.host_representation import PipelineSelector
+from sheenflow._core.host_representation.external import ExternalPipeline, ExternalSensor
+from sheenflow._core.host_representation.external_data import ExternalTargetData
+from sheenflow._core.host_representation.repository_location import RepositoryLocation
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorStatus,
     InstigatorTick,
@@ -30,12 +30,12 @@ from dagster._core.scheduler.instigation import (
     TickData,
     TickStatus,
 )
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
-from dagster._core.storage.tags import RUN_KEY_TAG, SENSOR_NAME_TAG
-from dagster._core.telemetry import SENSOR_RUN_CREATED, hash_name, log_action
-from dagster._core.workspace.context import IWorkspaceProcessContext
-from dagster._utils import merge_dicts
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
+from sheenflow._core.storage.tags import RUN_KEY_TAG, SENSOR_NAME_TAG
+from sheenflow._core.telemetry import SENSOR_RUN_CREATED, hash_name, log_action
+from sheenflow._core.workspace.context import IWorkspaceProcessContext
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 MIN_INTERVAL_LOOP_TIME = 5
 
@@ -797,7 +797,7 @@ def _create_sensor_run(
     run_request: RunRequest,
     target_data: ExternalTargetData,
 ):
-    from dagster._daemon.daemon import get_telemetry_daemon_session_id
+    from sheenflow._daemon.daemon import get_telemetry_daemon_session_id
 
     external_execution_plan = repo_location.get_external_execution_plan(
         external_pipeline,

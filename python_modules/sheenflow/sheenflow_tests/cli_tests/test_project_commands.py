@@ -4,16 +4,16 @@ import re
 from click.testing import CliRunner
 
 from dagster import file_relative_path
-from dagster._cli.project import (
+from sheenflow._cli.project import (
     from_example_command,
     scaffold_code_location_command,
     scaffold_command,
     scaffold_repository_command,
 )
-from dagster._cli.workspace.cli_target import get_target_from_toml
-from dagster._core.workspace.load_target import ModuleTarget
-from dagster._generate.download import AVAILABLE_EXAMPLES, EXAMPLES_TO_IGNORE
-from dagster._generate.generate import _should_skip_file
+from sheenflow._cli.workspace.cli_target import get_target_from_toml
+from sheenflow._core.workspace.load_target import ModuleTarget
+from sheenflow._generate.download import AVAILABLE_EXAMPLES, EXAMPLES_TO_IGNORE
+from sheenflow._generate.generate import _should_skip_file
 
 
 def test_project_scaffold_command_fails_when_dir_path_exists():

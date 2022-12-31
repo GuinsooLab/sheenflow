@@ -35,31 +35,31 @@ from dagster import (
     repository,
     run_failure_sensor,
 )
-from dagster._core.definitions.instigation_logger import get_instigation_log_records
-from dagster._core.log_manager import DAGSTER_META_KEY
+from sheenflow._core.definitions.instigation_logger import get_instigation_log_records
+from sheenflow._core.log_manager import DAGSTER_META_KEY
 
 warnings.filterwarnings("ignore", category=ExperimentalWarning)
 
-from dagster._core.definitions.decorators.sensor_decorator import asset_sensor, sensor
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.definitions.run_status_sensor_definition import run_status_sensor
-from dagster._core.definitions.sensor_definition import DefaultSensorStatus, RunRequest, SkipReason
-from dagster._core.events import DagsterEventType
-from dagster._core.execution.api import execute_pipeline
-from dagster._core.host_representation import ExternalInstigatorOrigin, ExternalRepositoryOrigin
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import InstigatorState, InstigatorStatus, TickStatus
-from dagster._core.storage.event_log.base import EventRecordsFilter
-from dagster._core.test_utils import (
+from sheenflow._core.definitions.decorators.sensor_decorator import asset_sensor, sensor
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.definitions.run_status_sensor_definition import run_status_sensor
+from sheenflow._core.definitions.sensor_definition import DefaultSensorStatus, RunRequest, SkipReason
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.execution.api import execute_pipeline
+from sheenflow._core.host_representation import ExternalInstigatorOrigin, ExternalRepositoryOrigin
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import InstigatorState, InstigatorStatus, TickStatus
+from sheenflow._core.storage.event_log.base import EventRecordsFilter
+from sheenflow._core.test_utils import (
     SingleThreadPoolExecutor,
     create_test_daemon_workspace_context,
     instance_for_test,
     wait_for_futures,
 )
-from dagster._daemon import get_default_daemon_logger
-from dagster._daemon.sensor import execute_sensor_iteration, execute_sensor_iteration_loop
-from dagster._legacy import pipeline, solid
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._daemon import get_default_daemon_logger
+from sheenflow._daemon.sensor import execute_sensor_iteration, execute_sensor_iteration_loop
+from sheenflow._legacy import pipeline, solid
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 
 from .conftest import create_workspace_load_target
 

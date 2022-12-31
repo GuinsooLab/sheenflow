@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {ConfigSchema} from '@sheenflow-io/ui';
+import {ConfigSchema} from '@dagster-io/ui';
 
 export type {ConfigSchema as ConfigTypeSchema};
 

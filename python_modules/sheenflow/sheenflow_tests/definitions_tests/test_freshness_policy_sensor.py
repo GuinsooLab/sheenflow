@@ -13,9 +13,9 @@ from dagster import (
     materialize,
     repository,
 )
-from dagster._core.definitions.freshness_policy_sensor_definition import FreshnessPolicySensorCursor
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions.freshness_policy_sensor_definition import FreshnessPolicySensorCursor
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.test_utils import instance_for_test
 
 
 @asset(freshness_policy=FreshnessPolicy(maximum_lag_minutes=0))

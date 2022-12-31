@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Colors, NonIdealState} from '@sheenflow-io/ui';
+import {Colors, NonIdealState} from '@dagster-io/ui';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {CellMeasurer, CellMeasurerCache, List, ListRowProps, ScrollParams} from 'react-virtualized';

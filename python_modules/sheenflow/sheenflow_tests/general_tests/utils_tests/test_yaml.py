@@ -4,9 +4,9 @@ import os
 import pytest
 import yaml
 
-import dagster._check as check
-from dagster._utils import file_relative_path
-from dagster._utils.yaml_utils import (
+import sheenflow._check as check
+from sheenflow._utils import file_relative_path
+from sheenflow._utils.yaml_utils import (
     dump_run_config_yaml,
     load_run_config_yaml,
     load_yaml_from_glob_list,

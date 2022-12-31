@@ -1,7 +1,7 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.workspace.permissions import PermissionResult
+import sheenflow._check as check
+from sheenflow._core.workspace.permissions import PermissionResult
 
 
 class GraphenePermission(graphene.ObjectType):

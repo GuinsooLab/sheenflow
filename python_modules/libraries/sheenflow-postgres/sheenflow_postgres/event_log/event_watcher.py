@@ -3,10 +3,10 @@ import threading
 from collections import defaultdict
 from typing import Callable, List, MutableMapping, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.events.log import EventLogEntry
-from dagster._core.storage.event_log.base import EventLogCursor
-from dagster._core.storage.event_log.polling_event_watcher import CallbackAfterCursor
+import sheenflow._check as check
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.storage.event_log.base import EventLogCursor
+from sheenflow._core.storage.event_log.polling_event_watcher import CallbackAfterCursor
 
 from ..pynotify import await_pg_notifications
 

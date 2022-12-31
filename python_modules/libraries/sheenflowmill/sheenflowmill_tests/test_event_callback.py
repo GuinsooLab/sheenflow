@@ -1,11 +1,11 @@
 import time
 from collections import defaultdict
 
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.events import DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.execution.api import execute_run
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.execution.api import execute_run
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_event_callback_logging():

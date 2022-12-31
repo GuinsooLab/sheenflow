@@ -1,9 +1,9 @@
 import logging
 
-from dagster._core.execution.context.logger import InitLoggerContext
-from dagster._core.log_manager import DagsterLogManager
-from dagster._legacy import PipelineDefinition
-from dagster._utils.log import construct_single_handler_logger
+from sheenflow._core.execution.context.logger import InitLoggerContext
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._legacy import PipelineDefinition
+from sheenflow._utils.log import construct_single_handler_logger
 
 
 class LogTestHandler(logging.Handler):

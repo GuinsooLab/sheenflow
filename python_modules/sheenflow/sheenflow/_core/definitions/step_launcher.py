@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Mapping, NamedTuple, Optional
 
-import dagster._check as check
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.execution.retries import RetryMode
-from dagster._core.storage.pipeline_run import DagsterRun
+import sheenflow._check as check
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.storage.pipeline_run import DagsterRun
 
 if TYPE_CHECKING:
-    from dagster._core.execution.plan.state import KnownExecutionState
+    from sheenflow._core.execution.plan.state import KnownExecutionState
 
 
 class StepRunRef(
@@ -41,7 +41,7 @@ class StepRunRef(
         recon_pipeline: ReconstructablePipeline,
         known_state: Optional["KnownExecutionState"],
     ):
-        from dagster._core.execution.plan.state import KnownExecutionState
+        from sheenflow._core.execution.plan.state import KnownExecutionState
 
         return super(StepRunRef, cls).__new__(
             cls,

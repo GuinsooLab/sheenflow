@@ -1,8 +1,8 @@
 import pytest
 
 from dagster import In, asset, define_asset_job, in_process_executor, job, op, repository
-from dagster._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
-from dagster._core.selector.subset_selector import (
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
+from sheenflow._core.selector.subset_selector import (
     MAX_NUM,
     Traverser,
     clause_to_subset,

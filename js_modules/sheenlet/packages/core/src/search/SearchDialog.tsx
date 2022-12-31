@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-restricted-imports
 import {Overlay} from '@blueprintjs/core';
-import {Box, Colors, Icon, Spinner, FontFamily} from '@sheenflow-io/ui';
+import {Box, Colors, Icon, Spinner, FontFamily} from '@dagster-io/ui';
 import Fuse from 'fuse.js';
 import * as React from 'react';
 import {useHistory, useLocation} from 'react-router-dom';

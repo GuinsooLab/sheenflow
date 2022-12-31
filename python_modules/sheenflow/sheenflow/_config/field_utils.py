@@ -2,14 +2,14 @@
 import hashlib
 from typing import TYPE_CHECKING, Any, Dict, Iterator, List, Mapping, Sequence
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.errors import DagsterInvalidConfigDefinitionError
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.errors import DagsterInvalidConfigDefinitionError
 
 from .config_type import Array, ConfigType, ConfigTypeKind
 
 if TYPE_CHECKING:
-    from dagster._config import Field
+    from sheenflow._config import Field
 
     from .snap import ConfigTypeSnap
 

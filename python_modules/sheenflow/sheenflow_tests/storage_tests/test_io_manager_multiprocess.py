@@ -1,5 +1,5 @@
 from dagster import execute_job, job, multiprocess_executor, op, reconstructable
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 @op

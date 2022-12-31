@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Box, Colors, Group, Icon, Mono, NonIdealState, Table} from '@sheenflow-io/ui';
+import {Box, Colors, Group, Icon, Mono, NonIdealState, Table} from '@dagster-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';

@@ -4,21 +4,21 @@ from typing import TYPE_CHECKING, AbstractSet, Callable, Optional
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-from dagster._core.definitions.config import is_callable_valid_config_arg
-from dagster._core.definitions.definition_config_schema import (
+import sheenflow._check as check
+from sheenflow._core.definitions.config import is_callable_valid_config_arg
+from sheenflow._core.definitions.definition_config_schema import (
     CoercableToConfigSchema,
     IDefinitionConfigSchema,
     convert_user_facing_definition_config_schema,
 )
-from dagster._core.definitions.resource_definition import (
+from sheenflow._core.definitions.resource_definition import (
     ResourceDefinition,
     ResourceFunction,
     is_context_provided,
 )
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.input import InputContext
+    from sheenflow._core.execution.context.input import InputContext
 
 InputLoadFn: TypeAlias = Callable[["InputContext", object], object]
 

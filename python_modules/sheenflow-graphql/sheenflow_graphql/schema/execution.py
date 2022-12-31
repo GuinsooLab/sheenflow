@@ -1,8 +1,8 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.host_representation import ExternalExecutionPlan
-from dagster._core.snap import ExecutionStepInputSnap, ExecutionStepOutputSnap, ExecutionStepSnap
+import sheenflow._check as check
+from sheenflow._core.host_representation import ExternalExecutionPlan
+from sheenflow._core.snap import ExecutionStepInputSnap, ExecutionStepOutputSnap, ExecutionStepSnap
 
 from .metadata import GrapheneMetadataItemDefinition
 from .util import non_null_list

@@ -5,16 +5,16 @@ import time
 import pytest
 
 from dagster import file_relative_path, repository
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.grpc_server_registry import ProcessGrpcServerRegistry
-from dagster._core.host_representation.origin import (
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.grpc_server_registry import ProcessGrpcServerRegistry
+from sheenflow._core.host_representation.origin import (
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
     RegisteredRepositoryLocationOrigin,
 )
-from dagster._core.host_representation.repository_location import GrpcServerRepositoryLocation
-from dagster._core.test_utils import instance_for_test
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._legacy import pipeline
+from sheenflow._core.host_representation.repository_location import GrpcServerRepositoryLocation
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._legacy import pipeline
 
 
 @pipeline

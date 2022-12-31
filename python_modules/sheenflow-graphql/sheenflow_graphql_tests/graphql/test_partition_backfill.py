@@ -8,11 +8,11 @@ from dagster_graphql.test.utils import (
     infer_repository_selector,
 )
 
-from dagster._core.execution.backfill import BulkActionStatus
-from dagster._core.storage.tags import PARTITION_NAME_TAG
-from dagster._core.test_utils import create_run_for_test
-from dagster._legacy import DagsterRun, DagsterRunStatus
-from dagster._seven import get_system_temp_directory
+from sheenflow._core.execution.backfill import BulkActionStatus
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG
+from sheenflow._core.test_utils import create_run_for_test
+from sheenflow._legacy import DagsterRun, DagsterRunStatus
+from sheenflow._seven import get_system_temp_directory
 
 from .graphql_context_test_suite import ExecutingGraphQLContextTestMatrix
 

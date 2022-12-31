@@ -9,10 +9,10 @@ from dagster import (
     MultiDependencyDefinition,
     Nothing,
 )
-from dagster._core.definitions.composition import MappedInputPlaceholder
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.definitions.graph_definition import GraphDefinition
-from dagster._legacy import (
+from sheenflow._core.definitions.composition import MappedInputPlaceholder
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.definitions.graph_definition import GraphDefinition
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     PipelineDefinition,

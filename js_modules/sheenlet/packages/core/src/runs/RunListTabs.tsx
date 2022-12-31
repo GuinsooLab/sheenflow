@@ -1,4 +1,4 @@
-import {Tabs, TokenizingFieldValue} from '@sheenflow-io/ui';
+import {Tabs, TokenizingFieldValue} from '@dagster-io/ui';
 import isEqual from 'lodash/isEqual';
 import * as React from 'react';
 import {useLocation} from 'react-router-dom';

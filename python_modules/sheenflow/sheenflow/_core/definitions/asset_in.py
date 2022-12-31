@@ -1,15 +1,15 @@
 from typing import Any, Mapping, NamedTuple, Optional, Sequence, Type, Union
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.definitions.events import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.definitions.events import (
     AssetKey,
     CoercibleToAssetKey,
     CoercibleToAssetKeyPrefix,
 )
-from dagster._core.definitions.input import NoValueSentinel
-from dagster._core.types.dagster_type import DagsterType, resolve_dagster_type
-from dagster._utils.backcompat import canonicalize_backcompat_args
+from sheenflow._core.definitions.input import NoValueSentinel
+from sheenflow._core.types.dagster_type import DagsterType, resolve_dagster_type
+from sheenflow._utils.backcompat import canonicalize_backcompat_args
 
 from .partition_mapping import PartitionMapping
 

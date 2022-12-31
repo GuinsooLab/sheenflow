@@ -1,4 +1,4 @@
-import {Tooltip} from '@sheenflow-io/ui';
+import {Tooltip} from '@dagster-io/ui';
 import styled from 'styled-components/macro';
 
 export const WarningTooltip = styled(Tooltip)`

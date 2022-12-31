@@ -10,7 +10,7 @@ from dagster import (
     op,
     static_partitioned_config,
 )
-from dagster._seven.compat.pendulum import create_pendulum_time
+from sheenflow._seven.compat.pendulum import create_pendulum_time
 
 
 @op

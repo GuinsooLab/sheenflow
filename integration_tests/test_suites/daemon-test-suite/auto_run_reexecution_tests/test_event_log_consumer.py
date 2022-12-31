@@ -2,9 +2,9 @@ import logging
 import time
 
 from dagster import DagsterEvent, DagsterEventType, EventLogEntry
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import create_run_for_test
-from dagster._daemon.auto_run_reexecution.event_log_consumer import (
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import create_run_for_test
+from sheenflow._daemon.auto_run_reexecution.event_log_consumer import (
     EventLogConsumerDaemon,
     get_new_cursor,
 )

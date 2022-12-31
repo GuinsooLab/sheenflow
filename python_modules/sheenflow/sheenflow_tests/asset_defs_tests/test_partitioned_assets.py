@@ -4,7 +4,7 @@ from typing import Optional
 import pendulum
 import pytest
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import (
     AssetMaterialization,
     AssetOut,
@@ -24,16 +24,16 @@ from dagster import (
     hourly_partitioned_config,
     materialize,
 )
-from dagster._check import CheckError
-from dagster._core.definitions import asset, build_assets_job, multi_asset
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.time_window_partitions import TimeWindow
-from dagster._core.storage.tags import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions import asset, build_assets_job, multi_asset
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.time_window_partitions import TimeWindow
+from sheenflow._core.storage.tags import (
     ASSET_PARTITION_RANGE_END_TAG,
     ASSET_PARTITION_RANGE_START_TAG,
 )
-from dagster._core.test_utils import assert_namedtuple_lists_equal
+from sheenflow._core.test_utils import assert_namedtuple_lists_equal
 
 
 @pytest.fixture(autouse=True)

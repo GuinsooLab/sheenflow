@@ -1,4 +1,4 @@
-import {Colors, CursorControlsContainer} from '@sheenflow-io/ui';
+import {Colors, CursorControlsContainer} from '@dagster-io/ui';
 import styled from 'styled-components/macro';
 
 export const OptionsContainer = styled.div`

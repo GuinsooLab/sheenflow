@@ -1,4 +1,4 @@
-import {Markdown} from '@sheenflow-io/ui';
+import {Markdown} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

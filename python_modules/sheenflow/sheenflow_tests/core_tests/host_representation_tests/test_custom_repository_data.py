@@ -3,13 +3,13 @@ import sys
 import pytest
 
 from dagster import file_relative_path, op, repository
-from dagster._core.definitions.repository_definition import RepositoryData
-from dagster._core.test_utils import instance_for_test
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import GrpcServerTarget
-from dagster._grpc.server import GrpcServerProcess
-from dagster._legacy import pipeline
+from sheenflow._core.definitions.repository_definition import RepositoryData
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import GrpcServerTarget
+from sheenflow._grpc.server import GrpcServerProcess
+from sheenflow._legacy import pipeline
 
 
 def define_do_something(num_calls):

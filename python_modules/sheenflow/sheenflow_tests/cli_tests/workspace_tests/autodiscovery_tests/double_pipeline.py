@@ -1,4 +1,4 @@
-from dagster._legacy import pipeline
+from sheenflow._legacy import pipeline
 
 
 @pipeline

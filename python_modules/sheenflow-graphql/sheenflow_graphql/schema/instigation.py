@@ -4,10 +4,10 @@ import warnings
 import graphene
 import pendulum
 
-import dagster._check as check
-from dagster._core.definitions.schedule_definition import ScheduleExecutionData
-from dagster._core.definitions.sensor_definition import RunRequest
-from dagster._core.scheduler.instigation import (
+import sheenflow._check as check
+from sheenflow._core.definitions.schedule_definition import ScheduleExecutionData
+from sheenflow._core.definitions.sensor_definition import RunRequest
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorTick,
     InstigatorType,
@@ -15,11 +15,11 @@ from dagster._core.scheduler.instigation import (
     SensorInstigatorData,
     TickStatus,
 )
-from dagster._core.storage.pipeline_run import DagsterRun, RunsFilter
-from dagster._core.storage.tags import REPOSITORY_LABEL_TAG, TagType, get_tag_type
-from dagster._seven.compat.pendulum import to_timezone
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
-from dagster._utils.yaml_utils import dump_run_config_yaml
+from sheenflow._core.storage.pipeline_run import DagsterRun, RunsFilter
+from sheenflow._core.storage.tags import REPOSITORY_LABEL_TAG, TagType, get_tag_type
+from sheenflow._seven.compat.pendulum import to_timezone
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._utils.yaml_utils import dump_run_config_yaml
 
 from ..implementation.fetch_instigators import get_tick_log_events
 from ..implementation.fetch_schedules import get_schedule_next_tick

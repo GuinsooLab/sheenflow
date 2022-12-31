@@ -12,8 +12,8 @@ from dagster import (
     String,
     graph,
 )
-from dagster._core.definitions.config import ConfigMapping
-from dagster._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline, solid
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline, solid
 
 
 # have to use "pipe" solid since "result_for_solid" doesnt work with composite mappings

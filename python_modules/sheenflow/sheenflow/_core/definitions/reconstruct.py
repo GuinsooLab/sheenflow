@@ -22,32 +22,32 @@ from typing import (
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._annotations import experimental
-from dagster._core.code_pointer import (
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._annotations import experimental
+from sheenflow._core.code_pointer import (
     CodePointer,
     CustomPointer,
     FileCodePointer,
     ModuleCodePointer,
     get_python_file_from_target,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.origin import (
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.origin import (
     DEFAULT_DAGSTER_ENTRY_POINT,
     PipelinePythonOrigin,
     RepositoryPythonOrigin,
 )
-from dagster._core.selector import parse_solid_selection
-from dagster._serdes import pack_value, unpack_value, whitelist_for_serdes
-from dagster._utils import frozenlist, make_readonly_value
+from sheenflow._core.selector import parse_solid_selection
+from sheenflow._serdes import pack_value, unpack_value, whitelist_for_serdes
+from sheenflow._utils import frozenlist, make_readonly_value
 
 from .events import AssetKey
 from .pipeline_base import IPipeline
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.job_definition import JobDefinition
-    from dagster._core.definitions.repository_definition import (
+    from sheenflow._core.definitions.job_definition import JobDefinition
+    from sheenflow._core.definitions.repository_definition import (
         PendingRepositoryDefinition,
         RepositoryLoadData,
     )
@@ -86,7 +86,7 @@ class ReconstructableRepository(
         container_context: Optional[Mapping[str, Any]] = None,
         repository_load_data: Optional[RepositoryLoadData] = None,
     ):
-        from dagster._core.definitions.repository_definition import RepositoryLoadData
+        from sheenflow._core.definitions.repository_definition import RepositoryLoadData
 
         return super(ReconstructableRepository, cls).__new__(
             cls,
@@ -249,7 +249,7 @@ class ReconstructablePipeline(
                 pipeline_name=self.pipeline_name,
             )
 
-        from dagster._core.definitions import JobDefinition, PipelineDefinition
+        from sheenflow._core.definitions import JobDefinition, PipelineDefinition
 
         pipeline_def = self.get_definition()
         if isinstance(pipeline_def, JobDefinition):
@@ -432,7 +432,7 @@ def reconstructable(target: Callable[..., "PipelineDefinition"]) -> Reconstructa
 
         reconstructable_bar_job = reconstructable(make_bar_job)
     """
-    from dagster._core.definitions import JobDefinition, PipelineDefinition
+    from sheenflow._core.definitions import JobDefinition, PipelineDefinition
 
     if not seven.is_function_or_decorator_instance_of(target, PipelineDefinition):
         if isinstance(target, JobDefinition):
@@ -623,7 +623,7 @@ T_LoadableDefinition = TypeVar("T_LoadableDefinition", bound=LoadableDefinition)
 
 
 def _check_is_loadable(definition: T_LoadableDefinition) -> T_LoadableDefinition:
-    from dagster._core.definitions import AssetGroup
+    from sheenflow._core.definitions import AssetGroup
 
     from .definitions_class import Definitions
     from .graph_definition import GraphDefinition
@@ -675,7 +675,7 @@ def def_from_pointer(
 ) -> LoadableDefinition:
     target = pointer.load_target()
 
-    from dagster._core.definitions import AssetGroup
+    from sheenflow._core.definitions import AssetGroup
 
     from .graph_definition import GraphDefinition
     from .pipeline_definition import PipelineDefinition
@@ -740,7 +740,7 @@ def repository_def_from_target_def(
 def repository_def_from_target_def(
     target: object, repository_load_data: Optional["RepositoryLoadData"] = None
 ) -> Optional["RepositoryDefinition"]:
-    from dagster._core.definitions import AssetGroup
+    from sheenflow._core.definitions import AssetGroup
 
     from .definitions_class import Definitions
     from .graph_definition import GraphDefinition

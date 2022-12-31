@@ -4,11 +4,11 @@ import time
 from unittest import mock
 
 from dagster import AssetKey, Definitions, SourceAsset, asset
-from dagster._core.definitions.external_asset_graph import ExternalAssetGraph
-from dagster._core.host_representation import InProcessRepositoryLocationOrigin
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._core.workspace.context import WorkspaceRequestContext
-from dagster._core.workspace.workspace import WorkspaceLocationEntry, WorkspaceLocationLoadStatus
+from sheenflow._core.definitions.external_asset_graph import ExternalAssetGraph
+from sheenflow._core.host_representation import InProcessRepositoryLocationOrigin
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.workspace.context import WorkspaceRequestContext
+from sheenflow._core.workspace.workspace import WorkspaceLocationEntry, WorkspaceLocationLoadStatus
 
 
 @asset

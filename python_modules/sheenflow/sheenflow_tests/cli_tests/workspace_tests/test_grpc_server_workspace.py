@@ -4,13 +4,13 @@ import pytest
 import yaml
 
 from dagster import _seven
-from dagster._check import CheckError
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._core.host_representation import GrpcServerRepositoryLocationOrigin
-from dagster._core.test_utils import environ, instance_for_test
-from dagster._core.workspace.load import location_origins_from_config
-from dagster._grpc.server import GrpcServerProcess
-from dagster._utils import file_relative_path
+from sheenflow._check import CheckError
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._core.host_representation import GrpcServerRepositoryLocationOrigin
+from sheenflow._core.test_utils import environ, instance_for_test
+from sheenflow._core.workspace.load import location_origins_from_config
+from sheenflow._grpc.server import GrpcServerProcess
+from sheenflow._utils import file_relative_path
 
 
 @pytest.fixture

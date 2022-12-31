@@ -1,8 +1,8 @@
-from dagster._core.host_representation.handle import JobHandle
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.test_utils import instance_for_test, poll_for_event, poll_for_finished_run
-from dagster._grpc.server import ExecuteExternalPipelineArgs
-from dagster._serdes import deserialize_json_to_dagster_namedtuple
+from sheenflow._core.host_representation.handle import JobHandle
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.test_utils import instance_for_test, poll_for_event, poll_for_finished_run
+from sheenflow._grpc.server import ExecuteExternalPipelineArgs
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple
 
 from .utils import get_bar_repo_repository_location
 

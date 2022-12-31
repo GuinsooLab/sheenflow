@@ -1,11 +1,11 @@
 from functools import update_wrapper
 from typing import Any, Callable, Mapping, Optional, Sequence, Set, Union, overload
 
-import dagster._check as check
-from dagster._config import UserConfigSchema
-from dagster._core.decorator_utils import format_docstring_for_description
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._utils.backcompat import experimental_arg_warning
+import sheenflow._check as check
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.decorator_utils import format_docstring_for_description
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 from ..graph_definition import GraphDefinition
 from ..hook_definition import HookDefinition

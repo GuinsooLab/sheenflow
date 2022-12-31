@@ -1,7 +1,7 @@
 from dagster import logger, resource
-from dagster._core.snap import PipelineSnapshot
-from dagster._legacy import ModeDefinition, pipeline
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
+from sheenflow._core.snap import PipelineSnapshot
+from sheenflow._legacy import ModeDefinition, pipeline
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
 
 
 def test_mode_snap(snapshot):

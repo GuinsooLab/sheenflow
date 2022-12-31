@@ -5,10 +5,10 @@ from typing import Callable
 
 from sqlalchemy.pool import NullPool
 
-from dagster._core.storage.event_log.base import EventLogCursor
-from dagster._core.storage.sql import create_engine, get_alembic_config, stamp_alembic_rev
-from dagster._core.storage.sqlite import create_in_memory_conn_string
-from dagster._serdes import ConfigurableClass
+from sheenflow._core.storage.event_log.base import EventLogCursor
+from sheenflow._core.storage.sql import create_engine, get_alembic_config, stamp_alembic_rev
+from sheenflow._core.storage.sqlite import create_in_memory_conn_string
+from sheenflow._serdes import ConfigurableClass
 
 from .schema import SqlEventLogStorageMetadata
 from .sql_event_log import SqlEventLogStorage

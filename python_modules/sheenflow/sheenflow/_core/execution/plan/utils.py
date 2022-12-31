@@ -2,9 +2,9 @@ import sys
 from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Callable, Iterator, Type
 
-import dagster._check as check
-from dagster._core.definitions.events import Failure, RetryRequested
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.definitions.events import Failure, RetryRequested
+from sheenflow._core.errors import (
     DagsterError,
     DagsterExecutionInterruptedError,
     DagsterUserCodeExecutionError,
@@ -12,8 +12,8 @@ from dagster._core.errors import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.resource_definition import Resources
-    from dagster._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.definitions.resource_definition import Resources
+    from sheenflow._core.execution.context.system import StepExecutionContext
 
 
 def build_resources_for_manager(
@@ -41,7 +41,7 @@ def op_execution_error_boundary(
     This variant supports the control flow exceptions RetryRequested and Failure as well
     as respecting the RetryPolicy if present.
     """
-    from dagster._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.execution.context.system import StepExecutionContext
 
     check.callable_param(msg_fn, "msg_fn")
     check.class_param(error_cls, "error_cls", superclass=DagsterUserCodeExecutionError)

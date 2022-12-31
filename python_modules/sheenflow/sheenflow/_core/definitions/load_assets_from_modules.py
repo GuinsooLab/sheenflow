@@ -5,8 +5,8 @@ from importlib import import_module
 from types import ModuleType
 from typing import Dict, Generator, Iterable, List, Optional, Sequence, Set, Tuple, Union
 
-import dagster._check as check
-from dagster._core.errors import DagsterInvalidDefinitionError
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 from .assets import AssetsDefinition
 from .events import AssetKey, CoercibleToAssetKeyPrefix

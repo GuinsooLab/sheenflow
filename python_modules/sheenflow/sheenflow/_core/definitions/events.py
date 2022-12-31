@@ -17,11 +17,11 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._annotations import PublicAttr, public
-from dagster._core.storage.tags import MULTIDIMENSIONAL_PARTITION_PREFIX, SYSTEM_TAG_PREFIX
-from dagster._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._core.storage.tags import MULTIDIMENSIONAL_PARTITION_PREFIX, SYSTEM_TAG_PREFIX
+from sheenflow._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
 
 from .metadata import (
     MetadataEntry,
@@ -35,7 +35,7 @@ from .metadata import (
 from .utils import DEFAULT_OUTPUT, check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.output import OutputContext
+    from sheenflow._core.execution.context.output import OutputContext
 
 ASSET_KEY_SPLIT_REGEX = re.compile("[^a-zA-Z0-9_]")
 ASSET_KEY_DELIMITER = "/"
@@ -474,7 +474,7 @@ class AssetMaterialization(
         tags: Optional[Mapping[str, str]] = None,
         metadata: Optional[Mapping[str, RawMetadataValue]] = None,
     ):
-        from dagster._core.definitions.multi_dimensional_partitions import MultiPartitionKey
+        from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionKey
 
         if isinstance(asset_key, AssetKey):
             check.inst_param(asset_key, "asset_key", AssetKey)

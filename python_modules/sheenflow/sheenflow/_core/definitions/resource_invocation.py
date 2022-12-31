@@ -2,16 +2,16 @@ import inspect
 from contextlib import contextmanager
 from typing import TYPE_CHECKING, Any, Dict, Optional, cast
 
-import dagster._check as check
-from dagster._core.definitions.configurable import ConfigurableDefinition
-from dagster._core.errors import DagsterInvalidConfigError, DagsterInvalidInvocationError
+import sheenflow._check as check
+from sheenflow._core.definitions.configurable import ConfigurableDefinition
+from sheenflow._core.errors import DagsterInvalidConfigError, DagsterInvalidInvocationError
 
 from ..._config import Shape
 from .resource_requirement import ensure_requirements_satisfied
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.resource_definition import ResourceDefinition
-    from dagster._core.execution.context.init import InitResourceContext, UnboundInitResourceContext
+    from sheenflow._core.definitions.resource_definition import ResourceDefinition
+    from sheenflow._core.execution.context.init import InitResourceContext, UnboundInitResourceContext
 
 
 def resource_invocation_result(
@@ -51,8 +51,8 @@ def resource_invocation_result(
 def _check_invocation_requirements(
     resource_def: "ResourceDefinition", init_context: Optional["UnboundInitResourceContext"]
 ) -> "InitResourceContext":
-    from dagster._core.definitions.resource_definition import is_context_provided
-    from dagster._core.execution.context.init import (
+    from sheenflow._core.definitions.resource_definition import is_context_provided
+    from sheenflow._core.execution.context.init import (
         InitResourceContext,
         build_init_resource_context,
     )
@@ -96,9 +96,9 @@ def _check_invocation_requirements(
 
 
 def _get_friendly_string(configurable_def: ConfigurableDefinition) -> str:
-    from dagster._core.definitions.logger_definition import LoggerDefinition
-    from dagster._core.definitions.node_definition import NodeDefinition
-    from dagster._core.definitions.resource_definition import ResourceDefinition
+    from sheenflow._core.definitions.logger_definition import LoggerDefinition
+    from sheenflow._core.definitions.node_definition import NodeDefinition
+    from sheenflow._core.definitions.resource_definition import ResourceDefinition
 
     if isinstance(configurable_def, ResourceDefinition):
         return "resource"
@@ -111,7 +111,7 @@ def _get_friendly_string(configurable_def: ConfigurableDefinition) -> str:
 
 
 def resolve_bound_config(config: Any, configurable_def: ConfigurableDefinition) -> Any:
-    from dagster._config import process_config
+    from sheenflow._config import process_config
 
     outer_config_shape = Shape({"config": configurable_def.get_config_field()})
     config_evr = process_config(outer_config_shape, {"config": config} if config else {})

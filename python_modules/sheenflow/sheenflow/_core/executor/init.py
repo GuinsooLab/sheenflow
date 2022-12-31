@@ -1,9 +1,9 @@
 from typing import Mapping, NamedTuple
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.definitions import ExecutorDefinition, IPipeline
-from dagster._core.instance import DagsterInstance
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.definitions import ExecutorDefinition, IPipeline
+from sheenflow._core.instance import DagsterInstance
 
 
 class InitExecutorContext(

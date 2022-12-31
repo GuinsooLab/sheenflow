@@ -18,8 +18,8 @@ from starlette.responses import HTMLResponse, JSONResponse, PlainTextResponse
 from starlette.routing import BaseRoute
 from starlette.websockets import WebSocket, WebSocketDisconnect, WebSocketState
 
-import dagster._check as check
-from dagster._seven import json
+import sheenflow._check as check
+from sheenflow._seven import json
 
 
 class GraphQLWS(str, Enum):

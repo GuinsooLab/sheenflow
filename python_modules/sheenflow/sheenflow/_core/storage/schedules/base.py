@@ -1,9 +1,9 @@
 import abc
 from typing import Callable, Iterable, Mapping, Optional, Sequence
 
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.instance import MayHaveInstanceWeakref
-from dagster._core.scheduler.instigation import (
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorTick,
     TickData,

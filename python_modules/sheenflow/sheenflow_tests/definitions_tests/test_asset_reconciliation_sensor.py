@@ -32,13 +32,13 @@ from dagster import (
     multi_asset,
     repository,
 )
-from dagster._core.definitions.asset_reconciliation_sensor import (
+from sheenflow._core.definitions.asset_reconciliation_sensor import (
     AssetReconciliationCursor,
     reconcile,
 )
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.storage.tags import PARTITION_NAME_TAG
-from dagster._seven.compat.pendulum import create_pendulum_time
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG
+from sheenflow._seven.compat.pendulum import create_pendulum_time
 
 
 class RunSpec(NamedTuple):

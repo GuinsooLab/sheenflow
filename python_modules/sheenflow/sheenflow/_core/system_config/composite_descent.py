@@ -1,20 +1,20 @@
 from typing import NamedTuple, Optional
 
-import dagster._check as check
-from dagster._config import EvaluateValueResult, process_config
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.definitions.graph_definition import GraphDefinition
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.definitions.run_config import define_solid_dictionary_cls
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._config import EvaluateValueResult, process_config
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.definitions.graph_definition import GraphDefinition
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.definitions.run_config import define_solid_dictionary_cls
+from sheenflow._core.errors import (
     DagsterConfigMappingFunctionError,
     DagsterInvalidConfigError,
     user_code_error_boundary,
 )
-from dagster._core.system_config.objects import OpConfig
-from dagster._utils.merger import merge_dicts
+from sheenflow._core.system_config.objects import OpConfig
+from sheenflow._utils.merger import merge_dicts
 
 
 class OpConfigEntry(

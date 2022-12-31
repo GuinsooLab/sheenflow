@@ -1,6 +1,6 @@
 from dagster import In, Out, op
-from dagster._core.snap.solid import build_core_solid_def_snap
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
+from sheenflow._core.snap.solid import build_core_solid_def_snap
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
 
 
 def test_basic_solid_definition():

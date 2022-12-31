@@ -13,41 +13,41 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.composition import PendingNodeInvocation
-from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
-from dagster._core.definitions.dependency import Node, NodeHandle
-from dagster._core.definitions.events import (
+import sheenflow._check as check
+from sheenflow._core.definitions.composition import PendingNodeInvocation
+from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+from sheenflow._core.definitions.dependency import Node, NodeHandle
+from sheenflow._core.definitions.events import (
     AssetMaterialization,
     AssetObservation,
     ExpectationResult,
     Materialization,
     UserEvent,
 )
-from dagster._core.definitions.hook_definition import HookDefinition
-from dagster._core.definitions.mode import ModeDefinition
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.definitions.resource_definition import (
+from sheenflow._core.definitions.hook_definition import HookDefinition
+from sheenflow._core.definitions.mode import ModeDefinition
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.definitions.resource_definition import (
     IContainsGenerator,
     ResourceDefinition,
     Resources,
     ScopedResourcesBuilder,
 )
-from dagster._core.definitions.resource_requirement import ensure_requirements_satisfied
-from dagster._core.definitions.step_launcher import StepLauncher
-from dagster._core.errors import (
+from sheenflow._core.definitions.resource_requirement import ensure_requirements_satisfied
+from sheenflow._core.definitions.step_launcher import StepLauncher
+from sheenflow._core.errors import (
     DagsterInvalidInvocationError,
     DagsterInvalidPropertyError,
     DagsterInvariantViolationError,
 )
-from dagster._core.execution.build_resources import build_resources, wrap_resources_for_execution
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DagsterLogManager
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.types.dagster_type import DagsterType
-from dagster._utils import merge_dicts
-from dagster._utils.forked_pdb import ForkedPdb
+from sheenflow._core.execution.build_resources import build_resources, wrap_resources_for_execution
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.types.dagster_type import DagsterType
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.forked_pdb import ForkedPdb
 
 from .compute import OpExecutionContext
 from .system import StepExecutionContext, TypeCheckContext
@@ -73,8 +73,8 @@ class UnboundOpExecutionContext(OpExecutionContext):
         partition_key: Optional[str],
         mapping_key: Optional[str],
     ):  # pylint: disable=super-init-not-called
-        from dagster._core.execution.api import ephemeral_instance_if_missing
-        from dagster._core.execution.context_creation_pipeline import initialize_console_manager
+        from sheenflow._core.execution.api import ephemeral_instance_if_missing
+        from sheenflow._core.execution.context_creation_pipeline import initialize_console_manager
 
         self._solid_config = solid_config
         self._mapping_key = mapping_key
@@ -239,7 +239,7 @@ class UnboundOpExecutionContext(OpExecutionContext):
 
         _validate_resource_requirements(self._resource_defs, op_def)
 
-        from dagster._core.definitions.resource_invocation import resolve_bound_config
+        from sheenflow._core.definitions.resource_invocation import resolve_bound_config
 
         solid_config = resolve_bound_config(self.solid_config, op_def)
 

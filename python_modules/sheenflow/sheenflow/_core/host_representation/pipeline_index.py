@@ -1,16 +1,16 @@
 from threading import Lock
 from typing import Any, Mapping, Optional, Sequence, Union
 
-import dagster._check as check
-from dagster._config import ConfigSchemaSnapshot
-from dagster._core.snap import (
+import sheenflow._check as check
+from sheenflow._config import ConfigSchemaSnapshot
+from sheenflow._core.snap import (
     DependencyStructureIndex,
     PipelineSnapshot,
     create_pipeline_snapshot_id,
 )
-from dagster._core.snap.dagster_types import DagsterTypeSnap
-from dagster._core.snap.mode import ModeDefSnap
-from dagster._core.snap.solid import CompositeSolidDefSnap, SolidDefSnap
+from sheenflow._core.snap.dagster_types import DagsterTypeSnap
+from sheenflow._core.snap.mode import ModeDefSnap
+from sheenflow._core.snap.solid import CompositeSolidDefSnap, SolidDefSnap
 
 
 class PipelineIndex:

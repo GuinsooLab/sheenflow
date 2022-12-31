@@ -3,7 +3,7 @@ from typing import Callable, Generator, Mapping, Optional, Sequence, Tuple, Type
 
 T = TypeVar("T")
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 def backoff_delay_generator() -> Generator[float, None, None]:

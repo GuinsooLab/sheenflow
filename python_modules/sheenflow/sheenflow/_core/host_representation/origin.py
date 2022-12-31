@@ -17,29 +17,29 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.errors import DagsterInvariantViolationError, DagsterUserCodeUnreachableError
-from dagster._core.instance.config import DEFAULT_LOCAL_CODE_SERVER_STARTUP_TIMEOUT
-from dagster._core.origin import DEFAULT_DAGSTER_ENTRY_POINT
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._serdes import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterInvariantViolationError, DagsterUserCodeUnreachableError
+from sheenflow._core.instance.config import DEFAULT_LOCAL_CODE_SERVER_STARTUP_TIMEOUT
+from sheenflow._core.origin import DEFAULT_DAGSTER_ENTRY_POINT
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._serdes import (
     DefaultNamedTupleSerializer,
     create_snapshot_id,
     register_serdes_tuple_fallbacks,
     whitelist_for_serdes,
 )
-from dagster._serdes.serdes import WhitelistMap, unpack_inner_value
+from sheenflow._serdes.serdes import WhitelistMap, unpack_inner_value
 
 from .selector import PartitionSetSelector, RepositorySelector
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation.repository_location import (
+    from sheenflow._core.host_representation.repository_location import (
         GrpcServerRepositoryLocation,
         InProcessRepositoryLocation,
         RepositoryLocation,
     )
-    from dagster._core.instance import DagsterInstance
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._core.instance import DagsterInstance
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 # This is a hard-coded name for the special "in-process" location.
 # This is typically only used for test, although we may allow
@@ -191,7 +191,7 @@ class InProcessRepositoryLocationOrigin(
         return {}
 
     def create_location(self) -> "InProcessRepositoryLocation":
-        from dagster._core.host_representation.repository_location import (
+        from sheenflow._core.host_representation.repository_location import (
             InProcessRepositoryLocation,
         )
 
@@ -245,7 +245,7 @@ class ManagedGrpcPythonEnvRepositoryLocationOrigin(
         self,
         instance: "DagsterInstance",
     ) -> Generator["RepositoryLocation", None, None]:
-        from dagster._core.workspace.context import DAGIT_GRPC_SERVER_HEARTBEAT_TTL
+        from sheenflow._core.workspace.context import DAGIT_GRPC_SERVER_HEARTBEAT_TTL
 
         from .grpc_server_registry import ProcessGrpcServerRegistry
         from .repository_location import GrpcServerRepositoryLocation
@@ -324,14 +324,14 @@ class GrpcServerRepositoryLocationOrigin(
         return {key: value for key, value in metadata.items() if value is not None}
 
     def create_location(self) -> "GrpcServerRepositoryLocation":
-        from dagster._core.host_representation.repository_location import (
+        from sheenflow._core.host_representation.repository_location import (
             GrpcServerRepositoryLocation,
         )
 
         return GrpcServerRepositoryLocation(self)
 
     def create_client(self) -> "DagsterGrpcClient":
-        from dagster._grpc.client import DagsterGrpcClient
+        from sheenflow._grpc.client import DagsterGrpcClient
 
         return DagsterGrpcClient(
             port=self.port,

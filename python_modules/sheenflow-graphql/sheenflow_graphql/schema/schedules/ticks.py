@@ -1,7 +1,7 @@
 import graphene
 
-from dagster._core.scheduler.instigation import TickStatus
-from dagster._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.scheduler.instigation import TickStatus
+from sheenflow._core.storage.pipeline_run import RunsFilter
 
 from ..errors import GraphenePythonError
 from ..instigation import GrapheneInstigationTickStatus

@@ -1,6 +1,6 @@
 import os
 
-from dagster._core.instance.config import dagster_instance_config
+from sheenflow._core.instance.config import dagster_instance_config
 
 
 def test_instance_yaml(docs_snippets_folder, snapshot):

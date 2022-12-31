@@ -31,12 +31,12 @@ from dagster import (
     schedule,
     sensor,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.executor_definition import multi_or_in_process_executor
-from dagster._core.definitions.partition import PartitionedConfig, StaticPartitionsDefinition
-from dagster._core.errors import DagsterInvalidSubsetError
-from dagster._legacy import AssetGroup
-from dagster._loggers import default_loggers
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.executor_definition import multi_or_in_process_executor
+from sheenflow._core.definitions.partition import PartitionedConfig, StaticPartitionsDefinition
+from sheenflow._core.errors import DagsterInvalidSubsetError
+from sheenflow._legacy import AssetGroup
+from sheenflow._loggers import default_loggers
 
 # pylint: disable=comparison-with-callable
 

@@ -1,8 +1,8 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.workspace.permissions import Permissions
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.workspace.permissions import Permissions
 
 from ...implementation.execution import (
     cancel_partition_backfill,

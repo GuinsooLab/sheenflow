@@ -1,4 +1,4 @@
-from dagster._core.errors import DagsterError
+from sheenflow._core.errors import DagsterError
 
 
 class DagstermillError(DagsterError):

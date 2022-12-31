@@ -16,25 +16,25 @@ import yaml
 from dagster import Permissive, Shape
 from dagster import _check as check
 from dagster import fs_io_manager
-from dagster._config import Array, Field
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.host_representation.origin import (
+from sheenflow._config import Array, Field
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.host_representation.origin import (
     ExternalPipelineOrigin,
     InProcessRepositoryLocationOrigin,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.launcher import RunLauncher
-from dagster._core.run_coordinator import RunCoordinator, SubmitRunContext
-from dagster._core.secrets import SecretsLoader
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import WorkspaceLoadTarget
-from dagster._legacy import ModeDefinition, pipeline, solid
-from dagster._serdes import ConfigurableClass
-from dagster._seven.compat.pendulum import create_pendulum_time, mock_pendulum_timezone
-from dagster._utils import Counter, merge_dicts, traced, traced_counter
-from dagster._utils.error import serializable_error_info_from_exc_info
-from dagster._utils.log import configure_loggers
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.launcher import RunLauncher
+from sheenflow._core.run_coordinator import RunCoordinator, SubmitRunContext
+from sheenflow._core.secrets import SecretsLoader
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import WorkspaceLoadTarget
+from sheenflow._legacy import ModeDefinition, pipeline, solid
+from sheenflow._serdes import ConfigurableClass
+from sheenflow._seven.compat.pendulum import create_pendulum_time, mock_pendulum_timezone
+from sheenflow._utils import Counter, merge_dicts, traced, traced_counter
+from sheenflow._utils.error import serializable_error_info_from_exc_info
+from sheenflow._utils.log import configure_loggers
 
 T_NamedTuple = TypeVar("T_NamedTuple", bound=NamedTuple)
 
@@ -547,7 +547,7 @@ def create_test_daemon_workspace_context(
     instance: DagsterInstance,
 ):
     """Creates a DynamicWorkspace suitable for passing into a DagsterDaemon loop when running tests."""
-    from dagster._daemon.controller import create_daemon_grpc_server_registry
+    from sheenflow._daemon.controller import create_daemon_grpc_server_registry
 
     configure_loggers()
     with create_daemon_grpc_server_registry(instance) as grpc_server_registry:

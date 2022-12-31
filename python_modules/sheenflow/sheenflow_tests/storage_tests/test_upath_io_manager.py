@@ -27,9 +27,9 @@ from dagster import (
     io_manager,
     materialize,
 )
-from dagster._check import CheckError
-from dagster._core.definitions import build_assets_job
-from dagster._core.storage.upath_io_manager import UPathIOManager
+from sheenflow._check import CheckError
+from sheenflow._core.definitions import build_assets_job
+from sheenflow._core.storage.upath_io_manager import UPathIOManager
 
 
 class DummyIOManager(UPathIOManager):

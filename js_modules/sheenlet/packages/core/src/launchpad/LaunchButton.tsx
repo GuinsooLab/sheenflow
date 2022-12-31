@@ -8,7 +8,7 @@ import {
   Popover,
   Spinner,
   Tooltip,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 
@@ -21,7 +21,7 @@ export interface LaunchButtonConfiguration {
   warning?: React.ReactNode;
   scope?: string;
   onClick: () => Promise<any>;
-  icon?: IconName | JSX.Element | 'sheenflow-spinner';
+  icon?: IconName | JSX.Element | 'dagster-spinner';
   tooltip?: string | JSX.Element;
 }
 
@@ -48,7 +48,7 @@ function useLaunchButtonCommonState({runCount, disabled}: {runCount: number; dis
     forced = {
       title: runCount === 1 ? 'Submitting run…' : `Submitting ${runCount} runs…`,
       disabled: true,
-      icon: 'sheenflow-spinner',
+      icon: 'dagster-spinner',
     };
   }
 
@@ -152,7 +152,7 @@ export const LaunchButtonDropdown = ({
                   text={option.title}
                   disabled={option.disabled}
                   onClick={() => onConfigSelected(option)}
-                  icon={option.icon !== 'sheenflow-spinner' ? option.icon : undefined}
+                  icon={option.icon !== 'dagster-spinner' ? option.icon : undefined}
                 />
               </Tooltip>
             ))}
@@ -178,7 +178,7 @@ interface ButtonWithConfigurationProps {
   warning?: React.ReactNode;
   status: LaunchButtonStatus;
   style?: React.CSSProperties;
-  icon?: IconName | JSX.Element | 'sheenflow-spinner';
+  icon?: IconName | JSX.Element | 'dagster-spinner';
   joined?: 'left' | 'right';
   tooltip?: string | JSX.Element;
   onClick?: () => void;
@@ -225,7 +225,7 @@ const ButtonWithConfiguration: React.FC<ButtonWithConfigurationProps> = ({
         joined={joined}
         disabled={disabled}
         icon={
-          icon === 'sheenflow-spinner' ? (
+          icon === 'dagster-spinner' ? (
             <Spinner purpose="body-text" fillColor={Colors.White} />
           ) : typeof icon === 'string' ? (
             <Icon name={icon} size={16} style={{textAlign: 'center', marginRight: 5}} />

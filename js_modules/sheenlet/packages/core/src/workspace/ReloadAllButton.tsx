@@ -1,4 +1,4 @@
-import {Button, Dialog, DialogBody, DialogFooter, Icon, Tooltip} from '@sheenflow-io/ui';
+import {Button, Dialog, DialogBody, DialogFooter, Icon, Tooltip} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

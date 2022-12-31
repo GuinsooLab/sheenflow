@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@sheenlet/ui": ["../ui/src"]
+      "@dagster-io/ui": ["../ui/src"]
     },
     "module": "es2022",
     "target": "es2022",

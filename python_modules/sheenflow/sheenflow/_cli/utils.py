@@ -4,7 +4,7 @@ from contextlib import contextmanager
 
 import click
 
-from dagster._core.instance import DagsterInstance, is_dagster_home_set
+from sheenflow._core.instance import DagsterInstance, is_dagster_home_set
 
 
 @contextmanager

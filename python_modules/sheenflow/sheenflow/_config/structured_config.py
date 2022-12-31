@@ -14,15 +14,15 @@ from typing import Any, Optional, Type
 from pydantic import BaseModel
 from pydantic.fields import SHAPE_SINGLETON, ModelField
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import Field, Shape
-from dagster._config.field_utils import (
+from sheenflow._config.field_utils import (
     FIELD_NO_DEFAULT_PROVIDED,
     config_dictionary_from_values,
     convert_potential_field,
 )
-from dagster._core.definitions.resource_definition import ResourceDefinition, ResourceFunction
-from dagster._core.storage.io_manager import IOManager, IOManagerDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition, ResourceFunction
+from sheenflow._core.storage.io_manager import IOManager, IOManagerDefinition
 
 
 class Config(BaseModel):

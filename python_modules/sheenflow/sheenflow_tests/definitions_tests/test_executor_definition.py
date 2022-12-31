@@ -6,16 +6,16 @@ import pytest
 from dagster import DagsterInstance, ExecutorRequirement
 from dagster import _check as check
 from dagster import execute_job, job, multiprocess_executor, op, reconstructable
-from dagster._core.definitions.executor_definition import executor
-from dagster._core.errors import (
+from sheenflow._core.definitions.executor_definition import executor
+from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvariantViolationError,
     DagsterUnmetExecutorRequirementsError,
 )
-from dagster._core.events import DagsterEventType
-from dagster._core.execution.retries import RetryMode
-from dagster._core.executor.multiprocess import MultiprocessExecutor
-from dagster._core.test_utils import environ, instance_for_test
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.executor.multiprocess import MultiprocessExecutor
+from sheenflow._core.test_utils import environ, instance_for_test
 
 
 def get_job_for_executor(executor_def, execution_config=None):
@@ -43,7 +43,7 @@ def primitive_config_executor_job():
         config_schema=str,
     )
     def test_executor(init_context):
-        from dagster._core.executor.in_process import InProcessExecutor
+        from sheenflow._core.executor.in_process import InProcessExecutor
 
         assert init_context.executor_config == "secret testing value!!"
 
@@ -72,7 +72,7 @@ def dict_config_executor_job():
         config_schema={"value": str},
     )
     def test_executor(init_context):
-        from dagster._core.executor.in_process import InProcessExecutor
+        from sheenflow._core.executor.in_process import InProcessExecutor
 
         assert init_context.executor_config["value"] == "secret testing value!!"
 
@@ -101,7 +101,7 @@ def requirement_executor_job():
         requirements=[ExecutorRequirement.NON_EPHEMERAL_INSTANCE],
     )
     def test_executor(init_context):
-        from dagster._core.executor.in_process import InProcessExecutor
+        from sheenflow._core.executor.in_process import InProcessExecutor
 
         assert init_context.executor_config["value"] == "secret testing value!!"
 
@@ -140,7 +140,7 @@ def executor_dict_config_configured_job():
         requirements=[ExecutorRequirement.NON_EPHEMERAL_INSTANCE],
     )
     def test_executor(init_context):
-        from dagster._core.executor.in_process import InProcessExecutor
+        from sheenflow._core.executor.in_process import InProcessExecutor
 
         assert init_context.executor_config["value"] == "secret testing value!!"
 
@@ -166,7 +166,7 @@ def configured_executor_job():
         requirements=[ExecutorRequirement.NON_EPHEMERAL_INSTANCE],
     )
     def test_executor(init_context):
-        from dagster._core.executor.in_process import InProcessExecutor
+        from sheenflow._core.executor.in_process import InProcessExecutor
 
         assert init_context.executor_config["value"] == "secret testing value!!"
 
@@ -220,7 +220,7 @@ def test_multiproc():
 
 @executor(config_schema=str)
 def needs_config(_):
-    from dagster._core.executor.in_process import InProcessExecutor
+    from sheenflow._core.executor.in_process import InProcessExecutor
 
     return InProcessExecutor(
         retries=RetryMode.from_config({"enabled": {}}),

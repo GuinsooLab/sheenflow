@@ -10,7 +10,7 @@ import {
   Tooltip,
   Colors,
   Alert,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import reject from 'lodash/reject';
 import React from 'react';
 import {useHistory} from 'react-router-dom';

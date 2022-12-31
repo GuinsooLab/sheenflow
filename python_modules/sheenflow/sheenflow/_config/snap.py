@@ -1,7 +1,7 @@
 from typing import Any, List, Mapping, NamedTuple, Optional, Sequence, Set, cast
 
-import dagster._check as check
-from dagster._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
 
 from .config_type import ConfigScalarKind, ConfigType, ConfigTypeKind
 from .field import Field

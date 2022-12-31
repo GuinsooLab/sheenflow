@@ -1,6 +1,6 @@
 from typing import AbstractSet, Any, Iterator, Mapping, NamedTuple, Optional, Sequence, Tuple, cast
 
-from dagster._config import (
+from sheenflow._config import (
     ALL_CONFIG_BUILTINS,
     Array,
     ConfigType,
@@ -9,19 +9,19 @@ from dagster._config import (
     Selector,
     Shape,
 )
-from dagster._core.definitions.asset_layer import AssetLayer
-from dagster._core.definitions.executor_definition import (
+from sheenflow._core.definitions.asset_layer import AssetLayer
+from sheenflow._core.definitions.executor_definition import (
     ExecutorDefinition,
     execute_in_process_executor,
     in_process_executor,
 )
-from dagster._core.definitions.input import InputDefinition
-from dagster._core.definitions.output import OutputDefinition
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.storage.output_manager import IOutputManagerDefinition
-from dagster._core.storage.root_input_manager import IInputManagerDefinition
-from dagster._core.types.dagster_type import ALL_RUNTIME_BUILTINS, construct_dagster_type_dictionary
-from dagster._utils import check
+from sheenflow._core.definitions.input import InputDefinition
+from sheenflow._core.definitions.output import OutputDefinition
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.storage.output_manager import IOutputManagerDefinition
+from sheenflow._core.storage.root_input_manager import IInputManagerDefinition
+from sheenflow._core.types.dagster_type import ALL_RUNTIME_BUILTINS, construct_dagster_type_dictionary
+from sheenflow._utils import check
 
 from .configurable import ConfigurableDefinition
 from .definition_config_schema import IDefinitionConfigSchema

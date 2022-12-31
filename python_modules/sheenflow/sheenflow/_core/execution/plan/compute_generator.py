@@ -17,8 +17,8 @@ from typing import (
 
 from typing_extensions import get_args
 
-from dagster._config.structured_config import Config
-from dagster._core.definitions import (
+from sheenflow._config.structured_config import Config
+from sheenflow._core.definitions import (
     AssetMaterialization,
     DynamicOutput,
     ExpectationResult,
@@ -26,10 +26,10 @@ from dagster._core.definitions import (
     Output,
     OutputDefinition,
 )
-from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.types.dagster_type import DagsterTypeKind, is_generic_output_annotation
+from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.types.dagster_type import DagsterTypeKind, is_generic_output_annotation
 
 from ..context.compute import OpExecutionContext
 
@@ -175,7 +175,7 @@ def _get_annotation_for_output_position(
 def _check_output_object_name(
     output: Union[DynamicOutput, Output], output_def: OutputDefinition, position: int
 ) -> None:
-    from dagster._core.definitions.events import DEFAULT_OUTPUT
+    from sheenflow._core.definitions.events import DEFAULT_OUTPUT
 
     if not output.output_name == DEFAULT_OUTPUT and not output.output_name == output_def.name:
         raise DagsterInvariantViolationError(

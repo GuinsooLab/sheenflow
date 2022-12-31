@@ -1,9 +1,9 @@
 from typing import NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.repository_definition import SINGLETON_REPOSITORY_NAME
-from dagster._serdes import create_snapshot_id, whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.repository_definition import SINGLETON_REPOSITORY_NAME
+from sheenflow._serdes import create_snapshot_id, whitelist_for_serdes
 
 
 class PipelineSelector(

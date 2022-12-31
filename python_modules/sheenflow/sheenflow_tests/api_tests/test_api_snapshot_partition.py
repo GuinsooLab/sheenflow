@@ -2,14 +2,14 @@ import string
 
 import pytest
 
-from dagster._api.snapshot_partition import (
+from sheenflow._api.snapshot_partition import (
     sync_get_external_partition_config_grpc,
     sync_get_external_partition_names_grpc,
     sync_get_external_partition_set_execution_param_data_grpc,
     sync_get_external_partition_tags_grpc,
 )
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation import (
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation import (
     ExternalPartitionConfigData,
     ExternalPartitionNamesData,
     ExternalPartitionSetExecutionParamData,

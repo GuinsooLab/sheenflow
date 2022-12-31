@@ -5,18 +5,18 @@ import textwrap
 import pytest
 
 from dagster import DagsterEvent
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.errors import DagsterUserCodeExecutionError, user_code_error_boundary
-from dagster._core.execution.plan.objects import ErrorSource, StepFailureData
-from dagster._core.execution.plan.outputs import StepOutputData, StepOutputHandle
-from dagster._core.log_manager import (
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.errors import DagsterUserCodeExecutionError, user_code_error_boundary
+from sheenflow._core.execution.plan.objects import ErrorSource, StepFailureData
+from sheenflow._core.execution.plan.outputs import StepOutputData, StepOutputHandle
+from sheenflow._core.log_manager import (
     DagsterLogHandler,
     DagsterLogManager,
     DagsterLoggingMetadata,
     DagsterMessageProps,
     construct_log_string,
 )
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 
 def test_construct_log_string_for_event():

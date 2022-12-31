@@ -12,13 +12,13 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.metadata import RawMetadataValue
-from dagster._core.definitions.time_window_partitions import TimeWindow
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.execution.context.input import InputContext
-from dagster._core.execution.context.output import OutputContext
-from dagster._core.storage.io_manager import IOManager
+import sheenflow._check as check
+from sheenflow._core.definitions.metadata import RawMetadataValue
+from sheenflow._core.definitions.time_window_partitions import TimeWindow
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.execution.context.input import InputContext
+from sheenflow._core.execution.context.output import OutputContext
+from sheenflow._core.storage.io_manager import IOManager
 
 T = TypeVar("T")
 

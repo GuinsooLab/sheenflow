@@ -21,11 +21,11 @@ import sys
 from contextlib import contextmanager
 from typing import TYPE_CHECKING, Callable, Iterator, Optional, Type
 
-import dagster._check as check
-from dagster._utils.interrupts import raise_interrupts_as
+import sheenflow._check as check
+from sheenflow._utils.interrupts import raise_interrupts_as
 
 if TYPE_CHECKING:
-    from dagster._core.log_manager import DagsterLogManager
+    from sheenflow._core.log_manager import DagsterLogManager
 
 
 class DagsterExecutionInterruptedError(BaseException):
@@ -335,7 +335,7 @@ class DagsterInvalidConfigError(DagsterError):
     schema)."""
 
     def __init__(self, preamble, errors, config_value, *args, **kwargs):
-        from dagster._config import EvaluationError
+        from sheenflow._config import EvaluationError
 
         check.str_param(preamble, "preamble")
         self.errors = check.list_param(errors, "errors", of_type=EvaluationError)
@@ -368,7 +368,7 @@ class DagsterSubprocessError(DagsterError):
     """
 
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.subprocess_error_infos = check.list_param(
             kwargs.pop("subprocess_error_infos"), "subprocess_error_infos", SerializableErrorInfo
@@ -386,7 +386,7 @@ class DagsterUserCodeProcessError(DagsterError):
 
     @staticmethod
     def from_error_info(error_info):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         check.inst_param(error_info, "error_info", SerializableErrorInfo)
         return DagsterUserCodeProcessError(
@@ -394,7 +394,7 @@ class DagsterUserCodeProcessError(DagsterError):
         )
 
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.user_code_process_error_infos = check.list_param(
             kwargs.pop("user_code_process_error_infos"),
@@ -408,7 +408,7 @@ class DagsterMaxRetriesExceededError(DagsterError):
     """Raised when raise_on_error is true, and retries were exceeded, this error should be raised."""
 
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.user_code_process_error_infos = check.list_param(
             kwargs.pop("user_code_process_error_infos"),
@@ -419,7 +419,7 @@ class DagsterMaxRetriesExceededError(DagsterError):
 
     @staticmethod
     def from_error_info(error_info):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         check.inst_param(error_info, "error_info", SerializableErrorInfo)
         return DagsterMaxRetriesExceededError(
@@ -433,7 +433,7 @@ class DagsterRepositoryLocationNotFoundError(DagsterError):
 
 class DagsterRepositoryLocationLoadError(DagsterError):
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.load_error_infos = check.list_param(
             kwargs.pop("load_error_infos"),
@@ -447,7 +447,7 @@ class DagsterLaunchFailedError(DagsterError):
     """Indicates an error while attempting to launch a pipeline run."""
 
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.serializable_error_info = check.opt_inst_param(
             kwargs.pop("serializable_error_info", None),
@@ -461,7 +461,7 @@ class DagsterBackfillFailedError(DagsterError):
     """Indicates an error while attempting to launch a backfill."""
 
     def __init__(self, *args, **kwargs):
-        from dagster._utils.error import SerializableErrorInfo
+        from sheenflow._utils.error import SerializableErrorInfo
 
         self.serializable_error_info = check.opt_inst_param(
             kwargs.pop("serializable_error_info", None),

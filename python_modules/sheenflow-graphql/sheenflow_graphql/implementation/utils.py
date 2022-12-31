@@ -25,11 +25,11 @@ from typing import (
 from graphene import ResolveInfo
 from typing_extensions import ParamSpec, TypeAlias
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.host_representation import GraphSelector, PipelineSelector
-from dagster._core.workspace.context import BaseWorkspaceRequestContext
-from dagster._utils.error import serializable_error_info_from_exc_info
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.host_representation import GraphSelector, PipelineSelector
+from sheenflow._core.workspace.context import BaseWorkspaceRequestContext
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 if TYPE_CHECKING:
     from dagster_graphql.schema.errors import GraphenePythonError

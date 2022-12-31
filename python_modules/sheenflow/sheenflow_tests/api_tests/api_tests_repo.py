@@ -2,11 +2,11 @@ import string
 import time
 
 from dagster import Int, ScheduleDefinition, op, repository, usable_as_dagster_type
-from dagster._core.definitions.decorators.sensor_decorator import sensor
-from dagster._core.definitions.sensor_definition import RunRequest
-from dagster._core.errors import DagsterError
-from dagster._core.test_utils import default_mode_def_for_test
-from dagster._legacy import (
+from sheenflow._core.definitions.decorators.sensor_decorator import sensor
+from sheenflow._core.definitions.sensor_definition import RunRequest
+from sheenflow._core.errors import DagsterError
+from sheenflow._core.test_utils import default_mode_def_for_test
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     PartitionSetDefinition,

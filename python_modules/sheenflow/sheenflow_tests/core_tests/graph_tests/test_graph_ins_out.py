@@ -1,6 +1,6 @@
 from dagster import graph, op
-from dagster._core.definitions.input import In
-from dagster._core.definitions.output import GraphOut, Out
+from sheenflow._core.definitions.input import In
+from sheenflow._core.definitions.output import GraphOut, Out
 
 
 @op(out=Out(int))

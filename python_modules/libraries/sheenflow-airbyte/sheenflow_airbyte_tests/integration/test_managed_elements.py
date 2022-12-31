@@ -15,9 +15,9 @@ from dagster_managed_elements.cli import apply, check
 from dagster_managed_elements.utils import diff_dicts
 
 from dagster import AssetKey, materialize
-from dagster._core.events import StepMaterializationData
-from dagster._core.test_utils import environ
-from dagster._utils import file_relative_path
+from sheenflow._core.events import StepMaterializationData
+from sheenflow._core.test_utils import environ
+from sheenflow._utils import file_relative_path
 
 from .example_stacks import example_airbyte_stack
 

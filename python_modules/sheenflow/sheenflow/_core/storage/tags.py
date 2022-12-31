@@ -1,6 +1,6 @@
 from enum import Enum
 
-import dagster._check as check
+import sheenflow._check as check
 
 SYSTEM_TAG_PREFIX = "sheenflow/"
 HIDDEN_TAG_PREFIX = ".sheenflow/"

@@ -6,13 +6,13 @@ from dagster_graphql.implementation.events import iterate_metadata_entries
 from dagster_graphql.schema.logs.events import GrapheneRunStepStats
 from dagster_graphql.schema.metadata import GrapheneMetadataEntry
 
-import dagster._check as check
-from dagster._core.definitions import NodeHandle
-from dagster._core.host_representation import RepresentedPipeline
-from dagster._core.host_representation.historical import HistoricalPipeline
-from dagster._core.snap import CompositeSolidDefSnap, DependencyStructureIndex, SolidDefSnap
-from dagster._core.snap.solid import InputMappingSnap, OutputMappingSnap
-from dagster._core.storage.pipeline_run import RunsFilter
+import sheenflow._check as check
+from sheenflow._core.definitions import NodeHandle
+from sheenflow._core.host_representation import RepresentedPipeline
+from sheenflow._core.host_representation.historical import HistoricalPipeline
+from sheenflow._core.snap import CompositeSolidDefSnap, DependencyStructureIndex, SolidDefSnap
+from sheenflow._core.snap.solid import InputMappingSnap, OutputMappingSnap
+from sheenflow._core.storage.pipeline_run import RunsFilter
 
 from .config_types import GrapheneConfigTypeField
 from .dagster_types import GrapheneDagsterType, to_dagster_type

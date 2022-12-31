@@ -10,16 +10,16 @@ from typing import (
     Tuple,
 )
 
-import dagster._check as check
-from dagster._core.definitions.configurable import NamedConfigurableDefinition
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._utils import frozendict, frozenlist
+import sheenflow._check as check
+from sheenflow._core.definitions.configurable import NamedConfigurableDefinition
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._utils import frozendict, frozenlist
 
 from .hook_definition import HookDefinition
 from .utils import check_valid_name, validate_tags
 
 if TYPE_CHECKING:
-    from dagster._core.types.dagster_type import DagsterType
+    from sheenflow._core.types.dagster_type import DagsterType
 
     from .asset_layer import AssetLayer
     from .composition import PendingNodeInvocation

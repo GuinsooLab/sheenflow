@@ -2,7 +2,7 @@ import csv
 
 import requests
 
-from dagster._legacy import pipeline, solid
+from sheenflow._legacy import pipeline, solid
 
 
 @solid

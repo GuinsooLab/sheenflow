@@ -1,4 +1,4 @@
-from dagster._core.utils import check_dagster_package_version
+from sheenflow._core.utils import check_dagster_package_version
 
 from .asset_factory import define_dagstermill_asset
 from .context import DagstermillExecutionContext

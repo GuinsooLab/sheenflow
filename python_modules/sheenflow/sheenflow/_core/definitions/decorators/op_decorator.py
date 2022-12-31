@@ -1,10 +1,10 @@
 from functools import update_wrapper
 from typing import TYPE_CHECKING, Any, Callable, Mapping, Optional, Set, Union, overload
 
-import dagster._check as check
-from dagster._config import UserConfigSchema
-from dagster._core.decorator_utils import format_docstring_for_description
-from dagster._utils.backcompat import canonicalize_backcompat_args
+import sheenflow._check as check
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.decorator_utils import format_docstring_for_description
+from sheenflow._utils.backcompat import canonicalize_backcompat_args
 
 from ..input import In
 from ..output import Out
@@ -67,7 +67,7 @@ class _Op:
                 "If the @op has a config arg, you cannot specify a config schema",
             )
 
-            from dagster._config.structured_config import infer_schema_from_config_annotation
+            from sheenflow._config.structured_config import infer_schema_from_config_annotation
 
             # Parse schema from the type annotation of the config arg
             config_arg = compute_fn.get_config_arg()

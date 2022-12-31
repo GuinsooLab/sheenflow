@@ -3,7 +3,7 @@ from typing import Any, Iterator, Mapping, Sequence
 from dagster_airbyte.types import AirbyteOutput
 
 from dagster import AssetMaterialization, MetadataValue
-from dagster._core.definitions.metadata.table import TableColumn, TableSchema
+from sheenflow._core.definitions.metadata.table import TableColumn, TableSchema
 
 
 def generate_table_schema(stream_schema_props: Mapping[str, Any]) -> TableSchema:

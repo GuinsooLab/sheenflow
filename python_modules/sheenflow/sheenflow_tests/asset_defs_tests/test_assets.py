@@ -30,11 +30,11 @@ from dagster import (
     resource,
     with_resources,
 )
-from dagster._check import CheckError
-from dagster._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, multi_asset
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
-from dagster._core.storage.mem_io_manager import InMemoryIOManager
-from dagster._core.test_utils import instance_for_test
+from sheenflow._check import CheckError
+from sheenflow._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, multi_asset
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
+from sheenflow._core.storage.mem_io_manager import InMemoryIOManager
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_with_replaced_asset_keys():

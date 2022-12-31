@@ -1,9 +1,9 @@
 import warnings
 from typing import TYPE_CHECKING, Any, Mapping, Optional, Sequence, Set, Union
 
-import dagster._check as check
-from dagster._utils import merge_dicts
-from dagster._utils.backcompat import ExperimentalWarning
+import sheenflow._check as check
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 from ..errors import DagsterInvariantViolationError
 from ..instance import DagsterInstance
@@ -112,7 +112,7 @@ def materialize_to_memory(
     Returns:
         ExecuteInProcessResult: The result of the execution.
     """
-    from dagster._core.execution.build_resources import wrap_resources_for_execution
+    from sheenflow._core.execution.build_resources import wrap_resources_for_execution
 
     assets = check.sequence_param(assets, "assets", of_type=(AssetsDefinition, SourceAsset))
     resource_defs = wrap_resources_for_execution(resources)

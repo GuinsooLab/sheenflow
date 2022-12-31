@@ -300,7 +300,7 @@ function onMouseOver(cm, e) {
   const pos = cm.coordsChar({left: x, top: y}, 'client');
   const spans = cm.findMarksAt(pos);
 
-  const getDocs = cm.getHelper(CodeMirror.Pos(0, 0), 'sheenflow-docs');
+  const getDocs = cm.getHelper(CodeMirror.Pos(0, 0), 'dagster-docs');
   const docs = getDocs(cm, pos);
 
   const annotations = [];

@@ -1,7 +1,7 @@
 import pytest
 
 from dagster import DagsterInvalidConfigDefinitionError, Noneable, Permissive, Selector, op
-from dagster._utils.test import wrap_op_in_graph_and_execute
+from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 
 def test_kitchen_sink():

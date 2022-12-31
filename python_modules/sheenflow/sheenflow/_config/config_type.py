@@ -2,11 +2,11 @@ import typing
 from enum import Enum as PythonEnum
 from typing import TYPE_CHECKING, Dict, Iterator, Optional, Sequence, cast
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._builtins import BuiltinEnum
-from dagster._config import UserConfigSchema
-from dagster._serdes import whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._builtins import BuiltinEnum
+from sheenflow._config import UserConfigSchema
+from sheenflow._serdes import whitelist_for_serdes
 
 if TYPE_CHECKING:
     from .snap import ConfigSchemaSnapshot, ConfigTypeSnap

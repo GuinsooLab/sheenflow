@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Mapping, Sequence, Type, Unio
 from typing_extensions import TypeAlias
 
 if TYPE_CHECKING:
-    from dagster._config import ConfigType, Field
+    from sheenflow._config import ConfigType, Field
 
 # Eventually, the below `UserConfigSchema` should be renamed to `ConfigSchema` and the class
 # definition should be dropped. The reason we don't do this now is that sphinx autodoc doesn't

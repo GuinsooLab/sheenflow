@@ -1,5 +1,5 @@
 from dagster import List, Optional
-from dagster._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline
+from sheenflow._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline
 
 
 def test_from_intermediates_from_multiple_outputs():

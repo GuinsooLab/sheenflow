@@ -1,15 +1,15 @@
 from typing import TYPE_CHECKING, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import ExternalPipelineSubsetResult
-from dagster._core.host_representation.origin import ExternalPipelineOrigin
-from dagster._grpc.types import PipelineSubsetSnapshotArgs
-from dagster._serdes import deserialize_as
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import ExternalPipelineSubsetResult
+from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
+from sheenflow._grpc.types import PipelineSubsetSnapshotArgs
+from sheenflow._serdes import deserialize_as
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_external_pipeline_subset_grpc(
@@ -18,7 +18,7 @@ def sync_get_external_pipeline_subset_grpc(
     solid_selection: Optional[Sequence[str]] = None,
     asset_selection: Optional[Sequence[AssetKey]] = None,
 ) -> ExternalPipelineSubsetResult:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     pipeline_origin = check.inst_param(pipeline_origin, "pipeline_origin", ExternalPipelineOrigin)

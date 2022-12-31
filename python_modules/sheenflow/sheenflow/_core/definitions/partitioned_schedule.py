@@ -1,6 +1,6 @@
 from typing import Mapping, Optional, Union, cast
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .decorators.schedule_decorator import schedule
 from .job_definition import JobDefinition

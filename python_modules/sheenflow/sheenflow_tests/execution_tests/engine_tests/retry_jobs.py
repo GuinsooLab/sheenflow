@@ -17,7 +17,7 @@ from dagster import (
     reconstructable,
     resource,
 )
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 def get_dynamic_job_resource_init_failure(

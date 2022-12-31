@@ -4,12 +4,12 @@ import time
 
 import pytest
 
-from dagster._core.test_utils import instance_for_test
-from dagster._grpc.client import DagsterGrpcClient
-from dagster._grpc.server import open_server_process
-from dagster._grpc.server_watcher import create_grpc_watch_thread
-from dagster._serdes.ipc import interrupt_ipc_subprocess_pid
-from dagster._utils import find_free_port
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._grpc.client import DagsterGrpcClient
+from sheenflow._grpc.server import open_server_process
+from sheenflow._grpc.server_watcher import create_grpc_watch_thread
+from sheenflow._serdes.ipc import interrupt_ipc_subprocess_pid
+from sheenflow._utils import find_free_port
 
 
 def wait_for_condition(fn, interval, timeout=60):

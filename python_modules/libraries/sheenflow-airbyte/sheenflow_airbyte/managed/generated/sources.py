@@ -3,8 +3,8 @@ from typing import Any, List, Optional, Union
 
 from dagster_airbyte.managed.types import GeneratedAirbyteSource
 
-import dagster._check as check
-from dagster._annotations import public
+import sheenflow._check as check
+from sheenflow._annotations import public
 
 
 class StravaSource(GeneratedAirbyteSource):

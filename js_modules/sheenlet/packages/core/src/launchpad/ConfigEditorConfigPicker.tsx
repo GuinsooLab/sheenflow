@@ -13,7 +13,7 @@ import {
   Select,
   Spinner,
   Suggest,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 
@@ -28,9 +28,9 @@ import {
   ConfigEditorPipelinePresetFragment,
   ConfigPartitionResultFragment,
   PartitionSetForConfigEditorFragment,
+  RepositorySelector,
 } from '../graphql/graphql';
 import {useStateWithStorage} from '../hooks/useStateWithStorage';
-import {RepositorySelector} from '../types/globalTypes';
 import {repoAddressAsHumanString} from '../workspace/repoAddressAsString';
 import {repoAddressToSelector} from '../workspace/repoAddressToSelector';
 import {RepoAddress} from '../workspace/types';
@@ -143,7 +143,7 @@ interface ConfigEditorPartitionPickerProps {
   repoAddress: RepoAddress;
 }
 
-const SORT_ORDER_KEY_BASE = 'sheenlet.partition-sort-order';
+const SORT_ORDER_KEY_BASE = 'dagit.partition-sort-order';
 type SortOrder = 'asc' | 'desc';
 
 const ConfigEditorPartitionPicker: React.FC<ConfigEditorPartitionPickerProps> = React.memo(

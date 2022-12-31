@@ -2,28 +2,28 @@ import sys
 
 import pytest
 
-import dagster._check as check
-from dagster._check import CheckError
-from dagster._core.code_pointer import ModuleCodePointer
-from dagster._core.host_representation.origin import (
+import sheenflow._check as check
+from sheenflow._check import CheckError
+from sheenflow._core.code_pointer import ModuleCodePointer
+from sheenflow._core.host_representation.origin import (
     ExternalPipelineOrigin,
     ExternalRepositoryOrigin,
     InProcessRepositoryLocationOrigin,
 )
-from dagster._core.origin import (
+from sheenflow._core.origin import (
     DEFAULT_DAGSTER_ENTRY_POINT,
     PipelinePythonOrigin,
     RepositoryPythonOrigin,
 )
-from dagster._core.storage.pipeline_run import (
+from sheenflow._core.storage.pipeline_run import (
     IN_PROGRESS_RUN_STATUSES,
     NON_IN_PROGRESS_RUN_STATUSES,
     DagsterRun,
     DagsterRunStatus,
     RunsFilter,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._serdes import deserialize_as, serialize_dagster_namedtuple
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._serdes import deserialize_as, serialize_dagster_namedtuple
 
 
 def test_queued_pipeline_origin_check():

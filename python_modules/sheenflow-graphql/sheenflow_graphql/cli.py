@@ -4,18 +4,18 @@ from urllib.parse import urljoin, urlparse
 import click
 import requests
 
-import dagster._check as check
-import dagster._seven as seven
+import sheenflow._check as check
+import sheenflow._seven as seven
 from dagster import __version__ as dagster_version
-from dagster._cli.workspace import workspace_target_argument
-from dagster._cli.workspace.cli_target import (
+from sheenflow._cli.workspace import workspace_target_argument
+from sheenflow._cli.workspace.cli_target import (
     WORKSPACE_TARGET_WARNING,
     get_workspace_process_context_from_kwargs,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._utils import DEFAULT_WORKSPACE_YAML_FILENAME
-from dagster._utils.log import get_stack_trace_array
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._utils import DEFAULT_WORKSPACE_YAML_FILENAME
+from sheenflow._utils.log import get_stack_trace_array
 
 from .client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION
 from .schema import create_schema

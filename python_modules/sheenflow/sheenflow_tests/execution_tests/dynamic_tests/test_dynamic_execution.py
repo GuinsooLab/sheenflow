@@ -13,11 +13,11 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.errors import DagsterExecutionStepNotFoundError
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import merge_dicts
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import merge_dicts
 
 
 @op(tags={"third": "3"})

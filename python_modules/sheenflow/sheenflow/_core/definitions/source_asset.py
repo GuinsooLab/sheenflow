@@ -5,38 +5,38 @@ from typing import TYPE_CHECKING, Dict, Iterator, Mapping, Optional, Sequence, U
 
 from typing_extensions import Protocol, TypeAlias
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, public
-from dagster._core.definitions.events import AssetKey, AssetObservation, CoercibleToAssetKey
-from dagster._core.definitions.logical_version import LOGICAL_VERSION_TAG_KEY, LogicalVersion
-from dagster._core.definitions.metadata import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._core.definitions.events import AssetKey, AssetObservation, CoercibleToAssetKey
+from sheenflow._core.definitions.logical_version import LOGICAL_VERSION_TAG_KEY, LogicalVersion
+from sheenflow._core.definitions.metadata import (
     MetadataEntry,
     MetadataMapping,
     MetadataUserInput,
     PartitionMetadataEntry,
     normalize_metadata,
 )
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.definitions.partition import PartitionsDefinition
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.definitions.resource_requirement import (
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.definitions.partition import PartitionsDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.definitions.resource_requirement import (
     ResourceAddable,
     ResourceRequirement,
     SourceAssetIOManagerRequirement,
     get_resource_key_conflicts,
 )
-from dagster._core.definitions.utils import (
+from sheenflow._core.definitions.utils import (
     DEFAULT_GROUP_NAME,
     DEFAULT_IO_MANAGER_KEY,
     validate_group_name,
 )
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
-from dagster._core.storage.io_manager import IOManagerDefinition
-from dagster._utils import merge_dicts
-from dagster._utils.backcompat import ExperimentalWarning, experimental_arg_warning
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
+from sheenflow._core.storage.io_manager import IOManagerDefinition
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.backcompat import ExperimentalWarning, experimental_arg_warning
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.compute import (
+    from sheenflow._core.execution.context.compute import (
         OpExecutionContext,
         SourceAssetObserveContext,
     )
@@ -180,7 +180,7 @@ class SourceAsset(ResourceAddable):
     @property
     def node_def(self) -> Optional[OpDefinition]:
         """Op that generates observation metadata for a source asset."""
-        from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+        from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
 
         if self.observe_fn is None:
             return None
@@ -214,7 +214,7 @@ class SourceAsset(ResourceAddable):
             return self._node_def
 
     def with_resources(self, resource_defs) -> "SourceAsset":
-        from dagster._core.execution.resources_init import get_transitive_required_resource_keys
+        from sheenflow._core.execution.resources_init import get_transitive_required_resource_keys
 
         overlapping_keys = get_resource_key_conflicts(self.resource_defs, resource_defs)
         if overlapping_keys:

@@ -50,7 +50,7 @@ export const Toaster: {
   create: (props?: IToasterProps, container?: HTMLElement) => DToaster;
 } = {
   create: (props, container) => {
-    const instance = BlueprintToaster.create({...props, className: 'sheenflow-toaster'}, container);
+    const instance = BlueprintToaster.create({...props, className: 'dagster-toaster'}, container);
     const show = instance.show;
     const showWithDagsterIcon: DToasterShowFn = ({icon, ...rest}, key) => {
       if (icon && typeof icon === 'string') {

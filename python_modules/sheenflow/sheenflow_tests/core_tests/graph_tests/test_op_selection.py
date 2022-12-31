@@ -16,9 +16,9 @@ from dagster import (
     repository,
     root_input_manager,
 )
-from dagster._core.errors import DagsterInvalidInvocationError, DagsterInvalidSubsetError
-from dagster._core.events import DagsterEventType
-from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
+from sheenflow._core.errors import DagsterInvalidInvocationError, DagsterInvalidSubsetError
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
 
 
 @op

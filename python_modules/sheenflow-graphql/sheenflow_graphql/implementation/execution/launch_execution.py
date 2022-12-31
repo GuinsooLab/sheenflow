@@ -2,11 +2,11 @@ from typing import TYPE_CHECKING, cast
 
 from graphene import ResolveInfo
 
-import dagster._check as check
-from dagster._core.execution.plan.resume_retry import ReexecutionStrategy
-from dagster._core.host_representation.selector import PipelineSelector
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.pipeline_run import DagsterRun, RunsFilter
+import sheenflow._check as check
+from sheenflow._core.execution.plan.resume_retry import ReexecutionStrategy
+from sheenflow._core.host_representation.selector import PipelineSelector
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.pipeline_run import DagsterRun, RunsFilter
 
 from ..external import get_external_pipeline_or_raise
 from ..utils import ExecutionMetadata, ExecutionParams, capture_error

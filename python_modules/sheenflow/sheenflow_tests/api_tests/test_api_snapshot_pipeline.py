@@ -2,11 +2,11 @@ import sys
 
 import pytest
 
-from dagster._api.snapshot_pipeline import sync_get_external_pipeline_subset_grpc
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import ExternalPipelineSubsetResult
-from dagster._core.host_representation.handle import JobHandle
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._api.snapshot_pipeline import sync_get_external_pipeline_subset_grpc
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import ExternalPipelineSubsetResult
+from sheenflow._core.host_representation.handle import JobHandle
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from .utils import get_bar_repo_repository_location
 

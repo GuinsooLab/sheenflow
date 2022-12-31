@@ -1,14 +1,14 @@
 from typing import Any, Optional, Union, cast, overload
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._builtins import BuiltinEnum
-from dagster._config import UserConfigSchema
-from dagster._core.errors import DagsterInvalidConfigError, DagsterInvalidDefinitionError
-from dagster._serdes import serialize_value
-from dagster._seven import is_subclass
-from dagster._utils import is_enum_value
-from dagster._utils.typing_api import is_closed_python_optional_type, is_typing_type
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._builtins import BuiltinEnum
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.errors import DagsterInvalidConfigError, DagsterInvalidDefinitionError
+from sheenflow._serdes import serialize_value
+from sheenflow._seven import is_subclass
+from sheenflow._utils import is_enum_value
+from sheenflow._utils.typing_api import is_closed_python_optional_type, is_typing_type
 
 from .config_type import Array, ConfigAnyInstance, ConfigType, ConfigTypeKind
 from .field_utils import FIELD_NO_DEFAULT_PROVIDED, Map, all_optional_type
@@ -115,9 +115,9 @@ def resolve_to_config_type(obj: object) -> Union[ConfigType, bool]:
         return ConfigAnyInstance
 
     # Special error messages for passing a DagsterType
-    from dagster._core.types.dagster_type import DagsterType, List, ListType
-    from dagster._core.types.python_set import Set, _TypedPythonSet
-    from dagster._core.types.python_tuple import Tuple, _TypedPythonTuple
+    from sheenflow._core.types.dagster_type import DagsterType, List, ListType
+    from sheenflow._core.types.python_set import Set, _TypedPythonSet
+    from sheenflow._core.types.python_tuple import Tuple, _TypedPythonTuple
 
     if _is_config_type_class(obj):
         check.param_invariant(

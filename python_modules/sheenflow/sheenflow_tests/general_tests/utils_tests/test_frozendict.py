@@ -2,7 +2,7 @@ import pickle
 
 import pytest
 
-from dagster._utils import frozendict
+from sheenflow._utils import frozendict
 
 
 def test_frozendict():

@@ -18,15 +18,15 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DagsterInvariantViolationError,
 )
-from dagster._utils import frozentags
+from sheenflow._utils import frozentags
 
 from .config import ConfigMapping
 from .dependency import (
@@ -49,8 +49,8 @@ from .utils import check_valid_name, validate_tags
 from .version_strategy import VersionStrategy
 
 if TYPE_CHECKING:
-    from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
+    from sheenflow._core.instance import DagsterInstance
 
     from .executor_definition import ExecutorDefinition
     from .job_definition import JobDefinition
@@ -656,7 +656,7 @@ class PendingNodeInvocation:
                 "constructed using the `@graph` decorator support this method."
             )
 
-        from dagster._core.execution.build_resources import wrap_resources_for_execution
+        from sheenflow._core.execution.build_resources import wrap_resources_for_execution
 
         from .executor_definition import execute_in_process_executor
         from .job_definition import JobDefinition

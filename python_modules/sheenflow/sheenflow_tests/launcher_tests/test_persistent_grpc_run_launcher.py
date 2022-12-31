@@ -9,15 +9,15 @@ from dagster_tests.launcher_tests.test_default_run_launcher import (
 )
 
 from dagster import _seven, file_relative_path
-from dagster._core.errors import DagsterLaunchFailedError
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import GRPC_INFO_TAG
-from dagster._core.test_utils import instance_for_test, poll_for_finished_run, poll_for_step_start
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import GrpcServerTarget, PythonFileTarget
-from dagster._grpc.server import GrpcServerProcess
-from dagster._utils import find_free_port, merge_dicts
+from sheenflow._core.errors import DagsterLaunchFailedError
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import GRPC_INFO_TAG
+from sheenflow._core.test_utils import instance_for_test, poll_for_finished_run, poll_for_step_start
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import GrpcServerTarget, PythonFileTarget
+from sheenflow._grpc.server import GrpcServerProcess
+from sheenflow._utils import find_free_port, merge_dicts
 
 
 def test_run_always_finishes():  # pylint: disable=redefined-outer-name

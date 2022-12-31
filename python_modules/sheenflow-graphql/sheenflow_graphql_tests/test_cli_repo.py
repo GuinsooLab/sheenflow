@@ -1,5 +1,5 @@
 from dagster import Int, ScheduleDefinition, repository
-from dagster._legacy import InputDefinition, OutputDefinition, lambda_solid, pipeline, solid
+from sheenflow._legacy import InputDefinition, OutputDefinition, lambda_solid, pipeline, solid
 
 
 @lambda_solid(input_defs=[InputDefinition("num", Int)], output_def=OutputDefinition(Int))

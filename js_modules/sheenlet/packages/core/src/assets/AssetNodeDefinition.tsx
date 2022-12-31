@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Body, Box, Caption, Colors, ConfigTypeSchema, Icon, Mono, Subheading} from '@sheenflow-io/ui';
+import {Body, Box, Caption, Colors, ConfigTypeSchema, Icon, Mono, Subheading} from '@dagster-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

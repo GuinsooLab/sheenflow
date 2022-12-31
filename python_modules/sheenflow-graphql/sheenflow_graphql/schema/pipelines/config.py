@@ -3,10 +3,10 @@ from collections import namedtuple
 import graphene
 from graphene.types.generic import GenericScalar
 
-import dagster._check as check
-from dagster._config import ConfigSchemaSnapshot
-from dagster._config import EvaluationError as DagsterEvaluationError
-from dagster._config import (
+import sheenflow._check as check
+from sheenflow._config import ConfigSchemaSnapshot
+from sheenflow._config import EvaluationError as DagsterEvaluationError
+from sheenflow._config import (
     EvaluationStackListItemEntry,
     EvaluationStackMapKeyEntry,
     EvaluationStackMapValueEntry,
@@ -18,8 +18,8 @@ from dagster._config import (
     RuntimeMismatchErrorData,
     SelectorTypeErrorData,
 )
-from dagster._core.host_representation.represented import RepresentedPipeline
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._core.host_representation.represented import RepresentedPipeline
+from sheenflow._utils.error import SerializableErrorInfo
 
 from ..config_types import GrapheneConfigTypeField
 from ..util import non_null_list

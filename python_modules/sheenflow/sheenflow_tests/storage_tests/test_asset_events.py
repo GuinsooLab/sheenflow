@@ -14,16 +14,16 @@ from dagster import (
     op,
     root_input_manager,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.definitions_class import Definitions
-from dagster._core.definitions.events import AssetLineageInfo
-from dagster._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.event_api import EventRecordsFilter
-from dagster._core.events import DagsterEventType
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.io_manager import IOManager
-from dagster._legacy import InputDefinition, OutputDefinition, build_assets_job
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.definitions_class import Definitions
+from sheenflow._core.definitions.events import AssetLineageInfo
+from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.event_api import EventRecordsFilter
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.io_manager import IOManager
+from sheenflow._legacy import InputDefinition, OutputDefinition, build_assets_job
 
 
 def n_asset_keys(path, n):

@@ -3,8 +3,8 @@ from typing import Sequence, TypeVar
 
 from typing_extensions import Annotated
 
-from dagster._core.decorator_utils import get_function_params
-from dagster._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.decorator_utils import get_function_params
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
 
 
 def get_resource_args(fn) -> Sequence[Parameter]:

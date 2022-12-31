@@ -2,16 +2,16 @@ import operator
 from functools import reduce
 from typing import TYPE_CHECKING, Any, Dict, Mapping, NamedTuple, Optional, Sequence, Union, cast
 
-import dagster._check as check
-from dagster._core.definitions import AssetKey
-from dagster._core.definitions.run_request import RunRequest
-from dagster._core.selector.subset_selector import parse_clause
+import sheenflow._check as check
+from sheenflow._core.definitions import AssetKey
+from sheenflow._core.definitions.run_request import RunRequest
+from sheenflow._core.selector.subset_selector import parse_clause
 
 from .asset_layer import build_asset_selection_job
 from .config import ConfigMapping
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import (
+    from sheenflow._core.definitions import (
         AssetSelection,
         AssetsDefinition,
         ExecutorDefinition,
@@ -47,7 +47,7 @@ class UnresolvedAssetJobDefinition(
         partitions_def: Optional["PartitionsDefinition"] = None,
         executor_def: Optional["ExecutorDefinition"] = None,
     ):
-        from dagster._core.definitions import (
+        from sheenflow._core.definitions import (
             AssetSelection,
             ExecutorDefinition,
             PartitionsDefinition,
@@ -67,7 +67,7 @@ class UnresolvedAssetJobDefinition(
         )
 
     def get_partition_set_def(self) -> Optional["PartitionSetDefinition"]:
-        from dagster._core.definitions import PartitionSetDefinition, PartitionedConfig
+        from sheenflow._core.definitions import PartitionSetDefinition, PartitionedConfig
 
         if self.partitions_def is None:
             return None
@@ -163,7 +163,7 @@ class UnresolvedAssetJobDefinition(
 
 
 def _selection_from_string(string: str) -> "AssetSelection":
-    from dagster._core.definitions import AssetSelection
+    from sheenflow._core.definitions import AssetSelection
 
     if string == "*":
         return AssetSelection.all()
@@ -267,7 +267,7 @@ def define_asset_job(
                 resources={"slack_client": prod_slack_client},
             )
     """
-    from dagster._core.definitions import AssetSelection
+    from sheenflow._core.definitions import AssetSelection
 
     selection = check.opt_inst_param(
         selection, "selection", (str, list, AssetSelection), default=AssetSelection.all()

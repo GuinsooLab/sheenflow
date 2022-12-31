@@ -28,12 +28,12 @@ from dagster_test.test_project import (
 )
 from dagster_test.test_project.test_pipelines.repo import define_memoization_pipeline
 
-import dagster._check as check
-from dagster._core.events import DagsterEventType
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import DOCKER_IMAGE_TAG
-from dagster._utils import load_yaml_from_path, merge_dicts
-from dagster._utils.merger import deep_merge_dicts
+import sheenflow._check as check
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import DOCKER_IMAGE_TAG
+from sheenflow._utils import load_yaml_from_path, merge_dicts
+from sheenflow._utils.merger import deep_merge_dicts
 
 
 @pytest.mark.integration

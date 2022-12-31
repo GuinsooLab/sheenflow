@@ -5,7 +5,7 @@ import {
   Caption,
   Subheading,
   ExternalAnchorButton,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import flatMap from 'lodash/flatMap';
 import uniq from 'lodash/uniq';
 import * as React from 'react';

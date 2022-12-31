@@ -4,8 +4,8 @@ from typing import Callable, Optional, Type, TypeVar, Union, cast
 
 from typing_extensions import Annotated, Final, TypeAlias
 
-import dagster._check as check
-from dagster._utils.backcompat import (
+import sheenflow._check as check
+from sheenflow._utils.backcompat import (
     experimental_class_warning,
     experimental_decorator_warning,
     experimental_fn_warning,

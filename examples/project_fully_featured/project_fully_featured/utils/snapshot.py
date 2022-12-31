@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from project_fully_featured.resources.hn_resource import HNAPIClient
 from tqdm import tqdm
 
-from dagster._utils import file_relative_path
+from sheenflow._utils import file_relative_path
 
 # Slice that surrounds 12/30/2020
 SNAPSHOT_START_ID = 25576000

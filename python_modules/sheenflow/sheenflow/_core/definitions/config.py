@@ -1,16 +1,16 @@
 from typing import TYPE_CHECKING, Any, Callable, Mapping, NamedTuple, Optional, Union, cast
 
-import dagster._check as check
-from dagster._builtins import BuiltinEnum
-from dagster._config import (
+import sheenflow._check as check
+from sheenflow._builtins import BuiltinEnum
+from sheenflow._config import (
     ConfigType,
     is_supported_config_python_builtin,
     process_config,
     resolve_defaults,
     validate_config,
 )
-from dagster._core.definitions.definition_config_schema import IDefinitionConfigSchema
-from dagster._core.errors import DagsterInvalidConfigError
+from sheenflow._core.definitions.definition_config_schema import IDefinitionConfigSchema
+from sheenflow._core.errors import DagsterInvalidConfigError
 
 from .definition_config_schema import convert_user_facing_definition_config_schema
 

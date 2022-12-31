@@ -5,7 +5,7 @@ const schemaPath = path.resolve(path.join(__dirname, 'src', 'graphql', 'schema.g
 const schema = fs.readFileSync(schemaPath).toString();
 
 module.exports = {
-  extends: ['plugin:storybook/recommended', '@sheenflow-io/eslint-config'],
+  extends: ['plugin:storybook/recommended', '@dagster-io/eslint-config'],
   ignorePatterns: ['src/graphql/**'],
   plugins: ['graphql'],
   rules: {

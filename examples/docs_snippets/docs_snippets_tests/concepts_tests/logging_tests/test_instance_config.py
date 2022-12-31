@@ -1,6 +1,6 @@
 from dagster import DagsterInstance
-from dagster._core.instance import InstanceRef
-from dagster._utils import file_relative_path
+from sheenflow._core.instance import InstanceRef
+from sheenflow._utils import file_relative_path
 
 
 def test_valid_managed_loggers_instance_yaml():

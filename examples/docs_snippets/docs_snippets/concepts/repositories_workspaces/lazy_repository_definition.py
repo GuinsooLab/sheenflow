@@ -3,7 +3,7 @@
 import datetime
 
 from dagster import RunRequest, job, repository, sensor
-from dagster._legacy import InputDefinition, daily_schedule, pipeline, solid
+from sheenflow._legacy import InputDefinition, daily_schedule, pipeline, solid
 
 
 @solid

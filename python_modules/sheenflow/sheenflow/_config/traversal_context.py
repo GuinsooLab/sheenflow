@@ -1,6 +1,6 @@
 from enum import Enum
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .config_type import ConfigType
 from .field import Field

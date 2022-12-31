@@ -2,9 +2,9 @@ from enum import Enum
 from random import random
 from typing import NamedTuple, Optional
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.errors import DagsterInvalidDefinitionError
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 
 class Backoff(Enum):

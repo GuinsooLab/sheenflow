@@ -5,7 +5,7 @@ import sys
 
 import pytest
 
-from dagster._module_alias_map import AliasedModuleFinder, get_meta_path_insertion_index
+from sheenflow._module_alias_map import AliasedModuleFinder, get_meta_path_insertion_index
 
 
 def test_no_experimental_warnings():

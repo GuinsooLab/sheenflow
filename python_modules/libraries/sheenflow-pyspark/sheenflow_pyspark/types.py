@@ -16,8 +16,8 @@ from dagster import (
     dagster_type_loader,
     dagster_type_materializer,
 )
-from dagster._config import Selector
-from dagster._utils import dict_without_keys
+from sheenflow._config import Selector
+from sheenflow._utils import dict_without_keys
 
 WriteModeOptions = Enum(
     "WriteMode",

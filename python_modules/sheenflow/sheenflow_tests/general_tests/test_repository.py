@@ -15,7 +15,7 @@ from dagster import (
     repository,
     resource,
 )
-from dagster._check import CheckError
+from sheenflow._check import CheckError
 
 
 def define_empty_job():

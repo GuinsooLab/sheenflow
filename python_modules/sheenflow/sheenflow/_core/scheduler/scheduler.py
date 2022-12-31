@@ -2,20 +2,20 @@ import abc
 import os
 from typing import NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._config import Field, IntSource
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.errors import DagsterError
-from dagster._core.host_representation import ExternalSchedule
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import (
+import sheenflow._check as check
+from sheenflow._config import Field, IntSource
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.errors import DagsterError
+from sheenflow._core.host_representation import ExternalSchedule
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorStatus,
     ScheduleInstigatorData,
 )
-from dagster._serdes import ConfigurableClass
-from dagster._seven import get_current_datetime_in_utc
-from dagster._utils import mkdir_p
+from sheenflow._serdes import ConfigurableClass
+from sheenflow._seven import get_current_datetime_in_utc
+from sheenflow._utils import mkdir_p
 
 
 class DagsterSchedulerError(DagsterError):

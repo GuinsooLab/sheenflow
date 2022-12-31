@@ -5,13 +5,13 @@ import sys
 from collections import namedtuple
 from contextlib import contextmanager
 
-import dagster._check as check
-from dagster._core.code_pointer import FileCodePointer
-from dagster._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.execution.build_resources import build_resources
-from dagster._core.execution.context.output import build_output_context
-from dagster._core.host_representation import (
+import sheenflow._check as check
+from sheenflow._core.code_pointer import FileCodePointer
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.execution.build_resources import build_resources
+from sheenflow._core.execution.context.output import build_output_context
+from sheenflow._core.host_representation import (
     ExternalPipeline,
     ExternalSchedule,
     GrpcServerRepositoryLocationOrigin,
@@ -19,20 +19,20 @@ from dagster._core.host_representation import (
     InstigatorSelector,
     RepositoryLocation,
 )
-from dagster._core.host_representation.origin import (
+from sheenflow._core.host_representation.origin import (
     ExternalInstigatorOrigin,
     ExternalPipelineOrigin,
     ExternalRepositoryOrigin,
 )
-from dagster._core.origin import (
+from sheenflow._core.origin import (
     DEFAULT_DAGSTER_ENTRY_POINT,
     PipelinePythonOrigin,
     RepositoryPythonOrigin,
 )
-from dagster._core.test_utils import in_process_test_workspace
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._serdes import create_snapshot_id, whitelist_for_serdes
-from dagster._utils import file_relative_path, git_repository_root
+from sheenflow._core.test_utils import in_process_test_workspace
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._serdes import create_snapshot_id, whitelist_for_serdes
+from sheenflow._utils import file_relative_path, git_repository_root
 
 IS_BUILDKITE = os.getenv("BUILDKITE") is not None
 

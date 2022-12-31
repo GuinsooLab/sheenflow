@@ -1,9 +1,9 @@
 from datetime import datetime
 
 from dagster import MultiPartitionKey, MultiPartitionsDefinition, StaticPartitionsDefinition
-from dagster._core.definitions.partition import DefaultPartitionsSubset
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.partition_mapping import SingleDimensionDependencyMapping
+from sheenflow._core.definitions.partition import DefaultPartitionsSubset
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.partition_mapping import SingleDimensionDependencyMapping
 
 
 def test_get_downstream_partitions_single_key_in_range():

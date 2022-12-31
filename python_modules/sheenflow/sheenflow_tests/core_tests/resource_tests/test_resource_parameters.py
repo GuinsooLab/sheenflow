@@ -3,13 +3,13 @@ from typing import Any
 import pytest
 
 from dagster import AssetsDefinition, ResourceDefinition, asset, job, op, resource, with_resources
-from dagster._check import ParameterCheckError
-from dagster._config.structured_config import Config
-from dagster._core.definitions.asset_out import AssetOut
-from dagster._core.definitions.assets_job import build_assets_job
-from dagster._core.definitions.decorators.asset_decorator import multi_asset
-from dagster._core.definitions.resource_output import ResourceOutput
-from dagster._core.errors import DagsterInvalidDefinitionError
+from sheenflow._check import ParameterCheckError
+from sheenflow._config.structured_config import Config
+from sheenflow._core.definitions.asset_out import AssetOut
+from sheenflow._core.definitions.assets_job import build_assets_job
+from sheenflow._core.definitions.decorators.asset_decorator import multi_asset
+from sheenflow._core.definitions.resource_output import ResourceOutput
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 
 def test_filter_out_resources():

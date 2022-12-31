@@ -31,17 +31,17 @@ from dagster_airbyte.utils import (
 
 from dagster import AssetKey, AssetOut, Output, ResourceDefinition
 from dagster import _check as check
-from dagster._annotations import experimental
-from dagster._core.definitions import AssetsDefinition, multi_asset
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._annotations import experimental
+from sheenflow._core.definitions import AssetsDefinition, multi_asset
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )
-from dagster._core.definitions.events import CoercibleToAssetKeyPrefix
-from dagster._core.definitions.metadata import MetadataValue, TableSchemaMetadataValue
-from dagster._core.definitions.metadata.table import TableSchema
-from dagster._core.execution.context.init import build_init_resource_context
-from dagster._utils import merge_dicts
+from sheenflow._core.definitions.events import CoercibleToAssetKeyPrefix
+from sheenflow._core.definitions.metadata import MetadataValue, TableSchemaMetadataValue
+from sheenflow._core.definitions.metadata.table import TableSchema
+from sheenflow._core.execution.context.init import build_init_resource_context
+from sheenflow._utils import merge_dicts
 
 
 def _build_airbyte_asset_defn_metadata(

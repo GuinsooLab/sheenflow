@@ -2,7 +2,7 @@ import os
 
 from dagster import StringSource
 from dagster import _check as check
-from dagster._serdes import ConfigurableClass, ConfigurableClassData
+from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
 
 
 class LocalArtifactStorage(ConfigurableClass):

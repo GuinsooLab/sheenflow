@@ -1,9 +1,9 @@
 import threading
 from typing import Callable, List, MutableMapping, NamedTuple, Optional
 
-import dagster._check as check
-from dagster._core.events.log import EventLogEntry
-from dagster._core.storage.event_log.base import EventLogCursor
+import sheenflow._check as check
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.storage.event_log.base import EventLogCursor
 
 from .sql_event_log import SqlEventLogStorage
 

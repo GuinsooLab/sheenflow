@@ -1,12 +1,12 @@
 from itertools import chain
 from typing import TYPE_CHECKING
 
-import dagster._check as check
-from dagster._core.definitions.instigation_logger import get_instigation_log_records
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.host_representation import InstigatorSelector
-from dagster._core.log_manager import DAGSTER_META_KEY
-from dagster._core.scheduler.instigation import InstigatorStatus
+import sheenflow._check as check
+from sheenflow._core.definitions.instigation_logger import get_instigation_log_records
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.host_representation import InstigatorSelector
+from sheenflow._core.log_manager import DAGSTER_META_KEY
+from sheenflow._core.scheduler.instigation import InstigatorStatus
 
 from .utils import capture_error
 

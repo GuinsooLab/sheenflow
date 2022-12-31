@@ -1,8 +1,8 @@
 import pytest
 
-from dagster._check import CheckError
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._seven import json
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._seven import json
 
 
 def test_handle_path():

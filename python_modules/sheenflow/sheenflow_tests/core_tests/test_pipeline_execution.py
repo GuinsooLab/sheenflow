@@ -17,25 +17,25 @@ from dagster import (
 )
 from dagster import _check as check
 from dagster import reconstructable
-from dagster._core.definitions.dependency import DependencyStructure, OpNode
-from dagster._core.definitions.graph_definition import GraphDefinition, _create_adjacency_lists
-from dagster._core.definitions.job_definition import JobDefinition
-from dagster._core.errors import DagsterExecutionStepNotFoundError, DagsterInvariantViolationError
-from dagster._core.execution.results import OpExecutionResult
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import (
+from sheenflow._core.definitions.dependency import DependencyStructure, OpNode
+from sheenflow._core.definitions.graph_definition import GraphDefinition, _create_adjacency_lists
+from sheenflow._core.definitions.job_definition import JobDefinition
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvariantViolationError
+from sheenflow._core.execution.results import OpExecutionResult
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import (
     default_mode_def_for_test,
     instance_for_test,
     step_output_event_filter,
 )
-from dagster._core.utility_solids import (
+from sheenflow._core.utility_solids import (
     create_root_solid,
     create_solid_with_deps,
     define_stub_solid,
     input_set,
 )
-from dagster._core.workspace.load import location_origin_from_python_file
-from dagster._legacy import (
+from sheenflow._core.workspace.load import location_origin_from_python_file
+from sheenflow._legacy import (
     InputDefinition,
     ModeDefinition,
     OutputDefinition,
@@ -46,7 +46,7 @@ from dagster._legacy import (
     reexecute_pipeline,
     solid,
 )
-from dagster._utils.test import execute_solid_within_pipeline
+from sheenflow._utils.test import execute_solid_within_pipeline
 
 # protected members
 # pylint: disable=W0212

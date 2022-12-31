@@ -5,7 +5,7 @@ import {
   useQuery,
   useSubscription,
 } from '@apollo/client';
-import {TokenizingFieldValue} from '@sheenflow-io/ui';
+import {TokenizingFieldValue} from '@dagster-io/ui';
 import throttle from 'lodash/throttle';
 import * as React from 'react';
 

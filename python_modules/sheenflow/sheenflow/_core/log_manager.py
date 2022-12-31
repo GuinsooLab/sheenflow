@@ -4,14 +4,14 @@ import datetime
 import logging
 from typing import TYPE_CHECKING, Any, Mapping, NamedTuple, Optional, Sequence, Union
 
-import dagster._check as check
-from dagster._core.utils import coerce_valid_log_level, make_new_run_id
-from dagster._utils.log import get_dagster_logger
+import sheenflow._check as check
+from sheenflow._core.utils import coerce_valid_log_level, make_new_run_id
+from sheenflow._utils.log import get_dagster_logger
 
 if TYPE_CHECKING:
     from dagster import DagsterInstance
-    from dagster._core.events import DagsterEvent
-    from dagster._legacy import DagsterRun
+    from sheenflow._core.events import DagsterEvent
+    from sheenflow._legacy import DagsterRun
 
 DAGSTER_META_KEY = "dagster_meta"
 
@@ -137,7 +137,7 @@ def construct_log_string(
     logging_metadata: DagsterLoggingMetadata, message_props: DagsterMessageProps
 ) -> str:
 
-    from dagster._core.events import EVENT_TYPE_VALUE_TO_DISPLAY_STRING
+    from sheenflow._core.events import EVENT_TYPE_VALUE_TO_DISPLAY_STRING
 
     event_type_str = (
         EVENT_TYPE_VALUE_TO_DISPLAY_STRING[message_props.event_type_value]

@@ -1,6 +1,6 @@
 # pylint: disable=redefined-outer-name
 from dagster import AssetKey, SourceAsset, asset
-from dagster._legacy import AssetGroup
+from sheenflow._legacy import AssetGroup
 
 
 @asset

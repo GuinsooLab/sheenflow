@@ -20,15 +20,15 @@ from dagster import (
     repository,
     schedule,
 )
-from dagster._core.definitions.run_request import RunRequest
-from dagster._core.host_representation import (
+from sheenflow._core.definitions.run_request import RunRequest
+from sheenflow._core.host_representation import (
     ExternalInstigatorOrigin,
     ExternalRepositoryOrigin,
     GrpcServerRepositoryLocation,
     GrpcServerRepositoryLocationOrigin,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import (
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorStatus,
     InstigatorType,
@@ -36,27 +36,27 @@ from dagster._core.scheduler.instigation import (
     TickData,
     TickStatus,
 )
-from dagster._core.scheduler.scheduler import DEFAULT_MAX_CATCHUP_RUNS
-from dagster._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
-from dagster._core.storage.tags import PARTITION_NAME_TAG, SCHEDULED_EXECUTION_TIME_TAG
-from dagster._core.test_utils import (
+from sheenflow._core.scheduler.scheduler import DEFAULT_MAX_CATCHUP_RUNS
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG, SCHEDULED_EXECUTION_TIME_TAG
+from sheenflow._core.test_utils import (
     SingleThreadPoolExecutor,
     create_test_daemon_workspace_context,
     instance_for_test,
     mock_system_timezone,
     wait_for_futures,
 )
-from dagster._core.workspace.load_target import EmptyWorkspaceTarget, GrpcServerTarget, ModuleTarget
-from dagster._daemon import get_default_daemon_logger
-from dagster._grpc.client import EphemeralDagsterGrpcClient
-from dagster._grpc.server import open_server_process
-from dagster._legacy import daily_schedule, hourly_schedule
-from dagster._scheduler.scheduler import launch_scheduled_runs
-from dagster._seven import wait_for_process
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
-from dagster._utils import find_free_port
-from dagster._utils.error import SerializableErrorInfo
-from dagster._utils.partitions import DEFAULT_DATE_FORMAT
+from sheenflow._core.workspace.load_target import EmptyWorkspaceTarget, GrpcServerTarget, ModuleTarget
+from sheenflow._daemon import get_default_daemon_logger
+from sheenflow._grpc.client import EphemeralDagsterGrpcClient
+from sheenflow._grpc.server import open_server_process
+from sheenflow._legacy import daily_schedule, hourly_schedule
+from sheenflow._scheduler.scheduler import launch_scheduled_runs
+from sheenflow._seven import wait_for_process
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._utils import find_free_port
+from sheenflow._utils.error import SerializableErrorInfo
+from sheenflow._utils.partitions import DEFAULT_DATE_FORMAT
 
 from .conftest import loadable_target_origin, workspace_load_target
 

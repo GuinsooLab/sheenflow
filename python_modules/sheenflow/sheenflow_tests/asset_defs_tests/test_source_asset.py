@@ -1,6 +1,6 @@
-from dagster._core.definitions import SourceAsset
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.metadata import MetadataEntry, MetadataValue
+from sheenflow._core.definitions import SourceAsset
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.metadata import MetadataEntry, MetadataValue
 
 
 def test_source_asset_metadata():

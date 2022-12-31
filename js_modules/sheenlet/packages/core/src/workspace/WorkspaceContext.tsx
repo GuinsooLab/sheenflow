@@ -12,9 +12,9 @@ import {
   WorkspaceRepositoryFragment,
   WorkspaceScheduleFragment,
   WorkspaceSensorFragment,
+  PipelineSelector,
 } from '../graphql/graphql';
 import {useStateWithStorage} from '../hooks/useStateWithStorage';
-import {PipelineSelector} from '../types/globalTypes';
 
 import {buildRepoAddress} from './buildRepoAddress';
 import {findRepoContainingPipeline} from './findRepoContainingPipeline';
@@ -47,7 +47,7 @@ export const WorkspaceContext = React.createContext<WorkspaceState>(
   new Error('WorkspaceContext should never be uninitialized') as any,
 );
 
-export const HIDDEN_REPO_KEYS = 'sheenlet.hidden-repo-keys';
+export const HIDDEN_REPO_KEYS = 'dagit.hidden-repo-keys';
 
 const ROOT_WORKSPACE_QUERY = graphql(`
   query RootWorkspaceQuery {

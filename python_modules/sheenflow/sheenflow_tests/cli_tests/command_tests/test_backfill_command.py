@@ -3,9 +3,9 @@ import string
 import pytest
 from click.testing import CliRunner
 
-from dagster._cli.job import execute_backfill_command, job_backfill_command
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import file_relative_path, merge_dicts
+from sheenflow._cli.job import execute_backfill_command, job_backfill_command
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import file_relative_path, merge_dicts
 
 from .test_cli_commands import backfill_command_contexts
 

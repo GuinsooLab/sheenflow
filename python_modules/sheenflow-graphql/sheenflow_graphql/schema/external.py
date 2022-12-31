@@ -9,17 +9,17 @@ from dagster_graphql.implementation.loader import (
 
 from dagster import DagsterInstance
 from dagster import _check as check
-from dagster._core.host_representation import (
+from sheenflow._core.host_representation import (
     ExternalRepository,
     GrpcServerRepositoryLocation,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
     RepositoryLocation,
 )
-from dagster._core.host_representation.grpc_server_state_subscriber import (
+from sheenflow._core.host_representation.grpc_server_state_subscriber import (
     LocationStateChangeEvent,
     LocationStateSubscriber,
 )
-from dagster._core.workspace.context import (
+from sheenflow._core.workspace.context import (
     WorkspaceLocationEntry,
     WorkspaceLocationLoadStatus,
     WorkspaceProcessContext,

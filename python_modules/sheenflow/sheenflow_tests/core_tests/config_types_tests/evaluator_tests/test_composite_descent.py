@@ -11,10 +11,10 @@ from dagster import (
     configured,
     mem_io_manager,
 )
-from dagster._core.definitions.config import ConfigMapping
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.system_config.composite_descent import composite_descent
-from dagster._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline, solid
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.system_config.composite_descent import composite_descent
+from sheenflow._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline, solid
 
 
 def test_single_level_pipeline():

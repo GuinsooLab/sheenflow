@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Set, TypeVar, cast
 
-import dagster._check as check
-from dagster._utils import ensure_single_item, frozendict
+import sheenflow._check as check
+from sheenflow._utils import ensure_single_item, frozendict
 
 from .config_type import ConfigScalarKind, ConfigType, ConfigTypeKind
 from .errors import (

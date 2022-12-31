@@ -2,16 +2,16 @@ import click
 import pytest
 from click.testing import CliRunner
 
-from dagster._cli.workspace.cli_target import (
+from sheenflow._cli.workspace.cli_target import (
     get_external_repository_from_kwargs,
     get_workspace_from_kwargs,
     repository_target_argument,
 )
-from dagster._core.host_representation import ExternalRepository
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import instance_for_test
-from dagster._core.workspace.context import WorkspaceRequestContext
-from dagster._utils import file_relative_path
+from sheenflow._core.host_representation import ExternalRepository
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.workspace.context import WorkspaceRequestContext
+from sheenflow._utils import file_relative_path
 
 
 def load_repository_via_cli_runner(cli_args, repo_assert_fn=None):

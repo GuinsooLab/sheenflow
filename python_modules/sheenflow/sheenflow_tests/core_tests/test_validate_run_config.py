@@ -1,8 +1,8 @@
 import pytest
 
 from dagster import validate_run_config
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._legacy import pipeline, solid
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._legacy import pipeline, solid
 
 
 def test_validate_run_config():

@@ -17,18 +17,18 @@ from typing import (
 import pendulum
 from typing_extensions import TypeGuard
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.instigation_logger import InstigationLogger
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.instigation_logger import InstigationLogger
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DagsterInvalidSubsetError,
     DagsterInvariantViolationError,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.instance.ref import InstanceRef
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.instance.ref import InstanceRef
+from sheenflow._serdes import whitelist_for_serdes
 
 from ..decorator_utils import get_function_params
 from .asset_selection import AssetSelection
@@ -41,8 +41,8 @@ from .unresolved_asset_job_definition import UnresolvedAssetJobDefinition
 from .utils import check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.repository_definition import RepositoryDefinition
-    from dagster._core.storage.event_log.base import EventLogRecord
+    from sheenflow._core.definitions.repository_definition import RepositoryDefinition
+    from sheenflow._core.storage.event_log.base import EventLogRecord
 
 
 @whitelist_for_serdes

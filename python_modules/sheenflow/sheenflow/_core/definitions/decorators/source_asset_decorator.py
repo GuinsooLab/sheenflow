@@ -1,16 +1,16 @@
 from typing import Mapping, Optional, Sequence, Union, overload
 
-from dagster._annotations import experimental
-from dagster._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
-from dagster._core.definitions.metadata import (
+from sheenflow._annotations import experimental
+from sheenflow._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
+from sheenflow._core.definitions.metadata import (
     MetadataEntry,
     MetadataUserInput,
     PartitionMetadataEntry,
 )
-from dagster._core.definitions.partition import PartitionsDefinition
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.definitions.source_asset import SourceAsset, SourceAssetObserveFunction
-from dagster._core.storage.io_manager import IOManagerDefinition
+from sheenflow._core.definitions.partition import PartitionsDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.definitions.source_asset import SourceAsset, SourceAssetObserveFunction
+from sheenflow._core.storage.io_manager import IOManagerDefinition
 
 
 @overload

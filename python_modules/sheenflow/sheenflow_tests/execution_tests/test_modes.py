@@ -1,7 +1,7 @@
 import pytest
 
 from dagster import DagsterInvariantViolationError, resource
-from dagster._legacy import ModeDefinition, execute_pipeline, pipeline, solid
+from sheenflow._legacy import ModeDefinition, execute_pipeline, pipeline, solid
 
 
 @resource

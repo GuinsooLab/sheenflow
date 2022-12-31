@@ -1,8 +1,8 @@
 import threading
 
-import dagster._check as check
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._grpc.client import DagsterGrpcClient
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._grpc.client import DagsterGrpcClient
 
 WATCH_INTERVAL = 1
 REQUEST_TIMEOUT = 2

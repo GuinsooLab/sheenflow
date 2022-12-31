@@ -1,4 +1,4 @@
-import {Box, NonIdealState} from '@sheenflow-io/ui';
+import {Box, NonIdealState} from '@dagster-io/ui';
 import * as React from 'react';
 import {useParams} from 'react-router-dom';
 

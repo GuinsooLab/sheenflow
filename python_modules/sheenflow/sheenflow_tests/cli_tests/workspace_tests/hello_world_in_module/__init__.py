@@ -1,4 +1,4 @@
-from dagster._core.definitions import pipeline, repository, solid
+from sheenflow._core.definitions import pipeline, repository, solid
 
 
 @solid

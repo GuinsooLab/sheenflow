@@ -3,22 +3,22 @@ import multiprocessing
 import pendulum
 import pytest
 
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import InstigatorState, InstigatorStatus, TickStatus
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import RUN_KEY_TAG, SENSOR_NAME_TAG
-from dagster._core.test_utils import (
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import InstigatorState, InstigatorStatus, TickStatus
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import RUN_KEY_TAG, SENSOR_NAME_TAG
+from sheenflow._core.test_utils import (
     SingleThreadPoolExecutor,
     cleanup_test_instance,
     create_test_daemon_workspace_context,
     get_crash_signals,
     wait_for_futures,
 )
-from dagster._daemon import get_default_daemon_logger
-from dagster._daemon.sensor import execute_sensor_iteration
-from dagster._seven import IS_WINDOWS
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._daemon import get_default_daemon_logger
+from sheenflow._daemon.sensor import execute_sensor_iteration
+from sheenflow._seven import IS_WINDOWS
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 
 from .test_sensor_run import create_workspace_load_target, wait_for_all_runs_to_start
 

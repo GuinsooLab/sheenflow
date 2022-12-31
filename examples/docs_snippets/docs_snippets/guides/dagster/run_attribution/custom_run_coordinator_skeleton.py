@@ -3,8 +3,8 @@
 CUSTOM_HEADER_NAME = "X-SOME-HEADER"
 # start_custom_run_coordinator_marker
 
-from dagster._core.run_coordinator import QueuedRunCoordinator, SubmitRunContext
-from dagster._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.run_coordinator import QueuedRunCoordinator, SubmitRunContext
+from sheenflow._core.storage.pipeline_run import DagsterRun
 
 
 class CustomRunCoordinator(QueuedRunCoordinator):

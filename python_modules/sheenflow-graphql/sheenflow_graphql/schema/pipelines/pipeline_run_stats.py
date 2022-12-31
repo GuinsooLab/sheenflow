@@ -1,7 +1,7 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.storage.pipeline_run import PipelineRunStatsSnapshot
+import sheenflow._check as check
+from sheenflow._core.storage.pipeline_run import PipelineRunStatsSnapshot
 
 from ..errors import GraphenePythonError
 

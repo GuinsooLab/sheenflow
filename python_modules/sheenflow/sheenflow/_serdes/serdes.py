@@ -34,8 +34,8 @@ from typing import (
     overload,
 )
 
-import dagster._check as check
-import dagster._seven as seven
+import sheenflow._check as check
+import sheenflow._seven as seven
 
 from .errors import DeserializationError, SerdesUsageError, SerializationError
 

@@ -6,13 +6,13 @@ from typing import TYPE_CHECKING, AbstractSet, Callable, Iterator, Optional, Uni
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-from dagster._config import ConfigType
-from dagster._core.decorator_utils import get_function_params, validate_expected_params
-from dagster._core.definitions.events import AssetMaterialization, Materialization
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._utils import ensure_gen
-from dagster._utils.backcompat import experimental_arg_warning
+import sheenflow._check as check
+from sheenflow._config import ConfigType
+from sheenflow._core.decorator_utils import get_function_params, validate_expected_params
+from sheenflow._core.definitions.events import AssetMaterialization, Materialization
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._utils import ensure_gen
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 from ..definitions.resource_requirement import (
     ResourceRequirement,
@@ -21,9 +21,9 @@ from ..definitions.resource_requirement import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import JobDefinition, OpDefinition
-    from dagster._core.execution.context.init import Resources
-    from dagster._core.execution.context.system import (
+    from sheenflow._core.definitions import JobDefinition, OpDefinition
+    from sheenflow._core.execution.context.init import Resources
+    from sheenflow._core.execution.context.system import (
         DagsterTypeLoaderContext,
         DagsterTypeMaterializerContext,
         StepExecutionContext,
@@ -219,7 +219,7 @@ def dagster_type_loader(
         def load_dict(_context, value):
             return value
     """
-    from dagster._config import resolve_to_config_type
+    from sheenflow._config import resolve_to_config_type
 
     config_type = resolve_to_config_type(config_schema)
     assert isinstance(
@@ -307,7 +307,7 @@ def dagster_type_materializer(
             return AssetMaterialization.file(path)
 
     """
-    from dagster._config import resolve_to_config_type
+    from sheenflow._config import resolve_to_config_type
 
     config_type = resolve_to_config_type(config_schema)
     return lambda func: _create_output_materializer_for_decorator(

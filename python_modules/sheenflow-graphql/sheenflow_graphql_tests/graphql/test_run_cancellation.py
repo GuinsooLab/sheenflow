@@ -6,11 +6,11 @@ import pytest
 from dagster_graphql.client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION
 from dagster_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
 
-from dagster._core.definitions.reconstruct import ReconstructableRepository
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._grpc.types import CancelExecutionRequest
-from dagster._legacy import execute_pipeline
-from dagster._utils import file_relative_path, safe_tempfile_path
+from sheenflow._core.definitions.reconstruct import ReconstructableRepository
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._grpc.types import CancelExecutionRequest
+from sheenflow._legacy import execute_pipeline
+from sheenflow._utils import file_relative_path, safe_tempfile_path
 
 from .graphql_context_test_suite import GraphQLContextVariant, make_graphql_context_test_suite
 

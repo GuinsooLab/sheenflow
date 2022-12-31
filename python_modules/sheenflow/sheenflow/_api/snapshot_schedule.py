@@ -1,17 +1,17 @@
 from typing import TYPE_CHECKING, Any
 
-import dagster._check as check
-from dagster._core.definitions.schedule_definition import ScheduleExecutionData
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import ExternalScheduleExecutionErrorData
-from dagster._core.host_representation.handle import RepositoryHandle
-from dagster._core.instance import DagsterInstance
-from dagster._grpc.types import ExternalScheduleExecutionArgs
-from dagster._serdes import deserialize_as
-from dagster._seven.compat.pendulum import PendulumDateTime
+import sheenflow._check as check
+from sheenflow._core.definitions.schedule_definition import ScheduleExecutionData
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import ExternalScheduleExecutionErrorData
+from sheenflow._core.host_representation.handle import RepositoryHandle
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._grpc.types import ExternalScheduleExecutionArgs
+from sheenflow._serdes import deserialize_as
+from sheenflow._seven.compat.pendulum import PendulumDateTime
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_external_schedule_execution_data_ephemeral_grpc(
@@ -20,7 +20,7 @@ def sync_get_external_schedule_execution_data_ephemeral_grpc(
     schedule_name: str,
     scheduled_execution_time: Any,
 ) -> ScheduleExecutionData:
-    from dagster._grpc.client import ephemeral_grpc_api_client
+    from sheenflow._grpc.client import ephemeral_grpc_api_client
 
     origin = repository_handle.get_external_origin()
     with ephemeral_grpc_api_client(

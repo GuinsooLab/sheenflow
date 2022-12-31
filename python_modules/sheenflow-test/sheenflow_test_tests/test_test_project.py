@@ -3,7 +3,7 @@ from dagster_test.test_project import (
     get_test_project_workspace_and_external_pipeline,
 )
 
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 def test_reoriginated_external_pipeline():

@@ -1,4 +1,4 @@
-from dagster._core.definitions.events import AssetKey
+from sheenflow._core.definitions.events import AssetKey
 from docs_snippets.concepts.assets.code_versions import (
     asset_with_version,
     multi_asset_with_versions,

@@ -2,8 +2,8 @@ import os
 
 import click
 
-import dagster._check as check
-from dagster._core.instance import DagsterInstance
+import sheenflow._check as check
+from sheenflow._core.instance import DagsterInstance
 
 
 @click.group(name="instance")

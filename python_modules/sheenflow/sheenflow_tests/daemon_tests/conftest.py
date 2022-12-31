@@ -3,13 +3,13 @@ import sys
 
 import pytest
 
-from dagster._core.host_representation import InProcessRepositoryLocationOrigin
-from dagster._core.test_utils import (
+from sheenflow._core.host_representation import InProcessRepositoryLocationOrigin
+from sheenflow._core.test_utils import (
     InProcessTestWorkspaceLoadTarget,
     create_test_daemon_workspace_context,
     instance_for_test,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
 
 
 @pytest.fixture(name="instance_module_scoped", scope="module")

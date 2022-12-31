@@ -6,20 +6,20 @@ import time
 
 import pytest
 
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.launcher import CheckRunHealthResult, RunLauncher, WorkerStatus
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.test_utils import (
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.launcher import CheckRunHealthResult, RunLauncher, WorkerStatus
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.test_utils import (
     create_run_for_test,
     create_test_daemon_workspace_context,
     environ,
     instance_for_test,
 )
-from dagster._core.workspace.load_target import EmptyWorkspaceTarget
-from dagster._daemon import get_default_daemon_logger
-from dagster._daemon.monitoring.monitoring_daemon import monitor_started_run, monitor_starting_run
-from dagster._serdes import ConfigurableClass
+from sheenflow._core.workspace.load_target import EmptyWorkspaceTarget
+from sheenflow._daemon import get_default_daemon_logger
+from sheenflow._daemon.monitoring.monitoring_daemon import monitor_started_run, monitor_starting_run
+from sheenflow._serdes import ConfigurableClass
 
 
 class TestRunLauncher(RunLauncher, ConfigurableClass):

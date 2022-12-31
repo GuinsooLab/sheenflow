@@ -14,17 +14,17 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
-from dagster._core.definitions.executor_definition import ExecutorDefinition, in_process_executor
-from dagster._core.definitions.utils import DEFAULT_IO_MANAGER_KEY
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.definitions.events import AssetKey, CoercibleToAssetKeyPrefix
+from sheenflow._core.definitions.executor_definition import ExecutorDefinition, in_process_executor
+from sheenflow._core.definitions.utils import DEFAULT_IO_MANAGER_KEY
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterUnmetExecutorRequirementsError,
 )
-from dagster._core.selector.subset_selector import AssetSelectionData
-from dagster._utils import merge_dicts
+from sheenflow._core.selector.subset_selector import AssetSelectionData
+from sheenflow._utils import merge_dicts
 
 from .asset_layer import build_asset_selection_job
 from .assets import AssetsDefinition
@@ -39,7 +39,7 @@ from .resource_definition import ResourceDefinition
 from .source_asset import SourceAsset
 
 if TYPE_CHECKING:
-    from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
+    from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
 
 
 class AssetGroup:
@@ -187,7 +187,7 @@ class AssetGroup:
                 job_with_multiple_selections = the_asset_group.build_job(selection=["*some_asset", "other_asset++"])
         """
 
-        from dagster._core.selector.subset_selector import parse_asset_selection
+        from sheenflow._core.selector.subset_selector import parse_asset_selection
 
         check.str_param(name, "name")
         check.opt_inst_param(_asset_selection_data, "_asset_selection_data", AssetSelectionData)

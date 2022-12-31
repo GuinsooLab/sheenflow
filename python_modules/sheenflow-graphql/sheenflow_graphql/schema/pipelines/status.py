@@ -1,6 +1,6 @@
 import graphene
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 class GrapheneRunStatus(graphene.Enum):

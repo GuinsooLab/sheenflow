@@ -1,8 +1,8 @@
 from enum import Enum
 from typing import Mapping, NamedTuple, Sequence, Union
 
-import dagster._check as check
-from dagster._utils.error import SerializableErrorInfo
+import sheenflow._check as check
+from sheenflow._utils.error import SerializableErrorInfo
 
 from .config_type import ConfigTypeKind
 from .snap import ConfigFieldSnap, ConfigTypeSnap, minimal_config_for_type_snap

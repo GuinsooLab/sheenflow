@@ -15,22 +15,22 @@ from dagster import (
     TextMetadataValue,
     UrlMetadataValue,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.metadata import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.metadata import (
     DagsterInvalidMetadata,
     MetadataEntry,
     normalize_metadata,
 )
-from dagster._core.definitions.metadata.table import (
+from sheenflow._core.definitions.metadata.table import (
     TableColumn,
     TableColumnConstraints,
     TableConstraints,
     TableRecord,
     TableSchema,
 )
-from dagster._core.execution.results import OpExecutionResult, PipelineExecutionResult
-from dagster._legacy import execute_pipeline, pipeline, solid
-from dagster._utils import frozendict
+from sheenflow._core.execution.results import OpExecutionResult, PipelineExecutionResult
+from sheenflow._legacy import execute_pipeline, pipeline, solid
+from sheenflow._utils import frozendict
 
 
 def solid_events_for_type(

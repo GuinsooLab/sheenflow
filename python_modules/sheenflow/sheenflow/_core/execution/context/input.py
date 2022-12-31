@@ -12,24 +12,24 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.events import AssetKey, AssetObservation
-from dagster._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
-from dagster._core.definitions.partition import PartitionsSubset
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.time_window_partitions import TimeWindow, TimeWindowPartitionsSubset
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.instance import DagsterInstance
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.events import AssetKey, AssetObservation
+from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
+from sheenflow._core.definitions.partition import PartitionsSubset
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.time_window_partitions import TimeWindow, TimeWindowPartitionsSubset
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.instance import DagsterInstance
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import OpDefinition, PartitionsDefinition
-    from dagster._core.definitions.op_definition import OpDefinition
-    from dagster._core.definitions.resource_definition import Resources
-    from dagster._core.events import DagsterEvent
-    from dagster._core.execution.context.system import StepExecutionContext
-    from dagster._core.log_manager import DagsterLogManager
-    from dagster._core.types.dagster_type import DagsterType
+    from sheenflow._core.definitions import OpDefinition, PartitionsDefinition
+    from sheenflow._core.definitions.op_definition import OpDefinition
+    from sheenflow._core.definitions.resource_definition import Resources
+    from sheenflow._core.events import DagsterEvent
+    from sheenflow._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.log_manager import DagsterLogManager
+    from sheenflow._core.types.dagster_type import DagsterType
 
     from .output import OutputContext
 
@@ -99,8 +99,8 @@ class InputContext:
         asset_partitions_def: Optional["PartitionsDefinition"] = None,
         instance: Optional[DagsterInstance] = None,
     ):
-        from dagster._core.definitions.resource_definition import IContainsGenerator, Resources
-        from dagster._core.execution.build_resources import build_resources
+        from sheenflow._core.definitions.resource_definition import IContainsGenerator, Resources
+        from sheenflow._core.execution.build_resources import build_resources
 
         self._name = name
         self._job_name = job_name
@@ -206,7 +206,7 @@ class InputContext:
     @public  # type: ignore
     @property
     def op_def(self) -> "OpDefinition":
-        from dagster._core.definitions import OpDefinition
+        from sheenflow._core.definitions import OpDefinition
 
         if self._solid_def is None:
             raise DagsterInvariantViolationError(
@@ -488,8 +488,8 @@ class InputContext:
         The asset observation will be yielded from the run and appear in the event log.
         Only valid if the context has an asset key.
         """
-        from dagster._core.definitions.metadata import normalize_metadata
-        from dagster._core.events import DagsterEvent
+        from sheenflow._core.definitions.metadata import normalize_metadata
+        from sheenflow._core.events import DagsterEvent
 
         metadata = check.mapping_param(metadata, "metadata", key_type=str)
         self._metadata_entries.extend(normalize_metadata(metadata, []))
@@ -591,11 +591,11 @@ def build_input_context(
             with build_input_context(resources={"foo": context_manager_resource}) as context:
                 do_something
     """
-    from dagster._core.definitions import OpDefinition, PartitionsDefinition
-    from dagster._core.execution.context.output import OutputContext
-    from dagster._core.execution.context.system import StepExecutionContext
-    from dagster._core.execution.context_creation_pipeline import initialize_console_manager
-    from dagster._core.types.dagster_type import DagsterType
+    from sheenflow._core.definitions import OpDefinition, PartitionsDefinition
+    from sheenflow._core.execution.context.output import OutputContext
+    from sheenflow._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.execution.context_creation_pipeline import initialize_console_manager
+    from sheenflow._core.types.dagster_type import DagsterType
 
     name = check.opt_str_param(name, "name")
     metadata = check.opt_mapping_param(metadata, "metadata", key_type=str)

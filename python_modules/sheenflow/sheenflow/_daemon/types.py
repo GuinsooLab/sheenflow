@@ -1,9 +1,9 @@
 from enum import Enum
 from typing import NamedTuple, Optional, Sequence, cast
 
-import dagster._check as check
-from dagster._serdes import DefaultNamedTupleSerializer, unpack_inner_value, whitelist_for_serdes
-from dagster._utils.error import SerializableErrorInfo
+import sheenflow._check as check
+from sheenflow._serdes import DefaultNamedTupleSerializer, unpack_inner_value, whitelist_for_serdes
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 # DEPRECATED - daemon types are now strings, only exists in code for deserializing old heartbeats

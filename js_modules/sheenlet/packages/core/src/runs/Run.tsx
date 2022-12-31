@@ -1,4 +1,4 @@
-import {Box, NonIdealState, FirstOrSecondPanelToggle, SplitPanelContainer} from '@sheenflow-io/ui';
+import {Box, NonIdealState, FirstOrSecondPanelToggle, SplitPanelContainer} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

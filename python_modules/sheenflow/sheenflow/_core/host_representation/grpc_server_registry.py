@@ -7,18 +7,18 @@ from typing import TYPE_CHECKING, Generic, NamedTuple, Optional, TypeVar, Union,
 
 import pendulum
 
-import dagster._check as check
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.origin import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.origin import (
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
     RepositoryLocationOrigin,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._grpc.server import GrpcServerProcess
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._grpc.server import GrpcServerProcess
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 class GrpcServerEndpoint(
@@ -42,7 +42,7 @@ class GrpcServerEndpoint(
         )
 
     def create_client(self) -> "DagsterGrpcClient":
-        from dagster._grpc.client import DagsterGrpcClient
+        from sheenflow._grpc.client import DagsterGrpcClient
 
         return DagsterGrpcClient(port=self.port, socket=self.socket, host=self.host)
 

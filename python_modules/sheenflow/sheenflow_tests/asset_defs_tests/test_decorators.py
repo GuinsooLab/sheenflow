@@ -15,17 +15,17 @@ from dagster import (
 )
 from dagster import _check as check
 from dagster import build_op_context, io_manager, materialize_to_memory, resource
-from dagster._core.definitions import (
+from sheenflow._core.definitions import (
     AssetIn,
     AssetsDefinition,
     asset,
     build_assets_job,
     multi_asset,
 )
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.resource_requirement import ensure_requirements_satisfied
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._core.types.dagster_type import resolve_dagster_type
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.resource_requirement import ensure_requirements_satisfied
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._core.types.dagster_type import resolve_dagster_type
 
 
 @pytest.fixture(autouse=True)

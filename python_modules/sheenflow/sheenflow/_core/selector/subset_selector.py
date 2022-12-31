@@ -22,16 +22,16 @@ from typing import (
 
 from typing_extensions import Literal, TypeAlias
 
-from dagster._core.definitions.dependency import DependencyStructure
-from dagster._core.definitions.events import AssetKey
-from dagster._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
-from dagster._utils import check
+from sheenflow._core.definitions.dependency import DependencyStructure
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
+from sheenflow._utils import check
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.assets import AssetsDefinition
-    from dagster._core.definitions.job_definition import JobDefinition
-    from dagster._core.definitions.pipeline_definition import PipelineDefinition
-    from dagster._core.definitions.source_asset import SourceAsset
+    from sheenflow._core.definitions.assets import AssetsDefinition
+    from sheenflow._core.definitions.job_definition import JobDefinition
+    from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+    from sheenflow._core.definitions.source_asset import SourceAsset
 
 MAX_NUM = sys.maxsize
 
@@ -64,7 +64,7 @@ class OpSelectionData(
         resolved_op_selection: AbstractSet[str],
         parent_job_def: "JobDefinition",
     ):
-        from dagster._core.definitions.job_definition import JobDefinition
+        from sheenflow._core.definitions.job_definition import JobDefinition
 
         return super(OpSelectionData, cls).__new__(
             cls,
@@ -94,7 +94,7 @@ class AssetSelectionData(
     """
 
     def __new__(cls, asset_selection: AbstractSet[AssetKey], parent_job_def: "JobDefinition"):
-        from dagster._core.definitions.job_definition import JobDefinition
+        from sheenflow._core.definitions.job_definition import JobDefinition
 
         return super(AssetSelectionData, cls).__new__(
             cls,
@@ -106,7 +106,7 @@ class AssetSelectionData(
 def generate_asset_dep_graph(
     assets_defs: Iterable["AssetsDefinition"], source_assets: Iterable["SourceAsset"]
 ) -> DependencyGraph:
-    from dagster._core.definitions.resolved_asset_deps import ResolvedAssetDependencies
+    from sheenflow._core.definitions.resolved_asset_deps import ResolvedAssetDependencies
 
     resolved_asset_deps = ResolvedAssetDependencies(assets_defs, source_assets)
 

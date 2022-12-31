@@ -4,7 +4,7 @@ from typing import Mapping, Optional
 
 from dagster import Field, Selector
 from dagster import _check as check
-from dagster._serdes.serdes import whitelist_for_serdes
+from sheenflow._serdes.serdes import whitelist_for_serdes
 
 
 def get_retries_config():

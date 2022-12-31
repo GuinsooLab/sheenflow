@@ -3,12 +3,12 @@ import time
 from typing import Optional
 
 from dagster import Definitions, asset
-from dagster._core.definitions.assets import AssetsDefinition
-from dagster._core.definitions.events import AssetKey, AssetMaterialization
-from dagster._core.definitions.metadata import TextMetadataValue
-from dagster._core.events.log import EventLogEntry
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.branching.branching_io_manager import BranchingIOManager
+from sheenflow._core.definitions.assets import AssetsDefinition
+from sheenflow._core.definitions.events import AssetKey, AssetMaterialization
+from sheenflow._core.definitions.metadata import TextMetadataValue
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.branching.branching_io_manager import BranchingIOManager
 
 from .utils import AssetBasedInMemoryIOManager, DefinitionsRunner
 

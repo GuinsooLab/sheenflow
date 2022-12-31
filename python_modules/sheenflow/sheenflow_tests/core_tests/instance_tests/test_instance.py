@@ -6,38 +6,38 @@ from dagster_tests.api_tests.utils import get_bar_workspace
 
 from dagster import _check as check
 from dagster import _seven, execute_job, job, op, reconstructable
-from dagster._check import CheckError
-from dagster._config import Field
-from dagster._core.errors import (
+from sheenflow._check import CheckError
+from sheenflow._config import Field
+from sheenflow._core.errors import (
     DagsterHomeNotSetError,
     DagsterInvalidConfigError,
     DagsterInvariantViolationError,
 )
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.instance import DagsterInstance, InstanceRef
-from dagster._core.instance.config import DEFAULT_LOCAL_CODE_SERVER_STARTUP_TIMEOUT
-from dagster._core.launcher import LaunchRunContext, RunLauncher
-from dagster._core.run_coordinator.queued_run_coordinator import QueuedRunCoordinator
-from dagster._core.secrets.env_file import EnvFileLoader
-from dagster._core.snap import (
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.instance import DagsterInstance, InstanceRef
+from sheenflow._core.instance.config import DEFAULT_LOCAL_CODE_SERVER_STARTUP_TIMEOUT
+from sheenflow._core.launcher import LaunchRunContext, RunLauncher
+from sheenflow._core.run_coordinator.queued_run_coordinator import QueuedRunCoordinator
+from sheenflow._core.secrets.env_file import EnvFileLoader
+from sheenflow._core.snap import (
     create_execution_plan_snapshot_id,
     create_pipeline_snapshot_id,
     snapshot_from_execution_plan,
 )
-from dagster._core.storage.sqlite_storage import (
+from sheenflow._core.storage.sqlite_storage import (
     _event_logs_directory,
     _runs_directory,
     _schedule_directory,
 )
-from dagster._core.test_utils import (
+from sheenflow._core.test_utils import (
     TestSecretsLoader,
     create_run_for_test,
     environ,
     instance_for_test,
 )
-from dagster._legacy import PipelineDefinition
-from dagster._serdes import ConfigurableClass
-from dagster._serdes.config_class import ConfigurableClassData
+from sheenflow._legacy import PipelineDefinition
+from sheenflow._serdes import ConfigurableClass
+from sheenflow._serdes.config_class import ConfigurableClassData
 
 
 def test_get_run_by_id():
@@ -224,7 +224,7 @@ def test_submit_run():
 
 
 def test_get_required_daemon_types():
-    from dagster._daemon.daemon import (
+    from sheenflow._daemon.daemon import (
         BackfillDaemon,
         MonitoringDaemon,
         SchedulerDaemon,

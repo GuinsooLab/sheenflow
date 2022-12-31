@@ -6,11 +6,11 @@ from abc import ABC, abstractmethod
 from types import ModuleType
 from typing import Callable, List, NamedTuple, Optional, Sequence, cast
 
-import dagster._check as check
-from dagster._core.errors import DagsterImportError, DagsterInvariantViolationError
-from dagster._serdes import whitelist_for_serdes
-from dagster._seven import get_import_error_message, import_module_from_path
-from dagster._utils import alter_sys_path, frozenlist
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterImportError, DagsterInvariantViolationError
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._seven import get_import_error_message, import_module_from_path
+from sheenflow._utils import alter_sys_path, frozenlist
 
 
 class CodePointer(ABC):
@@ -190,8 +190,8 @@ class FileCodePointer(
 
 
 def _load_target_from_module(module: ModuleType, fn_name: str, error_suffix: str) -> object:
-    from dagster._core.definitions import AssetGroup
-    from dagster._core.workspace.autodiscovery import LOAD_ALL_ASSETS
+    from sheenflow._core.definitions import AssetGroup
+    from sheenflow._core.workspace.autodiscovery import LOAD_ALL_ASSETS
 
     if fn_name == LOAD_ALL_ASSETS:
         # LOAD_ALL_ASSETS is a special symbol that's returned when, instead of loading a particular

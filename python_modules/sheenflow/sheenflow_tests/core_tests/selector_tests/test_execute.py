@@ -3,9 +3,9 @@ import re
 import pytest
 
 from dagster import ReexecutionOptions, execute_job, reconstructable
-from dagster._core.definitions.events import AssetKey
-from dagster._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
+from sheenflow._core.test_utils import instance_for_test
 
 from .test_subset_selector import foo_job, get_asset_selection_job
 

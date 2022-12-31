@@ -2,9 +2,9 @@ import math
 import time
 
 from dagster import DagsterInstance, Definitions, asset
-from dagster._core.definitions.assets import AssetsDefinition
-from dagster._core.definitions.partition import StaticPartitionsDefinition
-from dagster._core.storage.branching.branching_io_manager import BranchingIOManager
+from sheenflow._core.definitions.assets import AssetsDefinition
+from sheenflow._core.definitions.partition import StaticPartitionsDefinition
+from sheenflow._core.storage.branching.branching_io_manager import BranchingIOManager
 
 from .utils import AssetBasedInMemoryIOManager, DefinitionsRunner
 

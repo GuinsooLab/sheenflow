@@ -1,7 +1,7 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
+import sheenflow._check as check
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
 
 
 class GrapheneAssetFreshnessInfo(graphene.ObjectType):

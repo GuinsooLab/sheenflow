@@ -1,9 +1,9 @@
 import pickle
 import warnings
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._config import (
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._config import (
     ConfigAnyInstance,
     ConfigBoolInstance,
     ConfigFloatInstance,
@@ -15,7 +15,7 @@ from dagster._config import (
     ScalarUnion,
     Selector,
 )
-from dagster._utils.backcompat import ExperimentalWarning
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 from .config_schema import dagster_type_loader, dagster_type_materializer
 
@@ -56,7 +56,7 @@ def define_any_input_schema():
 
 def define_builtin_scalar_input_schema(scalar_name, config_scalar_type):
     def _external_version_fn(val):
-        from dagster._core.execution.resolve_versions import join_and_hash
+        from sheenflow._core.execution.resolve_versions import join_and_hash
 
         return join_and_hash(
             str(val),
@@ -94,7 +94,7 @@ def define_builtin_scalar_output_schema(scalar_name):
 
     @dagster_type_materializer(schema_cls)
     def _buildint_materializer(_context, config_value, runtime_value):
-        from dagster._core.events import AssetMaterialization
+        from sheenflow._core.events import AssetMaterialization
 
         file_type, file_options = list(config_value.items())[0]
 

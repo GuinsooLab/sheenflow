@@ -4,28 +4,28 @@ from typing import IO, Generator, Optional, Sequence
 
 import pytest
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import job, op
-from dagster._core.instance import DagsterInstance, InstanceRef, InstanceType
-from dagster._core.launcher import DefaultRunLauncher
-from dagster._core.run_coordinator import DefaultRunCoordinator
-from dagster._core.storage.captured_log_manager import (
+from sheenflow._core.instance import DagsterInstance, InstanceRef, InstanceType
+from sheenflow._core.launcher import DefaultRunLauncher
+from sheenflow._core.run_coordinator import DefaultRunCoordinator
+from sheenflow._core.storage.captured_log_manager import (
     CapturedLogContext,
     CapturedLogData,
     CapturedLogManager,
     CapturedLogMetadata,
     CapturedLogSubscription,
 )
-from dagster._core.storage.compute_log_manager import (
+from sheenflow._core.storage.compute_log_manager import (
     MAX_BYTES_FILE_READ,
     ComputeIOType,
     ComputeLogFileData,
     ComputeLogManager,
 )
-from dagster._core.storage.event_log import SqliteEventLogStorage
-from dagster._core.storage.root import LocalArtifactStorage
-from dagster._core.storage.runs import SqliteRunStorage
-from dagster._core.test_utils import environ, instance_for_test
+from sheenflow._core.storage.event_log import SqliteEventLogStorage
+from sheenflow._core.storage.root import LocalArtifactStorage
+from sheenflow._core.storage.runs import SqliteRunStorage
+from sheenflow._core.test_utils import environ, instance_for_test
 
 
 def test_compute_log_manager_instance():

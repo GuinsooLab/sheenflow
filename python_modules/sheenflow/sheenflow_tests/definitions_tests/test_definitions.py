@@ -15,10 +15,10 @@ from dagster import (
     String,
     op,
 )
-from dagster._core.definitions import AssetMaterialization, Node, create_run_config_schema
-from dagster._core.definitions.dependency import NodeHandle, NodeOutput
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._legacy import InputDefinition
+from sheenflow._core.definitions import AssetMaterialization, Node, create_run_config_schema
+from sheenflow._core.definitions.dependency import NodeHandle, NodeOutput
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._legacy import InputDefinition
 
 
 def test_deps_equal():

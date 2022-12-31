@@ -21,14 +21,14 @@ from dagster import (
     reconstructable,
     success_hook,
 )
-from dagster._core.definitions.events import HookExecutionResult
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.events import DagsterEvent
-from dagster._core.execution.api import create_execution_plan, execute_plan
-from dagster._core.execution.retries import RetryMode
-from dagster._core.test_utils import default_mode_def_for_test, instance_for_test
-from dagster._legacy import (
+from sheenflow._core.definitions.events import HookExecutionResult
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.execution.api import create_execution_plan, execute_plan
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.test_utils import default_mode_def_for_test, instance_for_test
+from sheenflow._legacy import (
     DagsterRun,
     OutputDefinition,
     execute_pipeline,

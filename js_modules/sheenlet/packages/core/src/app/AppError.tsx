@@ -1,7 +1,7 @@
 import {ErrorResponse, onError} from '@apollo/client/link/error';
 import {ServerError} from '@apollo/client/link/utils';
 import {Observable} from '@apollo/client/utilities';
-import {FontFamily, Toaster} from '@sheenflow-io/ui';
+import {FontFamily, Toaster} from '@dagster-io/ui';
 import {GraphQLError} from 'graphql';
 import * as React from 'react';
 

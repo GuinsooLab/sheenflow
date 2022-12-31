@@ -1,4 +1,4 @@
-from dagster._legacy import OutputDefinition
+from sheenflow._legacy import OutputDefinition
 
 
 def test_output_definition():

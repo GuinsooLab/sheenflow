@@ -7,14 +7,14 @@ from starlette.concurrency import (
     run_in_threadpool,  # can provide this indirectly if we dont want starlette dep in sheenflow-graphql
 )
 
-import dagster._check as check
-from dagster._core.events import EngineEventData
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.captured_log_manager import CapturedLogManager, CapturedLogSubscription
-from dagster._core.storage.compute_log_manager import ComputeIOType, ComputeLogFileData
-from dagster._core.storage.event_log.base import EventLogCursor
-from dagster._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
-from dagster._utils.error import serializable_error_info_from_exc_info
+import sheenflow._check as check
+from sheenflow._core.events import EngineEventData
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.captured_log_manager import CapturedLogManager, CapturedLogSubscription
+from sheenflow._core.storage.compute_log_manager import ComputeIOType, ComputeLogFileData
+from sheenflow._core.storage.event_log.base import EventLogCursor
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from ..external import ExternalPipeline, ensure_valid_config, get_external_pipeline_or_raise
 from ..fetch_runs import is_config_valid

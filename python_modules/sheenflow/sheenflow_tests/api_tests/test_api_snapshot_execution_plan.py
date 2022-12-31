@@ -2,10 +2,10 @@ import re
 
 import pytest
 
-from dagster._api.snapshot_execution_plan import sync_get_external_execution_plan_grpc
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.handle import JobHandle
-from dagster._core.snap.execution_plan_snapshot import ExecutionPlanSnapshot
+from sheenflow._api.snapshot_execution_plan import sync_get_external_execution_plan_grpc
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.handle import JobHandle
+from sheenflow._core.snap.execution_plan_snapshot import ExecutionPlanSnapshot
 
 from .utils import get_bar_repo_repository_location
 

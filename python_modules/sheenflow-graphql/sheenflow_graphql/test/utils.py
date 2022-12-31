@@ -3,11 +3,11 @@ from contextlib import contextmanager
 
 from dagster_graphql.schema import create_schema
 
-import dagster._check as check
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import wait_for_runs_to_finish
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import PythonFileTarget
+import sheenflow._check as check
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import wait_for_runs_to_finish
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import PythonFileTarget
 
 
 def main_repo_location_name():

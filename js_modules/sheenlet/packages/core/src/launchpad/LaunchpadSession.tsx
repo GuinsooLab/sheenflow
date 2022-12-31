@@ -12,7 +12,7 @@ import {
   isHelpContextEqual,
   ConfigEditorHelp,
   TextInput,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import merge from 'deepmerge';
 import uniqBy from 'lodash/uniqBy';
 import * as React from 'react';
@@ -36,11 +36,12 @@ import {
   ConfigPartitionSelectionQueryQueryVariables,
   LaunchpadSessionPartitionSetsFragmentFragment,
   LaunchpadSessionPipelineFragmentFragment,
+  PipelineSelector,
   PreviewConfigQueryQuery,
   PreviewConfigQueryQueryVariables,
+  RepositorySelector,
 } from '../graphql/graphql';
 import {DagsterTag} from '../runs/RunTag';
-import {PipelineSelector, RepositorySelector} from '../types/globalTypes';
 import {repoAddressAsHumanString} from '../workspace/repoAddressAsString';
 import {repoAddressToSelector} from '../workspace/repoAddressToSelector';
 import {RepoAddress} from '../workspace/types';

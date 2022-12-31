@@ -4,10 +4,10 @@ import {createGlobalStyle} from 'styled-components/macro';
  * `Inter` and `Inconsolata` are encoded as base64 because we can't always guarantee
  * the absolute path that font files may be served from.
  *
- * For instance, running `sheenlet` with `--path-prefix` on built JS will not be able to
+ * For instance, running `dagit` with `--path-prefix` on built JS will not be able to
  * load font files because the built URL does not match the path prefix used at runtime.
  *
- * Consumers of `@sheenflow-io/ui` that use a CSP will need to add `data:` to the `font-src`
+ * Consumers of `@dagster-io/ui` that use a CSP will need to add `data:` to the `font-src`
  * directive.
  */
 

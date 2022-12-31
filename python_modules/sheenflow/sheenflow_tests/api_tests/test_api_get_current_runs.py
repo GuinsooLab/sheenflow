@@ -1,10 +1,10 @@
 import time
 
-from dagster._core.host_representation.handle import JobHandle
-from dagster._core.test_utils import instance_for_test, poll_for_event
-from dagster._grpc.server import ExecuteExternalPipelineArgs
-from dagster._grpc.types import CancelExecutionRequest
-from dagster._serdes import deserialize_json_to_dagster_namedtuple
+from sheenflow._core.host_representation.handle import JobHandle
+from sheenflow._core.test_utils import instance_for_test, poll_for_event
+from sheenflow._grpc.server import ExecuteExternalPipelineArgs
+from sheenflow._grpc.types import CancelExecutionRequest
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple
 
 from .utils import get_bar_repo_repository_location
 

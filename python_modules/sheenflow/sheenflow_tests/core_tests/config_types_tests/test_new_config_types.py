@@ -1,5 +1,5 @@
 from dagster import Array, Int, Noneable
-from dagster._config import ConfigTypeKind, resolve_to_config_type, validate_config
+from sheenflow._config import ConfigTypeKind, resolve_to_config_type, validate_config
 
 
 def test_config_any():

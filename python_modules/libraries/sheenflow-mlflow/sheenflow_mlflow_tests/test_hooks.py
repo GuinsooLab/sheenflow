@@ -3,7 +3,7 @@ from unittest.mock import Mock
 from dagster_mlflow.hooks import _cleanup_on_success, end_mlflow_on_run_finished
 
 from dagster import Nothing, ResourceDefinition
-from dagster._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid
+from sheenflow._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid
 
 
 def test_cleanup_on_success():

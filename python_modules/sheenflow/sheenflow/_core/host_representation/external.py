@@ -15,29 +15,29 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.definitions.schedule_definition import DefaultScheduleStatus
-from dagster._core.definitions.sensor_definition import (
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.definitions.schedule_definition import DefaultScheduleStatus
+from sheenflow._core.definitions.sensor_definition import (
     DEFAULT_SENSOR_DAEMON_INTERVAL,
     DefaultSensorStatus,
 )
-from dagster._core.execution.plan.handle import ResolvedFromDynamicStepHandle, StepHandle
-from dagster._core.host_representation.origin import (
+from sheenflow._core.execution.plan.handle import ResolvedFromDynamicStepHandle, StepHandle
+from sheenflow._core.host_representation.origin import (
     ExternalInstigatorOrigin,
     ExternalPartitionSetOrigin,
     ExternalPipelineOrigin,
     ExternalRepositoryOrigin,
 )
-from dagster._core.origin import PipelinePythonOrigin, RepositoryPythonOrigin
-from dagster._core.snap import ExecutionPlanSnapshot
-from dagster._core.snap.execution_plan_snapshot import ExecutionStepSnap
-from dagster._core.utils import toposort
-from dagster._serdes import create_snapshot_id
-from dagster._utils.cached_method import cached_method
-from dagster._utils.schedules import schedule_execution_time_iterator
+from sheenflow._core.origin import PipelinePythonOrigin, RepositoryPythonOrigin
+from sheenflow._core.snap import ExecutionPlanSnapshot
+from sheenflow._core.snap.execution_plan_snapshot import ExecutionStepSnap
+from sheenflow._core.utils import toposort
+from sheenflow._serdes import create_snapshot_id
+from sheenflow._utils.cached_method import cached_method
+from sheenflow._utils.schedules import schedule_execution_time_iterator
 
 from .external_data import (
     ExternalAssetNode,
@@ -57,7 +57,7 @@ from .represented import RepresentedPipeline
 from .selector import InstigatorSelector, RepositorySelector
 
 if TYPE_CHECKING:
-    from dagster._core.scheduler.instigation import InstigatorState
+    from sheenflow._core.scheduler.instigation import InstigatorState
 
 
 class ExternalRepository:
@@ -582,7 +582,7 @@ class ExternalSchedule:
     def get_current_instigator_state(
         self, stored_state: Optional["InstigatorState"]
     ) -> InstigatorState:
-        from dagster._core.scheduler.instigation import (
+        from sheenflow._core.scheduler.instigation import (
             InstigatorState,
             InstigatorStatus,
             ScheduleInstigatorData,
@@ -698,7 +698,7 @@ class ExternalSensor:
     def get_current_instigator_state(
         self, stored_state: Optional["InstigatorState"]
     ) -> InstigatorState:
-        from dagster._core.scheduler.instigation import (
+        from sheenflow._core.scheduler.instigation import (
             InstigatorState,
             InstigatorStatus,
             SensorInstigatorData,

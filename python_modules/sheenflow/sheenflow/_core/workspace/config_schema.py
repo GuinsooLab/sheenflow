@@ -1,8 +1,8 @@
 import os
 from typing import Dict, Mapping, cast
 
-import dagster._check as check
-from dagster._config import (
+import sheenflow._check as check
+from sheenflow._config import (
     EvaluateValueResult,
     Field,
     IntSource,
@@ -11,8 +11,8 @@ from dagster._config import (
     StringSource,
     process_config,
 )
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._utils.merger import merge_dicts
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._utils.merger import merge_dicts
 
 
 def process_workspace_config(

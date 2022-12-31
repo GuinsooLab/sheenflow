@@ -9,8 +9,8 @@ from alembic.migration import MigrationContext  # pylint: disable=import-error
 from alembic.script import ScriptDirectory
 from sqlalchemy.ext.compiler import compiles
 
-from dagster._utils import file_relative_path
-from dagster._utils.log import quieten
+from sheenflow._utils import file_relative_path
+from sheenflow._utils.log import quieten
 
 create_engine = db.create_engine  # exported
 

@@ -1,4 +1,4 @@
-import {Tag, Tooltip} from '@sheenflow-io/ui';
+import {Tag, Tooltip} from '@dagster-io/ui';
 import {useVirtualizer} from '@tanstack/react-virtual';
 import * as React from 'react';
 

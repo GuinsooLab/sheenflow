@@ -15,22 +15,22 @@ import sqlalchemy as db
 from dagster import AssetKey, AssetMaterialization, Output
 from dagster import _check as check
 from dagster import file_relative_path, job, op
-from dagster._cli.debug import DebugRunPayload
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.errors import DagsterInvalidInvocationError
-from dagster._core.events import DagsterEvent
-from dagster._core.events.log import EventLogEntry
-from dagster._core.execution.backfill import BulkActionStatus, PartitionBackfill
-from dagster._core.instance import DagsterInstance, InstanceRef
-from dagster._core.scheduler.instigation import InstigatorState, InstigatorTick
-from dagster._core.storage.event_log.migration import migrate_event_log_data
-from dagster._core.storage.event_log.sql_event_log import SqlEventLogStorage
-from dagster._core.storage.migration.utils import upgrading_instance
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
-from dagster._core.storage.tags import REPOSITORY_LABEL_TAG
-from dagster._legacy import execute_pipeline, pipeline, solid
-from dagster._serdes import DefaultNamedTupleSerializer, create_snapshot_id
-from dagster._serdes.serdes import (
+from sheenflow._cli.debug import DebugRunPayload
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.errors import DagsterInvalidInvocationError
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.execution.backfill import BulkActionStatus, PartitionBackfill
+from sheenflow._core.instance import DagsterInstance, InstanceRef
+from sheenflow._core.scheduler.instigation import InstigatorState, InstigatorTick
+from sheenflow._core.storage.event_log.migration import migrate_event_log_data
+from sheenflow._core.storage.event_log.sql_event_log import SqlEventLogStorage
+from sheenflow._core.storage.migration.utils import upgrading_instance
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
+from sheenflow._core.storage.tags import REPOSITORY_LABEL_TAG
+from sheenflow._legacy import execute_pipeline, pipeline, solid
+from sheenflow._serdes import DefaultNamedTupleSerializer, create_snapshot_id
+from sheenflow._serdes.serdes import (
     WhitelistMap,
     _deserialize_json,
     _whitelist_for_serdes,
@@ -38,8 +38,8 @@ from dagster._serdes.serdes import (
     serialize_dagster_namedtuple,
     serialize_value,
 )
-from dagster._utils.error import SerializableErrorInfo
-from dagster._utils.test import copy_directory
+from sheenflow._utils.error import SerializableErrorInfo
+from sheenflow._utils.test import copy_directory
 
 
 def _migration_regex(warning, current_revision, expected_revision=None):
@@ -353,8 +353,8 @@ def test_run_partition_migration():
 def test_run_partition_data_migration():
     src_dir = file_relative_path(__file__, "snapshot_0_9_22_post_schema_pre_data_partition/sqlite")
     with copy_directory(src_dir) as test_dir:
-        from dagster._core.storage.runs.migration import RUN_PARTITIONS
-        from dagster._core.storage.runs.sql_run_storage import SqlRunStorage
+        from sheenflow._core.storage.runs.migration import RUN_PARTITIONS
+        from sheenflow._core.storage.runs.sql_run_storage import SqlRunStorage
 
         # load db that has migrated schema, but not populated data for run partitions
         db_path = os.path.join(test_dir, "history", "runs.db")
@@ -663,7 +663,7 @@ def test_external_job_origin_instigator_origin():
 
     legacy_env, klass, repo_klass, location_klass = build_legacy_whitelist_map()
 
-    from dagster._core.host_representation.origin import (
+    from sheenflow._core.host_representation.origin import (
         ExternalInstigatorOrigin,
         ExternalRepositoryOrigin,
         GrpcServerRepositoryLocationOrigin,
@@ -696,7 +696,7 @@ def test_external_job_origin_instigator_origin():
         job_name="simple_schedule",
     )
     job_origin_str = serialize_value(job_origin, legacy_env)
-    from dagster._serdes.serdes import _WHITELIST_MAP
+    from sheenflow._serdes.serdes import _WHITELIST_MAP
 
     job_to_instigator = deserialize_json_to_dagster_namedtuple(job_origin_str)
     assert isinstance(job_to_instigator, ExternalInstigatorOrigin)
@@ -827,8 +827,8 @@ def test_instigators_table_backcompat():
 def test_jobs_selector_id_migration():
     src_dir = file_relative_path(__file__, "snapshot_0_14_6_post_schema_pre_data_migration/sqlite")
 
-    from dagster._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
-    from dagster._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
+    from sheenflow._core.storage.schedules.migration import SCHEDULE_JOBS_SELECTOR_ID
+    from sheenflow._core.storage.schedules.schema import InstigatorsTable, JobTable, JobTickTable
 
     with copy_directory(src_dir) as test_dir:
         db_path = os.path.join(test_dir, "schedules", "schedules.db")
@@ -910,12 +910,12 @@ def test_repo_label_tag_migration():
 
 
 def test_add_bulk_actions_columns():
-    from dagster._core.host_representation.origin import (
+    from sheenflow._core.host_representation.origin import (
         ExternalPartitionSetOrigin,
         ExternalRepositoryOrigin,
         GrpcServerRepositoryLocationOrigin,
     )
-    from dagster._core.storage.runs.schema import BulkActionsTable
+    from sheenflow._core.storage.runs.schema import BulkActionsTable
 
     src_dir = file_relative_path(__file__, "snapshot_0_14_16_bulk_actions_columns/sqlite")
 

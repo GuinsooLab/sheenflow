@@ -3,8 +3,8 @@ import sys
 
 import pytest
 
-import dagster._check as check
-from dagster._core.test_utils import ExplodingRunLauncher
+import sheenflow._check as check
+from sheenflow._core.test_utils import ExplodingRunLauncher
 
 from .graphql_context_test_suite import GraphQLContextVariant, manage_graphql_context
 

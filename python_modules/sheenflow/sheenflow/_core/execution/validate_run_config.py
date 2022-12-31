@@ -1,8 +1,8 @@
 from typing import Any, Mapping, Optional, cast
 
-import dagster._check as check
-from dagster._core.definitions import JobDefinition, PipelineDefinition
-from dagster._core.system_config.objects import ResolvedRunConfig
+import sheenflow._check as check
+from sheenflow._core.definitions import JobDefinition, PipelineDefinition
+from sheenflow._core.system_config.objects import ResolvedRunConfig
 
 
 def validate_run_config(

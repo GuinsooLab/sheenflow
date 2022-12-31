@@ -21,13 +21,13 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
-from dagster._core.instance import DagsterInstance
-from dagster._core.selector import parse_solid_selection
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils import make_readonly_value, merge_dicts
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvariantViolationError
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.selector import parse_solid_selection
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils import make_readonly_value, merge_dicts
 
 from .asset_selection import AssetGraph
 from .assets_job import ASSET_BASE_JOB_PREFIX, get_base_asset_jobs, is_base_asset_job_name
@@ -46,9 +46,9 @@ from .unresolved_asset_job_definition import UnresolvedAssetJobDefinition
 from .utils import check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import AssetGroup, AssetsDefinition
-    from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
-    from dagster._core.storage.asset_value_loader import AssetValueLoader
+    from sheenflow._core.definitions import AssetGroup, AssetsDefinition
+    from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
+    from sheenflow._core.storage.asset_value_loader import AssetValueLoader
 
 
 SINGLETON_REPOSITORY_NAME = "__repository__"
@@ -529,7 +529,7 @@ class CachingRepositoryData(RepositoryData):
             assets_defs_by_key (Mapping[AssetKey, AssetsDefinition]): The assets definitions
                 belonging to a repository.
         """
-        from dagster._core.definitions import AssetsDefinition
+        from sheenflow._core.definitions import AssetsDefinition
 
         check.mapping_param(
             pipelines, "pipelines", key_type=str, value_type=(PipelineDefinition, FunctionType)
@@ -710,7 +710,7 @@ class CachingRepositoryData(RepositoryData):
                 Use this constructor when you have no need to lazy load pipelines/jobs or other
                 definitions.
         """
-        from dagster._core.definitions import AssetGroup, AssetsDefinition
+        from sheenflow._core.definitions import AssetGroup, AssetsDefinition
 
         pipelines_or_jobs: Dict[str, Union[PipelineDefinition, JobDefinition]] = {}
         coerced_graphs: Dict[str, JobDefinition] = {}
@@ -1440,7 +1440,7 @@ class RepositoryDefinition:
         Returns:
             The contents of an asset as a Python object.
         """
-        from dagster._core.storage.asset_value_loader import AssetValueLoader
+        from sheenflow._core.storage.asset_value_loader import AssetValueLoader
 
         with AssetValueLoader(self._assets_defs_by_key, instance=instance) as loader:
             return loader.load_asset_value(
@@ -1466,7 +1466,7 @@ class RepositoryDefinition:
                 asset2 = loader.load_asset_value("asset2")
 
         """
-        from dagster._core.storage.asset_value_loader import AssetValueLoader
+        from sheenflow._core.storage.asset_value_loader import AssetValueLoader
 
         return AssetValueLoader(self._assets_defs_by_key, instance=instance)
 
@@ -1508,7 +1508,7 @@ class PendingRepositoryDefinition:
         return self._name
 
     def _compute_repository_load_data(self) -> RepositoryLoadData:
-        from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
+        from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 
         return RepositoryLoadData(
             cached_data_by_key={
@@ -1522,7 +1522,7 @@ class PendingRepositoryDefinition:
         self, repository_load_data: RepositoryLoadData
     ) -> RepositoryDefinition:
 
-        from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
+        from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 
         resolved_definitions: List[RepositoryListDefinition] = []
         for defn in self._repository_definitions:

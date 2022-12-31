@@ -16,7 +16,7 @@ from typing import (
 
 from dbt.main import parse_args as dbt_parse_args
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import (
     AssetKey,
     AssetOut,
@@ -29,14 +29,14 @@ from dagster import (
     multi_asset,
     with_resources,
 )
-from dagster._annotations import experimental
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._annotations import experimental
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )
-from dagster._core.definitions.metadata import MetadataUserInput
-from dagster._core.execution.context.init import build_init_resource_context
-from dagster._utils.backcompat import experimental_arg_warning
+from sheenflow._core.definitions.metadata import MetadataUserInput
+from sheenflow._core.execution.context.init import build_init_resource_context
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 from ..asset_defs import (
     _get_asset_deps,

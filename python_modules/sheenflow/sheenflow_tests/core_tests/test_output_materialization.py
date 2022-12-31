@@ -11,11 +11,11 @@ from dagster import (
     String,
     dagster_type_materializer,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.execution.plan.step import StepKind
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._core.types.dagster_type import create_any_type
-from dagster._legacy import (
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.execution.plan.step import StepKind
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.types.dagster_type import create_any_type
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     PipelineDefinition,
@@ -23,7 +23,7 @@ from dagster._legacy import (
     lambda_solid,
     solid,
 )
-from dagster._utils.test import get_temp_file_name, get_temp_file_names
+from sheenflow._utils.test import get_temp_file_name, get_temp_file_names
 
 
 def single_int_output_pipeline():

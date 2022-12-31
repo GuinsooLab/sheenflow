@@ -1,5 +1,5 @@
 from dagster import Field, Noneable, Permissive, ScalarUnion, Selector, Shape
-from dagster._config import (
+from sheenflow._config import (
     DagsterEvaluationErrorReason,
     EvaluationStackListItemEntry,
     EvaluationStackMapKeyEntry,

@@ -15,23 +15,23 @@ from dagster import (
     fs_io_manager,
     repository,
 )
-from dagster._core.errors import DagsterLaunchFailedError
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import GRPC_INFO_TAG
-from dagster._core.test_utils import (
+from sheenflow._core.errors import DagsterLaunchFailedError
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import GRPC_INFO_TAG
+from sheenflow._core.test_utils import (
     environ,
     instance_for_test,
     poll_for_event,
     poll_for_finished_run,
     poll_for_step_start,
 )
-from dagster._grpc.client import DagsterGrpcClient
-from dagster._grpc.types import CancelExecutionRequest
-from dagster._legacy import ModeDefinition, pipeline, solid
+from sheenflow._grpc.client import DagsterGrpcClient
+from sheenflow._grpc.types import CancelExecutionRequest
+from sheenflow._legacy import ModeDefinition, pipeline, solid
 
 default_mode_def = ModeDefinition(resource_defs={"io_manager": fs_io_manager})
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import PythonFileTarget
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import PythonFileTarget
 
 
 @solid

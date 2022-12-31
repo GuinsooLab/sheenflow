@@ -2,12 +2,12 @@ from enum import Enum
 from inspect import Parameter
 from typing import Any, Dict, List, Mapping, NamedTuple, Optional, Sequence, Type, Union
 
-import dagster._check as check
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.host_representation.origin import ExternalInstigatorOrigin
-from dagster._core.host_representation.selector import InstigatorSelector, RepositorySelector
-from dagster._serdes import create_snapshot_id
-from dagster._serdes.serdes import (
+import sheenflow._check as check
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.host_representation.origin import ExternalInstigatorOrigin
+from sheenflow._core.host_representation.selector import InstigatorSelector, RepositorySelector
+from sheenflow._serdes import create_snapshot_id
+from sheenflow._serdes.serdes import (
     DefaultNamedTupleSerializer,
     WhitelistMap,
     register_serdes_enum_fallbacks,
@@ -16,8 +16,8 @@ from dagster._serdes.serdes import (
     unpack_inner_value,
     whitelist_for_serdes,
 )
-from dagster._utils import merge_dicts
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 @whitelist_for_serdes

@@ -11,18 +11,18 @@ to be the case.
 
 from typing import TYPE_CHECKING
 
-import dagster._check as check
-from dagster._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
-from dagster._core.host_representation import ExternalPipeline, ExternalRepository
-from dagster._core.host_representation.external_data import (
+import sheenflow._check as check
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline, ReconstructableRepository
+from sheenflow._core.host_representation import ExternalPipeline, ExternalRepository
+from sheenflow._core.host_representation.external_data import (
     external_pipeline_data_from_def,
     external_repository_data_from_def,
 )
-from dagster._core.origin import PipelinePythonOrigin, RepositoryPythonOrigin
+from sheenflow._core.origin import PipelinePythonOrigin, RepositoryPythonOrigin
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.repository_definition import RepositoryDefinition
-    from dagster._core.host_representation.handle import RepositoryHandle
+    from sheenflow._core.definitions.repository_definition import RepositoryDefinition
+    from sheenflow._core.host_representation.handle import RepositoryHandle
 
 
 def recon_pipeline_from_origin(origin: PipelinePythonOrigin) -> ReconstructablePipeline:

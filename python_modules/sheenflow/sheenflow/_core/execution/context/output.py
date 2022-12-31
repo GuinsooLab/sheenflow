@@ -12,10 +12,10 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.asset_layer import AssetOutputInfo
-from dagster._core.definitions.events import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.asset_layer import AssetOutputInfo
+from sheenflow._core.definitions.events import (
     AssetKey,
     AssetMaterialization,
     AssetObservation,
@@ -23,23 +23,23 @@ from dagster._core.definitions.events import (
     MetadataEntry,
     PartitionMetadataEntry,
 )
-from dagster._core.definitions.metadata import RawMetadataValue
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.time_window_partitions import TimeWindow
-from dagster._core.errors import DagsterInvalidMetadata, DagsterInvariantViolationError
-from dagster._core.execution.plan.utils import build_resources_for_manager
+from sheenflow._core.definitions.metadata import RawMetadataValue
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.time_window_partitions import TimeWindow
+from sheenflow._core.errors import DagsterInvalidMetadata, DagsterInvariantViolationError
+from sheenflow._core.execution.plan.utils import build_resources_for_manager
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import PartitionsDefinition, PipelineDefinition
-    from dagster._core.definitions.op_definition import OpDefinition
-    from dagster._core.definitions.resource_definition import Resources
-    from dagster._core.events import DagsterEvent
-    from dagster._core.execution.context.system import StepExecutionContext
-    from dagster._core.execution.plan.outputs import StepOutputHandle
-    from dagster._core.execution.plan.plan import ExecutionPlan
-    from dagster._core.log_manager import DagsterLogManager
-    from dagster._core.system_config.objects import ResolvedRunConfig
-    from dagster._core.types.dagster_type import DagsterType
+    from sheenflow._core.definitions import PartitionsDefinition, PipelineDefinition
+    from sheenflow._core.definitions.op_definition import OpDefinition
+    from sheenflow._core.definitions.resource_definition import Resources
+    from sheenflow._core.events import DagsterEvent
+    from sheenflow._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.execution.plan.outputs import StepOutputHandle
+    from sheenflow._core.execution.plan.plan import ExecutionPlan
+    from sheenflow._core.log_manager import DagsterLogManager
+    from sheenflow._core.system_config.objects import ResolvedRunConfig
+    from sheenflow._core.types.dagster_type import DagsterType
 
 RUN_ID_PLACEHOLDER = "__EPHEMERAL_RUN_ID"
 
@@ -126,8 +126,8 @@ class OutputContext:
         warn_on_step_context_use: bool = False,
         partition_key: Optional[str] = None,
     ):
-        from dagster._core.definitions.resource_definition import IContainsGenerator, Resources
-        from dagster._core.execution.build_resources import build_resources
+        from sheenflow._core.definitions.resource_definition import IContainsGenerator, Resources
+        from sheenflow._core.execution.build_resources import build_resources
 
         self._step_key = step_key
         self._name = name
@@ -243,7 +243,7 @@ class OutputContext:
     @public  # type: ignore
     @property
     def op_def(self) -> "OpDefinition":
-        from dagster._core.definitions import OpDefinition
+        from sheenflow._core.definitions import OpDefinition
 
         if self._op_def is None:
             raise DagsterInvariantViolationError(
@@ -606,7 +606,7 @@ class OutputContext:
                 def handle_output(self, context, obj):
                     context.log_event(AssetMaterialization("foo"))
         """
-        from dagster._core.events import DagsterEvent
+        from sheenflow._core.events import DagsterEvent
 
         if isinstance(event, (AssetMaterialization, Materialization)):
             if self._step_context:
@@ -683,7 +683,7 @@ class OutputContext:
                 def handle_output(self, context, obj):
                     context.add_output_metadata({"foo": "bar"})
         """
-        from dagster._core.definitions.metadata import normalize_metadata
+        from sheenflow._core.definitions.metadata import normalize_metadata
 
         prior_metadata_entries = self._metadata_entries or []
 
@@ -787,7 +787,7 @@ def step_output_version(
     resolved_run_config: "ResolvedRunConfig",
     step_output_handle: "StepOutputHandle",
 ) -> Optional[str]:
-    from dagster._core.execution.resolve_versions import resolve_step_output_versions
+    from sheenflow._core.execution.resolve_versions import resolve_step_output_versions
 
     step_output_versions = resolve_step_output_versions(
         pipeline_def, execution_plan, resolved_run_config
@@ -850,9 +850,9 @@ def build_output_context(
                 do_something
 
     """
-    from dagster._core.definitions import OpDefinition
-    from dagster._core.execution.context_creation_pipeline import initialize_console_manager
-    from dagster._core.types.dagster_type import DagsterType
+    from sheenflow._core.definitions import OpDefinition
+    from sheenflow._core.execution.context_creation_pipeline import initialize_console_manager
+    from sheenflow._core.types.dagster_type import DagsterType
 
     step_key = check.opt_str_param(step_key, "step_key")
     name = check.opt_str_param(name, "name")

@@ -5,29 +5,29 @@ from typing import TYPE_CHECKING, Any, Callable, NamedTuple, Optional, Sequence,
 
 import pendulum
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.instigation_logger import InstigationLogger
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.instigation_logger import InstigationLogger
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     RunStatusSensorExecutionError,
     user_code_error_boundary,
 )
-from dagster._core.events import PIPELINE_RUN_STATUS_TO_EVENT_TYPE, DagsterEvent
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
-from dagster._serdes import (
+from sheenflow._core.events import PIPELINE_RUN_STATUS_TO_EVENT_TYPE, DagsterEvent
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus, RunsFilter
+from sheenflow._serdes import (
     deserialize_json_to_dagster_namedtuple,
     serialize_dagster_namedtuple,
     whitelist_for_serdes,
 )
-from dagster._serdes.errors import DeserializationError
-from dagster._serdes.serdes import register_serdes_tuple_fallbacks
-from dagster._seven import JSONDecodeError
-from dagster._utils import utc_datetime_from_timestamp
-from dagster._utils.backcompat import deprecation_warning
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._serdes.errors import DeserializationError
+from sheenflow._serdes.serdes import register_serdes_tuple_fallbacks
+from sheenflow._seven import JSONDecodeError
+from sheenflow._utils import utc_datetime_from_timestamp
+from sheenflow._utils.backcompat import deprecation_warning
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from ..decorator_utils import get_function_params
 from .graph_definition import GraphDefinition
@@ -46,7 +46,7 @@ from .sensor_definition import (
 from .unresolved_asset_job_definition import UnresolvedAssetJobDefinition
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation.selector import (
+    from sheenflow._core.host_representation.selector import (
         CodeLocationSelector,
         JobSelector,
         RepositorySelector,
@@ -374,13 +374,13 @@ class RunStatusSensorDefinition(SensorDefinition):
         request_jobs: Optional[Sequence[Union[GraphDefinition, JobDefinition]]] = None,
     ):
 
-        from dagster._core.event_api import RunShardedEventsCursor
-        from dagster._core.host_representation.selector import (
+        from sheenflow._core.event_api import RunShardedEventsCursor
+        from sheenflow._core.host_representation.selector import (
             CodeLocationSelector,
             JobSelector,
             RepositorySelector,
         )
-        from dagster._core.storage.event_log.base import EventRecordsFilter
+        from sheenflow._core.storage.event_log.base import EventRecordsFilter
 
         check.str_param(name, "name")
         check.inst_param(run_status, "run_status", DagsterRunStatus)

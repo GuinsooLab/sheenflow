@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from contextlib import contextmanager
 from typing import IO, Callable, Generator, NamedTuple, Optional, Sequence
 
-from dagster._core.storage.compute_log_manager import ComputeIOType
+from sheenflow._core.storage.compute_log_manager import ComputeIOType
 
 MAX_BYTES_CHUNK_READ = 4194304  # 4 MB
 

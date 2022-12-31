@@ -6,14 +6,14 @@ from contextlib import contextmanager
 from time import sleep
 from typing import NamedTuple, Optional
 
-import dagster._check as check
-from dagster._core.errors import DagsterError
-from dagster._serdes import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterError
+from sheenflow._serdes import (
     deserialize_json_to_dagster_namedtuple,
     serialize_dagster_namedtuple,
     whitelist_for_serdes,
 )
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 
 def write_unary_input(input_file, obj):

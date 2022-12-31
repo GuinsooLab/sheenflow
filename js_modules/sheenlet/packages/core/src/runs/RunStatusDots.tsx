@@ -1,4 +1,4 @@
-import {Colors, Popover, Spinner} from '@sheenflow-io/ui';
+import {Colors, Popover, Spinner} from '@dagster-io/ui';
 import * as React from 'react';
 import styled, {css, keyframes} from 'styled-components/macro';
 

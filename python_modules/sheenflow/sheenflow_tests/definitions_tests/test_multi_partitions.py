@@ -12,13 +12,13 @@ from dagster import (
     define_asset_job,
     repository,
 )
-from dagster._core.definitions.multi_dimensional_partitions import (
+from sheenflow._core.definitions.multi_dimensional_partitions import (
     MultiPartitionKey,
     MultiPartitionsDefinition,
 )
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.storage.tags import get_multidimensional_partition_tag
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.storage.tags import get_multidimensional_partition_tag
+from sheenflow._core.test_utils import instance_for_test
 
 DATE_FORMAT = "%Y-%m-%d"
 

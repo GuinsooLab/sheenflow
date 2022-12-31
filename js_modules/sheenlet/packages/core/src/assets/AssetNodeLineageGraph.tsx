@@ -1,4 +1,4 @@
-import {Box, Spinner} from '@sheenflow-io/ui';
+import {Box, Spinner} from '@dagster-io/ui';
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 import styled from 'styled-components/macro';

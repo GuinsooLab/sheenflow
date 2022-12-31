@@ -5,8 +5,8 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, 
 
 from dagster import DagsterInstance
 from dagster import _check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.logical_version import (
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.logical_version import (
     DEFAULT_LOGICAL_VERSION,
     UNKNOWN_VALUE,
     LogicalVersion,
@@ -15,18 +15,18 @@ from dagster._core.definitions.logical_version import (
     extract_logical_version_from_entry,
     extract_logical_version_provenance_from_entry,
 )
-from dagster._core.events.log import EventLogEntry
-from dagster._core.host_representation import ExternalRepository
-from dagster._core.host_representation.external_data import (
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.host_representation import ExternalRepository
+from sheenflow._core.host_representation.external_data import (
     ExternalAssetDependedBy,
     ExternalAssetDependency,
     ExternalAssetNode,
 )
-from dagster._core.scheduler.instigation import InstigatorType
-from dagster._core.storage.pipeline_run import JobBucket, RunRecord, RunsFilter, TagBucket
-from dagster._core.storage.tags import REPOSITORY_LABEL_TAG, SCHEDULE_NAME_TAG, SENSOR_NAME_TAG
-from dagster._core.workspace.context import WorkspaceRequestContext
-from dagster._utils.cached_method import cached_method
+from sheenflow._core.scheduler.instigation import InstigatorType
+from sheenflow._core.storage.pipeline_run import JobBucket, RunRecord, RunsFilter, TagBucket
+from sheenflow._core.storage.tags import REPOSITORY_LABEL_TAG, SCHEDULE_NAME_TAG, SENSOR_NAME_TAG
+from sheenflow._core.workspace.context import WorkspaceRequestContext
+from sheenflow._utils.cached_method import cached_method
 
 
 class RepositoryDataType(Enum):

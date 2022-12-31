@@ -12,14 +12,14 @@ from dagstermill.manager import Manager
 
 from dagster import AssetMaterialization, ResourceDefinition
 from dagster import _check as check
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.storage.pipeline_run import DagsterRun, DagsterRunStatus
-from dagster._core.test_utils import instance_for_test
-from dagster._core.utils import make_new_run_id
-from dagster._legacy import ModeDefinition
-from dagster._serdes import pack_value
-from dagster._utils import safe_tempfile_path
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._legacy import ModeDefinition
+from sheenflow._serdes import pack_value
+from sheenflow._utils import safe_tempfile_path
 
 
 @contextlib.contextmanager

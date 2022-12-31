@@ -6,7 +6,7 @@ import pandas as pd
 from dagster import Field, PartitionKeyRange
 from dagster import _check as check
 from dagster import io_manager
-from dagster._seven.temp_dir import get_system_temp_directory
+from sheenflow._seven.temp_dir import get_system_temp_directory
 
 from .parquet_io_manager import PartitionedParquetIOManager
 

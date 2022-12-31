@@ -1,5 +1,5 @@
 from dagster import repository
-from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
+from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 
 
 class FooCacheableAssetsDefinition(CacheableAssetsDefinition):

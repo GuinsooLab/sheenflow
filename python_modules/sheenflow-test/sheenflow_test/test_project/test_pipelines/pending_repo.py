@@ -9,7 +9,7 @@ from dagster import (
     repository,
     with_resources,
 )
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )

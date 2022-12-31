@@ -14,25 +14,25 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import PublicAttr
-from dagster._core.definitions.events import AssetKey, DynamicAssetKey
-from dagster._core.definitions.metadata import MetadataEntry, MetadataUserInput, normalize_metadata
-from dagster._core.errors import DagsterError, DagsterInvalidDefinitionError
-from dagster._core.types.dagster_type import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr
+from sheenflow._core.definitions.events import AssetKey, DynamicAssetKey
+from sheenflow._core.definitions.metadata import MetadataEntry, MetadataUserInput, normalize_metadata
+from sheenflow._core.errors import DagsterError, DagsterInvalidDefinitionError
+from sheenflow._core.types.dagster_type import (
     DagsterType,
     is_dynamic_output_annotation,
     resolve_dagster_type,
 )
-from dagster._utils.backcompat import experimental_arg_warning
+from sheenflow._utils.backcompat import experimental_arg_warning
 
 from .inference import InferredOutputProps
 from .input import NoValueSentinel
 from .utils import DEFAULT_IO_MANAGER_KEY, DEFAULT_OUTPUT, check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.partition import PartitionsDefinition
-    from dagster._core.execution.context.output import OutputContext
+    from sheenflow._core.definitions.partition import PartitionsDefinition
+    from sheenflow._core.execution.context.output import OutputContext
 
 TOutputDefinition = TypeVar("TOutputDefinition", bound="OutputDefinition")
 TOut = TypeVar("TOut", bound="Out")
@@ -89,7 +89,7 @@ class OutputDefinition:
         code_version: Optional[str] = None,
         # make sure new parameters are updated in combine_with_inferred below
     ):
-        from dagster._core.definitions.partition import PartitionsDefinition
+        from sheenflow._core.definitions.partition import PartitionsDefinition
 
         self._name = check_valid_name(check.opt_str_param(name, "name", DEFAULT_OUTPUT))
         self._type_not_set = dagster_type is None

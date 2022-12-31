@@ -23,10 +23,10 @@ from dagster import (
     repository,
     resource,
 )
-from dagster._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, multi_asset
-from dagster._core.definitions.assets_job import is_base_asset_job_name
-from dagster._core.errors import DagsterInvalidSubsetError, DagsterUnmetExecutorRequirementsError
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, multi_asset
+from sheenflow._core.definitions.assets_job import is_base_asset_job_name
+from sheenflow._core.errors import DagsterInvalidSubsetError, DagsterUnmetExecutorRequirementsError
+from sheenflow._core.test_utils import instance_for_test
 
 
 def _all_asset_keys(result):

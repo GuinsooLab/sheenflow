@@ -3,11 +3,11 @@ from typing import Iterator, Mapping, NamedTuple, Optional, Sequence
 
 from dagster import DagsterInstance
 from dagster import _check as check
-from dagster._core.events import DagsterEvent
-from dagster._core.execution.context.system import IStepContext, PlanOrchestrationContext
-from dagster._core.execution.plan.step import ExecutionStep
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._grpc.types import ExecuteStepArgs
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.execution.context.system import IStepContext, PlanOrchestrationContext
+from sheenflow._core.execution.plan.step import ExecutionStep
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._grpc.types import ExecuteStepArgs
 
 
 class StepHandlerContext:

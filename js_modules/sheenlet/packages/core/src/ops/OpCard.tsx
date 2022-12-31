@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Box} from '@sheenflow-io/ui';
+import {Box} from '@dagster-io/ui';
 import React from 'react';
 import styled from 'styled-components/macro';
 

@@ -5,8 +5,8 @@ import pendulum
 import pytest
 
 from dagster import AssetKey, materialize
-from dagster._core.scheduler.instigation import TickStatus
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._core.scheduler.instigation import TickStatus
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 
 from .test_run_status_sensors import (
     instance_with_sensors,

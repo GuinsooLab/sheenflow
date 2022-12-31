@@ -1,4 +1,4 @@
-from dagster._legacy import execute_pipeline, pipeline, solid
+from sheenflow._legacy import execute_pipeline, pipeline, solid
 
 
 def _set_key_value(ddict, key, value):

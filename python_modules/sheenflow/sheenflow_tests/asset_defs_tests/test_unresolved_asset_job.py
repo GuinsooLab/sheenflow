@@ -20,18 +20,18 @@ from dagster import (
     op,
     repository,
 )
-from dagster._check import CheckError
-from dagster._core.definitions import asset, multi_asset
-from dagster._core.definitions.load_assets_from_modules import prefix_assets
-from dagster._core.definitions.partition import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions import asset, multi_asset
+from sheenflow._core.definitions.load_assets_from_modules import prefix_assets
+from sheenflow._core.definitions.partition import (
     StaticPartitionsDefinition,
     static_partitioned_config,
 )
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidSubsetError
-from dagster._core.execution.with_resources import with_resources
-from dagster._core.storage.tags import PARTITION_NAME_TAG
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import schedule_from_partitions
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidSubsetError
+from sheenflow._core.execution.with_resources import with_resources
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import schedule_from_partitions
 
 
 def _all_asset_keys(result):

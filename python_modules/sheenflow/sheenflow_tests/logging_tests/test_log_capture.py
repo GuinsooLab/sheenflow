@@ -2,11 +2,11 @@ import sys
 
 import pytest
 
-from dagster._core.execution.compute_logs import (
+from sheenflow._core.execution.compute_logs import (
     mirror_stream_to_file,
     should_disable_io_stream_redirect,
 )
-from dagster._utils.test import get_temp_file_name
+from sheenflow._utils.test import get_temp_file_name
 
 
 @pytest.mark.skipif(

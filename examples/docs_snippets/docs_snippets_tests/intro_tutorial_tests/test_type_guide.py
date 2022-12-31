@@ -14,7 +14,7 @@ from dagster import (
     make_python_type_usable_as_dagster_type,
     usable_as_dagster_type,
 )
-from dagster._legacy import (
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     execute_pipeline,
@@ -22,7 +22,7 @@ from dagster._legacy import (
     pipeline,
     solid,
 )
-from dagster._utils import safe_tempfile_path
+from sheenflow._utils import safe_tempfile_path
 
 
 def test_basic_even_type():

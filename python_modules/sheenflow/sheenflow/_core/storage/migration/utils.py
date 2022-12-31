@@ -4,8 +4,8 @@ import sqlalchemy as db
 from alembic import op
 from sqlalchemy import inspect
 
-import dagster._check as check
-from dagster._core.storage.sql import get_current_timestamp
+import sheenflow._check as check
+from sheenflow._core.storage.sql import get_current_timestamp
 
 
 def get_inspector():

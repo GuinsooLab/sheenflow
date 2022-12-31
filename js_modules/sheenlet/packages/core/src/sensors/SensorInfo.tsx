@@ -1,4 +1,4 @@
-import {Alert, Box} from '@sheenflow-io/ui';
+import {Alert, Box} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {DaemonHealthFragment} from '../instance/types/DaemonHealthFragment';

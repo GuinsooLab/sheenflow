@@ -1,6 +1,6 @@
 import pytest
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import (
     AssetKey,
     DagsterExecutionStepNotFoundError,
@@ -18,7 +18,7 @@ from dagster import (
     reconstructable,
     repository,
 )
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 @pytest.fixture(scope="session")

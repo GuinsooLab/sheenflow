@@ -11,10 +11,10 @@ from dagster import (
     op,
     usable_as_dagster_type,
 )
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.definitions.inference import infer_input_props, infer_output_props
-from dagster._core.types.dagster_type import DagsterTypeKind
-from dagster._legacy import (
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.definitions.inference import infer_input_props, infer_output_props
+from sheenflow._core.types.dagster_type import DagsterTypeKind
+from sheenflow._legacy import (
     InputDefinition,
     execute_pipeline,
     execute_solid,

@@ -1,5 +1,5 @@
-import dagster._check as check
-from dagster._utils.indenting_printer import IndentingPrinter
+import sheenflow._check as check
+from sheenflow._utils.indenting_printer import IndentingPrinter
 
 from .config_type import ConfigType, ConfigTypeKind
 from .field import resolve_to_config_type

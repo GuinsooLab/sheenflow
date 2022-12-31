@@ -1,4 +1,4 @@
-from dagster._core.utils import check_dagster_package_version
+from sheenflow._core.utils import check_dagster_package_version
 
 from .resources import lazy_pyspark_resource, pyspark_resource
 from .types import DataFrame

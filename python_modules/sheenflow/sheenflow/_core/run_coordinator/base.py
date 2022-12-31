@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
 from typing import NamedTuple, Optional
 
-from dagster._core.instance import MayHaveInstanceWeakref
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.workspace.context import IWorkspace, WorkspaceRequestContext
+from sheenflow._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.workspace.context import IWorkspace, WorkspaceRequestContext
 
 
 class SubmitRunContext(NamedTuple):

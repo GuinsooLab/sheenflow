@@ -1,6 +1,6 @@
 import yaml
 
-from dagster._utils import file_relative_path
+from sheenflow._utils import file_relative_path
 from docs_snippets.concepts.logging.custom_logger import (
     defs,
     demo_job,

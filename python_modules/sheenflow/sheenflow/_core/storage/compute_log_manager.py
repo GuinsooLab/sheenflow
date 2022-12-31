@@ -3,9 +3,9 @@ from contextlib import contextmanager
 from enum import Enum
 from typing import Callable, NamedTuple, Optional
 
-import dagster._check as check
-from dagster._core.instance import MayHaveInstanceWeakref
-from dagster._core.storage.pipeline_run import DagsterRun
+import sheenflow._check as check
+from sheenflow._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.storage.pipeline_run import DagsterRun
 
 MAX_BYTES_FILE_READ = 33554432  # 32 MB
 MAX_BYTES_CHUNK_READ = 4194304  # 4 MB

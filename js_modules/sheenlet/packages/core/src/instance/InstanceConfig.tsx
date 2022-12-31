@@ -10,7 +10,7 @@ import {
   Heading,
   StyledReadOnlyCodeMirror,
   Subheading,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as codemirror from 'codemirror';
 import * as React from 'react';
 import {createGlobalStyle} from 'styled-components/macro';

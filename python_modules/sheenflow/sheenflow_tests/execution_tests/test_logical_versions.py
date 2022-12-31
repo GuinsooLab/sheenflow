@@ -14,17 +14,17 @@ from dagster import (
     io_manager,
     materialize,
 )
-from dagster._core.definitions.asset_out import AssetOut
-from dagster._core.definitions.decorators.asset_decorator import multi_asset
-from dagster._core.definitions.events import AssetKey, Output
-from dagster._core.definitions.logical_version import (
+from sheenflow._core.definitions.asset_out import AssetOut
+from sheenflow._core.definitions.decorators.asset_decorator import multi_asset
+from sheenflow._core.definitions.events import AssetKey, Output
+from sheenflow._core.definitions.logical_version import (
     CODE_VERSION_TAG_KEY,
     INPUT_LOGICAL_VERSION_TAG_KEY_PREFIX,
     LOGICAL_VERSION_TAG_KEY,
     LogicalVersion,
     compute_logical_version,
 )
-from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
+from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
 
 # ########################
 # ##### HELPERS

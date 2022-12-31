@@ -3,9 +3,9 @@ import logging
 import pytest
 
 from dagster import Field, build_init_logger_context, graph, job, logger, op
-from dagster._check import CheckError
-from dagster._core.errors import DagsterInvalidConfigError, DagsterInvalidInvocationError
-from dagster._core.utils import coerce_valid_log_level
+from sheenflow._check import CheckError
+from sheenflow._core.errors import DagsterInvalidConfigError, DagsterInvalidInvocationError
+from sheenflow._core.utils import coerce_valid_log_level
 
 
 def test_logger_invocation_arguments():

@@ -15,19 +15,19 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.decorator_utils import get_function_params
-from dagster._core.definitions.asset_layer import get_dep_node_handles_of_graph_backed_asset
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.definitions.metadata import MetadataUserInput
-from dagster._core.definitions.partition import PartitionsDefinition
-from dagster._core.definitions.time_window_partition_mapping import TimeWindowPartitionMapping
-from dagster._core.definitions.utils import DEFAULT_GROUP_NAME, validate_group_name
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
-from dagster._utils import merge_dicts
-from dagster._utils.backcompat import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.decorator_utils import get_function_params
+from sheenflow._core.definitions.asset_layer import get_dep_node_handles_of_graph_backed_asset
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.definitions.metadata import MetadataUserInput
+from sheenflow._core.definitions.partition import PartitionsDefinition
+from sheenflow._core.definitions.time_window_partition_mapping import TimeWindowPartitionMapping
+from sheenflow._core.definitions.utils import DEFAULT_GROUP_NAME, validate_group_name
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidInvocationError
+from sheenflow._utils import merge_dicts
+from sheenflow._utils.backcompat import (
     ExperimentalWarning,
     deprecation_warning,
     experimental_arg_warning,
@@ -54,7 +54,7 @@ from .source_asset import SourceAsset
 from .utils import DEFAULT_GROUP_NAME, validate_group_name
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.compute import OpExecutionContext
+    from sheenflow._core.execution.context.compute import OpExecutionContext
 
     from .graph_definition import GraphDefinition
 
@@ -207,8 +207,8 @@ class AssetsDefinition(ResourceAddable):
         )
 
     def __call__(self, *args: object, **kwargs: object) -> object:
-        from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
-        from dagster._core.execution.context.compute import OpExecutionContext
+        from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+        from sheenflow._core.execution.context.compute import OpExecutionContext
 
         from .graph_definition import GraphDefinition
 
@@ -688,8 +688,8 @@ class AssetsDefinition(ResourceAddable):
         self,
         selected_asset_keys: AbstractSet[AssetKey],
     ):
-        from dagster._core.definitions.graph_definition import GraphDefinition
-        from dagster._core.selector.subset_selector import convert_dot_seperated_string_to_dict
+        from sheenflow._core.definitions.graph_definition import GraphDefinition
+        from sheenflow._core.selector.subset_selector import convert_dot_seperated_string_to_dict
 
         from .job_definition import get_subselected_graph_definition
 
@@ -730,7 +730,7 @@ class AssetsDefinition(ResourceAddable):
         Args:
             selected_asset_keys (AbstractSet[AssetKey]): The total set of asset keys
         """
-        from dagster._core.definitions.graph_definition import GraphDefinition
+        from sheenflow._core.definitions.graph_definition import GraphDefinition
 
         check.invariant(
             self.can_subset,
@@ -864,7 +864,7 @@ class AssetsDefinition(ResourceAddable):
         return hashlib.md5((json.dumps(sorted(self.keys))).encode("utf-8")).hexdigest()
 
     def with_resources(self, resource_defs: Mapping[str, ResourceDefinition]) -> "AssetsDefinition":
-        from dagster._core.execution.resources_init import get_transitive_required_resource_keys
+        from sheenflow._core.execution.resources_init import get_transitive_required_resource_keys
 
         overlapping_keys = get_resource_key_conflicts(self.resource_defs, resource_defs)
         if overlapping_keys:
@@ -969,7 +969,7 @@ def _build_invocation_context_with_included_resources(
     assets_def: AssetsDefinition,
     context: "OpExecutionContext",
 ) -> "OpExecutionContext":
-    from dagster._core.execution.context.invocation import (
+    from sheenflow._core.execution.context.invocation import (
         UnboundOpExecutionContext,
         build_op_context,
     )
@@ -1003,7 +1003,7 @@ def _build_invocation_context_with_included_resources(
 
 def _validate_graph_def(graph_def: "GraphDefinition", prefix: Optional[Sequence[str]] = None):
     """Ensure that all leaf nodes are mapped to graph outputs."""
-    from dagster._core.definitions.graph_definition import GraphDefinition, _create_adjacency_lists
+    from sheenflow._core.definitions.graph_definition import GraphDefinition, _create_adjacency_lists
 
     prefix = check.opt_sequence_param(prefix, "prefix")
 

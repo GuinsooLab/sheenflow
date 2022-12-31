@@ -1,4 +1,4 @@
-import {Box, Tooltip, Colors} from '@sheenflow-io/ui';
+import {Box, Tooltip, Colors} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

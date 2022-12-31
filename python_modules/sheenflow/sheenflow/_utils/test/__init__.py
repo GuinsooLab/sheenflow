@@ -26,7 +26,7 @@ from dagster import (
     TypeCheck,
 )
 from dagster import _check as check
-from dagster._core.definitions import (
+from sheenflow._core.definitions import (
     GraphDefinition,
     GraphIn,
     GraphOut,
@@ -38,34 +38,34 @@ from dagster._core.definitions import (
     ResourceDefinition,
     lambda_solid,
 )
-from dagster._core.definitions.logger_definition import LoggerDefinition
-from dagster._core.definitions.node_definition import NodeDefinition
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.definitions.resource_definition import ScopedResourcesBuilder
-from dagster._core.execution.api import (
+from sheenflow._core.definitions.logger_definition import LoggerDefinition
+from sheenflow._core.definitions.node_definition import NodeDefinition
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.definitions.resource_definition import ScopedResourcesBuilder
+from sheenflow._core.execution.api import (
     create_execution_plan,
     execute_pipeline,
     scoped_pipeline_context,
 )
-from dagster._core.execution.context.system import PlanExecutionContext
-from dagster._core.execution.context_creation_pipeline import (
+from sheenflow._core.execution.context.system import PlanExecutionContext
+from sheenflow._core.execution.context_creation_pipeline import (
     create_context_creation_data,
     create_execution_data,
     create_executor,
     create_log_manager,
     create_plan_data,
 )
-from dagster._core.execution.execute_in_process_result import ExecuteInProcessResult
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler import Scheduler
-from dagster._core.scheduler.scheduler import DagsterScheduleDoesNotExist, DagsterSchedulerError
-from dagster._core.snap import snapshot_from_execution_plan
-from dagster._core.storage.file_manager import LocalFileManager
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.types.dagster_type import DagsterType, resolve_dagster_type
-from dagster._core.utility_solids import define_stub_solid
-from dagster._core.utils import make_new_run_id
-from dagster._serdes import ConfigurableClass
+from sheenflow._core.execution.execute_in_process_result import ExecuteInProcessResult
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler import Scheduler
+from sheenflow._core.scheduler.scheduler import DagsterScheduleDoesNotExist, DagsterSchedulerError
+from sheenflow._core.snap import snapshot_from_execution_plan
+from sheenflow._core.storage.file_manager import LocalFileManager
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.types.dagster_type import DagsterType, resolve_dagster_type
+from sheenflow._core.utility_solids import define_stub_solid
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._serdes import ConfigurableClass
 
 # pylint: disable=unused-import
 from ..temp_file import (
@@ -79,7 +79,7 @@ from ..temp_file import (
 from ..typing_api import is_typing_type
 
 if TYPE_CHECKING:
-    from dagster._core.execution.results import CompositeSolidExecutionResult, OpExecutionResult
+    from sheenflow._core.execution.results import CompositeSolidExecutionResult, OpExecutionResult
 
 
 def create_test_pipeline_execution_context(

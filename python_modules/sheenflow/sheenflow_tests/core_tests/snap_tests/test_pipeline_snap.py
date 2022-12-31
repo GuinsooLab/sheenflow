@@ -3,21 +3,21 @@ import itertools
 import pytest
 
 from dagster import Field, In, Map, Nothing, Out, Permissive, Selector, Shape, job, op
-from dagster._config import Array, Bool, Enum, EnumValue, Float, Int, Noneable, String
-from dagster._core.snap import (
+from sheenflow._config import Array, Bool, Enum, EnumValue, Float, Int, Noneable, String
+from sheenflow._core.snap import (
     DependencyStructureIndex,
     PipelineSnapshot,
     SolidInvocationSnap,
     create_pipeline_snapshot_id,
     snap_from_config_type,
 )
-from dagster._core.snap.dep_snapshot import (
+from sheenflow._core.snap.dep_snapshot import (
     InputHandle,
     OutputHandleSnap,
     build_dep_structure_snapshot_from_icontains_solids,
 )
-from dagster._legacy import pipeline
-from dagster._serdes import (
+from sheenflow._legacy import pipeline
+from sheenflow._serdes import (
     deserialize_json_to_dagster_namedtuple,
     serialize_dagster_namedtuple,
     serialize_pp,

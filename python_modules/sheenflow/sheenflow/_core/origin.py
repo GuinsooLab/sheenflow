@@ -1,9 +1,9 @@
 from typing import Any, List, Mapping, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.code_pointer import CodePointer
-from dagster._serdes import create_snapshot_id, whitelist_for_serdes
-from dagster._utils import frozenlist
+import sheenflow._check as check
+from sheenflow._core.code_pointer import CodePointer
+from sheenflow._serdes import create_snapshot_id, whitelist_for_serdes
+from sheenflow._utils import frozenlist
 
 DEFAULT_DAGSTER_ENTRY_POINT = frozenlist(["sheenflow"])
 

@@ -4,16 +4,16 @@ import time
 
 from dagster import DagsterInstance
 from dagster import _check as check
-from dagster._core.events import DagsterEventType
-from dagster._core.launcher import WorkerStatus
-from dagster._core.storage.pipeline_run import (
+from sheenflow._core.events import DagsterEventType
+from sheenflow._core.launcher import WorkerStatus
+from sheenflow._core.storage.pipeline_run import (
     IN_PROGRESS_RUN_STATUSES,
     DagsterRun,
     DagsterRunStatus,
     RunsFilter,
 )
-from dagster._core.workspace.context import IWorkspace, IWorkspaceProcessContext
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._core.workspace.context import IWorkspace, IWorkspaceProcessContext
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 RESUME_RUN_LOG_MESSAGE = "Launching a new run worker to resume run"
 

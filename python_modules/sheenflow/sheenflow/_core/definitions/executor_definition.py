@@ -4,18 +4,18 @@ from typing import TYPE_CHECKING, Any, Callable, Dict, Mapping, Optional, Sequen
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._builtins import Int
-from dagster._config import Field, Selector, UserConfigSchema
-from dagster._core.definitions.configurable import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._builtins import Int
+from sheenflow._config import Field, Selector, UserConfigSchema
+from sheenflow._core.definitions.configurable import (
     ConfiguredDefinitionConfigSchema,
     NamedConfigurableDefinition,
 )
-from dagster._core.definitions.pipeline_base import IPipeline
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.errors import DagsterUnmetExecutorRequirementsError
-from dagster._core.execution.retries import RetryMode, get_retries_config
+from sheenflow._core.definitions.pipeline_base import IPipeline
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.errors import DagsterUnmetExecutorRequirementsError
+from sheenflow._core.execution.retries import RetryMode, get_retries_config
 
 from .definition_config_schema import (
     IDefinitionConfigSchema,
@@ -23,11 +23,11 @@ from .definition_config_schema import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.executor.base import Executor
-    from dagster._core.executor.in_process import InProcessExecutor
-    from dagster._core.executor.init import InitExecutorContext
-    from dagster._core.executor.multiprocess import MultiprocessExecutor
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.executor.base import Executor
+    from sheenflow._core.executor.in_process import InProcessExecutor
+    from sheenflow._core.executor.init import InitExecutorContext
+    from sheenflow._core.executor.multiprocess import MultiprocessExecutor
+    from sheenflow._core.instance import DagsterInstance
 
 
 class ExecutorRequirement(PyEnum):
@@ -253,7 +253,7 @@ class _ExecutorDecoratorCallable:
 
 
 def _core_in_process_executor_creation(config: ExecutorConfig) -> "InProcessExecutor":
-    from dagster._core.executor.in_process import InProcessExecutor
+    from sheenflow._core.executor.in_process import InProcessExecutor
 
     return InProcessExecutor(
         # shouldn't need to .get() here - issue with defaults in config setup
@@ -305,7 +305,7 @@ def execute_in_process_executor(_) -> "InProcessExecutor":
     executor config. This is because someone might set executor config on a job, and when we foist
     this executor onto the job for `execute_in_process`, that config becomes nonsensical.
     """
-    from dagster._core.executor.in_process import InProcessExecutor
+    from sheenflow._core.executor.in_process import InProcessExecutor
 
     return InProcessExecutor(
         retries=RetryMode.ENABLED,
@@ -314,7 +314,7 @@ def execute_in_process_executor(_) -> "InProcessExecutor":
 
 
 def _core_multiprocess_executor_creation(config: ExecutorConfig) -> "MultiprocessExecutor":
-    from dagster._core.executor.multiprocess import MultiprocessExecutor
+    from sheenflow._core.executor.multiprocess import MultiprocessExecutor
 
     # unpack optional selector
     start_method = None
@@ -419,7 +419,7 @@ default_executors: Sequence[ExecutorDefinition] = [in_process_executor, multipro
 
 
 def check_cross_process_constraints(init_context: "InitExecutorContext") -> None:
-    from dagster._core.executor.init import InitExecutorContext
+    from sheenflow._core.executor.init import InitExecutorContext
 
     check.inst_param(init_context, "init_context", InitExecutorContext)
     requirements_lst = init_context.executor_def.get_requirements(init_context.executor_config)
@@ -432,7 +432,7 @@ def check_cross_process_constraints(init_context: "InitExecutorContext") -> None
 
 
 def _check_intra_process_pipeline(pipeline: IPipeline) -> None:
-    from dagster._core.definitions import JobDefinition
+    from sheenflow._core.definitions import JobDefinition
 
     if not isinstance(pipeline, ReconstructablePipeline):
         target = "job" if isinstance(pipeline.get_definition(), JobDefinition) else "pipeline"

@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING, Optional, Sequence
 
-import dagster._check as check
+import sheenflow._check as check
 
 from ..execution.context.hook import BoundHookContext, UnboundHookContext
 from .resource_requirement import ensure_requirements_satisfied

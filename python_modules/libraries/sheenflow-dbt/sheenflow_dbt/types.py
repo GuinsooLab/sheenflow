@@ -1,6 +1,6 @@
 from typing import Any, Mapping, Optional
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 class DbtOutput:

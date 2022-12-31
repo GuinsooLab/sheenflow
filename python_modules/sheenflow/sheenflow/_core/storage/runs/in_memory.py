@@ -3,8 +3,8 @@ from contextlib import contextmanager
 import sqlalchemy as db
 from sqlalchemy.pool import NullPool
 
-from dagster._core.storage.sql import create_engine, get_alembic_config, stamp_alembic_rev
-from dagster._core.storage.sqlite import create_in_memory_conn_string
+from sheenflow._core.storage.sql import create_engine, get_alembic_config, stamp_alembic_rev
+from sheenflow._core.storage.sqlite import create_in_memory_conn_string
 
 from .schema import InstanceInfo, RunStorageSqlMetadata
 from .sql_run_storage import SqlRunStorage

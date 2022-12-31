@@ -1,4 +1,4 @@
-import {Box, Button, Dialog, DialogFooter, Subheading, Table} from '@sheenflow-io/ui';
+import {Box, Button, Dialog, DialogFooter, Subheading, Table} from '@dagster-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

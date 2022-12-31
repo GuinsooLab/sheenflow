@@ -29,7 +29,7 @@ from dagster import (
 )
 from dagster import _check as check
 from dagster import job, op
-from dagster._utils.test import wrap_op_in_graph_and_execute
+from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 
 @op

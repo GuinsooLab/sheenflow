@@ -9,17 +9,17 @@ from dagster_graphql.implementation.fetch_partition_sets import (
 )
 from dagster_graphql.implementation.fetch_runs import get_runs
 
-import dagster._check as check
-from dagster._core.host_representation import ExternalPartitionSet, RepositoryHandle
-from dagster._core.host_representation.external_data import (
+import sheenflow._check as check
+from sheenflow._core.host_representation import ExternalPartitionSet, RepositoryHandle
+from sheenflow._core.host_representation.external_data import (
     ExternalMultiPartitionsDefinitionData,
     ExternalPartitionsDefinitionData,
     ExternalStaticPartitionsDefinitionData,
     ExternalTimeWindowPartitionsDefinitionData,
 )
-from dagster._core.storage.pipeline_run import RunsFilter
-from dagster._core.storage.tags import PARTITION_NAME_TAG, PARTITION_SET_TAG
-from dagster._utils import merge_dicts
+from sheenflow._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG, PARTITION_SET_TAG
+from sheenflow._utils import merge_dicts
 
 from .backfill import GraphenePartitionBackfill
 from .errors import (

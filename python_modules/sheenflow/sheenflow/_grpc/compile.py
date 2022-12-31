@@ -11,7 +11,7 @@ import sys
 
 import pkg_resources
 
-from dagster._utils import file_relative_path, safe_tempfile_path
+from sheenflow._utils import file_relative_path, safe_tempfile_path
 
 PROTOS_DIR = file_relative_path(__file__, "protos")
 

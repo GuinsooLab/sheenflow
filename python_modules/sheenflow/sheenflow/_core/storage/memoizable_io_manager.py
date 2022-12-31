@@ -3,14 +3,14 @@ import pickle
 from abc import abstractmethod
 from typing import Union
 
-import dagster._check as check
-from dagster._annotations import experimental, public
-from dagster._config import Field, StringSource
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.execution.context.input import InputContext
-from dagster._core.execution.context.output import OutputContext
-from dagster._core.storage.io_manager import IOManager, io_manager
-from dagster._utils import PICKLE_PROTOCOL, mkdir_p
+import sheenflow._check as check
+from sheenflow._annotations import experimental, public
+from sheenflow._config import Field, StringSource
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.execution.context.input import InputContext
+from sheenflow._core.execution.context.output import OutputContext
+from sheenflow._core.storage.io_manager import IOManager, io_manager
+from sheenflow._utils import PICKLE_PROTOCOL, mkdir_p
 
 
 class MemoizableIOManager(IOManager):

@@ -3,19 +3,19 @@ import multiprocessing
 import pendulum
 import pytest
 
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import TickStatus
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import PARTITION_NAME_TAG, SCHEDULED_EXECUTION_TIME_TAG
-from dagster._core.test_utils import (
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import TickStatus
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG, SCHEDULED_EXECUTION_TIME_TAG
+from sheenflow._core.test_utils import (
     SingleThreadPoolExecutor,
     cleanup_test_instance,
     create_test_daemon_workspace_context,
     get_crash_signals,
     get_terminate_signal,
 )
-from dagster._seven import IS_WINDOWS
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._seven import IS_WINDOWS
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 
 from .conftest import workspace_load_target
 from .test_scheduler_run import (

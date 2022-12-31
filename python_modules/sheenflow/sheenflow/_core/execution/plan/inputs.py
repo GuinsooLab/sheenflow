@@ -15,32 +15,32 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions import InputDefinition, NodeHandle, PipelineDefinition
-from dagster._core.definitions.events import AssetLineageInfo
-from dagster._core.definitions.job_definition import JobDefinition
-from dagster._core.definitions.metadata import MetadataEntry
-from dagster._core.definitions.version_strategy import ResourceVersionContext
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.definitions import InputDefinition, NodeHandle, PipelineDefinition
+from sheenflow._core.definitions.events import AssetLineageInfo
+from sheenflow._core.definitions.job_definition import JobDefinition
+from sheenflow._core.definitions.metadata import MetadataEntry
+from sheenflow._core.definitions.version_strategy import ResourceVersionContext
+from sheenflow._core.errors import (
     DagsterExecutionLoadInputError,
     DagsterInvariantViolationError,
     DagsterTypeLoadingError,
     user_code_error_boundary,
 )
-from dagster._core.storage.io_manager import IOManager
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils import ensure_gen
+from sheenflow._core.storage.io_manager import IOManager
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils import ensure_gen
 
 from .objects import TypeCheckData
 from .outputs import StepOutputHandle, UnresolvedStepOutputHandle
 from .utils import build_resources_for_manager, op_execution_error_boundary
 
 if TYPE_CHECKING:
-    from dagster._core.events import DagsterEvent
-    from dagster._core.execution.context.input import InputContext
-    from dagster._core.execution.context.system import StepExecutionContext
-    from dagster._core.storage.input_manager import InputManager
+    from sheenflow._core.events import DagsterEvent
+    from sheenflow._core.execution.context.input import InputContext
+    from sheenflow._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.storage.input_manager import InputManager
 
 
 def _get_asset_lineage_from_fns(
@@ -159,9 +159,9 @@ class FromSourceAsset(
         step_context: "StepExecutionContext",
         input_def: InputDefinition,
     ) -> Iterator["DagsterEvent"]:
-        from dagster._core.definitions.asset_layer import AssetOutputInfo
-        from dagster._core.events import DagsterEvent
-        from dagster._core.execution.context.output import OutputContext
+        from sheenflow._core.definitions.asset_layer import AssetOutputInfo
+        from sheenflow._core.events import DagsterEvent
+        from sheenflow._core.execution.context.output import OutputContext
 
         asset_layer = step_context.pipeline_def.asset_layer
 
@@ -290,7 +290,7 @@ class FromRootInputManager(
         step_context: "StepExecutionContext",
         input_def: InputDefinition,
     ) -> Iterator["DagsterEvent"]:
-        from dagster._core.events import DagsterEvent
+        from sheenflow._core.events import DagsterEvent
 
         check.invariant(
             step_context.solid_handle == self.solid_handle and input_def.name == self.input_name,
@@ -473,8 +473,8 @@ class FromStepOutput(
         step_context: "StepExecutionContext",
         input_def: InputDefinition,
     ) -> Iterator["DagsterEvent"]:
-        from dagster._core.events import DagsterEvent
-        from dagster._core.storage.input_manager import InputManager
+        from sheenflow._core.events import DagsterEvent
+        from sheenflow._core.storage.input_manager import InputManager
 
         source_handle = self.step_output_handle
 
@@ -790,7 +790,7 @@ class FromMultipleSources(
         step_context: "StepExecutionContext",
         input_def: InputDefinition,
     ):
-        from dagster._core.events import DagsterEvent
+        from sheenflow._core.events import DagsterEvent
 
         values = []
 
@@ -844,7 +844,7 @@ class FromMultipleSources(
 
 
 def _load_input_with_input_manager(input_manager: "InputManager", context: "InputContext"):
-    from dagster._core.execution.context.system import StepExecutionContext
+    from sheenflow._core.execution.context.system import StepExecutionContext
 
     step_context = cast(StepExecutionContext, context.step_context)
     with op_execution_error_boundary(

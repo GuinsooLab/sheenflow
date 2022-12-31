@@ -1,6 +1,6 @@
 import os
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .config_type import ScalarUnion
 from .errors import PostProcessingError

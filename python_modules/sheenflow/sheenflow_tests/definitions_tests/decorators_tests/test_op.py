@@ -27,9 +27,9 @@ from dagster import (
     mem_io_manager,
     op,
 )
-from dagster._core.test_utils import instance_for_test
-from dagster._core.types.dagster_type import Int, String
-from dagster._legacy import Materialization
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.types.dagster_type import Int, String
+from sheenflow._legacy import Materialization
 
 
 def some_fn(a):

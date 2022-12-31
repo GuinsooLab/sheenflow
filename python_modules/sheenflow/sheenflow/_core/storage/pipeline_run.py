@@ -16,13 +16,13 @@ from typing import (
     Union,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.events import AssetKey
-from dagster._core.origin import PipelinePythonOrigin
-from dagster._core.storage.tags import PARENT_RUN_ID_TAG, ROOT_RUN_ID_TAG
-from dagster._core.utils import make_new_run_id
-from dagster._serdes.serdes import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.origin import PipelinePythonOrigin
+from sheenflow._core.storage.tags import PARENT_RUN_ID_TAG, ROOT_RUN_ID_TAG
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._serdes.serdes import (
     DefaultNamedTupleSerializer,
     EnumSerializer,
     WhitelistMap,
@@ -44,8 +44,8 @@ from .tags import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.repository_definition import RepositoryLoadData
-    from dagster._core.host_representation.origin import ExternalPipelineOrigin
+    from sheenflow._core.definitions.repository_definition import RepositoryLoadData
+    from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
 
 
 class DagsterRunStatusSerializer(EnumSerializer):
@@ -386,7 +386,7 @@ class DagsterRun(
 
         # Placing this with the other imports causes a cyclic import
         # https://github.com/dagster-io/dagster/issues/3181
-        from dagster._core.host_representation.origin import ExternalPipelineOrigin
+        from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
 
         if status == DagsterRunStatus.QUEUED:
             check.inst_param(
@@ -434,7 +434,7 @@ class DagsterRun(
         if status == DagsterRunStatus.QUEUED:
             # Placing this with the other imports causes a cyclic import
             # https://github.com/dagster-io/dagster/issues/3181
-            from dagster._core.host_representation.origin import ExternalPipelineOrigin
+            from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
 
             check.inst(
                 self.external_pipeline_origin,
@@ -445,7 +445,7 @@ class DagsterRun(
         return self._replace(status=status)
 
     def with_job_origin(self, origin):
-        from dagster._core.host_representation.origin import ExternalPipelineOrigin
+        from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
 
         check.inst_param(origin, "origin", ExternalPipelineOrigin)
         return self._replace(external_pipeline_origin=origin)
@@ -525,7 +525,7 @@ class DagsterRun(
 
     @staticmethod
     def tags_for_partition_set(partition_set, partition):
-        from dagster._core.definitions.multi_dimensional_partitions import (
+        from sheenflow._core.definitions.multi_dimensional_partitions import (
             MultiPartitionKey,
             get_tags_from_multi_partition_key,
         )

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import NamedTuple, Optional, Sequence
 
-from dagster._core.host_representation.origin import (
+from sheenflow._core.host_representation.origin import (
     GrpcServerRepositoryLocationOrigin,
     RepositoryLocationOrigin,
 )

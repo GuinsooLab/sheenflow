@@ -1,22 +1,22 @@
 from typing import TYPE_CHECKING, Mapping
 
-import dagster._check as check
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import (
     ExternalRepositoryData,
     ExternalRepositoryErrorData,
 )
-from dagster._serdes import deserialize_as
+from sheenflow._serdes import deserialize_as
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation import RepositoryLocation
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._core.host_representation import RepositoryLocation
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_streaming_external_repositories_data_grpc(
     api_client: "DagsterGrpcClient", repository_location: "RepositoryLocation"
 ) -> Mapping[str, ExternalRepositoryData]:
-    from dagster._core.host_representation import ExternalRepositoryOrigin, RepositoryLocation
+    from sheenflow._core.host_representation import ExternalRepositoryOrigin, RepositoryLocation
 
     check.inst_param(repository_location, "repository_location", RepositoryLocation)
 

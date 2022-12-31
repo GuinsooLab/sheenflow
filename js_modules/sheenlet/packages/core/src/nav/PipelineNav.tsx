@@ -1,4 +1,4 @@
-import {Box, PageHeader, Tabs, Tag, Heading, Tooltip} from '@sheenflow-io/ui';
+import {Box, PageHeader, Tabs, Tag, Heading, Tooltip} from '@dagster-io/ui';
 import React from 'react';
 import {useRouteMatch} from 'react-router-dom';
 

@@ -3,11 +3,11 @@ import time
 from contextlib import contextmanager
 from typing import Callable, Union
 
-import dagster._check as check
-from dagster._core.events import DagsterEvent, DagsterEventType, EngineEventData
-from dagster._core.events.log import EventLogEntry
-from dagster._core.storage.event_log import SqlPollingEventWatcher, SqliteEventLogStorage
-from dagster._core.storage.event_log.base import EventLogCursor
+import sheenflow._check as check
+from sheenflow._core.events import DagsterEvent, DagsterEventType, EngineEventData
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.storage.event_log import SqlPollingEventWatcher, SqliteEventLogStorage
+from sheenflow._core.storage.event_log.base import EventLogCursor
 
 
 class SqlitePollingEventLogStorage(SqliteEventLogStorage):

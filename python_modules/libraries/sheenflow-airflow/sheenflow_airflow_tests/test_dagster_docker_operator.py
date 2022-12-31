@@ -7,12 +7,12 @@ from dagster_airflow.operators.docker_operator import DagsterDockerOperator
 from dagster_airflow_tests.marks import requires_airflow_db
 
 from dagster import repository
-from dagster._core.definitions.reconstruct import ReconstructableRepository
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.snap import snapshot_from_execution_plan
-from dagster._core.test_utils import default_mode_def_for_test, instance_for_test
-from dagster._legacy import pipeline, solid
-from dagster._utils import file_relative_path
+from sheenflow._core.definitions.reconstruct import ReconstructableRepository
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.snap import snapshot_from_execution_plan
+from sheenflow._core.test_utils import default_mode_def_for_test, instance_for_test
+from sheenflow._legacy import pipeline, solid
+from sheenflow._utils import file_relative_path
 
 
 @solid

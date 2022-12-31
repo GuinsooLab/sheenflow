@@ -13,8 +13,8 @@ from dagster import (
     job,
     op,
 )
-from dagster._config import Enum as ConfigEnum
-from dagster._config.validate import validate_config
+from sheenflow._config import Enum as ConfigEnum
+from sheenflow._config.validate import validate_config
 
 
 def define_test_enum_type():

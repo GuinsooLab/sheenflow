@@ -2,26 +2,26 @@ from typing import Callable, Dict, Mapping, NamedTuple, Optional, cast
 
 import pendulum
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, experimental
-from dagster._core.definitions.asset_selection import AssetSelection
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, experimental
+from sheenflow._core.definitions.asset_selection import AssetSelection
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     FreshnessPolicySensorExecutionError,
     user_code_error_boundary,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._serdes import (
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._serdes import (
     deserialize_json_to_dagster_namedtuple,
     serialize_dagster_namedtuple,
     whitelist_for_serdes,
 )
-from dagster._serdes.errors import DeserializationError
-from dagster._seven import JSONDecodeError
-from dagster._utils.caching_instance_queryer import CachingInstanceQueryer
+from sheenflow._serdes.errors import DeserializationError
+from sheenflow._seven import JSONDecodeError
+from sheenflow._utils.caching_instance_queryer import CachingInstanceQueryer
 
 from ..decorator_utils import get_function_params
 from .sensor_definition import (

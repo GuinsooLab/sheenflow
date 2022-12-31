@@ -1,8 +1,8 @@
-import {Box, ButtonGroup, Colors, Spinner, Subheading} from '@sheenflow-io/ui';
+import {Box, ButtonGroup, Colors, Spinner, Subheading} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {LiveDataForNode} from '../asset-graph/Utils';
-import {RepositorySelector} from '../types/globalTypes';
+import {RepositorySelector} from '../graphql/graphql';
 
 import {AssetEventDetail, AssetEventDetailEmpty} from './AssetEventDetail';
 import {AssetEventList} from './AssetEventList';

@@ -5,7 +5,7 @@ from typing_extensions import Self
 
 from dagster import Field
 from dagster import _check as check
-from dagster._config import EvaluateValueResult
+from sheenflow._config import EvaluateValueResult
 
 from .definition_config_schema import (
     CoercableToConfigSchema,
@@ -164,7 +164,7 @@ class NamedConfigurableDefinition(ConfigurableDefinition):
 
 
 def _check_configurable_param(configurable: ConfigurableDefinition) -> None:
-    from dagster._core.definitions.composition import PendingNodeInvocation
+    from sheenflow._core.definitions.composition import PendingNodeInvocation
 
     check.param_invariant(
         not isinstance(configurable, PendingNodeInvocation),

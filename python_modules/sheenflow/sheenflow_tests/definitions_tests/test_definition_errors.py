@@ -14,8 +14,8 @@ from dagster import (
     ResourceDefinition,
     op,
 )
-from dagster._check import ParameterCheckError
-from dagster._core.utility_solids import define_stub_solid
+from sheenflow._check import ParameterCheckError
+from sheenflow._core.utility_solids import define_stub_solid
 
 
 def solid_a_b_list():

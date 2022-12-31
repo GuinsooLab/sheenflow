@@ -1,6 +1,6 @@
 from enum import Enum
 
-from dagster._utils import is_enum_value
+from sheenflow._utils import is_enum_value
 
 
 class APythonEnum(Enum):

@@ -3,20 +3,20 @@ import pytest
 from dagster import DagsterInstance, Int, Out, Output
 from dagster import _check as check
 from dagster import job, op
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.errors import (
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvariantViolationError,
     DagsterUnknownStepStateError,
 )
-from dagster._core.execution.api import create_execution_plan, execute_plan
-from dagster._core.execution.plan.outputs import StepOutputHandle
-from dagster._core.execution.plan.plan import should_skip_step
-from dagster._core.execution.retries import RetryMode
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.utils import make_new_run_id
-from dagster._legacy import OutputDefinition
+from sheenflow._core.execution.api import create_execution_plan, execute_plan
+from sheenflow._core.execution.plan.outputs import StepOutputHandle
+from sheenflow._core.execution.plan.plan import should_skip_step
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.utils import make_new_run_id
+from sheenflow._legacy import OutputDefinition
 
 
 def define_diamond_job():

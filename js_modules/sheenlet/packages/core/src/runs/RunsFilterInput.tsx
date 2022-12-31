@@ -4,12 +4,12 @@ import {
   TokenizingFieldValue,
   tokensAsStringArray,
   tokenizedValuesFromStringArray,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import qs from 'qs';
 import * as React from 'react';
 
+import {RunStatus, RunsFilter} from '../graphql/graphql';
 import {useQueryPersistedState} from '../hooks/useQueryPersistedState';
-import {RunStatus, RunsFilter} from '../types/globalTypes';
 import {DagsterRepoOption, useRepositoryOptions} from '../workspace/WorkspaceContext';
 
 export type RunFilterTokenType = 'id' | 'status' | 'pipeline' | 'job' | 'snapshotId' | 'tag';

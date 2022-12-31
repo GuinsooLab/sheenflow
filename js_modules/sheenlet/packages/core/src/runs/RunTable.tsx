@@ -1,15 +1,15 @@
 import {gql} from '@apollo/client';
-import {Box, Checkbox, Colors, Icon, NonIdealState, Table, Mono} from '@sheenflow-io/ui';
+import {Box, Checkbox, Colors, Icon, NonIdealState, Table, Mono} from '@dagster-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components/macro';
 
 import {usePermissions} from '../app/Permissions';
 import {isHiddenAssetGroupJob} from '../asset-graph/Utils';
+import {RunsFilter} from '../graphql/graphql';
 import {useSelectionReducer} from '../hooks/useSelectionReducer';
 import {PipelineSnapshotLink} from '../pipelines/PipelinePathUtils';
 import {PipelineReference} from '../pipelines/PipelineReference';
-import {RunsFilter} from '../types/globalTypes';
 import {
   findRepositoryAmongOptions,
   isThisThingAJob,

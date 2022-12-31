@@ -1,5 +1,5 @@
 import {RefetchQueriesFunction, useMutation} from '@apollo/client';
-import {Button, DialogBody, DialogFooter, Dialog, Group} from '@sheenflow-io/ui';
+import {Button, DialogBody, DialogFooter, Dialog, Group} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {displayNameForAssetKey} from '../asset-graph/Utils';

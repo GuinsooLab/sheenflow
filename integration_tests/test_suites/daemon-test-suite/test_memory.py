@@ -6,10 +6,10 @@ from contextlib import contextmanager
 import objgraph
 
 from dagster import RunRequest, repository, schedule, sensor
-from dagster._core.test_utils import instance_for_test
-from dagster._core.workspace.load_target import PythonFileTarget
-from dagster._daemon.controller import daemon_controller_from_instance
-from dagster._legacy import pipeline, solid
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.workspace.load_target import PythonFileTarget
+from sheenflow._daemon.controller import daemon_controller_from_instance
+from sheenflow._legacy import pipeline, solid
 
 
 @solid()

@@ -3,23 +3,23 @@ import time
 from abc import abstractmethod
 from typing import Mapping, Sequence
 
-import dagster._check as check
-from dagster._core.errors import DagsterRepositoryLocationLoadError
-from dagster._core.host_representation.grpc_server_registry import GrpcServerRegistry
-from dagster._core.host_representation.origin import RepositoryLocationOrigin
-from dagster._core.host_representation.repository_location import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterRepositoryLocationLoadError
+from sheenflow._core.host_representation.grpc_server_registry import GrpcServerRegistry
+from sheenflow._core.host_representation.origin import RepositoryLocationOrigin
+from sheenflow._core.host_representation.repository_location import (
     GrpcServerRepositoryLocation,
     RepositoryLocation,
 )
-from dagster._core.workspace.load_target import WorkspaceLoadTarget
-from dagster._core.workspace.workspace import (
+from sheenflow._core.workspace.load_target import WorkspaceLoadTarget
+from sheenflow._core.workspace.workspace import (
     IWorkspace,
     WorkspaceLocationEntry,
     WorkspaceLocationLoadStatus,
     WorkspaceLocationStatusEntry,
     location_status_from_location_entry,
 )
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 
 class BaseDaemonWorkspace(IWorkspace):

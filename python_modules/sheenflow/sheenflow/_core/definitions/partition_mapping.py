@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 from typing import NamedTuple, Optional, cast
 
-import dagster._check as check
-from dagster._annotations import experimental, public
-from dagster._core.definitions.multi_dimensional_partitions import (
+import sheenflow._check as check
+from sheenflow._annotations import experimental, public
+from sheenflow._core.definitions.multi_dimensional_partitions import (
     MultiPartitionKey,
     MultiPartitionsDefinition,
 )
-from dagster._core.definitions.partition import PartitionsDefinition, PartitionsSubset
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._core.definitions.partition import PartitionsDefinition, PartitionsSubset
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._serdes import whitelist_for_serdes
 
 
 class PartitionMapping(ABC):
@@ -332,7 +332,7 @@ def infer_partition_mapping(
 
 
 def get_builtin_partition_mapping_types():
-    from dagster._core.definitions.time_window_partition_mapping import TimeWindowPartitionMapping
+    from sheenflow._core.definitions.time_window_partition_mapping import TimeWindowPartitionMapping
 
     return (
         AllPartitionMapping,

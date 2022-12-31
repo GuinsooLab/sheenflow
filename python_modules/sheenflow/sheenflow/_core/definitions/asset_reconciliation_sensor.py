@@ -20,12 +20,12 @@ from typing import (
 
 import pendulum
 
-import dagster._check as check
-from dagster._annotations import experimental
-from dagster._core.definitions.events import AssetKey, AssetKeyPartitionKey
-from dagster._core.definitions.freshness_policy import FreshnessConstraint
-from dagster._core.storage.tags import PARTITION_NAME_TAG
-from dagster._utils.caching_instance_queryer import CachingInstanceQueryer
+import sheenflow._check as check
+from sheenflow._annotations import experimental
+from sheenflow._core.definitions.events import AssetKey, AssetKeyPartitionKey
+from sheenflow._core.definitions.freshness_policy import FreshnessConstraint
+from sheenflow._core.storage.tags import PARTITION_NAME_TAG
+from sheenflow._utils.caching_instance_queryer import CachingInstanceQueryer
 
 from .asset_selection import AssetGraph, AssetSelection
 from .decorators.sensor_decorator import sensor
@@ -36,7 +36,7 @@ from .sensor_definition import DefaultSensorStatus, SensorDefinition
 from .utils import check_valid_name
 
 if TYPE_CHECKING:
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.instance import DagsterInstance
 
 
 class AssetReconciliationCursor(NamedTuple):

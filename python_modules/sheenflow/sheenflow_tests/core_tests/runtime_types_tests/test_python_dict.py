@@ -12,7 +12,7 @@ from dagster import (
     op,
     usable_as_dagster_type,
 )
-from dagster._legacy import execute_solid
+from sheenflow._legacy import execute_solid
 
 
 def test_basic_python_dictionary_output():

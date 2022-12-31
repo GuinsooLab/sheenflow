@@ -11,8 +11,8 @@ from dagster import (
     SourceAsset,
     TimeWindowPartitionMapping,
 )
-from dagster._core.definitions import AssetSelection, asset
-from dagster._core.definitions.events import AssetKey
+from sheenflow._core.definitions import AssetSelection, asset
+from sheenflow._core.definitions.events import AssetKey
 
 
 @asset(group_name="ladies")

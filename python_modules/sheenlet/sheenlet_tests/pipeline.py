@@ -1,6 +1,6 @@
 from dagster import Int, repository
-from dagster._core.test_utils import today_at_midnight
-from dagster._legacy import (
+from sheenflow._core.test_utils import today_at_midnight
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     daily_schedule,

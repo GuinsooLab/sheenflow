@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {PageHeader, Heading, Box} from '@sheenflow-io/ui';
+import {PageHeader, Heading, Box} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {

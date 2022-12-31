@@ -3,16 +3,16 @@ import re
 import pytest
 
 from dagster import DagsterInvariantViolationError, DagsterTypeCheckDidNotPass, Field, Int, resource
-from dagster._core.definitions.decorators import graph
-from dagster._core.test_utils import nesting_graph_pipeline
-from dagster._core.utility_solids import (
+from sheenflow._core.definitions.decorators import graph
+from sheenflow._core.test_utils import nesting_graph_pipeline
+from sheenflow._core.utility_solids import (
     create_root_solid,
     create_solid_with_deps,
     define_stub_solid,
     input_set,
 )
-from dagster._legacy import InputDefinition, ModeDefinition, OutputDefinition, lambda_solid, solid
-from dagster._utils.test import execute_solid
+from sheenflow._legacy import InputDefinition, ModeDefinition, OutputDefinition, lambda_solid, solid
+from sheenflow._utils.test import execute_solid
 
 
 def test_single_solid_in_isolation():

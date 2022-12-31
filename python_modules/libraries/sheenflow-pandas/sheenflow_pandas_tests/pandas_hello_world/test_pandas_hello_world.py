@@ -1,10 +1,10 @@
 import os
 
-from dagster._cli.job import do_execute_command
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import execute_pipeline
-from dagster._utils import file_relative_path
+from sheenflow._cli.job import do_execute_command
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import execute_pipeline
+from sheenflow._utils import file_relative_path
 
 
 def test_execute_pipeline():

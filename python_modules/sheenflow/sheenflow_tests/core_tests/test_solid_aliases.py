@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from dagster import DependencyDefinition, Int, NodeInvocation
-from dagster._legacy import (
+from sheenflow._legacy import (
     InputDefinition,
     PipelineDefinition,
     execute_pipeline,

@@ -1,9 +1,9 @@
 from graphene import ResolveInfo
 
-import dagster._check as check
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.host_representation import PipelineSelector, RepositorySelector, ScheduleSelector
-from dagster._seven import get_current_datetime_in_utc, get_timestamp_from_utc_datetime
+import sheenflow._check as check
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.host_representation import PipelineSelector, RepositorySelector, ScheduleSelector
+from sheenflow._seven import get_current_datetime_in_utc, get_timestamp_from_utc_datetime
 
 from .loader import RepositoryScopedBatchLoader
 from .utils import UserFacingGraphQLError, capture_error

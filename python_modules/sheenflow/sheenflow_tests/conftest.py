@@ -2,7 +2,7 @@ import os
 import subprocess
 import sys
 
-import dagster._seven as seven
+import sheenflow._seven as seven
 
 IS_BUILDKITE = os.getenv("BUILDKITE") is not None
 

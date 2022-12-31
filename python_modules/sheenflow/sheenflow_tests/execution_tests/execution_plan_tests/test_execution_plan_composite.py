@@ -1,9 +1,9 @@
 from dagster import Field, Int, String, job, op
-from dagster._core.definitions.config import ConfigMapping
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.execution.api import create_execution_plan, execute_plan
-from dagster._core.instance import DagsterInstance
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.execution.api import create_execution_plan, execute_plan
+from sheenflow._core.instance import DagsterInstance
 
 
 @op(config_schema={"foo": Field(String)})

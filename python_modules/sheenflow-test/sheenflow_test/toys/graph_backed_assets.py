@@ -1,5 +1,5 @@
 from dagster import AssetsDefinition, graph, op
-from dagster._legacy import AssetGroup
+from sheenflow._legacy import AssetGroup
 
 
 @op

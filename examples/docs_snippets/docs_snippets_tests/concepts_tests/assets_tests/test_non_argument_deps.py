@@ -1,4 +1,4 @@
-from dagster._legacy import AssetGroup
+from sheenflow._legacy import AssetGroup
 from docs_snippets.concepts.assets.non_argument_deps import (
     downstream_asset,
     upstream_asset,

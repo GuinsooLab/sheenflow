@@ -10,9 +10,9 @@ from dagster import (
     InputContext,
     OutputContext,
 )
-from dagster._core.definitions.events import CoercibleToAssetKey
-from dagster._core.event_api import EventLogRecord, EventRecordsFilter
-from dagster._core.events import DagsterEventType
+from sheenflow._core.definitions.events import CoercibleToAssetKey
+from sheenflow._core.event_api import EventLogRecord, EventRecordsFilter
+from sheenflow._core.events import DagsterEventType
 
 
 class DefinitionsRunner:

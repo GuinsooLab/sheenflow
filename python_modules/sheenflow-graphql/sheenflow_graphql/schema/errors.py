@@ -1,8 +1,8 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._utils.error import SerializableErrorInfo
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._utils.error import SerializableErrorInfo
 
 from .util import non_null_list
 

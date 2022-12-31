@@ -29,7 +29,7 @@ from dagster import (
     resource,
     with_resources,
 )
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 
 
 @pytest.fixture(autouse=True)

@@ -1,4 +1,4 @@
-import {Box, Colors, Tabs} from '@sheenflow-io/ui';
+import {Box, Colors, Tabs} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {OpNameOrPath} from '../ops/OpNameOrPath';

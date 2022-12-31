@@ -1,8 +1,8 @@
 import pytest
 
 from dagster import Any, Enum, EnumValue, Field, Noneable, Permissive, String
-from dagster._check import CheckError, ParameterCheckError
-from dagster._config import (
+from sheenflow._check import CheckError, ParameterCheckError
+from sheenflow._config import (
     ConfigType,
     ConfigTypeKind,
     Selector,

@@ -17,10 +17,10 @@ from dagster import (
     op,
     resource,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.output import GraphOut
-from dagster._core.errors import DagsterMaxRetriesExceededError
-from dagster._legacy import solid
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.output import GraphOut
+from sheenflow._core.errors import DagsterMaxRetriesExceededError
+from sheenflow._legacy import solid
 
 
 def get_solids():

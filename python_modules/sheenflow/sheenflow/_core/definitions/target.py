@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING, NamedTuple, Optional, Sequence, Union
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
+import sheenflow._check as check
 
 from .mode import DEFAULT_MODE_NAME
 from .pipeline_definition import PipelineDefinition

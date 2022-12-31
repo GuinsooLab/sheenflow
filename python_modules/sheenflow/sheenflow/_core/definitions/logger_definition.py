@@ -1,9 +1,9 @@
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Optional, Union, cast, overload
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.errors import DagsterInvalidInvocationError
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.errors import DagsterInvalidInvocationError
 
 from ..decorator_utils import get_function_params
 from .config import is_callable_valid_config_arg
@@ -14,8 +14,8 @@ from .definition_config_schema import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.definitions import JobDefinition, PipelineDefinition
-    from dagster._core.execution.context.logger import InitLoggerContext, UnboundInitLoggerContext
+    from sheenflow._core.definitions import JobDefinition, PipelineDefinition
+    from sheenflow._core.execution.context.logger import InitLoggerContext, UnboundInitLoggerContext
 
     InitLoggerFunction = Callable[[InitLoggerContext], logging.Logger]
 
@@ -46,7 +46,7 @@ class LoggerDefinition(AnonymousConfigurableDefinition):
         self._description = check.opt_str_param(description, "description")
 
     def __call__(self, *args, **kwargs):
-        from dagster._core.execution.context.logger import UnboundInitLoggerContext
+        from sheenflow._core.execution.context.logger import UnboundInitLoggerContext
 
         from .logger_invocation import logger_invocation_result
 
@@ -178,8 +178,8 @@ def build_init_logger_context(
             context = build_init_logger_context()
             logger_to_init(context)
     """
-    from dagster._core.definitions import JobDefinition, PipelineDefinition
-    from dagster._core.execution.context.logger import UnboundInitLoggerContext
+    from sheenflow._core.definitions import JobDefinition, PipelineDefinition
+    from sheenflow._core.execution.context.logger import UnboundInitLoggerContext
 
     check.opt_inst_param(pipeline_def, "pipeline_def", PipelineDefinition)
     check.opt_inst_param(job_def, "job_def", JobDefinition)

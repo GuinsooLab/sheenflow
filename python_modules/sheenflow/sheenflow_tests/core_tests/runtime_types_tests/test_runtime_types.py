@@ -19,7 +19,7 @@ from dagster import (
     job,
     op,
 )
-from dagster._core.types.dagster_type import (
+from sheenflow._core.types.dagster_type import (
     ALL_RUNTIME_BUILTINS,
     DagsterType,
     DagsterTypeKind,

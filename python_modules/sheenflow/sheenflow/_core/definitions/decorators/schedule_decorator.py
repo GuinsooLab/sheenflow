@@ -15,20 +15,20 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.partition import (
+import sheenflow._check as check
+from sheenflow._core.definitions.partition import (
     PartitionScheduleDefinition,
     PartitionSetDefinition,
     ScheduleTimeBasedPartitionsDefinition,
     ScheduleType,
 )
-from dagster._core.errors import (
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     ScheduleExecutionError,
     user_code_error_boundary,
 )
-from dagster._utils import ensure_gen
-from dagster._utils.partitions import (
+from sheenflow._utils import ensure_gen
+from sheenflow._utils.partitions import (
     DEFAULT_DATE_FORMAT,
     DEFAULT_HOURLY_FORMAT_WITHOUT_TIMEZONE,
     DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE,

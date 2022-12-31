@@ -4,18 +4,18 @@ from typing import Optional, Sequence, Union
 
 import click
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import DagsterInvariantViolationError
 from dagster import __version__ as dagster_version
-from dagster._cli.workspace.cli_target import (
+from sheenflow._cli.workspace.cli_target import (
     get_external_repository_from_kwargs,
     repository_target_argument,
 )
-from dagster._core.definitions.run_request import InstigatorType
-from dagster._core.host_representation import ExternalRepository
-from dagster._core.instance import DagsterInstance
-from dagster._core.scheduler.instigation import InstigatorStatus
-from dagster._core.scheduler.scheduler import DagsterDaemonScheduler
+from sheenflow._core.definitions.run_request import InstigatorType
+from sheenflow._core.host_representation import ExternalRepository
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.scheduler.instigation import InstigatorStatus
+from sheenflow._core.scheduler.scheduler import DagsterDaemonScheduler
 
 
 @click.group(name="schedule")

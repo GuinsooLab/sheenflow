@@ -1,4 +1,4 @@
-import {NonIdealState} from '@sheenflow-io/ui';
+import {NonIdealState} from '@dagster-io/ui';
 import * as React from 'react';
 
 export const AssetsEmptyState = ({prefixPath}: {prefixPath: string[]}) => (

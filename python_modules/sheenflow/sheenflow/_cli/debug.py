@@ -5,9 +5,9 @@ import click
 from tqdm import tqdm
 
 from dagster import DagsterInstance
-from dagster._core.debug import DebugRunPayload
-from dagster._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
-from dagster._serdes import deserialize_as
+from sheenflow._core.debug import DebugRunPayload
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
+from sheenflow._serdes import deserialize_as
 
 
 def _recent_failed_runs_text(instance):

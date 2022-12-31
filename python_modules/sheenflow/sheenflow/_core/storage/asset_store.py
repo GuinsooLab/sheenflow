@@ -1,7 +1,7 @@
 from typing import Mapping, NamedTuple, Optional
 
-import dagster._check as check
-from dagster._serdes import whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._serdes import whitelist_for_serdes
 
 
 @whitelist_for_serdes

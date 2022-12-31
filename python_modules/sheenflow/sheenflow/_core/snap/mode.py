@@ -1,10 +1,10 @@
 # Contains mode, resources, loggers
 from typing import NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._config import ConfigFieldSnap, snap_from_field
-from dagster._core.definitions import LoggerDefinition, ModeDefinition, ResourceDefinition
-from dagster._serdes import whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._config import ConfigFieldSnap, snap_from_field
+from sheenflow._core.definitions import LoggerDefinition, ModeDefinition, ResourceDefinition
+from sheenflow._serdes import whitelist_for_serdes
 
 
 def build_mode_def_snap(mode_def, root_config_key):

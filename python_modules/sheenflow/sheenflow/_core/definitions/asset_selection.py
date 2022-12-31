@@ -3,10 +3,10 @@ from abc import ABC, abstractmethod
 from functools import reduce
 from typing import AbstractSet, Optional, Sequence, Union
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.errors import DagsterInvalidSubsetError
-from dagster._core.selector.subset_selector import fetch_connected, fetch_sinks, fetch_sources
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.errors import DagsterInvalidSubsetError
+from sheenflow._core.selector.subset_selector import fetch_connected, fetch_sinks, fetch_sources
 
 from .asset_graph import AssetGraph
 from .assets import AssetsDefinition

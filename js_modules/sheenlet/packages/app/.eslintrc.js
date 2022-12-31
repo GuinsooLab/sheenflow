@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['eslint-config'],
+  extends: ['@dagster-io/eslint-config'],
 };

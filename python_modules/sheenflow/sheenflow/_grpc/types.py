@@ -2,21 +2,21 @@ import base64
 import zlib
 from typing import Any, FrozenSet, Mapping, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.code_pointer import CodePointer
-from dagster._core.definitions.events import AssetKey
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.execution.retries import RetryMode
-from dagster._core.host_representation.origin import (
+import sheenflow._check as check
+from sheenflow._core.code_pointer import CodePointer
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.host_representation.origin import (
     ExternalPipelineOrigin,
     ExternalRepositoryOrigin,
     RepositoryLocationOrigin,
 )
-from dagster._core.instance.ref import InstanceRef
-from dagster._core.origin import PipelinePythonOrigin, get_python_environment_entry_point
-from dagster._serdes import serialize_dagster_namedtuple, whitelist_for_serdes
-from dagster._utils import frozenlist
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._core.instance.ref import InstanceRef
+from sheenflow._core.origin import PipelinePythonOrigin, get_python_environment_entry_point
+from sheenflow._serdes import serialize_dagster_namedtuple, whitelist_for_serdes
+from sheenflow._utils import frozenlist
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 @whitelist_for_serdes

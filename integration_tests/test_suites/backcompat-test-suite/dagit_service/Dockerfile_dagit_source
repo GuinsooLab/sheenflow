@@ -13,7 +13,7 @@ RUN pip install \
 
 
 # Ensure all dagster installs were local
-RUN ! (pip list --exclude-editable | grep -e dagster -e dagit)
+RUN ! (pip list --exclude-editable | grep -e sheenflow -e sheenlet)
 
 
 ENV DAGSTER_HOME=/opt/dagster/dagster_home/

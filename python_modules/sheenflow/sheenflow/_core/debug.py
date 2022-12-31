@@ -1,10 +1,10 @@
 from typing import NamedTuple, Sequence
 
-import dagster._check as check
-from dagster._core.events.log import EventLogEntry
-from dagster._core.snap import ExecutionPlanSnapshot, PipelineSnapshot
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._serdes import serialize_dagster_namedtuple, whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.snap import ExecutionPlanSnapshot, PipelineSnapshot
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._serdes import serialize_dagster_namedtuple, whitelist_for_serdes
 
 
 @whitelist_for_serdes

@@ -1,7 +1,7 @@
 import textwrap
 from typing import Any, Callable, Optional, Sequence, Set
 
-from dagster._seven import funcsigs
+from sheenflow._seven import funcsigs
 
 
 def get_valid_name_permutations(param_name: str) -> Set[str]:

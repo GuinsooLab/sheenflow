@@ -3,9 +3,9 @@ import time
 from dagster_graphql.test.utils import define_out_of_process_context, execute_dagster_graphql
 
 from dagster import repository
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import PresetDefinition, pipeline, solid
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import PresetDefinition, pipeline, solid
 
 RUNS_QUERY = """
 query RunsQuery {

@@ -35,8 +35,8 @@ from typing import Iterator, Optional, Sequence
 
 from psycopg2.extensions import Notify
 
-import dagster._check as check
-from dagster._core.storage.sql import create_engine
+import sheenflow._check as check
+from sheenflow._core.storage.sql import create_engine
 
 from .utils import create_pg_connection
 

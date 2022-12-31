@@ -1,21 +1,21 @@
 from contextlib import contextmanager
 from typing import Any, Dict, Generator, Mapping, Optional, cast
 
-import dagster._check as check
-from dagster._config import process_config
-from dagster._core.definitions.resource_definition import (
+import sheenflow._check as check
+from sheenflow._config import process_config
+from sheenflow._core.definitions.resource_definition import (
     ResourceDefinition,
     Resources,
     ScopedResourcesBuilder,
 )
-from dagster._core.definitions.run_config import define_resource_dictionary_cls
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._core.execution.resources_init import resource_initialization_manager
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DagsterLogManager
-from dagster._core.storage.io_manager import IOManager, IOManagerDefinition
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.system_config.objects import ResourceConfig, config_map_resources
+from sheenflow._core.definitions.run_config import define_resource_dictionary_cls
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._core.execution.resources_init import resource_initialization_manager
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._core.storage.io_manager import IOManager, IOManagerDefinition
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.system_config.objects import ResourceConfig, config_map_resources
 
 from .api import ephemeral_instance_if_missing
 from .context_creation_pipeline import initialize_console_manager

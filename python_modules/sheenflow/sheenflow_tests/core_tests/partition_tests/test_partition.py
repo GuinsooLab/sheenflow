@@ -13,14 +13,14 @@ from dagster import (
     PartitionKeyRange,
     StaticPartitionsDefinition,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.partition import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.partition import (
     Partition,
     ScheduleTimeBasedPartitionsDefinition,
     ScheduleType,
 )
-from dagster._seven.compat.pendulum import create_pendulum_time
-from dagster._utils.partitions import DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE
+from sheenflow._seven.compat.pendulum import create_pendulum_time
+from sheenflow._utils.partitions import DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE
 
 
 def assert_expected_partitions(

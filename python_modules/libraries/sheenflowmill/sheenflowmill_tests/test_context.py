@@ -1,8 +1,8 @@
 from dagstermill.manager import MANAGER_FOR_NOTEBOOK_INSTANCE
 
-from dagster._core.definitions.dependency import Node
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.definitions.dependency import Node
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.system_config.objects import ResolvedRunConfig
 
 BARE_OUT_OF_PIPELINE_CONTEXT = MANAGER_FOR_NOTEBOOK_INSTANCE.get_context()
 

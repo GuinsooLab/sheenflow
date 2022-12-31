@@ -2,14 +2,14 @@ import importlib
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any, Dict, Mapping, NamedTuple, Type
 
-import dagster._check as check
-from dagster._utils import convert_dagster_submodule_name
-from dagster._utils.yaml_utils import load_run_config_yaml
+import sheenflow._check as check
+from sheenflow._utils import convert_dagster_submodule_name
+from sheenflow._utils.yaml_utils import load_run_config_yaml
 
 from .serdes import DefaultNamedTupleSerializer, WhitelistMap, whitelist_for_serdes
 
 if TYPE_CHECKING:
-    from dagster._config.config_type import ConfigType
+    from sheenflow._config.config_type import ConfigType
 
 
 class ConfigurableClassDataSerializer(DefaultNamedTupleSerializer):
@@ -65,8 +65,8 @@ class ConfigurableClassData(
         }
 
     def rehydrate(self) -> object:
-        from dagster._config import process_config, resolve_to_config_type
-        from dagster._core.errors import DagsterInvalidConfigError
+        from sheenflow._config import process_config, resolve_to_config_type
+        from sheenflow._core.errors import DagsterInvalidConfigError
 
         try:
             module = importlib.import_module(self.module_name)

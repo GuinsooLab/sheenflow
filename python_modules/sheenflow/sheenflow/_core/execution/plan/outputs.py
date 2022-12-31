@@ -1,14 +1,14 @@
 from typing import NamedTuple, Optional, Sequence, Union
 
-import dagster._check as check
-from dagster._core.definitions import (
+import sheenflow._check as check
+from sheenflow._core.definitions import (
     AssetMaterialization,
     Materialization,
     MetadataEntry,
     NodeHandle,
 )
-from dagster._core.definitions.events import AssetKey
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._serdes import whitelist_for_serdes
 
 from .handle import UnresolvedStepHandle
 from .objects import TypeCheckData

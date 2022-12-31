@@ -1,7 +1,7 @@
 import warnings
 from typing import Callable, Optional, TypeVar, cast
 
-import dagster._check as check
+import sheenflow._check as check
 
 T = TypeVar("T")
 

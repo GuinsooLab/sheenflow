@@ -1,4 +1,4 @@
-import {Colors, Group, Icon} from '@sheenflow-io/ui';
+import {Colors, Group, Icon} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {formatElapsedTime} from '../app/Util';

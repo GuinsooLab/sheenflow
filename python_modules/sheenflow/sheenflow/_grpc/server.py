@@ -15,25 +15,25 @@ from typing import Dict, List, Mapping, NamedTuple, Optional, Sequence, Tuple
 import grpc
 from grpc_health.v1 import health, health_pb2, health_pb2_grpc
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._core.code_pointer import CodePointer
-from dagster._core.definitions.reconstruct import ReconstructableRepository
-from dagster._core.definitions.repository_definition import RepositoryDefinition
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._core.host_representation.external_data import (
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._core.code_pointer import CodePointer
+from sheenflow._core.definitions.reconstruct import ReconstructableRepository
+from sheenflow._core.definitions.repository_definition import RepositoryDefinition
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._core.host_representation.external_data import (
     ExternalRepositoryErrorData,
     external_pipeline_data_from_def,
     external_repository_data_from_def,
 )
-from dagster._core.host_representation.origin import ExternalRepositoryOrigin
-from dagster._core.instance import DagsterInstance, InstanceRef
-from dagster._core.origin import DEFAULT_DAGSTER_ENTRY_POINT, get_python_environment_entry_point
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._serdes import deserialize_as, serialize_dagster_namedtuple, whitelist_for_serdes
-from dagster._serdes.ipc import IPCErrorMessage, ipc_write_stream, open_ipc_subprocess
-from dagster._utils import find_free_port, frozenlist, safe_tempfile_path_unmanaged
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._core.host_representation.origin import ExternalRepositoryOrigin
+from sheenflow._core.instance import DagsterInstance, InstanceRef
+from sheenflow._core.origin import DEFAULT_DAGSTER_ENTRY_POINT, get_python_environment_entry_point
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._serdes import deserialize_as, serialize_dagster_namedtuple, whitelist_for_serdes
+from sheenflow._serdes.ipc import IPCErrorMessage, ipc_write_stream, open_ipc_subprocess
+from sheenflow._utils import find_free_port, frozenlist, safe_tempfile_path_unmanaged
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 from .__generated__ import api_pb2
 from .__generated__.api_pb2_grpc import DagsterApiServicer, add_DagsterApiServicer_to_server
@@ -1041,7 +1041,7 @@ def open_server_process(
     check.opt_inst_param(loadable_target_origin, "loadable_target_origin", LoadableTargetOrigin)
     check.opt_int_param(max_workers, "max_workers")
 
-    from dagster._core.test_utils import get_mocked_system_timezone
+    from sheenflow._core.test_utils import get_mocked_system_timezone
 
     mocked_system_timezone = get_mocked_system_timezone()
 
@@ -1071,7 +1071,7 @@ def open_server_process(
 
     server_process = open_ipc_subprocess(subprocess_args, cwd=cwd, env=env)
 
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     client = DagsterGrpcClient(
         port=port,
@@ -1215,7 +1215,7 @@ class GrpcServerProcess:
             seven.wait_for_process(self.server_process, timeout=timeout)
 
     def create_ephemeral_client(self):
-        from dagster._grpc.client import EphemeralDagsterGrpcClient
+        from sheenflow._grpc.client import EphemeralDagsterGrpcClient
 
         return EphemeralDagsterGrpcClient(
             port=self.port, socket=self.socket, server_process=self.server_process

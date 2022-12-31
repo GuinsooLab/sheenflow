@@ -1,10 +1,10 @@
 from typing import Optional, Sequence
 
-import dagster._check as check
-from dagster._core.host_representation import RepositoryLocation
-from dagster._core.host_representation.external import ExternalPipeline
-from dagster._core.host_representation.origin import ExternalPipelineOrigin
-from dagster._core.host_representation.selector import PipelineSelector
+import sheenflow._check as check
+from sheenflow._core.host_representation import RepositoryLocation
+from sheenflow._core.host_representation.external import ExternalPipeline
+from sheenflow._core.host_representation.origin import ExternalPipelineOrigin
+from sheenflow._core.host_representation.selector import PipelineSelector
 
 
 def external_pipeline_from_location(

@@ -10,8 +10,8 @@ import pytest
 from click.testing import CliRunner
 from dagstermill.cli import create_notebook, retroactively_scaffold_notebook
 
-from dagster._check import CheckError
-from dagster._utils import file_relative_path, pushd
+from sheenflow._check import CheckError
+from sheenflow._utils import file_relative_path, pushd
 
 EXPECTED_IMPORT_STATEMENT = "from sheenflowmill.examples.repository import define_example_repository"
 

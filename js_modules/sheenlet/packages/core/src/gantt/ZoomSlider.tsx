@@ -1,4 +1,4 @@
-import {Colors, SliderStyles} from '@sheenflow-io/ui';
+import {Colors, SliderStyles} from '@dagster-io/ui';
 import * as React from 'react';
 import styled from 'styled-components/macro';
 

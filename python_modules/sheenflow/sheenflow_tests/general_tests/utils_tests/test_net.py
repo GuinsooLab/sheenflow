@@ -1,4 +1,4 @@
-from dagster._utils.net import is_local_uri
+from sheenflow._utils.net import is_local_uri
 
 
 def test_is_local_uri():

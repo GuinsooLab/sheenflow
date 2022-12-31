@@ -12,13 +12,13 @@ from dagster_graphql_tests.graphql.graphql_context_test_suite import (
 )
 
 from dagster import AssetMaterialization, Output, job, op, repository
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.execution.api import execute_run
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.storage.tags import PARENT_RUN_ID_TAG, ROOT_RUN_ID_TAG
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import execute_pipeline, lambda_solid, pipeline
-from dagster._utils import Counter, traced_counter
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.execution.api import execute_run
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.storage.tags import PARENT_RUN_ID_TAG, ROOT_RUN_ID_TAG
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import execute_pipeline, lambda_solid, pipeline
+from sheenflow._utils import Counter, traced_counter
 
 RUNS_QUERY = """
 query PipelineRunsRootQuery($selector: PipelineSelector!) {

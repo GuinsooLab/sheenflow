@@ -1,7 +1,7 @@
 import contextlib
 
 from dagster import _seven
-from dagster._serdes.ipc import interrupt_ipc_subprocess, open_ipc_subprocess
+from sheenflow._serdes.ipc import interrupt_ipc_subprocess, open_ipc_subprocess
 
 
 @contextlib.contextmanager

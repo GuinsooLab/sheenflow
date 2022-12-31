@@ -2,11 +2,11 @@ from abc import ABC, abstractmethod
 from enum import Enum
 from typing import NamedTuple, Optional
 
-from dagster._core.instance import MayHaveInstanceWeakref
-from dagster._core.origin import PipelinePythonOrigin
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.workspace.workspace import IWorkspace
-from dagster._serdes import whitelist_for_serdes
+from sheenflow._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.origin import PipelinePythonOrigin
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.workspace.workspace import IWorkspace
+from sheenflow._serdes import whitelist_for_serdes
 
 
 class LaunchRunContext(NamedTuple):

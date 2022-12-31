@@ -3,8 +3,8 @@ import os
 import subprocess
 from typing import Any, Mapping, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.utils import coerce_valid_log_level
+import sheenflow._check as check
+from sheenflow._core.utils import coerce_valid_log_level
 
 from ..errors import (
     DagsterDbtCliFatalRuntimeError,

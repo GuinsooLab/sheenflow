@@ -8,13 +8,13 @@ from dagster import (
     build_schedule_context,
     schedule,
 )
-from dagster._core.definitions.schedule_definition import (
+from sheenflow._core.definitions.schedule_definition import (
     ScheduleEvaluationContext,
     ScheduleExecutionContext,
 )
-from dagster._core.errors import DagsterInvalidInvocationError
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import daily_schedule
+from sheenflow._core.errors import DagsterInvalidInvocationError
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import daily_schedule
 
 
 def test_schedule_context_backcompat():

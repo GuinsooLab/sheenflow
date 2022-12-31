@@ -6,11 +6,11 @@ import pytest
 from pydantic import ValidationError
 
 from dagster import asset, job, op, resource
-from dagster._config.structured_config import Resource, StructuredResourceAdapter
-from dagster._core.definitions.assets_job import build_assets_job
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.definitions.resource_output import ResourceOutput
-from dagster._utils.cached_method import cached_method
+from sheenflow._config.structured_config import Resource, StructuredResourceAdapter
+from sheenflow._core.definitions.assets_job import build_assets_job
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.definitions.resource_output import ResourceOutput
+from sheenflow._utils.cached_method import cached_method
 
 
 def test_basic_structured_resource():

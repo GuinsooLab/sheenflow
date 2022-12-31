@@ -3,7 +3,7 @@ import inspect
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Any, NamedTuple, Optional
 
-from dagster._annotations import public
+from sheenflow._annotations import public
 
 if TYPE_CHECKING:
     from .op_definition import OpDefinition

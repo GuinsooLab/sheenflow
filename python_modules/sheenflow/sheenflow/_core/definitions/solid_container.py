@@ -13,9 +13,9 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.errors import DagsterInvalidDefinitionError
+import sheenflow._check as check
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 from .dependency import (
     DependencyDefinition,

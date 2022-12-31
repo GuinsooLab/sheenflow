@@ -1,26 +1,26 @@
 from typing import TYPE_CHECKING, Sequence
 
-import dagster._check as check
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._core.host_representation.external_data import (
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._core.host_representation.external_data import (
     ExternalPartitionConfigData,
     ExternalPartitionExecutionErrorData,
     ExternalPartitionNamesData,
     ExternalPartitionSetExecutionParamData,
     ExternalPartitionTagsData,
 )
-from dagster._core.host_representation.handle import RepositoryHandle
-from dagster._grpc.types import PartitionArgs, PartitionNamesArgs, PartitionSetExecutionParamArgs
-from dagster._serdes import deserialize_as
+from sheenflow._core.host_representation.handle import RepositoryHandle
+from sheenflow._grpc.types import PartitionArgs, PartitionNamesArgs, PartitionSetExecutionParamArgs
+from sheenflow._serdes import deserialize_as
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_external_partition_names_grpc(
     api_client: "DagsterGrpcClient", repository_handle: RepositoryHandle, partition_set_name: str
 ) -> ExternalPartitionNamesData:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     check.inst_param(repository_handle, "repository_handle", RepositoryHandle)
@@ -47,7 +47,7 @@ def sync_get_external_partition_config_grpc(
     partition_set_name: str,
     partition_name: str,
 ) -> ExternalPartitionConfigData:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     check.inst_param(repository_handle, "repository_handle", RepositoryHandle)
@@ -76,7 +76,7 @@ def sync_get_external_partition_tags_grpc(
     partition_set_name: str,
     partition_name: str,
 ) -> ExternalPartitionTagsData:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     check.inst_param(repository_handle, "repository_handle", RepositoryHandle)
@@ -106,7 +106,7 @@ def sync_get_external_partition_set_execution_param_data_grpc(
     partition_set_name: str,
     partition_names: Sequence[str],
 ) -> ExternalPartitionSetExecutionParamData:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     check.inst_param(repository_handle, "repository_handle", RepositoryHandle)

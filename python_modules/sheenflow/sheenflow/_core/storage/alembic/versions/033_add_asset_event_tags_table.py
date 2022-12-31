@@ -9,7 +9,7 @@ import sqlalchemy as db
 from alembic import op
 from sqlalchemy.dialects import sqlite
 
-from dagster._core.storage.migration.utils import has_index, has_table
+from sheenflow._core.storage.migration.utils import has_index, has_table
 
 # revision identifiers, used by Alembic.
 revision = "958a9495162d"

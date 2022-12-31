@@ -1,7 +1,7 @@
 from collections import OrderedDict, defaultdict
 
-import dagster._check as check
-from dagster._core.host_representation import ExternalRepository
+import sheenflow._check as check
+from sheenflow._core.host_representation import ExternalRepository
 
 from .utils import GraphSelector, capture_error
 

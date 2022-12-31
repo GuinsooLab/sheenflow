@@ -10,9 +10,9 @@ from dagster import (
     Output,
 )
 from dagster import _check as check
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.definitions.output import Out
-from dagster._legacy import (
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.definitions.output import Out
+from sheenflow._legacy import (
     InputDefinition,
     PipelineDefinition,
     execute_pipeline,

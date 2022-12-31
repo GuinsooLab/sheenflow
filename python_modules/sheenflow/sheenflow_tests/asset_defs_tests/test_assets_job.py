@@ -32,22 +32,22 @@ from dagster import (
     resource,
     with_resources,
 )
-from dagster._config import StringSource
-from dagster._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, build_assets_job
-from dagster._core.definitions.assets_job import get_base_asset_jobs
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.definitions.executor_definition import in_process_executor
-from dagster._core.errors import DagsterInvalidSubsetError
-from dagster._core.execution.api import execute_pipeline, execute_run_iterator
-from dagster._core.snap import DependencyStructureIndex
-from dagster._core.snap.dep_snapshot import (
+from sheenflow._config import StringSource
+from sheenflow._core.definitions import AssetGroup, AssetIn, SourceAsset, asset, build_assets_job
+from sheenflow._core.definitions.assets_job import get_base_asset_jobs
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.definitions.executor_definition import in_process_executor
+from sheenflow._core.errors import DagsterInvalidSubsetError
+from sheenflow._core.execution.api import execute_pipeline, execute_run_iterator
+from sheenflow._core.snap import DependencyStructureIndex
+from sheenflow._core.snap.dep_snapshot import (
     OutputHandleSnap,
     build_dep_structure_snapshot_from_icontains_solids,
 )
-from dagster._core.storage.event_log.base import EventRecordsFilter
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import safe_tempfile_path
-from dagster._utils.backcompat import ExperimentalWarning
+from sheenflow._core.storage.event_log.base import EventRecordsFilter
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import safe_tempfile_path
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 
 @pytest.fixture(autouse=True)

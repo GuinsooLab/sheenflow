@@ -1,11 +1,11 @@
 from typing import Any, Optional
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.job_definition import JobDefinition
-from dagster._core.definitions.logger_definition import LoggerDefinition
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.errors import DagsterInvariantViolationError
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.job_definition import JobDefinition
+from sheenflow._core.definitions.logger_definition import LoggerDefinition
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.errors import DagsterInvariantViolationError
 
 from .output import RUN_ID_PLACEHOLDER
 

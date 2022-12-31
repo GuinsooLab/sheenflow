@@ -4,13 +4,13 @@ from typing import Sequence
 
 import click
 
-from dagster._generate import (
+from sheenflow._generate import (
     download_example_from_github,
     generate_code_location,
     generate_project,
     generate_repository,
 )
-from dagster._generate.download import AVAILABLE_EXAMPLES
+from sheenflow._generate.download import AVAILABLE_EXAMPLES
 
 
 @click.group(name="project")

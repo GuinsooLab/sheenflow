@@ -17,23 +17,23 @@ from typing import (
 
 from typing_extensions import TypeAlias, get_origin
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._config.config_schema import UserConfigSchema
-from dagster._core.decorator_utils import get_function_params
-from dagster._core.definitions.dependency import NodeHandle
-from dagster._core.definitions.node_definition import NodeDefinition
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.resource_requirement import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._config.config_schema import UserConfigSchema
+from sheenflow._core.decorator_utils import get_function_params
+from sheenflow._core.definitions.dependency import NodeHandle
+from sheenflow._core.definitions.node_definition import NodeDefinition
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.resource_requirement import (
     InputManagerRequirement,
     OpDefinitionResourceRequirement,
     OutputManagerRequirement,
     ResourceRequirement,
 )
-from dagster._core.definitions.solid_invocation import op_invocation_result
-from dagster._core.errors import DagsterInvalidInvocationError, DagsterInvariantViolationError
-from dagster._core.types.dagster_type import DagsterType, DagsterTypeKind
-from dagster._utils.backcompat import canonicalize_backcompat_args, deprecation_warning
+from sheenflow._core.definitions.solid_invocation import op_invocation_result
+from sheenflow._core.errors import DagsterInvalidInvocationError, DagsterInvariantViolationError
+from sheenflow._core.types.dagster_type import DagsterType, DagsterTypeKind
+from sheenflow._utils.backcompat import canonicalize_backcompat_args, deprecation_warning
 
 from .definition_config_schema import (
     IDefinitionConfigSchema,
@@ -45,7 +45,7 @@ from .input import In, InputDefinition
 from .output import Out, OutputDefinition
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.asset_layer import AssetLayer
+    from sheenflow._core.definitions.asset_layer import AssetLayer
 
     from .composition import PendingNodeInvocation
     from .decorators.solid_decorator import DecoratedOpFunction

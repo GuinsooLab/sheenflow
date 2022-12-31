@@ -1,4 +1,4 @@
-from dagster._core.decorator_utils import (
+from sheenflow._core.decorator_utils import (
     format_docstring_for_description,
     get_function_params,
     validate_expected_params,

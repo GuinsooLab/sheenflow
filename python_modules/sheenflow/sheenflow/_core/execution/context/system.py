@@ -22,57 +22,57 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.events import AssetKey, AssetLineageInfo
-from dagster._core.definitions.hook_definition import HookDefinition
-from dagster._core.definitions.logical_version import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.events import AssetKey, AssetLineageInfo
+from sheenflow._core.definitions.hook_definition import HookDefinition
+from sheenflow._core.definitions.logical_version import (
     LogicalVersion,
     extract_logical_version_from_entry,
 )
-from dagster._core.definitions.mode import ModeDefinition
-from dagster._core.definitions.op_definition import OpDefinition
-from dagster._core.definitions.partition import PartitionsDefinition, PartitionsSubset
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.pipeline_base import IPipeline
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.definitions.resource_definition import ScopedResourcesBuilder
-from dagster._core.definitions.step_launcher import StepLauncher
-from dagster._core.definitions.time_window_partitions import (
+from sheenflow._core.definitions.mode import ModeDefinition
+from sheenflow._core.definitions.op_definition import OpDefinition
+from sheenflow._core.definitions.partition import PartitionsDefinition, PartitionsSubset
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.pipeline_base import IPipeline
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.definitions.resource_definition import ScopedResourcesBuilder
+from sheenflow._core.definitions.step_launcher import StepLauncher
+from sheenflow._core.definitions.time_window_partitions import (
     TimeWindow,
     TimeWindowPartitionsDefinition,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.execution.plan.handle import ResolvedFromDynamicStepHandle, StepHandle
-from dagster._core.execution.plan.outputs import StepOutputHandle
-from dagster._core.execution.plan.step import ExecutionStep
-from dagster._core.execution.retries import RetryMode
-from dagster._core.executor.base import Executor
-from dagster._core.log_manager import DagsterLogManager
-from dagster._core.storage.io_manager import IOManager
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.storage.tags import (
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.execution.plan.handle import ResolvedFromDynamicStepHandle, StepHandle
+from sheenflow._core.execution.plan.outputs import StepOutputHandle
+from sheenflow._core.execution.plan.step import ExecutionStep
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.executor.base import Executor
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._core.storage.io_manager import IOManager
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.storage.tags import (
     ASSET_PARTITION_RANGE_END_TAG,
     ASSET_PARTITION_RANGE_START_TAG,
     MULTIDIMENSIONAL_PARTITION_PREFIX,
     PARTITION_NAME_TAG,
 )
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._core.types.dagster_type import DagsterType
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.types.dagster_type import DagsterType
 
 from .input import InputContext
 from .output import OutputContext, get_output_context
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.dependency import Node, NodeHandle
-    from dagster._core.definitions.job_definition import JobDefinition
-    from dagster._core.definitions.resource_definition import Resources
-    from dagster._core.event_api import EventLogRecord
-    from dagster._core.execution.plan.plan import ExecutionPlan
-    from dagster._core.execution.plan.state import KnownExecutionState
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.definitions.dependency import Node, NodeHandle
+    from sheenflow._core.definitions.job_definition import JobDefinition
+    from sheenflow._core.definitions.resource_definition import Resources
+    from sheenflow._core.event_api import EventLogRecord
+    from sheenflow._core.execution.plan.plan import ExecutionPlan
+    from sheenflow._core.execution.plan.state import KnownExecutionState
+    from sheenflow._core.instance import DagsterInstance
 
     from .hook import HookContext
 
@@ -340,7 +340,7 @@ class PlanExecutionContext(IPlanContext):
 
     @property
     def partition_key(self) -> str:
-        from dagster._core.definitions.multi_dimensional_partitions import (
+        from sheenflow._core.definitions.multi_dimensional_partitions import (
             get_multipartition_key_from_tags,
         )
 
@@ -359,7 +359,7 @@ class PlanExecutionContext(IPlanContext):
 
     @property
     def asset_partition_key_range(self) -> PartitionKeyRange:
-        from dagster._core.definitions.multi_dimensional_partitions import (
+        from sheenflow._core.definitions.multi_dimensional_partitions import (
             get_multipartition_key_from_tags,
         )
 
@@ -380,7 +380,7 @@ class PlanExecutionContext(IPlanContext):
 
     @property
     def partition_time_window(self) -> str:
-        from dagster._core.definitions.job_definition import JobDefinition
+        from sheenflow._core.definitions.job_definition import JobDefinition
 
         pipeline_def = self._execution_data.pipeline_def
         if not isinstance(pipeline_def, JobDefinition):
@@ -432,7 +432,7 @@ class StepExecutionContext(PlanExecutionContext, IStepContext):
         output_capture: Optional[Dict[StepOutputHandle, Any]],
         known_state: Optional["KnownExecutionState"],
     ):
-        from dagster._core.execution.resources_init import get_required_resource_keys_for_step
+        from sheenflow._core.execution.resources_init import get_required_resource_keys_for_step
 
         super(StepExecutionContext, self).__init__(
             plan_data=plan_data,

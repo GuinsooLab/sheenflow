@@ -16,14 +16,14 @@ from dagster import (
     job,
     op,
 )
-from dagster._core.definitions import AssetIn, SourceAsset, asset, build_assets_job, multi_asset
-from dagster._core.definitions.metadata import MetadataValue, normalize_metadata
-from dagster._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
-from dagster._core.definitions.partition import ScheduleType
-from dagster._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
-from dagster._core.definitions.utils import DEFAULT_GROUP_NAME
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.host_representation.external_data import (
+from sheenflow._core.definitions import AssetIn, SourceAsset, asset, build_assets_job, multi_asset
+from sheenflow._core.definitions.metadata import MetadataValue, normalize_metadata
+from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
+from sheenflow._core.definitions.partition import ScheduleType
+from sheenflow._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
+from sheenflow._core.definitions.utils import DEFAULT_GROUP_NAME
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.host_representation.external_data import (
     ExternalAssetDependedBy,
     ExternalAssetDependency,
     ExternalAssetNode,
@@ -34,8 +34,8 @@ from dagster._core.host_representation.external_data import (
     external_multi_partitions_definition_from_def,
     external_time_window_partitions_definition_from_def,
 )
-from dagster._serdes import deserialize_json_to_dagster_namedtuple
-from dagster._utils.partitions import DEFAULT_HOURLY_FORMAT_WITHOUT_TIMEZONE
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple
+from sheenflow._utils.partitions import DEFAULT_HOURLY_FORMAT_WITHOUT_TIMEZONE
 
 
 def test_single_asset_job():

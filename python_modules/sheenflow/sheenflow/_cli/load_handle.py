@@ -3,9 +3,9 @@ from typing import Mapping, cast
 
 from click import UsageError
 
-import dagster._check as check
-from dagster._cli.workspace.cli_target import get_working_directory_from_kwargs
-from dagster._core.definitions.reconstruct import ReconstructableRepository
+import sheenflow._check as check
+from sheenflow._cli.workspace.cli_target import get_working_directory_from_kwargs
+from sheenflow._core.definitions.reconstruct import ReconstructableRepository
 
 
 def _cli_load_invariant(condition, msg=None):

@@ -3,14 +3,14 @@ from unittest import mock
 
 import pytest
 
-from dagster._core.errors import (
+from sheenflow._core.errors import (
     DagsterRepositoryLocationLoadError,
     DagsterRepositoryLocationNotFoundError,
 )
-from dagster._core.host_representation.origin import RegisteredRepositoryLocationOrigin
-from dagster._core.workspace.context import WorkspaceRequestContext
-from dagster._core.workspace.workspace import WorkspaceLocationEntry, WorkspaceLocationLoadStatus
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._core.host_representation.origin import RegisteredRepositoryLocationOrigin
+from sheenflow._core.workspace.context import WorkspaceRequestContext
+from sheenflow._core.workspace.workspace import WorkspaceLocationEntry, WorkspaceLocationLoadStatus
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 def test_get_repository_location():

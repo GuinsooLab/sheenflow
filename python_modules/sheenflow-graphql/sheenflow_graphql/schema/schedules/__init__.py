@@ -1,9 +1,9 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.host_representation import ExternalSchedule, ScheduleSelector
-from dagster._core.host_representation.selector import RepositorySelector
-from dagster._core.workspace.permissions import Permissions
+import sheenflow._check as check
+from sheenflow._core.host_representation import ExternalSchedule, ScheduleSelector
+from sheenflow._core.host_representation.selector import RepositorySelector
+from sheenflow._core.workspace.permissions import Permissions
 
 from ...implementation.fetch_schedules import start_schedule, stop_schedule
 from ...implementation.utils import capture_error, check_permission

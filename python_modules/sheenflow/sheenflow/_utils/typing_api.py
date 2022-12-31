@@ -5,7 +5,7 @@ import typing
 
 from typing_extensions import get_args, get_origin
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 def is_closed_python_optional_type(ttype):

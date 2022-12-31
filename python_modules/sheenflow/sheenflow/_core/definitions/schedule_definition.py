@@ -20,12 +20,12 @@ from typing import (
 import pendulum
 from typing_extensions import TypeAlias, TypeGuard
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.instigation_logger import InstigationLogger
-from dagster._serdes import whitelist_for_serdes
-from dagster._utils import ensure_gen, merge_dicts
-from dagster._utils.schedules import is_valid_cron_schedule
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.instigation_logger import InstigationLogger
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._utils import ensure_gen, merge_dicts
+from sheenflow._utils.schedules import is_valid_cron_schedule
 
 from ..decorator_utils import get_function_params
 from ..errors import (

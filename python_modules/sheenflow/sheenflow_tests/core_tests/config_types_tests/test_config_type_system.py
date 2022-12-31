@@ -27,8 +27,8 @@ from dagster import (
     job,
     op,
 )
-from dagster._check import ParameterCheckError
-from dagster._config import (
+from sheenflow._check import ParameterCheckError
+from sheenflow._config import (
     DagsterEvaluationErrorReason,
     Map,
     Shape,
@@ -36,7 +36,7 @@ from dagster._config import (
     process_config,
     validate_config,
 )
-from dagster._utils.test import wrap_op_in_graph_and_execute
+from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 
 def test_noop_config():

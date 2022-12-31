@@ -8,7 +8,7 @@ import {
   MiddleTruncate,
   Tag,
   Tooltip,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 

@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {Box, Button, Icon} from '@sheenflow-io/ui';
+import {Box, Button, Icon} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {breakOnUnderscores} from '../app/Util';

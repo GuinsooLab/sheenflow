@@ -14,12 +14,12 @@ from jupyter_client.kernelspec import NoSuchKernel
 from nbconvert.preprocessors import ExecutePreprocessor
 
 from dagster import job
-from dagster._check import CheckError
-from dagster._core.definitions.metadata import NotebookMetadataValue, PathMetadataValue
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import execute_pipeline
-from dagster._utils import file_relative_path, safe_tempfile_path
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.metadata import NotebookMetadataValue, PathMetadataValue
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import execute_pipeline
+from sheenflow._utils import file_relative_path, safe_tempfile_path
 
 DAGSTER_PANDAS_PRESENT = importlib.util.find_spec("sheenflow_pandas") is not None
 SKLEARN_PRESENT = importlib.util.find_spec("sklearn") is not None

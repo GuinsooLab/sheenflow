@@ -21,28 +21,28 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions import ExecutorDefinition, ModeDefinition, PipelineDefinition
-from dagster._core.definitions.executor_definition import check_cross_process_constraints
-from dagster._core.definitions.pipeline_base import IPipeline
-from dagster._core.definitions.resource_definition import ScopedResourcesBuilder
-from dagster._core.errors import DagsterError, DagsterUserCodeExecutionError
-from dagster._core.events import DagsterEvent
-from dagster._core.execution.memoization import validate_reexecution_memoization
-from dagster._core.execution.plan.plan import ExecutionPlan
-from dagster._core.execution.resources_init import (
+import sheenflow._check as check
+from sheenflow._core.definitions import ExecutorDefinition, ModeDefinition, PipelineDefinition
+from sheenflow._core.definitions.executor_definition import check_cross_process_constraints
+from sheenflow._core.definitions.pipeline_base import IPipeline
+from sheenflow._core.definitions.resource_definition import ScopedResourcesBuilder
+from sheenflow._core.errors import DagsterError, DagsterUserCodeExecutionError
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.execution.memoization import validate_reexecution_memoization
+from sheenflow._core.execution.plan.plan import ExecutionPlan
+from sheenflow._core.execution.resources_init import (
     get_required_resource_keys_to_init,
     resource_initialization_manager,
 )
-from dagster._core.execution.retries import RetryMode
-from dagster._core.executor.init import InitExecutorContext
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DagsterLogManager
-from dagster._core.storage.pipeline_run import DagsterRun
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._loggers import default_loggers, default_system_loggers
-from dagster._utils import EventGenerationManager
-from dagster._utils.error import serializable_error_info_from_exc_info
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.executor.init import InitExecutorContext
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._loggers import default_loggers, default_system_loggers
+from sheenflow._utils import EventGenerationManager
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from .context.logger import InitLoggerContext
 from .context.system import (
@@ -54,8 +54,8 @@ from .context.system import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.execution.plan.outputs import StepOutputHandle
-    from dagster._core.executor.base import Executor
+    from sheenflow._core.execution.plan.outputs import StepOutputHandle
+    from sheenflow._core.executor.base import Executor
 
 
 def initialize_console_manager(

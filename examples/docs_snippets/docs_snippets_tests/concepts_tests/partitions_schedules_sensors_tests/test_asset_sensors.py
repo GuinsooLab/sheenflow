@@ -7,7 +7,7 @@ from dagster import (
     materialize,
     repository,
 )
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.test_utils import instance_for_test
 from docs_snippets.concepts.partitions_schedules_sensors.sensors.asset_sensors import (
     asset_a_and_b_sensor,
     asset_a_and_b_sensor_with_skip_reason,

@@ -1,7 +1,7 @@
 from typing import AbstractSet, Any, Mapping, NamedTuple, Optional, Sequence, Set, Union, cast
 
 from dagster import _check as check
-from dagster._config import (
+from sheenflow._config import (
     FIELD_NO_DEFAULT_PROVIDED,
     Array,
     ConfigEnumValueSnap,
@@ -21,15 +21,15 @@ from dagster._config import (
     Shape,
     get_builtin_scalar_by_name,
 )
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.job_definition import JobDefinition
-from dagster._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
-from dagster._core.definitions.pipeline_definition import (
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.job_definition import JobDefinition
+from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
+from sheenflow._core.definitions.pipeline_definition import (
     PipelineDefinition,
     PipelineSubsetDefinition,
 )
-from dagster._core.utils import toposort_flatten
-from dagster._serdes import (
+from sheenflow._core.utils import toposort_flatten
+from sheenflow._serdes import (
     DefaultNamedTupleSerializer,
     create_snapshot_id,
     deserialize_value,

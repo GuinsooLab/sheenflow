@@ -1,7 +1,7 @@
 import {useMutation} from '@apollo/client';
 // eslint-disable-next-line no-restricted-imports
 import {TextArea} from '@blueprintjs/core';
-import {ButtonLink, Button, Colors, DialogBody, DialogFooter, Dialog, Group} from '@sheenflow-io/ui';
+import {ButtonLink, Button, Colors, DialogBody, DialogFooter, Dialog, Group} from '@dagster-io/ui';
 import * as React from 'react';
 
 import 'chartjs-adapter-date-fns';
@@ -10,7 +10,7 @@ import {showCustomAlert} from '../app/CustomAlertProvider';
 import {SharedToaster} from '../app/DomUtils';
 import {PythonErrorInfo} from '../app/PythonErrorInfo';
 import {graphql} from '../graphql';
-import {SensorSelector} from '../types/globalTypes';
+import {SensorSelector} from '../graphql/graphql';
 
 export const EditCursorDialog: React.FC<{
   cursor: string;

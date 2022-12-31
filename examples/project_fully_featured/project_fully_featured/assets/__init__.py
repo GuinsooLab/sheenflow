@@ -4,7 +4,7 @@ import os
 from dagster_dbt import load_assets_from_dbt_manifest
 
 from dagster import load_assets_from_package_module
-from dagster._utils import file_relative_path
+from sheenflow._utils import file_relative_path
 
 from . import activity_analytics, core, recommender
 

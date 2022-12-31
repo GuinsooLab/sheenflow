@@ -9,15 +9,15 @@ import grpc
 from grpc_health.v1 import health_pb2
 from grpc_health.v1.health_pb2_grpc import HealthStub
 
-import dagster._check as check
-import dagster._seven as seven
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._core.events import EngineEventData
-from dagster._core.host_representation.origin import ExternalRepositoryOrigin
-from dagster._core.instance import DagsterInstance
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._serdes import serialize_dagster_namedtuple
-from dagster._utils.error import serializable_error_info_from_exc_info
+import sheenflow._check as check
+import sheenflow._seven as seven
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._core.events import EngineEventData
+from sheenflow._core.host_representation.origin import ExternalRepositoryOrigin
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._serdes import serialize_dagster_namedtuple
+from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 from .__generated__ import DagsterApiStub, api_pb2
 from .server import GrpcServerProcess
@@ -518,7 +518,7 @@ def ephemeral_grpc_api_client(
     check.bool_param(force_port, "force_port")
     check.int_param(max_retries, "max_retries")
 
-    from dagster._core.test_utils import instance_for_test
+    from sheenflow._core.test_utils import instance_for_test
 
     with instance_for_test() as instance:
         with GrpcServerProcess(

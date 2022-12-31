@@ -1,9 +1,9 @@
 from dagster_airflow.compile import coalesce_execution_steps
 from dagster_test.toys.composition import composition
 
-from dagster._core.definitions.pipeline_base import InMemoryPipeline
-from dagster._core.execution.plan.plan import ExecutionPlan
-from dagster._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
+from sheenflow._core.execution.plan.plan import ExecutionPlan
+from sheenflow._core.system_config.objects import ResolvedRunConfig
 
 
 def test_compile():

@@ -26,22 +26,22 @@ from dagster import (
     resource,
     success_hook,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.graph_definition import GraphDefinition
-from dagster._core.definitions.partition import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.graph_definition import GraphDefinition
+from sheenflow._core.definitions.partition import (
     Partition,
     PartitionedConfig,
     StaticPartitionsDefinition,
 )
-from dagster._core.definitions.pipeline_definition import PipelineSubsetDefinition
-from dagster._core.definitions.time_window_partitions import DailyPartitionsDefinition, TimeWindow
-from dagster._core.errors import (
+from sheenflow._core.definitions.pipeline_definition import PipelineSubsetDefinition
+from sheenflow._core.definitions.time_window_partitions import DailyPartitionsDefinition, TimeWindow
+from sheenflow._core.errors import (
     DagsterConfigMappingFunctionError,
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
 )
-from dagster._core.test_utils import instance_for_test
-from dagster._loggers import json_console_logger
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._loggers import json_console_logger
 
 
 def get_ops():

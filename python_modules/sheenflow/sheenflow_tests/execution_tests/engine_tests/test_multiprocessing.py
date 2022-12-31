@@ -15,13 +15,13 @@ from dagster import (
     multiprocess_executor,
     reconstructable,
 )
-from dagster._core.errors import DagsterUnmetExecutorRequirementsError
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.execution.results import OpExecutionResult, PipelineExecutionResult
-from dagster._core.instance import DagsterInstance
-from dagster._core.storage.captured_log_manager import CapturedLogManager
-from dagster._core.test_utils import default_mode_def_for_test, instance_for_test
-from dagster._legacy import (
+from sheenflow._core.errors import DagsterUnmetExecutorRequirementsError
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.execution.results import OpExecutionResult, PipelineExecutionResult
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.storage.captured_log_manager import CapturedLogManager
+from sheenflow._core.test_utils import default_mode_def_for_test, instance_for_test
+from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,
     PresetDefinition,
@@ -30,7 +30,7 @@ from dagster._legacy import (
     pipeline,
     solid,
 )
-from dagster._utils import safe_tempfile_path, segfault
+from sheenflow._utils import safe_tempfile_path, segfault
 
 from .retry_jobs import (
     assert_expected_failure_behavior,

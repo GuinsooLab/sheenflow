@@ -2,17 +2,17 @@
 import subprocess
 
 from dagster import OpExecutionContext, RetryRequested, executor, job, op, reconstructable
-from dagster._config import Permissive
-from dagster._core.definitions.executor_definition import multiple_process_executor_requirements
-from dagster._core.execution.api import execute_pipeline
-from dagster._core.execution.retries import RetryMode
-from dagster._core.executor.step_delegating import (
+from sheenflow._config import Permissive
+from sheenflow._core.definitions.executor_definition import multiple_process_executor_requirements
+from sheenflow._core.execution.api import execute_pipeline
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.executor.step_delegating import (
     CheckStepHealthResult,
     StepDelegatingExecutor,
     StepHandler,
 )
-from dagster._core.test_utils import instance_for_test
-from dagster._utils import merge_dicts
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._utils import merge_dicts
 
 
 class TestStepHandler(StepHandler):

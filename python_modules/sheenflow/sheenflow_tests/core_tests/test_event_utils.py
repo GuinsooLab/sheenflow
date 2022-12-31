@@ -1,7 +1,7 @@
-import dagster._check as check
-from dagster._core.events import DagsterEvent
-from dagster._core.events.utils import filter_dagster_events_from_cli_logs
-from dagster._core.execution.plan.objects import StepSuccessData
+import sheenflow._check as check
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.events.utils import filter_dagster_events_from_cli_logs
+from sheenflow._core.execution.plan.objects import StepSuccessData
 
 
 def test_filter_dagster_events_from_cli_logs():

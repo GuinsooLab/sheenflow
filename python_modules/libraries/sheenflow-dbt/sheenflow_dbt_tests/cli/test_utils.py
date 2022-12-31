@@ -5,7 +5,7 @@ import sys
 import pytest
 from dagster_dbt.cli.utils import execute_cli
 
-import dagster._check as check
+import sheenflow._check as check
 
 
 def test_execute_cli_requires_dbt_installed(monkeypatch, test_project_dir, dbt_config_dir):

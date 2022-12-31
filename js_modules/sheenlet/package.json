@@ -1,14 +1,14 @@
 {
-  "name": "@sheenlet/sheenlet-workspace",
+  "name": "@dagster-io/dagit-workspace",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "yarn workspace sheenlet-app build && yarn post-build",
-    "build-with-profiling": "yarn workspace @sheenlet/sheenlet-app build --profile && yarn post-build",
+    "build": "yarn workspace @dagster-io/dagit-app build && yarn post-build",
+    "build-with-profiling": "yarn workspace @dagster-io/dagit-app build --profile && yarn post-build",
     "post-build": "cd ../../python_modules/sheenlet/sheenlet && rm -rf webapp && mkdir -p webapp && cp -r ../../../js_modules/sheenlet/packages/app/build ./webapp/ && mkdir -p webapp/build/vendor && cp -r graphql-playground ./webapp/build/vendor",
-    "lint": "yarn workspace @sheenlet/sheenlet-app lint && yarn workspace @sheenlet/sheenlet-core lint && yarn workspace @sheenlet/ui lint",
-    "start": "yarn workspace @sheenlet/sheenlet-app start",
-    "ts": "yarn workspace @sheenlet/sheenlet-app ts && yarn workspace @sheenlet/ui ts"
+    "lint": "yarn workspace @dagster-io/dagit-app lint && yarn workspace @dagster-io/dagit-core lint && yarn workspace @dagster-io/ui lint",
+    "start": "yarn workspace @dagster-io/dagit-app start",
+    "ts": "yarn workspace @dagster-io/dagit-app ts && yarn workspace @dagster-io/ui ts"
   },
   "workspaces": {
     "packages": [

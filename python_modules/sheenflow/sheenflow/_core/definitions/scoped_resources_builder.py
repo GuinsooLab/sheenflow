@@ -10,8 +10,8 @@
 from collections import namedtuple
 from typing import AbstractSet, Mapping, NamedTuple, Optional
 
-import dagster._check as check
-from dagster._core.errors import DagsterUnknownResourceError
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUnknownResourceError
 
 
 class IContainsGenerator:

@@ -15,9 +15,9 @@ from dagster import (
     multi_asset,
     repository,
 )
-from dagster._core.definitions.asset_graph import AssetGraph
-from dagster._core.definitions.asset_layer import build_asset_selection_job
-from dagster._utils.caching_instance_queryer import CachingInstanceQueryer
+from sheenflow._core.definitions.asset_graph import AssetGraph
+from sheenflow._core.definitions.asset_layer import build_asset_selection_job
+from sheenflow._utils.caching_instance_queryer import CachingInstanceQueryer
 
 
 @pytest.mark.parametrize("ignore_asset_tags", [True, False])

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from dagster._annotations import public
-from dagster._core.execution.retries import RetryMode
+from sheenflow._annotations import public
+from sheenflow._core.execution.retries import RetryMode
 
 
 class Executor(ABC):  # pylint: disable=no-init

@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'plugin:eslint-plugin-sheenflow-rules/all',
+    'plugin:eslint-plugin-dagster-rules/all',
     'plugin:react/recommended',
     'plugin:jest/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -47,15 +47,15 @@ module.exports = {
         paths: [
           {
             name: '@blueprintjs/core',
-            message: 'Please use components from ui instead.',
+            message: 'Please use components from @dagster-io/ui instead.',
           },
           {
             name: '@blueprintjs/popover2',
-            message: 'Please use components from ui instead.',
+            message: 'Please use components from @dagster-io/ui instead.',
           },
           {
             name: '@blueprintjs/select',
-            message: 'Please use components from ui instead.',
+            message: 'Please use components from @dagster-io/ui instead.',
           },
           {
             name: 'graphql-tag',
@@ -106,7 +106,6 @@ module.exports = {
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',

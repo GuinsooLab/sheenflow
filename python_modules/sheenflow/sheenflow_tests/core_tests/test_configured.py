@@ -1,5 +1,5 @@
 from dagster import resource
-from dagster._legacy import ModeDefinition, execute_pipeline, pipeline, solid
+from sheenflow._legacy import ModeDefinition, execute_pipeline, pipeline, solid
 
 
 def test_configured_solids_and_resources():

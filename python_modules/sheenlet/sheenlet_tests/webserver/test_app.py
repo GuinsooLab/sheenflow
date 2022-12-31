@@ -9,8 +9,8 @@ from starlette.testclient import TestClient
 
 from dagster import __version__ as dagster_version
 from dagster import job, op
-from dagster._core.events import DagsterEventType
-from dagster._seven import json
+from sheenflow._core.events import DagsterEventType
+from sheenflow._seven import json
 
 EVENT_LOG_SUBSCRIPTION = """
 subscription PipelineRunLogsSubscription($runId: ID!) {

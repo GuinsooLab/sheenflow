@@ -11,7 +11,7 @@ from dagster import (
     run_failure_sensor,
     run_status_sensor,
 )
-from dagster._core.definitions.run_request import PipelineRunReaction
+from sheenflow._core.definitions.run_request import PipelineRunReaction
 
 
 @op

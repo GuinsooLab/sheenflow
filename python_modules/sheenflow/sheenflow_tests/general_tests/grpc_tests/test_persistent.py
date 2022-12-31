@@ -8,34 +8,34 @@ import uuid
 import pytest
 
 from dagster import _seven
-from dagster._api.list_repositories import sync_list_repositories_grpc
-from dagster._core.errors import DagsterUserCodeUnreachableError
-from dagster._core.host_representation.origin import (
+from sheenflow._api.list_repositories import sync_list_repositories_grpc
+from sheenflow._core.errors import DagsterUserCodeUnreachableError
+from sheenflow._core.host_representation.origin import (
     ExternalPipelineOrigin,
     ExternalRepositoryOrigin,
     GrpcServerRepositoryLocationOrigin,
     RegisteredRepositoryLocationOrigin,
 )
-from dagster._core.storage.pipeline_run import DagsterRunStatus
-from dagster._core.test_utils import (
+from sheenflow._core.storage.pipeline_run import DagsterRunStatus
+from sheenflow._core.test_utils import (
     create_run_for_test,
     environ,
     instance_for_test,
     new_cwd,
     poll_for_finished_run,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._grpc.client import DagsterGrpcClient
-from dagster._grpc.server import (
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._grpc.client import DagsterGrpcClient
+from sheenflow._grpc.server import (
     ExecuteExternalPipelineArgs,
     open_server_process,
     wait_for_grpc_server,
 )
-from dagster._grpc.types import ListRepositoriesResponse, SensorExecutionArgs
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
-from dagster._seven import get_system_temp_directory
-from dagster._utils import file_relative_path, find_free_port
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._grpc.types import ListRepositoriesResponse, SensorExecutionArgs
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple
+from sheenflow._seven import get_system_temp_directory
+from sheenflow._utils import file_relative_path, find_free_port
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 def _get_ipc_output_file():

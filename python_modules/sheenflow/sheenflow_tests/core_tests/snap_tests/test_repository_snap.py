@@ -1,9 +1,9 @@
 from dagster import job, op, repository
-from dagster._core.host_representation import (
+from sheenflow._core.host_representation import (
     ExternalPipelineData,
     external_repository_data_from_def,
 )
-from dagster._core.snap import PipelineSnapshot
+from sheenflow._core.snap import PipelineSnapshot
 
 
 def test_repository_snap_all_props():

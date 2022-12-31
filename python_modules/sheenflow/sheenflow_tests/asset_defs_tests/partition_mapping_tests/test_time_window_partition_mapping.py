@@ -8,7 +8,7 @@ from dagster import (
     TimeWindowPartitionsDefinition,
     WeeklyPartitionsDefinition,
 )
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
 
 
 def subset_with_key(partitions_def: TimeWindowPartitionsDefinition, key: str):

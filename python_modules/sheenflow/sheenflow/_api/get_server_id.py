@@ -1,15 +1,15 @@
 from typing import TYPE_CHECKING
 
-import dagster._check as check
-from dagster._core.errors import DagsterUserCodeProcessError
-from dagster._utils.error import SerializableErrorInfo
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterUserCodeProcessError
+from sheenflow._utils.error import SerializableErrorInfo
 
 if TYPE_CHECKING:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
 
 def sync_get_server_id(api_client: "DagsterGrpcClient") -> str:
-    from dagster._grpc.client import DagsterGrpcClient
+    from sheenflow._grpc.client import DagsterGrpcClient
 
     check.inst_param(api_client, "api_client", DagsterGrpcClient)
     result = check.inst(api_client.get_server_id(), (str, SerializableErrorInfo))

@@ -2,9 +2,9 @@ import warnings
 
 import pytest
 
-import dagster.version
-from dagster._core.test_utils import environ
-from dagster._core.utils import check_dagster_package_version, parse_env_var
+import sheenflow.version
+from sheenflow._core.test_utils import environ
+from sheenflow._core.utils import check_dagster_package_version, parse_env_var
 
 
 def test_parse_env_var_no_equals():

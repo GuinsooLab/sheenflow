@@ -5,7 +5,7 @@ from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
 from dagster_celery_k8s import celery_k8s_job_executor
 
 from dagster import file_relative_path, repository
-from dagster._legacy import (
+from sheenflow._legacy import (
     InputDefinition,
     ModeDefinition,
     PresetDefinition,

@@ -4,9 +4,9 @@ from dagster_graphql.test.utils import (
     infer_repository_selector,
 )
 
-from dagster._core.test_utils import SingleThreadPoolExecutor, wait_for_futures
-from dagster._daemon import get_default_daemon_logger
-from dagster._daemon.sensor import execute_sensor_iteration
+from sheenflow._core.test_utils import SingleThreadPoolExecutor, wait_for_futures
+from sheenflow._daemon import get_default_daemon_logger
+from sheenflow._daemon.sensor import execute_sensor_iteration
 
 from .graphql_context_test_suite import NonLaunchableGraphQLContextTestMatrix
 

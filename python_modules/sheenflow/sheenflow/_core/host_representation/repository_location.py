@@ -5,50 +5,50 @@ from abc import abstractmethod
 from contextlib import AbstractContextManager
 from typing import TYPE_CHECKING, Any, Dict, Mapping, Optional, Sequence, Tuple, Union, cast
 
-import dagster._check as check
-from dagster._api.get_server_id import sync_get_server_id
-from dagster._api.list_repositories import sync_list_repositories_grpc
-from dagster._api.notebook_data import sync_get_streaming_external_notebook_data_grpc
-from dagster._api.snapshot_execution_plan import sync_get_external_execution_plan_grpc
-from dagster._api.snapshot_partition import (
+import sheenflow._check as check
+from sheenflow._api.get_server_id import sync_get_server_id
+from sheenflow._api.list_repositories import sync_list_repositories_grpc
+from sheenflow._api.notebook_data import sync_get_streaming_external_notebook_data_grpc
+from sheenflow._api.snapshot_execution_plan import sync_get_external_execution_plan_grpc
+from sheenflow._api.snapshot_partition import (
     sync_get_external_partition_config_grpc,
     sync_get_external_partition_names_grpc,
     sync_get_external_partition_set_execution_param_data_grpc,
     sync_get_external_partition_tags_grpc,
 )
-from dagster._api.snapshot_pipeline import sync_get_external_pipeline_subset_grpc
-from dagster._api.snapshot_repository import sync_get_streaming_external_repositories_data_grpc
-from dagster._api.snapshot_schedule import sync_get_external_schedule_execution_data_grpc
-from dagster._api.snapshot_sensor import sync_get_external_sensor_execution_data_grpc
-from dagster._core.code_pointer import CodePointer
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.definitions.repository_definition import RepositoryDefinition
-from dagster._core.errors import DagsterInvariantViolationError, DagsterUserCodeProcessError
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.execution.plan.state import KnownExecutionState
-from dagster._core.host_representation import ExternalPipelineSubsetResult
-from dagster._core.host_representation.external import (
+from sheenflow._api.snapshot_pipeline import sync_get_external_pipeline_subset_grpc
+from sheenflow._api.snapshot_repository import sync_get_streaming_external_repositories_data_grpc
+from sheenflow._api.snapshot_schedule import sync_get_external_schedule_execution_data_grpc
+from sheenflow._api.snapshot_sensor import sync_get_external_sensor_execution_data_grpc
+from sheenflow._core.code_pointer import CodePointer
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.definitions.repository_definition import RepositoryDefinition
+from sheenflow._core.errors import DagsterInvariantViolationError, DagsterUserCodeProcessError
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.execution.plan.state import KnownExecutionState
+from sheenflow._core.host_representation import ExternalPipelineSubsetResult
+from sheenflow._core.host_representation.external import (
     ExternalExecutionPlan,
     ExternalPartitionSet,
     ExternalPipeline,
     ExternalRepository,
 )
-from dagster._core.host_representation.external_data import (
+from sheenflow._core.host_representation.external_data import (
     ExternalPartitionNamesData,
     ExternalScheduleExecutionErrorData,
     ExternalSensorExecutionErrorData,
 )
-from dagster._core.host_representation.grpc_server_registry import GrpcServerRegistry
-from dagster._core.host_representation.handle import JobHandle, RepositoryHandle
-from dagster._core.host_representation.origin import (
+from sheenflow._core.host_representation.grpc_server_registry import GrpcServerRegistry
+from sheenflow._core.host_representation.handle import JobHandle, RepositoryHandle
+from sheenflow._core.host_representation.origin import (
     GrpcServerRepositoryLocationOrigin,
     InProcessRepositoryLocationOrigin,
     RepositoryLocationOrigin,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.origin import RepositoryPythonOrigin
-from dagster._core.snap.execution_plan_snapshot import snapshot_from_execution_plan
-from dagster._grpc.impl import (
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.origin import RepositoryPythonOrigin
+from sheenflow._core.snap.execution_plan_snapshot import snapshot_from_execution_plan
+from sheenflow._grpc.impl import (
     get_external_schedule_execution,
     get_external_sensor_execution,
     get_notebook_data,
@@ -57,17 +57,17 @@ from dagster._grpc.impl import (
     get_partition_set_execution_param_data,
     get_partition_tags,
 )
-from dagster._grpc.types import GetCurrentImageResult, GetCurrentRunsResult
-from dagster._serdes import deserialize_as
-from dagster._seven.compat.pendulum import PendulumDateTime
-from dagster._utils import merge_dicts
+from sheenflow._grpc.types import GetCurrentImageResult, GetCurrentRunsResult
+from sheenflow._serdes import deserialize_as
+from sheenflow._seven.compat.pendulum import PendulumDateTime
+from sheenflow._utils import merge_dicts
 
 from .selector import PipelineSelector
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.schedule_definition import ScheduleExecutionData
-    from dagster._core.definitions.sensor_definition import SensorExecutionData
-    from dagster._core.host_representation import (
+    from sheenflow._core.definitions.schedule_definition import ScheduleExecutionData
+    from sheenflow._core.definitions.sensor_definition import SensorExecutionData
+    from sheenflow._core.host_representation import (
         ExternalPartitionConfigData,
         ExternalPartitionExecutionErrorData,
         ExternalPartitionSetExecutionParamData,
@@ -275,8 +275,8 @@ class RepositoryLocation(AbstractContextManager):
 
 class InProcessRepositoryLocation(RepositoryLocation):
     def __init__(self, origin: InProcessRepositoryLocationOrigin):
-        from dagster._grpc.server import LoadedRepositories
-        from dagster._utils.hosted_user_process import external_repo_from_def
+        from sheenflow._grpc.server import LoadedRepositories
+        from sheenflow._utils.hosted_user_process import external_repo_from_def
 
         self._origin = check.inst_param(origin, "origin", InProcessRepositoryLocationOrigin)
 
@@ -354,7 +354,7 @@ class InProcessRepositoryLocation(RepositoryLocation):
             ),
         )
 
-        from dagster._grpc.impl import get_external_pipeline_subset_result
+        from sheenflow._grpc.impl import get_external_pipeline_subset_result
 
         return get_external_pipeline_subset_result(
             self._get_repo_def(selector.repository_name),
@@ -528,7 +528,7 @@ class GrpcServerRepositoryLocation(RepositoryLocation):
         grpc_server_registry: Optional[GrpcServerRegistry] = None,
         grpc_metadata: Optional[Sequence[Tuple[str, str]]] = None,
     ):
-        from dagster._grpc.client import DagsterGrpcClient, client_heartbeat_thread
+        from sheenflow._grpc.client import DagsterGrpcClient, client_heartbeat_thread
 
         self._origin = check.inst_param(origin, "origin", RepositoryLocationOrigin)
 

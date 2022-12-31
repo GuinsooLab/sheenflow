@@ -8,17 +8,17 @@ from unittest import mock
 import pytest
 from dagster_celery_tests.repo import COMPOSITE_DEPTH
 
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.errors import DagsterSubprocessError
-from dagster._core.events import DagsterEventType
-from dagster._legacy import (
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.errors import DagsterSubprocessError
+from sheenflow._core.events import DagsterEventType
+from sheenflow._legacy import (
     CompositeSolidExecutionResult,
     OpExecutionResult,
     PipelineExecutionResult,
     execute_pipeline,
     execute_pipeline_iterator,
 )
-from dagster._utils import send_interrupt
+from sheenflow._utils import send_interrupt
 
 from .utils import (  # isort:skip
     execute_eagerly_on_celery,

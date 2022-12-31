@@ -1,5 +1,5 @@
 import {ApolloLink} from '@apollo/client';
-import {TelemetryAction, logTelemetry} from '@sheenflow-io/sheenlet-core/app/Telemetry';
+import {TelemetryAction, logTelemetry} from '@dagster-io/dagit-core/app/Telemetry';
 
 const TELEMETRY_WHITELIST = new Set([
   'PipelineExplorerRootQuery',

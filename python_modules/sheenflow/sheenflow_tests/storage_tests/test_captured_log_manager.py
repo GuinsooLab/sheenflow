@@ -2,8 +2,8 @@ import tempfile
 
 import pytest
 
-from dagster._core.storage.local_compute_log_manager import LocalComputeLogManager
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.storage.local_compute_log_manager import LocalComputeLogManager
+from sheenflow._core.test_utils import instance_for_test
 
 from .utils.captured_log_manager import TestCapturedLogManager
 

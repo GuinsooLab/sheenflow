@@ -3,9 +3,9 @@ from typing import Sequence
 import pytest
 
 from dagster import DagsterEventType, DagsterInvariantViolationError, ExpectationResult
-from dagster._core.events import DagsterEvent
-from dagster._core.execution.results import OpExecutionResult, PipelineExecutionResult
-from dagster._legacy import PipelineDefinition, execute_pipeline, solid
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.execution.results import OpExecutionResult, PipelineExecutionResult
+from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid
 
 
 def expt_results_for_compute_step(

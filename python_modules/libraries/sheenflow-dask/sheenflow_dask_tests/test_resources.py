@@ -4,9 +4,9 @@ from dagster_dask import dask_resource
 from dask.distributed import Client
 
 from dagster import Dict, Output
-from dagster._core.execution.results import PipelineExecutionResult
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import ModeDefinition, OutputDefinition, execute_pipeline, pipeline, solid
+from sheenflow._core.execution.results import PipelineExecutionResult
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import ModeDefinition, OutputDefinition, execute_pipeline, pipeline, solid
 
 
 @solid(

@@ -42,8 +42,8 @@ from warnings import warn
 import packaging.version
 from typing_extensions import Literal
 
-import dagster._check as check
-import dagster._seven as seven
+import sheenflow._check as check
+import sheenflow._seven as seven
 
 from .merger import deep_merge_dicts, merge_dicts
 from .yaml_utils import load_yaml_from_glob_list, load_yaml_from_globs, load_yaml_from_path
@@ -54,7 +54,7 @@ else:
     from pathlib2 import Path  # pylint: disable=import-error
 
 if TYPE_CHECKING:
-    from dagster._core.events import DagsterEvent
+    from sheenflow._core.events import DagsterEvent
 
 K = TypeVar("K")
 T = TypeVar("T")
@@ -315,7 +315,7 @@ def check_script(path, return_code=0):
 
 
 def check_cli_execute_file_pipeline(path, pipeline_fn_name, env_file=None):
-    from dagster._core.test_utils import instance_for_test
+    from sheenflow._core.test_utils import instance_for_test
 
     with instance_for_test():
         cli_cmd = [

@@ -13,16 +13,16 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.configurable import ConfigurableDefinition
-from dagster._core.definitions.executor_definition import (
+import sheenflow._check as check
+from sheenflow._core.definitions.configurable import ConfigurableDefinition
+from sheenflow._core.definitions.executor_definition import (
     ExecutorDefinition,
     execute_in_process_executor,
 )
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.errors import DagsterInvalidConfigError
-from dagster._utils import ensure_single_item
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.errors import DagsterInvalidConfigError
+from sheenflow._utils import ensure_single_item
 
 
 class OpConfig(
@@ -150,7 +150,7 @@ class ResolvedRunConfig(
 
         In case the run_config is invalid, this method raises a DagsterInvalidConfigError
         """
-        from dagster._config import process_config
+        from sheenflow._config import process_config
 
         from .composite_descent import composite_descent
 

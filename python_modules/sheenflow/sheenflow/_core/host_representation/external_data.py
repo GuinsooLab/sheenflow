@@ -12,7 +12,7 @@ import pendulum
 
 from dagster import StaticPartitionsDefinition
 from dagster import _check as check
-from dagster._core.definitions import (
+from sheenflow._core.definitions import (
     JobDefinition,
     PartitionSetDefinition,
     PartitionsDefinition,
@@ -22,28 +22,28 @@ from dagster._core.definitions import (
     ScheduleDefinition,
     SourceAsset,
 )
-from dagster._core.definitions.asset_layer import AssetOutputInfo
-from dagster._core.definitions.asset_sensor_definition import AssetSensorDefinition
-from dagster._core.definitions.assets_job import ASSET_BASE_JOB_PREFIX
-from dagster._core.definitions.dependency import NodeOutputHandle
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.definitions.metadata import MetadataEntry, MetadataUserInput, normalize_metadata
-from dagster._core.definitions.mode import DEFAULT_MODE_NAME
-from dagster._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
-from dagster._core.definitions.partition import PartitionScheduleDefinition, ScheduleType
-from dagster._core.definitions.partition_mapping import (
+from sheenflow._core.definitions.asset_layer import AssetOutputInfo
+from sheenflow._core.definitions.asset_sensor_definition import AssetSensorDefinition
+from sheenflow._core.definitions.assets_job import ASSET_BASE_JOB_PREFIX
+from sheenflow._core.definitions.dependency import NodeOutputHandle
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.definitions.metadata import MetadataEntry, MetadataUserInput, normalize_metadata
+from sheenflow._core.definitions.mode import DEFAULT_MODE_NAME
+from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionsDefinition
+from sheenflow._core.definitions.partition import PartitionScheduleDefinition, ScheduleType
+from sheenflow._core.definitions.partition_mapping import (
     PartitionMapping,
     get_builtin_partition_mapping_types,
 )
-from dagster._core.definitions.schedule_definition import DefaultScheduleStatus
-from dagster._core.definitions.sensor_definition import DefaultSensorStatus, SensorDefinition
-from dagster._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
-from dagster._core.definitions.utils import DEFAULT_GROUP_NAME
-from dagster._core.errors import DagsterInvalidDefinitionError
-from dagster._core.snap import PipelineSnapshot
-from dagster._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
-from dagster._utils.error import SerializableErrorInfo
+from sheenflow._core.definitions.schedule_definition import DefaultScheduleStatus
+from sheenflow._core.definitions.sensor_definition import DefaultSensorStatus, SensorDefinition
+from sheenflow._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
+from sheenflow._core.definitions.utils import DEFAULT_GROUP_NAME
+from sheenflow._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.snap import PipelineSnapshot
+from sheenflow._serdes import DefaultNamedTupleSerializer, whitelist_for_serdes
+from sheenflow._utils.error import SerializableErrorInfo
 
 
 @whitelist_for_serdes

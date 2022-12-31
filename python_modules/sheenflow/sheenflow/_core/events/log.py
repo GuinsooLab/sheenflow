@@ -1,12 +1,12 @@
 from typing import Any, Dict, NamedTuple, Optional, Union
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, public
-from dagster._core.definitions.events import AssetMaterialization
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.utils import coerce_valid_log_level
-from dagster._serdes.serdes import (
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._core.definitions.events import AssetMaterialization
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.utils import coerce_valid_log_level
+from sheenflow._serdes.serdes import (
     DefaultNamedTupleSerializer,
     WhitelistMap,
     deserialize_json_to_dagster_namedtuple,
@@ -14,8 +14,8 @@ from dagster._serdes.serdes import (
     serialize_dagster_namedtuple,
     whitelist_for_serdes,
 )
-from dagster._utils.error import SerializableErrorInfo
-from dagster._utils.log import (
+from sheenflow._utils.error import SerializableErrorInfo
+from sheenflow._utils.log import (
     JsonEventLoggerHandler,
     StructuredLoggerHandler,
     StructuredLoggerMessage,

@@ -1,9 +1,9 @@
 import pendulum
 import pytest
 
-from dagster._core.scheduler.instigation import TickStatus
-from dagster._seven.compat.pendulum import create_pendulum_time, to_timezone
-from dagster._utils.partitions import DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE
+from sheenflow._core.scheduler.instigation import TickStatus
+from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
+from sheenflow._utils.partitions import DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE
 
 from .test_scheduler_run import (
     evaluate_schedules,

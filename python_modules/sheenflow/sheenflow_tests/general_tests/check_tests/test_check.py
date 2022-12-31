@@ -7,14 +7,14 @@ from contextlib import contextmanager
 
 import pytest
 
-import dagster._check as check
-from dagster._check import (
+import sheenflow._check as check
+from sheenflow._check import (
     CheckError,
     ElementCheckError,
     NotImplementedCheckError,
     ParameterCheckError,
 )
-from dagster._utils import frozendict, frozenlist
+from sheenflow._utils import frozendict, frozenlist
 
 
 @contextmanager

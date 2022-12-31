@@ -5,7 +5,7 @@ from typing import NamedTuple, get_type_hints
 import pytest
 from typing_extensions import Annotated
 
-from dagster._annotations import (
+from sheenflow._annotations import (
     PUBLIC,
     PublicAttr,
     deprecated,

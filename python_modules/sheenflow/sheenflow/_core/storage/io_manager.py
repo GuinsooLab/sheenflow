@@ -4,24 +4,24 @@ from typing import TYPE_CHECKING, AbstractSet, Any, Callable, Optional, Set, Uni
 
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._config import UserConfigSchema
-from dagster._core.definitions.config import is_callable_valid_config_arg
-from dagster._core.definitions.definition_config_schema import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._config import UserConfigSchema
+from sheenflow._core.definitions.config import is_callable_valid_config_arg
+from sheenflow._core.definitions.definition_config_schema import (
     CoercableToConfigSchema,
     IDefinitionConfigSchema,
     convert_user_facing_definition_config_schema,
 )
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.storage.input_manager import InputManager
-from dagster._core.storage.output_manager import IOutputManagerDefinition, OutputManager
-from dagster._core.storage.root_input_manager import IInputManagerDefinition
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.storage.input_manager import InputManager
+from sheenflow._core.storage.output_manager import IOutputManagerDefinition, OutputManager
+from sheenflow._core.storage.root_input_manager import IInputManagerDefinition
 
 if TYPE_CHECKING:
-    from dagster._core.execution.context.init import InitResourceContext
-    from dagster._core.execution.context.input import InputContext
-    from dagster._core.execution.context.output import OutputContext
+    from sheenflow._core.execution.context.init import InitResourceContext
+    from sheenflow._core.execution.context.input import InputContext
+    from sheenflow._core.execution.context.output import OutputContext
 
 IOManagerFunction: TypeAlias = Union[
     Callable[["InitResourceContext"], "IOManager"],

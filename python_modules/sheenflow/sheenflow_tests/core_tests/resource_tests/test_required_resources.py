@@ -16,11 +16,11 @@ from dagster import (
     resource,
     usable_as_dagster_type,
 )
-from dagster._core.definitions.configurable import configured
-from dagster._core.definitions.graph_definition import GraphDefinition
-from dagster._core.errors import DagsterInvalidDefinitionError, DagsterInvalidSubsetError
-from dagster._core.types.dagster_type import create_any_type
-from dagster._legacy import OutputDefinition
+from sheenflow._core.definitions.configurable import configured
+from sheenflow._core.definitions.graph_definition import GraphDefinition
+from sheenflow._core.errors import DagsterInvalidDefinitionError, DagsterInvalidSubsetError
+from sheenflow._core.types.dagster_type import create_any_type
+from sheenflow._legacy import OutputDefinition
 
 
 def get_resource_init_pipeline(resources_initted):

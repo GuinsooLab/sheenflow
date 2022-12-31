@@ -9,8 +9,8 @@ from dagster_graphql.test.utils import (
     main_repo_name,
 )
 
-from dagster._legacy import execute_pipeline
-from dagster._seven import json
+from sheenflow._legacy import execute_pipeline
+from sheenflow._seven import json
 
 from .repo import noop_pipeline
 

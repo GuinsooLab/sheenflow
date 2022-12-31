@@ -1,7 +1,7 @@
 import inspect
 from typing import Any, Callable, Mapping, NamedTuple, Optional, Sequence
 
-from dagster._seven import funcsigs, is_module_available
+from sheenflow._seven import funcsigs, is_module_available
 
 from .utils import NoValueSentinel
 

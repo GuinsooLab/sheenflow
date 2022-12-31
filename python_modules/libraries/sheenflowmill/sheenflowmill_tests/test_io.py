@@ -4,7 +4,7 @@ import pytest
 from dagstermill.examples.repository import hello_world
 
 from dagster import job
-from dagster._core.errors import DagsterInvalidDefinitionError
+from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 from .test_ops import exec_for_test
 

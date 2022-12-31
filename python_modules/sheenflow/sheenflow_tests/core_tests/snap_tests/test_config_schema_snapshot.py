@@ -11,14 +11,14 @@ from dagster import (
     op,
     resource,
 )
-from dagster._config import ConfigTypeKind, Map, resolve_to_config_type
-from dagster._core.snap import (
+from sheenflow._config import ConfigTypeKind, Map, resolve_to_config_type
+from sheenflow._core.snap import (
     ConfigEnumValueSnap,
     build_config_schema_snapshot,
     snap_from_config_type,
 )
-from dagster._legacy import ModeDefinition, pipeline
-from dagster._serdes import (
+from sheenflow._legacy import ModeDefinition, pipeline
+from sheenflow._serdes import (
     deserialize_json_to_dagster_namedtuple,
     deserialize_value,
     serialize_dagster_namedtuple,

@@ -4,9 +4,9 @@ import pytest
 from dagster_shell import create_shell_command_op, create_shell_script_op, shell_op
 
 from dagster import Failure, job, op
-from dagster._core.definitions.config import ConfigMapping
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._legacy import OutputDefinition, execute_solid
+from sheenflow._core.definitions.config import ConfigMapping
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._legacy import OutputDefinition, execute_solid
 
 
 @pytest.mark.parametrize("factory", [create_shell_command_op])

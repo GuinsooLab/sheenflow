@@ -4,9 +4,9 @@ from typing import NamedTuple
 import pytest
 from dagster_tests.general_tests.utils_tests.utils import assert_no_warnings
 
-from dagster._annotations import experimental
-from dagster._check import CheckError
-from dagster._utils.backcompat import (
+from sheenflow._annotations import experimental
+from sheenflow._check import CheckError
+from sheenflow._utils.backcompat import (
     ExperimentalWarning,
     canonicalize_backcompat_args,
     experimental_arg_warning,

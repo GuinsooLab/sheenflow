@@ -1,4 +1,4 @@
-import {Box, Colors, Icon, IconWrapper, Slider} from '@sheenflow-io/ui';
+import {Box, Colors, Icon, IconWrapper, Slider} from '@dagster-io/ui';
 import animate from 'amator';
 import * as React from 'react';
 import ReactDOM from 'react-dom';

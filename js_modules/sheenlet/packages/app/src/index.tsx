@@ -1,15 +1,15 @@
 // Before anything else, set the webpack public path.
 import './publicPath';
 
-import {App} from '@sheenflow-io/sheenlet-core/app/App';
-import {createAppCache} from '@sheenflow-io/sheenlet-core/app/AppCache';
-import {errorLink} from '@sheenflow-io/sheenlet-core/app/AppError';
-import {AppProvider} from '@sheenflow-io/sheenlet-core/app/AppProvider';
-import {AppTopNav} from '@sheenflow-io/sheenlet-core/app/AppTopNav';
-import {ContentRoot} from '@sheenflow-io/sheenlet-core/app/ContentRoot';
-import {logLink, timeStartLink} from '@sheenflow-io/sheenlet-core/app/apolloLinks';
-import {DeploymentStatusType} from '@sheenflow-io/sheenlet-core/instance/DeploymentStatusProvider';
-import {Colors, Icon, IconWrapper} from '@sheenflow-io/ui';
+import {App} from '@dagster-io/dagit-core/app/App';
+import {createAppCache} from '@dagster-io/dagit-core/app/AppCache';
+import {errorLink} from '@dagster-io/dagit-core/app/AppError';
+import {AppProvider} from '@dagster-io/dagit-core/app/AppProvider';
+import {AppTopNav} from '@dagster-io/dagit-core/app/AppTopNav';
+import {ContentRoot} from '@dagster-io/dagit-core/app/ContentRoot';
+import {logLink, timeStartLink} from '@dagster-io/dagit-core/app/apolloLinks';
+import {DeploymentStatusType} from '@dagster-io/dagit-core/instance/DeploymentStatusProvider';
+import {Colors, Icon, IconWrapper} from '@dagster-io/ui';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';

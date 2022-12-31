@@ -1,6 +1,6 @@
 import pytest
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import (
     AssetKey,
     AssetSelection,
@@ -15,11 +15,11 @@ from dagster import (
     resource,
     with_resources,
 )
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )
-from dagster._core.definitions.repository_definition import (
+from sheenflow._core.definitions.repository_definition import (
     PendingRepositoryDefinition,
     RepositoryLoadData,
 )

@@ -3,14 +3,14 @@ import pickle
 import sys
 from typing import List
 
-from dagster._core.events.log import EventLogEntry
-from dagster._core.execution.plan.external_step import (
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.execution.plan.external_step import (
     PICKLED_EVENTS_FILE_NAME,
     external_instance_from_step_run_ref,
     run_step_from_ref,
 )
-from dagster._core.storage.file_manager import LocalFileHandle, LocalFileManager
-from dagster._serdes import serialize_value
+from sheenflow._core.storage.file_manager import LocalFileHandle, LocalFileManager
+from sheenflow._serdes import serialize_value
 
 
 def main(step_run_ref_path: str) -> None:

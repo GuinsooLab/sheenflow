@@ -1,7 +1,7 @@
 from typing import NamedTuple, Optional
 
-import dagster._check as check
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, whitelist_for_serdes
+import sheenflow._check as check
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, whitelist_for_serdes
 
 
 @whitelist_for_serdes

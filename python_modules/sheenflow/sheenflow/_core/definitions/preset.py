@@ -1,10 +1,10 @@
 from typing import Mapping, NamedTuple, Optional, Sequence
 
-import dagster._check as check
-from dagster._core.definitions.utils import config_from_files, config_from_yaml_strings
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._utils.merger import deep_merge_dicts
-from dagster._utils.yaml_utils import dump_run_config_yaml
+import sheenflow._check as check
+from sheenflow._core.definitions.utils import config_from_files, config_from_yaml_strings
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._utils.merger import deep_merge_dicts
+from sheenflow._utils.yaml_utils import dump_run_config_yaml
 
 from .mode import DEFAULT_MODE_NAME
 from .utils import check_valid_name

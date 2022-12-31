@@ -18,11 +18,11 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.events import AssetKey
-from dagster._core.definitions.metadata import MetadataUserInput, RawMetadataValue
-from dagster._core.selector.subset_selector import AssetSelectionData
-from dagster._utils.backcompat import ExperimentalWarning
+import sheenflow._check as check
+from sheenflow._core.definitions.events import AssetKey
+from sheenflow._core.definitions.metadata import MetadataUserInput, RawMetadataValue
+from sheenflow._core.selector.subset_selector import AssetSelectionData
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 from ..errors import DagsterInvalidSubsetError
 from .config import ConfigMapping
@@ -34,11 +34,11 @@ from .node_definition import NodeDefinition
 from .resource_definition import ResourceDefinition
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.assets import AssetsDefinition, SourceAsset
-    from dagster._core.definitions.job_definition import JobDefinition
-    from dagster._core.definitions.partition_mapping import PartitionMapping
-    from dagster._core.definitions.resolved_asset_defs import ResolvedAssetDependencies
-    from dagster._core.execution.context.output import OutputContext
+    from sheenflow._core.definitions.assets import AssetsDefinition, SourceAsset
+    from sheenflow._core.definitions.job_definition import JobDefinition
+    from sheenflow._core.definitions.partition_mapping import PartitionMapping
+    from sheenflow._core.definitions.resolved_asset_defs import ResolvedAssetDependencies
+    from sheenflow._core.execution.context.output import OutputContext
 
     from .partition import PartitionedConfig, PartitionsDefinition
 
@@ -492,7 +492,7 @@ class AssetLayer:
             Mapping[NodeOutputHandle, Set[AssetKey]]
         ] = None,
     ):
-        from dagster._core.definitions import SourceAsset
+        from sheenflow._core.definitions import SourceAsset
 
         self._asset_keys_by_node_input_handle = check.opt_mapping_param(
             asset_keys_by_node_input_handle,
@@ -624,7 +624,7 @@ class AssetLayer:
                 )
 
                 def partitions_fn(context: "OutputContext") -> AbstractSet[str]:
-                    from dagster._core.definitions.partition import PartitionsDefinition
+                    from sheenflow._core.definitions.partition import PartitionsDefinition
 
                     if context.has_partition_key:
                         return {context.partition_key}
@@ -850,7 +850,7 @@ def build_asset_selection_job(
     asset_selection: Optional[AbstractSet[AssetKey]] = None,
     asset_selection_data: Optional[AssetSelectionData] = None,
 ) -> "JobDefinition":
-    from dagster._core.definitions.assets_job import (
+    from sheenflow._core.definitions.assets_job import (
         build_assets_job,
         build_source_asset_observation_job,
     )
@@ -914,7 +914,7 @@ def _subset_assets_defs(
     """Given a list of asset key selection queries, generate a set of AssetsDefinition objects
     representing the included/excluded definitions.
     """
-    from dagster._core.definitions import AssetsDefinition
+    from sheenflow._core.definitions import AssetsDefinition
 
     included_assets: Set[AssetsDefinition] = set()
     excluded_assets: Set[AssetsDefinition] = set()

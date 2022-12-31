@@ -20,9 +20,9 @@ from dagster import (
     io_manager,
     repository,
 )
-from dagster._core.definitions import build_assets_job
-from dagster._legacy import AssetGroup
-from dagster._utils import file_relative_path
+from sheenflow._core.definitions import build_assets_job
+from sheenflow._legacy import AssetGroup
+from sheenflow._utils import file_relative_path
 
 from .utils import assert_assets_match_project
 

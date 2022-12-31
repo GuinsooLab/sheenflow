@@ -15,8 +15,8 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions import (
+import sheenflow._check as check
+from sheenflow._core.definitions import (
     AssetKey,
     AssetMaterialization,
     AssetObservation,
@@ -26,9 +26,9 @@ from dagster._core.definitions import (
     OutputDefinition,
     TypeCheck,
 )
-from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
-from dagster._core.definitions.events import AssetLineageInfo, DynamicOutput
-from dagster._core.definitions.logical_version import (
+from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+from sheenflow._core.definitions.events import AssetLineageInfo, DynamicOutput
+from sheenflow._core.definitions.logical_version import (
     CODE_VERSION_TAG_KEY,
     DEFAULT_LOGICAL_VERSION,
     LOGICAL_VERSION_TAG_KEY,
@@ -38,16 +38,16 @@ from dagster._core.definitions.logical_version import (
     get_input_event_pointer_tag_key,
     get_input_logical_version_tag_key,
 )
-from dagster._core.definitions.metadata import (
+from sheenflow._core.definitions.metadata import (
     MetadataEntry,
     PartitionMetadataEntry,
     normalize_metadata,
 )
-from dagster._core.definitions.multi_dimensional_partitions import (
+from sheenflow._core.definitions.multi_dimensional_partitions import (
     MultiPartitionKey,
     get_tags_from_multi_partition_key,
 )
-from dagster._core.errors import (
+from sheenflow._core.errors import (
     DagsterExecutionHandleOutputError,
     DagsterInvariantViolationError,
     DagsterStepOutputNotFoundError,
@@ -56,19 +56,19 @@ from dagster._core.errors import (
     DagsterTypeMaterializationError,
     user_code_error_boundary,
 )
-from dagster._core.events import DagsterEvent
-from dagster._core.execution.context.output import OutputContext
-from dagster._core.execution.context.system import StepExecutionContext, TypeCheckContext
-from dagster._core.execution.plan.compute import execute_core_compute
-from dagster._core.execution.plan.inputs import StepInputData
-from dagster._core.execution.plan.objects import StepSuccessData, TypeCheckData
-from dagster._core.execution.plan.outputs import StepOutputData, StepOutputHandle
-from dagster._core.execution.resolve_versions import resolve_step_output_versions
-from dagster._core.storage.tags import MEMOIZED_RUN_TAG
-from dagster._core.types.dagster_type import DagsterType
-from dagster._utils import ensure_gen, iterate_with_context
-from dagster._utils.backcompat import ExperimentalWarning, experimental_functionality_warning
-from dagster._utils.timing import time_execution_scope
+from sheenflow._core.events import DagsterEvent
+from sheenflow._core.execution.context.output import OutputContext
+from sheenflow._core.execution.context.system import StepExecutionContext, TypeCheckContext
+from sheenflow._core.execution.plan.compute import execute_core_compute
+from sheenflow._core.execution.plan.inputs import StepInputData
+from sheenflow._core.execution.plan.objects import StepSuccessData, TypeCheckData
+from sheenflow._core.execution.plan.outputs import StepOutputData, StepOutputHandle
+from sheenflow._core.execution.resolve_versions import resolve_step_output_versions
+from sheenflow._core.storage.tags import MEMOIZED_RUN_TAG
+from sheenflow._core.types.dagster_type import DagsterType
+from sheenflow._utils import ensure_gen, iterate_with_context
+from sheenflow._utils.backcompat import ExperimentalWarning, experimental_functionality_warning
+from sheenflow._utils.timing import time_execution_scope
 
 from .compute import SolidOutputUnion
 from .compute_generator import create_solid_compute_wrapper

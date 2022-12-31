@@ -7,7 +7,7 @@ from requests import Response
 from requests.exceptions import RequestException
 
 from dagster import Failure, RetryRequested
-from dagster._core.execution.context.compute import OpExecutionContext
+from sheenflow._core.execution.context.compute import OpExecutionContext
 
 
 def fmt_rpc_logs(logs: Sequence[Mapping[str, str]]) -> Mapping[int, str]:

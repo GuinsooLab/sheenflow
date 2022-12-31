@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Mapping, Optional
 
-from dagster._core.instance import MayHaveInstanceWeakref
+from sheenflow._core.instance import MayHaveInstanceWeakref
 
 
 class SecretsLoader(ABC, MayHaveInstanceWeakref):

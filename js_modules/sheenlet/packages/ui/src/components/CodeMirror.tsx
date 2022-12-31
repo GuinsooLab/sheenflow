@@ -138,7 +138,7 @@ interface ThemeProp {
   theme?: string[];
 }
 
-const makeThemeString = (theme: string[] = []) => [...theme, 'sheenlet'].join(' ');
+const makeThemeString = (theme: string[] = []) => [...theme, 'dagit'].join(' ');
 
 export const StyledReadOnlyCodeMirror = (
   props: React.ComponentProps<typeof Uncontrolled> & ThemeProp,

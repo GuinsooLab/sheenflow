@@ -1,4 +1,4 @@
-from dagster._core.utils import check_dagster_package_version
+from sheenflow._core.utils import check_dagster_package_version
 
 from .event_log import PostgresEventLogStorage
 from .run_storage import PostgresRunStorage

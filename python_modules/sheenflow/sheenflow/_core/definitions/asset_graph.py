@@ -18,9 +18,9 @@ from typing import (
 
 import toposort
 
-import dagster._check as check
-from dagster._core.errors import DagsterInvalidInvocationError, DagsterInvariantViolationError
-from dagster._core.selector.subset_selector import DependencyGraph, generate_asset_dep_graph
+import sheenflow._check as check
+from sheenflow._core.errors import DagsterInvalidInvocationError, DagsterInvariantViolationError
+from sheenflow._core.selector.subset_selector import DependencyGraph, generate_asset_dep_graph
 
 from .assets import AssetsDefinition
 from .events import AssetKey, AssetKeyPartitionKey

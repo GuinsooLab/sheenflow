@@ -1,8 +1,8 @@
 import inspect
 from typing import TYPE_CHECKING, Any, Optional, Union, cast
 
-import dagster._check as check
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.errors import (
     DagsterInvalidInvocationError,
     DagsterInvariantViolationError,
     DagsterTypeCheckDidNotPass,
@@ -32,8 +32,8 @@ def op_invocation_result(
     *args,
     **kwargs,
 ) -> Any:
-    from dagster._core.definitions.decorators.solid_decorator import DecoratedOpFunction
-    from dagster._core.execution.context.invocation import build_solid_context
+    from sheenflow._core.definitions.decorators.solid_decorator import DecoratedOpFunction
+    from sheenflow._core.execution.context.invocation import build_solid_context
 
     from .composition import PendingNodeInvocation
 
@@ -99,7 +99,7 @@ def _check_invocation_requirements(
 
 
 def _resolve_inputs(solid_def: "OpDefinition", args, kwargs, context: "BoundOpExecutionContext"):
-    from dagster._core.execution.plan.execute_step import do_type_check
+    from sheenflow._core.execution.plan.execute_step import do_type_check
 
     nothing_input_defs = [
         input_def for input_def in solid_def.input_defs if input_def.dagster_type.is_nothing

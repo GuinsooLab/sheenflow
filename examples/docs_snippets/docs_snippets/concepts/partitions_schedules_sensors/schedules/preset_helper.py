@@ -1,4 +1,4 @@
-from dagster._legacy import daily_schedule
+from sheenflow._legacy import daily_schedule
 
 # start_preset_helper
 

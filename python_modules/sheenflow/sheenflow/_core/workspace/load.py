@@ -2,16 +2,16 @@ import os
 from collections import OrderedDict
 from typing import TYPE_CHECKING, Dict, Mapping, Optional, Sequence, Tuple, Union, cast
 
-import dagster._check as check
-from dagster._core.code_pointer import rebase_file
-from dagster._core.host_representation.origin import (
+import sheenflow._check as check
+from sheenflow._core.code_pointer import rebase_file
+from sheenflow._core.host_representation.origin import (
     GrpcServerRepositoryLocationOrigin,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
     RepositoryLocationOrigin,
 )
-from dagster._core.instance import DagsterInstance
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._utils import load_yaml_from_path
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._utils import load_yaml_from_path
 
 from .config_schema import ensure_workspace_config
 

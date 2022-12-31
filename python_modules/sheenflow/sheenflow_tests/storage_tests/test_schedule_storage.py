@@ -4,10 +4,10 @@ from contextlib import contextmanager
 import mock
 import pytest
 
-from dagster._core.storage.legacy_storage import LegacyScheduleStorage
-from dagster._core.storage.schedules import SqliteScheduleStorage
-from dagster._core.storage.sqlite_storage import DagsterSqliteStorage
-from dagster._utils.test.schedule_storage import TestScheduleStorage
+from sheenflow._core.storage.legacy_storage import LegacyScheduleStorage
+from sheenflow._core.storage.schedules import SqliteScheduleStorage
+from sheenflow._core.storage.sqlite_storage import DagsterSqliteStorage
+from sheenflow._utils.test.schedule_storage import TestScheduleStorage
 
 
 @contextmanager

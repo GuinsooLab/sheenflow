@@ -1,4 +1,4 @@
-import {Colors, Box, BaseTag} from '@sheenflow-io/ui';
+import {Colors, Box, BaseTag} from '@dagster-io/ui';
 import React from 'react';
 
 import {LiveDataForNode} from '../asset-graph/Utils';

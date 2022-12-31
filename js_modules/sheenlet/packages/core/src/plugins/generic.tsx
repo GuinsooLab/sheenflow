@@ -1,4 +1,4 @@
-import {Button, DialogBody, DialogFooter, Dialog, Icon} from '@sheenflow-io/ui';
+import {Button, DialogBody, DialogFooter, Dialog, Icon} from '@dagster-io/ui';
 import startCase from 'lodash/startCase';
 import * as React from 'react';
 

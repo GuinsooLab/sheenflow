@@ -1,9 +1,9 @@
 from typing import Optional
 
 from dagster import _check as check
-from dagster._config import ConfigType, ConfigTypeKind
-from dagster._core.definitions import create_run_config_schema
-from dagster._legacy import PipelineDefinition
+from sheenflow._config import ConfigType, ConfigTypeKind
+from sheenflow._core.definitions import create_run_config_schema
+from sheenflow._legacy import PipelineDefinition
 
 
 def scaffold_pipeline_config(

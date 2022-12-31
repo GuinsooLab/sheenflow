@@ -7,18 +7,18 @@ from typing import TYPE_CHECKING, Mapping, NamedTuple, Optional, Union
 from typing_extensions import Final
 
 from dagster import _check as check
-from dagster._annotations import experimental
-from dagster._utils.backcompat import ExperimentalWarning
+from sheenflow._annotations import experimental
+from sheenflow._utils.backcompat import ExperimentalWarning
 
 if TYPE_CHECKING:
-    from dagster._core.definitions.events import (
+    from sheenflow._core.definitions.events import (
         AssetKey,
         AssetMaterialization,
         AssetObservation,
         Materialization,
     )
-    from dagster._core.events.log import EventLogEntry
-    from dagster._core.instance import DagsterInstance
+    from sheenflow._core.events.log import EventLogEntry
+    from sheenflow._core.instance import DagsterInstance
 
 
 class UnknownValue:
@@ -71,7 +71,7 @@ class LogicalVersionProvenance(
         code_version: str,
         input_logical_versions: Mapping["AssetKey", LogicalVersion],
     ):
-        from dagster._core.definitions.events import AssetKey
+        from sheenflow._core.definitions.events import AssetKey
 
         return super(LogicalVersionProvenance, cls).__new__(
             cls,
@@ -86,7 +86,7 @@ class LogicalVersionProvenance(
 
     @staticmethod
     def from_tags(tags: Mapping[str, str]) -> Optional[LogicalVersionProvenance]:
-        from dagster._core.definitions.events import AssetKey
+        from sheenflow._core.definitions.events import AssetKey
 
         code_version = tags.get(CODE_VERSION_TAG_KEY)
         if code_version is None:
@@ -136,7 +136,7 @@ def compute_logical_version(
     Returns:
         LogicalVersion: The computed logical version.
     """
-    from dagster._core.definitions.events import AssetKey
+    from sheenflow._core.definitions.events import AssetKey
 
     check.inst_param(code_version, "code_version", (str, UnknownValue))
     check.mapping_param(
@@ -179,8 +179,8 @@ def extract_logical_version_provenance_from_entry(
 def _extract_event_data_from_entry(
     entry: EventLogEntry,
 ) -> Union["AssetMaterialization", "AssetObservation"]:
-    from dagster._core.definitions.events import AssetMaterialization, AssetObservation
-    from dagster._core.events import AssetObservationData, StepMaterializationData
+    from sheenflow._core.definitions.events import AssetMaterialization, AssetObservation
+    from sheenflow._core.events import AssetObservationData, StepMaterializationData
 
     data = check.not_none(entry.dagster_event).event_specific_data
     event_data: Union[Materialization, AssetMaterialization, AssetObservation]

@@ -7,20 +7,20 @@ from dagster_graphql.implementation.loader import (
     ProjectedLogicalVersionLoader,
 )
 
-import dagster._seven as seven
+import sheenflow._seven as seven
 from dagster import AssetKey, DagsterEventType, EventRecordsFilter
 from dagster import _check as check
-from dagster._core.definitions.asset_graph import AssetGraph
-from dagster._core.definitions.freshness_policy import FreshnessPolicy
-from dagster._core.events import ASSET_EVENTS
-from dagster._core.host_representation.external import ExternalRepository
-from dagster._core.host_representation.external_data import (
+from sheenflow._core.definitions.asset_graph import AssetGraph
+from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
+from sheenflow._core.events import ASSET_EVENTS
+from sheenflow._core.host_representation.external import ExternalRepository
+from sheenflow._core.host_representation.external_data import (
     ExternalAssetNode,
     ExternalPartitionDimensionDefinition,
 )
-from dagster._core.host_representation.repository_location import RepositoryLocation
-from dagster._core.storage.tags import get_dimension_from_partition_tag
-from dagster._utils.caching_instance_queryer import CachingInstanceQueryer
+from sheenflow._core.host_representation.repository_location import RepositoryLocation
+from sheenflow._core.storage.tags import get_dimension_from_partition_tag
+from sheenflow._utils.caching_instance_queryer import CachingInstanceQueryer
 
 from .utils import capture_error
 

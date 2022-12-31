@@ -20,23 +20,23 @@ from dagster import (
     op,
     repository,
 )
-from dagster._cli import ENV_PREFIX, cli
-from dagster._cli.job import job_execute_command
-from dagster._cli.run import (
+from sheenflow._cli import ENV_PREFIX, cli
+from sheenflow._cli.job import job_execute_command
+from sheenflow._cli.run import (
     run_delete_command,
     run_list_command,
     run_migrate_command,
     run_wipe_command,
 )
-from dagster._core.definitions.decorators.sensor_decorator import sensor
-from dagster._core.definitions.partition import PartitionedConfig, StaticPartitionsDefinition
-from dagster._core.definitions.sensor_definition import RunRequest
-from dagster._core.storage.memoizable_io_manager import versioned_filesystem_io_manager
-from dagster._core.storage.tags import MEMOIZED_RUN_TAG
-from dagster._core.test_utils import instance_for_test
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._grpc.server import GrpcServerProcess
-from dagster._legacy import (
+from sheenflow._core.definitions.decorators.sensor_decorator import sensor
+from sheenflow._core.definitions.partition import PartitionedConfig, StaticPartitionsDefinition
+from sheenflow._core.definitions.sensor_definition import RunRequest
+from sheenflow._core.storage.memoizable_io_manager import versioned_filesystem_io_manager
+from sheenflow._core.storage.tags import MEMOIZED_RUN_TAG
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._grpc.server import GrpcServerProcess
+from sheenflow._legacy import (
     ModeDefinition,
     PartitionSetDefinition,
     PresetDefinition,
@@ -45,8 +45,8 @@ from dagster._legacy import (
     pipeline,
     solid,
 )
-from dagster._utils import file_relative_path, merge_dicts
-from dagster.version import __version__
+from sheenflow._utils import file_relative_path, merge_dicts
+from sheenflow.version import __version__
 
 
 @lambda_solid
@@ -910,9 +910,9 @@ def test_use_env_vars_for_cli_option():
 
 
 def create_repo_run(instance):
-    from dagster._core.test_utils import create_run_for_test
-    from dagster._core.workspace.context import WorkspaceProcessContext
-    from dagster._core.workspace.load_target import PythonFileTarget
+    from sheenflow._core.test_utils import create_run_for_test
+    from sheenflow._core.workspace.context import WorkspaceProcessContext
+    from sheenflow._core.workspace.load_target import PythonFileTarget
 
     with WorkspaceProcessContext(
         instance,
@@ -937,8 +937,8 @@ def create_repo_run(instance):
 
 
 def get_repo_runs(instance, repo_label):
-    from dagster._core.storage.pipeline_run import RunsFilter
-    from dagster._core.storage.tags import REPOSITORY_LABEL_TAG
+    from sheenflow._core.storage.pipeline_run import RunsFilter
+    from sheenflow._core.storage.tags import REPOSITORY_LABEL_TAG
 
     return instance.get_runs(filters=RunsFilter(tags={REPOSITORY_LABEL_TAG: repo_label}))
 

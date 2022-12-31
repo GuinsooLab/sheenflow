@@ -4,10 +4,10 @@ import pytest
 from click.testing import CliRunner
 
 from dagster import AssetKey, AssetMaterialization, Output
-from dagster._cli.asset import asset_wipe_command
-from dagster._core.test_utils import instance_for_test
-from dagster._legacy import execute_pipeline, pipeline, solid
-from dagster._seven import json
+from sheenflow._cli.asset import asset_wipe_command
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._legacy import execute_pipeline, pipeline, solid
+from sheenflow._seven import json
 
 
 @pytest.fixture(name="instance_runner")

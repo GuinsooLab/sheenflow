@@ -1,6 +1,6 @@
 from typing import NamedTuple
 
-from dagster._annotations import PublicAttr
+from sheenflow._annotations import PublicAttr
 
 
 class PartitionKeyRange(NamedTuple):

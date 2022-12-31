@@ -10,7 +10,7 @@ import {
   Tooltip,
   Checkbox,
   NonIdealState,
-} from '@sheenflow-io/ui';
+} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {usePermissions} from '../app/Permissions';

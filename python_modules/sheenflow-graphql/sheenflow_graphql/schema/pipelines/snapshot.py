@@ -1,7 +1,7 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.host_representation import RepresentedPipeline
+import sheenflow._check as check
+from sheenflow._core.host_representation import RepresentedPipeline
 
 from ..errors import (
     GraphenePipelineNotFoundError,

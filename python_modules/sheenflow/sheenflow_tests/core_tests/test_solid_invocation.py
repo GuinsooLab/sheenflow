@@ -23,8 +23,8 @@ from dagster import (
     op,
     resource,
 )
-from dagster._core.definitions.decorators.graph_decorator import graph
-from dagster._core.errors import (
+from sheenflow._core.definitions.decorators.graph_decorator import graph
+from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
@@ -34,7 +34,7 @@ from dagster._core.errors import (
     DagsterStepOutputNotFoundError,
     DagsterTypeCheckDidNotPass,
 )
-from dagster._legacy import (
+from sheenflow._legacy import (
     DynamicOutputDefinition,
     InputDefinition,
     Materialization,

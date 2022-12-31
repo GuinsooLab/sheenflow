@@ -1,4 +1,4 @@
-import {FontFamily} from '@sheenflow-io/ui';
+import {FontFamily} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {showCustomAlert} from '../app/CustomAlertProvider';

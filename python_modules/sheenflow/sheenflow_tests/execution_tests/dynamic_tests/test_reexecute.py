@@ -12,10 +12,10 @@ from dagster import (
     op,
     reconstructable,
 )
-from dagster._core.definitions.events import Output
-from dagster._core.definitions.output import DynamicOut, Out
-from dagster._core.errors import DagsterExecutionStepNotFoundError, DagsterInvariantViolationError
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.definitions.events import Output
+from sheenflow._core.definitions.output import DynamicOut, Out
+from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvariantViolationError
+from sheenflow._core.test_utils import instance_for_test
 
 
 @op

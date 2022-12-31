@@ -13,11 +13,11 @@ from dagster_graphql.test.utils import (
     infer_pipeline_selector,
 )
 
-from dagster._core.storage.pipeline_run import RunsFilter
-from dagster._core.test_utils import wait_for_runs_to_finish
-from dagster._legacy import DagsterRunStatus
-from dagster._utils import file_relative_path
-from dagster._utils.test import get_temp_file_name
+from sheenflow._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.test_utils import wait_for_runs_to_finish
+from sheenflow._legacy import DagsterRunStatus
+from sheenflow._utils import file_relative_path
+from sheenflow._utils.test import get_temp_file_name
 
 from .graphql_context_test_suite import (
     ExecutingGraphQLContextTestMatrix,

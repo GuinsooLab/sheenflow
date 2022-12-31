@@ -1,7 +1,7 @@
 from typing import Any, Iterable, List, Mapping, Optional, Sequence, TypeVar, cast
 
 from dagster import _check as check
-from dagster._utils import merge_dicts
+from sheenflow._utils import merge_dicts
 
 from ..._config import Shape
 from ..definitions import ResourceDefinition
@@ -66,8 +66,8 @@ def with_resources(
 
 
     """
-    from dagster._config import validate_config
-    from dagster._core.definitions.job_definition import (
+    from sheenflow._config import validate_config
+    from sheenflow._core.definitions.job_definition import (
         default_job_io_manager_with_fs_io_manager_schema,
     )
 

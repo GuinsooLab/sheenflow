@@ -1,12 +1,12 @@
 import pytest
 
 from dagster import job, op
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.execution.plan.objects import StepSuccessData
-from dagster._core.execution.plan.outputs import StepOutputData, StepOutputHandle
-from dagster._core.execution.retries import RetryMode
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.execution.plan.objects import StepSuccessData
+from sheenflow._core.execution.plan.outputs import StepOutputData, StepOutputHandle
+from sheenflow._core.execution.retries import RetryMode
 
 
 def define_foo_job():

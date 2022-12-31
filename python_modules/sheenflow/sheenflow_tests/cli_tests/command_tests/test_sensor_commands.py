@@ -5,7 +5,7 @@ import mock
 import pytest
 from click.testing import CliRunner
 
-from dagster._cli.sensor import (
+from sheenflow._cli.sensor import (
     check_repo_and_scheduler,
     sensor_cursor_command,
     sensor_list_command,
@@ -13,9 +13,9 @@ from dagster._cli.sensor import (
     sensor_start_command,
     sensor_stop_command,
 )
-from dagster._core.host_representation import ExternalRepository
-from dagster._core.instance import DagsterInstance
-from dagster._core.test_utils import environ
+from sheenflow._core.host_representation import ExternalRepository
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.test_utils import environ
 
 from .test_cli_commands import sensor_command_contexts
 

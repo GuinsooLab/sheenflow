@@ -5,8 +5,8 @@ import pytest
 from dagster_pandas import DataFrame
 
 from dagster import DagsterInvalidConfigError, In, Out, graph, op
-from dagster._utils import file_relative_path
-from dagster._utils.test import get_temp_file_name
+from sheenflow._utils import file_relative_path
+from sheenflow._utils.test import get_temp_file_name
 
 
 def check_parquet_support():

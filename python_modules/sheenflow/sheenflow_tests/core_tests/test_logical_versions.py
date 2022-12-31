@@ -1,7 +1,7 @@
 import pytest
 
-from dagster._check import ParameterCheckError
-from dagster._core.definitions.logical_version import LogicalVersion
+from sheenflow._check import ParameterCheckError
+from sheenflow._core.definitions.logical_version import LogicalVersion
 
 
 def test_logical_version_construction():

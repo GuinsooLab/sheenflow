@@ -6,8 +6,8 @@ import time
 import pendulum
 import pytest
 
-from dagster._core.execution.compute_logs import should_disable_io_stream_redirect
-from dagster._core.storage.compute_log_manager import ComputeIOType
+from sheenflow._core.execution.compute_logs import should_disable_io_stream_redirect
+from sheenflow._core.storage.compute_log_manager import ComputeIOType
 
 
 class TestCapturedLogManager:
@@ -96,7 +96,7 @@ class TestCapturedLogManager:
         should_disable_io_stream_redirect(), reason="compute logs disabled for win / py3.6+"
     )
     def test_streaming(self, write_manager, read_manager):
-        from dagster._core.storage.cloud_storage_compute_log_manager import (
+        from sheenflow._core.storage.cloud_storage_compute_log_manager import (
             CloudStorageComputeLogManager,
         )
 

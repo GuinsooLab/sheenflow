@@ -11,19 +11,19 @@ from dagster_graphql.test.utils import (
     main_repo_name,
 )
 
-from dagster._core.host_representation import (
+from sheenflow._core.host_representation import (
     ExternalRepositoryOrigin,
     InProcessRepositoryLocationOrigin,
 )
-from dagster._core.scheduler.instigation import (
+from sheenflow._core.scheduler.instigation import (
     InstigatorState,
     InstigatorStatus,
     InstigatorType,
     ScheduleInstigatorData,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._seven.compat.pendulum import create_pendulum_time
-from dagster._utils import Counter, traced_counter
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._seven.compat.pendulum import create_pendulum_time
+from sheenflow._utils import Counter, traced_counter
 
 from .graphql_context_test_suite import ReadonlyGraphQLContextTestMatrix
 

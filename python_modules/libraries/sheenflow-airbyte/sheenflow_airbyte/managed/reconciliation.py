@@ -29,13 +29,13 @@ from dagster_managed_elements.types import (
 )
 from dagster_managed_elements.utils import UNSET, diff_dicts
 
-import dagster._check as check
+import sheenflow._check as check
 from dagster import AssetKey, ResourceDefinition
-from dagster._annotations import experimental, public
-from dagster._core.definitions.cacheable_assets import CacheableAssetsDefinition
-from dagster._core.definitions.events import CoercibleToAssetKeyPrefix
-from dagster._core.execution.context.init import build_init_resource_context
-from dagster._utils.merger import deep_merge_dicts
+from sheenflow._annotations import experimental, public
+from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
+from sheenflow._core.definitions.events import CoercibleToAssetKeyPrefix
+from sheenflow._core.execution.context.init import build_init_resource_context
+from sheenflow._utils.merger import deep_merge_dicts
 
 
 def gen_configured_stream_json(

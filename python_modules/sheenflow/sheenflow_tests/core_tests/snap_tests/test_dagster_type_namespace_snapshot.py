@@ -1,6 +1,6 @@
 from dagster import Dict, In, List, Out, Set, Tuple, job, op
-from dagster._core.snap import build_dagster_type_namespace_snapshot
-from dagster._core.types.dagster_type import ALL_RUNTIME_BUILTINS, create_string_type
+from sheenflow._core.snap import build_dagster_type_namespace_snapshot
+from sheenflow._core.types.dagster_type import ALL_RUNTIME_BUILTINS, create_string_type
 
 
 def test_simple_pipeline_input_dagster_type_namespace():

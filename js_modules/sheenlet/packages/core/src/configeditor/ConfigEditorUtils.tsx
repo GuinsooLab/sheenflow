@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {YamlModeValidationResult} from '@sheenflow-io/ui';
+import {YamlModeValidationResult} from '@dagster-io/ui';
 import yaml from 'yaml';
 
 import {ConfigEditorValidationFragment} from './types/ConfigEditorValidationFragment';

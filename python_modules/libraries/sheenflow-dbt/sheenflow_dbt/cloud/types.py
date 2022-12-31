@@ -3,7 +3,7 @@ from typing import Any, Mapping, Optional
 
 from dateutil.parser import isoparse
 
-import dagster._check as check
+import sheenflow._check as check
 
 from ..types import DbtOutput
 

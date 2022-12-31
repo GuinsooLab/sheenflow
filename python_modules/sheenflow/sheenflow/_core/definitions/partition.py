@@ -25,14 +25,14 @@ import pendulum
 from dateutil.relativedelta import relativedelta
 from typing_extensions import TypeAlias
 
-import dagster._check as check
-from dagster._annotations import PublicAttr, public
-from dagster._core.definitions.partition_key_range import PartitionKeyRange
-from dagster._core.definitions.target import ExecutableDefinition
-from dagster._serdes import whitelist_for_serdes
-from dagster._seven.compat.pendulum import PendulumDateTime, to_timezone
-from dagster._utils import frozenlist, merge_dicts
-from dagster._utils.schedules import schedule_execution_time_iterator
+import sheenflow._check as check
+from sheenflow._annotations import PublicAttr, public
+from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
+from sheenflow._core.definitions.target import ExecutableDefinition
+from sheenflow._serdes import whitelist_for_serdes
+from sheenflow._seven.compat.pendulum import PendulumDateTime, to_timezone
+from sheenflow._utils import frozenlist, merge_dicts
+from sheenflow._utils.schedules import schedule_execution_time_iterator
 
 from ..decorator_utils import get_function_params
 from ..errors import (
@@ -231,7 +231,7 @@ class PartitionsDefinition(ABC, Generic[T]):
             return None
 
     def get_default_partition_mapping(self):
-        from dagster._core.definitions.partition_mapping import IdentityPartitionMapping
+        from sheenflow._core.definitions.partition_mapping import IdentityPartitionMapping
 
         return IdentityPartitionMapping()
 

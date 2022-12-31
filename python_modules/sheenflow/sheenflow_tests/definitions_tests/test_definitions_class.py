@@ -16,29 +16,29 @@ from dagster import (
     sensor,
     with_resources,
 )
-from dagster._check import CheckError
-from dagster._core.definitions.cacheable_assets import (
+from sheenflow._check import CheckError
+from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,
 )
-from dagster._core.definitions.decorators.job_decorator import job
-from dagster._core.definitions.definitions_class import create_repository_using_definitions_args
-from dagster._core.definitions.executor_definition import executor
-from dagster._core.definitions.job_definition import JobDefinition
-from dagster._core.definitions.logger_definition import logger
-from dagster._core.definitions.repository_definition import (
+from sheenflow._core.definitions.decorators.job_decorator import job
+from sheenflow._core.definitions.definitions_class import create_repository_using_definitions_args
+from sheenflow._core.definitions.executor_definition import executor
+from sheenflow._core.definitions.job_definition import JobDefinition
+from sheenflow._core.definitions.logger_definition import logger
+from sheenflow._core.definitions.repository_definition import (
     PendingRepositoryDefinition,
     RepositoryDefinition,
 )
-from dagster._core.definitions.sensor_definition import SensorDefinition
-from dagster._core.definitions.time_window_partitions import (
+from sheenflow._core.definitions.sensor_definition import SensorDefinition
+from sheenflow._core.definitions.time_window_partitions import (
     DailyPartitionsDefinition,
     HourlyPartitionsDefinition,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.storage.io_manager import IOManagerDefinition
-from dagster._core.storage.mem_io_manager import InMemoryIOManager
-from dagster._core.test_utils import instance_for_test
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.storage.io_manager import IOManagerDefinition
+from sheenflow._core.storage.mem_io_manager import InMemoryIOManager
+from sheenflow._core.test_utils import instance_for_test
 
 
 def get_all_assets_from_defs(defs: Definitions):

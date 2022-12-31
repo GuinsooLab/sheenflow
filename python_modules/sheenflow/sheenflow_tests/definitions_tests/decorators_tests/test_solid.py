@@ -17,7 +17,7 @@ from dagster import (
     job,
     op,
 )
-from dagster._core.utility_solids import define_stub_solid
+from sheenflow._core.utility_solids import define_stub_solid
 
 # This file tests a lot of parameter name stuff, so these warnings are spurious
 # pylint: disable=unused-variable, unused-argument, redefined-outer-name

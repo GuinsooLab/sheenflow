@@ -1,6 +1,6 @@
 import os
 
-from dagster._core.test_utils import environ
+from sheenflow._core.test_utils import environ
 
 
 def test_environ():

@@ -1,9 +1,9 @@
 import pytest
 
 from dagster import Field, resource
-from dagster._core.definitions.resource_definition import IContainsGenerator
-from dagster._core.errors import DagsterResourceFunctionError
-from dagster._core.execution.build_resources import build_resources
+from sheenflow._core.definitions.resource_definition import IContainsGenerator
+from sheenflow._core.errors import DagsterResourceFunctionError
+from sheenflow._core.execution.build_resources import build_resources
 
 
 def test_basic_resource():

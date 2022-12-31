@@ -13,8 +13,8 @@ from requests.exceptions import RequestException
 from dagster import Failure, Field, StringSource
 from dagster import _check as check
 from dagster import get_dagster_logger, resource
-from dagster._config.field_utils import Permissive
-from dagster._utils.merger import deep_merge_dicts
+from sheenflow._config.field_utils import Permissive
+from sheenflow._utils.merger import deep_merge_dicts
 
 DEFAULT_POLL_INTERVAL_SECONDS = 10
 

@@ -9,11 +9,11 @@ from dagit.graphql import GraphQLWS
 from dagit.webserver import DagitWebserver
 from starlette.testclient import TestClient
 
-from dagster._core.test_utils import environ, instance_for_test
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import WorkspaceFileTarget
-from dagster._legacy import execute_pipeline, pipeline, solid
-from dagster._utils import file_relative_path
+from sheenflow._core.test_utils import environ, instance_for_test
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import WorkspaceFileTarget
+from sheenflow._legacy import execute_pipeline, pipeline, solid
+from sheenflow._utils import file_relative_path
 
 EVENT_LOG_SUBSCRIPTION = """
     subscription PipelineRunLogsSubscription($runId: ID!) {

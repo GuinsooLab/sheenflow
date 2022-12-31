@@ -14,17 +14,17 @@ from dagster import (
     reconstructable,
     resource,
 )
-from dagster._core.definitions import AssetsDefinition, SourceAsset, asset, build_assets_job
-from dagster._core.errors import (
+from sheenflow._core.definitions import AssetsDefinition, SourceAsset, asset, build_assets_job
+from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DagsterInvariantViolationError,
 )
-from dagster._core.execution.with_resources import with_resources
-from dagster._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
-from dagster._core.storage.mem_io_manager import InMemoryIOManager
-from dagster._core.test_utils import environ, instance_for_test
+from sheenflow._core.execution.with_resources import with_resources
+from sheenflow._core.storage.fs_io_manager import PickledObjectFilesystemIOManager
+from sheenflow._core.storage.mem_io_manager import InMemoryIOManager
+from sheenflow._core.test_utils import environ, instance_for_test
 
 # pylint: disable=comparison-with-callable,unbalanced-tuple-unpacking
 

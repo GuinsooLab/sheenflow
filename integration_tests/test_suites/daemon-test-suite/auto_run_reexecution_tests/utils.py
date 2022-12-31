@@ -3,12 +3,12 @@ import sys
 from contextlib import contextmanager
 
 from dagster import job, op, repository
-from dagster._core.host_representation import (
+from sheenflow._core.host_representation import (
     JobHandle,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,
 )
-from dagster._core.types.loadable_target_origin import LoadableTargetOrigin
-from dagster._core.workspace.load_target import PythonFileTarget
+from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
+from sheenflow._core.workspace.load_target import PythonFileTarget
 
 
 @op

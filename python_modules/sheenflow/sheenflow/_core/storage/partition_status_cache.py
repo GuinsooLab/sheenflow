@@ -2,22 +2,22 @@ from typing import List, Mapping, NamedTuple, Optional, Sequence, Union
 
 from dagster import AssetKey, DagsterEventType, DagsterInstance, EventRecordsFilter
 from dagster import _check as check
-from dagster._core.definitions.asset_graph import AssetGraph
-from dagster._core.definitions.multi_dimensional_partitions import (
+from sheenflow._core.definitions.asset_graph import AssetGraph
+from sheenflow._core.definitions.multi_dimensional_partitions import (
     MultiPartitionKey,
     MultiPartitionsDefinition,
 )
-from dagster._core.definitions.partition import (
+from sheenflow._core.definitions.partition import (
     PartitionsDefinition,
     PartitionsSubset,
     StaticPartitionsDefinition,
 )
-from dagster._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
-from dagster._core.storage.tags import (
+from sheenflow._core.definitions.time_window_partitions import TimeWindowPartitionsDefinition
+from sheenflow._core.storage.tags import (
     MULTIDIMENSIONAL_PARTITION_PREFIX,
     get_dimension_from_partition_tag,
 )
-from dagster._serdes import deserialize_json_to_dagster_namedtuple, whitelist_for_serdes
+from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, whitelist_for_serdes
 
 CACHEABLE_PARTITION_TYPES = {
     TimeWindowPartitionsDefinition,

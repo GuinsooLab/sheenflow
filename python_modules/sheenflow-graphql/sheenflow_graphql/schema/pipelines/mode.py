@@ -1,7 +1,7 @@
 import graphene
 
-import dagster._check as check
-from dagster._core.snap import ConfigSchemaSnapshot, ModeDefSnap
+import sheenflow._check as check
+from sheenflow._core.snap import ConfigSchemaSnapshot, ModeDefSnap
 
 from ..util import non_null_list
 from .logger import GrapheneLogger

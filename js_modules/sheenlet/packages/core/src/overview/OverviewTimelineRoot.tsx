@@ -1,4 +1,4 @@
-import {Page, PageHeader, Heading, Box, TextInput, Button, ButtonGroup} from '@sheenflow-io/ui';
+import {Page, PageHeader, Heading, Box, TextInput, Button, ButtonGroup} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {FIFTEEN_SECONDS, useQueryRefreshAtInterval} from '../app/QueryRefresh';

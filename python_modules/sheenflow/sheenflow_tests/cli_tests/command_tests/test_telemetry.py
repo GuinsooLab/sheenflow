@@ -5,9 +5,9 @@ from difflib import SequenceMatcher
 
 from click.testing import CliRunner
 
-from dagster._cli.job import job_execute_command
-from dagster._core.definitions.reconstruct import get_ephemeral_repository_name
-from dagster._core.telemetry import (
+from sheenflow._cli.job import job_execute_command
+from sheenflow._core.definitions.reconstruct import get_ephemeral_repository_name
+from sheenflow._core.telemetry import (
     TELEMETRY_STR,
     UPDATE_REPO_STATS,
     cleanup_telemetry_logger,
@@ -17,9 +17,9 @@ from dagster._core.telemetry import (
     log_workspace_stats,
     write_telemetry_log_line,
 )
-from dagster._core.test_utils import environ, instance_for_test
-from dagster._core.workspace.load import load_workspace_process_context_from_yaml_paths
-from dagster._utils import file_relative_path, pushd, script_relative_path
+from sheenflow._core.test_utils import environ, instance_for_test
+from sheenflow._core.workspace.load import load_workspace_process_context_from_yaml_paths
+from sheenflow._utils import file_relative_path, pushd, script_relative_path
 
 EXPECTED_KEYS = set(
     [

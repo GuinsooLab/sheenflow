@@ -14,8 +14,8 @@ from dagster import (
     asset,
     repository,
 )
-from dagster._core.test_utils import instance_for_test, wait_for_runs_to_finish
-from dagster._core.workspace.context import WorkspaceRequestContext
+from sheenflow._core.test_utils import instance_for_test, wait_for_runs_to_finish
+from sheenflow._core.workspace.context import WorkspaceRequestContext
 
 
 def get_repo_v1():

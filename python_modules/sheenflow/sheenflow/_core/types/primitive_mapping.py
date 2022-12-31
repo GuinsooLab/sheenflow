@@ -1,5 +1,5 @@
-import dagster._check as check
-from dagster._builtins import Bool, Float, Int, String
+import sheenflow._check as check
+from sheenflow._builtins import Bool, Float, Int, String
 
 from .dagster_type import Any as RuntimeAny
 from .dagster_type import List
@@ -28,7 +28,7 @@ def remap_python_builtin_for_runtime(ttype):
     """This function remaps a python type to a Dagster type, or passes it through if it cannot be
     remapped.
     """
-    from dagster._core.types.dagster_type import resolve_dagster_type
+    from sheenflow._core.types.dagster_type import resolve_dagster_type
 
     check.param_invariant(is_supported_runtime_python_builtin(ttype), "ttype")
 

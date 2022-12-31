@@ -14,18 +14,18 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions.policy import RetryPolicy
-from dagster._core.definitions.resource_definition import ResourceDefinition
-from dagster._core.errors import (
+import sheenflow._check as check
+from sheenflow._core.definitions.policy import RetryPolicy
+from sheenflow._core.definitions.resource_definition import ResourceDefinition
+from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,
     DagsterInvalidSubsetError,
     DagsterInvariantViolationError,
 )
-from dagster._core.storage.tags import MEMOIZED_RUN_TAG
-from dagster._core.utils import str_format_set
-from dagster._utils import frozentags, merge_dicts
-from dagster._utils.backcompat import experimental_class_warning
+from sheenflow._core.storage.tags import MEMOIZED_RUN_TAG
+from sheenflow._core.utils import str_format_set
+from sheenflow._utils import frozentags, merge_dicts
+from sheenflow._utils.backcompat import experimental_class_warning
 
 from .asset_layer import AssetLayer
 from .dependency import (
@@ -52,8 +52,8 @@ from .utils import validate_tags
 from .version_strategy import VersionStrategy
 
 if TYPE_CHECKING:
-    from dagster._core.host_representation import PipelineIndex
-    from dagster._core.snap import ConfigSchemaSnapshot, PipelineSnapshot
+    from sheenflow._core.host_representation import PipelineIndex
+    from sheenflow._core.snap import ConfigSchemaSnapshot, PipelineSnapshot
 
     from .run_config_schema import RunConfigSchema
 
@@ -516,8 +516,8 @@ class PipelineDefinition:
         return self.get_pipeline_index().pipeline_snapshot_id
 
     def get_pipeline_index(self) -> "PipelineIndex":
-        from dagster._core.host_representation import PipelineIndex
-        from dagster._core.snap import PipelineSnapshot
+        from sheenflow._core.host_representation import PipelineIndex
+        from sheenflow._core.snap import PipelineSnapshot
 
         return PipelineIndex(
             PipelineSnapshot.from_pipeline_def(self), self.get_parent_pipeline_snapshot()

@@ -9,17 +9,17 @@ import pytest
 from dagster import DagsterRunStatus
 from dagster import _check as check
 from dagster import file_relative_path
-from dagster._core.definitions.instigation_logger import get_instigation_log_records
-from dagster._core.events import DagsterEvent, DagsterEventType
-from dagster._core.events.log import EventLogEntry
-from dagster._core.host_representation import ExternalRepository, RepositoryLocation
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DAGSTER_META_KEY
-from dagster._core.scheduler.instigation import TickStatus
-from dagster._core.storage.event_log.base import EventRecordsFilter
-from dagster._core.test_utils import create_test_daemon_workspace_context, instance_for_test
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load_target import WorkspaceFileTarget
+from sheenflow._core.definitions.instigation_logger import get_instigation_log_records
+from sheenflow._core.events import DagsterEvent, DagsterEventType
+from sheenflow._core.events.log import EventLogEntry
+from sheenflow._core.host_representation import ExternalRepository, RepositoryLocation
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DAGSTER_META_KEY
+from sheenflow._core.scheduler.instigation import TickStatus
+from sheenflow._core.storage.event_log.base import EventRecordsFilter
+from sheenflow._core.test_utils import create_test_daemon_workspace_context, instance_for_test
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load_target import WorkspaceFileTarget
 
 from .conftest import create_workspace_load_target
 from .test_sensor_run import (

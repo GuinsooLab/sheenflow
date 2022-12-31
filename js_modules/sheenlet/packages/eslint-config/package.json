@@ -1,7 +1,7 @@
 {
-  "name": "@sheenlet/eslint-config",
+  "name": "@dagster-io/eslint-config",
   "version": "1.0.7",
-  "description": "Shared eslint configuration",
+  "description": "Shared eslint configuration for @dagster-io",
   "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {

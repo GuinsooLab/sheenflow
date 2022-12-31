@@ -1,5 +1,5 @@
 from dagster import AssetIn, AssetKey, AssetOut, asset, multi_asset
-from dagster._core.definitions.resolved_asset_deps import resolve_assets_def_deps
+from sheenflow._core.definitions.resolved_asset_deps import resolve_assets_def_deps
 
 
 def test_same_name_twice_and_downstream():

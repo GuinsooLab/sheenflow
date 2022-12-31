@@ -3,14 +3,14 @@ from typing import Sequence
 import duckdb
 
 from dagster import Field, IOManagerDefinition, OutputContext, StringSource, io_manager
-from dagster._core.storage.db_io_manager import (
+from sheenflow._core.storage.db_io_manager import (
     DbClient,
     DbIOManager,
     DbTypeHandler,
     TablePartition,
     TableSlice,
 )
-from dagster._utils.backoff import backoff
+from sheenflow._utils.backoff import backoff
 
 DUCKDB_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 

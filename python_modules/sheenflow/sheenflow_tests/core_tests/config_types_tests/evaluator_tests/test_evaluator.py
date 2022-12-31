@@ -1,5 +1,5 @@
 from dagster import Any, Bool, Field, Int, Noneable, Selector, Shape, String, StringSource
-from dagster._config import (
+from sheenflow._config import (
     DagsterEvaluationErrorReason,
     EvaluateValueResult,
     EvaluationStackListItemEntry,

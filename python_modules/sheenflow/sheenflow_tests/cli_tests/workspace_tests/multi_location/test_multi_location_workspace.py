@@ -4,14 +4,14 @@ from contextlib import ExitStack
 import pytest
 import yaml
 
-from dagster._core.host_representation import GrpcServerRepositoryLocation
-from dagster._core.test_utils import instance_for_test
-from dagster._core.workspace.context import WorkspaceProcessContext
-from dagster._core.workspace.load import (
+from sheenflow._core.host_representation import GrpcServerRepositoryLocation
+from sheenflow._core.test_utils import instance_for_test
+from sheenflow._core.workspace.context import WorkspaceProcessContext
+from sheenflow._core.workspace.load import (
     load_workspace_process_context_from_yaml_paths,
     location_origins_from_config,
 )
-from dagster._utils import file_relative_path
+from sheenflow._utils import file_relative_path
 
 
 @pytest.fixture

@@ -29,7 +29,7 @@ communicated between user repositories and host processes such as sheenlet.
 
 """
 
-from dagster._config import (
+from sheenflow._config import (
     ConfigEnumValueSnap,
     ConfigFieldSnap,
     ConfigSchemaSnapshot,

@@ -3,20 +3,20 @@ import logging
 import time
 
 from dagster import DagsterEvent, DagsterEventType, EventLogEntry
-from dagster._core.execution.api import create_execution_plan
-from dagster._core.execution.plan.resume_retry import ReexecutionStrategy
-from dagster._core.instance import DagsterInstance
-from dagster._core.snap import snapshot_from_execution_plan
-from dagster._core.storage.pipeline_run import RunsFilter
-from dagster._core.storage.tags import MAX_RETRIES_TAG, RETRY_STRATEGY_TAG
-from dagster._core.test_utils import create_run_for_test, instance_for_test
-from dagster._daemon.auto_run_reexecution.auto_run_reexecution import (
+from sheenflow._core.execution.api import create_execution_plan
+from sheenflow._core.execution.plan.resume_retry import ReexecutionStrategy
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.snap import snapshot_from_execution_plan
+from sheenflow._core.storage.pipeline_run import RunsFilter
+from sheenflow._core.storage.tags import MAX_RETRIES_TAG, RETRY_STRATEGY_TAG
+from sheenflow._core.test_utils import create_run_for_test, instance_for_test
+from sheenflow._daemon.auto_run_reexecution.auto_run_reexecution import (
     consume_new_runs_for_automatic_reexecution,
     filter_runs_to_should_retry,
     get_reexecution_strategy,
 )
-from dagster._daemon.auto_run_reexecution.event_log_consumer import EventLogConsumerDaemon
-from dagster._legacy import DagsterRunStatus
+from sheenflow._daemon.auto_run_reexecution.event_log_consumer import EventLogConsumerDaemon
+from sheenflow._legacy import DagsterRunStatus
 
 from .utils import foo, get_foo_job_handle
 

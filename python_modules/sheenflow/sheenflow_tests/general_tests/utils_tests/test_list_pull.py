@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from dagster._utils import list_pull
+from sheenflow._utils import list_pull
 
 
 def test_list_pull():

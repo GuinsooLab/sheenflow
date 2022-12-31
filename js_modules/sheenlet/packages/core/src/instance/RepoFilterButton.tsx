@@ -1,4 +1,4 @@
-import {Box, Button, DialogFooter, DialogHeader, Dialog, Icon} from '@sheenflow-io/ui';
+import {Box, Button, DialogFooter, DialogHeader, Dialog, Icon} from '@dagster-io/ui';
 import * as React from 'react';
 
 import {RepoSelector} from '../nav/RepoSelector';

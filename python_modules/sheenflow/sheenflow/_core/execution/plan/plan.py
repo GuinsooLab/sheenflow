@@ -15,8 +15,8 @@ from typing import (
     cast,
 )
 
-import dagster._check as check
-from dagster._core.definitions import (
+import sheenflow._check as check
+from sheenflow._core.definitions import (
     GraphDefinition,
     IPipeline,
     InputDefinition,
@@ -26,28 +26,28 @@ from dagster._core.definitions import (
     NodeOutput,
     OpDefinition,
 )
-from dagster._core.definitions.composition import MappedInputPlaceholder
-from dagster._core.definitions.dependency import DependencyStructure
-from dagster._core.definitions.executor_definition import ExecutorRequirement
-from dagster._core.definitions.mode import ModeDefinition
-from dagster._core.definitions.pipeline_definition import PipelineDefinition
-from dagster._core.definitions.reconstruct import ReconstructablePipeline
-from dagster._core.definitions.repository_definition import RepositoryLoadData
-from dagster._core.errors import (
+from sheenflow._core.definitions.composition import MappedInputPlaceholder
+from sheenflow._core.definitions.dependency import DependencyStructure
+from sheenflow._core.definitions.executor_definition import ExecutorRequirement
+from sheenflow._core.definitions.mode import ModeDefinition
+from sheenflow._core.definitions.pipeline_definition import PipelineDefinition
+from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
+from sheenflow._core.definitions.repository_definition import RepositoryLoadData
+from sheenflow._core.errors import (
     DagsterExecutionStepNotFoundError,
     DagsterInvariantViolationError,
     DagsterUnmetExecutorRequirementsError,
 )
-from dagster._core.execution.plan.handle import (
+from sheenflow._core.execution.plan.handle import (
     ResolvedFromDynamicStepHandle,
     StepHandle,
     UnresolvedStepHandle,
 )
-from dagster._core.execution.retries import RetryMode
-from dagster._core.instance import DagsterInstance, InstanceRef
-from dagster._core.storage.mem_io_manager import mem_io_manager
-from dagster._core.system_config.objects import ResolvedRunConfig
-from dagster._core.utils import toposort
+from sheenflow._core.execution.retries import RetryMode
+from sheenflow._core.instance import DagsterInstance, InstanceRef
+from sheenflow._core.storage.mem_io_manager import mem_io_manager
+from sheenflow._core.system_config.objects import ResolvedRunConfig
+from sheenflow._core.utils import toposort
 
 from ..context.output import get_output_context
 from ..resolve_versions import resolve_step_output_versions
@@ -79,7 +79,7 @@ from .step import (
 )
 
 if TYPE_CHECKING:
-    from dagster._core.snap.execution_plan_snapshot import (
+    from sheenflow._core.snap.execution_plan_snapshot import (
         ExecutionPlanSnapshot,
         ExecutionStepInputSnap,
     )
@@ -437,7 +437,7 @@ def get_root_graph_input_source(
     input_def: InputDefinition,
     pipeline_def: PipelineDefinition,
 ) -> Optional[Union[FromConfig, FromDirectInputValue]]:
-    from dagster._core.definitions.job_definition import get_direct_input_values_from_job
+    from sheenflow._core.definitions.job_definition import get_direct_input_values_from_job
 
     input_values = get_direct_input_values_from_job(pipeline_def)
     if input_values and input_name in input_values:
@@ -1057,7 +1057,7 @@ class ExecutionPlan(
 
     @staticmethod
     def rebuild_step_input(step_input_snap: "ExecutionStepInputSnap"):
-        from dagster._core.snap.execution_plan_snapshot import ExecutionStepInputSnap
+        from sheenflow._core.snap.execution_plan_snapshot import ExecutionStepInputSnap
 
         check.inst_param(step_input_snap, "step_input_snap", ExecutionStepInputSnap)
 
@@ -1247,7 +1247,7 @@ def _check_persistent_storage_requirement(
     mode_def: ModeDefinition,
     resolved_run_config: ResolvedRunConfig,
 ) -> None:
-    from dagster._core.execution.context_creation_pipeline import executor_def_from_config
+    from sheenflow._core.execution.context_creation_pipeline import executor_def_from_config
 
     pipeline_def = pipeline.get_definition()
     executor_def = executor_def_from_config(mode_def, resolved_run_config)

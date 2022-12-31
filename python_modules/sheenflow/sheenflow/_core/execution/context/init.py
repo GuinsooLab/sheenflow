@@ -1,16 +1,16 @@
 from typing import Any, Mapping, Optional, Union
 
-import dagster._check as check
-from dagster._annotations import public
-from dagster._core.definitions.resource_definition import (
+import sheenflow._check as check
+from sheenflow._annotations import public
+from sheenflow._core.definitions.resource_definition import (
     IContainsGenerator,
     ResourceDefinition,
     Resources,
 )
-from dagster._core.errors import DagsterInvariantViolationError
-from dagster._core.instance import DagsterInstance
-from dagster._core.log_manager import DagsterLogManager
-from dagster._core.storage.pipeline_run import DagsterRun
+from sheenflow._core.errors import DagsterInvariantViolationError
+from sheenflow._core.instance import DagsterInstance
+from sheenflow._core.log_manager import DagsterLogManager
+from sheenflow._core.storage.pipeline_run import DagsterRun
 
 
 class InitResourceContext:
@@ -129,12 +129,12 @@ class UnboundInitResourceContext(InitResourceContext):
         resources: Optional[Union[Resources, Mapping[str, Any]]],
         instance: Optional[DagsterInstance],
     ):
-        from dagster._core.execution.api import ephemeral_instance_if_missing
-        from dagster._core.execution.build_resources import (
+        from sheenflow._core.execution.api import ephemeral_instance_if_missing
+        from sheenflow._core.execution.build_resources import (
             build_resources,
             wrap_resources_for_execution,
         )
-        from dagster._core.execution.context_creation_pipeline import initialize_console_manager
+        from sheenflow._core.execution.context_creation_pipeline import initialize_console_manager
 
         self._instance_provided = (
             check.opt_inst_param(instance, "instance", DagsterInstance) is not None

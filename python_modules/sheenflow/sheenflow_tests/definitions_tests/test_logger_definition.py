@@ -1,7 +1,7 @@
 import logging
 
 from dagster import Enum, EnumValue, Field, Int, configured, job, logger
-from dagster._core.utils import coerce_valid_log_level
+from sheenflow._core.utils import coerce_valid_log_level
 
 
 def assert_job_runs_with_logger(logger_def, logger_config):

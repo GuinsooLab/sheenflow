@@ -4,9 +4,9 @@ from typing import Dict, Optional
 
 from dotenv import dotenv_values
 
-import dagster._check as check
-from dagster._config import Field, StringSource
-from dagster._serdes import ConfigurableClass
+import sheenflow._check as check
+from sheenflow._config import Field, StringSource
+from sheenflow._serdes import ConfigurableClass
 
 from .loader import SecretsLoader
 

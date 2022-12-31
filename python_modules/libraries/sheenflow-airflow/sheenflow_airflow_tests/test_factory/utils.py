@@ -1,6 +1,6 @@
 from airflow.exceptions import AirflowSkipException
 
-from dagster._core.events.log import EventLogEntry
+from sheenflow._core.events.log import EventLogEntry
 
 
 def validate_pipeline_execution(pipeline_exc_result):

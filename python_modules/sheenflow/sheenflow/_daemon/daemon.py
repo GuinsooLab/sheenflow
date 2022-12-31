@@ -12,15 +12,15 @@ import pendulum
 
 from dagster import DagsterInstance
 from dagster import _check as check
-from dagster._core.scheduler.scheduler import DagsterDaemonScheduler
-from dagster._core.telemetry import DAEMON_ALIVE, log_action
-from dagster._core.workspace.context import IWorkspaceProcessContext
-from dagster._daemon.backfill import execute_backfill_iteration
-from dagster._daemon.monitoring import execute_monitoring_iteration
-from dagster._daemon.sensor import execute_sensor_iteration_loop
-from dagster._daemon.types import DaemonHeartbeat
-from dagster._scheduler.scheduler import execute_scheduler_iteration_loop
-from dagster._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
+from sheenflow._core.scheduler.scheduler import DagsterDaemonScheduler
+from sheenflow._core.telemetry import DAEMON_ALIVE, log_action
+from sheenflow._core.workspace.context import IWorkspaceProcessContext
+from sheenflow._daemon.backfill import execute_backfill_iteration
+from sheenflow._daemon.monitoring import execute_monitoring_iteration
+from sheenflow._daemon.sensor import execute_sensor_iteration_loop
+from sheenflow._daemon.types import DaemonHeartbeat
+from sheenflow._scheduler.scheduler import execute_scheduler_iteration_loop
+from sheenflow._utils.error import SerializableErrorInfo, serializable_error_info_from_exc_info
 
 
 def get_default_daemon_logger(daemon_name) -> logging.Logger:
@@ -71,7 +71,7 @@ class DagsterDaemon(AbstractContextManager, ABC, Generic[TContext]):
         heartbeat_interval_seconds: int,
         error_interval_seconds: int,
     ):
-        from dagster._core.telemetry_upload import uploading_logging_thread
+        from sheenflow._core.telemetry_upload import uploading_logging_thread
 
         with uploading_logging_thread():
             daemon_generator = self.core_loop(workspace_process_context)

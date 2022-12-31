@@ -16,7 +16,7 @@ from dagster import (
     schedule,
     validate_run_config,
 )
-from dagster._utils import merge_dicts
+from sheenflow._utils import merge_dicts
 
 # This file tests a lot of parameter name stuff, so these warnings are spurious
 # pylint: disable=unused-variable, unused-argument, redefined-outer-name
