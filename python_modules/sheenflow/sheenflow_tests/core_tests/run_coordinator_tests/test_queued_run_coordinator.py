@@ -1,5 +1,5 @@
 import pytest
-from dagster_tests.api_tests.utils import get_bar_workspace
+from sheenflow_tests.api_tests.utils import get_bar_workspace
 
 from sheenflow._core.errors import DagsterInvalidConfigError
 from sheenflow._core.events import DagsterEventType

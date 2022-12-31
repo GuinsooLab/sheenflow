@@ -1,4 +1,4 @@
-from dagstermill.examples.repository import notebook_repo
+from sheenflowmill.examples.repository import notebook_repo
 
 from sheenflow import RepositoryDefinition
 

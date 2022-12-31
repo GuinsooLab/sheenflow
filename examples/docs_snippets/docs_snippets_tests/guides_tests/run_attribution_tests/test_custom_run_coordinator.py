@@ -1,7 +1,7 @@
 from collections import namedtuple
 
 import pytest
-from dagster_tests.core_tests.run_coordinator_tests.test_queued_run_coordinator import (
+from sheenflow_tests.core_tests.run_coordinator_tests.test_queued_run_coordinator import (
     TestQueuedRunCoordinator,
 )
 from mock import patch

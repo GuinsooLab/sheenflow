@@ -1,10 +1,10 @@
 import os
 
-from dagster_slack import make_slack_on_run_failure_sensor
-from dagster_test.toys.error_monster import error_monster_failing_job
-from dagster_test.toys.log_asset import log_asset_job
-from dagster_test.toys.log_file import log_file_job
-from dagster_test.toys.log_s3 import log_s3_job
+from sheenflow_slack import make_slack_on_run_failure_sensor
+from sheenflow_test.toys.error_monster import error_monster_failing_job
+from sheenflow_test.toys.log_asset import log_asset_job
+from sheenflow_test.toys.log_file import log_file_job
+from sheenflow_test.toys.log_s3 import log_s3_job
 from slack_sdk.web.client import WebClient
 
 from sheenflow import AssetKey, RunFailureSensorContext, RunRequest, SkipReason

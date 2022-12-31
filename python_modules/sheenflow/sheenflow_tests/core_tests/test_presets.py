@@ -1,4 +1,4 @@
-from dagster_tests.general_tests.test_legacy_repository import (
+from sheenflow_tests.general_tests.test_legacy_repository import (
     define_multi_mode_with_resources_pipeline,
 )
 

@@ -6,7 +6,7 @@ setup(
     install_requires=["sheenflow", "pandas"],
     license="Apache-2.0",
     description="Dagster example of op and graph-backed assets.",
-    url="https://github.com/dagster-io/dagster/tree/master/examples/feature_graph_backed_assets",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/examples/feature_graph_backed_assets",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

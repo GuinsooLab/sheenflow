@@ -9,7 +9,7 @@ dagstermill.yield_result(3, output_name="my_output")
 
 
 # start_py_file
-from dagstermill import define_dagstermill_op, local_output_notebook_io_manager
+from sheenflowmill import define_dagstermill_op, local_output_notebook_io_manager
 
 from sheenflow import Out, file_relative_path, job, op
 

@@ -2,7 +2,7 @@ import os
 import time
 from contextlib import contextmanager
 
-from dagster_test.test_project import (
+from sheenflow_test.test_project import (
     ReOriginatedExternalPipelineForTest,
     find_local_test_image,
     get_buildkite_registry_config,

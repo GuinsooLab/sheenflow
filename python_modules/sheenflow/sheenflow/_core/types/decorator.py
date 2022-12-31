@@ -59,7 +59,7 @@ def usable_as_dagster_type(  # type: ignore  # bug
 
     .. code-block:: python
 
-        # dagster_aws.s3.file_manager.S3FileHandle
+        # sheenflow_aws.s3.file_manager.S3FileHandle
         @usable_as_dagster_type
         class S3FileHandle(FileHandle):
             def __init__(self, s3_bucket, s3_key):

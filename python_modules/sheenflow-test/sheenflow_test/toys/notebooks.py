@@ -1,4 +1,4 @@
-from dagstermill.factory import define_dagstermill_op
+from sheenflowmill.factory import define_dagstermill_op
 
 from sheenflow._legacy import pipeline
 

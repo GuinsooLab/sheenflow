@@ -140,7 +140,7 @@ def test_repo_stats(caplog):
                         "-f",
                         file_relative_path(__file__, "../../general_tests/test_repository.py"),
                         "-a",
-                        "dagster_test_repository",
+                        "sheenflow_test_repository",
                         "--config",
                         file_relative_path(__file__, "../../environments/double_adder_job.yaml"),
                         "-j",
@@ -158,7 +158,7 @@ def test_repo_stats(caplog):
                         metadata = message.get("metadata")
                         assert metadata.get("pipeline_name_hash") == hash_name(job_name)
                         assert metadata.get("num_pipelines_in_repo") == str(6)
-                        assert metadata.get("repo_hash") == hash_name("dagster_test_repository")
+                        assert metadata.get("repo_hash") == hash_name("sheenflow_test_repository")
                     assert set(message.keys()) == EXPECTED_KEYS
 
                 assert len(caplog.records) == 5

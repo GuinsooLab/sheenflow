@@ -1,7 +1,7 @@
 import time
 
 import pytest
-from dagster_test.test_project import (
+from sheenflow_test.test_project import (
     ReOriginatedExternalScheduleForTest,
     get_test_project_external_schedule,
 )

@@ -19,9 +19,9 @@ from .integration_utils import check_output, which_, within_docker
 CLUSTER_INFO_DUMP_DIR = "kind-info-dump"
 
 
-def kind_load_images(cluster_name, local_dagster_test_image, additional_images=None):
+def kind_load_images(cluster_name, local_sheenflow_test_image, additional_images=None):
     check.str_param(cluster_name, "cluster_name")
-    check.str_param(local_dagster_test_image, "local_dagster_test_image")
+    check.str_param(local_sheenflow_test_image, "local_sheenflow_test_image")
     additional_images = check.opt_list_param(additional_images, "additional_images", of_type=str)
 
     print("Loading images into kind cluster...")
@@ -32,8 +32,8 @@ def kind_load_images(cluster_name, local_dagster_test_image, additional_images=N
         check_output(["docker", "pull", image])
         check_output(["kind", "load", "docker-image", "--name", cluster_name, image])
 
-    print("kind: Loading image %s into kind cluster %s" % (local_dagster_test_image, cluster_name))
-    check_output(["kind", "load", "docker-image", "--name", cluster_name, local_dagster_test_image])
+    print("kind: Loading image %s into kind cluster %s" % (local_sheenflow_test_image, cluster_name))
+    check_output(["kind", "load", "docker-image", "--name", cluster_name, local_sheenflow_test_image])
 
 
 def kind_cluster_exists(cluster_name):

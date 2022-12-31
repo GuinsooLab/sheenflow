@@ -8,7 +8,7 @@ import sys
 
 import pytest
 from click.testing import CliRunner
-from dagstermill.cli import create_notebook, retroactively_scaffold_notebook
+from sheenflowmill.cli import create_notebook, retroactively_scaffold_notebook
 
 from sheenflow._check import CheckError
 from sheenflow._utils import file_relative_path, pushd

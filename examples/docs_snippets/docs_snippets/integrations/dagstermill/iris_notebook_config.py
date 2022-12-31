@@ -8,7 +8,7 @@ def iris_dataset():
 
 
 # start
-from dagstermill import define_dagstermill_asset
+from sheenflowmill import define_dagstermill_asset
 
 from sheenflow import AssetIn, Field, Int, file_relative_path
 
@@ -32,7 +32,7 @@ iris_kmeans_jupyter_notebook = define_dagstermill_asset(
 # ReconstructablePipeline.for_module() find the jobs defined in this file. So we need to resolve all
 # of the asset jobs.
 
-from dagstermill import local_output_notebook_io_manager
+from sheenflowmill import local_output_notebook_io_manager
 
 from sheenflow import AssetSelection, define_asset_job, with_resources
 

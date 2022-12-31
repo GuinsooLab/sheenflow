@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import pytest
 import yaml
 from dagster_mysql.run_storage import MySQLRunStorage
-from dagster_tests.storage_tests.utils.run_storage import TestRunStorage
+from sheenflow_tests.storage_tests.utils.run_storage import TestRunStorage
 
 from sheenflow._core.test_utils import environ, instance_for_test
 

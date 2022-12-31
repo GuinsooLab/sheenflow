@@ -5,7 +5,7 @@ import time
 
 import docker
 import pytest
-from dagster_test.test_project import build_and_tag_test_image, get_test_project_docker_image
+from sheenflow_test.test_project import build_and_tag_test_image, get_test_project_docker_image
 
 from sheenflow import file_relative_path
 from sheenflow._core.test_utils import environ, instance_for_test

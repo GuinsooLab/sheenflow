@@ -18,7 +18,7 @@ from dagster_k8s_test_infra.helm import (
     TEST_VOLUME_CONFIGMAP_NAME,
 )
 from dagster_k8s_test_infra.integration_utils import image_pull_policy
-from dagster_test.test_project import build_and_tag_test_image, get_test_project_docker_image
+from sheenflow_test.test_project import build_and_tag_test_image, get_test_project_docker_image
 
 from sheenflow._core.instance import DagsterInstance
 

@@ -8,7 +8,7 @@ run_coordinator:
   class: QueuedRunCoordinator
 
 run_launcher:
-  module: dagster_aws.ecs
+  module: sheenflow_aws.ecs
   class: EcsRunLauncher
   config:
     include_sidecars: true

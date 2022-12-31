@@ -5,7 +5,7 @@ setup(
     author="ciusji",
     author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
-    url="https://github.com/dagster-io/dagster/tree/master/examples/docs_snippets",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/examples/docs_snippets",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

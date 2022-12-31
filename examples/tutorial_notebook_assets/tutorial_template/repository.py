@@ -1,4 +1,4 @@
-from dagstermill import local_output_notebook_io_manager
+from sheenflowmill import local_output_notebook_io_manager
 
 from sheenflow import load_assets_from_package_module, repository, with_resources
 

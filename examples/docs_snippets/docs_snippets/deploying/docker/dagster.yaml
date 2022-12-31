@@ -12,7 +12,7 @@ storage:
       port: 5432
 
 compute_logs:
-  module: dagster_aws.s3.compute_log_manager
+  module: sheenflow_aws.s3.compute_log_manager
   class: S3ComputeLogManager
   config:
     bucket: "mycorp-sheenflow-compute-logs"

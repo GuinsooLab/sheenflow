@@ -3,7 +3,7 @@ import pickle
 import uuid
 
 import dagstermill
-from dagstermill.io_managers import local_output_notebook_io_manager
+from sheenflowmill.io_managers import local_output_notebook_io_manager
 
 from sheenflow import (
     AssetIn,

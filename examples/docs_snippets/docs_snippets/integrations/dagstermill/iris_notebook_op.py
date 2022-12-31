@@ -1,7 +1,7 @@
 # isort: split
 # start
 
-from dagstermill import define_dagstermill_op, local_output_notebook_io_manager
+from sheenflowmill import define_dagstermill_op, local_output_notebook_io_manager
 
 from sheenflow import file_relative_path, job
 

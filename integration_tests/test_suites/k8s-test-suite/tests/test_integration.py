@@ -11,7 +11,7 @@ from dagster_k8s_test_infra.integration_utils import (
     launch_run_over_graphql,
     terminate_run_over_graphql,
 )
-from dagster_test.test_project import (
+from sheenflow_test.test_project import (
     get_test_project_docker_image,
     get_test_project_environments_path,
 )

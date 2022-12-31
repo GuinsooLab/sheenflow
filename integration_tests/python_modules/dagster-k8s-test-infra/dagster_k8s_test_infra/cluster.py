@@ -12,7 +12,7 @@ import psycopg2
 import pytest
 from dagster_k8s.client import DagsterKubernetesClient
 from dagster_postgres import PostgresEventLogStorage, PostgresRunStorage, PostgresScheduleStorage
-from dagster_test.test_project import build_and_tag_test_image, get_test_project_docker_image
+from sheenflow_test.test_project import build_and_tag_test_image, get_test_project_docker_image
 
 import sheenflow._check as check
 from sheenflow._cli.debug import export_run
@@ -77,7 +77,7 @@ def define_cluster_provider_fixture(additional_kind_images=None):
                         build_and_tag_test_image(docker_image)
                     kind_load_images(
                         cluster_name=cluster_config.name,
-                        local_dagster_test_image=docker_image,
+                        local_sheenflow_test_image=docker_image,
                         additional_images=additional_kind_images,
                     )
                 yield cluster_config

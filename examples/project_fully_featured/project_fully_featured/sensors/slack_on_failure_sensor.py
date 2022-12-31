@@ -1,6 +1,6 @@
 import os
 
-from dagster_slack import make_slack_on_run_failure_sensor
+from sheenflow_slack import make_slack_on_run_failure_sensor
 
 from sheenflow import SensorDefinition
 

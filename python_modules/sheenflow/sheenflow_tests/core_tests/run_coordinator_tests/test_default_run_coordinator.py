@@ -1,5 +1,5 @@
 import pytest
-from dagster_tests.api_tests.utils import get_bar_workspace
+from sheenflow_tests.api_tests.utils import get_bar_workspace
 
 from sheenflow._core.run_coordinator import SubmitRunContext
 from sheenflow._core.run_coordinator.default_run_coordinator import DefaultRunCoordinator

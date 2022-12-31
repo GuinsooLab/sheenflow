@@ -14,7 +14,7 @@ from dagster_airflow_tests.test_fixtures import (
     execute_tasks_in_dag,
     postgres_instance,
 )
-from dagster_test.test_project import get_test_project_environments_path
+from sheenflow_test.test_project import get_test_project_environments_path
 
 from sheenflow._core.definitions.reconstruct import ReconstructableRepository
 from sheenflow._core.utils import make_new_run_id

@@ -2,8 +2,8 @@ import json
 import logging
 import os
 
-from dagstermill.examples.repository import hello_logging
-from dagstermill.io_managers import local_output_notebook_io_manager
+from sheenflowmill.examples.repository import hello_logging
+from sheenflowmill.io_managers import local_output_notebook_io_manager
 
 from sheenflow import String
 from sheenflow import _seven as seven

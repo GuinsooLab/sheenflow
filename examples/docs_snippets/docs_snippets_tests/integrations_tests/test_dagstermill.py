@@ -1,7 +1,7 @@
 import os
 from contextlib import contextmanager
 
-from dagstermill_tests.test_ops import cleanup_result_notebook
+from sheenflowmill_tests.test_ops import cleanup_result_notebook
 
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
 from sheenflow._core.test_utils import instance_for_test

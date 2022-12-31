@@ -1,4 +1,4 @@
-from dagster_test.test_project import (
+from sheenflow_test.test_project import (
     ReOriginatedExternalPipelineForTest,
     get_test_project_workspace_and_external_pipeline,
 )

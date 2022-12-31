@@ -1,4 +1,4 @@
-from dagstermill.manager import MANAGER_FOR_NOTEBOOK_INSTANCE
+from sheenflowmill.manager import MANAGER_FOR_NOTEBOOK_INSTANCE
 
 from sheenflow._core.definitions.dependency import Node
 from sheenflow._core.definitions.op_definition import OpDefinition

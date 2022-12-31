@@ -72,7 +72,7 @@ def define_with_resources_job():
 
 
 @repository
-def dagster_test_repository():
+def sheenflow_test_repository():
     return [
         define_empty_job(),
         define_simple_job(),
@@ -81,7 +81,7 @@ def dagster_test_repository():
 
 
 def test_repository_construction():
-    assert dagster_test_repository
+    assert sheenflow_test_repository
 
 
 @repository

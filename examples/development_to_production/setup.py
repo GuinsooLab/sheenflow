@@ -15,7 +15,7 @@ setup(
     author="ciusji",
     license="Apache-2.0",
     description="Dagster example of local development and production deployment.",
-    url="https://github.com/dagster-io/dagster/tree/master/examples/development_to_production",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/examples/development_to_production",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

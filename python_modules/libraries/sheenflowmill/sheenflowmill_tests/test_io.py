@@ -1,7 +1,7 @@
 import os
 
 import pytest
-from dagstermill.examples.repository import hello_world
+from sheenflowmill.examples.repository import hello_world
 
 from sheenflow import job
 from sheenflow._core.errors import DagsterInvalidDefinitionError

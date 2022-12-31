@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from typing import Any, Optional, Sequence
 
-from dagstermill.factory import _clean_path_for_windows
+from sheenflowmill.factory import _clean_path_for_windows
 
 import sheenflow._check as check
 from sheenflow import AssetKey, AssetMaterialization

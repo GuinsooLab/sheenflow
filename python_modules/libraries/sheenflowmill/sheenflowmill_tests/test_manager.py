@@ -7,8 +7,8 @@ import threading
 
 import dagstermill
 import pytest
-from dagstermill import DagstermillError
-from dagstermill.manager import Manager
+from sheenflowmill import DagstermillError
+from sheenflowmill.manager import Manager
 
 from sheenflow import AssetMaterialization, ResourceDefinition
 from sheenflow import _check as check

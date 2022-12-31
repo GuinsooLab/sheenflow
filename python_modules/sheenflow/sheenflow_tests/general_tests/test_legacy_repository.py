@@ -99,7 +99,7 @@ def define_multi_mode_with_resources_pipeline():
 
 
 @repository
-def dagster_test_repository():
+def sheenflow_test_repository():
     return [
         define_empty_pipeline(),
         define_single_mode_pipeline(),
@@ -109,7 +109,7 @@ def dagster_test_repository():
 
 
 def test_repository_construction():
-    assert dagster_test_repository
+    assert sheenflow_test_repository
 
 
 @repository

@@ -6,8 +6,8 @@ import uuid
 from typing import Any, Mapping, Optional, Set, Union
 
 import papermill
-from dagstermill.compat import ExecutionError
-from dagstermill.factory import (
+from sheenflowmill.compat import ExecutionError
+from sheenflowmill.factory import (
     _clean_path_for_windows,
     get_papermill_parameters,
     replace_parameters,

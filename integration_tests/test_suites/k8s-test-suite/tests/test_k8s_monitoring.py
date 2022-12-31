@@ -5,7 +5,7 @@ import pytest
 from dagster_k8s.client import DagsterKubernetesClient
 from dagster_k8s.job import get_job_name_from_run_id
 from dagster_k8s_test_infra.integration_utils import image_pull_policy, launch_run_over_graphql
-from dagster_test.test_project import get_test_project_environments_path
+from sheenflow_test.test_project import get_test_project_environments_path
 
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.test_utils import poll_for_finished_run

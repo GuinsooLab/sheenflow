@@ -265,7 +265,7 @@ compute_logs:
 
 # you can set the config values directly:
 compute_logs:
-  module: dagster_aws.s3.compute_log_manager
+  module: sheenflow_aws.s3.compute_log_manager
   class: S3ComputeLogManager
   config:
     bucket: "mycorp-sheenflow-compute-logs"
@@ -273,7 +273,7 @@ compute_logs:
 
 # or grab some or all of them from environment variables
 compute_logs:
-  module: dagster_aws.s3.compute_log_manager
+  module: sheenflow_aws.s3.compute_log_manager
   class: S3ComputeLogManager
   config:
     bucket:

@@ -2,8 +2,8 @@ import os
 from contextlib import contextmanager
 
 import pytest
-from dagstermill.compat import ExecutionError
-from dagstermill.examples.repository import custom_io_mgr_key_asset
+from sheenflowmill.compat import ExecutionError
+from sheenflowmill.examples.repository import custom_io_mgr_key_asset
 
 from sheenflow import AssetKey, DagsterEventType
 from sheenflow._core.definitions.metadata import NotebookMetadataValue, PathMetadataValue

@@ -7,7 +7,7 @@ setup(
     author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
     description="Tools for buildkite automation",
-    url="https://github.com/dagster-io/dagster/tree/master/.buildkite/dagster-buildkite",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/.buildkite/dagster-buildkite",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

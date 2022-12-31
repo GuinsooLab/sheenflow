@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 import click
-import dagster_graphql
+import sheenflow_graphql
 
 from .utils import (
     LegacyQueryHistoryInfo,

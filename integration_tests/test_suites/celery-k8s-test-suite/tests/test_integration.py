@@ -14,8 +14,8 @@ from dagster_k8s_test_infra.integration_utils import (
     launch_run_over_graphql,
     terminate_run_over_graphql,
 )
-from dagster_test.test_project import cleanup_memoized_results, get_test_project_environments_path
-from dagster_test.test_project.test_pipelines.repo import define_memoization_pipeline
+from sheenflow_test.test_project import cleanup_memoized_results, get_test_project_environments_path
+from sheenflow_test.test_project.test_pipelines.repo import define_memoization_pipeline
 
 from sheenflow import DagsterEventType
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus

@@ -6,10 +6,10 @@ from contextlib import contextmanager
 
 import nbformat
 import pytest
-from dagstermill import DagstermillError
-from dagstermill.compat import ExecutionError
-from dagstermill.examples.repository import custom_io_mgr_key_job
-from dagstermill.factory import define_dagstermill_op
+from sheenflowmill import DagstermillError
+from sheenflowmill.compat import ExecutionError
+from sheenflowmill.examples.repository import custom_io_mgr_key_job
+from sheenflowmill.factory import define_dagstermill_op
 from jupyter_client.kernelspec import NoSuchKernel
 from nbconvert.preprocessors import ExecutePreprocessor
 
@@ -568,7 +568,7 @@ def test_failure(capsys):
 
 @pytest.mark.notebook_test
 def test_hello_world_graph():
-    from dagstermill.examples.repository import build_hello_world_job
+    from sheenflowmill.examples.repository import build_hello_world_job
 
     from sheenflow import reconstructable
 

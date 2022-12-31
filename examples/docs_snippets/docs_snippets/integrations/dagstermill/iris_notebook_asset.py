@@ -1,4 +1,4 @@
-from dagstermill import define_dagstermill_asset
+from sheenflowmill import define_dagstermill_asset
 
 from sheenflow import file_relative_path
 

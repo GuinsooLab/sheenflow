@@ -1,7 +1,7 @@
 # isort: skip_file
 import yaml
 from unittest import mock
-from dagster_slack import slack_resource
+from sheenflow_slack import slack_resource
 from sheenflow import (
     ResourceDefinition,
     file_relative_path,

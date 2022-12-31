@@ -2,7 +2,7 @@ import re
 from typing import NamedTuple
 
 import pytest
-from dagster_tests.general_tests.utils_tests.utils import assert_no_warnings
+from sheenflow_tests.general_tests.utils_tests.utils import assert_no_warnings
 
 from sheenflow._annotations import experimental
 from sheenflow._check import CheckError

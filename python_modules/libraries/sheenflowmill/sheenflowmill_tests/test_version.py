@@ -1,4 +1,4 @@
-from dagstermill.version import __version__
+from sheenflowmill.version import __version__
 
 
 def test_version():

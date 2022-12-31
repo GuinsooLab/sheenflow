@@ -21,12 +21,12 @@ from dagster_k8s_test_infra.integration_utils import (
     launch_run_over_graphql,
     terminate_run_over_graphql,
 )
-from dagster_test.test_project import (
+from sheenflow_test.test_project import (
     cleanup_memoized_results,
     get_test_project_docker_image,
     get_test_project_environments_path,
 )
-from dagster_test.test_project.test_pipelines.repo import define_memoization_pipeline
+from sheenflow_test.test_project.test_pipelines.repo import define_memoization_pipeline
 
 import sheenflow._check as check
 from sheenflow._core.events import DagsterEventType

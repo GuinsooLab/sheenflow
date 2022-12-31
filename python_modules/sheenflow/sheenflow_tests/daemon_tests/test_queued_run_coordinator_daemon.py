@@ -3,7 +3,7 @@
 from contextlib import contextmanager
 
 import pytest
-from dagster_tests.api_tests.utils import get_foo_job_handle
+from sheenflow_tests.api_tests.utils import get_foo_job_handle
 
 from sheenflow._core.host_representation.repository_location import GrpcServerRepositoryLocation
 from sheenflow._core.storage.pipeline_run import IN_PROGRESS_RUN_STATUSES, DagsterRunStatus

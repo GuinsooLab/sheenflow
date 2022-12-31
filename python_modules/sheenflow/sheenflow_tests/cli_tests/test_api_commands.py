@@ -3,7 +3,7 @@ import os
 
 import mock
 from click.testing import CliRunner
-from dagster_tests.api_tests.utils import get_bar_repo_handle, get_foo_job_handle
+from sheenflow_tests.api_tests.utils import get_bar_repo_handle, get_foo_job_handle
 
 from sheenflow import DagsterEventType, job, op, reconstructable
 from sheenflow._cli import api

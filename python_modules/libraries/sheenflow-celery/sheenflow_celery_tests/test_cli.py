@@ -66,14 +66,14 @@ def test_invoke_entrypoint():
 
 
 def test_start_worker(rabbitmq, instance):
-    start_worker("dagster_test_worker")
+    start_worker("sheenflow_test_worker")
 
 
 def test_start_worker_too_many_queues(rabbitmq, instance):
     args = ["-q", "1", "-q", "2", "-q", "3", "-q", "4", "-q", "5"]
 
     start_worker(
-        "dagster_test_worker",
+        "sheenflow_test_worker",
         args=args,
         exit_code=1,
         exception_str=(
@@ -84,14 +84,14 @@ def test_start_worker_too_many_queues(rabbitmq, instance):
 
 
 def test_start_worker_config_from_empty_yaml(rabbitmq, instance):
-    start_worker("dagster_test_worker", config_yaml=file_relative_path(__file__, "empty.yaml"))
+    start_worker("sheenflow_test_worker", config_yaml=file_relative_path(__file__, "empty.yaml"))
 
 
 def test_start_worker_config_from_partial_yaml(rabbitmq, instance):
-    start_worker("dagster_test_worker", config_yaml=file_relative_path(__file__, "partial.yaml"))
+    start_worker("sheenflow_test_worker", config_yaml=file_relative_path(__file__, "partial.yaml"))
 
 
 def test_start_worker_config_from_yaml(rabbitmq, instance):
     start_worker(
-        "dagster_test_worker", config_yaml=file_relative_path(__file__, "engine_config.yaml")
+        "sheenflow_test_worker", config_yaml=file_relative_path(__file__, "engine_config.yaml")
     )

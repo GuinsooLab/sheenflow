@@ -55,6 +55,8 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/libraries/sheenflow-postgres",
         "-e python_modules/libraries/sheenflow-pyspark",
         "-e python_modules/libraries/sheenflow-shell",
+        "-e python_modules/libraries/sheenflow-slack",
+        "-e python_modules/libraries/sheenflow-aws",
         "-e python_modules/libraries/sheenflowmill",
         "-e python_modules/libraries/sheenflow-duckdb",
         "-e python_modules/libraries/sheenflow-duckdb-pandas",

@@ -2,7 +2,7 @@ import re
 
 import pytest
 import yaml
-from dagster_tests.api_tests.utils import get_bar_workspace
+from sheenflow_tests.api_tests.utils import get_bar_workspace
 
 from sheenflow import _check as check
 from sheenflow import _seven, execute_job, job, op, reconstructable
