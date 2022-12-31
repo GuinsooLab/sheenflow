@@ -1,7 +1,7 @@
 import pytest
 
-from dagster import _check as check
-from dagster import resource
+from sheenflow import _check as check
+from sheenflow import resource
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.errors import DagsterInvariantViolationError
 from sheenflow._core.events.log import EventLogEntry, construct_event_logger

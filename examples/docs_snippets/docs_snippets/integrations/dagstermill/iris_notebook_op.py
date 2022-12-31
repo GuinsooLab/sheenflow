@@ -3,7 +3,7 @@
 
 from dagstermill import define_dagstermill_op, local_output_notebook_io_manager
 
-from dagster import file_relative_path, job
+from sheenflow import file_relative_path, job
 
 k_means_iris = define_dagstermill_op(
     name="k_means_iris",

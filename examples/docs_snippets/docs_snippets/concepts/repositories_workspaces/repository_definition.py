@@ -1,4 +1,4 @@
-from dagster import RunRequest, ScheduleDefinition, asset, job, op, repository, sensor
+from sheenflow import RunRequest, ScheduleDefinition, asset, job, op, repository, sensor
 
 
 @asset

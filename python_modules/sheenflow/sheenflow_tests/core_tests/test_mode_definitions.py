@@ -7,7 +7,7 @@ from dagster_tests.general_tests.test_legacy_repository import (
     define_single_mode_pipeline,
 )
 
-from dagster import (
+from sheenflow import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
     DagsterInvariantViolationError,

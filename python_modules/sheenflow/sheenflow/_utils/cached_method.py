@@ -1,6 +1,6 @@
 from functools import wraps
 
-from dagster import _check as check
+from sheenflow import _check as check
 
 NO_VALUE_IN_CACHE_SENTINEL = object()
 

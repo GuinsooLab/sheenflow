@@ -1,6 +1,6 @@
 from typing import Optional
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.storage.base_storage import DagsterStorage
 from sheenflow._core.storage.config import mysql_config
 from sheenflow._core.storage.event_log import EventLogStorage

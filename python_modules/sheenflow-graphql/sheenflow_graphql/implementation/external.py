@@ -16,14 +16,14 @@ from sheenflow._utils.error import serializable_error_info_from_exc_info
 from .utils import UserFacingGraphQLError, capture_error
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.errors import GrapheneRepositoryNotFoundError
-    from dagster_graphql.schema.external import (
+    from sheenflow_graphql.schema.errors import GrapheneRepositoryNotFoundError
+    from sheenflow_graphql.schema.external import (
         GrapheneRepository,
         GrapheneRepositoryConnection,
         GrapheneWorkspace,
         GrapheneWorkspaceLocationStatusEntries,
     )
-    from dagster_graphql.schema.util import HasContext
+    from sheenflow_graphql.schema.util import HasContext
 
 
 def get_full_external_pipeline_or_raise(

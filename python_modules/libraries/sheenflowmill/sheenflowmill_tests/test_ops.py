@@ -13,7 +13,7 @@ from dagstermill.factory import define_dagstermill_op
 from jupyter_client.kernelspec import NoSuchKernel
 from nbconvert.preprocessors import ExecutePreprocessor
 
-from dagster import job
+from sheenflow import job
 from sheenflow._check import CheckError
 from sheenflow._core.definitions.metadata import NotebookMetadataValue, PathMetadataValue
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
@@ -570,7 +570,7 @@ def test_failure(capsys):
 def test_hello_world_graph():
     from dagstermill.examples.repository import build_hello_world_job
 
-    from dagster import reconstructable
+    from sheenflow import reconstructable
 
     with instance_for_test() as instance:
         result = None

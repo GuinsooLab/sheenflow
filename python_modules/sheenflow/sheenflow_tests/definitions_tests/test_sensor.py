@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import SensorDefinition, graph
+from sheenflow import SensorDefinition, graph
 from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 

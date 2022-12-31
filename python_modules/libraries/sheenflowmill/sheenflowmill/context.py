@@ -1,7 +1,7 @@
 from typing import AbstractSet, Any, Mapping, Optional, cast
 
-from dagster import DagsterRun, JobDefinition, OpDefinition
-from dagster import _check as check
+from sheenflow import DagsterRun, JobDefinition, OpDefinition
+from sheenflow import _check as check
 from sheenflow._annotations import public
 from sheenflow._core.definitions.dependency import Node, NodeHandle
 from sheenflow._core.execution.context.compute import AbstractComputeExecutionContext

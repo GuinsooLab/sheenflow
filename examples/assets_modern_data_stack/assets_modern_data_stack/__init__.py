@@ -1,7 +1,7 @@
 from dagster_airbyte import airbyte_resource
 from dagster_dbt import dbt_cli_resource
 
-from dagster import (
+from sheenflow import (
     Definitions,
     ScheduleDefinition,
     define_asset_job,

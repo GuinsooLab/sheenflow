@@ -6,7 +6,7 @@ from functools import update_wrapper
 
 import pytest
 
-from dagster import DagsterType, _seven
+from sheenflow import DagsterType, _seven
 from sheenflow._core.types.dagster_type import ListType
 from sheenflow._seven import is_subclass
 from sheenflow._utils import file_relative_path

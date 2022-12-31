@@ -1,7 +1,7 @@
 import pandas as pd
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
-from dagster import Definitions, SourceAsset, asset
+from sheenflow import Definitions, SourceAsset, asset
 
 iris_harvest_data = SourceAsset(key="iris_harvest_data")
 

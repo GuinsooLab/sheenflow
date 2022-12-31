@@ -1,6 +1,6 @@
 import logging
 
-from dagster import Enum, EnumValue, Field, Int, configured, job, logger
+from sheenflow import Enum, EnumValue, Field, Int, configured, job, logger
 from sheenflow._core.utils import coerce_valid_log_level
 
 

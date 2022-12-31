@@ -4,7 +4,7 @@ import dagster_pandas as dagster_pd
 import pandas as pd
 import pytest
 
-from dagster import DagsterTypeCheckDidNotPass, In, Out, graph, op
+from sheenflow import DagsterTypeCheckDidNotPass, In, Out, graph, op
 
 
 def test_wrong_output_value():

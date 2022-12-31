@@ -1,4 +1,4 @@
-from dagster import Array, Int, Noneable
+from sheenflow import Array, Int, Noneable
 from sheenflow._config import ConfigTypeKind, resolve_to_config_type, validate_config
 
 

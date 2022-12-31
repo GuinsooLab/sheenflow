@@ -29,8 +29,8 @@ from dagster_airbyte.utils import (
     is_basic_normalization_operation,
 )
 
-from dagster import AssetKey, AssetOut, Output, ResourceDefinition
-from dagster import _check as check
+from sheenflow import AssetKey, AssetOut, Output, ResourceDefinition
+from sheenflow import _check as check
 from sheenflow._annotations import experimental
 from sheenflow._core.definitions import AssetsDefinition, multi_asset
 from sheenflow._core.definitions.cacheable_assets import (

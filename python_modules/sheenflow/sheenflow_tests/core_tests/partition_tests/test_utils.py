@@ -2,7 +2,7 @@ from datetime import datetime
 
 import pytest
 
-from dagster import DagsterInvariantViolationError, Partition
+from sheenflow import DagsterInvariantViolationError, Partition
 from sheenflow._utils.partitions import DEFAULT_HOURLY_FORMAT_WITH_TIMEZONE, date_partition_range
 
 

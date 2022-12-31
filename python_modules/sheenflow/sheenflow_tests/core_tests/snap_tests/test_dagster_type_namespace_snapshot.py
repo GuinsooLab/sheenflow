@@ -1,4 +1,4 @@
-from dagster import Dict, In, List, Out, Set, Tuple, job, op
+from sheenflow import Dict, In, List, Out, Set, Tuple, job, op
 from sheenflow._core.snap import build_dagster_type_namespace_snapshot
 from sheenflow._core.types.dagster_type import ALL_RUNTIME_BUILTINS, create_string_type
 

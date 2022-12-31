@@ -3,7 +3,7 @@ import re
 
 from click.testing import CliRunner
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._cli.project import (
     from_example_command,
     scaffold_code_location_command,

@@ -3,7 +3,7 @@ import tempfile
 import pytest
 from click.testing import CliRunner
 
-from dagster import AssetKey, AssetMaterialization, Output
+from sheenflow import AssetKey, AssetMaterialization, Output
 from sheenflow._cli.asset import asset_wipe_command
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._legacy import execute_pipeline, pipeline, solid

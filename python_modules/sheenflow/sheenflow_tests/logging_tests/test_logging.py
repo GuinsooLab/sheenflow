@@ -6,9 +6,9 @@ from contextlib import contextmanager
 
 import pytest
 
-from dagster import DagsterInvalidConfigError
-from dagster import _check as check
-from dagster import execute_job, job, op, reconstructable, resource
+from sheenflow import DagsterInvalidConfigError
+from sheenflow import _check as check
+from sheenflow import execute_job, job, op, reconstructable, resource
 from sheenflow._core.definitions import NodeHandle
 from sheenflow._core.events import DagsterEvent
 from sheenflow._core.execution.context.logger import InitLoggerContext

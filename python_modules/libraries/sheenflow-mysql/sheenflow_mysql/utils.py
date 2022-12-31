@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 import mysql.connector as mysql
 import sqlalchemy as db
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.storage.sql import get_alembic_config
 
 

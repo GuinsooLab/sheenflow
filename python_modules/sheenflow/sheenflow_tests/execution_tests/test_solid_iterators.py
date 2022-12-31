@@ -1,4 +1,4 @@
-from dagster import AssetMaterialization, Output
+from sheenflow import AssetMaterialization, Output
 from sheenflow._annotations import experimental
 from sheenflow._legacy import execute_solid, solid
 

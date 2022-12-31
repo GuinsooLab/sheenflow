@@ -9,9 +9,9 @@ from urllib.parse import urlencode, urljoin
 import requests
 from requests.exceptions import RequestException
 
-from dagster import Failure, Field, IntSource, MetadataValue, StringSource, __version__
-from dagster import _check as check
-from dagster import get_dagster_logger, resource
+from sheenflow import Failure, Field, IntSource, MetadataValue, StringSource, __version__
+from sheenflow import _check as check
+from sheenflow import get_dagster_logger, resource
 from sheenflow._utils.merger import deep_merge_dicts
 
 from .types import DbtCloudOutput

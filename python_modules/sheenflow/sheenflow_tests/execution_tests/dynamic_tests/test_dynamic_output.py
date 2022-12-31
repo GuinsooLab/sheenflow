@@ -4,7 +4,7 @@ from typing import NamedTuple
 import objgraph
 import pytest
 
-from dagster import (
+from sheenflow import (
     DynamicOut,
     DynamicOutput,
     Out,

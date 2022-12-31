@@ -1,5 +1,5 @@
 import pytest
-from dagit import app
+from sheenlet import app
 from starlette.testclient import TestClient
 
 from sheenflow._cli.workspace import get_workspace_process_context_from_kwargs

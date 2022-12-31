@@ -8,7 +8,7 @@ from dagster_pandas.constraints import (
 )
 from pandas import DataFrame, read_csv
 
-from dagster import Out, job, op
+from sheenflow import Out, job, op
 from sheenflow._utils import script_relative_path
 
 

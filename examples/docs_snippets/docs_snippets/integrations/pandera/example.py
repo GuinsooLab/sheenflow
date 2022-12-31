@@ -5,7 +5,7 @@ import pandera as pa
 from dagster_pandera import pandera_schema_to_dagster_type
 from pandera.typing import Series
 
-from dagster import Out, job, op
+from sheenflow import Out, job, op
 
 APPLE_STOCK_PRICES = {
     "name": ["AAPL", "AAPL", "AAPL", "AAPL", "AAPL"],

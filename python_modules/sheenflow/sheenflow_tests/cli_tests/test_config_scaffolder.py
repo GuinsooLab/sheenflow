@@ -1,5 +1,5 @@
-from dagster import Int, OpDefinition, ResourceDefinition, String
-from dagster import _check as check
+from sheenflow import Int, OpDefinition, ResourceDefinition, String
+from sheenflow import _check as check
 from sheenflow._cli.config_scaffolder import scaffold_pipeline_config, scaffold_type
 from sheenflow._config import config_type
 from sheenflow._core.definitions import create_run_config_schema

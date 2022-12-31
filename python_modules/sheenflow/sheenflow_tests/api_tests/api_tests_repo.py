@@ -1,7 +1,7 @@
 import string
 import time
 
-from dagster import Int, ScheduleDefinition, op, repository, usable_as_dagster_type
+from sheenflow import Int, ScheduleDefinition, op, repository, usable_as_dagster_type
 from sheenflow._core.definitions.decorators.sensor_decorator import sensor
 from sheenflow._core.definitions.sensor_definition import RunRequest
 from sheenflow._core.errors import DagsterError

@@ -37,7 +37,7 @@ def scope_load_assets_from_dbt_cloud_job():
 
 def scope_schedule_dbt_cloud_assets(dbt_cloud_assets):
     # start_schedule_dbt_cloud_assets
-    from dagster import (
+    from sheenflow import (
         ScheduleDefinition,
         define_asset_job,
         AssetSelection,

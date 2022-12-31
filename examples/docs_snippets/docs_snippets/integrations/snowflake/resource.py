@@ -1,6 +1,6 @@
 from dagster_snowflake import snowflake_resource
 
-from dagster import Definitions, asset
+from sheenflow import Definitions, asset
 
 # this example executes a query against the IRIS_DATASET table created in Step 2 of the
 # Using Dagster with Snowflake tutorial

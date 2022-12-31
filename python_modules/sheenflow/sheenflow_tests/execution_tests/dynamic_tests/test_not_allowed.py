@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterInvalidDefinitionError, DynamicOut, DynamicOutput, graph, job, op
+from sheenflow import DagsterInvalidDefinitionError, DynamicOut, DynamicOutput, graph, job, op
 
 
 @op(out=DynamicOut())

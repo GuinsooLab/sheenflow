@@ -1,4 +1,4 @@
-from dagster import repository
+from sheenflow import repository
 from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 
 

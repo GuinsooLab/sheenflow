@@ -2,7 +2,7 @@ from pyspark.sql import DataFrame as SparkDF
 from pyspark.sql import Window
 from pyspark.sql import functions as f
 
-from dagster import asset
+from sheenflow import asset
 
 
 @asset

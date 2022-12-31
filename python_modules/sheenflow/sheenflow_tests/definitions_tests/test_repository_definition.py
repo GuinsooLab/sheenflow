@@ -3,7 +3,7 @@ from typing import Sequence
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetsDefinition,
     DagsterInvalidDefinitionError,

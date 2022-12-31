@@ -2,8 +2,8 @@ from collections import defaultdict
 from enum import Enum
 from typing import Mapping, Optional
 
-from dagster import Field, Selector
-from dagster import _check as check
+from sheenflow import Field, Selector
+from sheenflow import _check as check
 from sheenflow._serdes.serdes import whitelist_for_serdes
 
 

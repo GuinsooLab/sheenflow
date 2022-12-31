@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import AssetKey
+from sheenflow import AssetKey
 from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
 from sheenflow._seven.compat.pendulum import create_pendulum_time
 

@@ -5,7 +5,7 @@ from io import BytesIO
 
 import yaml
 
-from dagster import execute_job, reconstructable
+from sheenflow import execute_job, reconstructable
 from sheenflow._cli.job import execute_list_versions_command
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._utils import file_relative_path

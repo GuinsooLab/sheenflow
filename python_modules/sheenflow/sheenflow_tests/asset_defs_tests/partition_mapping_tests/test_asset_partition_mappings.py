@@ -7,7 +7,7 @@ from dagster_tests.asset_defs_tests.test_partitioned_assets import (
     get_upstream_partitions_for_partition_range,
 )
 
-from dagster import (
+from sheenflow import (
     AllPartitionMapping,
     AssetIn,
     AssetMaterialization,

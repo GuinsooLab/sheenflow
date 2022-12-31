@@ -2,7 +2,7 @@
 import logging
 import time
 
-from dagster import DagsterEvent, DagsterEventType, EventLogEntry
+from sheenflow import DagsterEvent, DagsterEventType, EventLogEntry
 from sheenflow._core.execution.api import create_execution_plan
 from sheenflow._core.execution.plan.resume_retry import ReexecutionStrategy
 from sheenflow._core.instance import DagsterInstance

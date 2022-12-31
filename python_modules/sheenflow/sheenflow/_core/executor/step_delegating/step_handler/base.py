@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Iterator, Mapping, NamedTuple, Optional, Sequence
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._core.events import DagsterEvent
 from sheenflow._core.execution.context.system import IStepContext, PlanOrchestrationContext
 from sheenflow._core.execution.plan.step import ExecutionStep

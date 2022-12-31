@@ -3,7 +3,7 @@ import sys
 import time
 from unittest import mock
 
-from dagster import AssetKey, Definitions, SourceAsset, asset
+from sheenflow import AssetKey, Definitions, SourceAsset, asset
 from sheenflow._core.definitions.external_asset_graph import ExternalAssetGraph
 from sheenflow._core.host_representation import InProcessRepositoryLocationOrigin
 from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin

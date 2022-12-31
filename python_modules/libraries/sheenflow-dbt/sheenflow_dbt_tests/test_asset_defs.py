@@ -9,7 +9,7 @@ from dagster_dbt.asset_defs import load_assets_from_dbt_manifest, load_assets_fr
 from dagster_dbt.errors import DagsterDbtCliFatalRuntimeError, DagsterDbtCliHandledRuntimeError
 from dagster_dbt.types import DbtOutput
 
-from dagster import (
+from sheenflow import (
     AssetIn,
     AssetKey,
     FreshnessPolicy,
@@ -126,7 +126,7 @@ def test_runtime_metadata_fn():
 def test_fail_immediately(
     dbt_seed, conn_string, test_project_dir, dbt_config_dir
 ):  # pylint: disable=unused-argument
-    from dagster import build_init_resource_context
+    from sheenflow import build_init_resource_context
 
     dbt_assets = load_assets_from_dbt_project(test_project_dir, dbt_config_dir)
     good_dbt = dbt_cli_resource.configured(
@@ -270,7 +270,7 @@ def test_custom_freshness_policy():
 def test_partitions(
     dbt_seed, conn_string, test_project_dir, dbt_config_dir
 ):  # pylint: disable=unused-argument
-    from dagster import DailyPartitionsDefinition, materialize_to_memory
+    from sheenflow import DailyPartitionsDefinition, materialize_to_memory
 
     def _partition_key_to_vars(partition_key: str):
         if partition_key == "2022-01-02":

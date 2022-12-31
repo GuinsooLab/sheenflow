@@ -2,7 +2,7 @@
 # pylint: disable=unused-argument
 # pylint: disable=print-call
 
-from dagster import graph, job, op
+from sheenflow import graph, job, op
 from .unnested_ops import (
     return_fifty,
     add_thirty_two,
@@ -52,7 +52,7 @@ def subgraph_config_job():
 
 # start_composite_multi_output_marker
 
-from dagster import GraphOut
+from sheenflow import GraphOut
 
 
 @op

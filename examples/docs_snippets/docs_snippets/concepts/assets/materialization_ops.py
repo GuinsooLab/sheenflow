@@ -19,7 +19,7 @@ def calculate_bytes(df):
 
 
 # start_materialization_ops_marker_0
-from dagster import op
+from sheenflow import op
 
 
 @op
@@ -32,7 +32,7 @@ def my_simple_op():
 # end_materialization_ops_marker_0
 
 # start_materialization_ops_marker_1
-from dagster import AssetMaterialization, op
+from sheenflow import AssetMaterialization, op
 
 
 @op
@@ -51,7 +51,7 @@ def my_materialization_op(context):
 
 
 # start_partitioned_asset_materialization
-from dagster import op, AssetMaterialization
+from sheenflow import op, AssetMaterialization
 
 
 @op(config_schema={"date": str})
@@ -69,7 +69,7 @@ def my_partitioned_asset_op(context):
 
 
 # start_materialization_ops_marker_2
-from dagster import op, AssetMaterialization, MetadataValue
+from sheenflow import op, AssetMaterialization, MetadataValue
 
 
 @op
@@ -97,7 +97,7 @@ def my_metadata_materialization_op(context):
 
 
 # start_materialization_ops_marker_3
-from dagster import op, AssetKey, AssetMaterialization, job, Output
+from sheenflow import op, AssetKey, AssetMaterialization, job, Output
 
 
 @op

@@ -8,7 +8,7 @@ from datahub.emitter.kafka_emitter import (
 )
 from datahub.emitter.rest_emitter import DatahubRestEmitter
 
-from dagster import Array, Field, InitResourceContext, Map, Noneable, Shape, StringSource, resource
+from sheenflow import Array, Field, InitResourceContext, Map, Noneable, Shape, StringSource, resource
 
 
 @resource(

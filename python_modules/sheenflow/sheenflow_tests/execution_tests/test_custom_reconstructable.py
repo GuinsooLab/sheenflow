@@ -3,7 +3,7 @@ import sys
 
 import pytest
 
-from dagster import reconstructable
+from sheenflow import reconstructable
 from sheenflow._core.definitions import ReconstructablePipeline, build_reconstructable_pipeline
 from sheenflow._core.errors import DagsterInvariantViolationError
 from sheenflow._legacy import pipeline, solid

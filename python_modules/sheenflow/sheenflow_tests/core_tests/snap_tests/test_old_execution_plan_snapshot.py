@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 import pytest
 
-from dagster import job
+from sheenflow import job
 from sheenflow._core.errors import DagsterInvariantViolationError
 from sheenflow._core.execution.plan.plan import ExecutionPlan
 from sheenflow._serdes import deserialize_json_to_dagster_namedtuple

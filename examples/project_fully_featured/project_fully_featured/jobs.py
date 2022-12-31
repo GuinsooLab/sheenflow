@@ -1,4 +1,4 @@
-from dagster import AssetSelection, build_schedule_from_partitioned_job, define_asset_job
+from sheenflow import AssetSelection, build_schedule_from_partitioned_job, define_asset_job
 
 from .assets import ACTIVITY_ANALYTICS, CORE, RECOMMENDER
 from .partitions import hourly_partitions

@@ -4,7 +4,7 @@ iris_dataset = None
 
 import pandas as pd
 
-from dagster import asset
+from sheenflow import asset
 
 # this example uses the iris_dataset asset from Step 2
 

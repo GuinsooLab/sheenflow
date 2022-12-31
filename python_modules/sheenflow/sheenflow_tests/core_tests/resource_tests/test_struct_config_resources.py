@@ -5,7 +5,7 @@ from typing import Callable
 import pytest
 from pydantic import ValidationError
 
-from dagster import asset, job, op, resource
+from sheenflow import asset, job, op, resource
 from sheenflow._config.structured_config import Resource, StructuredResourceAdapter
 from sheenflow._core.definitions.assets_job import build_assets_job
 from sheenflow._core.definitions.resource_definition import ResourceDefinition

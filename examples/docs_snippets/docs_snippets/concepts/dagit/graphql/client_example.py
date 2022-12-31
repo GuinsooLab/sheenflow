@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=W0404
 # start_setup_marker
-from dagster_graphql import DagsterGraphQLClient
+from sheenflow_graphql import DagsterGraphQLClient
 
 client = DagsterGraphQLClient("localhost", port_number=3000)
 
@@ -27,7 +27,7 @@ def do_something_with_exc(some_exception):  # pylint: disable=W0613
 
 
 # start_submit_marker_default
-from dagster_graphql import DagsterGraphQLClientError
+from sheenflow_graphql import DagsterGraphQLClientError
 
 try:
     new_run_id: str = client.submit_job_execution(
@@ -44,7 +44,7 @@ except DagsterGraphQLClientError as exc:
 
 
 # start_submit_marker_job_name_only
-from dagster_graphql import DagsterGraphQLClientError
+from sheenflow_graphql import DagsterGraphQLClientError
 
 try:
     new_run_id: str = client.submit_job_execution(
@@ -59,8 +59,8 @@ except DagsterGraphQLClientError as exc:
 
 
 # start_run_status_marker
-from dagster_graphql import DagsterGraphQLClientError
-from dagster import DagsterRunStatus
+from sheenflow_graphql import DagsterGraphQLClientError
+from sheenflow import DagsterRunStatus
 
 try:
     status: DagsterRunStatus = client.get_run_status(RUN_ID)
@@ -75,7 +75,7 @@ except DagsterGraphQLClientError as exc:
 
 
 # start_reload_repo_location_marker
-from dagster_graphql import (
+from sheenflow_graphql import (
     ReloadRepositoryLocationInfo,
     ReloadRepositoryLocationStatus,
 )
@@ -91,7 +91,7 @@ else:
 # end_reload_repo_location_marker
 
 # start_shutdown_repo_location_marker
-from dagster_graphql import (
+from sheenflow_graphql import (
     ShutdownRepositoryLocationInfo,
     ShutdownRepositoryLocationStatus,
 )

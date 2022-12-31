@@ -5,7 +5,7 @@ from project_fully_featured.assets import core
 from project_fully_featured.resources.hn_resource import HNSnapshotClient
 from project_fully_featured.resources.parquet_io_manager import local_partitioned_parquet_io_manager
 
-from dagster import (
+from sheenflow import (
     ResourceDefinition,
     fs_io_manager,
     load_assets_from_package_module,

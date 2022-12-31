@@ -16,8 +16,8 @@ from dagster_test.test_project import (
     get_test_project_environments_path,
 )
 
-from dagster import DagsterEventType
-from dagster import _check as check
+from sheenflow import DagsterEventType
+from sheenflow import _check as check
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.storage.tags import DOCKER_IMAGE_TAG
 from sheenflow._utils import load_yaml_from_path, merge_dicts

@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterInstance, resource
+from sheenflow import DagsterInstance, resource
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.execution.api import create_execution_plan
 from sheenflow._core.execution.context_creation_pipeline import PlanExecutionContextManager

@@ -1,7 +1,7 @@
 import asyncio
 from contextlib import contextmanager
 
-from dagster_graphql.schema import create_schema
+from sheenflow_graphql.schema import create_schema
 
 import sheenflow._check as check
 from sheenflow._core.instance import DagsterInstance

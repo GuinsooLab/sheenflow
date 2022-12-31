@@ -1,7 +1,7 @@
 import dagster_pandas as dagster_pd
 import dagstermill
 
-from dagster import In, Out, file_relative_path, op
+from sheenflow import In, Out, file_relative_path, op
 
 from ...data_frame import DataFrame
 

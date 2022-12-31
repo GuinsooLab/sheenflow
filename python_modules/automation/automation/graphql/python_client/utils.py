@@ -3,7 +3,7 @@ import re
 from typing import AbstractSet, Dict, NamedTuple, Tuple, cast
 
 import dagster_graphql_tests
-from dagster_graphql.client import client_queries
+from sheenflow_graphql.client import client_queries
 
 import sheenflow._check as check
 

@@ -5,9 +5,9 @@ import responses
 from dagster_airbyte import AirbyteOutput, AirbyteState, airbyte_resource
 from dagster_airbyte.utils import generate_materializations
 
-from dagster import DagsterExecutionInterruptedError, Failure, MetadataEntry
-from dagster import _check as check
-from dagster import build_init_resource_context
+from sheenflow import DagsterExecutionInterruptedError, Failure, MetadataEntry
+from sheenflow import _check as check
+from sheenflow import build_init_resource_context
 
 from .utils import get_sample_connection_json, get_sample_job_json, get_sample_job_list_json
 

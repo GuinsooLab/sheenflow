@@ -9,8 +9,8 @@ from typing import IO, Generator, Optional, Sequence, Tuple, Union
 from watchdog.events import PatternMatchingEventHandler
 from watchdog.observers.polling import PollingObserver
 
-from dagster import Field, Float, StringSource
-from dagster import _check as check
+from sheenflow import Field, Float, StringSource
+from sheenflow import _check as check
 from sheenflow._core.execution.compute_logs import mirror_stream_to_file
 from sheenflow._core.storage.pipeline_run import DagsterRun
 from sheenflow._serdes import ConfigurableClass, ConfigurableClassData

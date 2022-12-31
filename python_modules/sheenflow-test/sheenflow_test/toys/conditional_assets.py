@@ -1,6 +1,6 @@
 import random
 
-from dagster import AssetKey, Output, RunRequest, asset, asset_sensor, job, op
+from sheenflow import AssetKey, Output, RunRequest, asset, asset_sensor, job, op
 
 
 @asset(output_required=False)

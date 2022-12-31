@@ -17,7 +17,7 @@ from typing import (
 )
 
 # top-level include is dangerous in terms of incurring circular deps
-from dagster import (
+from sheenflow import (
     DagsterInvariantViolationError,
     DependencyDefinition,
     Failure,
@@ -25,7 +25,7 @@ from dagster import (
     RepositoryDefinition,
     TypeCheck,
 )
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.definitions import (
     GraphDefinition,
     GraphIn,

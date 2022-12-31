@@ -2,7 +2,7 @@ import os
 from typing import Iterator
 
 import pytest
-from dagster_graphql.schema import create_schema
+from sheenflow_graphql.schema import create_schema
 from gql import Client, gql
 
 from sheenflow._utils import file_relative_path

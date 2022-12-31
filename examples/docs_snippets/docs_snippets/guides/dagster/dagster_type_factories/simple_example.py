@@ -1,7 +1,7 @@
 # pylint: disable=expression-not-assigned
 # one_off_type_start
 
-from dagster import DagsterType, check_dagster_type
+from sheenflow import DagsterType, check_dagster_type
 
 set_containing_1 = DagsterType(
     name="set_containing_1",

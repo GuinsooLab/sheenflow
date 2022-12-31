@@ -1,7 +1,7 @@
 import click
 from tqdm import tqdm
 
-from dagster import __version__ as dagster_version
+from sheenflow import __version__ as dagster_version
 from sheenflow._cli.workspace.cli_target import get_external_job_from_kwargs, job_target_argument
 from sheenflow._core.instance import DagsterInstance
 

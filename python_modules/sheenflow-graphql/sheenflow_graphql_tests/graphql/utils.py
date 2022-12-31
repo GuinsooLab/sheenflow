@@ -1,8 +1,8 @@
-from dagster_graphql.client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION, SUBSCRIPTION_QUERY
-from dagster_graphql.test.utils import execute_dagster_graphql, execute_dagster_graphql_subscription
+from sheenflow_graphql.client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION, SUBSCRIPTION_QUERY
+from sheenflow_graphql.test.utils import execute_dagster_graphql, execute_dagster_graphql_subscription
 
-from dagster import DagsterEventType
-from dagster import _check as check
+from sheenflow import DagsterEventType
+from sheenflow import _check as check
 from sheenflow._core.test_utils import wait_for_runs_to_finish
 from sheenflow._core.workspace.context import BaseWorkspaceRequestContext
 

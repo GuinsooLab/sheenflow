@@ -1,7 +1,7 @@
 from dagster_pyspark.resources import lazy_pyspark_resource, pyspark_resource
 from pyspark.sql import SparkSession
 
-from dagster import job, multiprocess_executor, op, reconstructable
+from sheenflow import job, multiprocess_executor, op, reconstructable
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._legacy import execute_pipeline
 

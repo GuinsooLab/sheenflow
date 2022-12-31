@@ -17,7 +17,7 @@ ITEM_FIELD_NAMES = [
 import pandas as pd
 import requests
 
-from dagster import asset
+from sheenflow import asset
 
 
 @asset(

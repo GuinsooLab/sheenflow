@@ -2,8 +2,8 @@ import time
 from typing import cast
 
 import sheenflow._seven as seven
-from dagster import Bool, Field
-from dagster import _check as check
+from sheenflow import Bool, Field
+from sheenflow import _check as check
 from sheenflow._core.errors import DagsterInvariantViolationError, DagsterLaunchFailedError
 from sheenflow._core.storage.pipeline_run import DagsterRun
 from sheenflow._core.storage.tags import GRPC_INFO_TAG

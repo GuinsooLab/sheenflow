@@ -3,9 +3,9 @@ import datetime
 import pandas as pd
 from dagster_pandas import DataFrame
 
-from dagster import DependencyDefinition, GraphDefinition, In, Out
-from dagster import _check as check
-from dagster import graph, op
+from sheenflow import DependencyDefinition, GraphDefinition, In, Out
+from sheenflow import _check as check
+from sheenflow import graph, op
 
 
 def get_op_result_value(op_inst):

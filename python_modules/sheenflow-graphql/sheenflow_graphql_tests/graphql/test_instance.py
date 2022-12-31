@@ -1,6 +1,6 @@
 from typing import Any
 
-from dagster_graphql.test.utils import execute_dagster_graphql
+from sheenflow_graphql.test.utils import execute_dagster_graphql
 
 from .graphql_context_test_suite import GraphQLContextVariant, make_graphql_context_test_suite
 

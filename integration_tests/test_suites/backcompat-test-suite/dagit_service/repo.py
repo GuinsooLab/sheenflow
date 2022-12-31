@@ -1,6 +1,6 @@
-from dagster_graphql import DagsterGraphQLClient
+from sheenflow_graphql import DagsterGraphQLClient
 
-from dagster import graph, job, op, repository
+from sheenflow import graph, job, op, repository
 
 
 @op

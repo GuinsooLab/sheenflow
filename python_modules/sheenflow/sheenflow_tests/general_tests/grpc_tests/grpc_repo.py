@@ -1,7 +1,7 @@
 import string
 import time
 
-from dagster import Int, ScheduleDefinition, SkipReason, repository, sensor, usable_as_dagster_type
+from sheenflow import Int, ScheduleDefinition, SkipReason, repository, sensor, usable_as_dagster_type
 from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,

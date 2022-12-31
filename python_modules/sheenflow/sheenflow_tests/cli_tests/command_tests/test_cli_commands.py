@@ -8,7 +8,7 @@ import mock
 import pytest
 from click.testing import CliRunner
 
-from dagster import (
+from sheenflow import (
     Out,
     Output,
     Partition,

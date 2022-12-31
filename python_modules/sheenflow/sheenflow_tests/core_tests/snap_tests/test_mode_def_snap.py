@@ -1,4 +1,4 @@
-from dagster import logger, resource
+from sheenflow import logger, resource
 from sheenflow._core.snap import PipelineSnapshot
 from sheenflow._legacy import ModeDefinition, pipeline
 from sheenflow._serdes import deserialize_json_to_dagster_namedtuple, serialize_dagster_namedtuple

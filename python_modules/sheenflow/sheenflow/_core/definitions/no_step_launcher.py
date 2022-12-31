@@ -1,4 +1,4 @@
-from dagster import resource
+from sheenflow import resource
 
 
 @resource

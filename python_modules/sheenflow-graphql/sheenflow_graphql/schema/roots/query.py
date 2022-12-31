@@ -1,8 +1,8 @@
 from typing import Any, Dict, Sequence
 
 import graphene
-from dagster_graphql.implementation.fetch_logs import get_captured_log_metadata
-from dagster_graphql.implementation.fetch_runs import get_assets_latest_info
+from sheenflow_graphql.implementation.fetch_logs import get_captured_log_metadata
+from sheenflow_graphql.implementation.fetch_runs import get_assets_latest_info
 
 import sheenflow._check as check
 from sheenflow._core.definitions.events import AssetKey

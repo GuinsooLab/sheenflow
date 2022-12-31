@@ -4,7 +4,7 @@ import pickle
 import pytest
 
 import sheenflow._check as check
-from dagster import DependencyDefinition, In, Int, Out, op
+from sheenflow import DependencyDefinition, In, Int, Out, op
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.errors import (
     DagsterExecutionStepNotFoundError,

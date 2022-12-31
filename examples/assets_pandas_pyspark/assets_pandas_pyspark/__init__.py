@@ -2,7 +2,7 @@ def get_weather_defs():
     # gather_assets_start
 
     # __init__.py
-    from dagster import Definitions, load_assets_from_modules
+    from sheenflow import Definitions, load_assets_from_modules
 
     from .assets import table_assets
     from .local_filesystem_io_manager import LocalFileSystemIOManager
@@ -25,7 +25,7 @@ def get_spark_weather_defs():
 
     # __init__.py
 
-    from dagster import Definitions, load_assets_from_modules
+    from sheenflow import Definitions, load_assets_from_modules
 
     from .assets import spark_asset, table_assets
     from .local_spark_filesystem_io_manager import LocalFileSystemIOManager

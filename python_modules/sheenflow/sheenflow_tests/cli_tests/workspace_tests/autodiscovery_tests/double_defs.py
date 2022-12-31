@@ -1,4 +1,4 @@
-from dagster import Definitions
+from sheenflow import Definitions
 
 
 def _make_defs():

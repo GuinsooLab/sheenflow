@@ -519,7 +519,7 @@ def _execute_step_command_body(
     default=False,
     help="Wait until the first LoadRepositories call to actually load the repositories, instead of "
     "waiting to load them when the server is launched. Useful for surfacing errors when the server "
-    "is managed directly from Dagit",
+    "is managed directly from sheenlet",
     envvar="SHEENFLOW_LAZY_LOAD_USER_CODE",
 )
 @python_origin_target_argument

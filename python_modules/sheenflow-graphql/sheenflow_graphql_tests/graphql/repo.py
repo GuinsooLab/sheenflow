@@ -10,14 +10,14 @@ from contextlib import contextmanager
 from copy import deepcopy
 from typing import List, Tuple
 
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.test.utils import (
     define_out_of_process_context,
     infer_pipeline_selector,
     main_repo_location_name,
     main_repo_name,
 )
 
-from dagster import (
+from sheenflow import (
     Any,
     AssetKey,
     AssetMaterialization,
@@ -57,8 +57,8 @@ from dagster import (
     TableRecord,
     TableSchema,
 )
-from dagster import _check as check
-from dagster import (
+from sheenflow import _check as check
+from sheenflow import (
     asset,
     dagster_type_loader,
     dagster_type_materializer,

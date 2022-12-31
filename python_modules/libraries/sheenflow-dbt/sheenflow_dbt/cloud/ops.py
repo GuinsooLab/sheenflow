@@ -1,4 +1,4 @@
-from dagster import Array, Bool, Field, In, Noneable, Nothing, Out, Output, op
+from sheenflow import Array, Bool, Field, In, Noneable, Nothing, Out, Output, op
 
 from ..utils import generate_materializations
 from .resources import DEFAULT_POLL_INTERVAL

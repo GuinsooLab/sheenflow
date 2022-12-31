@@ -3,8 +3,8 @@ from enum import Enum
 from functools import lru_cache
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._core.definitions.events import AssetKey
 from sheenflow._core.definitions.logical_version import (
     DEFAULT_LOGICAL_VERSION,

@@ -1,4 +1,4 @@
-from dagster import AssetKey
+from sheenflow import AssetKey
 from docs_snippets.concepts.assets.subset_graph_backed_asset import defs
 
 

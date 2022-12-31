@@ -1,6 +1,6 @@
 from dagster_pandas import DataFrame
 
-from dagster import In, Out, graph, op
+from sheenflow import In, Out, graph, op
 from sheenflow._utils import file_relative_path
 
 

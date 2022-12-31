@@ -1,6 +1,6 @@
 import pandas as pd
 
-from dagster import IOManager, io_manager
+from sheenflow import IOManager, io_manager
 
 
 class DbIOManager(IOManager):

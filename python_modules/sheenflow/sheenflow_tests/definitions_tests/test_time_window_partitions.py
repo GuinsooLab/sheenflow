@@ -4,7 +4,7 @@ from typing import cast
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     DailyPartitionsDefinition,
     HourlyPartitionsDefinition,
     MonthlyPartitionsDefinition,

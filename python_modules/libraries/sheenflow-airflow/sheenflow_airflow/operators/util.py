@@ -3,8 +3,8 @@ import os
 import dateutil.parser
 from airflow.exceptions import AirflowException, AirflowSkipException
 
-from dagster import DagsterEventType
-from dagster import _check as check
+from sheenflow import DagsterEventType
+from sheenflow import _check as check
 from sheenflow._core.events import DagsterEvent
 from sheenflow._core.execution.api import create_execution_plan, execute_plan
 from sheenflow._core.execution.plan.plan import can_isolate_steps, should_skip_step

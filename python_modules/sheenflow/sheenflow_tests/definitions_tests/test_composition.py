@@ -2,7 +2,7 @@ import warnings
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DependencyDefinition,
     GraphDefinition,
     GraphIn,

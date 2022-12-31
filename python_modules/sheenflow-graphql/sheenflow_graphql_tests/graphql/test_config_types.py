@@ -1,6 +1,6 @@
 import json
 
-from dagster_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
+from sheenflow_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
 
 import sheenflow._check as check
 from sheenflow._config import ALL_CONFIG_BUILTINS

@@ -1,4 +1,4 @@
-from dagster import AssetKey, FreshnessPolicy
+from sheenflow import AssetKey, FreshnessPolicy
 
 
 def assert_assets_match_project(dbt_assets, prefix=None, has_non_argument_deps=False):

@@ -2,7 +2,7 @@ import datetime
 
 import pendulum
 
-from dagster import Partition, ScheduleEvaluationContext
+from sheenflow import Partition, ScheduleEvaluationContext
 from sheenflow._core.definitions.schedule_definition import ScheduleExecutionData
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._legacy import PartitionSetDefinition

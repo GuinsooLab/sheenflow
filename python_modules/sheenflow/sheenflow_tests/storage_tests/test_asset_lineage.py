@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import AssetKey, DynamicOut, DynamicOutput, In, Out, Output, job, op
+from sheenflow import AssetKey, DynamicOut, DynamicOutput, In, Out, Output, job, op
 from sheenflow._core.definitions.events import AssetLineageInfo
 from sheenflow._core.definitions.metadata import MetadataEntry, PartitionMetadataEntry
 

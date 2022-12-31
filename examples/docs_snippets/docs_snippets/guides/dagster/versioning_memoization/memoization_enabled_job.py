@@ -1,4 +1,4 @@
-from dagster import SourceHashVersionStrategy, job
+from sheenflow import SourceHashVersionStrategy, job
 
 
 @job(version_strategy=SourceHashVersionStrategy())

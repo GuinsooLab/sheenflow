@@ -1,5 +1,5 @@
-from dagster import Output
-from dagster import _check as check
+from sheenflow import Output
+from sheenflow import _check as check
 from sheenflow._core.definitions import In, InputDefinition, OpDefinition, lambda_solid
 from sheenflow._core.definitions.output import Out
 

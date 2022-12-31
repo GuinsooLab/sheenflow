@@ -3,7 +3,7 @@
 
 import requests
 
-from dagster import DagsterType, In, Nothing, Out, op
+from sheenflow import DagsterType, In, Nothing, Out, op
 
 
 class MockResponse:
@@ -120,7 +120,7 @@ def my_op_factory(
 # end_op_factory_pattern_marker
 
 # start_return_annotation
-from dagster import op
+from sheenflow import op
 
 
 @op
@@ -130,7 +130,7 @@ def return_annotation_op() -> int:
 
 # end_return_annotation
 # start_tuple_return
-from dagster import op
+from sheenflow import op
 from typing import Tuple
 
 
@@ -142,7 +142,7 @@ def my_multiple_output_annotation_op() -> Tuple[int, str]:
 # end_tuple_return
 
 # start_single_output_tuple
-from dagster import op
+from sheenflow import op
 from typing import Tuple
 
 

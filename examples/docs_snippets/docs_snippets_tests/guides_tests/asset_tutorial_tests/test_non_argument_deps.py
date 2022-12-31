@@ -1,4 +1,4 @@
-from dagster import load_assets_from_modules, materialize
+from sheenflow import load_assets_from_modules, materialize
 from docs_snippets.guides.dagster.asset_tutorial import non_argument_deps
 from docs_snippets.intro_tutorial.test_util import patch_cereal_requests
 

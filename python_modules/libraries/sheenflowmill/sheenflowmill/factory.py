@@ -11,9 +11,9 @@ import papermill
 from papermill.engines import papermill_engines
 from papermill.iorw import load_notebook_node, write_ipynb
 
-from dagster import In, OpDefinition, Out, Output
-from dagster import _check as check
-from dagster import _seven
+from sheenflow import In, OpDefinition, Out, Output
+from sheenflow import _check as check
+from sheenflow import _seven
 from sheenflow._core.definitions.events import AssetMaterialization, Failure, RetryRequested
 from sheenflow._core.definitions.metadata import MetadataValue
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline

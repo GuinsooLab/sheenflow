@@ -31,12 +31,12 @@ from .launch_execution import (
 )
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.logs.compute_logs import GrapheneComputeLogFile
-    from dagster_graphql.schema.pipelines.subscription import (
+    from sheenflow_graphql.schema.logs.compute_logs import GrapheneComputeLogFile
+    from sheenflow_graphql.schema.pipelines.subscription import (
         GraphenePipelineRunLogsSubscriptionFailure,
         GraphenePipelineRunLogsSubscriptionSuccess,
     )
-    from dagster_graphql.schema.util import HasContext
+    from sheenflow_graphql.schema.util import HasContext
 
 
 def _force_mark_as_canceled(instance: DagsterInstance, run_id):

@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DynamicOutput,
     ReexecutionOptions,
     execute_job,

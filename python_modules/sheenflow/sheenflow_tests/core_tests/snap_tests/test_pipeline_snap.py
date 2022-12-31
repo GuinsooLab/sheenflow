@@ -2,7 +2,7 @@ import itertools
 
 import pytest
 
-from dagster import Field, In, Map, Nothing, Out, Permissive, Selector, Shape, job, op
+from sheenflow import Field, In, Map, Nothing, Out, Permissive, Selector, Shape, job, op
 from sheenflow._config import Array, Bool, Enum, EnumValue, Float, Int, Noneable, String
 from sheenflow._core.snap import (
     DependencyStructureIndex,

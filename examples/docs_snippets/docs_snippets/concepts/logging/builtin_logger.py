@@ -1,12 +1,12 @@
 # isort: skip_file
 # pylint: disable=reimported
 
-from dagster import Definitions
+from sheenflow import Definitions
 
 # start_builtin_logger_marker_0
 # demo_logger.py
 
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op
@@ -25,7 +25,7 @@ def demo_job():
 # start_builtin_logger_error_marker_0
 # demo_logger_error.py
 
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op

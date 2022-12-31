@@ -1,6 +1,6 @@
 from typing import Any, Iterable, List, Mapping, Optional, Sequence, TypeVar, cast
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._utils import merge_dicts
 
 from ..._config import Shape

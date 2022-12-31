@@ -1,4 +1,4 @@
-from dagster import Field, Noneable, op
+from sheenflow import Field, Noneable, op
 from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 

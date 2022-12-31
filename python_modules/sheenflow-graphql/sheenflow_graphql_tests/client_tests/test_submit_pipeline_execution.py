@@ -1,7 +1,7 @@
 import pytest
-from dagster_graphql import DagsterGraphQLClientError, InvalidOutputErrorInfo
+from sheenflow_graphql import DagsterGraphQLClientError, InvalidOutputErrorInfo
 
-from dagster import DagsterInvalidDefinitionError
+from sheenflow import DagsterInvalidDefinitionError
 
 from .conftest import MockClient, python_client_test_suite
 

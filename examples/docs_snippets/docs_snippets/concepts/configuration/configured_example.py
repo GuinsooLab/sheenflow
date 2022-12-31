@@ -1,4 +1,4 @@
-from dagster import configured, resource
+from sheenflow import configured, resource
 
 # start_op_marker
 

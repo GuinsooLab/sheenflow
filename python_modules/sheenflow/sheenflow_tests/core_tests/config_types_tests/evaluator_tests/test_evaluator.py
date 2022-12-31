@@ -1,4 +1,4 @@
-from dagster import Any, Bool, Field, Int, Noneable, Selector, Shape, String, StringSource
+from sheenflow import Any, Bool, Field, Int, Noneable, Selector, Shape, String, StringSource
 from sheenflow._config import (
     DagsterEvaluationErrorReason,
     EvaluateValueResult,

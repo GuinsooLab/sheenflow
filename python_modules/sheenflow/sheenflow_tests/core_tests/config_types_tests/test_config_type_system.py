@@ -4,7 +4,7 @@ import typing
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Any,
     ConfigMapping,
     DagsterInvalidConfigDefinitionError,

@@ -1,7 +1,7 @@
 # isort: skip_file
 
 # start_define_graph
-from dagster import graph, op
+from sheenflow import graph, op
 
 
 @op(required_resource_keys={"server"})
@@ -17,7 +17,7 @@ def do_stuff():
 # end_define_graph
 
 # start_define_jobs
-from dagster import ResourceDefinition
+from sheenflow import ResourceDefinition
 
 prod_server = ResourceDefinition.mock_resource()
 local_server = ResourceDefinition.mock_resource()

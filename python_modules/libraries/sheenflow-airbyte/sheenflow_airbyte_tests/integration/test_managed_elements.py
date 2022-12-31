@@ -14,7 +14,7 @@ from dagster_managed_elements import ManagedElementDiff
 from dagster_managed_elements.cli import apply, check
 from dagster_managed_elements.utils import diff_dicts
 
-from dagster import AssetKey, materialize
+from sheenflow import AssetKey, materialize
 from sheenflow._core.events import StepMaterializationData
 from sheenflow._core.test_utils import environ
 from sheenflow._utils import file_relative_path

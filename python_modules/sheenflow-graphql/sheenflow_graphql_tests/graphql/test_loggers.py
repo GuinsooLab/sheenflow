@@ -1,4 +1,4 @@
-from dagster_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
+from sheenflow_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
 
 LOGGER_QUERY = """
 query LoggerQuery($selector: PipelineSelector!) {

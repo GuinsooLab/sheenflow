@@ -1,6 +1,6 @@
 import time
 
-from dagster import graph, op, repository
+from sheenflow import graph, op, repository
 
 
 @op

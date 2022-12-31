@@ -2,7 +2,7 @@
 
 import pandas as pd
 
-from dagster import SourceAsset, asset
+from sheenflow import SourceAsset, asset
 
 daffodil_dataset = SourceAsset(key=["daffodil", "daffodil_dataset"])
 

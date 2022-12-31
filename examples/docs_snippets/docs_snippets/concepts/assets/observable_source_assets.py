@@ -7,7 +7,7 @@ def read_some_file():
 
 # start_marker
 from hashlib import sha256
-from dagster import LogicalVersion, observable_source_asset
+from sheenflow import LogicalVersion, observable_source_asset
 
 
 @observable_source_asset

@@ -2,8 +2,8 @@ import logging
 import sys
 import time
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._core.events import DagsterEventType
 from sheenflow._core.launcher import WorkerStatus
 from sheenflow._core.storage.pipeline_run import (

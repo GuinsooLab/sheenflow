@@ -3,7 +3,7 @@ import pickle
 import uuid
 from typing import Any, Mapping, Optional
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     AssetObservation,
     ExpectationResult,
@@ -12,7 +12,7 @@ from dagster import (
     ResourceDefinition,
     TypeCheck,
 )
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.definitions.dependency import NodeHandle
 from sheenflow._core.definitions.events import RetryRequested
 from sheenflow._core.definitions.op_definition import OpDefinition

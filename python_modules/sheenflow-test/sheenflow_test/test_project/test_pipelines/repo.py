@@ -11,7 +11,7 @@ import boto3
 from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
 from dagster_gcp.gcs import gcs_pickle_io_manager, gcs_resource
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     Bool,
     Field,

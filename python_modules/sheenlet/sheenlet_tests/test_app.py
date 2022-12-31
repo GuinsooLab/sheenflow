@@ -4,11 +4,11 @@ from unittest import mock
 
 import pytest
 from click.testing import CliRunner
-from dagit.app import create_app_from_workspace_process_context
-from dagit.cli import dagit, host_dagit_ui_with_workspace_process_context
+from sheenlet.app import create_app_from_workspace_process_context
+from sheenlet.cli import dagit, host_dagit_ui_with_workspace_process_context
 from starlette.testclient import TestClient
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.telemetry import START_DAGIT_WEBSERVER, UPDATE_REPO_STATS, hash_name
 from sheenflow._core.test_utils import instance_for_test

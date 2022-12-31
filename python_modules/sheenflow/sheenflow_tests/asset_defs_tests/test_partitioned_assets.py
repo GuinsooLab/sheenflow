@@ -5,7 +5,7 @@ import pendulum
 import pytest
 
 import sheenflow._check as check
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     AssetOut,
     AssetsDefinition,

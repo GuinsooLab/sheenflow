@@ -4,11 +4,11 @@
 from docs_snippets.concepts.partitions_schedules_sensors.partitioned_job import (
     do_stuff_partitioned,
 )
-from dagster import job, op
+from sheenflow import job, op
 
 
 # start_partition_config
-from dagster import validate_run_config, daily_partitioned_config
+from sheenflow import validate_run_config, daily_partitioned_config
 from datetime import datetime
 
 

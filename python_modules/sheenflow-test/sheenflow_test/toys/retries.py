@@ -1,6 +1,6 @@
 import time
 
-from dagster import RetryRequested, graph, op
+from sheenflow import RetryRequested, graph, op
 
 
 @op

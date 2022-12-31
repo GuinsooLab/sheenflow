@@ -2,7 +2,7 @@ import typing
 
 import pytest
 
-from dagster import DagsterTypeCheckDidNotPass, In, Optional, Out, op
+from sheenflow import DagsterTypeCheckDidNotPass, In, Optional, Out, op
 from sheenflow._core.types.dagster_type import resolve_dagster_type
 from sheenflow._core.types.python_set import create_typed_runtime_set
 from sheenflow._legacy import execute_solid

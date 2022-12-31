@@ -1,7 +1,7 @@
 import sqlalchemy as db
 from tqdm import tqdm
 
-from dagster import AssetKey
+from sheenflow import AssetKey
 from sheenflow._core.events.log import EventLogEntry
 from sheenflow._serdes import deserialize_json_to_dagster_namedtuple
 from sheenflow._utils import utc_datetime_from_timestamp

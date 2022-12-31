@@ -1,6 +1,6 @@
 import pickle
 
-from dagster import asset
+from sheenflow import asset
 
 
 @asset

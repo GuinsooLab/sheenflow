@@ -1,4 +1,4 @@
-from dagster import job, op, repository
+from sheenflow import job, op, repository
 from sheenflow._core.host_representation import (
     ExternalPipelineData,
     external_repository_data_from_def,

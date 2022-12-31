@@ -8,7 +8,7 @@ from dagster_tests.launcher_tests.test_default_run_launcher import (
     slow_pipeline,
 )
 
-from dagster import _seven, file_relative_path
+from sheenflow import _seven, file_relative_path
 from sheenflow._core.errors import DagsterLaunchFailedError
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.storage.tags import GRPC_INFO_TAG

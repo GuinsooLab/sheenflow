@@ -1,4 +1,4 @@
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.test.utils import (
     execute_dagster_graphql,
     execute_dagster_graphql_subscription,
     infer_pipeline_selector,

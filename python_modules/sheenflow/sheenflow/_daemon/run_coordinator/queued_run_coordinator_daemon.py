@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from contextlib import ExitStack
 from typing import Dict, List, Optional, Tuple
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.run_coordinator.queued_run_coordinator import QueuedRunCoordinator
 from sheenflow._core.storage.pipeline_run import (

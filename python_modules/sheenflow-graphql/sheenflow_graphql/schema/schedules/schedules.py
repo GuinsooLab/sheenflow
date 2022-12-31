@@ -1,5 +1,5 @@
 import graphene
-from dagster_graphql.implementation.loader import RepositoryScopedBatchLoader
+from sheenflow_graphql.implementation.loader import RepositoryScopedBatchLoader
 
 import sheenflow._check as check
 from sheenflow._core.host_representation import ExternalSchedule

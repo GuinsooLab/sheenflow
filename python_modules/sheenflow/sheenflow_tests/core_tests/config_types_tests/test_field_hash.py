@@ -1,4 +1,4 @@
-from dagster import Field, Permissive, Selector, Shape
+from sheenflow import Field, Permissive, Selector, Shape
 from sheenflow._config import compute_fields_hash
 
 

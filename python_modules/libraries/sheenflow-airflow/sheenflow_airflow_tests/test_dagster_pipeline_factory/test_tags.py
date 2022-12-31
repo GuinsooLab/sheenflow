@@ -7,7 +7,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
 from dagster_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
 
-from dagster import DagsterEventType
+from sheenflow import DagsterEventType
 from sheenflow._core.instance import AIRFLOW_EXECUTION_DATE_STR
 from sheenflow._core.storage.compute_log_manager import ComputeIOType
 from sheenflow._core.test_utils import instance_for_test

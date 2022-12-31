@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=unused-argument
 # pylint: disable=reimported
-from dagster import ResourceDefinition
+from sheenflow import ResourceDefinition
 
 api_client = ResourceDefinition.mock_resource()
 
@@ -11,7 +11,7 @@ def process(data):
 
 
 # start_test_before_marker
-from dagster import op
+from sheenflow import op
 
 
 @op
@@ -25,7 +25,7 @@ def get_data_without_resource(context):
 # end_test_before_marker
 
 # start_test_after_marker
-from dagster import op, graph
+from sheenflow import op, graph
 
 
 @op(required_resource_keys={"api"})

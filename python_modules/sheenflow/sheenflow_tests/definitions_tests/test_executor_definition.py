@@ -3,9 +3,9 @@ from os import path
 
 import pytest
 
-from dagster import DagsterInstance, ExecutorRequirement
-from dagster import _check as check
-from dagster import execute_job, job, multiprocess_executor, op, reconstructable
+from sheenflow import DagsterInstance, ExecutorRequirement
+from sheenflow import _check as check
+from sheenflow import execute_job, job, multiprocess_executor, op, reconstructable
 from sheenflow._core.definitions.executor_definition import executor
 from sheenflow._core.errors import (
     DagsterInvalidConfigError,

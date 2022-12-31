@@ -8,7 +8,7 @@ import pytest
 from dagster_dask import DataFrame, dask_executor
 from dask.distributed import Scheduler, Worker
 
-from dagster import (
+from sheenflow import (
     DagsterUnmetExecutorRequirementsError,
     VersionStrategy,
     file_relative_path,

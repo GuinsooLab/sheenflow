@@ -1,6 +1,6 @@
 from typing import Any, Optional
 
-from dagster import InputContext, OutputContext
+from sheenflow import InputContext, OutputContext
 from sheenflow._core.definitions.events import AssetKey, AssetMaterialization
 from sheenflow._core.definitions.metadata import TextMetadataValue
 from sheenflow._core.event_api import EventRecordsFilter

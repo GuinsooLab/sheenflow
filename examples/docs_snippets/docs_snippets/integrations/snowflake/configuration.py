@@ -4,7 +4,7 @@ iris_dataset = None
 
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
-from dagster import Definitions
+from sheenflow import Definitions
 
 defs = Definitions(
     assets=[iris_dataset],

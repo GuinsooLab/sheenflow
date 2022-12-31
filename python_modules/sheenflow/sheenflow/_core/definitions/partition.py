@@ -662,7 +662,7 @@ class PartitionSetDefinition(Generic[T]):
                 `IANA time zone database <https://www.iana.org/time-zones>` - e.g. "America/Los_Angeles".
             description (Optional[str]): A human-readable description of the schedule.
             default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-                status can be overridden from Dagit or via the GraphQL API.
+                status can be overridden from sheenlet or via the GraphQL API.
 
         Returns:
             PartitionScheduleDefinition: The generated PartitionScheduleDefinition for the partition

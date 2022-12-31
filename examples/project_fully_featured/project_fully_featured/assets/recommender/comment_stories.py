@@ -1,6 +1,6 @@
 from pandas import DataFrame, Series
 
-from dagster import AssetIn, asset
+from sheenflow import AssetIn, asset
 
 
 @asset(

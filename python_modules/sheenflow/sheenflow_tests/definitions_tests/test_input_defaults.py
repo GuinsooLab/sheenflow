@@ -2,7 +2,7 @@ from typing import Optional
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterEventType,
     DagsterInvalidDefinitionError,
     GraphIn,

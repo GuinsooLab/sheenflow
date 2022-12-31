@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import Field, resource
+from sheenflow import Field, resource
 from sheenflow._core.definitions.resource_definition import IContainsGenerator
 from sheenflow._core.errors import DagsterResourceFunctionError
 from sheenflow._core.execution.build_resources import build_resources

@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from dagster import Output
+from sheenflow import Output
 from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid
 
 

@@ -2,14 +2,14 @@ import datetime
 from collections import defaultdict
 from typing import TYPE_CHECKING, Dict, Iterator, List, Mapping, Optional, Sequence, Tuple
 
-from dagster_graphql.implementation.loader import (
+from sheenflow_graphql.implementation.loader import (
     CrossRepoAssetDependedByLoader,
     ProjectedLogicalVersionLoader,
 )
 
 import sheenflow._seven as seven
-from dagster import AssetKey, DagsterEventType, EventRecordsFilter
-from dagster import _check as check
+from sheenflow import AssetKey, DagsterEventType, EventRecordsFilter
+from sheenflow import _check as check
 from sheenflow._core.definitions.asset_graph import AssetGraph
 from sheenflow._core.definitions.freshness_policy import FreshnessPolicy
 from sheenflow._core.events import ASSET_EVENTS

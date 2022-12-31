@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, Mapping, NamedTuple, Optional, Union
 
 from typing_extensions import Final
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._annotations import experimental
 from sheenflow._utils.backcompat import ExperimentalWarning
 

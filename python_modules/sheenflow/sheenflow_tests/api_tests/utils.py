@@ -1,7 +1,7 @@
 import sys
 from contextlib import ExitStack, contextmanager
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._core.host_representation import (
     JobHandle,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,

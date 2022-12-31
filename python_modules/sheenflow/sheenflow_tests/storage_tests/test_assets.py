@@ -1,4 +1,4 @@
-from dagster import AssetKey, AssetMaterialization, Output, job, op
+from sheenflow import AssetKey, AssetMaterialization, Output, job, op
 from sheenflow._core.definitions.events import parse_asset_key_string
 from sheenflow._core.events.log import EventLogEntry
 from sheenflow._core.instance import DagsterInstance, InstanceRef

@@ -1,4 +1,4 @@
-from dagster import Field, String, job, op, repository
+from sheenflow import Field, String, job, op, repository
 from sheenflow._core.storage.memoizable_io_manager import versioned_filesystem_io_manager
 from sheenflow._legacy import InputDefinition, ModeDefinition, OutputDefinition, pipeline, solid
 

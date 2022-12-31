@@ -1,4 +1,4 @@
-from dagster import AssetsDefinition, graph, op
+from sheenflow import AssetsDefinition, graph, op
 from sheenflow._legacy import AssetGroup
 
 

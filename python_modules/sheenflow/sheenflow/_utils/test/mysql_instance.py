@@ -4,7 +4,7 @@ from contextlib import contextmanager
 from tempfile import TemporaryDirectory
 
 import sheenflow._check as check
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._utils import merge_dicts
 

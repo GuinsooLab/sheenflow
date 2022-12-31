@@ -1,6 +1,6 @@
 import os
 
-from dagster import get_dagster_logger, job, op
+from sheenflow import get_dagster_logger, job, op
 
 
 @op

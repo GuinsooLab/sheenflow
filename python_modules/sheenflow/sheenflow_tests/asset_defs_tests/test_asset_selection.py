@@ -4,7 +4,7 @@ from functools import reduce
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetIn,
     DagsterInvalidSubsetError,
     DailyPartitionsDefinition,

@@ -1,4 +1,4 @@
-from dagster import AssetKey, AssetsDefinition, op, repository
+from sheenflow import AssetKey, AssetsDefinition, op, repository
 from sheenflow._core.definitions.cacheable_assets import (
     AssetsDefinitionCacheableData,
     CacheableAssetsDefinition,

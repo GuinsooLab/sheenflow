@@ -4,7 +4,7 @@ import numpy as np
 from pandas import DataFrame, Series
 from scipy.sparse import coo_matrix
 
-from dagster import Output, asset
+from sheenflow import Output, asset
 
 
 @dataclass

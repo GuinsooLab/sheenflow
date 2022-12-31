@@ -3,7 +3,7 @@ import os
 import pytest
 from dagster_shell import create_shell_command_op, create_shell_script_op, shell_op
 
-from dagster import Failure, job, op
+from sheenflow import Failure, job, op
 from sheenflow._core.definitions.config import ConfigMapping
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._legacy import OutputDefinition, execute_solid

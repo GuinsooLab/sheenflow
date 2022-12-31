@@ -5,7 +5,7 @@ from dagster_dask.data_frame import DataFrameReadTypes, DataFrameToTypes
 from dagster_dask.utils import DataFrameUtilities
 from dask.dataframe.utils import assert_eq
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._legacy import InputDefinition, execute_solid, solid
 
 

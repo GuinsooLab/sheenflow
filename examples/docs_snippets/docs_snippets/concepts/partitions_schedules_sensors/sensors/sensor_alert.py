@@ -3,7 +3,7 @@
 
 # start_alert_sensor_marker
 import os
-from dagster import run_failure_sensor, RunFailureSensorContext
+from sheenflow import run_failure_sensor, RunFailureSensorContext
 from slack_sdk import WebClient
 
 
@@ -38,7 +38,7 @@ def my_email_failure_sensor(context: RunFailureSensorContext):
 
 # start_failure_sensor_testing_with_context_setup
 
-from dagster import op, job
+from sheenflow import op, job
 
 
 @op
@@ -54,7 +54,7 @@ def my_job_fails():
 # end_failure_sensor_testing_with_context_setup
 
 # start_alert_sensor_testing_with_context_marker
-from dagster import DagsterInstance, build_run_status_sensor_context
+from sheenflow import DagsterInstance, build_run_status_sensor_context
 
 # execute the job
 instance = DagsterInstance.ephemeral()
@@ -90,7 +90,7 @@ slack_on_run_failure = make_slack_on_run_failure_sensor("#my_channel", os.getenv
 
 
 # start_email_marker
-from dagster import make_email_on_run_failure_sensor
+from sheenflow import make_email_on_run_failure_sensor
 
 
 email_on_run_failure = make_email_on_run_failure_sensor(
@@ -102,7 +102,7 @@ email_on_run_failure = make_email_on_run_failure_sensor(
 # end_email_marker
 
 # start_success_sensor_marker
-from dagster import run_status_sensor, RunStatusSensorContext, DagsterRunStatus
+from sheenflow import run_status_sensor, RunStatusSensorContext, DagsterRunStatus
 
 
 @run_status_sensor(run_status=DagsterRunStatus.SUCCESS)
@@ -180,7 +180,7 @@ def my_sensor_job():
 
 
 # start_definitions_marker
-from dagster import Definitions
+from sheenflow import Definitions
 
 
 defs = Definitions(jobs=[my_sensor_job], sensors=[my_slack_on_run_success])

@@ -3,7 +3,7 @@ from typing import Dict
 
 import pandas as pd
 
-from dagster import (
+from sheenflow import (
     DailyPartitionsDefinition,
     HourlyPartitionsDefinition,
     OpExecutionContext,

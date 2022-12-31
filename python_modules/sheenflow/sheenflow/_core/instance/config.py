@@ -2,8 +2,8 @@ import os
 import warnings
 from typing import TYPE_CHECKING, Any, Mapping, Optional, Tuple, Type, cast
 
-from dagster import Array, Bool
-from dagster import _check as check
+from sheenflow import Array, Bool
+from sheenflow import _check as check
 from sheenflow._config import Field, Permissive, ScalarUnion, Selector, StringSource, validate_config
 from sheenflow._core.errors import DagsterInvalidConfigError
 from sheenflow._core.storage.config import mysql_config, pg_config

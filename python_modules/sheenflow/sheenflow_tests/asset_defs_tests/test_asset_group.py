@@ -3,7 +3,7 @@ import warnings
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetOut,
     AssetsDefinition,

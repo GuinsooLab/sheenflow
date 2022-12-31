@@ -4,7 +4,7 @@ from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
 # start_repository
 # __init__.py
-from dagster import Definitions
+from sheenflow import Definitions
 
 from .assets import comments, items, stories
 

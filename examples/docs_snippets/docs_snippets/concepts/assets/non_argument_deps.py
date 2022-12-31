@@ -4,7 +4,7 @@ def execute_query(query):
 
 # start_marker
 
-from dagster import asset
+from sheenflow import asset
 
 
 @asset

@@ -8,7 +8,7 @@ from contextlib import ExitStack
 import click
 import pendulum
 
-from dagster import __version__ as dagster_version
+from sheenflow import __version__ as dagster_version
 from sheenflow._cli.workspace.cli_target import get_workspace_load_target, workspace_target_argument
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.telemetry import telemetry_wrapper

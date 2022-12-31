@@ -1,4 +1,4 @@
-from dagster import resource
+from sheenflow import resource
 from sheenflow._legacy import ModeDefinition, execute_pipeline, pipeline, solid
 
 

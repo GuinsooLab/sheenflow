@@ -1,17 +1,17 @@
 import copy
 
 import yaml
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.test.utils import (
     define_out_of_process_context,
     execute_dagster_graphql,
     infer_pipeline_selector,
     infer_repository_selector,
 )
-from dagster_graphql_tests.graphql.graphql_context_test_suite import (
+from sheenflow_graphql_tests.graphql.graphql_context_test_suite import (
     ExecutingGraphQLContextTestMatrix,
 )
 
-from dagster import AssetMaterialization, Output, job, op, repository
+from sheenflow import AssetMaterialization, Output, job, op, repository
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.execution.api import execute_run
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus

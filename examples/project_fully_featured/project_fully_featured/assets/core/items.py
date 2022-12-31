@@ -5,7 +5,7 @@ from project_fully_featured.partitions import hourly_partitions
 from pyspark.sql import DataFrame as SparkDF
 from pyspark.sql.types import ArrayType, DoubleType, LongType, StringType, StructField, StructType
 
-from dagster import Output, asset
+from sheenflow import Output, asset
 
 from .id_range_for_time import id_range_for_time
 

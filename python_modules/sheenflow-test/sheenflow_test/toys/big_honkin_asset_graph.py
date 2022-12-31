@@ -1,7 +1,7 @@
 import random
 from typing import List
 
-from dagster import AssetKey, AssetsDefinition, asset
+from sheenflow import AssetKey, AssetsDefinition, asset
 
 N_ASSETS = 1000
 

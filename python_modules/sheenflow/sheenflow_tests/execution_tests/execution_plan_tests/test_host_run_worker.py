@@ -1,6 +1,6 @@
 import os
 
-from dagster import executor, fs_io_manager, op, reconstructable, resource
+from sheenflow import executor, fs_io_manager, op, reconstructable, resource
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
 from sheenflow._core.execution.api import create_execution_plan
 from sheenflow._core.execution.host_mode import execute_run_host_mode

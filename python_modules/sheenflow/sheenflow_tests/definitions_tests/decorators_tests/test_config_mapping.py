@@ -2,7 +2,7 @@ import enum
 
 import pytest
 
-from dagster import DagsterInvalidConfigError, Enum, Field, config_mapping, graph, op
+from sheenflow import DagsterInvalidConfigError, Enum, Field, config_mapping, graph, op
 
 
 def test_empty_config_mapping():

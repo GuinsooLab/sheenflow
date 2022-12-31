@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import Failure, graph
+from sheenflow import Failure, graph
 from docs_snippets.concepts.ops_jobs_graphs.op_events import (
     my_asset_op,
     my_expectation_op,

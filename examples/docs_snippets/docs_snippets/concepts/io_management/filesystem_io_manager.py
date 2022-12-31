@@ -2,7 +2,7 @@
 import pandas as pd
 from upath import UPath
 
-from dagster import (
+from sheenflow import (
     Field,
     InitResourceContext,
     InputContext,

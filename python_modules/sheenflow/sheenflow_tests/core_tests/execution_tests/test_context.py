@@ -1,5 +1,5 @@
 import sheenflow._check as check
-from dagster import job, op
+from sheenflow import job, op
 from sheenflow._core.definitions.job_definition import JobDefinition
 from sheenflow._core.definitions.op_definition import OpDefinition
 from sheenflow._core.definitions.pipeline_definition import PipelineDefinition

@@ -1,7 +1,7 @@
 from pydantic import Field
 from typing_extensions import Annotated
 
-from dagster import op
+from sheenflow import op
 from sheenflow._config.config_type import ConfigTypeKind
 from sheenflow._config.structured_config import Config
 

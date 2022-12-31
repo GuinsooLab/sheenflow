@@ -12,9 +12,9 @@ import pendulum
 import pytest
 import sqlalchemy as db
 
-from dagster import AssetKey, AssetMaterialization, Output
-from dagster import _check as check
-from dagster import file_relative_path, job, op
+from sheenflow import AssetKey, AssetMaterialization, Output
+from sheenflow import _check as check
+from sheenflow import file_relative_path, job, op
 from sheenflow._cli.debug import DebugRunPayload
 from sheenflow._core.definitions.dependency import NodeHandle
 from sheenflow._core.errors import DagsterInvalidInvocationError

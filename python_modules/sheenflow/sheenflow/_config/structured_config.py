@@ -15,7 +15,7 @@ from pydantic import BaseModel
 from pydantic.fields import SHAPE_SINGLETON, ModelField
 
 import sheenflow._check as check
-from dagster import Field, Shape
+from sheenflow import Field, Shape
 from sheenflow._config.field_utils import (
     FIELD_NO_DEFAULT_PROVIDED,
     config_dictionary_from_values,

@@ -2,7 +2,7 @@ from collections import namedtuple
 from unittest.mock import patch
 
 import pytest
-from dagster_graphql import DagsterGraphQLClient
+from sheenflow_graphql import DagsterGraphQLClient
 
 MockClient = namedtuple("MockClient", ("python_client", "mock_gql_client"))
 

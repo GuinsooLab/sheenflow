@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=unnecessary-ellipsis
 
-from dagster import (
+from sheenflow import (
     Definitions,
     DefaultSensorStatus,
     SkipReason,
@@ -16,7 +16,7 @@ from dagster import (
 
 
 # start_sensor_job_marker
-from dagster import op, job
+from sheenflow import op, job
 
 
 @op(config_schema={"filename": str})
@@ -36,7 +36,7 @@ MY_DIRECTORY = "./"
 
 # start_directory_sensor_marker
 import os
-from dagster import sensor, RunRequest
+from sheenflow import sensor, RunRequest
 
 
 @sensor(job=log_file_job)
@@ -81,7 +81,7 @@ def my_running_sensor():
 
 
 # start_sensor_testing_no
-from dagster import validate_run_config
+from sheenflow import validate_run_config
 
 
 @sensor(job=log_file_job)
@@ -147,7 +147,7 @@ def my_directory_sensor_cursor(context):
 # end_cursor_sensors_marker
 
 # start_sensor_testing_with_context
-from dagster import build_sensor_context
+from sheenflow import build_sensor_context
 
 
 def test_my_directory_sensor_cursor():
@@ -209,7 +209,7 @@ def get_the_db_connection(_):
 
 # pylint: disable=unused-variable,reimported
 # start_build_resources_example
-from dagster import resource, build_resources, sensor
+from sheenflow import resource, build_resources, sensor
 
 
 @resource

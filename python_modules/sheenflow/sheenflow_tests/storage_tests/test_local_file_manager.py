@@ -2,7 +2,7 @@ import os
 import tempfile
 from contextlib import contextmanager
 
-from dagster import LocalFileHandle, job, op
+from sheenflow import LocalFileHandle, job, op
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.storage.file_manager import LocalFileManager, local_file_manager
 from sheenflow._core.test_utils import instance_for_test

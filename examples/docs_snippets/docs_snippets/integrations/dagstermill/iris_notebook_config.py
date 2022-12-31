@@ -1,4 +1,4 @@
-from dagster import asset
+from sheenflow import asset
 
 
 # placeholder so that the test works. this isn't used in the docs
@@ -10,7 +10,7 @@ def iris_dataset():
 # start
 from dagstermill import define_dagstermill_asset
 
-from dagster import AssetIn, Field, Int, file_relative_path
+from sheenflow import AssetIn, Field, Int, file_relative_path
 
 iris_kmeans_jupyter_notebook = define_dagstermill_asset(
     name="iris_kmeans_jupyter",
@@ -34,7 +34,7 @@ iris_kmeans_jupyter_notebook = define_dagstermill_asset(
 
 from dagstermill import local_output_notebook_io_manager
 
-from dagster import AssetSelection, define_asset_job, with_resources
+from sheenflow import AssetSelection, define_asset_job, with_resources
 
 assets_with_resource = with_resources(
     [iris_kmeans_jupyter_notebook, iris_dataset],

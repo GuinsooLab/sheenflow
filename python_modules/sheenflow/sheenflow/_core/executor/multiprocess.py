@@ -4,8 +4,8 @@ import sys
 from multiprocessing.context import BaseContext as MultiprocessingBaseContext
 from typing import Any, Dict, Iterator, Optional, Sequence
 
-from dagster import MetadataEntry
-from dagster import _check as check
+from sheenflow import MetadataEntry
+from sheenflow import _check as check
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
 from sheenflow._core.definitions.repository_definition import RepositoryLoadData
 from sheenflow._core.errors import (

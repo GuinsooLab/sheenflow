@@ -2,7 +2,7 @@ import os
 import runpy
 
 import pytest
-from dagit.app import create_app_from_workspace_process_context
+from sheenlet.app import create_app_from_workspace_process_context
 from starlette.testclient import TestClient
 
 from sheenflow._cli.workspace import get_workspace_process_context_from_kwargs

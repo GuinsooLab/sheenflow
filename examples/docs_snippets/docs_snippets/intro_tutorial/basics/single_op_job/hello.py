@@ -2,7 +2,7 @@
 
 # start_op_marker
 import os
-from dagster import job, op, get_dagster_logger
+from sheenflow import job, op, get_dagster_logger
 
 
 @op

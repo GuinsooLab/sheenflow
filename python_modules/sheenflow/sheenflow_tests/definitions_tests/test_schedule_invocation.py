@@ -2,7 +2,7 @@ import datetime
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInstance,
     DagsterInvariantViolationError,
     build_schedule_context,

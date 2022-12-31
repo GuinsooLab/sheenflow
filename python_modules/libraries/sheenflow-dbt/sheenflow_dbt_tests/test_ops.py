@@ -1,7 +1,7 @@
 import pytest
 from dagster_dbt import dbt_build_op, dbt_cli_resource, dbt_run_op, dbt_seed_op, dbt_test_op
 
-from dagster import build_op_context, job
+from sheenflow import build_op_context, job
 
 
 def test_seed_op(conn_string, test_project_dir, dbt_config_dir):  # pylint: disable=unused-argument

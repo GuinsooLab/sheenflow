@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 import pytest
 from sqlalchemy import create_engine, inspect
 
-from dagster import AssetKey, AssetMaterialization, AssetObservation, Output, job, op
+from sheenflow import AssetKey, AssetMaterialization, AssetObservation, Output, job, op
 from sheenflow._core.errors import DagsterInvalidInvocationError
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.storage.event_log.migration import ASSET_KEY_INDEX_COLS

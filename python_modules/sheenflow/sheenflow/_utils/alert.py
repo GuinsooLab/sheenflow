@@ -139,7 +139,7 @@ def make_email_on_run_failure_sensor(
             (deprecated in favor of monitored_jobs) The jobs that will be monitored by this failure
             sensor. Defaults to None, which means the alert will be sent when any job in the repository fails.
         default_status (DefaultSensorStatus): Whether the sensor starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
 
     Examples:
 

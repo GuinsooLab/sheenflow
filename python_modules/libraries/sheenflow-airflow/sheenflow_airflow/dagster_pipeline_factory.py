@@ -21,7 +21,7 @@ from airflow.settings import LOG_FORMAT
 from airflow.utils import db
 from dagster_airflow.patch_airflow_example_dag import patch_airflow_example_dag
 
-from dagster import (
+from sheenflow import (
     Array,
     DagsterInvariantViolationError,
     DependencyDefinition,
@@ -33,8 +33,8 @@ from dagster import (
     Out,
     ScheduleDefinition,
 )
-from dagster import _check as check
-from dagster import op, repository, resource
+from sheenflow import _check as check
+from sheenflow import op, repository, resource
 from sheenflow._core.definitions.op_definition import OpDefinition
 from sheenflow._core.definitions.utils import VALID_NAME_REGEX, validate_tags
 from sheenflow._core.instance import AIRFLOW_EXECUTION_DATE_STR, IS_AIRFLOW_INGEST_PIPELINE_STR

@@ -1,4 +1,4 @@
-from dagster import Field, GraphDefinition, Int, Map, Noneable, ScalarUnion, String, op
+from sheenflow import Field, GraphDefinition, Int, Map, Noneable, ScalarUnion, String, op
 from sheenflow._config import (
     get_recursive_type_keys,
     print_config_type_to_string,

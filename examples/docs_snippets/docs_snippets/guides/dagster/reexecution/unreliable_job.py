@@ -7,7 +7,7 @@ def some_random_result():
 
 # isort: split
 # start_random_job
-from dagster import in_process_executor, job, op
+from sheenflow import in_process_executor, job, op
 
 
 @op

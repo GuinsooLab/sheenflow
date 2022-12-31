@@ -1,5 +1,5 @@
 # code_location_1.py
-from dagster import Definitions, asset
+from sheenflow import Definitions, asset
 
 
 @asset

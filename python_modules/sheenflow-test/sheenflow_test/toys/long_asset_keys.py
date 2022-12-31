@@ -1,5 +1,5 @@
 # pylint: disable=redefined-outer-name
-from dagster import AssetIn, asset
+from sheenflow import AssetIn, asset
 from sheenflow._legacy import AssetGroup
 
 key_prefix1 = ["s3", "superdomain_1", "subdomain_1", "subsubdomain_1"]

@@ -30,7 +30,7 @@ from dagster_managed_elements.types import (
 from dagster_managed_elements.utils import UNSET, diff_dicts
 
 import sheenflow._check as check
-from dagster import AssetKey, ResourceDefinition
+from sheenflow import AssetKey, ResourceDefinition
 from sheenflow._annotations import experimental, public
 from sheenflow._core.definitions.cacheable_assets import CacheableAssetsDefinition
 from sheenflow._core.definitions.events import CoercibleToAssetKeyPrefix

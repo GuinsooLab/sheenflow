@@ -2,7 +2,7 @@ from typing import Sequence
 
 import duckdb
 
-from dagster import Field, IOManagerDefinition, OutputContext, StringSource, io_manager
+from sheenflow import Field, IOManagerDefinition, OutputContext, StringSource, io_manager
 from sheenflow._core.storage.db_io_manager import (
     DbClient,
     DbIOManager,

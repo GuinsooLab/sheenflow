@@ -7,7 +7,7 @@ from collections import defaultdict
 from contextlib import contextmanager
 from typing import IO, Generator, Optional, Sequence, Union
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.storage.captured_log_manager import (
     CapturedLogContext,
     CapturedLogData,

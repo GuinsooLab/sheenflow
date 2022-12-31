@@ -2,7 +2,7 @@ import hashlib
 
 import pytest
 
-from dagster import String
+from sheenflow import String
 from sheenflow._core.errors import DagsterInvalidDefinitionError
 from sheenflow._core.types.config_schema import dagster_type_loader
 

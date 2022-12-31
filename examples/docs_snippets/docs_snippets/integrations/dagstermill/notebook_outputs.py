@@ -11,7 +11,7 @@ dagstermill.yield_result(3, output_name="my_output")
 # start_py_file
 from dagstermill import define_dagstermill_op, local_output_notebook_io_manager
 
-from dagster import Out, file_relative_path, job, op
+from sheenflow import Out, file_relative_path, job, op
 
 my_notebook_op = define_dagstermill_op(
     name="my_notebook",

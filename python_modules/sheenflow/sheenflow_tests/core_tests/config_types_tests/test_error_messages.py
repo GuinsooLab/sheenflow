@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from dagster import DagsterInvalidDefinitionError, Dict, List, Noneable, Optional, op
+from sheenflow import DagsterInvalidDefinitionError, Dict, List, Noneable, Optional, op
 from sheenflow._core.errors import DagsterInvalidConfigDefinitionError
 
 

@@ -1,4 +1,4 @@
-from dagster import (
+from sheenflow import (
     DefaultScheduleStatus,
     RunRequest,
     ScheduleDefinition,
@@ -26,7 +26,7 @@ def my_asset():
 
 
 # start_basic_asset_schedule
-from dagster import AssetSelection, define_asset_job
+from sheenflow import AssetSelection, define_asset_job
 
 asset_job = define_asset_job("asset_job", AssetSelection.groups("some_asset_group"))
 

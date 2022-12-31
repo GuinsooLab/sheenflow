@@ -6,7 +6,7 @@ from dagster_pandas.constraints import (
 )
 from dagster_pandas.validation import PandasColumn, validate_constraints
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     DagsterInvariantViolationError,
     DagsterType,
@@ -15,8 +15,8 @@ from dagster import (
     StringSource,
     TypeCheck,
 )
-from dagster import _check as check
-from dagster import dagster_type_loader, dagster_type_materializer
+from sheenflow import _check as check
+from sheenflow import dagster_type_loader, dagster_type_materializer
 from sheenflow._annotations import experimental
 from sheenflow._check import CheckError
 from sheenflow._config import Selector

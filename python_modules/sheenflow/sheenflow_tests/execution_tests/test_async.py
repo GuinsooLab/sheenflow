@@ -1,6 +1,6 @@
 import asyncio
 
-from dagster import Output
+from sheenflow import Output
 from sheenflow._legacy import execute_solid, solid
 
 

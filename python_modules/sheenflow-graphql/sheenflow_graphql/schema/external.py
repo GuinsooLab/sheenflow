@@ -1,14 +1,14 @@
 import asyncio
 
 import graphene
-from dagster_graphql.implementation.fetch_solids import get_solid, get_solids
-from dagster_graphql.implementation.loader import (
+from sheenflow_graphql.implementation.fetch_solids import get_solid, get_solids
+from sheenflow_graphql.implementation.loader import (
     ProjectedLogicalVersionLoader,
     RepositoryScopedBatchLoader,
 )
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._core.host_representation import (
     ExternalRepository,
     GrpcServerRepositoryLocation,

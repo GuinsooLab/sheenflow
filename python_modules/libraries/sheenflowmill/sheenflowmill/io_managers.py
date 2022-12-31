@@ -5,7 +5,7 @@ from typing import Any, Optional, Sequence
 from dagstermill.factory import _clean_path_for_windows
 
 import sheenflow._check as check
-from dagster import AssetKey, AssetMaterialization
+from sheenflow import AssetKey, AssetMaterialization
 from sheenflow._config import Field
 from sheenflow._core.definitions.metadata import MetadataValue
 from sheenflow._core.execution.context.input import InputContext

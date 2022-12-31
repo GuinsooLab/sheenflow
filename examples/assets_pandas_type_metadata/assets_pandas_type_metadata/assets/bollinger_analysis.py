@@ -1,5 +1,5 @@
 # pylint: disable=redefined-outer-name
-from dagster import Field, asset
+from sheenflow import Field, asset
 
 from ..lib import (
     AnomalousEventsDgType,

@@ -2,9 +2,9 @@ import sys
 from typing import Any
 from unittest import mock
 
-from dagster_graphql.test.utils import execute_dagster_graphql
+from sheenflow_graphql.test.utils import execute_dagster_graphql
 
-from dagster import file_relative_path, repository
+from sheenflow import file_relative_path, repository
 from sheenflow._core.code_pointer import CodePointer
 from sheenflow._core.host_representation import (
     ManagedGrpcPythonEnvRepositoryLocationOrigin,

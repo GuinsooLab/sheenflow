@@ -1,4 +1,4 @@
-from dagit.version import __version__
+from sheenlet.version import __version__
 
 
 def test_version():

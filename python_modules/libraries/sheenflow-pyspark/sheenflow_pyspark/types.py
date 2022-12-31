@@ -1,6 +1,6 @@
 from pyspark.sql import DataFrame as NativeSparkDataFrame
 
-from dagster import (
+from sheenflow import (
     Any,
     AssetMaterialization,
     Bool,

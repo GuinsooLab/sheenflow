@@ -4,7 +4,7 @@ import tempfile
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetOut,
     AssetsDefinition,
@@ -1206,7 +1206,7 @@ def test_graph_backed_asset_reused():
 
 
 def test_self_dependency():
-    from dagster import PartitionKeyRange, TimeWindowPartitionMapping
+    from sheenflow import PartitionKeyRange, TimeWindowPartitionMapping
 
     @asset(
         partitions_def=DailyPartitionsDefinition(start_date="2020-01-01"),

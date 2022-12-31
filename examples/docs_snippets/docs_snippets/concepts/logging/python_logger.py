@@ -1,4 +1,4 @@
-from dagster import repository
+from sheenflow import repository
 
 
 def scope_logged_job():
@@ -6,7 +6,7 @@ def scope_logged_job():
     # start_python_logger
     import logging
 
-    from dagster import graph, op
+    from sheenflow import graph, op
 
     @op
     def ambitious_op():
@@ -30,7 +30,7 @@ def scope_logged_job():
 def scope_logged_job2():
 
     # start_get_logger
-    from dagster import get_dagster_logger, graph, op
+    from sheenflow import get_dagster_logger, graph, op
 
     @op
     def ambitious_op():

@@ -1,9 +1,9 @@
 from unittest import mock
 
 import pytest
-from dagster_graphql.implementation.fetch_pipelines import _get_pipeline_snapshot_from_instance
-from dagster_graphql.implementation.utils import UserFacingGraphQLError
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.implementation.fetch_pipelines import _get_pipeline_snapshot_from_instance
+from sheenflow_graphql.implementation.utils import UserFacingGraphQLError
+from sheenflow_graphql.test.utils import (
     execute_dagster_graphql,
     main_repo_location_name,
     main_repo_name,

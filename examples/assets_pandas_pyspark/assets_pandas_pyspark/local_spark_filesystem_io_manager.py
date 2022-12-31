@@ -15,8 +15,8 @@ from pandas import DataFrame as PandasDF
 from pyspark.sql import DataFrame as SparkDF
 from pyspark.sql import SparkSession
 
-from dagster import AssetKey, IOManager
-from dagster import _check as check
+from sheenflow import AssetKey, IOManager
+from sheenflow import _check as check
 
 
 class LocalFileSystemIOManager(IOManager):

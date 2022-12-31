@@ -51,7 +51,7 @@ from ..target import ExecutableDefinition
 from ..utils import validate_tags
 
 if TYPE_CHECKING:
-    from dagster import Partition
+    from sheenflow import Partition
 
 # Error messages are long
 # pylint: disable=C0301
@@ -113,7 +113,7 @@ def schedule(
         job (Optional[Union[GraphDefinition, JobDefinition, UnresolvedAssetJobDefinition]]): The job
             that should execute when this schedule runs.
         default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
     """
 
     def inner(fn: RawScheduleEvaluationFunction) -> ScheduleDefinition:
@@ -258,7 +258,7 @@ def monthly_schedule(
             (Default: 1)
         description (Optional[str]): A human-readable description of the schedule.
         default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
     """
     check.opt_str_param(name, "name")
     check.inst_param(start_date, "start_date", datetime.datetime)
@@ -420,7 +420,7 @@ def weekly_schedule(
             (Default: 1)
         description (Optional[str]): A human-readable description of the schedule.
         default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
     """
     check.opt_str_param(name, "name")
     check.inst_param(start_date, "start_date", datetime.datetime)
@@ -574,7 +574,7 @@ def daily_schedule(
             (Default: 1)
         description (Optional[str]): A human-readable description of the schedule.
         default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
     """
     check.opt_str_param(pipeline_name, "pipeline_name")
     check.inst_param(start_date, "start_date", datetime.datetime)
@@ -720,7 +720,7 @@ def hourly_schedule(
             (Default: 1)
         description (Optional[str]): A human-readable description of the schedule.
         default_status (DefaultScheduleStatus): Whether the schedule starts as running or not. The default
-            status can be overridden from Dagit or via the GraphQL API.
+            status can be overridden from sheenlet or via the GraphQL API.
     """
     check.opt_str_param(name, "name")
     check.inst_param(start_date, "start_date", datetime.datetime)

@@ -1,6 +1,6 @@
 # pylint: disable=redefined-outer-name
 # start_marker
-from dagster import Definitions, asset, define_asset_job
+from sheenflow import Definitions, asset, define_asset_job
 
 
 @asset

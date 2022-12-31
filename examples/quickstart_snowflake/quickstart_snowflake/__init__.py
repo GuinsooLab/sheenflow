@@ -1,6 +1,6 @@
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
-from dagster import (
+from sheenflow import (
     Definitions,
     ScheduleDefinition,
     define_asset_job,

@@ -1,7 +1,7 @@
 # pylint: disable=no-value-for-parameter
 from dagster_shell import execute_shell_script
 
-from dagster import OpExecutionContext, op
+from sheenflow import OpExecutionContext, op
 
 
 @op

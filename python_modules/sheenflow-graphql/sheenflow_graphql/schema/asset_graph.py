@@ -1,25 +1,25 @@
 from typing import TYPE_CHECKING, List, Optional, Sequence, Union, cast
 
 import graphene
-from dagster_graphql.implementation.events import iterate_metadata_entries
-from dagster_graphql.implementation.fetch_assets import (
+from sheenflow_graphql.implementation.events import iterate_metadata_entries
+from sheenflow_graphql.implementation.fetch_assets import (
     get_asset_materializations,
     get_asset_observations,
 )
-from dagster_graphql.schema.config_types import GrapheneConfigTypeField
-from dagster_graphql.schema.metadata import GrapheneMetadataEntry
-from dagster_graphql.schema.partition_sets import (
+from sheenflow_graphql.schema.config_types import GrapheneConfigTypeField
+from sheenflow_graphql.schema.metadata import GrapheneMetadataEntry
+from sheenflow_graphql.schema.partition_sets import (
     GrapheneDimensionPartitionKeys,
     GraphenePartitionDefinition,
 )
-from dagster_graphql.schema.solids import (
+from sheenflow_graphql.schema.solids import (
     GrapheneCompositeSolidDefinition,
     GrapheneResourceRequirement,
     GrapheneSolidDefinition,
 )
 
-from dagster import AssetKey
-from dagster import _check as check
+from sheenflow import AssetKey
+from sheenflow import _check as check
 from sheenflow._core.definitions.external_asset_graph import ExternalAssetGraph
 from sheenflow._core.definitions.logical_version import (
     DEFAULT_LOGICAL_VERSION,

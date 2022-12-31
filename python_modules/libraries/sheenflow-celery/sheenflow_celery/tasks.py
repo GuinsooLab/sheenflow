@@ -1,5 +1,5 @@
-from dagster import DagsterInstance, MetadataEntry
-from dagster import _check as check
+from sheenflow import DagsterInstance, MetadataEntry
+from sheenflow import _check as check
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
 from sheenflow._core.events import EngineEventData
 from sheenflow._core.execution.api import create_execution_plan, execute_plan_iterator

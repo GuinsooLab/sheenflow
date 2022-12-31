@@ -1,4 +1,4 @@
-from dagster import op
+from sheenflow import op
 
 
 def test_single_input():

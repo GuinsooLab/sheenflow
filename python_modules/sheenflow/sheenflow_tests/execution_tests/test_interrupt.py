@@ -6,7 +6,7 @@ from threading import Thread
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterEventType,
     Failure,
     Field,

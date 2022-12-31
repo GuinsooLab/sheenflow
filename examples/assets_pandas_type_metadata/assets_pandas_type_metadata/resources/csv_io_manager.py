@@ -3,7 +3,7 @@ import textwrap
 
 import pandas as pd
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     MemoizableIOManager,
     MetadataEntry,

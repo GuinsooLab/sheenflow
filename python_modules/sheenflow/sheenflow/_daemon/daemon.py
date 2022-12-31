@@ -10,8 +10,8 @@ from typing import Generator, Generic, TypeVar, Union
 
 import pendulum
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._core.scheduler.scheduler import DagsterDaemonScheduler
 from sheenflow._core.telemetry import DAEMON_ALIVE, log_action
 from sheenflow._core.workspace.context import IWorkspaceProcessContext

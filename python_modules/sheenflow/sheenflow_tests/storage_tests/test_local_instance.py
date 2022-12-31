@@ -7,9 +7,9 @@ from concurrent.futures import ThreadPoolExecutor
 import pytest
 import yaml
 
-from dagster import DagsterEventType, DagsterInvalidConfigError, In, Out, Output
-from dagster import _check as check
-from dagster import job, op
+from sheenflow import DagsterEventType, DagsterInvalidConfigError, In, Out, Output
+from sheenflow import _check as check
+from sheenflow import job, op
 from sheenflow._core.definitions.events import RetryRequested
 from sheenflow._core.execution.stats import StepEventStatus
 from sheenflow._core.instance import DagsterInstance, InstanceRef, InstanceType

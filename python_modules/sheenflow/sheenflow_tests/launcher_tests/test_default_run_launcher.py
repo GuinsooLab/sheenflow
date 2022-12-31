@@ -7,7 +7,7 @@ import time
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterEventType,
     DefaultRunLauncher,
     _seven,

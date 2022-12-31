@@ -1,6 +1,6 @@
 import os
 
-from dagster import Definitions, graph
+from sheenflow import Definitions, graph
 
 from .clone_and_drop_db import drop_database_clone
 from .repository_v2 import (

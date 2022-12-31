@@ -2,7 +2,7 @@ import sys
 
 from dagster_dask import dask_executor
 
-from dagster import job
+from sheenflow import job
 from sheenflow._utils import file_relative_path
 
 sys.path.append(file_relative_path(__file__, "../../../sheenflow-test/sheenflow_test/toys"))

@@ -1,8 +1,8 @@
 import time
 
 import pytest
-from dagster_graphql.test.utils import execute_dagster_graphql
-from dagster_graphql_tests.graphql.graphql_context_test_suite import (
+from sheenflow_graphql.test.utils import execute_dagster_graphql
+from sheenflow_graphql_tests.graphql.graphql_context_test_suite import (
     ExecutingGraphQLContextTestMatrix,
 )
 

@@ -1,7 +1,7 @@
 import tempfile
 from contextlib import contextmanager
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     DagsterInstance,
     DailyPartitionsDefinition,

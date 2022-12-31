@@ -7,7 +7,7 @@ import uuid
 
 import pytest
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._api.list_repositories import sync_list_repositories_grpc
 from sheenflow._core.errors import DagsterUserCodeUnreachableError
 from sheenflow._core.host_representation.origin import (

@@ -1,4 +1,4 @@
-from dagster import Int, repository
+from sheenflow import Int, repository
 from sheenflow._legacy import InputDefinition, OutputDefinition, lambda_solid, pipeline
 
 

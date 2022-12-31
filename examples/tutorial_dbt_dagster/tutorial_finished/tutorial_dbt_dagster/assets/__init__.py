@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 from dagster_dbt import load_assets_from_dbt_project
 
-from dagster import AssetIn, MetadataValue, asset, file_relative_path
+from sheenflow import AssetIn, MetadataValue, asset, file_relative_path
 
 
 @asset(key_prefix=["jaffle_shop"], group_name="staging")

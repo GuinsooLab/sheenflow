@@ -4,7 +4,7 @@ from typing import Dict, List, Mapping, Sequence, Tuple, Union, cast, overload
 
 from typing_extensions import Literal
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     AssetsDefinition,
     DagsterInstance,

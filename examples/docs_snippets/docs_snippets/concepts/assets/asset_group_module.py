@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=import-error
 
-from dagster import (
+from sheenflow import (
     load_assets_from_package_module,
 )
 

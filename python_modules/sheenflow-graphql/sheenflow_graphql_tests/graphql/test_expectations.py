@@ -1,6 +1,6 @@
 import json
 
-from dagster_graphql.test.utils import infer_pipeline_selector
+from sheenflow_graphql.test.utils import infer_pipeline_selector
 
 from sheenflow._utils import file_relative_path
 

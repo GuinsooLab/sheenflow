@@ -1,7 +1,7 @@
 # pylint: disable=unused-variable, unnecessary-ellipsis
 
 # start_database_example
-from dagster import StringSource, job, op, resource
+from sheenflow import StringSource, job, op, resource
 
 
 @resource(config_schema={"username": StringSource, "password": StringSource})

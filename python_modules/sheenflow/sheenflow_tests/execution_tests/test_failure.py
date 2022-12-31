@@ -1,4 +1,4 @@
-from dagster import Failure, MetadataEntry
+from sheenflow import Failure, MetadataEntry
 from sheenflow._legacy import execute_pipeline, lambda_solid, pipeline
 
 

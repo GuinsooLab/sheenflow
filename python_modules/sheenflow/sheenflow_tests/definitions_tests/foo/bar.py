@@ -1,4 +1,4 @@
-from dagster import job
+from sheenflow import job
 
 from .baz import baz_op  # pylint: disable=import-error
 

@@ -1,4 +1,4 @@
-from dagster import graph, op
+from sheenflow import graph, op
 from sheenflow._core.definitions.input import In
 from sheenflow._core.definitions.output import GraphOut, Out
 

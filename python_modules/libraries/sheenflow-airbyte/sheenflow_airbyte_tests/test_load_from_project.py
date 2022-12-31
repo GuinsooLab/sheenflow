@@ -3,7 +3,7 @@ import responses
 from dagster_airbyte import airbyte_resource, load_assets_from_airbyte_project
 from dagster_airbyte.asset_defs import AirbyteConnectionMetadata
 
-from dagster import AssetKey, build_init_resource_context, materialize, with_resources
+from sheenflow import AssetKey, build_init_resource_context, materialize, with_resources
 from sheenflow._utils import file_relative_path
 
 from .utils import get_project_connection_json, get_project_job_json

@@ -5,7 +5,7 @@ import pytest
 from click import UsageError
 from click.testing import CliRunner
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._cli.job import execute_list_command, job_list_command
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin

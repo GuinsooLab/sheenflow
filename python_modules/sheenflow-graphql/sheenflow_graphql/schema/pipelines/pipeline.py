@@ -1,8 +1,8 @@
 from typing import List
 
 import graphene
-from dagster_graphql.implementation.events import iterate_metadata_entries
-from dagster_graphql.schema.metadata import GrapheneMetadataEntry
+from sheenflow_graphql.implementation.events import iterate_metadata_entries
+from sheenflow_graphql.schema.metadata import GrapheneMetadataEntry
 
 import sheenflow._check as check
 from sheenflow._core.events import DagsterEventType

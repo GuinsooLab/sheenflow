@@ -1,4 +1,4 @@
-from dagster import Field, Permissive, StringSource
+from sheenflow import Field, Permissive, StringSource
 
 DEFAULT_DBT_EXECUTABLE = "dbt"
 DEFAULT_DBT_TARGET_PATH = "target"

@@ -2,7 +2,7 @@ import os
 import sys
 from contextlib import contextmanager
 
-from dagster import job, op, repository
+from sheenflow import job, op, repository
 from sheenflow._core.host_representation import (
     JobHandle,
     ManagedGrpcPythonEnvRepositoryLocationOrigin,

@@ -5,8 +5,8 @@ from unittest import mock
 
 import objgraph
 import pytest
-from dagit.graphql import GraphQLWS
-from dagit.webserver import DagitWebserver
+from sheenlet.graphql import GraphQLWS
+from sheenlet.webserver import DagitWebserver
 from starlette.testclient import TestClient
 
 from sheenflow._core.test_utils import environ, instance_for_test

@@ -26,8 +26,8 @@ def create_dagit_cli():
     return dagit  # pylint: disable=no-value-for-parameter
 
 
-DEFAULT_DAGIT_HOST = "127.0.0.1"
-DEFAULT_DAGIT_PORT = 3000
+DEFAULT_SHEENLET_HOST = "127.0.0.1"
+DEFAULT_SHEENLET_PORT = 3000
 
 DEFAULT_DB_STATEMENT_TIMEOUT = 15000  # 15 sec
 DEFAULT_POOL_RECYCLE = 3600  # 1 hr
@@ -49,8 +49,8 @@ DEFAULT_POOL_RECYCLE = 3600  # 1 hr
             "\n\n6. sheenlet -f path/to/file.py -a define_repo"
             "\n\n7. sheenlet -m some_module -a define_repo"
             "\n\n8. sheenlet -p 3333"
-            "\n\nOptions can also provide arguments via environment variables prefixed with DAGIT"
-            "\n\nFor example, DAGIT_PORT=3333 sheenlet"
+            "\n\nOptions can also provide arguments via environment variables prefixed with SHEENLET"
+            "\n\nFor example, SHEENLET_PORT=3333 sheenlet"
         ).format(default_filename=DEFAULT_WORKSPACE_YAML_FILENAME)
     ),
 )
@@ -59,7 +59,7 @@ DEFAULT_POOL_RECYCLE = 3600  # 1 hr
     "--host",
     "-h",
     type=click.STRING,
-    default=DEFAULT_DAGIT_HOST,
+    default=DEFAULT_SHEENLET_HOST,
     help="Host to run server on",
     show_default=True,
 )
@@ -68,7 +68,7 @@ DEFAULT_POOL_RECYCLE = 3600  # 1 hr
     "-p",
     type=click.INT,
     help="Port to run server on.",
-    default=DEFAULT_DAGIT_PORT,
+    default=DEFAULT_SHEENLET_PORT,
     show_default=True,
 )
 @click.option(
@@ -76,7 +76,7 @@ DEFAULT_POOL_RECYCLE = 3600  # 1 hr
     "-l",
     type=click.STRING,
     default="",
-    help="The path prefix where Dagit will be hosted (eg: /sheenlet)",
+    help="The path prefix where Sheenlet will be hosted (eg: /sheenlet)",
     show_default=True,
 )
 @click.option(
@@ -96,13 +96,13 @@ DEFAULT_POOL_RECYCLE = 3600  # 1 hr
 )
 @click.option(
     "--read-only",
-    help="Start Dagit in read-only mode, where all mutations such as launching runs and "
+    help="Start Sheenlet in read-only mode, where all mutations such as launching runs and "
     "turning schedules on/off are turned off.",
     is_flag=True,
 )
 @click.option(
     "--suppress-warnings",
-    help="Filter all warnings when hosting Dagit.",
+    help="Filter all warnings when hosting Sheenlet.",
     is_flag=True,
 )
 @click.option(
@@ -187,4 +187,4 @@ cli = create_dagit_cli()
 
 def main():
     # click magic
-    cli(auto_envvar_prefix="DAGIT")  # pylint:disable=E1120
+    cli(auto_envvar_prefix="SHEENLET")  # pylint:disable=E1120

@@ -9,7 +9,7 @@ from sheenflow._core.utils import coerce_valid_log_level, make_new_run_id
 from sheenflow._utils.log import get_dagster_logger
 
 if TYPE_CHECKING:
-    from dagster import DagsterInstance
+    from sheenflow import DagsterInstance
     from sheenflow._core.events import DagsterEvent
     from sheenflow._legacy import DagsterRun
 

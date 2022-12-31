@@ -1,6 +1,6 @@
 import urllib.request
 
-from dagster import DailyPartitionsDefinition, asset
+from sheenflow import DailyPartitionsDefinition, asset
 
 
 @asset(partitions_def=DailyPartitionsDefinition(start_date="2022-01-01"))

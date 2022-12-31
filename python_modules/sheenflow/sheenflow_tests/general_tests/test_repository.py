@@ -4,7 +4,7 @@ Repository of test pipelines
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     GraphDefinition,
     Int,
     JobDefinition,

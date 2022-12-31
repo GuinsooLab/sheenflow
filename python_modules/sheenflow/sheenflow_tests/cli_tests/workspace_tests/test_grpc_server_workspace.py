@@ -3,7 +3,7 @@ from contextlib import ExitStack
 import pytest
 import yaml
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._check import CheckError
 from sheenflow._core.errors import DagsterUserCodeUnreachableError
 from sheenflow._core.host_representation import GrpcServerRepositoryLocationOrigin

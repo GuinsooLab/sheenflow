@@ -2,7 +2,7 @@
 # start_marker
 from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
 
-from dagster import Definitions, asset
+from sheenflow import Definitions, asset
 
 
 @asset

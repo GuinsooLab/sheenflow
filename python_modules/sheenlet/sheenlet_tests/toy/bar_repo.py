@@ -1,6 +1,6 @@
 import string
 
-from dagster import ScheduleDefinition, repository
+from sheenflow import ScheduleDefinition, repository
 from sheenflow._legacy import PartitionSetDefinition, lambda_solid, pipeline
 
 

@@ -1,7 +1,7 @@
 from typing import Any
 
 import pytest
-from dagster_graphql import DagsterGraphQLClientError, ReloadRepositoryLocationStatus
+from sheenflow_graphql import DagsterGraphQLClientError, ReloadRepositoryLocationStatus
 
 from ..graphql.graphql_context_test_suite import (
     GraphQLContextVariant,

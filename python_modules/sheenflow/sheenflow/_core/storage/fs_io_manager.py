@@ -5,7 +5,7 @@ from typing import Any
 from upath import UPath
 
 import sheenflow._check as check
-from dagster import DagsterInvariantViolationError
+from sheenflow import DagsterInvariantViolationError
 from sheenflow._annotations import experimental
 from sheenflow._config import Field, StringSource
 from sheenflow._core.definitions.events import AssetKey, AssetMaterialization

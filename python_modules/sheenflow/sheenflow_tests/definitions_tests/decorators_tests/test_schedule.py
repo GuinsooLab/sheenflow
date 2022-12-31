@@ -6,7 +6,7 @@ from datetime import datetime
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvalidDefinitionError,
     RunRequest,
     ScheduleDefinition,
@@ -190,7 +190,7 @@ def test_schedule_with_nested_tags():
 
 
 def test_scheduled_jobs():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     @op(config_schema={"foo": Field(String)})
     def foo_op(context):
@@ -215,7 +215,7 @@ def test_scheduled_jobs():
 
 
 def test_request_based_schedule():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 
@@ -253,7 +253,7 @@ def test_request_based_schedule():
 
 
 def test_request_based_schedule_no_context():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 
@@ -291,7 +291,7 @@ def test_request_based_schedule_no_context():
 
 
 def test_config_based_schedule():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 
@@ -329,7 +329,7 @@ def test_config_based_schedule():
 
 
 def test_config_based_schedule_no_context():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 
@@ -367,7 +367,7 @@ def test_config_based_schedule_no_context():
 
 
 def test_request_based_schedule_generator():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 
@@ -407,7 +407,7 @@ def test_request_based_schedule_generator():
 
 
 def test_request_based_schedule_generator_no_context():
-    from dagster import Field, String
+    from sheenflow import Field, String
 
     context_without_time = build_schedule_context()
 

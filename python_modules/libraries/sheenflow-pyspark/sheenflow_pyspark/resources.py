@@ -3,7 +3,7 @@ from dagster_spark.utils import flatten_dict
 from pyspark.sql import SparkSession
 
 import sheenflow._check as check
-from dagster import resource
+from sheenflow import resource
 
 
 def spark_session_from_config(spark_conf=None):

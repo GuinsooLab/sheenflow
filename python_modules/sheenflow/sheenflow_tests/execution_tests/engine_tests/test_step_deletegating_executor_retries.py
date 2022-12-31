@@ -1,7 +1,7 @@
 # pylint: disable=unused-argument
 import subprocess
 
-from dagster import OpExecutionContext, RetryRequested, executor, job, op, reconstructable
+from sheenflow import OpExecutionContext, RetryRequested, executor, job, op, reconstructable
 from sheenflow._config import Permissive
 from sheenflow._core.definitions.executor_definition import multiple_process_executor_requirements
 from sheenflow._core.execution.api import execute_pipeline

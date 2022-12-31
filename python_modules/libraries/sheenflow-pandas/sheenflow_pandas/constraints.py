@@ -6,8 +6,8 @@ from functools import wraps
 import pandas as pd
 from pandas import DataFrame
 
-from dagster import DagsterType, MetadataEntry, TypeCheck
-from dagster import _check as check
+from sheenflow import DagsterType, MetadataEntry, TypeCheck
+from sheenflow import _check as check
 from sheenflow._utils.backcompat import experimental_class_warning
 
 

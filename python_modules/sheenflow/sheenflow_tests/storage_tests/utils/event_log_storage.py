@@ -10,7 +10,7 @@ import mock
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetMaterialization,
     AssetObservation,
@@ -25,9 +25,9 @@ from dagster import (
     RetryRequested,
     RunShardedEventsCursor,
 )
-from dagster import _check as check
-from dagster import _seven as seven
-from dagster import asset, in_process_executor, job, op, resource
+from sheenflow import _check as check
+from sheenflow import _seven as seven
+from sheenflow import asset, in_process_executor, job, op, resource
 from sheenflow._core.assets import AssetDetails
 from sheenflow._core.definitions import ExpectationResult
 from sheenflow._core.definitions.dependency import NodeHandle

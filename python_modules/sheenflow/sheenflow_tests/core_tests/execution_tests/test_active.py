@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import job, op
+from sheenflow import job, op
 from sheenflow._core.errors import DagsterInvariantViolationError
 from sheenflow._core.events import DagsterEvent, DagsterEventType
 from sheenflow._core.execution.api import create_execution_plan

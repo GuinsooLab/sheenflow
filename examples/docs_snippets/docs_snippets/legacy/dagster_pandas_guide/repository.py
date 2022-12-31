@@ -1,4 +1,4 @@
-from dagster import repository
+from sheenflow import repository
 
 from .core_trip import core_trip
 from .custom_column_constraint import custom_column_constraint_trip

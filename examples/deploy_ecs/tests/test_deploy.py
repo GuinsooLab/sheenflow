@@ -6,7 +6,7 @@ import subprocess
 import pytest
 import yaml
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 
 pytest_plugins = ["sheenflow_test.fixtures"]
 

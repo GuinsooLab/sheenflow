@@ -1,4 +1,4 @@
-from dagster import graph, job, op, resource
+from sheenflow import graph, job, op, resource
 
 
 def test_description_inference():

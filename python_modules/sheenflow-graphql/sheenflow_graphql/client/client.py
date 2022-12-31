@@ -7,7 +7,7 @@ from gql.transport import Transport
 from gql.transport.requests import RequestsHTTPTransport
 
 import sheenflow._check as check
-from dagster import DagsterRunStatus
+from sheenflow import DagsterRunStatus
 from sheenflow._annotations import public
 from sheenflow._core.definitions.utils import validate_tags
 from sheenflow._utils.backcompat import experimental_class_warning

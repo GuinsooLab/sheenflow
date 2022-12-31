@@ -1,6 +1,6 @@
 from typing import Any, Dict, Mapping, Optional, cast
 
-from dagster import Field, Permissive
+from sheenflow import Field, Permissive
 from sheenflow._config.validate import process_config
 from sheenflow._core.errors import DagsterInvalidConfigError
 

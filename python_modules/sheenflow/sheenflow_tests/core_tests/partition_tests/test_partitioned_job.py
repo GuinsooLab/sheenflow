@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterUnknownPartitionError,
     daily_partitioned_config,
     dynamic_partitioned_config,

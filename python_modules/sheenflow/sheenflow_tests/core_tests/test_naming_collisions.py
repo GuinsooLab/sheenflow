@@ -1,5 +1,5 @@
-from dagster import Field, Output, String
-from dagster import _check as check
+from sheenflow import Field, Output, String
+from sheenflow import _check as check
 from sheenflow._legacy import OutputDefinition, execute_pipeline, pipeline, solid
 
 

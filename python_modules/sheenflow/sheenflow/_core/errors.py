@@ -493,7 +493,7 @@ class DagsterTypeCheckDidNotPass(DagsterError):
     """
 
     def __init__(self, description=None, metadata_entries=None, dagster_type=None):
-        from dagster import DagsterType, MetadataEntry
+        from sheenflow import DagsterType, MetadataEntry
 
         super(DagsterTypeCheckDidNotPass, self).__init__(description)
         self.description = check.opt_str_param(description, "description")

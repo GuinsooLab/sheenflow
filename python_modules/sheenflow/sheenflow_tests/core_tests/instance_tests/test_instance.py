@@ -4,8 +4,8 @@ import pytest
 import yaml
 from dagster_tests.api_tests.utils import get_bar_workspace
 
-from dagster import _check as check
-from dagster import _seven, execute_job, job, op, reconstructable
+from sheenflow import _check as check
+from sheenflow import _seven, execute_job, job, op, reconstructable
 from sheenflow._check import CheckError
 from sheenflow._config import Field
 from sheenflow._core.errors import (

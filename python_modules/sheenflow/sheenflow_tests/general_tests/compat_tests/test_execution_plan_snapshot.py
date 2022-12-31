@@ -1,6 +1,6 @@
 import os
 
-from dagster import DynamicOutput, List, Output, fs_io_manager
+from sheenflow import DynamicOutput, List, Output, fs_io_manager
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.execution.api import create_execution_plan, execute_run
 from sheenflow._core.execution.plan.inputs import (

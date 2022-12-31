@@ -1,6 +1,6 @@
 # isort: skip_file
 # pylint: disable=unused-argument,reimported
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     ExpectationResult,
     Failure,
@@ -41,7 +41,7 @@ def flaky_operation():
 
 
 # start_op_output_3
-from dagster import MetadataValue, Output, op
+from sheenflow import MetadataValue, Output, op
 
 
 @op
@@ -61,7 +61,7 @@ def my_metadata_output(context) -> Output:
 # end_op_output_3
 
 # start_op_output_4
-from dagster import Output, op
+from sheenflow import Output, op
 from typing import Tuple
 
 # Using Output as type annotation without inner type
@@ -85,7 +85,7 @@ def my_multiple_generic_output_op() -> Tuple[Output[int], Output[str]]:
 # end_op_output_4
 
 # start_metadata_expectation_op
-from dagster import ExpectationResult, MetadataValue, op
+from sheenflow import ExpectationResult, MetadataValue, op
 
 
 @op
@@ -111,7 +111,7 @@ def my_metadata_expectation_op(context, df):
 # end_metadata_expectation_op
 
 # start_failure_op
-from dagster import Failure, op
+from sheenflow import Failure, op
 
 
 @op
@@ -132,7 +132,7 @@ def my_failure_op():
 # end_failure_op
 
 # start_failure_metadata_op
-from dagster import Failure, op
+from sheenflow import Failure, op
 
 
 @op
@@ -153,7 +153,7 @@ def my_failure_metadata_op():
 # end_failure_metadata_op
 
 # start_retry_op
-from dagster import RetryRequested, op
+from sheenflow import RetryRequested, op
 
 
 @op
@@ -168,7 +168,7 @@ def my_retry_op():
 # end_retry_op
 
 # start_asset_op
-from dagster import AssetMaterialization, op
+from sheenflow import AssetMaterialization, op
 
 
 @op
@@ -189,7 +189,7 @@ def my_asset_op(context):
 # end_asset_op
 
 # start_asset_op_yield
-from dagster import AssetMaterialization, Output, op
+from sheenflow import AssetMaterialization, Output, op
 
 
 @op
@@ -208,7 +208,7 @@ def my_asset_op_yields():
 # end_asset_op_yield
 
 # start_expectation_op
-from dagster import ExpectationResult, op
+from sheenflow import ExpectationResult, op
 
 
 @op
@@ -223,7 +223,7 @@ def my_expectation_op(context, df):
 # end_expectation_op
 
 # start_yield_outputs
-from dagster import Output, op
+from sheenflow import Output, op
 
 
 @op(out={"out1": Out(str), "out2": Out(int)})

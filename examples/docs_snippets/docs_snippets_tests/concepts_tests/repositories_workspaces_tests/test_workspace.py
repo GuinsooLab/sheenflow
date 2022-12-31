@@ -1,4 +1,4 @@
-from dagster import DagsterInstance
+from sheenflow import DagsterInstance
 from sheenflow._core.workspace.load import load_workspace_process_context_from_yaml_paths
 from sheenflow._utils import file_relative_path
 from docs_snippets.concepts.repositories_workspaces.hello_world_repository import (

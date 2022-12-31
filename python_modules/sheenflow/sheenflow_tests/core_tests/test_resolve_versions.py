@@ -2,7 +2,7 @@ import hashlib
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Bool,
     DagsterInvariantViolationError,
     Float,

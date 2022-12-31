@@ -1,4 +1,4 @@
-from dagster import List, Optional
+from sheenflow import List, Optional
 from sheenflow._legacy import InputDefinition, execute_pipeline, lambda_solid, pipeline
 
 

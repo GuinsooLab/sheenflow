@@ -6,7 +6,7 @@ import pandas as pd
 import requests
 from wordcloud import STOPWORDS, WordCloud
 
-from dagster import MetadataValue, OpExecutionContext, asset
+from sheenflow import MetadataValue, OpExecutionContext, asset
 
 
 @asset(group_name="hackernews", compute_kind="HackerNews API")

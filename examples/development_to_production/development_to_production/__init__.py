@@ -4,7 +4,7 @@ from dagster_snowflake_pandas import snowflake_pandas_io_manager
 from development_to_production.assets import comments, items, stories
 from development_to_production.resources import HNAPIClient
 
-from dagster import Definitions
+from sheenflow import Definitions
 
 resource_defs = {
     "local": {

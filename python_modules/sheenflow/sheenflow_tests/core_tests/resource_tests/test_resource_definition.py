@@ -4,7 +4,7 @@ from unittest import mock
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterEventType,
     DagsterInvariantViolationError,
     DagsterResourceFunctionError,

@@ -5,7 +5,7 @@ from typing import IO, Generator, Optional, Sequence
 import pytest
 
 import sheenflow._check as check
-from dagster import job, op
+from sheenflow import job, op
 from sheenflow._core.instance import DagsterInstance, InstanceRef, InstanceType
 from sheenflow._core.launcher import DefaultRunLauncher
 from sheenflow._core.run_coordinator import DefaultRunCoordinator

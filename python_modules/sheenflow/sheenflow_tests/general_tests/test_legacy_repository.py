@@ -4,7 +4,7 @@ Repository of test pipelines
 
 import pytest
 
-from dagster import Int, fs_io_manager, repository, resource
+from sheenflow import Int, fs_io_manager, repository, resource
 from sheenflow._check import CheckError
 from sheenflow._legacy import ModeDefinition, PipelineDefinition, PresetDefinition, solid
 from sheenflow._utils import file_relative_path

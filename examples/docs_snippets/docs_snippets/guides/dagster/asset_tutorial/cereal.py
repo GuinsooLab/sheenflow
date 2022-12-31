@@ -2,13 +2,13 @@
 
 import csv
 import requests
-from dagster import asset
+from sheenflow import asset
 
 
 # start_asset_marker
 import csv
 import requests
-from dagster import asset
+from sheenflow import asset
 
 
 @asset
@@ -25,7 +25,7 @@ def cereals():
 # start_multiple_assets
 import csv
 import requests
-from dagster import asset
+from sheenflow import asset
 
 
 @asset
@@ -44,7 +44,7 @@ def nabisco_cereals(cereals):
 # end_multiple_assets
 
 # start_materialize_marker
-from dagster import materialize
+from sheenflow import materialize
 
 if __name__ == "__main__":
     materialize([cereals])
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
 
 # start_multiple_materialize_marker
-from dagster import materialize
+from sheenflow import materialize
 
 if __name__ == "__main__":
     materialize([cereals, nabisco_cereals])

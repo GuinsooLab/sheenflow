@@ -1,6 +1,6 @@
 import logging
 
-from dagster import ConfigMapping, DagsterInstance, Field, JobDefinition, job, logger, op, resource
+from sheenflow import ConfigMapping, DagsterInstance, Field, JobDefinition, job, logger, op, resource
 from sheenflow._core.utils import coerce_valid_log_level
 
 

@@ -1,4 +1,4 @@
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op(config_schema={"config_param": str})

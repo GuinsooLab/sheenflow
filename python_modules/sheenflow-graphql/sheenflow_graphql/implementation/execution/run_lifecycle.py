@@ -17,7 +17,7 @@ from ..external import ensure_valid_config, get_external_execution_plan_or_raise
 from ..utils import ExecutionParams, UserFacingGraphQLError
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.util import HasContext
+    from sheenflow_graphql.schema.util import HasContext
 
 
 def _get_run(instance: DagsterInstance, run_id: str) -> DagsterRun:

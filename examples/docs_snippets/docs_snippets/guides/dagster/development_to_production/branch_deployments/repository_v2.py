@@ -3,7 +3,7 @@ import os
 from dagster_snowflake import snowflake_resource
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
-from dagster import Definitions
+from sheenflow import Definitions
 
 from .assets import comments, items, stories
 from .clone_and_drop_db import clone_prod

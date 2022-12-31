@@ -4,7 +4,7 @@ from typing import Any, Dict
 import pytest
 from pytest import fixture
 
-from dagster import DailyPartitionsDefinition, HourlyPartitionsDefinition, asset, materialize
+from sheenflow import DailyPartitionsDefinition, HourlyPartitionsDefinition, asset, materialize
 from sheenflow._check import CheckError
 
 

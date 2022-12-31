@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=reimported
 
-from dagster import DynamicOut, DynamicOutput, job, op
+from sheenflow import DynamicOut, DynamicOutput, job, op
 
 
 @op
@@ -159,7 +159,7 @@ def get_pages():
 
 
 # dyn_out_return_start
-from dagster import DynamicOut, DynamicOutput, op
+from sheenflow import DynamicOut, DynamicOutput, op
 from typing import List
 
 

@@ -1,4 +1,4 @@
-from dagster import graph
+from sheenflow import graph
 
 
 @graph

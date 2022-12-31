@@ -11,7 +11,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.sqlite_operator import SqliteOperator
 from dagster_airflow import airflow_operator_to_op
 
-from dagster import job, op
+from sheenflow import job, op
 from sheenflow._core.test_utils import instance_for_test
 
 

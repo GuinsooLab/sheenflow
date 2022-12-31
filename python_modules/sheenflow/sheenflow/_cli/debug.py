@@ -4,7 +4,7 @@ from typing import Tuple
 import click
 from tqdm import tqdm
 
-from dagster import DagsterInstance
+from sheenflow import DagsterInstance
 from sheenflow._core.debug import DebugRunPayload
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus, RunsFilter
 from sheenflow._serdes import deserialize_as

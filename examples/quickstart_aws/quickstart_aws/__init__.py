@@ -1,7 +1,7 @@
 from dagster_aws.s3.io_manager import s3_pickle_io_manager
 from dagster_aws.s3.resources import s3_resource
 
-from dagster import (
+from sheenflow import (
     Definitions,
     ScheduleDefinition,
     define_asset_job,

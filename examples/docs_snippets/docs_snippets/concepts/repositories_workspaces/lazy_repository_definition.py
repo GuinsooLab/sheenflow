@@ -2,7 +2,7 @@
 
 import datetime
 
-from dagster import RunRequest, job, repository, sensor
+from sheenflow import RunRequest, job, repository, sensor
 from sheenflow._legacy import InputDefinition, daily_schedule, pipeline, solid
 
 

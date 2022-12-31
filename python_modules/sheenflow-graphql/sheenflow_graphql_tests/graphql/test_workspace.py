@@ -3,9 +3,9 @@ import time
 from typing import Any
 from unittest import mock
 
-from dagster_graphql.test.utils import execute_dagster_graphql
+from sheenflow_graphql.test.utils import execute_dagster_graphql
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._core.host_representation import ManagedGrpcPythonEnvRepositoryLocationOrigin
 from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin
 from sheenflow._core.workspace.load import location_origins_from_yaml_paths

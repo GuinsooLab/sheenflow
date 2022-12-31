@@ -4,7 +4,7 @@ from unittest import mock
 
 from project_fully_featured.sensors.hn_tables_updated_sensor import make_hn_tables_updated_sensor
 
-from dagster import EventLogRecord, GraphDefinition, build_sensor_context
+from sheenflow import EventLogRecord, GraphDefinition, build_sensor_context
 from sheenflow._core.test_utils import instance_for_test
 
 

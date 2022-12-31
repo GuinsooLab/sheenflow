@@ -2,12 +2,12 @@ import json
 import time
 import uuid
 
-from dagster_graphql.client.query import (
+from sheenflow_graphql.client.query import (
     LAUNCH_PIPELINE_EXECUTION_MUTATION,
     RUN_EVENTS_QUERY,
     SUBSCRIPTION_QUERY,
 )
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.test.utils import (
     execute_dagster_graphql,
     execute_dagster_graphql_subscription,
     infer_pipeline_selector,

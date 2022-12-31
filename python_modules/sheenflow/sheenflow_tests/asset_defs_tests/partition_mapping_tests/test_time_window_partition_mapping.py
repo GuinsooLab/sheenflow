@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dagster import (
+from sheenflow import (
     DailyPartitionsDefinition,
     HourlyPartitionsDefinition,
     MonthlyPartitionsDefinition,

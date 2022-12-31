@@ -5,12 +5,12 @@ from contextlib import contextmanager
 from unittest.mock import patch
 
 import pytest
-from dagster_graphql import DagsterGraphQLClient
-from dagster_graphql.test.utils import execute_dagster_graphql
+from sheenflow_graphql import DagsterGraphQLClient
+from sheenflow_graphql.test.utils import execute_dagster_graphql
 from graphql import DocumentNode, print_ast
 
 import sheenflow._check as check
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._core.instance import DagsterInstance, InstanceType
 from sheenflow._core.launcher.sync_in_memory_run_launcher import SyncInMemoryRunLauncher
 from sheenflow._core.run_coordinator import DefaultRunCoordinator

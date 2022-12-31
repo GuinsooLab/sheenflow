@@ -1,4 +1,4 @@
-from dagster_graphql.test.utils import execute_dagster_graphql, infer_repository_selector
+from sheenflow_graphql.test.utils import execute_dagster_graphql, infer_repository_selector
 
 
 def all_solids_query():

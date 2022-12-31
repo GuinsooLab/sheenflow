@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     AssetObservation,
     BoolMetadataValue,

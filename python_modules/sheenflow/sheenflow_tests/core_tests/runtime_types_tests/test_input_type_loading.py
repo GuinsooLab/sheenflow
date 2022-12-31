@@ -2,7 +2,7 @@ from typing import Any, Dict
 
 import pytest
 
-from dagster import DagsterInvalidConfigError, job, op
+from sheenflow import DagsterInvalidConfigError, job, op
 
 
 def test_dict_input():

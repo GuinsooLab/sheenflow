@@ -2,7 +2,7 @@ import sys
 
 import pytest
 
-from dagster import file_relative_path, op, repository
+from sheenflow import file_relative_path, op, repository
 from sheenflow._core.definitions.repository_definition import RepositoryData
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._core.types.loadable_target_origin import LoadableTargetOrigin

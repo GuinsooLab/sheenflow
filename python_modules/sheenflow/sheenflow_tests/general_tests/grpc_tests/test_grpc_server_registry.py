@@ -4,7 +4,7 @@ import time
 
 import pytest
 
-from dagster import file_relative_path, repository
+from sheenflow import file_relative_path, repository
 from sheenflow._core.errors import DagsterUserCodeProcessError
 from sheenflow._core.host_representation.grpc_server_registry import ProcessGrpcServerRegistry
 from sheenflow._core.host_representation.origin import (

@@ -2,7 +2,7 @@ import tempfile
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvariantViolationError,
     DynamicOut,
     DynamicOutput,

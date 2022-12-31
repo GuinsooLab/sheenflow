@@ -1,8 +1,8 @@
 import logging
 from typing import Any, Mapping, NamedTuple, Optional, Sequence
 
-from dagster import DagsterEvent, DagsterEventType, IntSource, String
-from dagster import _check as check
+from sheenflow import DagsterEvent, DagsterEventType, IntSource, String
+from sheenflow import _check as check
 from sheenflow._builtins import Bool
 from sheenflow._config import Array, Field, Noneable, ScalarUnion, Shape
 from sheenflow._core.storage.pipeline_run import DagsterRun, DagsterRunStatus

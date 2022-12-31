@@ -13,9 +13,9 @@ from typing import Any, Generator, Mapping, NamedTuple, Optional, Sequence, Type
 import pendulum
 import yaml
 
-from dagster import Permissive, Shape
-from dagster import _check as check
-from dagster import fs_io_manager
+from sheenflow import Permissive, Shape
+from sheenflow import _check as check
+from sheenflow import fs_io_manager
 from sheenflow._config import Array, Field
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._core.host_representation.origin import (

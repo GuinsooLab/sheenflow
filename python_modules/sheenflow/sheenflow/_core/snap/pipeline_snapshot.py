@@ -1,6 +1,6 @@
 from typing import AbstractSet, Any, Mapping, NamedTuple, Optional, Sequence, Set, Union, cast
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._config import (
     FIELD_NO_DEFAULT_PROVIDED,
     Array,

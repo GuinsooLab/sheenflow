@@ -6,9 +6,9 @@ from typing import Optional, Sequence
 from airflow.models import Connection
 from airflow.models.baseoperator import BaseOperator
 
-from dagster import Any, In, Nothing, OpDefinition, Out
-from dagster import _check as check
-from dagster import op
+from sheenflow import Any, In, Nothing, OpDefinition, Out
+from sheenflow import _check as check
+from sheenflow import op
 
 
 @contextmanager

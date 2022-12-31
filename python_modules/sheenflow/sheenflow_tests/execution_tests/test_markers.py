@@ -1,4 +1,4 @@
-from dagster import reconstructable
+from sheenflow import reconstructable
 from sheenflow._core.events import MARKER_EVENTS
 from sheenflow._core.test_utils import default_mode_def_for_test, instance_for_test
 from sheenflow._legacy import execute_pipeline, lambda_solid, pipeline

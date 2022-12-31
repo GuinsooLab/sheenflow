@@ -2,14 +2,14 @@ import re
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvariantViolationError,
     DagsterTypeCheckDidNotPass,
     DependencyDefinition,
     MetadataEntry,
     Output,
 )
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._core.definitions.op_definition import OpDefinition
 from sheenflow._core.definitions.output import Out
 from sheenflow._legacy import (

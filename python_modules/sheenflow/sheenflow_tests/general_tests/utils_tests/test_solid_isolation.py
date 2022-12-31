@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from dagster import DagsterInvariantViolationError, DagsterTypeCheckDidNotPass, Field, Int, resource
+from sheenflow import DagsterInvariantViolationError, DagsterTypeCheckDidNotPass, Field, Int, resource
 from sheenflow._core.definitions.decorators import graph
 from sheenflow._core.test_utils import nesting_graph_pipeline
 from sheenflow._core.utility_solids import (

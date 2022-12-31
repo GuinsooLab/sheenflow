@@ -1,6 +1,6 @@
 import warnings
 
-from dagster import ExperimentalWarning
+from sheenflow import ExperimentalWarning
 
 # squelch experimental warnings since we often include experimental things in toys for development
 warnings.filterwarnings("ignore", category=ExperimentalWarning)
@@ -52,7 +52,7 @@ from dagster_test.toys.sleepy import sleepy_job
 from dagster_test.toys.software_defined_assets import software_defined_assets
 from dagster_test.toys.unreliable import unreliable_job
 
-from dagster import AssetMaterialization, Output, graph, load_assets_from_modules, op, repository
+from sheenflow import AssetMaterialization, Output, graph, load_assets_from_modules, op, repository
 
 from .schedules import get_toys_schedules
 from .sensors import get_toys_sensors

@@ -1,4 +1,4 @@
-from dagster import graph, op
+from sheenflow import graph, op
 from sheenflow._core.snap import (
     CompositeSolidDefSnap,
     DependencyStructureIndex,

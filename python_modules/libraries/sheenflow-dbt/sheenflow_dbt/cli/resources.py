@@ -1,7 +1,7 @@
 from typing import Any, Mapping, Optional, Sequence, Set
 
 import sheenflow._check as check
-from dagster import Permissive, resource
+from sheenflow import Permissive, resource
 from sheenflow._annotations import public
 from sheenflow._utils.merger import merge_dicts
 

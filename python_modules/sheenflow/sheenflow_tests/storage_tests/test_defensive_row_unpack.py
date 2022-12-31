@@ -2,7 +2,7 @@ import sys
 import zlib
 from unittest import mock
 
-from dagster import job, op
+from sheenflow import job, op
 from sheenflow._core.storage.runs.sql_run_storage import defensively_unpack_pipeline_snapshot_query
 from sheenflow._serdes import serialize_dagster_namedtuple
 

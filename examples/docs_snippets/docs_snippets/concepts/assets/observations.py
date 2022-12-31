@@ -1,6 +1,6 @@
 # isort: skip_file
 # pylint: disable=reimported
-from dagster import op, job
+from sheenflow import op, job
 
 
 def read_df():
@@ -20,7 +20,7 @@ def calculate_bytes(_):
 
 
 # start_observation_asset_marker_0
-from dagster import AssetObservation, op
+from sheenflow import AssetObservation, op
 
 
 @op
@@ -35,7 +35,7 @@ def observation_op(context):
 # end_observation_asset_marker_0
 
 # start_partitioned_asset_observation
-from dagster import op, AssetMaterialization
+from sheenflow import op, AssetMaterialization
 
 
 @op(config_schema={"date": str})
@@ -52,7 +52,7 @@ def partitioned_dataset_op(context):
 
 
 # start_observation_asset_marker_2
-from dagster import op, AssetObservation, MetadataValue
+from sheenflow import op, AssetObservation, MetadataValue
 
 
 @op

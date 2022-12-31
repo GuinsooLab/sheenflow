@@ -1,7 +1,7 @@
 import re
 from collections import OrderedDict
 
-from dagster_graphql.test.preset_query import execute_preset_query
+from sheenflow_graphql.test.preset_query import execute_preset_query
 
 from .graphql_context_test_suite import NonLaunchableGraphQLContextTestMatrix
 

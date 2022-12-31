@@ -1,6 +1,6 @@
 import collections
 
-from dagster import PythonObjectDagsterType, usable_as_dagster_type
+from sheenflow import PythonObjectDagsterType, usable_as_dagster_type
 from sheenflow._core.types.dagster_type import resolve_dagster_type
 
 

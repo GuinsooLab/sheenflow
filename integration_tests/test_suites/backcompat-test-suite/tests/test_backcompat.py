@@ -9,7 +9,7 @@ from pathlib import Path
 import docker
 import pytest
 import requests
-from dagster_graphql import DagsterGraphQLClient
+from sheenflow_graphql import DagsterGraphQLClient
 
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._utils import (

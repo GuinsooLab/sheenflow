@@ -3,7 +3,7 @@ from typing import Any, Mapping
 from dagster_dask import dask_resource
 from dask.distributed import Client
 
-from dagster import Dict, Output
+from sheenflow import Dict, Output
 from sheenflow._core.execution.results import PipelineExecutionResult
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._legacy import ModeDefinition, OutputDefinition, execute_pipeline, pipeline, solid

@@ -1,4 +1,4 @@
-from dagster import job
+from sheenflow import job
 
 
 @job(tags={"sheenflow/max_retries": 3})

@@ -21,7 +21,7 @@ from dagster_dbt.cli.utils import execute_cli
 from dagster_dbt.types import DbtOutput
 from dagster_dbt.utils import _get_input_name, _get_output_name, result_to_events
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetsDefinition,
     FreshnessPolicy,
@@ -33,8 +33,8 @@ from dagster import (
     TableColumn,
     TableSchema,
 )
-from dagster import _check as check
-from dagster import get_dagster_logger, op
+from sheenflow import _check as check
+from sheenflow import get_dagster_logger, op
 from sheenflow._core.definitions.events import CoercibleToAssetKeyPrefix
 from sheenflow._core.definitions.load_assets_from_modules import prefix_assets
 from sheenflow._core.definitions.metadata import RawMetadataValue

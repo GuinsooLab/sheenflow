@@ -1,4 +1,4 @@
-from dagster import repository
+from sheenflow import repository
 from sheenflow._core.definitions.assets_job import build_assets_job
 from docs_snippets.concepts.assets.observable_source_assets import foo_source_asset
 

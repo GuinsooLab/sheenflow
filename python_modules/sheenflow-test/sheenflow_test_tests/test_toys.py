@@ -23,7 +23,7 @@ from dagster_tests.execution_tests.engine_tests.test_step_delegating_executor im
     test_step_delegating_executor,
 )
 
-from dagster import DagsterResourceFunctionError, DagsterTypeCheckDidNotPass, multiprocess_executor
+from sheenflow import DagsterResourceFunctionError, DagsterTypeCheckDidNotPass, multiprocess_executor
 from sheenflow._core.definitions.assets_job import get_base_asset_jobs
 from sheenflow._core.events import DagsterEventType
 from sheenflow._core.storage.fs_io_manager import fs_io_manager

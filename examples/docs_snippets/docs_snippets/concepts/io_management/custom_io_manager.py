@@ -1,6 +1,6 @@
 # isort: skip_file
 # pylint: disable=reimported
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op
@@ -30,7 +30,7 @@ def write_csv(_path, _obj):
 
 
 # start_io_manager_marker
-from dagster import IOManager, io_manager
+from sheenflow import IOManager, io_manager
 
 
 class MyIOManager(IOManager):
@@ -70,7 +70,7 @@ class MyPartitionedIOManager(IOManager):
 # end_partitioned_marker
 
 # start_df_marker
-from dagster import IOManager, io_manager
+from sheenflow import IOManager, io_manager
 
 
 class DataframeTableIOManager(IOManager):

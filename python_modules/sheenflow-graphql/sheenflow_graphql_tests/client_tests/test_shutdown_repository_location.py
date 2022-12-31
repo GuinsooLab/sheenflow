@@ -1,7 +1,7 @@
 import time
 from typing import Any
 
-from dagster_graphql import ShutdownRepositoryLocationStatus
+from sheenflow_graphql import ShutdownRepositoryLocationStatus
 
 from sheenflow._core.errors import DagsterUserCodeUnreachableError
 

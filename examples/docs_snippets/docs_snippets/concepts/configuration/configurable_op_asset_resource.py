@@ -1,4 +1,4 @@
-from dagster import asset, job, op, repository, resource
+from sheenflow import asset, job, op, repository, resource
 
 
 class MyDatabaseConnection:

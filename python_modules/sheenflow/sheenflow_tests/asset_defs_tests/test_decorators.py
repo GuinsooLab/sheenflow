@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetOut,
     DagsterInvalidDefinitionError,
@@ -13,8 +13,8 @@ from dagster import (
     StaticPartitionsDefinition,
     String,
 )
-from dagster import _check as check
-from dagster import build_op_context, io_manager, materialize_to_memory, resource
+from sheenflow import _check as check
+from sheenflow import build_op_context, io_manager, materialize_to_memory, resource
 from sheenflow._core.definitions import (
     AssetIn,
     AssetsDefinition,
@@ -703,7 +703,7 @@ def test_multi_asset_retry_policy():
 
 
 def test_invalid_self_dep():
-    from dagster import DailyPartitionsDefinition, TimeWindowPartitionMapping
+    from sheenflow import DailyPartitionsDefinition, TimeWindowPartitionMapping
 
     with pytest.raises(DagsterInvalidDefinitionError):
 

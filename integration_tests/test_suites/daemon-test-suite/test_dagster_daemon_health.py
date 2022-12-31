@@ -3,7 +3,7 @@ import time
 import pendulum
 import pytest
 
-from dagster import DagsterInvariantViolationError
+from sheenflow import DagsterInvariantViolationError
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._core.workspace.load_target import EmptyWorkspaceTarget
 from sheenflow._daemon.controller import (

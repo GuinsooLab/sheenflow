@@ -6,7 +6,7 @@ from dagster_airflow.factory import DagsterOperatorParameters
 from dagster_airflow.operators.docker_operator import DagsterDockerOperator
 from dagster_airflow_tests.marks import requires_airflow_db
 
-from dagster import repository
+from sheenflow import repository
 from sheenflow._core.definitions.reconstruct import ReconstructableRepository
 from sheenflow._core.execution.api import create_execution_plan
 from sheenflow._core.snap import snapshot_from_execution_plan

@@ -43,7 +43,7 @@ class DebugRunPayload(
 
     @classmethod
     def build(cls, instance, run):
-        from dagster import __version__ as dagster_version
+        from sheenflow import __version__ as dagster_version
 
         return cls(
             version=dagster_version,

@@ -1,4 +1,4 @@
-from dagster import RunRequest, repository, schedule, sensor
+from sheenflow import RunRequest, repository, schedule, sensor
 from sheenflow._legacy import pipeline, solid
 
 

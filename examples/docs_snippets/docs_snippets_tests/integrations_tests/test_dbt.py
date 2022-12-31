@@ -5,7 +5,7 @@ from dagster_dbt import (
     load_assets_from_dbt_project,
 )
 
-from dagster import file_relative_path, with_resources
+from sheenflow import file_relative_path, with_resources
 from docs_snippets.integrations.dbt.dbt import scope_schedule_assets
 from docs_snippets.integrations.dbt.dbt_cloud import scope_schedule_dbt_cloud_assets
 

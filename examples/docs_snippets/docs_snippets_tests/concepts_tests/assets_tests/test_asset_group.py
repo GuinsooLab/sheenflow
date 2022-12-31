@@ -1,4 +1,4 @@
-from dagster import load_assets_from_modules
+from sheenflow import load_assets_from_modules
 
 
 def test_asset_group():

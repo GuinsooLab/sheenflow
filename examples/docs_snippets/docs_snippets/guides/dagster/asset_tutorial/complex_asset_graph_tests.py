@@ -21,7 +21,7 @@ def test_nabisco_cereals():
 # end_asset_test
 
 # start_all_assets_test
-from dagster import materialize
+from sheenflow import materialize
 
 
 def test_cereal_assets():

@@ -1,4 +1,4 @@
-from dagster import Array, Bool, Field, In, Nothing, Out, Output, op
+from sheenflow import Array, Bool, Field, In, Nothing, Out, Output, op
 
 from .types import DbtOutput
 from .utils import generate_events, generate_materializations
@@ -21,7 +21,7 @@ Examples:
 
 .. code-block:: python
 
-    from dagster import job
+    from sheenflow import job
     from dagster_dbt import {op_name}, dbt_cli_resource, dbt_rpc_sync_resource
 
     @job(resource_defs={{"dbt":dbt_cli_resource}})

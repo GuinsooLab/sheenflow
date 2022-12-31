@@ -1,4 +1,4 @@
-from dagster import DependencyDefinition, GraphDefinition, In, Int, Out, Output, op
+from sheenflow import DependencyDefinition, GraphDefinition, In, Int, Out, Output, op
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.execution.api import create_execution_plan, execute_plan
 from sheenflow._core.instance import DagsterInstance

@@ -7,7 +7,7 @@ import time
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     Any,
     AssetKey,
     AssetsDefinition,

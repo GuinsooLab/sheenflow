@@ -4,7 +4,7 @@ import time
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetsDefinition,
     DagsterInstance,

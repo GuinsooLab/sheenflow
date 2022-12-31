@@ -1,6 +1,6 @@
 import requests
 
-from dagster import asset
+from sheenflow import asset
 
 # start_example
 

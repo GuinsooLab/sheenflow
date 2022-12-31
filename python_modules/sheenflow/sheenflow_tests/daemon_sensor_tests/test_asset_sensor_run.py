@@ -4,7 +4,7 @@ import threading
 import pendulum
 import pytest
 
-from dagster import AssetKey, materialize
+from sheenflow import AssetKey, materialize
 from sheenflow._core.scheduler.instigation import TickStatus
 from sheenflow._seven.compat.pendulum import create_pendulum_time, to_timezone
 

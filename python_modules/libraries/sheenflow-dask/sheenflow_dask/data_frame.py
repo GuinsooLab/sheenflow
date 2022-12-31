@@ -2,7 +2,7 @@ import contextlib
 
 import dask.dataframe as dd
 
-from dagster import (
+from sheenflow import (
     Any,
     AssetMaterialization,
     Bool,
@@ -19,8 +19,8 @@ from dagster import (
     String,
     TypeCheck,
 )
-from dagster import _check as check
-from dagster import dagster_type_loader, dagster_type_materializer
+from sheenflow import _check as check
+from sheenflow import dagster_type_loader, dagster_type_materializer
 
 from .utils import DataFrameUtilities, apply_utilities_to_df
 

@@ -56,7 +56,7 @@ def scope_fivetran_manual_config():
     # start_fivetran_manual_config
     from dagster_fivetran import build_fivetran_assets
 
-    from dagster import with_resources
+    from sheenflow import with_resources
 
     fivetran_assets = with_resources(
         build_fivetran_assets(
@@ -78,7 +78,7 @@ def scope_schedule_assets():
     fivetran_assets = load_assets_from_fivetran_instance(fivetran_instance)
 
     # start_schedule_assets
-    from dagster import (
+    from sheenflow import (
         ScheduleDefinition,
         define_asset_job,
         AssetSelection,
@@ -122,7 +122,7 @@ def scope_add_downstream_assets():
 
     # start_add_downstream_assets
     import json
-    from dagster import asset, AssetIn, AssetKey, Definitions
+    from sheenflow import asset, AssetIn, AssetKey, Definitions
     from dagster_fivetran import load_assets_from_fivetran_instance
 
     fivetran_assets = load_assets_from_fivetran_instance(

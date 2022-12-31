@@ -1,5 +1,5 @@
 """isort:skip_file"""
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op(config_schema={"date": str})
@@ -9,7 +9,7 @@ def process_data_for_date(context):
 
 
 # start_partitioned_config
-from dagster import daily_partitioned_config
+from sheenflow import daily_partitioned_config
 from datetime import datetime
 
 

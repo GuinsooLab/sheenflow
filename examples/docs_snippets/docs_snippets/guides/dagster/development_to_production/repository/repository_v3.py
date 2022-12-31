@@ -3,7 +3,7 @@ import os
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 from development_to_production.assets import comments, items, stories
 
-from dagster import Definitions
+from sheenflow import Definitions
 
 # start
 # __init__.py

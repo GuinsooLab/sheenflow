@@ -8,7 +8,7 @@ import time
 
 import pytest
 
-from dagster import DagsterEventType, fs_io_manager, reconstructable, resource
+from sheenflow import DagsterEventType, fs_io_manager, reconstructable, resource
 from sheenflow._core.execution.compute_logs import should_disable_io_stream_redirect
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.storage.captured_log_manager import CapturedLogManager

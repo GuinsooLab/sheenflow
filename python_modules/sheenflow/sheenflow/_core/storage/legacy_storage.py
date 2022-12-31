@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING, Callable, Iterable, Mapping, Optional, Sequence, Set, Tuple, Union
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
 
 from .base_storage import DagsterStorage

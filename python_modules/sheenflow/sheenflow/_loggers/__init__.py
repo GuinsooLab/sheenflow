@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING, Mapping, Optional, Sequence, Tuple
 
 import coloredlogs
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._config import Field
 from sheenflow._core.definitions.logger_definition import LoggerDefinition, logger
 from sheenflow._core.utils import coerce_valid_log_level

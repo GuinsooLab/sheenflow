@@ -1,4 +1,4 @@
-from dagster import OpDefinition, build_op_context
+from sheenflow import OpDefinition, build_op_context
 from docs_snippets.concepts.ops_jobs_graphs.ops import (
     context_op,
     my_configurable_op,

@@ -1,6 +1,6 @@
 from unittest import mock
 
-from dagster import DagsterEventType, ResourceDefinition, job, op
+from sheenflow import DagsterEventType, ResourceDefinition, job, op
 from docs_snippets.concepts.ops_jobs_graphs.op_hooks import (
     a,
     notif_all,

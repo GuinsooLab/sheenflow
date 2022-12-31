@@ -2,8 +2,8 @@ import json
 
 import pytest
 from click.testing import CliRunner
-from dagster_graphql.cli import ui
-from dagster_graphql.schema.pipelines.status import GrapheneRunStatus
+from sheenflow_graphql.cli import ui
+from sheenflow_graphql.schema.pipelines.status import GrapheneRunStatus
 
 GRAPHQL_TYPES_TO_ENFORCE_DESCRIPTION = {str(graphene_type) for graphene_type in [GrapheneRunStatus]}
 

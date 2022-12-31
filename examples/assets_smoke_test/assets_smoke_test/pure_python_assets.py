@@ -1,6 +1,6 @@
 from pandas import DataFrame
 
-from dagster import SourceAsset, TableSchema, asset
+from sheenflow import SourceAsset, TableSchema, asset
 
 raw_country_populations = SourceAsset(
     "raw_country_populations",

@@ -3,7 +3,7 @@ import re
 import mock
 import pytest
 
-from dagster import HookContext, build_hook_context, failure_hook, op, resource, success_hook
+from sheenflow import HookContext, build_hook_context, failure_hook, op, resource, success_hook
 from sheenflow._core.definitions.decorators.hook_decorator import event_list_hook
 from sheenflow._core.errors import (
     DagsterInvalidDefinitionError,

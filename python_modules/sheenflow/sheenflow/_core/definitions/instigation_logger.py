@@ -3,7 +3,7 @@ import logging
 from contextlib import ExitStack
 from typing import IO, Any, List, Mapping, Optional, Sequence
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.log_manager import DAGSTER_META_KEY
 from sheenflow._core.storage.captured_log_manager import CapturedLogManager

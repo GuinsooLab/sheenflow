@@ -1,10 +1,10 @@
 # isort: skip_file
 
 from .partitioned_job import my_partitioned_config
-from dagster import HourlyPartitionsDefinition
+from sheenflow import HourlyPartitionsDefinition
 
 # start_marker
-from dagster import build_schedule_from_partitioned_job, job
+from sheenflow import build_schedule_from_partitioned_job, job
 
 
 @job(config=my_partitioned_config)
@@ -20,7 +20,7 @@ do_stuff_partitioned_schedule = build_schedule_from_partitioned_job(
 
 
 # start_partitioned_asset_schedule
-from dagster import define_asset_job
+from sheenflow import define_asset_job
 
 partitioned_asset_job = define_asset_job(
     "partitioned_job",
@@ -39,7 +39,7 @@ asset_partitioned_schedule = build_schedule_from_partitioned_job(
 from .static_partitioned_job import continent_job, CONTINENTS
 
 # start_static_partition
-from dagster import schedule
+from sheenflow import schedule
 
 
 @schedule(cron_schedule="0 0 * * *", job=continent_job)

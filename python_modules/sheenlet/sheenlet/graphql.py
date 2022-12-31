@@ -3,8 +3,8 @@ from asyncio import Task, get_event_loop
 from enum import Enum
 from typing import Any, AsyncGenerator, Dict, List, Optional, Sequence, Tuple, Union, cast
 
-from dagit.templates.playground import TEMPLATE
-from dagster_graphql.implementation.utils import ErrorCapture
+from sheenlet.templates.playground import TEMPLATE
+from sheenflow_graphql.implementation.utils import ErrorCapture
 from graphene import Schema
 from graphql import GraphQLError, GraphQLFormattedError
 from graphql.execution import ExecutionResult

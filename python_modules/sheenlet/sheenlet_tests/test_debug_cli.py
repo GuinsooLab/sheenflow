@@ -2,7 +2,7 @@ from os import path
 
 import uvicorn
 from click.testing import CliRunner
-from dagit.debug import dagit_debug_command
+from sheenlet.debug import dagit_debug_command
 
 from sheenflow._cli.debug import export_command
 from sheenflow._core.test_utils import instance_for_test

@@ -5,7 +5,7 @@ import re
 from tempfile import TemporaryDirectory
 from typing import Any, Callable, Dict, Tuple
 
-from dagster import (
+from sheenflow import (
     DynamicOut,
     DynamicOutput,
     ExecutorDefinition,

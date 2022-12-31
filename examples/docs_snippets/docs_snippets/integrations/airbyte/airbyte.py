@@ -60,7 +60,7 @@ def scope_airbyte_project_config():
     # start_airbyte_project_config
     from dagster_airbyte import load_assets_from_airbyte_project
 
-    from dagster import with_resources
+    from sheenflow import with_resources
 
     # Use the airbyte_instance resource we defined in Step 1
     airbyte_assets = with_resources(
@@ -93,7 +93,7 @@ def scope_airbyte_manual_config():
     # start_airbyte_manual_config
     from dagster_airbyte import build_airbyte_assets
 
-    from dagster import with_resources
+    from sheenflow import with_resources
 
     airbyte_assets = with_resources(
         build_airbyte_assets(
@@ -119,7 +119,7 @@ def scope_add_downstream_assets():
 
     # start_add_downstream_assets
     import json
-    from dagster import asset, Definitions
+    from sheenflow import asset, Definitions
     from dagster_airbyte import load_assets_from_airbyte_instance
 
     airbyte_assets = load_assets_from_airbyte_instance(
@@ -152,7 +152,7 @@ def scope_schedule_assets():
     airbyte_assets = load_assets_from_airbyte_instance(airbyte_instance)
 
     # start_schedule_assets
-    from dagster import (
+    from sheenflow import (
         ScheduleDefinition,
         define_asset_job,
         AssetSelection,

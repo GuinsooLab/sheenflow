@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import ConfigMapping, Field, graph, op
+from sheenflow import ConfigMapping, Field, graph, op
 from sheenflow._check import CheckError
 from sheenflow._config import ConfigAnyInstance
 

@@ -1,7 +1,7 @@
 from starlette.applications import Starlette
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._cli.workspace.cli_target import get_workspace_process_context_from_kwargs
 from sheenflow._core.execution.compute_logs import warn_if_compute_logs_disabled
 from sheenflow._core.telemetry import log_workspace_stats

@@ -1,6 +1,6 @@
 import graphene
-from dagster_graphql.implementation.loader import RepositoryScopedBatchLoader
-from dagster_graphql.implementation.utils import capture_error, check_permission
+from sheenflow_graphql.implementation.loader import RepositoryScopedBatchLoader
+from sheenflow_graphql.implementation.utils import capture_error, check_permission
 
 import sheenflow._check as check
 from sheenflow._core.host_representation import ExternalSensor, ExternalTargetData, SensorSelector

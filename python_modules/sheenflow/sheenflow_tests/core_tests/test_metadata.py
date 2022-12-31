@@ -1,4 +1,4 @@
-from dagster import NodeInvocation
+from sheenflow import NodeInvocation
 from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid
 
 

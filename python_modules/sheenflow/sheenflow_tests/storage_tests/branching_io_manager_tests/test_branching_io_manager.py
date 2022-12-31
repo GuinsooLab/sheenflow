@@ -2,7 +2,7 @@ import math
 import time
 from typing import Optional
 
-from dagster import Definitions, asset
+from sheenflow import Definitions, asset
 from sheenflow._core.definitions.assets import AssetsDefinition
 from sheenflow._core.definitions.events import AssetKey, AssetMaterialization
 from sheenflow._core.definitions.metadata import TextMetadataValue

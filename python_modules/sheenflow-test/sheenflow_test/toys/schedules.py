@@ -4,7 +4,7 @@ from dagster_test.toys.longitudinal import longitudinal
 from dagster_test.toys.many_events import many_events
 from dagster_test.toys.unreliable import unreliable
 
-from dagster import build_schedule_from_partitioned_job
+from sheenflow import build_schedule_from_partitioned_job
 from sheenflow._core.definitions.time_window_partitions import (
     daily_partitioned_config,
     hourly_partitioned_config,

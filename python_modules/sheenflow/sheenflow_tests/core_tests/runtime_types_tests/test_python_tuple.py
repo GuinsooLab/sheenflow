@@ -2,7 +2,7 @@ from typing import Tuple
 
 import pytest
 
-from dagster import DagsterTypeCheckDidNotPass, In, Out, op
+from sheenflow import DagsterTypeCheckDidNotPass, In, Out, op
 from sheenflow._core.types.python_tuple import create_typed_tuple
 from sheenflow._legacy import execute_solid
 

@@ -4,8 +4,8 @@ import uuid
 from os import path
 from typing import Generic, List, TypeVar
 
-from dagster_graphql import __version__ as dagster_graphql_version
-from dagster_graphql.schema import create_schema
+from sheenflow_graphql import __version__ as dagster_graphql_version
+from sheenflow_graphql.schema import create_schema
 from graphene import Schema
 from starlette.datastructures import MutableHeaders
 from starlette.exceptions import HTTPException
@@ -24,7 +24,7 @@ from starlette.staticfiles import StaticFiles
 from starlette.types import Message
 
 import sheenflow._check as check
-from dagster import __version__ as dagster_version
+from sheenflow import __version__ as dagster_version
 from sheenflow._core.debug import DebugRunPayload
 from sheenflow._core.storage.compute_log_manager import ComputeIOType
 from sheenflow._core.storage.local_compute_log_manager import LocalComputeLogManager

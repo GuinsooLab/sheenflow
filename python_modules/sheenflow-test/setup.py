@@ -6,8 +6,8 @@ setup(
     author="ciusji",
     author_email="bqjimaster@gmail.com",
     license="Apache-2.0",
-    description="A Dagster integration for test",
-    url="https://github.com/dagster-io/dagster/tree/master/python_modules/libraries/dagster-test",
+    description="A Sheenflow integration for test",
+    url="https://github.com/GuinsooLab/sheenflow/tree/main/python_modules/sheenflow-test",
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",

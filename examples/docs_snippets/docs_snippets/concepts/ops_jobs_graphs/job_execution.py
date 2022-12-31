@@ -2,7 +2,7 @@
 
 # start_pipeline_marker
 
-from dagster import job, op
+from sheenflow import job, op
 
 
 @op

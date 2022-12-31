@@ -2,7 +2,7 @@ import os
 
 from dagster_slack import make_slack_on_run_failure_sensor
 
-from dagster import SensorDefinition
+from sheenflow import SensorDefinition
 
 
 def make_slack_on_failure_sensor(base_url: str) -> SensorDefinition:

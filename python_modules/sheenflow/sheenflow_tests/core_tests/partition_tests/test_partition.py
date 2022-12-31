@@ -4,7 +4,7 @@ from typing import Callable, Optional, Sequence
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvalidDefinitionError,
     DagsterInvalidInvocationError,
     DailyPartitionsDefinition,

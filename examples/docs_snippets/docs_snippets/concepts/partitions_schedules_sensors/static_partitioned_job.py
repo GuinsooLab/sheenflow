@@ -1,4 +1,4 @@
-from dagster import job, op, static_partitioned_config
+from sheenflow import job, op, static_partitioned_config
 
 CONTINENTS = [
     "Africa",

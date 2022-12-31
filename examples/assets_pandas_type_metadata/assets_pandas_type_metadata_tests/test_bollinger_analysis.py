@@ -5,7 +5,7 @@ from assets_pandas_type_metadata.assets.bollinger_analysis import (
 )
 from assets_pandas_type_metadata.resources.csv_io_manager import local_csv_io_manager
 
-from dagster import AssetSelection, define_asset_job, with_resources
+from sheenflow import AssetSelection, define_asset_job, with_resources
 
 
 def test_bollinger_analysis():

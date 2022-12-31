@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dagster import MultiPartitionKey, MultiPartitionsDefinition, StaticPartitionsDefinition
+from sheenflow import MultiPartitionKey, MultiPartitionsDefinition, StaticPartitionsDefinition
 from sheenflow._core.definitions.partition import DefaultPartitionsSubset
 from sheenflow._core.definitions.partition_key_range import PartitionKeyRange
 from sheenflow._core.definitions.partition_mapping import SingleDimensionDependencyMapping

@@ -2,7 +2,7 @@ import os
 from typing import Callable, Dict, Iterator, List, Mapping, Optional, Sequence
 
 import sheenflow._check as check
-from dagster import DagsterEventType
+from sheenflow import DagsterEventType
 from sheenflow._core.events.log import EventLogEntry
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.storage.pipeline_run import RunRecord, RunsFilter

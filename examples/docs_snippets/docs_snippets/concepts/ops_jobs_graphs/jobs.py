@@ -2,7 +2,7 @@
 
 # pylint: disable=unused-argument,reimported
 
-from dagster import DependencyDefinition, GraphDefinition, job, op
+from sheenflow import DependencyDefinition, GraphDefinition, job, op
 
 
 @op
@@ -77,7 +77,7 @@ def do_something(x):
 
 
 # start_top_level_input_graph
-from dagster import graph, op
+from sheenflow import graph, op
 
 
 @op

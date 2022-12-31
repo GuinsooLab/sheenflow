@@ -2,18 +2,18 @@ import os
 import time
 from typing import List
 
-from dagster_graphql.client.query import (
+from sheenflow_graphql.client.query import (
     LAUNCH_PIPELINE_EXECUTION_MUTATION,
     LAUNCH_PIPELINE_REEXECUTION_MUTATION,
 )
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.test.utils import (
     execute_dagster_graphql,
     infer_job_or_pipeline_selector,
     infer_pipeline_selector,
     infer_repository_selector,
 )
 
-from dagster import AssetKey, DagsterEventType
+from sheenflow import AssetKey, DagsterEventType
 from sheenflow._core.definitions.multi_dimensional_partitions import MultiPartitionKey
 from sheenflow._core.test_utils import poll_for_finished_run
 from sheenflow._legacy import DagsterRunStatus

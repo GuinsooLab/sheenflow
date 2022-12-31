@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterInvalidConfigError, DependencyDefinition, List, NodeInvocation, String
+from sheenflow import DagsterInvalidConfigError, DependencyDefinition, List, NodeInvocation, String
 from sheenflow._legacy import (
     InputDefinition,
     OutputDefinition,

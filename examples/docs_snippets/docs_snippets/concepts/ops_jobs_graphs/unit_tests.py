@@ -1,6 +1,6 @@
 # isort: skip_file
 # pylint: disable=reimported,unnecessary-ellipsis,unused-variable,unused-argument
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     DagsterEventType,
     ExpectationResult,
@@ -111,7 +111,7 @@ def op_requires_foo(context):
 # end_op_requires_foo_marker
 
 # start_test_op_context_marker
-from dagster import build_op_context
+from sheenflow import build_op_context
 
 
 def test_op_with_context():
@@ -121,7 +121,7 @@ def test_op_with_context():
 
 # end_test_op_context_marker
 
-from dagster import resource
+from sheenflow import resource
 
 # start_test_resource_def_marker
 @resource(config_schema={"my_str": str})
@@ -206,7 +206,7 @@ def test_event_stream():
 # end_test_event_stream
 
 # start_test_basic_asset
-from dagster import asset
+from sheenflow import asset
 
 
 @asset
@@ -222,7 +222,7 @@ def test_basic_asset():
 # end_test_basic_asset
 
 # start_test_input_asset
-from dagster import asset
+from sheenflow import asset
 
 
 @asset
@@ -239,7 +239,7 @@ def test_asset_with_inputs():
 
 
 # start_test_resource_asset
-from dagster import asset, resource, build_op_context, with_resources
+from sheenflow import asset, resource, build_op_context, with_resources
 
 
 @asset(required_resource_keys={"service"})
@@ -276,7 +276,7 @@ def extract_structured_data(_):
 
 
 # start_materialize_asset
-from dagster import asset, materialize_to_memory
+from sheenflow import asset, materialize_to_memory
 
 
 @asset
@@ -302,7 +302,7 @@ def test_data_assets():
 
 
 # start_materialize_resources
-from dagster import asset, resource, materialize_to_memory
+from sheenflow import asset, resource, materialize_to_memory
 import mock
 
 

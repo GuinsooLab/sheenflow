@@ -1,4 +1,4 @@
-from dagster import job, repository
+from sheenflow import job, repository
 from sheenflow._legacy import lambda_solid, pipeline
 
 

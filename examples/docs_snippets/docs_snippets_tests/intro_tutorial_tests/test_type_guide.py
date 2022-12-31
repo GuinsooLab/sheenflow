@@ -3,7 +3,7 @@ import typing
 import pytest
 import yaml
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     DagsterType,
     DagsterTypeCheckDidNotPass,

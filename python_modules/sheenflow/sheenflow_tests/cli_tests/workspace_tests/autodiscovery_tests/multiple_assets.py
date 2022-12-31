@@ -1,5 +1,5 @@
 # pylint: disable=redefined-outer-name
-from dagster import AssetKey, SourceAsset, asset
+from sheenflow import AssetKey, SourceAsset, asset
 
 source_asset = SourceAsset(AssetKey("source_asset"))
 

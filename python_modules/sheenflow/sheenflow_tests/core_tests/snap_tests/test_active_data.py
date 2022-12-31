@@ -4,7 +4,7 @@ from unittest import mock
 
 import pendulum
 
-from dagster import daily_partitioned_config, job, repository
+from sheenflow import daily_partitioned_config, job, repository
 from sheenflow._core.host_representation import (
     external_pipeline_data_from_def,
     external_repository_data_from_def,

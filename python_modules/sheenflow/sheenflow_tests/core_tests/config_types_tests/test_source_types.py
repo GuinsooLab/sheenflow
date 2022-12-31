@@ -1,6 +1,6 @@
 import os
 
-from dagster import Array, BoolSource, IntSource, Noneable, StringSource
+from sheenflow import Array, BoolSource, IntSource, Noneable, StringSource
 from sheenflow._config import process_config
 from sheenflow._core.test_utils import environ
 

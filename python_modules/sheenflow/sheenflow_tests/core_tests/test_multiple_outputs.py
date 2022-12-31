@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Any,
     DagsterInvariantViolationError,
     DagsterStepOutputNotFoundError,

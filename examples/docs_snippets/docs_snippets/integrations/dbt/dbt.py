@@ -26,7 +26,7 @@ def scope_dbt_cli_resource_config():
     # start_dbt_cli_resource
     from dagster_dbt import dbt_cli_resource, load_assets_from_dbt_project
 
-    from dagster import with_resources
+    from sheenflow import with_resources
 
     DBT_PROJECT_PATH = "path/to/dbt_project"
 
@@ -43,7 +43,7 @@ def scope_dbt_cli_resource_config():
 
 def scope_schedule_assets(dbt_assets):
     # start_schedule_assets
-    from dagster import ScheduleDefinition, define_asset_job, Definitions
+    from sheenflow import ScheduleDefinition, define_asset_job, Definitions
 
     run_everything_job = define_asset_job("run_everything", selection="*")
 
@@ -68,7 +68,7 @@ def scope_schedule_assets(dbt_assets):
 
 
 def scope_downstream_asset():
-    from dagster import AssetIn, asset
+    from sheenflow import AssetIn, asset
 
     # start_downstream_asset
     @asset(
@@ -82,7 +82,7 @@ def scope_downstream_asset():
 
 
 def scope_upstream_asset():
-    from dagster import asset
+    from sheenflow import asset
 
     # start_upstream_asset
     @asset(key_prefix="jaffle_shop")
@@ -96,7 +96,7 @@ def scope_input_manager():
     # start_input_manager
     import pandas as pd
 
-    from dagster import IOManager, io_manager
+    from sheenflow import IOManager, io_manager
 
     class PandasIOManager(IOManager):
         def __init__(self, con_string: str):
@@ -123,7 +123,7 @@ def scope_input_manager_resources():
     # start_input_manager_resources
     from dagster_dbt import dbt_cli_resource, load_assets_from_dbt_project
 
-    from dagster import with_resources
+    from sheenflow import with_resources
 
     dbt_assets = with_resources(
         load_assets_from_dbt_project(...),

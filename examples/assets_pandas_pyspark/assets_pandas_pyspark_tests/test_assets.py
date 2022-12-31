@@ -1,6 +1,6 @@
 from assets_pandas_pyspark.assets import spark_asset, table_assets
 
-from dagster import load_assets_from_modules, materialize
+from sheenflow import load_assets_from_modules, materialize
 from sheenflow._core.test_utils import instance_for_test
 
 

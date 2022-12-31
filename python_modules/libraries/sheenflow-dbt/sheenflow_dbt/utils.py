@@ -2,8 +2,8 @@ from typing import Any, Callable, Dict, Iterator, Mapping, Optional, Sequence, U
 
 import dateutil
 
-from dagster import AssetKey, AssetMaterialization, AssetObservation, MetadataValue, Output
-from dagster import _check as check
+from sheenflow import AssetKey, AssetMaterialization, AssetObservation, MetadataValue, Output
+from sheenflow import _check as check
 from sheenflow._core.definitions.metadata import RawMetadataValue
 
 from .types import DbtOutput

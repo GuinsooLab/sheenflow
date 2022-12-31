@@ -13,7 +13,7 @@ from project_fully_featured.resources.snowflake_io_manager import (
 from pyspark.sql import Row, SparkSession
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
-from dagster import AssetKey, asset, build_input_context, build_output_context
+from sheenflow import AssetKey, asset, build_input_context, build_output_context
 
 
 def mock_output_context(asset_key):

@@ -2,7 +2,7 @@
 import json
 import logging
 
-from dagster import Field, logger, job, op
+from sheenflow import Field, logger, job, op
 
 # start_custom_logger_marker_0
 
@@ -57,7 +57,7 @@ def test_init_json_console_logger():
 # end_custom_logger_testing
 
 # start_custom_logger_testing_context
-from dagster import build_init_logger_context
+from sheenflow import build_init_logger_context
 
 
 def test_init_json_console_logger_with_context():
@@ -71,7 +71,7 @@ def test_init_json_console_logger_with_context():
 # end_custom_logger_testing_context
 
 # start_default_logger_repo
-from dagster import Definitions, define_asset_job, asset
+from sheenflow import Definitions, define_asset_job, asset
 
 
 @asset

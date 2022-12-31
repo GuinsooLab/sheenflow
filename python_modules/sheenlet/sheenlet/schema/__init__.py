@@ -1,1 +1,1 @@
-from dagster_graphql.schema import create_schema
+from sheenflow_graphql.schema import create_schema

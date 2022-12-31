@@ -1,4 +1,4 @@
-from dagster import AssetKey, SourceAsset, asset
+from sheenflow import AssetKey, SourceAsset, asset
 
 patsy_cline = SourceAsset(key=AssetKey("patsy_cline"))
 

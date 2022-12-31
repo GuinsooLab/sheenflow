@@ -1,4 +1,4 @@
-from dagster import JobDefinition
+from sheenflow import JobDefinition
 from docs_snippets.deploying.aws.io_manager import my_job
 
 

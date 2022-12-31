@@ -4,7 +4,7 @@ from typing import List
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     ConfigMapping,
     DynamicOut,

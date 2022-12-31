@@ -6,7 +6,7 @@ import requests
 
 import sheenflow._check as check
 import sheenflow._seven as seven
-from dagster import __version__ as dagster_version
+from sheenflow import __version__ as dagster_version
 from sheenflow._cli.workspace import workspace_target_argument
 from sheenflow._cli.workspace.cli_target import (
     WORKSPACE_TARGET_WARNING,
@@ -178,7 +178,7 @@ PREDEFINED_QUERIES = {
 @click.option(
     "--ephemeral-instance",
     is_flag=True,
-    help="Use an ephemeral DagsterInstance instead of resolving via DAGSTER_HOME",
+    help="Use an ephemeral DagsterInstance instead of resolving via SHEENFLOW_HOME",
 )
 def ui(text, file, predefined, variables, remote, output, ephemeral_instance, **kwargs):
     query = None

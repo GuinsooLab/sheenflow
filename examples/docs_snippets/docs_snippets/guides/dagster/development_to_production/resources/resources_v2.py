@@ -1,6 +1,6 @@
 from typing import Any, Dict, Optional
 
-from dagster import resource
+from sheenflow import resource
 
 # start_mock
 # resources.py

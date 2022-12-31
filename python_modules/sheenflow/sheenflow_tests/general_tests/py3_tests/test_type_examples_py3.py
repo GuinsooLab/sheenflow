@@ -9,7 +9,7 @@ import time
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Any,
     Bool,
     DagsterInvalidConfigError,
@@ -27,8 +27,8 @@ from dagster import (
     String,
     Tuple,
 )
-from dagster import _check as check
-from dagster import job, op
+from sheenflow import _check as check
+from sheenflow import job, op
 from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 

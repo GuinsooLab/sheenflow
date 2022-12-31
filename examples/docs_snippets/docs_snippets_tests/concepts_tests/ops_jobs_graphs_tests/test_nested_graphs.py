@@ -1,6 +1,6 @@
 import yaml
 
-from dagster import job
+from sheenflow import job
 from sheenflow._utils import file_relative_path
 from docs_snippets.concepts.ops_jobs_graphs.graph_provides_config import (
     celsius_to_fahrenheit,

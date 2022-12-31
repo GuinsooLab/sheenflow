@@ -1,4 +1,4 @@
-from dagster import Int, repository
+from sheenflow import Int, repository
 from sheenflow._core.test_utils import today_at_midnight
 from sheenflow._legacy import (
     InputDefinition,

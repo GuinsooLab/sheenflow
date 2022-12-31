@@ -1,7 +1,7 @@
 # isort: skip_file
 # pylint: disable=reimported
 # start_executor_on_job
-from dagster import multiprocess_executor, job, graph
+from sheenflow import multiprocess_executor, job, graph
 
 # Providing an executor using the job decorator
 @job(executor_def=multiprocess_executor)
@@ -21,7 +21,7 @@ other_job = the_graph.to_job(executor_def=multiprocess_executor)
 # end_executor_on_job
 
 # start_executor_on_repo
-from dagster import multiprocess_executor, define_asset_job, asset, Definitions
+from sheenflow import multiprocess_executor, define_asset_job, asset, Definitions
 
 
 @asset

@@ -2,7 +2,7 @@ from typing import Sequence
 
 import pytest
 
-from dagster import DagsterEventType, DagsterInvariantViolationError, ExpectationResult
+from sheenflow import DagsterEventType, DagsterInvariantViolationError, ExpectationResult
 from sheenflow._core.events import DagsterEvent
 from sheenflow._core.execution.results import OpExecutionResult, PipelineExecutionResult
 from sheenflow._legacy import PipelineDefinition, execute_pipeline, solid

@@ -2,7 +2,7 @@
 import yaml
 from unittest import mock
 from dagster_slack import slack_resource
-from dagster import (
+from sheenflow import (
     ResourceDefinition,
     file_relative_path,
     graph,
@@ -12,7 +12,7 @@ from dagster import (
 )
 
 # start_repo_marker_0
-from dagster import HookContext, failure_hook, success_hook
+from sheenflow import HookContext, failure_hook, success_hook
 
 
 @success_hook(required_resource_keys={"slack"})
@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
 
 # start_testing_hooks
-from dagster import build_hook_context
+from sheenflow import build_hook_context
 
 
 @success_hook(required_resource_keys={"my_conn"})

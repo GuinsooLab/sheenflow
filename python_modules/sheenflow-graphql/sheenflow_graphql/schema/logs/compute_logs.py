@@ -1,5 +1,5 @@
 import graphene
-from dagster_graphql.schema.util import non_null_list
+from sheenflow_graphql.schema.util import non_null_list
 
 import sheenflow._check as check
 from sheenflow._core.storage.captured_log_manager import CapturedLogData

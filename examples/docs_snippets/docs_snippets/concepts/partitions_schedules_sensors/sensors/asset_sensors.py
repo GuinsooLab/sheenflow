@@ -1,4 +1,4 @@
-from dagster import (
+from sheenflow import (
     AssetSelection,
     DailyPartitionsDefinition,
     RunRequest,
@@ -17,7 +17,7 @@ def my_job():
 
 
 # start_asset_sensor_marker
-from dagster import AssetKey, EventLogEntry, SensorEvaluationContext, asset_sensor
+from sheenflow import AssetKey, EventLogEntry, SensorEvaluationContext, asset_sensor
 
 
 @asset_sensor(asset_key=AssetKey("my_table"), job=my_job)
@@ -45,7 +45,7 @@ def send_alert(_msg: str) -> None:
 
 # start_freshness_policy_sensor_marker
 
-from dagster import FreshnessPolicySensorContext, freshness_policy_sensor
+from sheenflow import FreshnessPolicySensorContext, freshness_policy_sensor
 
 
 @freshness_policy_sensor(asset_selection=AssetSelection.all())

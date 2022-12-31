@@ -1,6 +1,6 @@
 import sys
 
-from dagster import repository
+from sheenflow import repository
 
 
 @repository

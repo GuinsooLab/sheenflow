@@ -1,6 +1,6 @@
 from dagstermill.examples.repository import notebook_repo
 
-from dagster import RepositoryDefinition
+from sheenflow import RepositoryDefinition
 
 
 def test_dagstermill_repo():

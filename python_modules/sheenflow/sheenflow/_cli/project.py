@@ -16,7 +16,7 @@ from sheenflow._generate.download import AVAILABLE_EXAMPLES
 @click.group(name="project")
 def project_cli():
     """
-    Commands for bootstrapping new Dagster projects and code locations.
+    Commands for bootstrapping new Sheenflow projects and code locations.
     """
 
 

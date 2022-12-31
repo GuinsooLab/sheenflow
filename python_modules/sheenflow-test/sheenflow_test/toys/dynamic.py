@@ -1,4 +1,4 @@
-from dagster import DynamicOut, Field, graph, op
+from sheenflow import DynamicOut, Field, graph, op
 from sheenflow._core.definitions.events import DynamicOutput
 
 

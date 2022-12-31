@@ -7,7 +7,7 @@ from contextlib import ExitStack, contextmanager
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     Any,
     AssetKey,
     DefaultScheduleStatus,

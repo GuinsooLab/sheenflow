@@ -4,7 +4,7 @@ from collections import defaultdict
 import mock
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetOut,
     AssetSelection,

@@ -10,7 +10,7 @@ from dagster_dbt import (
     load_assets_from_dbt_cloud_job,
 )
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetSelection,
     DailyPartitionsDefinition,

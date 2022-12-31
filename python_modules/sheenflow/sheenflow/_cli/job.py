@@ -9,7 +9,7 @@ import pendulum
 from tabulate import tabulate
 
 import sheenflow._check as check
-from dagster import __version__ as dagster_version
+from sheenflow import __version__ as dagster_version
 from sheenflow._cli.workspace.cli_target import (
     WORKSPACE_TARGET_WARNING,
     get_external_job_from_external_repo,

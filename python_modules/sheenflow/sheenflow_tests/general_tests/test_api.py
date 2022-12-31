@@ -19,9 +19,9 @@ def test_deprecated_imports():
     with pytest.warns(
         DeprecationWarning, match=re.escape("dagster_type_materializer is deprecated")
     ):
-        from dagster import dagster_type_materializer  # pylint: disable=unused-import
+        from sheenflow import dagster_type_materializer  # pylint: disable=unused-import
     with pytest.warns(DeprecationWarning, match=re.escape("DagsterTypeMaterializer is deprecated")):
-        from dagster import DagsterTypeMaterializer  # pylint: disable=unused-import
+        from sheenflow import DagsterTypeMaterializer  # pylint: disable=unused-import
 
 
 @pytest.fixture

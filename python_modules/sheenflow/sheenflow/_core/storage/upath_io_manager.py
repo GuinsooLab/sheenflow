@@ -6,8 +6,8 @@ from typing import Any, Dict, Union
 
 from upath import UPath
 
-from dagster import InputContext, MetadataValue, OutputContext
-from dagster import _check as check
+from sheenflow import InputContext, MetadataValue, OutputContext
+from sheenflow import _check as check
 from sheenflow._core.storage.memoizable_io_manager import MemoizableIOManager
 
 

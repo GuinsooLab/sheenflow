@@ -35,7 +35,7 @@ from sheenflow._utils.cached_method import cached_method
 from sheenflow._utils.merger import merge_dicts
 
 if TYPE_CHECKING:
-    from dagster import DagsterInstance
+    from sheenflow import DagsterInstance
 
 USED_DATA_TAG = ".sheenflow/used_data"
 

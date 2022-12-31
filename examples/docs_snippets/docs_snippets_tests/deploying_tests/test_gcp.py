@@ -1,4 +1,4 @@
-from dagster import JobDefinition
+from sheenflow import JobDefinition
 from docs_snippets.deploying.gcp.gcp_job import gcs_job
 
 

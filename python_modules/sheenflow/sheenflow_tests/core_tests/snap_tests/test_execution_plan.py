@@ -1,4 +1,4 @@
-from dagster import In, Out, job, op
+from sheenflow import In, Out, job, op
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._core.execution.api import create_execution_plan
 from sheenflow._core.snap import create_pipeline_snapshot_id, snapshot_from_execution_plan

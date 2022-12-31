@@ -6,7 +6,7 @@ import pandas as pd
 from dagster_aws.s3.io_manager import s3_pickle_io_manager
 from dagster_snowflake_pandas import snowflake_pandas_io_manager
 
-from dagster import Definitions, asset
+from sheenflow import Definitions, asset
 
 
 @asset(io_manager_key="warehouse_io_manager")

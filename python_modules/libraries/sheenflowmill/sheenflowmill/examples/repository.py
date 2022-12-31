@@ -5,7 +5,7 @@ import uuid
 import dagstermill
 from dagstermill.io_managers import local_output_notebook_io_manager
 
-from dagster import (
+from sheenflow import (
     AssetIn,
     AssetSelection,
     Field,

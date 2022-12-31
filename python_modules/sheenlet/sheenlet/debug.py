@@ -2,8 +2,8 @@ from gzip import GzipFile
 
 import click
 
-from dagster import DagsterInstance
-from dagster import _check as check
+from sheenflow import DagsterInstance
+from sheenflow import _check as check
 from sheenflow._cli.debug import DebugRunPayload
 from sheenflow._core.workspace.context import WorkspaceProcessContext
 from sheenflow._serdes import deserialize_json_to_dagster_namedtuple

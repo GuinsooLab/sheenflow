@@ -1,7 +1,7 @@
 import pandas as pd
 from dagster_duckdb.io_manager import DuckDbClient, _connect_duckdb, build_duckdb_io_manager
 
-from dagster import InputContext, MetadataValue, OutputContext, TableColumn, TableSchema
+from sheenflow import InputContext, MetadataValue, OutputContext, TableColumn, TableSchema
 from sheenflow._core.storage.db_io_manager import DbTypeHandler, TableSlice
 
 

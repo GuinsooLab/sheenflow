@@ -1,4 +1,4 @@
-from dagster import Field, Int, String, job, op
+from sheenflow import Field, Int, String, job, op
 from sheenflow._core.definitions.config import ConfigMapping
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline

@@ -1,4 +1,4 @@
-from dagster import _seven
+from sheenflow import _seven
 
 PICKLE_PROTOCOL = 2
 

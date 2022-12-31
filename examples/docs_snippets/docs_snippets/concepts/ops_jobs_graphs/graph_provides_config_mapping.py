@@ -1,4 +1,4 @@
-from dagster import config_mapping, graph, op
+from sheenflow import config_mapping, graph, op
 
 
 @op(config_schema={"n": float})

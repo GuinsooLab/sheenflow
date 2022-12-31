@@ -3,7 +3,7 @@ from pandas import DataFrame
 from scipy.sparse import coo_matrix, csc_matrix, csr_matrix
 from sklearn.decomposition import TruncatedSVD
 
-from dagster import asset
+from sheenflow import asset
 
 from .user_story_matrix import IndexedCooMatrix
 

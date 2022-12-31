@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterInvalidDefinitionError, op
+from sheenflow import DagsterInvalidDefinitionError, op
 from sheenflow._utils.test import wrap_op_in_graph_and_execute
 
 

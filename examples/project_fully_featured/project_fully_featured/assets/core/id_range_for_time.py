@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from typing import Any, Mapping, Tuple
 
-from dagster import _check as check
+from sheenflow import _check as check
 
 
 def binary_search_nearest_left(get_value, start, end, min_target):

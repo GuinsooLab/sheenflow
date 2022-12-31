@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 from random import random
 
-from dagster import AssetMaterialization, In, Nothing, Out, fs_io_manager, graph, op
+from sheenflow import AssetMaterialization, In, Nothing, Out, fs_io_manager, graph, op
 from sheenflow._utils.partitions import DEFAULT_DATE_FORMAT
 
 TRAFFIC_CONSTANTS = {

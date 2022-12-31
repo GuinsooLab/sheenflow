@@ -3,8 +3,8 @@ from typing import Any, Callable, Mapping, Optional, TypeVar, Union
 
 from typing_extensions import Self
 
-from dagster import Field
-from dagster import _check as check
+from sheenflow import Field
+from sheenflow import _check as check
 from sheenflow._config import EvaluateValueResult
 
 from .definition_config_schema import (

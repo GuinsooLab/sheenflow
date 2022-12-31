@@ -32,7 +32,7 @@ from sheenflow._core.workspace.context import BaseWorkspaceRequestContext
 from sheenflow._utils.error import serializable_error_info_from_exc_info
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.errors import GraphenePythonError
+    from sheenflow_graphql.schema.errors import GraphenePythonError
 
 P = ParamSpec("P")
 T = TypeVar("T")
@@ -56,7 +56,7 @@ def check_permission(permission: str) -> Callable[[GrapheneResolverFn], Graphene
 
 
 def assert_permission(graphene_info: ResolveInfo, permission: str) -> None:
-    from dagster_graphql.schema.errors import GrapheneUnauthorizedError
+    from sheenflow_graphql.schema.errors import GrapheneUnauthorizedError
 
     context = cast(BaseWorkspaceRequestContext, graphene_info.context)
     if not context.has_permission(permission):
@@ -72,7 +72,7 @@ class ErrorCapture:
     def default_on_exception(
         exc_info: Tuple[Type[BaseException], BaseException, TracebackType]
     ) -> GraphenePythonError:
-        from dagster_graphql.schema.errors import GraphenePythonError
+        from sheenflow_graphql.schema.errors import GraphenePythonError
 
         # Transform exception in to PythonErron to present to user
         return GraphenePythonError(serializable_error_info_from_exc_info(exc_info))

@@ -1,7 +1,7 @@
 import pytest
 
 import sheenflow._check as check
-from dagster import (
+from sheenflow import (
     AssetKey,
     DagsterExecutionStepNotFoundError,
     DagsterInvalidConfigError,

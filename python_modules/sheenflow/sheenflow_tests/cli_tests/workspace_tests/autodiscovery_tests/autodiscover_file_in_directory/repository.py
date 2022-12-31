@@ -1,6 +1,6 @@
 from autodiscover_src.pipelines import hello_world_pipeline
 
-from dagster import repository
+from sheenflow import repository
 
 
 @repository

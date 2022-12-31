@@ -5,7 +5,7 @@ from datetime import datetime
 import pendulum
 import pytest
 
-from dagster import _seven, job, op
+from sheenflow import _seven, job, op
 from sheenflow._core.definitions import GraphDefinition
 from sheenflow._core.errors import (
     DagsterRunAlreadyExists,

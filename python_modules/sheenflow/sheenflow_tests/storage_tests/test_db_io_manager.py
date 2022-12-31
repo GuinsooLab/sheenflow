@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 import pytest
 from pendulum import datetime
 
-from dagster import AssetKey, InputContext, OutputContext, build_output_context
+from sheenflow import AssetKey, InputContext, OutputContext, build_output_context
 from sheenflow._check import CheckError
 from sheenflow._core.definitions.time_window_partitions import TimeWindow
 from sheenflow._core.errors import DagsterInvalidDefinitionError

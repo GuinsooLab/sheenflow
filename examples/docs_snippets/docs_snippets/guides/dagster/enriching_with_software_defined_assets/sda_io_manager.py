@@ -1,6 +1,6 @@
 from pandas import DataFrame
 
-from dagster import Definitions, SourceAsset, asset, define_asset_job
+from sheenflow import Definitions, SourceAsset, asset, define_asset_job
 
 from .mylib import s3_io_manager, snowflake_io_manager, train_recommender_model
 

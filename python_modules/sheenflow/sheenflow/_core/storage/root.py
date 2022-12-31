@@ -1,7 +1,7 @@
 import os
 
-from dagster import StringSource
-from dagster import _check as check
+from sheenflow import StringSource
+from sheenflow import _check as check
 from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
 
 

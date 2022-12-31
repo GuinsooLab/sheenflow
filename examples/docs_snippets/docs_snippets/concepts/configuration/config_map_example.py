@@ -1,4 +1,4 @@
-from dagster import configured, resource
+from sheenflow import configured, resource
 
 
 @resource(config_schema={"region": str, "use_unsigned_session": bool})

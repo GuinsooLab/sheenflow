@@ -4,7 +4,7 @@ import types
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvariantViolationError,
     GraphDefinition,
     JobDefinition,

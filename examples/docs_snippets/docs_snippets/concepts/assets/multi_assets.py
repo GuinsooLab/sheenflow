@@ -2,7 +2,7 @@
 # pylint: disable=unused-argument,reimported
 
 # start_basic_multi_asset
-from dagster import AssetOut, multi_asset
+from sheenflow import AssetOut, multi_asset
 
 
 @multi_asset(
@@ -18,7 +18,7 @@ def my_function():
 # end_basic_multi_asset
 
 # start_io_manager_multi_asset
-from dagster import AssetOut, multi_asset
+from sheenflow import AssetOut, multi_asset
 
 
 @multi_asset(
@@ -34,7 +34,7 @@ def my_assets():
 # end_io_manager_multi_asset
 
 # start_subsettable_multi_asset
-from dagster import AssetOut, Output, multi_asset
+from sheenflow import AssetOut, Output, multi_asset
 
 
 @multi_asset(
@@ -54,7 +54,7 @@ def split_actions(context):
 # end_subsettable_multi_asset
 
 # start_asset_deps_multi_asset
-from dagster import AssetKey, AssetOut, Output, multi_asset
+from sheenflow import AssetKey, AssetOut, Output, multi_asset
 
 
 @multi_asset(

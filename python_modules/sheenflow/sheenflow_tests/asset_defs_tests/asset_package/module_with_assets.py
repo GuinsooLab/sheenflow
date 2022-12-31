@@ -1,4 +1,4 @@
-from dagster import AssetKey, SourceAsset, asset
+from sheenflow import AssetKey, SourceAsset, asset
 
 # importing this makes it show up twice when we collect everything
 from .asset_subpackage.another_module_with_assets import miles_davis

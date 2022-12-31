@@ -1,4 +1,4 @@
-from dagster import DagsterInstance
+from sheenflow import DagsterInstance
 from sheenflow._core.instance import InstanceRef
 from sheenflow._utils import file_relative_path
 

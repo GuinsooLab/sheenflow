@@ -1,7 +1,7 @@
 from typing import List, Mapping, NamedTuple, Optional, Sequence, Union
 
-from dagster import AssetKey, DagsterEventType, DagsterInstance, EventRecordsFilter
-from dagster import _check as check
+from sheenflow import AssetKey, DagsterEventType, DagsterInstance, EventRecordsFilter
+from sheenflow import _check as check
 from sheenflow._core.definitions.asset_graph import AssetGraph
 from sheenflow._core.definitions.multi_dimensional_partitions import (
     MultiPartitionKey,

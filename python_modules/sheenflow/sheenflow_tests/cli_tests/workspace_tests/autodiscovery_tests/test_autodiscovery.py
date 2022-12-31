@@ -3,7 +3,7 @@ import sys
 
 import pytest
 
-from dagster import DagsterInvariantViolationError, RepositoryDefinition
+from sheenflow import DagsterInvariantViolationError, RepositoryDefinition
 from sheenflow._core.code_pointer import CodePointer
 from sheenflow._core.definitions.reconstruct import repository_def_from_pointer
 from sheenflow._core.definitions.repository_definition import PendingRepositoryDefinition

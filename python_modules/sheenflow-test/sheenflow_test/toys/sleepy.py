@@ -2,7 +2,7 @@
 from time import sleep
 from typing import List, Tuple
 
-from dagster import Field, Out, Output, graph, op
+from sheenflow import Field, Out, Output, graph, op
 from sheenflow._core.execution.context.compute import OpExecutionContext
 
 

@@ -1,4 +1,4 @@
-from dagster import AssetIn, AssetKey, AssetOut, asset, multi_asset
+from sheenflow import AssetIn, AssetKey, AssetOut, asset, multi_asset
 from sheenflow._core.definitions.resolved_asset_deps import resolve_assets_def_deps
 
 

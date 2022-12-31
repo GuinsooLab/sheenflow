@@ -1,7 +1,7 @@
 from collections import OrderedDict
 
-from dagster_graphql.client.query import LAUNCH_PARTITION_BACKFILL_MUTATION
-from dagster_graphql.test.utils import (
+from sheenflow_graphql.client.query import LAUNCH_PARTITION_BACKFILL_MUTATION
+from sheenflow_graphql.test.utils import (
     execute_dagster_graphql,
     execute_dagster_graphql_and_finish_runs,
     infer_repository_selector,

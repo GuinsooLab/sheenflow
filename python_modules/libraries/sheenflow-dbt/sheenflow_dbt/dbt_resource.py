@@ -2,7 +2,7 @@ import logging
 from abc import abstractmethod
 from typing import Any, Mapping, Optional, Sequence
 
-from dagster import get_dagster_logger
+from sheenflow import get_dagster_logger
 
 from .types import DbtOutput
 

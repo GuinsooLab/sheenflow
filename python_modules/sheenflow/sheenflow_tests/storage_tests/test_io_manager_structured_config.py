@@ -1,6 +1,6 @@
 # pylint: disable=unused-argument
 
-from dagster import In, job, op
+from sheenflow import In, job, op
 from sheenflow._config.structured_config import StructuredConfigIOManager
 
 

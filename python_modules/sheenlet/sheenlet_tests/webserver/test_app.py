@@ -1,14 +1,14 @@
 import gc
 
 import objgraph
-from dagit.graphql import GraphQLWS
-from dagit.version import __version__ as dagit_version
-from dagit.webserver import ROOT_ADDRESS_STATIC_RESOURCES
-from dagster_graphql.version import __version__ as dagster_graphql_version
+from sheenlet.graphql import GraphQLWS
+from sheenlet.version import __version__ as dagit_version
+from sheenlet.webserver import ROOT_ADDRESS_STATIC_RESOURCES
+from sheenflow_graphql.version import __version__ as dagster_graphql_version
 from starlette.testclient import TestClient
 
-from dagster import __version__ as dagster_version
-from dagster import job, op
+from sheenflow import __version__ as dagster_version
+from sheenflow import job, op
 from sheenflow._core.events import DagsterEventType
 from sheenflow._seven import json
 

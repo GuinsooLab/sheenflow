@@ -1,7 +1,7 @@
 from typing import Any
 
-from dagster_graphql.client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION
-from dagster_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
+from sheenflow_graphql.client.query import LAUNCH_PIPELINE_EXECUTION_MUTATION
+from sheenflow_graphql.test.utils import execute_dagster_graphql, infer_pipeline_selector
 
 from sheenflow._core.test_utils import wait_for_runs_to_finish
 

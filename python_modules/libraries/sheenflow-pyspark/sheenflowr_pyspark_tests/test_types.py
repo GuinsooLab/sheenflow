@@ -5,7 +5,7 @@ from dagster_pyspark import DataFrame as DagsterPySparkDataFrame
 from dagster_pyspark import lazy_pyspark_resource, pyspark_resource
 from pyspark.sql import Row, SparkSession
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._legacy import InputDefinition, ModeDefinition, OutputDefinition, execute_solid, solid
 from sheenflow._utils import dict_without_keys
 from sheenflow._utils.test import get_temp_dir

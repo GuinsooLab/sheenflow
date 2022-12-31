@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterTypeCheckDidNotPass, Dict, In, Out, op
+from sheenflow import DagsterTypeCheckDidNotPass, Dict, In, Out, op
 from sheenflow._legacy import execute_solid
 
 

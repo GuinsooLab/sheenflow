@@ -5,7 +5,7 @@ import mock
 from click.testing import CliRunner
 from dagster_tests.api_tests.utils import get_bar_repo_handle, get_foo_job_handle
 
-from dagster import DagsterEventType, job, op, reconstructable
+from sheenflow import DagsterEventType, job, op, reconstructable
 from sheenflow._cli import api
 from sheenflow._cli.api import ExecuteRunArgs, ExecuteStepArgs, verify_step
 from sheenflow._core.execution.plan.state import KnownExecutionState

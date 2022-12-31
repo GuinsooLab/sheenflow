@@ -9,7 +9,7 @@ import pytest
 import sqlalchemy as db
 from sqlalchemy import inspect
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetMaterialization,
     AssetObservation,

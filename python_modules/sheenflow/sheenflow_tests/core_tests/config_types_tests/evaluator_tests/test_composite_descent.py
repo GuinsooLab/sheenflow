@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import (
+from sheenflow import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,
     Enum,

@@ -3,7 +3,7 @@ import os
 from pyspark.sql import DataFrame, Row, SparkSession
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 
-from dagster import Definitions, IOManager, graph, io_manager, op
+from sheenflow import Definitions, IOManager, graph, io_manager, op
 
 
 class LocalParquetIOManager(IOManager):

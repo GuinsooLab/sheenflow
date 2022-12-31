@@ -3,7 +3,7 @@ from typing import Optional
 
 import yaml
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._config import StringSource
 from sheenflow._serdes import ConfigurableClass, ConfigurableClassData
 from sheenflow._utils import mkdir_p

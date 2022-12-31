@@ -2,7 +2,7 @@ import time
 
 from dagster_docker import docker_executor
 
-from dagster import fs_io_manager, graph, job, op, repository, schedule
+from sheenflow import fs_io_manager, graph, job, op, repository, schedule
 
 
 @op

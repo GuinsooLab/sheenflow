@@ -3,7 +3,7 @@ import warnings
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     DependencyDefinition,
     Field,
     Int,
@@ -15,8 +15,8 @@ from dagster import (
     ResourceDefinition,
     String,
 )
-from dagster import _check as check
-from dagster import reconstructable
+from sheenflow import _check as check
+from sheenflow import reconstructable
 from sheenflow._core.definitions.dependency import DependencyStructure, OpNode
 from sheenflow._core.definitions.graph_definition import GraphDefinition, _create_adjacency_lists
 from sheenflow._core.definitions.job_definition import JobDefinition

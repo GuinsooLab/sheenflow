@@ -5,7 +5,7 @@ import pandas as pd
 import pytest
 from dagster_duckdb_pandas import duckdb_pandas_io_manager
 
-from dagster import AssetIn, DailyPartitionsDefinition, Out, asset, graph, materialize, op
+from sheenflow import AssetIn, DailyPartitionsDefinition, Out, asset, graph, materialize, op
 from sheenflow._check import CheckError
 
 

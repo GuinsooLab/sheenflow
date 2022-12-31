@@ -7,7 +7,7 @@ import mock
 import pendulum
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetIn,
     AssetKey,
     AssetOut,

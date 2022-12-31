@@ -13,8 +13,8 @@ from ..utils import ExecutionMetadata, ExecutionParams, capture_error
 from .run_lifecycle import create_valid_pipeline_run
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.runs import GrapheneLaunchRunSuccess
-    from dagster_graphql.schema.util import HasContext
+    from sheenflow_graphql.schema.runs import GrapheneLaunchRunSuccess
+    from sheenflow_graphql.schema.util import HasContext
 
 
 @capture_error

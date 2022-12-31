@@ -3,7 +3,7 @@ import pandas as pd
 from dagstermill import define_dagstermill_asset
 from papermill_origami.noteable_dagstermill import define_noteable_dagster_asset
 
-from dagster import AssetIn, Field, Int, asset, file_relative_path
+from sheenflow import AssetIn, Field, Int, asset, file_relative_path
 
 # TODO 2: Uncomment the code below to create a Dagster asset of the Iris dataset
 # relevant documentation - https://docs.dagster.io/concepts/assets/software-defined-assets#a-basic-software-defined-asset

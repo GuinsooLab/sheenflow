@@ -1,10 +1,10 @@
 # isort: skip_file
 # pylint: disable=unused-argument,reimported,unnecessary-ellipsis
-from dagster import ResourceDefinition, graph, job
+from sheenflow import ResourceDefinition, graph, job
 
 
 # start_resource_example
-from dagster import resource
+from sheenflow import resource
 
 
 class ExternalCerealFetcher:
@@ -20,7 +20,7 @@ def cereal_fetcher(init_context):
 # end_resource_example
 
 # start_op_with_resources_example
-from dagster import op
+from sheenflow import op
 
 CREATE_TABLE_1_QUERY = "create table_1 as select * from table_0"
 
@@ -33,7 +33,7 @@ def op_requires_resources(context):
 # end_op_with_resources_example
 
 # start_resource_testing
-from dagster import resource
+from sheenflow import resource
 
 
 @resource
@@ -48,7 +48,7 @@ def test_my_resource():
 # end_resource_testing
 
 # start_resource_testing_with_context
-from dagster import build_init_resource_context, resource
+from sheenflow import build_init_resource_context, resource
 
 
 @resource(required_resource_keys={"foo"}, config_schema={"bar": str})
@@ -67,7 +67,7 @@ def test_my_resource_with_context():
 
 # start_test_cm_resource
 from contextlib import contextmanager
-from dagster import resource
+from sheenflow import resource
 
 
 @resource
@@ -89,7 +89,7 @@ database_resource_b = ResourceDefinition.mock_resource()
 
 
 # start_job_example
-from dagster import job
+from sheenflow import job
 
 
 @job(resource_defs={"database": database_resource})
@@ -100,7 +100,7 @@ def do_database_stuff_job():
 # end_job_example
 
 # start_graph_example
-from dagster import graph
+from sheenflow import graph
 
 
 @graph
@@ -125,7 +125,7 @@ class Client:
 
 
 # start_resource_dep_example
-from dagster import resource
+from sheenflow import resource
 
 
 @resource
@@ -142,7 +142,7 @@ def client(init_context):
 # end_resource_dep_example
 
 # start_resource_dep_op
-from dagster import graph, op
+from sheenflow import graph, op
 
 
 @op(required_resource_keys={"client"})
@@ -222,7 +222,7 @@ def get_the_db_connection(_):
 
 # pylint: disable=unused-variable,reimported
 # start_build_resources_example
-from dagster import resource, build_resources
+from sheenflow import resource, build_resources
 
 
 @resource
@@ -251,7 +251,7 @@ def do_something_with_resource(_):
 
 
 # start_asset_use_resource
-from dagster import asset
+from sheenflow import asset
 
 
 @asset(required_resource_keys={"foo"})
@@ -268,7 +268,7 @@ def foo_resource():
 
 
 # start_asset_provide_resource
-from dagster import Definitions
+from sheenflow import Definitions
 
 
 defs = Definitions(
@@ -281,7 +281,7 @@ defs = Definitions(
 
 # start_asset_provide_resource_using_repository
 
-from dagster import repository, with_resources
+from sheenflow import repository, with_resources
 
 
 @repository

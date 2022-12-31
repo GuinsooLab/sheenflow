@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import DagsterInvalidConfigError, Field, String, root_input_manager
+from sheenflow import DagsterInvalidConfigError, Field, String, root_input_manager
 from sheenflow._core.definitions.config import ConfigMapping
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid

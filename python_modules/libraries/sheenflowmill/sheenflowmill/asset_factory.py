@@ -16,7 +16,7 @@ from papermill.engines import papermill_engines
 from papermill.iorw import load_notebook_node, write_ipynb
 
 import sheenflow._check as check
-from dagster import (
+from sheenflow import (
     AssetIn,
     AssetKey,
     Failure,

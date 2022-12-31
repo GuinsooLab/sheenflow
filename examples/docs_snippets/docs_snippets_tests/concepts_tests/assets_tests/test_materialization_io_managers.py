@@ -1,6 +1,6 @@
 import pandas as pd
 
-from dagster import io_manager
+from sheenflow import io_manager
 from sheenflow._legacy import ModeDefinition, execute_pipeline, pipeline, solid
 from docs_snippets.concepts.assets.materialization_io_managers import (
     PandasCsvIOManager,

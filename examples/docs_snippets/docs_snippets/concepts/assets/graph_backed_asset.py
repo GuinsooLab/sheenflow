@@ -1,6 +1,6 @@
 # isort: skip_file
 # pylint: disable=reimported
-from dagster import (
+from sheenflow import (
     AssetKey,
     load_assets_from_current_module,
     AssetsDefinition,
@@ -23,7 +23,7 @@ def create_db_connection():
 
 # start example
 import pandas as pd
-from dagster import AssetsDefinition, asset, graph, op
+from sheenflow import AssetsDefinition, asset, graph, op
 
 
 @op(required_resource_keys={"slack"})
@@ -69,7 +69,7 @@ def add_one(input_num):
 
 
 # start_basic_dependencies
-from dagster import AssetsDefinition, asset, graph
+from sheenflow import AssetsDefinition, asset, graph
 
 
 @asset
@@ -105,7 +105,7 @@ def two_outputs(upstream):
 
 
 # start_basic_dependencies_2
-from dagster import AssetsDefinition, GraphOut, graph
+from sheenflow import AssetsDefinition, GraphOut, graph
 
 
 @graph(out={"first_asset": GraphOut(), "second_asset": GraphOut()})
@@ -123,7 +123,7 @@ second_basic_deps_job = define_asset_job(
 )
 
 # start_explicit_dependencies
-from dagster import AssetsDefinition, GraphOut, graph
+from sheenflow import AssetsDefinition, GraphOut, graph
 
 
 @graph(out={"one": GraphOut(), "two": GraphOut()})

@@ -3,7 +3,7 @@ import responses
 from dagster_airbyte import airbyte_resource
 from dagster_airbyte.asset_defs import AirbyteConnectionMetadata, load_assets_from_airbyte_instance
 
-from dagster import AssetKey, IOManager, asset, build_init_resource_context, io_manager, materialize
+from sheenflow import AssetKey, IOManager, asset, build_init_resource_context, io_manager, materialize
 from sheenflow._core.definitions.metadata import MetadataValue
 from sheenflow._core.definitions.metadata.table import TableColumn, TableSchema
 from sheenflow._core.execution.with_resources import with_resources

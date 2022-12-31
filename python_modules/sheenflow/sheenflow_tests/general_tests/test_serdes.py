@@ -8,7 +8,7 @@ from typing import NamedTuple, Set
 
 import pytest
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._check import ParameterCheckError, inst_param, set_param
 from sheenflow._serdes.errors import DeserializationError, SerdesUsageError, SerializationError
 from sheenflow._serdes.serdes import (

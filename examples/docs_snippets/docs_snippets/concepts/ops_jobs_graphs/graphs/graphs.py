@@ -2,7 +2,7 @@
 
 # pylint: disable=unused-argument,reimported
 
-from dagster import DependencyDefinition, GraphDefinition, graph, op
+from sheenflow import DependencyDefinition, GraphDefinition, graph, op
 
 
 @op

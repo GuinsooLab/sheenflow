@@ -10,7 +10,7 @@ from dagster_pandas.data_frame import _execute_summary_stats, create_dagster_pan
 from dagster_pandas.validation import PandasColumn
 from pandas import DataFrame, read_csv
 
-from dagster import (
+from sheenflow import (
     AssetMaterialization,
     DagsterInvariantViolationError,
     DagsterType,

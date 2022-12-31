@@ -1,7 +1,7 @@
 import logging
 import time
 
-from dagster import DagsterEvent, DagsterEventType, EventLogEntry
+from sheenflow import DagsterEvent, DagsterEventType, EventLogEntry
 from sheenflow._core.instance import DagsterInstance
 from sheenflow._core.test_utils import create_run_for_test
 from sheenflow._daemon.auto_run_reexecution.event_log_consumer import (

@@ -6,7 +6,7 @@ from typing import Sequence
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Backoff,
     DagsterEventType,
     Failure,

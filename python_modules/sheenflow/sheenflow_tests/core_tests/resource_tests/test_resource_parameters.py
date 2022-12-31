@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from dagster import AssetsDefinition, ResourceDefinition, asset, job, op, resource, with_resources
+from sheenflow import AssetsDefinition, ResourceDefinition, asset, job, op, resource, with_resources
 from sheenflow._check import ParameterCheckError
 from sheenflow._config.structured_config import Config
 from sheenflow._core.definitions.asset_out import AssetOut

@@ -1,9 +1,9 @@
 import pytest
 from pydantic import BaseModel
 
-from dagster import AssetOut
-from dagster import _check as check
-from dagster import asset, job, multi_asset, op, validate_run_config
+from sheenflow import AssetOut
+from sheenflow import _check as check
+from sheenflow import asset, job, multi_asset, op, validate_run_config
 from sheenflow._config.config_type import ConfigTypeKind
 from sheenflow._config.field_utils import convert_potential_field
 from sheenflow._config.structured_config import Config, infer_schema_from_config_class

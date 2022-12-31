@@ -1,6 +1,6 @@
 from project_fully_featured.sensors.slack_on_failure_sensor import make_slack_on_failure_sensor
 
-from dagster import repository
+from sheenflow import repository
 
 
 def test_slack_on_failure_def():

@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import ScheduleDefinition, graph
+from sheenflow import ScheduleDefinition, graph
 from sheenflow._core.errors import DagsterInvalidDefinitionError
 
 

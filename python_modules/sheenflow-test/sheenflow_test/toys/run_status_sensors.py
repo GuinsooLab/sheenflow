@@ -1,6 +1,6 @@
 from time import time
 
-from dagster import (
+from sheenflow import (
     DagsterRunStatus,
     JobSelector,
     RepositorySelector,

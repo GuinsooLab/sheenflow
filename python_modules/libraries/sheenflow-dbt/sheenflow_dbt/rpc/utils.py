@@ -6,7 +6,7 @@ from typing import Mapping, Sequence
 from requests import Response
 from requests.exceptions import RequestException
 
-from dagster import Failure, RetryRequested
+from sheenflow import Failure, RetryRequested
 from sheenflow._core.execution.context.compute import OpExecutionContext
 
 

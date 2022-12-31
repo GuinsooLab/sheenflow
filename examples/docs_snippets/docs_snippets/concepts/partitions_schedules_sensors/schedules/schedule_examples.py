@@ -5,7 +5,7 @@ from .schedules import configurable_job_schedule, configurable_job
 
 
 # start_test_cron_schedule_context
-from dagster import build_schedule_context, validate_run_config
+from sheenflow import build_schedule_context, validate_run_config
 
 
 def test_configurable_job_schedule():

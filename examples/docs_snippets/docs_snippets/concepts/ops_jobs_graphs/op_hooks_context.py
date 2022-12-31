@@ -1,7 +1,7 @@
 # isort: skip_file
 
 # start_failure_hook_op_exception
-from dagster import HookContext, failure_hook
+from sheenflow import HookContext, failure_hook
 import traceback
 
 

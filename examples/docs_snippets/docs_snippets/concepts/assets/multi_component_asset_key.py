@@ -1,6 +1,6 @@
 # pylint: disable=redefined-outer-name
 # start_marker
-from dagster import AssetIn, asset
+from sheenflow import AssetIn, asset
 
 
 @asset(key_prefix=["one", "two", "three"])

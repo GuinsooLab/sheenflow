@@ -1,6 +1,6 @@
 from random import random
 
-from dagster import Field, graph, op
+from sheenflow import Field, graph, op
 
 DEFAULT_EXCEPTION_RATE = 0.3
 

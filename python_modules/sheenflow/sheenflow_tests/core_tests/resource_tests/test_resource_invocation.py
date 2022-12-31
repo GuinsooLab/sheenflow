@@ -2,7 +2,7 @@ from contextlib import contextmanager
 
 import pytest
 
-from dagster import Field, Noneable, Selector, build_init_resource_context, resource
+from sheenflow import Field, Noneable, Selector, build_init_resource_context, resource
 from sheenflow._core.errors import (
     DagsterInvalidConfigError,
     DagsterInvalidDefinitionError,

@@ -1,5 +1,5 @@
 import graphene
-from dagster_graphql.implementation.fetch_partition_sets import (
+from sheenflow_graphql.implementation.fetch_partition_sets import (
     get_partition_by_name,
     get_partition_config,
     get_partition_set_partition_runs,
@@ -7,7 +7,7 @@ from dagster_graphql.implementation.fetch_partition_sets import (
     get_partition_tags,
     get_partitions,
 )
-from dagster_graphql.implementation.fetch_runs import get_runs
+from sheenflow_graphql.implementation.fetch_runs import get_runs
 
 import sheenflow._check as check
 from sheenflow._core.host_representation import ExternalPartitionSet, RepositoryHandle

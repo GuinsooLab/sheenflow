@@ -1,7 +1,7 @@
 from contextlib import contextmanager
 from typing import Any, List, Optional, Sequence, Union
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     DagsterInstance,
     Definitions,

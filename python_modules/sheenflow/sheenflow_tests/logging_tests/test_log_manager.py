@@ -4,7 +4,7 @@ import textwrap
 
 import pytest
 
-from dagster import DagsterEvent
+from sheenflow import DagsterEvent
 from sheenflow._core.definitions.dependency import NodeHandle
 from sheenflow._core.errors import DagsterUserCodeExecutionError, user_code_error_boundary
 from sheenflow._core.execution.plan.objects import ErrorSource, StepFailureData

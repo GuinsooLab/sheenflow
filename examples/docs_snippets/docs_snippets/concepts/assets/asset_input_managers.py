@@ -1,6 +1,6 @@
 import pandas as pd
 
-from dagster import AssetIn, Definitions, asset
+from sheenflow import AssetIn, Definitions, asset
 
 
 def store_pandas_dataframe(*_args, **_kwargs):

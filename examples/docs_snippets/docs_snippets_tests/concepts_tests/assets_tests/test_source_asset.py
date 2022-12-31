@@ -1,4 +1,4 @@
-from dagster import repository
+from sheenflow import repository
 from docs_snippets.concepts.assets.source_asset import my_derived_asset, my_source_asset
 
 

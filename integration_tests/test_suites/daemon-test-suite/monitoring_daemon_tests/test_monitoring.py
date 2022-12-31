@@ -12,7 +12,7 @@ from dagster_test.test_project import (
     get_test_project_workspace_and_external_pipeline,
 )
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.test_utils import instance_for_test, poll_for_finished_run
 from sheenflow._daemon.controller import all_daemons_healthy

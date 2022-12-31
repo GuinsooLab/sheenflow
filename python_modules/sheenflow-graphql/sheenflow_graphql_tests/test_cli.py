@@ -5,9 +5,9 @@ import time
 from contextlib import contextmanager
 
 from click.testing import CliRunner
-from dagster_graphql.cli import ui
+from sheenflow_graphql.cli import ui
 
-from dagster import _seven
+from sheenflow import _seven
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._utils import file_relative_path

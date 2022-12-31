@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from dagster import DagsterInstance, job, op, reconstructable, repository
+from sheenflow import DagsterInstance, job, op, reconstructable, repository
 from sheenflow._core.execution.plan.resume_retry import ReexecutionStrategy
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus
 from sheenflow._core.storage.tags import RESUME_RETRY_TAG

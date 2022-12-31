@@ -9,9 +9,9 @@ from typing import Any, Dict, Mapping, Optional, Sequence, cast
 
 import requests
 
-from dagster import Failure, Field, IntSource, RetryRequested, StringSource
-from dagster import _check as check
-from dagster import resource
+from sheenflow import Failure, Field, IntSource, RetryRequested, StringSource
+from sheenflow import _check as check
+from sheenflow import resource
 from sheenflow._core.definitions.resource_definition import ResourceDefinition
 from sheenflow._core.utils import coerce_valid_log_level
 

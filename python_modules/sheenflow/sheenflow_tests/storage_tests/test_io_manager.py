@@ -5,7 +5,7 @@ import time
 import mock
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetMaterialization,
     DagsterInstance,

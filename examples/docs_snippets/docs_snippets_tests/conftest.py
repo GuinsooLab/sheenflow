@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 
 
 @pytest.fixture

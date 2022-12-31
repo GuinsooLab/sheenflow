@@ -5,7 +5,7 @@ import time
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     Failure,
     Field,
     MetadataEntry,

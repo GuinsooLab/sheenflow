@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from dagster import materialize_to_memory
+from sheenflow import materialize_to_memory
 from docs_snippets.concepts.partitions_schedules_sensors.partitioned_asset import (
     my_daily_partitioned_asset,
 )

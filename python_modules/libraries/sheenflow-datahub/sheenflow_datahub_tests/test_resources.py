@@ -7,7 +7,7 @@ from datahub.emitter.kafka_emitter import MCE_KEY
 from datahub.emitter.mcp import MetadataChangeProposalWrapper
 from datahub.metadata.schema_classes import ChangeTypeClass, DatasetPropertiesClass
 
-from dagster import DagsterResourceFunctionError, OpExecutionContext, build_op_context, op
+from sheenflow import DagsterResourceFunctionError, OpExecutionContext, build_op_context, op
 
 
 @responses.activate

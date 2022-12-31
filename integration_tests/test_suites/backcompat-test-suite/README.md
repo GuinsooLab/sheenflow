@@ -88,7 +88,7 @@ in this setup, you can emulate what the test is doing using two clones of dagste
 8. In `dagster_2` run dagit: `dagit -w integration_tests/test_suites/backcompat-test-suite/dagit_service/workspace.yaml`
 9. In `dagster` open a python interpreter and run the following
 ```python
-from dagster_graphql import DagsterGraphQLClient
+from sheenflow_graphql import DagsterGraphQLClient
 
 client = DagsterGraphQLClient("localhost", port_number=3000)
 client.submit_pipeline_execution(pipeline_name="the_job", mode="default", run_config={})

@@ -17,7 +17,7 @@ from typing import (
 from dbt.main import parse_args as dbt_parse_args
 
 import sheenflow._check as check
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetOut,
     AssetsDefinition,

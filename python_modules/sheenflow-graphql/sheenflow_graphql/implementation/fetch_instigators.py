@@ -11,7 +11,7 @@ from sheenflow._core.scheduler.instigation import InstigatorStatus
 from .utils import capture_error
 
 if TYPE_CHECKING:
-    from dagster_graphql.schema.util import HasContext
+    from sheenflow_graphql.schema.util import HasContext
 
 
 @capture_error

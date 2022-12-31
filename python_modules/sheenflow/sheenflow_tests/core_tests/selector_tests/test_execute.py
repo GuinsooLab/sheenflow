@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from dagster import ReexecutionOptions, execute_job, reconstructable
+from sheenflow import ReexecutionOptions, execute_job, reconstructable
 from sheenflow._core.definitions.events import AssetKey
 from sheenflow._core.errors import DagsterExecutionStepNotFoundError, DagsterInvalidSubsetError
 from sheenflow._core.test_utils import instance_for_test

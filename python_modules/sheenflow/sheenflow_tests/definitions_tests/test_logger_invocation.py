@@ -2,7 +2,7 @@ import logging
 
 import pytest
 
-from dagster import Field, build_init_logger_context, graph, job, logger, op
+from sheenflow import Field, build_init_logger_context, graph, job, logger, op
 from sheenflow._check import CheckError
 from sheenflow._core.errors import DagsterInvalidConfigError, DagsterInvalidInvocationError
 from sheenflow._core.utils import coerce_valid_log_level

@@ -1,4 +1,4 @@
-from dagster import AssetMaterialization
+from sheenflow import AssetMaterialization
 
 
 def test_asset_materialization_metadata():

@@ -7,7 +7,7 @@ from typing import Any, Dict, List
 import pytest
 from upath import UPath
 
-from dagster import (
+from sheenflow import (
     AllPartitionMapping,
     AssetIn,
     DagsterType,

@@ -1,8 +1,8 @@
 import pytest
 
-from dagster import DagsterInstance, Int, Out, Output
-from dagster import _check as check
-from dagster import job, op
+from sheenflow import DagsterInstance, Int, Out, Output
+from sheenflow import _check as check
+from sheenflow import job, op
 from sheenflow._core.definitions.decorators.graph_decorator import graph
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline
 from sheenflow._core.errors import (

@@ -1,6 +1,6 @@
 from typing import Optional
 
-from dagster import _check as check
+from sheenflow import _check as check
 from sheenflow._config import ConfigType, ConfigTypeKind
 from sheenflow._core.definitions import create_run_config_schema
 from sheenflow._legacy import PipelineDefinition

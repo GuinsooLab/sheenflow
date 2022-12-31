@@ -2,7 +2,7 @@ from collections import defaultdict
 
 import pytest
 
-from dagster import (
+from sheenflow import (
     AssetKey,
     AssetSelection,
     DagsterInstance,

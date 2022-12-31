@@ -1,6 +1,6 @@
 import pytest
 
-from dagster import file_relative_path
+from sheenflow import file_relative_path
 from sheenflow._core.instance.config import dagster_instance_config
 from sheenflow._core.test_utils import environ
 

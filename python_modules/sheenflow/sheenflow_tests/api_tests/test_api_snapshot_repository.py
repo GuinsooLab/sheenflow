@@ -3,7 +3,7 @@ from contextlib import contextmanager
 
 import pytest
 
-from dagster import repository
+from sheenflow import repository
 from sheenflow._api.snapshot_repository import sync_get_streaming_external_repositories_data_grpc
 from sheenflow._core.errors import DagsterUserCodeProcessError
 from sheenflow._core.host_representation import (

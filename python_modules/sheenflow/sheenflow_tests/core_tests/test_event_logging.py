@@ -1,7 +1,7 @@
 import logging
 from collections import defaultdict
 
-from dagster import DagsterEvent
+from sheenflow import DagsterEvent
 from sheenflow._core.events import DagsterEventType
 from sheenflow._core.events.log import EventLogEntry, construct_event_logger
 from sheenflow._legacy import (

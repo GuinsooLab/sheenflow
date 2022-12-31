@@ -1,9 +1,9 @@
 import dask
 import dask.distributed
 
-from dagster import Executor, Field, Permissive, Selector, StringSource
-from dagster import _check as check
-from dagster import _seven, multiple_process_executor_requirements
+from sheenflow import Executor, Field, Permissive, Selector, StringSource
+from sheenflow import _check as check
+from sheenflow import _seven, multiple_process_executor_requirements
 from sheenflow._core.definitions.executor_definition import executor
 from sheenflow._core.errors import raise_execution_interrupts
 from sheenflow._core.events import DagsterEvent

@@ -1,5 +1,5 @@
 # pylint: disable=redefined-outer-name
-from dagster import asset
+from sheenflow import asset
 
 
 # start_marker

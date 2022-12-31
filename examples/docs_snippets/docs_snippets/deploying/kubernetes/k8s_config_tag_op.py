@@ -1,6 +1,6 @@
 from dagster_k8s import k8s_job_executor
 
-from dagster import job, op
+from sheenflow import job, op
 
 
 # fmt: off
