@@ -30,10 +30,10 @@ setup(
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(exclude=["sheenflowr_pyspark_tests*"]),
+    packages=find_packages(exclude=["sheenflow_pyspark_tests*"]),
     install_requires=[
         f"sheenflow{pin}",
-        f"dagster_spark{pin}",
+        f"sheenflow_spark{pin}",
         # Pyspark 2.x is incompatible with Python 3.8+
         'pyspark>=3.0.0; python_version >= "3.8"',
         'pyspark>=2.0.2; python_version < "3.8"',
