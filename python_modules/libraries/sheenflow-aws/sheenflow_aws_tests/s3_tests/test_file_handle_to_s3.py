@@ -1,4 +1,4 @@
-from dagster_aws.s3 import S3FileHandle, file_handle_to_s3, s3_file_manager, s3_resource
+from sheenflow_aws.s3 import S3FileHandle, file_handle_to_s3, s3_file_manager, s3_resource
 
 from sheenflow import DagsterEventType, job, op
 

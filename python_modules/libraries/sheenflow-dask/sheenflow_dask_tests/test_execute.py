@@ -5,7 +5,7 @@ from threading import Thread
 
 import dagster_pandas as dagster_pd
 import pytest
-from dagster_dask import DataFrame, dask_executor
+from sheenflow_dask import DataFrame, dask_executor
 from dask.distributed import Scheduler, Worker
 
 from sheenflow import (

@@ -1,4 +1,4 @@
-from dagster_pandas.constraints import (
+from sheenflow_pandas.constraints import (
     all_unique_validator,
     categorical_column_validator_factory,
     column_range_validation_factory,

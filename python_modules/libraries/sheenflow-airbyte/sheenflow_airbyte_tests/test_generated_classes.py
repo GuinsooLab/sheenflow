@@ -1,8 +1,8 @@
 import inspect
 from typing import Any, Union, get_type_hints
 
-from dagster_airbyte import AirbyteDestination, AirbyteSource
-from dagster_airbyte.managed.generated import destinations, sources
+from sheenflow_airbyte import AirbyteDestination, AirbyteSource
+from sheenflow_airbyte.managed.generated import destinations, sources
 
 
 def instantiate(obj: Any) -> Any:

@@ -4,7 +4,7 @@
 
 def scope_define_reconciler():
     # start_define_reconciler
-    from dagster_airbyte import AirbyteManagedElementReconciler, airbyte_resource
+    from sheenflow_airbyte import AirbyteManagedElementReconciler, airbyte_resource
 
     airbyte_instance = airbyte_resource.configured(
         {
@@ -23,8 +23,8 @@ def scope_define_reconciler():
     # end_define_reconciler
 
     # start_define_sources
-    from dagster_airbyte.managed.generated.sources import FileSource
-    from dagster_airbyte.managed.generated.destinations import LocalJsonDestination
+    from sheenflow_airbyte.managed.generated.sources import FileSource
+    from sheenflow_airbyte.managed.generated.destinations import LocalJsonDestination
 
     cereals_csv_source = FileSource(
         name="cereals-csv",
@@ -41,7 +41,7 @@ def scope_define_reconciler():
     # end_define_sources
 
     # start_define_connection
-    from dagster_airbyte import AirbyteConnection, AirbyteSyncMode
+    from sheenflow_airbyte import AirbyteConnection, AirbyteSyncMode
 
     cereals_connection = AirbyteConnection(
         name="download-cereals",
@@ -65,7 +65,7 @@ def scope_define_reconciler():
     # end_new_reconciler_delete
 
     # start_load_assets
-    from dagster_airbyte import load_assets_from_connections, airbyte_resource
+    from sheenflow_airbyte import load_assets_from_connections, airbyte_resource
 
     airbyte_instance = airbyte_resource.configured(
         {

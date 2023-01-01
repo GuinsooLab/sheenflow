@@ -9,8 +9,8 @@ from typing import Any, Dict, Mapping
 
 import numpy as np
 import pandas as pd
-from dagster_airbyte import AirbyteResource
-from dagster_postgres.utils import get_conn_string
+from sheenflow_airbyte import AirbyteResource
+from sheenflow_postgres.utils import get_conn_string
 
 import sheenflow._check as check
 

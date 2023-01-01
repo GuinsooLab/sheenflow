@@ -1,10 +1,10 @@
 import pandas as pd
-from dagster_pandas.constraints import (
+from sheenflow_pandas.constraints import (
     ColumnDTypeFnConstraint,
     ColumnDTypeInSetConstraint,
     ConstraintViolationException,
 )
-from dagster_pandas.validation import PandasColumn, validate_constraints
+from sheenflow_pandas.validation import PandasColumn, validate_constraints
 
 from sheenflow import (
     AssetMaterialization,

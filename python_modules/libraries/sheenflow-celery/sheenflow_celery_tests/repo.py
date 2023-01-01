@@ -1,6 +1,6 @@
 import time
 
-from dagster_celery import celery_executor
+from sheenflow_celery import celery_executor
 
 from sheenflow import Int, Output, RetryRequested, VersionStrategy, fs_io_manager
 from sheenflow._core.test_utils import nesting_graph_pipeline

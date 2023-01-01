@@ -1,6 +1,6 @@
 from typing import Any, Iterator, Mapping, Sequence
 
-from dagster_airbyte.types import AirbyteOutput
+from sheenflow_airbyte.types import AirbyteOutput
 
 from sheenflow import AssetMaterialization, MetadataValue
 from sheenflow._core.definitions.metadata.table import TableColumn, TableSchema

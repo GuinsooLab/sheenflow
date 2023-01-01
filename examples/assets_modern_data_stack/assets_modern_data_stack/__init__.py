@@ -1,5 +1,5 @@
-from dagster_airbyte import airbyte_resource
-from dagster_dbt import dbt_cli_resource
+from sheenflow_airbyte import airbyte_resource
+from sheenflow_dbt import dbt_cli_resource
 
 from sheenflow import (
     Definitions,

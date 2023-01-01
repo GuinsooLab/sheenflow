@@ -1,7 +1,7 @@
 import json
 import os
 
-from dagster_dbt import load_assets_from_dbt_manifest
+from sheenflow_dbt import load_assets_from_dbt_manifest
 
 from sheenflow import load_assets_from_package_module
 from sheenflow._utils import file_relative_path

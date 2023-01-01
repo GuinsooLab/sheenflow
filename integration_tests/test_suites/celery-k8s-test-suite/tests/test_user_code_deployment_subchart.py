@@ -3,8 +3,8 @@ import json
 
 import kubernetes
 import pytest
-from dagster_k8s.test import wait_for_job_and_get_raw_logs
-from dagster_k8s_test_infra.integration_utils import image_pull_policy
+from sheenflow_k8s.test import wait_for_job_and_get_raw_logs
+from sheenflow_k8s_test_infra.integration_utils import image_pull_policy
 from kubernetes.stream import stream
 from marks import mark_user_code_deployment_subchart
 

@@ -1,8 +1,8 @@
 import os
 from collections import Counter
 
-from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
-from dagster_celery_k8s import celery_k8s_job_executor
+from sheenflow_aws.s3 import s3_pickle_io_manager, s3_resource
+from sheenflow_celery_k8s import celery_k8s_job_executor
 
 from sheenflow import file_relative_path, repository
 from sheenflow._legacy import (

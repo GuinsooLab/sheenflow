@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 import pytest
-from dagster_pandas import DataFrame
+from sheenflow_pandas import DataFrame
 
 from sheenflow import DagsterInvalidConfigError, In, Out, graph, op
 from sheenflow._utils import file_relative_path

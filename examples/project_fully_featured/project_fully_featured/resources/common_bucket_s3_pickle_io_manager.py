@@ -1,4 +1,4 @@
-from dagster_aws.s3 import s3_pickle_io_manager
+from sheenflow_aws.s3 import s3_pickle_io_manager
 
 from sheenflow import build_init_resource_context, io_manager
 

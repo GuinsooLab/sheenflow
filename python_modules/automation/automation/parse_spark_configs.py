@@ -282,7 +282,7 @@ def run() -> None:
     serialized = serialize(result)
 
     output_files = [
-        "python_modules/libraries/sheenflow-spark/dagster_spark/configs_spark.py",
+        "python_modules/libraries/sheenflow-spark/sheenflow_spark/configs_spark.py",
         "python_modules/libraries/sheenflow-aws/sheenflow_aws/emr/configs_spark.py",
     ]
     for output_file in output_files:

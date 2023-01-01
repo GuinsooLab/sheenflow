@@ -18,7 +18,7 @@ COPY requirements-dagster.txt $DAGSTER_HOME
 RUN pip install -r requirements-sheenflow.txt
 
 # Dagit
-FROM dagster as dagit
+from sheenflow as dagit
 COPY requirements-dagit.txt $DAGSTER_HOME
 RUN pip install -r requirements-sheenlet.txt
 
@@ -26,5 +26,5 @@ RUN pip install -r requirements-sheenlet.txt
 # You can either include all of your repositories in this
 # stage or you can create multiple stages that each use
 # the same base - one for each repository.
-FROM dagster as user_code
+from sheenflow as user_code
 COPY repo.py $DAGSTER_HOME

@@ -3,13 +3,13 @@ import os
 import pytest
 from airflow.exceptions import AirflowException
 from airflow.utils import timezone
-from dagster_airflow.factory import (
+from sheenflow_airflow.factory import (
     AIRFLOW_MAX_DAG_NAME_LEN,
     _rename_for_airflow,
     make_airflow_dag_for_recon_repo,
 )
-from dagster_airflow_tests.marks import nettest, requires_airflow_db
-from dagster_airflow_tests.test_fixtures import (  # pylint: disable=unused-import
+from sheenflow_airflow_tests.marks import nettest, requires_airflow_db
+from sheenflow_airflow_tests.test_fixtures import (  # pylint: disable=unused-import
     dagster_airflow_python_operator_pipeline,
     execute_tasks_in_dag,
 )

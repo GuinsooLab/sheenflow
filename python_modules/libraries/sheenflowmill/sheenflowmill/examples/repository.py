@@ -30,7 +30,7 @@ from sheenflow._core.definitions.utils import DEFAULT_OUTPUT
 from sheenflow._utils import PICKLE_PROTOCOL, file_relative_path
 
 try:
-    from dagster_pandas import DataFrame
+    from sheenflow_pandas import DataFrame
 
     DAGSTER_PANDAS_PRESENT = True
 except ImportError:

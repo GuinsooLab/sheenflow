@@ -1,7 +1,7 @@
 import click
 
 try:
-    from dagster_managed_elements.cli import apply_cmd, check_cmd
+    from sheenflow_managed_elements.cli import apply_cmd, check_cmd
 
     @click.group()
     def main():

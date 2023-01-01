@@ -1,4 +1,4 @@
-from dagster_pandas import __version__
+from sheenflow_pandas import __version__
 
 
 def test_version():

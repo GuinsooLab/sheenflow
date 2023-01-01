@@ -221,7 +221,7 @@ def dagster_event_sequence_for_step(
 
         (3) User code fails unexpectedly:
             The user-space code has raised an Exception. It has been
-            wrapped in an exception derived from DagsterUserCodeException. In that
+            wrapped in an exception derived from sheenflowUserCodeException. In that
             case the original user exc_info is stashed on the exception
             as the original_exc_info property.
 

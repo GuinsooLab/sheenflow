@@ -1,4 +1,4 @@
-from dagster_k8s import k8s_job_executor
+from sheenflow_k8s import k8s_job_executor
 
 from sheenflow import job, op
 

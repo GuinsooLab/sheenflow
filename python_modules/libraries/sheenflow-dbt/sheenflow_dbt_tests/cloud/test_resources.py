@@ -2,7 +2,7 @@ import re
 
 import pytest
 import responses
-from dagster_dbt import dbt_cloud_resource
+from sheenflow_dbt import dbt_cloud_resource
 
 from sheenflow import Failure, build_init_resource_context
 from sheenflow._check import CheckError

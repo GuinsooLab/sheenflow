@@ -1,7 +1,7 @@
 # pylint: disable=redefined-outer-name
 import boto3
 import pytest
-from dagster_aws.athena.resources import AthenaError, AthenaTimeout, FakeAthenaResource
+from sheenflow_aws.athena.resources import AthenaError, AthenaTimeout, FakeAthenaResource
 from moto import mock_athena
 
 
@@ -63,7 +63,7 @@ def test_execute_query_succeeds_on_last_poll(mock_athena_client):
 
 
 def test_op(mock_athena_client):  # pylint: disable=unused-argument
-    from dagster_aws.athena import fake_athena_resource
+    from sheenflow_aws.athena import fake_athena_resource
 
     from sheenflow import build_op_context, op
 

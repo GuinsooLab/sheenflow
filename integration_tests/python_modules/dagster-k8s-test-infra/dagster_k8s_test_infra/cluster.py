@@ -10,8 +10,8 @@ import docker
 import kubernetes
 import psycopg2
 import pytest
-from dagster_k8s.client import DagsterKubernetesClient
-from dagster_postgres import PostgresEventLogStorage, PostgresRunStorage, PostgresScheduleStorage
+from sheenflow_k8s.client import DagsterKubernetesClient
+from sheenflow_postgres import PostgresEventLogStorage, PostgresRunStorage, PostgresScheduleStorage
 from sheenflow_test.test_project import build_and_tag_test_image, get_test_project_docker_image
 
 import sheenflow._check as check

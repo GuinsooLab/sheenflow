@@ -1,4 +1,4 @@
-from dagster_celery import celery_executor
+from sheenflow_celery import celery_executor
 
 from sheenflow import job, op
 

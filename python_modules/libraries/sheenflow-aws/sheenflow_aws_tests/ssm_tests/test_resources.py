@@ -1,6 +1,6 @@
 import os
 
-from dagster_aws.ssm import parameter_store_resource
+from sheenflow_aws.ssm import parameter_store_resource
 
 from sheenflow import build_init_resource_context
 from sheenflow._core.test_utils import environ

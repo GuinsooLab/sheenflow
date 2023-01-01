@@ -1,4 +1,4 @@
-from dagster_aws.ecs.utils import sanitize_family
+from sheenflow_aws.ecs.utils import sanitize_family
 
 
 def test_sanitize_family():

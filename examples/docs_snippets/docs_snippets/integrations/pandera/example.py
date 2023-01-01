@@ -2,7 +2,7 @@ import random
 
 import pandas as pd
 import pandera as pa
-from dagster_pandera import pandera_schema_to_dagster_type
+from sheenflow_pandera import pandera_schema_to_dagster_type
 from pandera.typing import Series
 
 from sheenflow import Out, job, op

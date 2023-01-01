@@ -1,4 +1,4 @@
-from dagster_pyspark import __version__
+from sheenflow_pyspark import __version__
 
 
 def test_version():

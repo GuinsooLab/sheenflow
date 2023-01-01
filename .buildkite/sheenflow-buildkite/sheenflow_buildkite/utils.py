@@ -7,7 +7,7 @@ from typing import Dict, List, Optional, Union
 
 import packaging.version
 import yaml
-from dagster_buildkite.git import ChangedFiles, get_commit_message
+from sheenflow_buildkite.git import ChangedFiles, get_commit_message
 from typing_extensions import Literal, TypeAlias, TypedDict
 
 BUILD_CREATOR_EMAIL_TO_SLACK_CHANNEL_MAP = {

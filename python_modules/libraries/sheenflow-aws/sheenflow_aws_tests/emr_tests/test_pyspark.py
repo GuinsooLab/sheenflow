@@ -4,10 +4,10 @@ import sys
 from unittest import mock
 
 import pytest
-from dagster_aws.emr import EmrError, EmrJobRunner
-from dagster_aws.emr.pyspark_step_launcher import EmrPySparkStepLauncher, emr_pyspark_step_launcher
-from dagster_aws.s3 import s3_resource
-from dagster_pyspark import DataFrame, pyspark_resource
+from sheenflow_aws.emr import EmrError, EmrJobRunner
+from sheenflow_aws.emr.pyspark_step_launcher import EmrPySparkStepLauncher, emr_pyspark_step_launcher
+from sheenflow_aws.s3 import s3_resource
+from sheenflow_pyspark import DataFrame, pyspark_resource
 from moto import mock_emr
 from pyspark.sql import Row
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType

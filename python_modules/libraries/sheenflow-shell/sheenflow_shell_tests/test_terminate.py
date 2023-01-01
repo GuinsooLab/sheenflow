@@ -2,7 +2,7 @@ import time
 from contextlib import contextmanager
 
 import psutil
-from dagster_shell.utils import execute
+from sheenflow_shell.utils import execute
 
 from sheenflow import repository
 from sheenflow._core.storage.pipeline_run import DagsterRunStatus

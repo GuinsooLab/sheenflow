@@ -580,9 +580,9 @@ def _gather_all_schemas(node_defs: Sequence[NodeDefinition]) -> Iterator[ConfigT
     dagster_types = construct_dagster_type_dictionary(node_defs)
     for dagster_type in list(dagster_types.values()) + list(ALL_RUNTIME_BUILTINS):
         if dagster_type.loader:
-            yield from dagster_type.loader.schema_type.type_iterator()
+            yield from sheenflow_type.loader.schema_type.type_iterator()
         if dagster_type.materializer:
-            yield from dagster_type.materializer.schema_type.type_iterator()
+            yield from sheenflow_type.materializer.schema_type.type_iterator()
 
 
 def _gather_all_config_types(

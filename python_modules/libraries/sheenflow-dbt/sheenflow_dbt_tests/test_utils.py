@@ -1,6 +1,6 @@
 import pytest
-from dagster_dbt.types import DbtOutput
-from dagster_dbt.utils import generate_materializations
+from sheenflow_dbt.types import DbtOutput
+from sheenflow_dbt.utils import generate_materializations
 
 from sheenflow import AssetKey
 

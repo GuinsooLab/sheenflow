@@ -1,4 +1,4 @@
-from dagster_dbt import (
+from sheenflow_dbt import (
     dbt_cli_resource,
     dbt_cloud_resource,
     load_assets_from_dbt_cloud_job,

@@ -1,6 +1,6 @@
 from typing import Any, Mapping
 
-from dagster_dask import dask_resource
+from sheenflow_dask import dask_resource
 from dask.distributed import Client
 
 from sheenflow import Dict, Output

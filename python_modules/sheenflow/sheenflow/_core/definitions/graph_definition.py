@@ -711,7 +711,7 @@ class GraphDefinition(NodeDefinition):
             yield from node.get_resource_requirements(outer_container=self, asset_layer=asset_layer)
 
         for dagster_type in self.all_dagster_types():
-            yield from dagster_type.get_resource_requirements()
+            yield from sheenflow_type.get_resource_requirements()
 
     @public  # type: ignore
     @property

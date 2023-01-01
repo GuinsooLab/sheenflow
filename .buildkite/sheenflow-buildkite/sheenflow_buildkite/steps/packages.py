@@ -2,11 +2,11 @@ import os
 from glob import glob
 from typing import List, Optional
 
-from dagster_buildkite.defines import GCP_CREDS_LOCAL_FILE, GIT_REPO_ROOT
-from dagster_buildkite.package_spec import PackageSpec
-from dagster_buildkite.python_version import AvailablePythonVersion
-from dagster_buildkite.steps.test_project import test_project_depends_fn
-from dagster_buildkite.utils import (
+from sheenflow_buildkite.defines import GCP_CREDS_LOCAL_FILE, GIT_REPO_ROOT
+from sheenflow_buildkite.package_spec import PackageSpec
+from sheenflow_buildkite.python_version import AvailablePythonVersion
+from sheenflow_buildkite.steps.test_project import test_project_depends_fn
+from sheenflow_buildkite.utils import (
     BuildkiteStep,
     connect_sibling_docker_container,
     network_buildkite_container,

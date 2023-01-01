@@ -1,8 +1,8 @@
 import kubernetes
 import pytest
-from dagster_k8s import execute_k8s_job, k8s_job_op
-from dagster_k8s.client import DagsterK8sError, DagsterKubernetesClient
-from dagster_k8s.job import get_k8s_job_name
+from sheenflow_k8s import execute_k8s_job, k8s_job_op
+from sheenflow_k8s.client import DagsterK8sError, DagsterKubernetesClient
+from sheenflow_k8s.job import get_k8s_job_name
 
 from sheenflow import job, op
 

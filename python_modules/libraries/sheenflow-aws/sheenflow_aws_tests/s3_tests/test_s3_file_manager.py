@@ -3,7 +3,7 @@ from unittest import mock
 
 import pytest
 from botocore import exceptions
-from dagster_aws.s3 import S3FileHandle, S3FileManager, s3_file_manager, s3_resource
+from sheenflow_aws.s3 import S3FileHandle, S3FileManager, s3_file_manager, s3_resource
 
 from sheenflow import DagsterResourceFunctionError, In, Out, build_op_context, configured, job, op
 

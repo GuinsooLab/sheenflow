@@ -1,6 +1,6 @@
 # start
 # __init__.py
-from dagster_snowflake_pandas import snowflake_pandas_io_manager
+from sheenflow_snowflake_pandas import snowflake_pandas_io_manager
 from development_to_production.assets import comments, items, stories
 
 from sheenflow import Definitions

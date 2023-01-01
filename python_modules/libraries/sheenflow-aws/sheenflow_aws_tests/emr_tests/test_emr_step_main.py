@@ -1,7 +1,7 @@
 from queue import Queue
 from threading import Thread
 
-from dagster_aws.emr.emr_step_main import DONE, event_writing_loop
+from sheenflow_aws.emr.emr_step_main import DONE, event_writing_loop
 
 from sheenflow import DagsterEvent
 from sheenflow._core.events import EngineEventData

@@ -1,7 +1,7 @@
 import pytest
 import responses
-from dagster_airbyte import airbyte_resource, load_assets_from_airbyte_project
-from dagster_airbyte.asset_defs import AirbyteConnectionMetadata
+from sheenflow_airbyte import airbyte_resource, load_assets_from_airbyte_project
+from sheenflow_airbyte.asset_defs import AirbyteConnectionMetadata
 
 from sheenflow import AssetKey, build_init_resource_context, materialize, with_resources
 from sheenflow._utils import file_relative_path

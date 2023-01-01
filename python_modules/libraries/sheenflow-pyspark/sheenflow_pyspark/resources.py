@@ -1,5 +1,5 @@
-from dagster_spark.configs_spark import spark_config
-from dagster_spark.utils import flatten_dict
+from sheenflow_spark.configs_spark import spark_config
+from sheenflow_spark.utils import flatten_dict
 from pyspark.sql import SparkSession
 
 import sheenflow._check as check

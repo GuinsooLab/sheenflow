@@ -8,7 +8,7 @@ from urllib.error import URLError
 
 import pytest
 import responses
-from dagster_dbt import DbtRpcResource
+from sheenflow_dbt import DbtRpcResource
 
 TEST_HOSTNAME = "127.0.0.1"
 TEST_PORT = 8580

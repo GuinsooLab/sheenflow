@@ -1,4 +1,4 @@
-from dagster_airflow.factory import make_airflow_dag
+from sheenflow_airflow.factory import make_airflow_dag
 
 dag, steps = make_airflow_dag(
     module_name="docs_snippets.intro_tutorial.airflow",

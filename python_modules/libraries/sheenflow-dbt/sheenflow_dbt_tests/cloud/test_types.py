@@ -1,4 +1,4 @@
-from dagster_dbt import DbtCloudOutput
+from sheenflow_dbt import DbtCloudOutput
 
 from .utils import sample_run_details, sample_run_results
 

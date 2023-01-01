@@ -94,8 +94,8 @@ def dagster_airflow_python_operator_pipeline():
             )
             assert len(results) == 3
     """
-    from dagster_airflow.factory import make_airflow_dag_for_recon_repo
-    from dagster_airflow.vendor.python_operator import PythonOperator
+    from sheenflow_airflow.factory import make_airflow_dag_for_recon_repo
+    from sheenflow_airflow.vendor.python_operator import PythonOperator
 
     def _pipeline_fn(
         recon_repo,
@@ -140,8 +140,8 @@ def dagster_airflow_custom_operator_pipeline():
             )
             assert len(results) == 3
     """
-    from dagster_airflow.factory import make_airflow_dag_for_operator
-    from dagster_airflow.vendor.python_operator import PythonOperator
+    from sheenflow_airflow.factory import make_airflow_dag_for_operator
+    from sheenflow_airflow.vendor.python_operator import PythonOperator
 
     def _pipeline_fn(
         recon_repo,
@@ -187,8 +187,8 @@ def dagster_airflow_docker_operator_pipeline():
             )
             assert len(results) == 3
     """
-    from dagster_airflow.factory import make_airflow_dag_containerized_for_recon_repo
-    from dagster_airflow.operators.docker_operator import DagsterDockerOperator
+    from sheenflow_airflow.factory import make_airflow_dag_containerized_for_recon_repo
+    from sheenflow_airflow.operators.docker_operator import DagsterDockerOperator
 
     def _pipeline_fn(
         recon_repo,

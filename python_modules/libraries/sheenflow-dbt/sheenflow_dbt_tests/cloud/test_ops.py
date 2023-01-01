@@ -1,6 +1,6 @@
 import pytest
 import responses
-from dagster_dbt import dbt_cloud_resource, dbt_cloud_run_op
+from sheenflow_dbt import dbt_cloud_resource, dbt_cloud_run_op
 
 from sheenflow import Failure, job
 from sheenflow._check import CheckError

@@ -1,6 +1,6 @@
-from dagster_airbyte.resources import DEFAULT_POLL_INTERVAL_SECONDS
-from dagster_airbyte.types import AirbyteOutput
-from dagster_airbyte.utils import _get_attempt, generate_materializations
+from sheenflow_airbyte.resources import DEFAULT_POLL_INTERVAL_SECONDS
+from sheenflow_airbyte.types import AirbyteOutput
+from sheenflow_airbyte.utils import _get_attempt, generate_materializations
 
 from sheenflow import Array, Bool, Field, In, Noneable, Nothing, Out, Output, op
 

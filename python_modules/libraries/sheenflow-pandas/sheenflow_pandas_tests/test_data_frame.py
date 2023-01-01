@@ -1,13 +1,13 @@
 from typing import List
 
 import pytest
-from dagster_pandas.constraints import (
+from sheenflow_pandas.constraints import (
     ColumnDTypeInSetConstraint,
     InRangeColumnConstraint,
     NonNullableColumnConstraint,
 )
-from dagster_pandas.data_frame import _execute_summary_stats, create_dagster_pandas_dataframe_type
-from dagster_pandas.validation import PandasColumn
+from sheenflow_pandas.data_frame import _execute_summary_stats, create_dagster_pandas_dataframe_type
+from sheenflow_pandas.validation import PandasColumn
 from pandas import DataFrame, read_csv
 
 from sheenflow import (

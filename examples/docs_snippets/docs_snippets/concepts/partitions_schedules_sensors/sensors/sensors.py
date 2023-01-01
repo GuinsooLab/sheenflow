@@ -180,7 +180,7 @@ def my_directory_sensor_with_skip_reasons():
 # end_skip_sensors_marker
 
 # start_s3_sensors_marker
-from dagster_aws.s3.sensor import get_s3_keys
+from sheenflow_aws.s3.sensor import get_s3_keys
 
 
 @sensor(job=my_job)

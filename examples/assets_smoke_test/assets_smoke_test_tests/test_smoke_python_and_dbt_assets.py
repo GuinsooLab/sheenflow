@@ -7,8 +7,8 @@ from assets_smoke_test.python_and_dbt_assets import (
     DBT_PROJECT_DIR,
     raw_country_populations,
 )
-from dagster_dbt import dbt_cli_resource
-from dagster_snowflake_pandas import snowflake_pandas_io_manager
+from sheenflow_dbt import dbt_cli_resource
+from sheenflow_snowflake_pandas import snowflake_pandas_io_manager
 
 from sheenflow import load_assets_from_modules, materialize
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from airflow import DAG
-from dagster_airflow import DagsterCloudOperator
+from sheenflow_airflow import DagsterCloudOperator
 
 with DAG(
     dag_id="dagster_cloud",

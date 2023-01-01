@@ -69,7 +69,7 @@ class TestMySQLInstance:
             TestMySQLInstance.dagster_mysql_installed(),
             "sheenflow_mysql must be installed to test with mysql",
         )
-        from dagster_mysql.utils import get_conn_string  # pylint: disable=import-error
+        from sheenflow_mysql.utils import get_conn_string  # pylint: disable=import-error
 
         env_name = (
             "MYSQL_TEST_BACKCOMPAT_DB_HOST" if kwargs.get("port") == 3307 else "MYSQL_TEST_DB_HOST"
@@ -92,7 +92,7 @@ class TestMySQLInstance:
             TestMySQLInstance.dagster_mysql_installed(),
             "sheenflow_mysql must be installed to test with mysql",
         )
-        from dagster_mysql.run_storage import MySQLRunStorage  # pylint: disable=import-error
+        from sheenflow_mysql.run_storage import MySQLRunStorage  # pylint: disable=import-error
 
         storage = MySQLRunStorage.create_clean_storage(conn_string)
         assert storage
@@ -104,7 +104,7 @@ class TestMySQLInstance:
             TestMySQLInstance.dagster_mysql_installed(),
             "sheenflow_mysql must be installed to test with mysql",
         )
-        from dagster_mysql.event_log import MySQLEventLogStorage  # pylint: disable=import-error
+        from sheenflow_mysql.event_log import MySQLEventLogStorage  # pylint: disable=import-error
 
         storage = MySQLEventLogStorage.create_clean_storage(conn_string)
         assert storage
@@ -116,7 +116,7 @@ class TestMySQLInstance:
             TestMySQLInstance.dagster_mysql_installed(),
             "sheenflow_mysql must be installed to test with mysql",
         )
-        from dagster_mysql.schedule_storage.schedule_storage import (  # pylint: disable=import-error
+        from sheenflow_mysql.schedule_storage.schedule_storage import (  # pylint: disable=import-error
             MySQLScheduleStorage,
         )
 
@@ -138,7 +138,7 @@ class TestMySQLInstance:
         )
         conn_args = check.opt_dict_param(conn_args, "conn_args") if conn_args else {}
 
-        from dagster_mysql.utils import wait_for_connection  # pylint: disable=import-error
+        from sheenflow_mysql.utils import wait_for_connection  # pylint: disable=import-error
 
         if BUILDKITE:
             yield TestMySQLInstance.conn_string(

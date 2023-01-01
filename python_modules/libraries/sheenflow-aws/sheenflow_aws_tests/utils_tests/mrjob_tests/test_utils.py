@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 
 import botocore
-from dagster_aws.utils.mrjob.utils import (
+from sheenflow_aws.utils.mrjob.utils import (
     _boto3_now,
     _client_error_code,
     _client_error_status,

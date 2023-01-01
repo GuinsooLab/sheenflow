@@ -1,4 +1,4 @@
-from dagster_airflow.version import __version__
+from sheenflow_airflow.version import __version__
 
 
 def test_version():

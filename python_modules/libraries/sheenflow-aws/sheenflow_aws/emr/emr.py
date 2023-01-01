@@ -27,7 +27,7 @@ from urllib.parse import urlparse
 
 import boto3
 from botocore.exceptions import WaiterError
-from dagster_aws.utils.mrjob.utils import _boto3_now, _wrap_aws_client, strip_microseconds
+from sheenflow_aws.utils.mrjob.utils import _boto3_now, _wrap_aws_client, strip_microseconds
 
 import dagster
 import sheenflow._check as check

@@ -1,4 +1,4 @@
-from dagster_airflow.compile import coalesce_execution_steps
+from sheenflow_airflow.compile import coalesce_execution_steps
 from sheenflow_test.toys.composition import composition
 
 from sheenflow._core.definitions.pipeline_base import InMemoryPipeline

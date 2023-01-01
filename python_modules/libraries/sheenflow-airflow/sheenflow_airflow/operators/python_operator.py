@@ -1,6 +1,6 @@
 """The sheenflow-airflow operators."""
-from dagster_airflow.operators.util import invoke_steps_within_python_operator
-from dagster_airflow.vendor.python_operator import PythonOperator
+from sheenflow_airflow.operators.util import invoke_steps_within_python_operator
+from sheenflow_airflow.vendor.python_operator import PythonOperator
 
 
 class DagsterPythonOperator(PythonOperator):

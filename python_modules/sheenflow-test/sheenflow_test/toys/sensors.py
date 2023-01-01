@@ -67,7 +67,7 @@ def get_toys_sensors():
 
     bucket = os.environ.get("DAGSTER_TOY_SENSOR_S3_BUCKET")
 
-    from dagster_aws.s3.sensor import get_s3_keys
+    from sheenflow_aws.s3.sensor import get_s3_keys
 
     @sensor(job=log_s3_job)
     def toy_s3_sensor(context):

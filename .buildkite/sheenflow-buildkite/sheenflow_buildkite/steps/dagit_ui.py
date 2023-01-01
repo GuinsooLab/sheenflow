@@ -1,8 +1,8 @@
 from pathlib import Path
 from typing import List
 
-from dagster_buildkite.git import ChangedFiles
-from dagster_buildkite.package_spec import PackageSpec
+from sheenflow_buildkite.git import ChangedFiles
+from sheenflow_buildkite.package_spec import PackageSpec
 
 from ..python_version import AvailablePythonVersion
 from ..step_builder import CommandStepBuilder

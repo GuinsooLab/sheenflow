@@ -26,7 +26,7 @@ RUN ! pip list --exclude-editable | grep -e sheenflow -e sheenlet
 WORKDIR $DAGSTER_HOME
 
 # Dagit
-FROM dagster as dagit
+from sheenflow as dagit
 
 WORKDIR /tmp
 
@@ -43,5 +43,5 @@ WORKDIR $DAGSTER_HOME
 # You can either include all of your repositories in this
 # stage or you can create multiple stages that each use
 # the same base - one for each repository.
-FROM dagster as user_code
+from sheenflow as user_code
 COPY repo.py $DAGSTER_HOME

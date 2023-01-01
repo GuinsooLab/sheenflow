@@ -1,4 +1,4 @@
-from dagster_mysql.version import __version__
+from sheenflow_mysql.version import __version__
 
 
 def test_version():

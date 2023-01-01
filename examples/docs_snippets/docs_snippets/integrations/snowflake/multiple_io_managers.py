@@ -3,8 +3,8 @@ plot_data = None
 # start_example
 
 import pandas as pd
-from dagster_aws.s3.io_manager import s3_pickle_io_manager
-from dagster_snowflake_pandas import snowflake_pandas_io_manager
+from sheenflow_aws.s3.io_manager import s3_pickle_io_manager
+from sheenflow_snowflake_pandas import snowflake_pandas_io_manager
 
 from sheenflow import Definitions, asset
 

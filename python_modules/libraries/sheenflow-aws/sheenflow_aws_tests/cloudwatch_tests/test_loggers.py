@@ -3,7 +3,7 @@ import json
 
 import boto3
 import pytest
-from dagster_aws.cloudwatch import cloudwatch_logger
+from sheenflow_aws.cloudwatch import cloudwatch_logger
 from moto import mock_logs
 
 from sheenflow import job, op

@@ -1,5 +1,5 @@
 # from sheenflow_aws.emr.configs_spark import spark_config as dagster_aws_spark_config
-# from dagster_spark.configs_spark import spark_config as dagster_spark_spark_config
+# from sheenflow_spark.configs_spark import spark_config as dagster_spark_spark_config
 
 import dagster_aws.emr.configs_spark as aws_configs_spark
 import dagster_spark.configs_spark as spark_configs_spark

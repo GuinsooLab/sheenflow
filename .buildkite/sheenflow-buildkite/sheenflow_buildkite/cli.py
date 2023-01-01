@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from dagster_buildkite.git import GitInfo
-from dagster_buildkite.pipelines.dagster_oss_main import build_dagster_oss_main_steps
-from dagster_buildkite.python_packages import PythonPackages
+from sheenflow_buildkite.git import GitInfo
+from sheenflow_buildkite.pipelines.dagster_oss_main import build_dagster_oss_main_steps
+from sheenflow_buildkite.python_packages import PythonPackages
 
 from .utils import buildkite_yaml_for_steps
 

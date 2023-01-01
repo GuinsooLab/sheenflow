@@ -81,7 +81,7 @@ const AppStackTraceLink = ({error, operationName}: AppStackTraceLinkProps) => {
         marginBottom: 30,
       }}
     >
-      You hit an unexpected error while fetching data from Dagster.
+      You hit an unexpected error while fetching data from sheenflow.
       <br />
       <br />
       If you have a minute, consider reporting this error either by{' '}

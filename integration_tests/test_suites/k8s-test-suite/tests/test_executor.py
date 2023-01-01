@@ -4,10 +4,10 @@ import time
 import uuid
 
 import pytest
-from dagster_k8s.client import DagsterKubernetesClient
-from dagster_k8s.job import get_k8s_job_name
-from dagster_k8s.test import wait_for_job_and_get_raw_logs
-from dagster_k8s_test_infra.helm import (
+from sheenflow_k8s.client import DagsterKubernetesClient
+from sheenflow_k8s.job import get_k8s_job_name
+from sheenflow_k8s.test import wait_for_job_and_get_raw_logs
+from sheenflow_k8s_test_infra.helm import (
     TEST_CONFIGMAP_NAME,
     TEST_IMAGE_PULL_SECRET_NAME,
     TEST_OTHER_CONFIGMAP_NAME,
@@ -15,7 +15,7 @@ from dagster_k8s_test_infra.helm import (
     TEST_OTHER_SECRET_NAME,
     TEST_SECRET_NAME,
 )
-from dagster_k8s_test_infra.integration_utils import (
+from sheenflow_k8s_test_infra.integration_utils import (
     can_terminate_run_over_graphql,
     image_pull_policy,
     launch_run_over_graphql,

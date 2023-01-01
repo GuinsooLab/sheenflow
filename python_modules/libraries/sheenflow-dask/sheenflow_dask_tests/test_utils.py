@@ -1,5 +1,5 @@
 import dask.dataframe as dd
-from dagster_dask import DataFrame
+from sheenflow_dask import DataFrame
 
 from sheenflow import file_relative_path
 from sheenflow._legacy import InputDefinition, execute_solid, solid

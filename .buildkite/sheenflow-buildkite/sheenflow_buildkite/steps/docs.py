@@ -1,6 +1,6 @@
 from typing import List
 
-from dagster_buildkite.steps.tox import build_tox_step
+from sheenflow_buildkite.steps.tox import build_tox_step
 
 from ..python_version import AvailablePythonVersion
 from ..step_builder import CommandStepBuilder

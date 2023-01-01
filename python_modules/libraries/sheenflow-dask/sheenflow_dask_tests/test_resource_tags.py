@@ -1,4 +1,4 @@
-from dagster_dask.executor import get_dask_resource_requirements
+from sheenflow_dask.executor import get_dask_resource_requirements
 
 from sheenflow._legacy import solid
 

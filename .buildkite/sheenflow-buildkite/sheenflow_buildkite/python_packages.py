@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Dict, Optional, Set
 
 import pathspec
-from dagster_buildkite.git import ChangedFiles, GitInfo
+from sheenflow_buildkite.git import ChangedFiles, GitInfo
 from pkg_resources import Requirement, parse_requirements
 
 changed_filetypes = [".py", ".cfg", ".toml", ".yaml", ".ipynb", ".yml", ".ini"]

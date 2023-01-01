@@ -1,11 +1,11 @@
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple, cast
 
-from dagster_airbyte.asset_defs import (
+from sheenflow_airbyte.asset_defs import (
     AirbyteConnectionMetadata,
     AirbyteInstanceCacheableAssetsDefinition,
     _clean_name,
 )
-from dagster_airbyte.managed.types import (
+from sheenflow_airbyte.managed.types import (
     AirbyteConnection,
     AirbyteDestination,
     AirbyteDestinationNamespace,
@@ -15,19 +15,19 @@ from dagster_airbyte.managed.types import (
     InitializedAirbyteDestination,
     InitializedAirbyteSource,
 )
-from dagster_airbyte.resources import AirbyteResource
-from dagster_airbyte.utils import is_basic_normalization_operation
-from dagster_managed_elements import (
+from sheenflow_airbyte.resources import AirbyteResource
+from sheenflow_airbyte.utils import is_basic_normalization_operation
+from sheenflow_managed_elements import (
     ManagedElementCheckResult,
     ManagedElementDiff,
     ManagedElementError,
 )
-from dagster_managed_elements.types import (
+from sheenflow_managed_elements.types import (
     SECRET_MASK_VALUE,
     ManagedElementReconciler,
     is_key_secret,
 )
-from dagster_managed_elements.utils import UNSET, diff_dicts
+from sheenflow_managed_elements.utils import UNSET, diff_dicts
 
 import sheenflow._check as check
 from sheenflow import AssetKey, ResourceDefinition

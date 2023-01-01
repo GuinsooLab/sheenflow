@@ -1,8 +1,8 @@
 import json
 import os
 
-from dagster_aws.secretsmanager import get_secrets_from_arns, secretsmanager_secrets_resource
-from dagster_aws.secretsmanager.secrets import get_tagged_secrets
+from sheenflow_aws.secretsmanager import get_secrets_from_arns, secretsmanager_secrets_resource
+from sheenflow_aws.secretsmanager.secrets import get_tagged_secrets
 
 from sheenflow._core.execution.context.init import build_init_resource_context
 from sheenflow._core.test_utils import environ

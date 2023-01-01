@@ -1,6 +1,6 @@
 import pickle
 
-from dagster_dbt import DbtCliOutput
+from sheenflow_dbt import DbtCliOutput
 
 from ..test_types import DBT_RESULT_DICT
 

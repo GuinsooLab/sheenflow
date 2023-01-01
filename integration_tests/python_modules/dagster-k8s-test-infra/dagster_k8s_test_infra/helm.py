@@ -9,8 +9,8 @@ import kubernetes
 import pytest
 import requests
 import yaml
-from dagster_aws_tests.aws_credential_test_utils import get_aws_creds
-from dagster_k8s.client import DagsterKubernetesClient
+from sheenflow_aws_tests.aws_credential_test_utils import get_aws_creds
+from sheenflow_k8s.client import DagsterKubernetesClient
 
 import sheenflow._check as check
 from sheenflow._utils import find_free_port, git_repository_root, merge_dicts

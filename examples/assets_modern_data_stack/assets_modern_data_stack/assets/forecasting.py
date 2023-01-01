@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from dagster_airbyte import build_airbyte_assets
-from dagster_dbt import load_assets_from_dbt_project
+from sheenflow_airbyte import build_airbyte_assets
+from sheenflow_dbt import load_assets_from_dbt_project
 from scipy import optimize
 
 from sheenflow import asset

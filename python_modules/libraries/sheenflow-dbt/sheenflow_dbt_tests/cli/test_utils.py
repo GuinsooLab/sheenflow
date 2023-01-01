@@ -3,7 +3,7 @@ import os
 import sys
 
 import pytest
-from dagster_dbt.cli.utils import execute_cli
+from sheenflow_dbt.cli.utils import execute_cli
 
 import sheenflow._check as check
 

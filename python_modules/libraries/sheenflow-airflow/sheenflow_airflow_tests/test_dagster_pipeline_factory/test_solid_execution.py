@@ -15,7 +15,7 @@ from airflow.models.dag import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.dates import days_ago
-from dagster_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
+from sheenflow_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
 
 from sheenflow import DagsterEventType
 from sheenflow._core.instance import AIRFLOW_EXECUTION_DATE_STR

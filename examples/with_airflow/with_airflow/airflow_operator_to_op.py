@@ -2,7 +2,7 @@ import json
 
 from airflow.models import Connection
 from airflow.operators.http_operator import SimpleHttpOperator
-from dagster_airflow import airflow_operator_to_op
+from sheenflow_airflow import airflow_operator_to_op
 
 from sheenflow import job
 

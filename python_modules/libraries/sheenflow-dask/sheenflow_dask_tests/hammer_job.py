@@ -1,6 +1,6 @@
 import sys
 
-from dagster_dask import dask_executor
+from sheenflow_dask import dask_executor
 
 from sheenflow import job
 from sheenflow._utils import file_relative_path

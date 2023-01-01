@@ -1,5 +1,5 @@
-from dagster_gcp.gcs.io_manager import gcs_pickle_io_manager
-from dagster_gcp.gcs.resources import gcs_resource
+from sheenflow_gcp.gcs.io_manager import gcs_pickle_io_manager
+from sheenflow_gcp.gcs.resources import gcs_resource
 
 from sheenflow import job
 

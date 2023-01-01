@@ -22,7 +22,7 @@ Examples:
 .. code-block:: python
 
     from sheenflow import job
-    from dagster_dbt import {op_name}, dbt_cli_resource, dbt_rpc_sync_resource
+    from sheenflow_dbt import {op_name}, dbt_cli_resource, dbt_rpc_sync_resource
 
     @job(resource_defs={{"dbt":dbt_cli_resource}})
     def my_dbt_cli_job():

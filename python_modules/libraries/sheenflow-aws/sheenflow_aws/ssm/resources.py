@@ -1,6 +1,6 @@
 from contextlib import contextmanager
 
-from dagster_aws.utils import BOTO3_SESSION_CONFIG
+from sheenflow_aws.utils import BOTO3_SESSION_CONFIG
 
 from sheenflow import Array, Field, Shape
 from sheenflow import _check as check

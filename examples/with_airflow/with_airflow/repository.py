@@ -1,7 +1,7 @@
 import os
 
 # start_repo_marker_0
-from dagster_airflow import (
+from sheenflow_airflow import (
     make_dagster_job_from_airflow_dag,
     make_dagster_repo_from_airflow_dags_path,
     make_dagster_repo_from_airflow_example_dags,

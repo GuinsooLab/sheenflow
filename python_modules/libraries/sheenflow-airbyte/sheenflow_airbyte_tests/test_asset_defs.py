@@ -1,6 +1,6 @@
 import pytest
 import responses
-from dagster_airbyte import airbyte_resource, build_airbyte_assets
+from sheenflow_airbyte import airbyte_resource, build_airbyte_assets
 
 from sheenflow import AssetKey, MetadataEntry, TableColumn, TableSchema, build_init_resource_context
 from sheenflow._core.definitions.source_asset import SourceAsset

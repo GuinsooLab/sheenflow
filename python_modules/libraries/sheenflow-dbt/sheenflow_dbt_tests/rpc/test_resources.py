@@ -1,6 +1,6 @@
 import pytest
 import responses
-from dagster_dbt import (
+from sheenflow_dbt import (
     DbtRpcOutput,
     DbtRpcResource,
     DbtRpcSyncResource,

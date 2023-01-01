@@ -1,5 +1,5 @@
 import pandas as pd
-from dagster_pandas import DataFrame
+from sheenflow_pandas import DataFrame
 
 from sheenflow import DagsterEventType, In, file_relative_path, graph, op
 

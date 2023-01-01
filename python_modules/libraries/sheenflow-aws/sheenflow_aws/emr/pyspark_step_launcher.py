@@ -6,9 +6,9 @@ import time
 
 import boto3
 from botocore.exceptions import ClientError
-from dagster_aws.emr import EmrError, EmrJobRunner, emr_step_main
-from dagster_aws.emr.configs_spark import spark_config as get_spark_config
-from dagster_aws.utils.mrjob.log4j import parse_hadoop_log4j_records
+from sheenflow_aws.emr import EmrError, EmrJobRunner, emr_step_main
+from sheenflow_aws.emr.configs_spark import spark_config as get_spark_config
+from sheenflow_aws.utils.mrjob.log4j import parse_hadoop_log4j_records
 
 from sheenflow import Field, StringSource
 from sheenflow import _check as check
@@ -257,7 +257,7 @@ class EmrPySparkStepLauncher(StepLauncher):
         `spark-submit --py-files my_pyspark_project.zip emr_step_main.py` on EMR this will
         print 1, 2.
         """
-        from dagster_pyspark.utils import build_pyspark_zip
+        from sheenflow_pyspark.utils import build_pyspark_zip
 
         with tempfile.TemporaryDirectory() as temp_dir:
             s3 = boto3.client("s3", region_name=self.region_name)
@@ -397,7 +397,7 @@ class EmrPySparkStepLauncher(StepLauncher):
         """From the local Dagster instance, construct EMR steps that will kick off execution on a
         remote EMR cluster.
         """
-        from dagster_spark.utils import flatten_dict, format_for_cli
+        from sheenflow_spark.utils import flatten_dict, format_for_cli
 
         action_on_failure = self.action_on_failure
 

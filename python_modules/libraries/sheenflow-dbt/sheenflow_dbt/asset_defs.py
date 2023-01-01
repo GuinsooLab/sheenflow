@@ -16,10 +16,10 @@ from typing import (
     Tuple,
 )
 
-from dagster_dbt.cli.types import DbtCliOutput
-from dagster_dbt.cli.utils import execute_cli
-from dagster_dbt.types import DbtOutput
-from dagster_dbt.utils import _get_input_name, _get_output_name, result_to_events
+from sheenflow_dbt.cli.types import DbtCliOutput
+from sheenflow_dbt.cli.utils import execute_cli
+from sheenflow_dbt.types import DbtOutput
+from sheenflow_dbt.utils import _get_input_name, _get_output_name, result_to_events
 
 from sheenflow import (
     AssetKey,

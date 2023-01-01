@@ -1,6 +1,6 @@
 import os
 
-from dagster_celery.cli import get_config_dir
+from sheenflow_celery.cli import get_config_dir
 
 from sheenflow._core.test_utils import environ, instance_for_test
 from sheenflow._seven import tempfile

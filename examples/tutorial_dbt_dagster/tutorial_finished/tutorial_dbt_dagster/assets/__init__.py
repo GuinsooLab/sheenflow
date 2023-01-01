@@ -1,6 +1,6 @@
 import pandas as pd
 import plotly.express as px
-from dagster_dbt import load_assets_from_dbt_project
+from sheenflow_dbt import load_assets_from_dbt_project
 
 from sheenflow import AssetIn, MetadataValue, asset, file_relative_path
 

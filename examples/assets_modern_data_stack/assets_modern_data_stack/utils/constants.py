@@ -1,4 +1,4 @@
-from dagster_postgres.utils import get_conn_string
+from sheenflow_postgres.utils import get_conn_string
 
 from sheenflow._utils import file_relative_path
 

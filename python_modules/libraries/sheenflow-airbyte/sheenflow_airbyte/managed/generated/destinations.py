@@ -1,7 +1,7 @@
 # pylint: disable=unused-import,redefined-builtin
 from typing import Any, List, Optional, Union
 
-from dagster_airbyte.managed.types import GeneratedAirbyteDestination
+from sheenflow_airbyte.managed.types import GeneratedAirbyteDestination
 
 import sheenflow._check as check
 from sheenflow._annotations import public

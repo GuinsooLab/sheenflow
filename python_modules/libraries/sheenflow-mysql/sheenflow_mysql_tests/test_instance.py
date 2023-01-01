@@ -4,8 +4,8 @@ from urllib.parse import urlparse
 import pytest
 import sqlalchemy as db
 import yaml
-from dagster_mysql import MySQLEventLogStorage, MySQLRunStorage, MySQLScheduleStorage
-from dagster_mysql.utils import get_conn
+from sheenflow_mysql import MySQLEventLogStorage, MySQLRunStorage, MySQLScheduleStorage
+from sheenflow_mysql.utils import get_conn
 from sqlalchemy.pool import NullPool
 
 from sheenflow._core.instance import DagsterInstance, InstanceRef

@@ -1,4 +1,4 @@
-from dagster_aws.ecr import fake_ecr_public_resource
+from sheenflow_aws.ecr import fake_ecr_public_resource
 
 from sheenflow._legacy import ModeDefinition, execute_solid, solid
 

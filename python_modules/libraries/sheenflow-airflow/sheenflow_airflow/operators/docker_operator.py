@@ -2,7 +2,7 @@ import ast
 from contextlib import contextmanager
 
 from airflow.exceptions import AirflowException, AirflowSkipException
-from dagster_airflow.vendor.docker_operator import DockerOperator
+from sheenflow_airflow.vendor.docker_operator import DockerOperator
 from docker import APIClient, from_env
 
 import sheenflow._check as check

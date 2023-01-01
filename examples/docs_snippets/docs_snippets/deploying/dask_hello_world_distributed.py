@@ -1,8 +1,8 @@
 # start_distributed_job_marker
 
-from dagster_aws.s3.io_manager import s3_pickle_io_manager
-from dagster_aws.s3.resources import s3_resource
-from dagster_dask import dask_executor
+from sheenflow_aws.s3.io_manager import s3_pickle_io_manager
+from sheenflow_aws.s3.resources import s3_resource
+from sheenflow_dask import dask_executor
 
 from sheenflow import job, op
 

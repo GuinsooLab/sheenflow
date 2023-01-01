@@ -1,5 +1,5 @@
 import pytest
-from dagster_mysql.schedule_storage import MySQLScheduleStorage
+from sheenflow_mysql.schedule_storage import MySQLScheduleStorage
 
 from sheenflow._utils.test.schedule_storage import TestScheduleStorage
 

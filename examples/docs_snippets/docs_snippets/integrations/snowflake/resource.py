@@ -1,4 +1,4 @@
-from dagster_snowflake import snowflake_resource
+from sheenflow_snowflake import snowflake_resource
 
 from sheenflow import Definitions, asset
 

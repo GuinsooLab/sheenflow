@@ -8,8 +8,8 @@ from collections import defaultdict
 from contextlib import contextmanager
 
 import boto3
-from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
-from dagster_gcp.gcs import gcs_pickle_io_manager, gcs_resource
+from sheenflow_aws.s3 import s3_pickle_io_manager, s3_resource
+from sheenflow_gcp.gcs import gcs_pickle_io_manager, gcs_resource
 
 from sheenflow import (
     AssetMaterialization,
@@ -59,8 +59,8 @@ def image_pull_policy():
 
 
 def celery_mode_defs(resources=None, name="default"):
-    from dagster_celery import celery_executor
-    from dagster_celery_k8s import celery_k8s_job_executor
+    from sheenflow_celery import celery_executor
+    from sheenflow_celery_k8s import celery_k8s_job_executor
 
     resources = resources if resources else {"s3": s3_resource}
     resources = merge_dicts(resources, {"io_manager": s3_pickle_io_manager})
@@ -76,7 +76,7 @@ def celery_mode_defs(resources=None, name="default"):
 
 
 def k8s_mode_defs(resources=None, name="default"):
-    from dagster_k8s.executor import k8s_job_executor
+    from sheenflow_k8s.executor import k8s_job_executor
 
     resources = resources if resources else {"s3": s3_resource}
     resources = merge_dicts(resources, {"io_manager": s3_pickle_io_manager})
@@ -93,7 +93,7 @@ def k8s_mode_defs(resources=None, name="default"):
 
 
 def docker_mode_defs():
-    from dagster_docker import docker_executor
+    from sheenflow_docker import docker_executor
 
     return [
         ModeDefinition(
@@ -260,7 +260,7 @@ def define_demo_pipeline_celery():
 
 
 def define_demo_job_celery():
-    from dagster_celery_k8s import celery_k8s_job_executor
+    from sheenflow_celery_k8s import celery_k8s_job_executor
 
     @job(
         resource_defs={"s3": s3_resource, "io_manager": s3_pickle_io_manager},
@@ -278,7 +278,7 @@ def hello(context):
 
 
 def define_docker_celery_pipeline():
-    from dagster_celery_docker import celery_docker_executor
+    from sheenflow_celery_docker import celery_docker_executor
 
     @resource
     def resource_with_output():
@@ -484,7 +484,7 @@ def define_schedules():
         cron_schedule="* * * * *",
     )
     def frequent_celery():
-        from dagster_celery_k8s.config import get_celery_engine_config
+        from sheenflow_celery_k8s.config import get_celery_engine_config
 
         additional_env_config_maps = ["test-aws-env-configmap"] if not IS_BUILDKITE else []
 

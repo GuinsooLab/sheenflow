@@ -1,5 +1,5 @@
 import pytest
-from dagster_pandas.constraints import (
+from sheenflow_pandas.constraints import (
     CategoricalColumnConstraint,
     ColumnDTypeFnConstraint,
     ColumnDTypeInSetConstraint,
@@ -9,7 +9,7 @@ from dagster_pandas.constraints import (
     RowCountConstraint,
     UniqueColumnConstraint,
 )
-from dagster_pandas.validation import PandasColumn, validate_constraints
+from sheenflow_pandas.validation import PandasColumn, validate_constraints
 from pandas import DataFrame, Timestamp
 
 

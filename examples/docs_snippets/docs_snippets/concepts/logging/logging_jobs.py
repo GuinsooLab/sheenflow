@@ -1,4 +1,4 @@
-from dagster_aws.cloudwatch.loggers import cloudwatch_logger
+from sheenflow_aws.cloudwatch.loggers import cloudwatch_logger
 
 from sheenflow import graph, op, repository
 from sheenflow._loggers import colored_console_logger

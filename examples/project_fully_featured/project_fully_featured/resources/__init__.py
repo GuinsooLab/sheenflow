@@ -1,8 +1,8 @@
 import os
 
-from dagster_aws.s3 import s3_resource
-from dagster_dbt import dbt_cli_resource
-from dagster_pyspark import pyspark_resource
+from sheenflow_aws.s3 import s3_resource
+from sheenflow_dbt import dbt_cli_resource
+from sheenflow_pyspark import pyspark_resource
 
 from sheenflow._utils import file_relative_path
 

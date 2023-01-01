@@ -1,6 +1,6 @@
 import os
 
-from dagster_snowflake_pandas import snowflake_pandas_io_manager
+from sheenflow_snowflake_pandas import snowflake_pandas_io_manager
 from development_to_production.assets import comments, items, stories
 from development_to_production.resources import HNAPIClient
 

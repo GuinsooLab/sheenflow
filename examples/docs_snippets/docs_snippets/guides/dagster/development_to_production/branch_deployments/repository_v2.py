@@ -1,7 +1,7 @@
 import os
 
-from dagster_snowflake import snowflake_resource
-from dagster_snowflake_pandas import snowflake_pandas_io_manager
+from sheenflow_snowflake import snowflake_resource
+from sheenflow_snowflake_pandas import snowflake_pandas_io_manager
 
 from sheenflow import Definitions
 

@@ -7,8 +7,8 @@ import pytest
 from airflow import DAG
 from airflow import __version__ as airflow_version
 from airflow.models import Connection, TaskInstance
-from dagster_airflow import DagsterCloudOperator
-from dagster_airflow_tests.marks import requires_airflow_db
+from sheenflow_airflow import DagsterCloudOperator
+from sheenflow_airflow_tests.marks import requires_airflow_db
 
 # pylint: disable=no-name-in-module,import-error
 if airflow_version >= "2.0.0":

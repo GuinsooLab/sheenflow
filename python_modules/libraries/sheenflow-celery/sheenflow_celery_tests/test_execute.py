@@ -6,7 +6,7 @@ from threading import Thread
 from unittest import mock
 
 import pytest
-from dagster_celery_tests.repo import COMPOSITE_DEPTH
+from sheenflow_celery_tests.repo import COMPOSITE_DEPTH
 
 from sheenflow._core.definitions.reconstruct import ReconstructablePipeline
 from sheenflow._core.errors import DagsterSubprocessError

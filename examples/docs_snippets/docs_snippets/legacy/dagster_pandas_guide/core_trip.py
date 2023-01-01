@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dagster_pandas import PandasColumn, create_dagster_pandas_dataframe_type
+from sheenflow_pandas import PandasColumn, create_dagster_pandas_dataframe_type
 from pandas import DataFrame, read_csv
 
 from sheenflow import Out, job, op

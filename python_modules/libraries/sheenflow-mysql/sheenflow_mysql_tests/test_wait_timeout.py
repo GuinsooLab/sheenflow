@@ -1,7 +1,7 @@
 import time
 
 import pytest
-from dagster_mysql.run_storage import MySQLRunStorage
+from sheenflow_mysql.run_storage import MySQLRunStorage
 from sqlalchemy import exc
 
 

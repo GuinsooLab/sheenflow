@@ -2,8 +2,8 @@ import re
 
 import pytest
 import responses
-from dagster_airbyte import AirbyteOutput, AirbyteState, airbyte_resource
-from dagster_airbyte.utils import generate_materializations
+from sheenflow_airbyte import AirbyteOutput, AirbyteState, airbyte_resource
+from sheenflow_airbyte.utils import generate_materializations
 
 from sheenflow import DagsterExecutionInterruptedError, Failure, MetadataEntry
 from sheenflow import _check as check

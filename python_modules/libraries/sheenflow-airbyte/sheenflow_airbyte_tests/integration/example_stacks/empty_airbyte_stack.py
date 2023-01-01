@@ -1,6 +1,6 @@
 import os
 
-from dagster_airbyte import AirbyteManagedElementReconciler, airbyte_resource
+from sheenflow_airbyte import AirbyteManagedElementReconciler, airbyte_resource
 
 airbyte_instance = airbyte_resource.configured(
     {

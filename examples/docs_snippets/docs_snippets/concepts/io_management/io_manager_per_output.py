@@ -1,5 +1,5 @@
 # start_marker
-from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
+from sheenflow_aws.s3 import s3_pickle_io_manager, s3_resource
 
 from sheenflow import Out, fs_io_manager, job, op
 

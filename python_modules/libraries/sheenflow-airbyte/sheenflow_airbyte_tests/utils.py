@@ -1,4 +1,4 @@
-from dagster_airbyte import AirbyteState
+from sheenflow_airbyte import AirbyteState
 
 from sheenflow._utils.merger import deep_merge_dicts
 

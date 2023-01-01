@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from dagster_duckdb.io_manager import DuckDbClient, _get_cleanup_statement
+from sheenflow_duckdb.io_manager import DuckDbClient, _get_cleanup_statement
 
 from sheenflow._core.storage.db_io_manager import TablePartition, TableSlice
 

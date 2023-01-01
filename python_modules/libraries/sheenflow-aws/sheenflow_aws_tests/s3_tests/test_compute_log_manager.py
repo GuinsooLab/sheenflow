@@ -6,8 +6,8 @@ import tempfile
 
 import pytest
 from botocore.exceptions import ClientError
-from dagster_aws.s3 import S3ComputeLogManager
-from dagster_tests.storage_tests.test_captured_log_manager import TestCapturedLogManager
+from sheenflow_aws.s3 import S3ComputeLogManager
+from sheenflow_tests.storage_tests.test_captured_log_manager import TestCapturedLogManager
 
 from sheenflow import DagsterEventType, job, op
 from sheenflow._core.instance import DagsterInstance, InstanceRef, InstanceType

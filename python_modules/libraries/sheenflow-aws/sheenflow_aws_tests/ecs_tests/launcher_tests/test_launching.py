@@ -7,9 +7,9 @@ from concurrent.futures import ThreadPoolExecutor
 import dagster_aws
 import pytest
 from botocore.exceptions import ClientError
-from dagster_aws.ecs import EcsEventualConsistencyTimeout
-from dagster_aws.ecs.launcher import RUNNING_STATUSES, STOPPED_STATUSES
-from dagster_aws.ecs.tasks import DagsterEcsTaskDefinitionConfig
+from sheenflow_aws.ecs import EcsEventualConsistencyTimeout
+from sheenflow_aws.ecs.launcher import RUNNING_STATUSES, STOPPED_STATUSES
+from sheenflow_aws.ecs.tasks import DagsterEcsTaskDefinitionConfig
 
 from sheenflow._check import CheckError
 from sheenflow._core.code_pointer import FileCodePointer

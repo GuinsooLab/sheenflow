@@ -1,6 +1,6 @@
 # start_local_job_marker
 
-from dagster_dask import dask_executor
+from sheenflow_dask import dask_executor
 
 from sheenflow import job, op
 

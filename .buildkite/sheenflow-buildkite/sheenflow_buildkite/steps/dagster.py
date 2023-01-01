@@ -2,7 +2,7 @@ import os
 from glob import glob
 from typing import List
 
-from dagster_buildkite.python_packages import PythonPackages
+from sheenflow_buildkite.python_packages import PythonPackages
 
 from ..defines import GIT_REPO_ROOT
 from ..python_version import AvailablePythonVersion

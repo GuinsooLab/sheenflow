@@ -1,6 +1,6 @@
 import os
 
-from dagster_airbyte import (
+from sheenflow_airbyte import (
     AirbyteConnection,
     AirbyteDestination,
     AirbyteDestinationNamespace,

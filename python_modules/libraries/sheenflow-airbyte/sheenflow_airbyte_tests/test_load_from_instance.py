@@ -1,7 +1,7 @@
 import pytest
 import responses
-from dagster_airbyte import airbyte_resource
-from dagster_airbyte.asset_defs import AirbyteConnectionMetadata, load_assets_from_airbyte_instance
+from sheenflow_airbyte import airbyte_resource
+from sheenflow_airbyte.asset_defs import AirbyteConnectionMetadata, load_assets_from_airbyte_instance
 
 from sheenflow import AssetKey, IOManager, asset, build_init_resource_context, io_manager, materialize
 from sheenflow._core.definitions.metadata import MetadataValue

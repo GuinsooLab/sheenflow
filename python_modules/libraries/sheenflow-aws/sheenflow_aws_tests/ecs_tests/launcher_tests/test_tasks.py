@@ -1,4 +1,4 @@
-from dagster_aws.ecs.tasks import DagsterEcsTaskDefinitionConfig
+from sheenflow_aws.ecs.tasks import DagsterEcsTaskDefinitionConfig
 
 
 def test_create_dagster_task_definition_dict():

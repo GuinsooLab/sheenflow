@@ -7,7 +7,7 @@ from queue import Empty, Queue
 from threading import Thread
 
 import boto3
-from dagster_aws.s3.file_manager import S3FileHandle, S3FileManager
+from sheenflow_aws.s3.file_manager import S3FileHandle, S3FileManager
 
 from sheenflow._core.execution.plan.external_step import (
     PICKLED_EVENTS_FILE_NAME,

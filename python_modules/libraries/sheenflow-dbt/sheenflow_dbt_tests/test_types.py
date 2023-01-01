@@ -1,6 +1,6 @@
 import pickle
 
-from dagster_dbt.types import DbtOutput
+from sheenflow_dbt.types import DbtOutput
 
 DBT_RESULT_DICT = {
     "logs": [],

@@ -1,4 +1,4 @@
-from dagster_aws.ssm.parameters import get_parameters_by_paths, get_parameters_by_tags
+from sheenflow_aws.ssm.parameters import get_parameters_by_paths, get_parameters_by_tags
 
 
 def test_get_parameters_from_tags(mock_ssm_client):

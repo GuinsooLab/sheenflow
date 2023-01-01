@@ -2,7 +2,7 @@ import time
 
 import kubernetes
 import pytest
-from dagster_k8s.client import DagsterK8sError, DagsterKubernetesClient, WaitForPodState
+from sheenflow_k8s.client import DagsterK8sError, DagsterKubernetesClient, WaitForPodState
 
 pytest_plugins = ["dagster_k8s_test_infra.helm"]
 

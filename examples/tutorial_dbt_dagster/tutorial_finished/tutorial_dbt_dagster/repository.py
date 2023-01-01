@@ -1,7 +1,7 @@
 import os
 
-from dagster_dbt import dbt_cli_resource
-from dagster_duckdb_pandas import duckdb_pandas_io_manager
+from sheenflow_dbt import dbt_cli_resource
+from sheenflow_duckdb_pandas import duckdb_pandas_io_manager
 from tutorial_dbt_dagster import assets
 from tutorial_dbt_dagster.assets import DBT_PROFILES, DBT_PROJECT_PATH
 

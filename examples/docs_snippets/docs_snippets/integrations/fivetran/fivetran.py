@@ -4,7 +4,7 @@
 
 def scope_define_instance():
     # start_define_instance
-    from dagster_fivetran import fivetran_resource
+    from sheenflow_fivetran import fivetran_resource
 
     # Pull API key and secret from environment variables
     fivetran_instance = fivetran_resource.configured(
@@ -17,7 +17,7 @@ def scope_define_instance():
 
 
 def scope_load_assets_from_fivetran_instance():
-    from dagster_fivetran import fivetran_resource
+    from sheenflow_fivetran import fivetran_resource
 
     fivetran_instance = fivetran_resource.configured(
         {
@@ -26,7 +26,7 @@ def scope_load_assets_from_fivetran_instance():
         }
     )
     # start_load_assets_from_fivetran_instance
-    from dagster_fivetran import load_assets_from_fivetran_instance
+    from sheenflow_fivetran import load_assets_from_fivetran_instance
 
     # Use the fivetran_instance resource we defined in Step 1
     fivetran_assets = load_assets_from_fivetran_instance(fivetran_instance)
@@ -35,7 +35,7 @@ def scope_load_assets_from_fivetran_instance():
 
 def scope_manually_define_fivetran_assets():
     # start_manually_define_fivetran_assets
-    from dagster_fivetran import build_fivetran_assets
+    from sheenflow_fivetran import build_fivetran_assets
 
     fivetran_assets = build_fivetran_assets(
         connector_id="omit_constitutional",
@@ -45,7 +45,7 @@ def scope_manually_define_fivetran_assets():
 
 
 def scope_fivetran_manual_config():
-    from dagster_fivetran import fivetran_resource
+    from sheenflow_fivetran import fivetran_resource
 
     fivetran_instance = fivetran_resource.configured(
         {
@@ -54,7 +54,7 @@ def scope_fivetran_manual_config():
         }
     )
     # start_fivetran_manual_config
-    from dagster_fivetran import build_fivetran_assets
+    from sheenflow_fivetran import build_fivetran_assets
 
     from sheenflow import with_resources
 
@@ -70,7 +70,7 @@ def scope_fivetran_manual_config():
 
 
 def scope_schedule_assets():
-    from dagster_fivetran import fivetran_resource, load_assets_from_fivetran_instance
+    from sheenflow_fivetran import fivetran_resource, load_assets_from_fivetran_instance
 
     fivetran_instance = fivetran_resource.configured(
         {"api_key": "foo", "api_secret": "bar"}
@@ -110,7 +110,7 @@ def scope_schedule_assets():
 
 
 def scope_add_downstream_assets():
-    from dagster_fivetran import fivetran_resource
+    from sheenflow_fivetran import fivetran_resource
 
     fivetran_instance = fivetran_resource.configured(
         {
@@ -123,7 +123,7 @@ def scope_add_downstream_assets():
     # start_add_downstream_assets
     import json
     from sheenflow import asset, AssetIn, AssetKey, Definitions
-    from dagster_fivetran import load_assets_from_fivetran_instance
+    from sheenflow_fivetran import load_assets_from_fivetran_instance
 
     fivetran_assets = load_assets_from_fivetran_instance(
         fivetran_instance,

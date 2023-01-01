@@ -4,7 +4,7 @@ from typing import List, Optional
 
 import pytest
 import responses
-from dagster_dbt import (
+from sheenflow_dbt import (
     DagsterDbtCloudJobInvariantViolationError,
     dbt_cloud_resource,
     load_assets_from_dbt_cloud_job,

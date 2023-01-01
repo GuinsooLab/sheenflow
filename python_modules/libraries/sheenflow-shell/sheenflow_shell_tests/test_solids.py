@@ -1,7 +1,7 @@
 import os
 
 import pytest
-from dagster_shell import create_shell_command_op, create_shell_script_op, shell_op
+from sheenflow_shell import create_shell_command_op, create_shell_script_op, shell_op
 
 from sheenflow import Failure, job, op
 from sheenflow._core.definitions.config import ConfigMapping

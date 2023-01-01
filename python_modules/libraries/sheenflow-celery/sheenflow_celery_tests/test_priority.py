@@ -5,8 +5,8 @@ import threading
 import time
 from collections import OrderedDict
 
-from dagster_celery import celery_executor
-from dagster_celery.tags import DAGSTER_CELERY_RUN_PRIORITY_TAG
+from sheenflow_celery import celery_executor
+from sheenflow_celery.tags import DAGSTER_CELERY_RUN_PRIORITY_TAG
 
 from sheenflow._core.storage.pipeline_run import RunsFilter
 from sheenflow._core.test_utils import instance_for_test

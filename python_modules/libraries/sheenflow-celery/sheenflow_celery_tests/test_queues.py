@@ -1,7 +1,7 @@
 import threading
 import time
 
-from dagster_celery import celery_executor
+from sheenflow_celery import celery_executor
 
 from sheenflow._core.test_utils import instance_for_test
 from sheenflow._legacy import ModeDefinition, default_executors

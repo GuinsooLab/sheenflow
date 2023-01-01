@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from dagster_mlflow.hooks import _cleanup_on_success, end_mlflow_on_run_finished
+from sheenflow_mlflow.hooks import _cleanup_on_success, end_mlflow_on_run_finished
 
 from sheenflow import Nothing, ResourceDefinition
 from sheenflow._legacy import InputDefinition, ModeDefinition, execute_pipeline, pipeline, solid

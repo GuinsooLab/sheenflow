@@ -4,7 +4,7 @@ from threading import Event
 from unittest.mock import MagicMock, patch
 
 import pytest
-from dagster_postgres.pynotify import await_pg_notifications
+from sheenflow_postgres.pynotify import await_pg_notifications
 
 
 def test_await_pg_notifications_failure(conn_string):

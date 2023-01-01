@@ -21,9 +21,9 @@ from typing import (
 )
 
 import yaml
-from dagster_airbyte.resources import AirbyteResource
-from dagster_airbyte.types import AirbyteTableMetadata
-from dagster_airbyte.utils import (
+from sheenflow_airbyte.resources import AirbyteResource
+from sheenflow_airbyte.types import AirbyteTableMetadata
+from sheenflow_airbyte.utils import (
     generate_materializations,
     generate_table_schema,
     is_basic_normalization_operation,

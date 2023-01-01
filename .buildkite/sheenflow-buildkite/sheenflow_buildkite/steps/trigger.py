@@ -27,7 +27,7 @@ def build_trigger_step(
     dagster_commit_hash = safe_getenv("BUILDKITE_COMMIT")
     step: TriggerStep = {
         "trigger": pipeline,
-        "label": f":link: {pipeline} from dagster@{dagster_commit_hash[:6]}",
+        "label": f":link: {pipeline} from sheenflow@{dagster_commit_hash[:6]}",
         "async": async_step,
         "build": {
             "env": env or {},

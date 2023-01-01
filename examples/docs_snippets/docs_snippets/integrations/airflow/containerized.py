@@ -2,7 +2,7 @@
 # start_example
 import datetime
 
-from dagster_airflow.factory import make_airflow_dag_containerized
+from sheenflow_airflow.factory import make_airflow_dag_containerized
 
 DEFAULT_ARGS = {
     "owner": "airflow",

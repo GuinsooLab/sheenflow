@@ -7,7 +7,7 @@ from contextlib import contextmanager
 from typing import Any, Dict, List, Mapping, Optional, cast
 
 import requests
-from dagster_airbyte.types import AirbyteOutput
+from sheenflow_airbyte.types import AirbyteOutput
 from requests.exceptions import RequestException
 
 from sheenflow import Failure, Field, StringSource

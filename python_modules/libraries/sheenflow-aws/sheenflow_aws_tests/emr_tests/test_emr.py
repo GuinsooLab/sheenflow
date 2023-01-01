@@ -6,8 +6,8 @@ import time
 from unittest import mock
 
 import pytest
-from dagster_aws.emr import EmrClusterState, EmrError, EmrJobRunner
-from dagster_aws.utils.mrjob.utils import _boto3_now
+from sheenflow_aws.emr import EmrClusterState, EmrError, EmrJobRunner
+from sheenflow_aws.utils.mrjob.utils import _boto3_now
 from moto import mock_emr
 
 from sheenflow._utils.test import create_test_pipeline_execution_context

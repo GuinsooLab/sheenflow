@@ -1,5 +1,5 @@
 import pytest
-from dagster_postgres.schedule_storage import PostgresScheduleStorage
+from sheenflow_postgres.schedule_storage import PostgresScheduleStorage
 
 from sheenflow._utils.test.schedule_storage import TestScheduleStorage
 

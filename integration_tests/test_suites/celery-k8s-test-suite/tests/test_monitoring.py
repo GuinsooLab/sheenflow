@@ -4,9 +4,9 @@
 import os
 import time
 
-from dagster_k8s.client import DagsterKubernetesClient
-from dagster_k8s.job import get_job_name_from_run_id
-from dagster_k8s_test_infra.integration_utils import image_pull_policy, launch_run_over_graphql
+from sheenflow_k8s.client import DagsterKubernetesClient
+from sheenflow_k8s.job import get_job_name_from_run_id
+from sheenflow_k8s_test_infra.integration_utils import image_pull_policy, launch_run_over_graphql
 from sheenflow_test.test_project import get_test_project_environments_path
 from marks import mark_monitoring
 

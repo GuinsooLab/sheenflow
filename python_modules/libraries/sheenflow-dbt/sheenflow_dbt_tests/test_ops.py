@@ -1,5 +1,5 @@
 import pytest
-from dagster_dbt import dbt_build_op, dbt_cli_resource, dbt_run_op, dbt_seed_op, dbt_test_op
+from sheenflow_dbt import dbt_build_op, dbt_cli_resource, dbt_run_op, dbt_seed_op, dbt_test_op
 
 from sheenflow import build_op_context, job
 

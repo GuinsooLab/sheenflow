@@ -1,4 +1,4 @@
-from dagster_aws_tests.conftest import (  # pylint: disable=unused-import
+from sheenflow_aws_tests.conftest import (  # pylint: disable=unused-import
     mock_s3_bucket,
     mock_s3_resource,
 )

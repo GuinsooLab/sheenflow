@@ -1,4 +1,4 @@
-from dagster_pandas import DataFrame
+from sheenflow_pandas import DataFrame
 
 from sheenflow import In, Out, graph, op
 from sheenflow._utils import file_relative_path

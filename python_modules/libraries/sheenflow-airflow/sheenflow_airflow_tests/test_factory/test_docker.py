@@ -6,10 +6,10 @@ import uuid
 import pytest
 from airflow.exceptions import AirflowException
 from airflow.utils import timezone
-from dagster_airflow.factory import make_airflow_dag_containerized_for_recon_repo
-from dagster_airflow_tests.conftest import dagster_docker_image
-from dagster_airflow_tests.marks import nettest, requires_airflow_db
-from dagster_airflow_tests.test_fixtures import (
+from sheenflow_airflow.factory import make_airflow_dag_containerized_for_recon_repo
+from sheenflow_airflow_tests.conftest import dagster_docker_image
+from sheenflow_airflow_tests.marks import nettest, requires_airflow_db
+from sheenflow_airflow_tests.test_fixtures import (
     dagster_airflow_docker_operator_pipeline,
     execute_tasks_in_dag,
     postgres_instance,

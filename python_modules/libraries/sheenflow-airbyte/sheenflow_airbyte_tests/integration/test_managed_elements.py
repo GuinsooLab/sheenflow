@@ -9,10 +9,10 @@ import mock
 import pytest
 import requests
 import requests_mock
-from dagster_airbyte import airbyte_resource, load_assets_from_connections
-from dagster_managed_elements import ManagedElementDiff
-from dagster_managed_elements.cli import apply, check
-from dagster_managed_elements.utils import diff_dicts
+from sheenflow_airbyte import airbyte_resource, load_assets_from_connections
+from sheenflow_managed_elements import ManagedElementDiff
+from sheenflow_managed_elements.cli import apply, check
+from sheenflow_managed_elements.utils import diff_dicts
 
 from sheenflow import AssetKey, materialize
 from sheenflow._core.events import StepMaterializationData

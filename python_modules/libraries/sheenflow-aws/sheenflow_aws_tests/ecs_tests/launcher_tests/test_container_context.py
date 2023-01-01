@@ -1,7 +1,7 @@
 # pylint: disable=redefined-outer-name
 
 import pytest
-from dagster_aws.ecs.container_context import EcsContainerContext
+from sheenflow_aws.ecs.container_context import EcsContainerContext
 
 from sheenflow._core.errors import DagsterInvalidConfigError
 from sheenflow._core.test_utils import environ

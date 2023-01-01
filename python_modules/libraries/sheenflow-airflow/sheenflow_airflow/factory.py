@@ -5,7 +5,7 @@ from collections import namedtuple
 
 from airflow import DAG
 from airflow.models.baseoperator import BaseOperator
-from dagster_airflow.operators.util import check_storage_specified
+from sheenflow_airflow.operators.util import check_storage_specified
 
 import sheenflow._check as check
 import sheenflow._seven as seven

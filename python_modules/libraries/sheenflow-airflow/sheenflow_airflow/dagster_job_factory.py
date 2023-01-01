@@ -1,4 +1,4 @@
-from dagster_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
+from sheenflow_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
 
 
 def make_dagster_job_from_airflow_dag(

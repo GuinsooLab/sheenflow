@@ -3,7 +3,7 @@
 import time
 
 from click.testing import CliRunner
-from dagster_celery.cli import main
+from sheenflow_celery.cli import main
 
 import sheenflow._check as check
 from sheenflow._utils import file_relative_path

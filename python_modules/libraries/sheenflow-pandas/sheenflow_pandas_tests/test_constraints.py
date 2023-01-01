@@ -1,5 +1,5 @@
 import pytest
-from dagster_pandas.constraints import (
+from sheenflow_pandas.constraints import (
     CategoricalColumnConstraint,
     ColumnDTypeInSetConstraint,
     ConstraintViolationException,

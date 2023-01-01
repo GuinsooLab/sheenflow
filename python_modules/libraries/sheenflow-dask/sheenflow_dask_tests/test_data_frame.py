@@ -1,8 +1,8 @@
 import dask.dataframe as dd
 import pytest
-from dagster_dask import DataFrame
-from dagster_dask.data_frame import DataFrameReadTypes, DataFrameToTypes
-from dagster_dask.utils import DataFrameUtilities
+from sheenflow_dask import DataFrame
+from sheenflow_dask.data_frame import DataFrameReadTypes, DataFrameToTypes
+from sheenflow_dask.utils import DataFrameUtilities
 from dask.dataframe.utils import assert_eq
 
 from sheenflow import file_relative_path

@@ -1,7 +1,7 @@
 import datetime
 
 import pandas as pd
-from dagster_pandas import DataFrame
+from sheenflow_pandas import DataFrame
 
 from sheenflow import DependencyDefinition, GraphDefinition, In, Out
 from sheenflow import _check as check

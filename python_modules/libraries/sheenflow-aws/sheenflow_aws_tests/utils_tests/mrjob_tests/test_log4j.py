@@ -1,4 +1,4 @@
-from dagster_aws.utils.mrjob.log4j import Log4jRecord, parse_hadoop_log4j_records
+from sheenflow_aws.utils.mrjob.log4j import Log4jRecord, parse_hadoop_log4j_records
 
 SIMPLE_LOG4J = """
 20/02/05 17:26:43 INFO SparkContext: Running Spark version 2.4.4

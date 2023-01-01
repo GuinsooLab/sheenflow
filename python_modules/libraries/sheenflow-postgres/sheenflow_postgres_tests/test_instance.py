@@ -4,7 +4,7 @@ from urllib.parse import unquote, urlparse
 import pytest
 import sqlalchemy as db
 import yaml
-from dagster_postgres.utils import get_conn, get_conn_string
+from sheenflow_postgres.utils import get_conn, get_conn_string
 
 from sheenflow._core.instance import DagsterInstance, InstanceRef
 from sheenflow._core.test_utils import instance_for_test

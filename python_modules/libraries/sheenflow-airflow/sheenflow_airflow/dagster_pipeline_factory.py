@@ -19,7 +19,7 @@ from airflow.models.dag import DAG
 from airflow.models.dagbag import DagBag
 from airflow.settings import LOG_FORMAT
 from airflow.utils import db
-from dagster_airflow.patch_airflow_example_dag import patch_airflow_example_dag
+from sheenflow_airflow.patch_airflow_example_dag import patch_airflow_example_dag
 
 from sheenflow import (
     Array,

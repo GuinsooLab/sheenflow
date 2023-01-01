@@ -1,5 +1,5 @@
 # pylint: disable=no-value-for-parameter
-from dagster_shell import create_shell_script_op
+from sheenflow_shell import create_shell_script_op
 
 from sheenflow import file_relative_path, graph
 

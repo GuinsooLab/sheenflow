@@ -171,7 +171,7 @@ def user_code_error_boundary(
     """
     Wraps the execution of user-space code in an error boundary. This places a uniform
     policy around any user code invoked by the framework. This ensures that all user
-    errors are wrapped in an exception derived from DagsterUserCodeExecutionError,
+    errors are wrapped in an exception derived from sheenflowUserCodeExecutionError,
     and that the original stack trace of the user error is preserved, so that it
     can be reported without confusing framework code in the stack trace, if a
     tool author wishes to do so.
@@ -181,7 +181,7 @@ def user_code_error_boundary(
     .. code-block:: python
 
         with user_code_error_boundary(
-            # Pass a class that inherits from DagsterUserCodeExecutionError
+            # Pass a class that inherits from sheenflowUserCodeExecutionError
             DagsterExecutionStepExecutionError,
             # Pass a function that produces a message
             "Error occurred during step execution"

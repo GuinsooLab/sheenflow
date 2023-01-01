@@ -42,8 +42,8 @@ def foo():
 
 
 def define_demo_execution_repo():
-    from dagster_aws.s3 import s3_pickle_io_manager, s3_resource
-    from dagster_docker import docker_executor
+    from sheenflow_aws.s3 import s3_pickle_io_manager, s3_resource
+    from sheenflow_docker import docker_executor
 
     @repository
     def demo_execution_repo():

@@ -38,7 +38,7 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
 
     # Supported on all Python versions.
     install_targets += [
-        "-e python_modules/sheenflow[black,isort,mypy,test]",
+        "-e python_modules/sheenflow",
         "-e python_modules/sheenflow-graphql",
         "-e python_modules/sheenflow-test",
         "-e python_modules/sheenlet",
@@ -56,6 +56,7 @@ def main(quiet: bool, extra_packages: List[str]) -> None:
         "-e python_modules/libraries/sheenflow-pyspark",
         "-e python_modules/libraries/sheenflow-shell",
         "-e python_modules/libraries/sheenflow-slack",
+        "-e python_modules/libraries/sheenflow-spark",
         "-e python_modules/libraries/sheenflow-aws",
         "-e python_modules/libraries/sheenflowmill",
         "-e python_modules/libraries/sheenflow-duckdb",

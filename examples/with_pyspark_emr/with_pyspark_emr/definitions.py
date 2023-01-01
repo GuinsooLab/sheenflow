@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from dagster_aws.emr import emr_pyspark_step_launcher
-from dagster_aws.s3 import s3_resource
-from dagster_pyspark import pyspark_resource
+from sheenflow_aws.emr import emr_pyspark_step_launcher
+from sheenflow_aws.s3 import s3_resource
+from sheenflow_pyspark import pyspark_resource
 from pyspark.sql import DataFrame, Row
 from pyspark.sql.types import IntegerType, StringType, StructField, StructType
 

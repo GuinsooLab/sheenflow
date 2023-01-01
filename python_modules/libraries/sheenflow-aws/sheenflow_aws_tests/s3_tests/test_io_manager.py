@@ -1,5 +1,5 @@
-from dagster_aws.s3.io_manager import s3_pickle_io_manager
-from dagster_aws.s3.utils import construct_s3_client
+from sheenflow_aws.s3.io_manager import s3_pickle_io_manager
+from sheenflow_aws.s3.utils import construct_s3_client
 
 from sheenflow import (
     GraphIn,

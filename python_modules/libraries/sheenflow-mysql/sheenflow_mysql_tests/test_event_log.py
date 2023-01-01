@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 import pytest
 import yaml
-from dagster_mysql.event_log import MySQLEventLogStorage
+from sheenflow_mysql.event_log import MySQLEventLogStorage
 from sheenflow_tests.storage_tests.utils.event_log_storage import (
     TestEventLogStorage,
     create_test_event_log_record,

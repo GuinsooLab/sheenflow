@@ -4,7 +4,7 @@
 
 def scope_load_assets_from_dbt_project():
     # start_load_assets_from_dbt_project
-    from dagster_dbt import load_assets_from_dbt_project
+    from sheenflow_dbt import load_assets_from_dbt_project
 
     dbt_assets = load_assets_from_dbt_project(project_dir="path/to/dbt/project")
     # end_load_assets_from_dbt_project
@@ -14,7 +14,7 @@ def scope_load_assets_from_dbt_manifest():
     # start_load_assets_from_dbt_manifest
     import json
 
-    from dagster_dbt import load_assets_from_dbt_manifest
+    from sheenflow_dbt import load_assets_from_dbt_manifest
 
     dbt_assets = load_assets_from_dbt_manifest(
         json.load("path/to/dbt/manifest.json", encoding="utf8"),
@@ -24,7 +24,7 @@ def scope_load_assets_from_dbt_manifest():
 
 def scope_dbt_cli_resource_config():
     # start_dbt_cli_resource
-    from dagster_dbt import dbt_cli_resource, load_assets_from_dbt_project
+    from sheenflow_dbt import dbt_cli_resource, load_assets_from_dbt_project
 
     from sheenflow import with_resources
 
@@ -121,7 +121,7 @@ def scope_input_manager():
 def scope_input_manager_resources():
     pandas_io_manager = None
     # start_input_manager_resources
-    from dagster_dbt import dbt_cli_resource, load_assets_from_dbt_project
+    from sheenflow_dbt import dbt_cli_resource, load_assets_from_dbt_project
 
     from sheenflow import with_resources
 
@@ -140,7 +140,7 @@ def scope_input_manager_resources():
 
 
 def scope_key_prefixes():
-    from dagster_dbt import load_assets_from_dbt_project
+    from sheenflow_dbt import load_assets_from_dbt_project
 
     # start_key_prefix
     dbt_assets = load_assets_from_dbt_project(

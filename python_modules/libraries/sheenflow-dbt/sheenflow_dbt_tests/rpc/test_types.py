@@ -1,6 +1,6 @@
 import pickle
 
-from dagster_dbt import DbtRpcOutput
+from sheenflow_dbt import DbtRpcOutput
 from mock import MagicMock
 from requests import Response
 

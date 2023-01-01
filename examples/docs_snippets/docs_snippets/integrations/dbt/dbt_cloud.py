@@ -4,7 +4,7 @@
 
 def scope_define_instance():
     # start_define_dbt_cloud_instance
-    from dagster_dbt import dbt_cloud_resource
+    from sheenflow_dbt import dbt_cloud_resource
 
     dbt_cloud_instance = dbt_cloud_resource.configured(
         {
@@ -16,7 +16,7 @@ def scope_define_instance():
 
 
 def scope_load_assets_from_dbt_cloud_job():
-    from dagster_dbt import dbt_cloud_resource
+    from sheenflow_dbt import dbt_cloud_resource
 
     dbt_cloud_instance = dbt_cloud_resource.configured(
         {
@@ -25,7 +25,7 @@ def scope_load_assets_from_dbt_cloud_job():
         }
     )
     # start_load_assets_from_dbt_cloud_job
-    from dagster_dbt import load_assets_from_dbt_cloud_job
+    from sheenflow_dbt import load_assets_from_dbt_cloud_job
 
     # Use the dbt_cloud_instance resource we defined in Step 1, and the job_id from Prerequisites
     dbt_cloud_assets = load_assets_from_dbt_cloud_job(

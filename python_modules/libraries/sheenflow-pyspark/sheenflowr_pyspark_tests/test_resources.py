@@ -1,4 +1,4 @@
-from dagster_pyspark.resources import lazy_pyspark_resource, pyspark_resource
+from sheenflow_pyspark.resources import lazy_pyspark_resource, pyspark_resource
 from pyspark.sql import SparkSession
 
 from sheenflow import job, multiprocess_executor, op, reconstructable

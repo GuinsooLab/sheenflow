@@ -2,9 +2,9 @@ import os
 
 import pytest
 from airflow.exceptions import AirflowException
-from dagster_airflow.factory import DagsterOperatorParameters
-from dagster_airflow.operators.docker_operator import DagsterDockerOperator
-from dagster_airflow_tests.marks import requires_airflow_db
+from sheenflow_airflow.factory import DagsterOperatorParameters
+from sheenflow_airflow.operators.docker_operator import DagsterDockerOperator
+from sheenflow_airflow_tests.marks import requires_airflow_db
 
 from sheenflow import repository
 from sheenflow._core.definitions.reconstruct import ReconstructableRepository

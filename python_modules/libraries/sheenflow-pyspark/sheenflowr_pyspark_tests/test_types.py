@@ -1,8 +1,8 @@
 import shutil
 
 import pytest
-from dagster_pyspark import DataFrame as DagsterPySparkDataFrame
-from dagster_pyspark import lazy_pyspark_resource, pyspark_resource
+from sheenflow_pyspark import DataFrame as DagsterPySparkDataFrame
+from sheenflow_pyspark import lazy_pyspark_resource, pyspark_resource
 from pyspark.sql import Row, SparkSession
 
 from sheenflow import file_relative_path

@@ -12,8 +12,8 @@ else:
     from airflow.utils.helpers import chain
 # pylint: enable=no-name-in-module,import-error
 
-from dagster_airflow.dagster_job_factory import make_dagster_job_from_airflow_dag
-from dagster_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
+from sheenflow_airflow.dagster_job_factory import make_dagster_job_from_airflow_dag
+from sheenflow_airflow.dagster_pipeline_factory import make_dagster_pipeline_from_airflow_dag
 
 from sheenflow._core.snap import PipelineSnapshot
 from sheenflow._serdes import serialize_pp

@@ -1,4 +1,4 @@
-from dagster_aws.emr.utils import subset_run_config
+from sheenflow_aws.emr.utils import subset_run_config
 
 
 def test_subset_run_config():

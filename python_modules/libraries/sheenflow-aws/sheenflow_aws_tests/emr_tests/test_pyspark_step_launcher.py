@@ -1,6 +1,6 @@
 from unittest import mock
 
-from dagster_aws.emr.pyspark_step_launcher import EmrPySparkStepLauncher
+from sheenflow_aws.emr.pyspark_step_launcher import EmrPySparkStepLauncher
 
 from sheenflow import DagsterEvent, EventLogEntry
 from sheenflow._core.execution.plan.objects import StepSuccessData

@@ -7,8 +7,8 @@ import uuid
 
 import boto3
 import pytest
-from dagster_k8s.test import wait_for_job_and_get_raw_logs
-from dagster_k8s_test_infra.integration_utils import (
+from sheenflow_k8s.test import wait_for_job_and_get_raw_logs
+from sheenflow_k8s_test_infra.integration_utils import (
     can_terminate_run_over_graphql,
     image_pull_policy,
     launch_run_over_graphql,
