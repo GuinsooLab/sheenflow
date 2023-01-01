@@ -6,7 +6,7 @@ import {ButtonGroup} from './ButtonGroup';
 import {Colors} from './Colors';
 import {Icon} from './Icon';
 
-const DIVIDER_THICKNESS = 2;
+const DIVIDER_THICKNESS = 1;
 
 interface SplitPanelContainerProps {
   axis?: 'horizontal' | 'vertical';
