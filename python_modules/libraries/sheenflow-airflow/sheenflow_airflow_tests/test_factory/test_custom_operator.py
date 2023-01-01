@@ -6,7 +6,7 @@ from sheenflow_airflow_tests.test_factory.utils import validate_pipeline_executi
 from sheenflow_airflow_tests.test_fixtures import (  # pylint: disable=unused-import
     dagster_airflow_custom_operator_pipeline,
 )
-from sheenflow_test.dagster_airflow.custom_operator import CustomOperator
+from sheenflow_test.sheenflow_airflow.custom_operator import CustomOperator
 from sheenflow_test.test_project import get_test_project_environments_path
 
 from sheenflow._core.definitions.reconstruct import ReconstructableRepository
