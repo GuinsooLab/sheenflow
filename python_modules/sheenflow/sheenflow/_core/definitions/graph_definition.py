@@ -710,7 +710,7 @@ class GraphDefinition(NodeDefinition):
         for node in self.node_dict.values():
             yield from node.get_resource_requirements(outer_container=self, asset_layer=asset_layer)
 
-        for dagster_type in self.all_dagster_types():
+        for sheenflow_type in self.all_dagster_types():
             yield from sheenflow_type.get_resource_requirements()
 
     @public  # type: ignore
