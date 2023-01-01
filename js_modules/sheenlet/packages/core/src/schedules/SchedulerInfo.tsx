@@ -29,10 +29,10 @@ export const SchedulerInfo: React.FC<Props> = ({daemonHealth, ...boxProps}) => {
           description={
             <div>
               See the{' '}
-              <a href="https://docs.dagster.io/deployment/dagster-daemon">
-                dagster-daemon documentation
+              <a href="https://ciusji.gitbook.io/sheenflow/deployment/main-concepts/sheenflow-daemon">
+                sheenflow-daemon documentation
               </a>{' '}
-              for more information on how to deploy the dagster-daemon process.
+              for more information on how to deploy the sheenflow-daemon process.
             </div>
           }
         />

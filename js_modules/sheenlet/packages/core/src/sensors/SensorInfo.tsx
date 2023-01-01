@@ -30,13 +30,13 @@ export const SensorInfo: React.FC<Props> = ({daemonHealth, ...boxProps}) => {
             <div>
               See the{' '}
               <a
-                href="https://docs.dagster.io/deployment/dagster-daemon"
+                href="https://ciusji.gitbook.io/sheenflow/deployment/main-concepts/sheenflow-daemon"
                 target="_blank"
                 rel="noreferrer"
               >
-                dagster-daemon documentation
+                sheenflow-daemon documentation
               </a>{' '}
-              for more information on how to deploy the dagster-daemon process.
+              for more information on how to deploy the sheenflow-daemon process.
             </div>
           }
         />
