@@ -5,7 +5,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow.svg" alt="logo" width="120" />
   <br />
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=8323EF&center=true&width=700&lines=an+orchestrator+that's+designed+for+developing+and+maintaining+data+assets" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=8323EF&center=true&width=600&lines=Ship+data+pipelines+with+extraordinary+velocity" alt="Typing SVG" /></a>
 </div>
 
 # [Sheenflow](https://ciusji.gitbook.io/sheenflow/)
