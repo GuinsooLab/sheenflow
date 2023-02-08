@@ -5,7 +5,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow.svg" alt="logo" width="120" />
   <br />
-  <small>an orchestrator that's designed for developing and maintaining data assets</small>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=8323EF&center=true&width=700&lines=an+orchestrator+that's+designed+for+developing+and+maintaining+data+assets" alt="Typing SVG" /></a>
 </div>
 
 # [Sheenflow](https://ciusji.gitbook.io/sheenflow/)
@@ -54,7 +54,7 @@ def continent_stats(
 
 The graph loaded into Sheenflow's web UI:
 
-![graph-sample](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/graph-sample.png)
+![graph-sample](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sample.jpg)
 
 ## Installation
 
@@ -81,3 +81,5 @@ guide](https://ciusji.gitbook.io/sheenflow/reference/contributing).
 ## License
 
 Sheenflow is [Apache 2.0 licensed](https://github.com/GuinsooLab/sheenflow/blob/main/LICENSE).
+
+<img src="https://raw.githubusercontent.com/GuinsooLab/glab/main/src/images/guinsoolab-group.svg" width="120" alt="license" />
