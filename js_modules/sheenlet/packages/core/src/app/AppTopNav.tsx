@@ -10,6 +10,7 @@ import {SearchDialog} from '../search/SearchDialog';
 import {LayoutContext} from './LayoutProvider';
 import {ShortcutHandler} from './ShortcutHandler';
 import {WebSocketStatus} from './WebSocketProvider';
+import menu_book from "@dagster-io/ui/icon-svgs/menu_book.svg";
 
 type AppNavLinkType = {
   title: string;
@@ -22,6 +23,8 @@ interface Props {
   getNavLinks?: (navItems: AppNavLinkType[]) => React.ReactNode;
 }
 
+const unifiedBk = '#072C4F';
+
 export const AppTopNav: React.FC<Props> = ({
   children,
   rightOfSearchBar,
@@ -31,7 +34,8 @@ export const AppTopNav: React.FC<Props> = ({
   const history = useHistory();
 
   const navLinks = () => {
-    return [
+      let absolute;
+      return [
       {
         title: 'overview',
         element: (
@@ -114,6 +118,21 @@ export const AppTopNav: React.FC<Props> = ({
           </ShortcutHandler>
         ),
       },
+      {
+        title: 'help',
+        element: (
+          <ShortcutHandler key="help">
+            <div onClick={() => window.open('https://ciusji.gitbook.io/sheenflow/', '_target')}>
+              <Icon
+                name="menu_book"
+                size={20}
+                color={Colors.White}
+                style={{position: 'absolute', bottom: 0, left: 0, margin: '20px'}}
+              />
+            </div>
+          </ShortcutHandler>
+        ),
+      },
     ];
   };
 
@@ -123,16 +142,16 @@ export const AppTopNav: React.FC<Props> = ({
         <AppTopNavLogo />
         <Box
           margin={{left: 0}}
-          flex={{direction: 'column', alignItems: 'center', gap: 16}}
+          flex={{direction: 'column', alignItems: 'center'}}
           style={{
-            backgroundColor: '#23201c',
+            backgroundColor: unifiedBk,
             width: 60,
             position: 'absolute',
             top: 0,
             left: 0,
             height: '100vh',
             zIndex: 500,
-            paddingTop: 67,
+            paddingTop: 60,
           }}
         >
           {getNavLinks ? getNavLinks(navLinks()) : navLinks().map((link) => link.element)}
@@ -198,7 +217,7 @@ export const AppTopNavLogo: React.FC = () => {
               top: 0,
               left: 0,
               width: 60,
-              height: 47,
+              height: 60,
               alignItems: 'center',
               justifyContent: 'center',
               zIndex: 700,
@@ -253,17 +272,22 @@ export const TopNavLink = styled(NavLink)`
   color: ${Colors.Gray400};
   font-weight: 600;
   transition: color 50ms linear;
-  padding: 20px 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
 
-  :hover {
-    color: ${Colors.Blue200};
+  :hover a {
+    background: ${Colors.Gray900};
     text-decoration: none;
   }
 
   :active,
   &.active {
-    color: ${Colors.Blue500};
+    border-left: 4px solid ${Colors.Blue500};
+    border-right: 4px solid ${unifiedBk};
     text-decoration: none;
   }
 
@@ -305,7 +329,7 @@ const NavButton = styled.button`
   cursor: pointer;
   margin-left: 4px;
   outline: none;
-  padding: 6px;
+  // padding: 6px;
   border: none;
   background: transparent;
   display: block;
