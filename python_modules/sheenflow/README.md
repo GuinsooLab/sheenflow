@@ -12,7 +12,7 @@
 
 Sheenflow is an orchestrator that's designed for developing and maintaining data assets, such as tables, data sets, machine learning models, and reports.
 
-![sheenflow-overview](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow-platform.png)
+![sheenflow-overview](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow-overview.jpg)
 
 ## Quickstart
 
