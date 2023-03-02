@@ -1,18 +1,16 @@
 <div align="right">
-  <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/guinsoolab-badge.png" width="60" alt="badge">
-  <br />
+    <img src="https://raw.githubusercontent.com/GuinsooLab/glab/main/src/images/guinsoolab-badge.png" height="60" alt="badge">
+    <br />
 </div>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow.svg" alt="logo" width="120" />
-  <br />
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=14&pause=1000&color=8323EF&center=true&width=600&lines=Ship+data+pipelines+with+extraordinary+velocity" alt="Typing SVG" /></a>
+    <img src="https://raw.githubusercontent.com/GuinsooLab/glab/main/src/images/guinsoolab-sheenflow.svg" alt="logo" height="100" />
+    <br />
+    <br />
 </div>
 
-# [Sheenflow](https://ciusji.gitbook.io/sheenflow/)
+# Sheenflow
 
 Sheenflow is an orchestrator that's designed for developing and maintaining data assets, such as tables, data sets, machine learning models, and reports.
-
-![sheenflow-overview](https://raw.githubusercontent.com/GuinsooLab/sheenflow/main/docs/assets/sheenflow-overview.jpg)
 
 ## Quickstart
 
